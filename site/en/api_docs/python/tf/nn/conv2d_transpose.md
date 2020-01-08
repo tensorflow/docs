@@ -19,9 +19,9 @@ tf.nn.conv2d_transpose(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
+See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
 The transpose of `conv2d`.
 

@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.BestExporter
 
 ## Class `BestExporter`
 
 Inherits From: [`Exporter`](../../tf/estimator/Exporter)
-
-
-
-Defined in [`tensorflow/python/estimator/exporter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/exporter.py).
 
 This class exports the serving graph and checkpoints of the best models.
 

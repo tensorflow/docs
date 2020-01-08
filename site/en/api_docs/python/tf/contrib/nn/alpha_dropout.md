@@ -17,7 +17,7 @@ tf.contrib.nn.alpha_dropout(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/alpha_dropout.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/nn/python/ops/alpha_dropout.py).
+Defined in [`tensorflow/contrib/nn/python/ops/alpha_dropout.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/nn/python/ops/alpha_dropout.py).
 
 Computes alpha dropout.
 
@@ -35,7 +35,7 @@ See [Self-Normalizing Neural Networks](https://arxiv.org/abs/1706.02515)
 * <b>`noise_shape`</b>: A 1-D `Tensor` of type `int32`, representing the
     shape for randomly generated keep/drop flags.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 * <b>`name`</b>: A name for this operation (optional).
 
 

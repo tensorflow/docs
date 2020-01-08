@@ -11,7 +11,7 @@ Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/Checkpointa
 
 
 
-Defined in [`tensorflow/python/keras/engine/base_layer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/engine/base_layer.py).
+Defined in [`tensorflow/python/keras/engine/base_layer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/engine/base_layer.py).
 
 Base layer class.
 
@@ -152,9 +152,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 
@@ -324,7 +324,9 @@ from `Layer.call()`).
 
 #### Arguments:
 
-* <b>`losses`</b>: Loss tensor, or list/tuple of tensors.
+* <b>`losses`</b>: Loss tensor, or list/tuple of tensors. Rather than tensors, losses
+    may also be zero-argument callables which create a loss tensor. Only
+    callable losses are supported when executing eagerly.
 * <b>`inputs`</b>: If anything other than None is passed, it signals the losses
     are conditional on some of the layer's inputs,
     and thus they should only be run where these inputs are available.
@@ -336,7 +338,8 @@ from `Layer.call()`).
 
 #### Raises:
 
-* <b>`RuntimeError`</b>: If called in Eager mode.
+* <b>`RuntimeError`</b>: If called in Eager mode with a `Tensor` rather than a
+    callable, or if `inputs` is not None.
 
 <h3 id="add_update"><code>add_update</code></h3>
 

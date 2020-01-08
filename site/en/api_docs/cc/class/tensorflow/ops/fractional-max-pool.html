@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::FractionalMaxPool Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -35,11 +35,11 @@
   </p>
   <p>For more details on fractional max pooling, see this paper: <a href="http://arxiv.org/abs/1412.6071">Benjamin Graham, Fractional Max-Pooling</a></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>value: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
       <li>pooling_ratio: Pooling ratio for each dimension of <code>value</code>, currently only supports row and col dimension and should be >= 1.0. For example, a valid pooling ratio looks like [1.0, 1.44, 1.73, 1.0]. The first and last elements must be 1.0 because we don't allow pooling on batch and channels dimensions. 1.44 and 1.73 are pooling ratio on height and width dimensions respectively.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>):<ul>
       <li>pseudo_random: When set to True, generates the pooling sequence in a pseudorandom fashion, otherwise, in a random fashion. Check paper <a href="http://arxiv.org/abs/1412.6071">Benjamin Graham, Fractional Max-Pooling</a> for difference between pseudorandom and random.</li>
       <li>overlapping: When set to True, it means when pooling, the values at the boundary of adjacent pooling cells are used by both cells. For example:</li>
     </ul></p>
@@ -50,14 +50,14 @@
     <code>value 20 5 16 3 7</code>
   </p>
   <p>If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used twice. The result would be [20, 16] for fractional max pooling.<ul>
-      <li>deterministic: When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a> node in the computation graph. Mainly used in unit test to make <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a> deterministic.</li>
+      <li>deterministic: When set to True, a fixed pooling region will be used when iterating over a <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a> node in the computation graph. Mainly used in unit test to make <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a> deterministic.</li>
       <li>seed: If either seed or seed2 are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
       <li>seed2: An second seed to avoid seed collision.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: output tensor after fractional max pooling.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> row_pooling_sequence: row pooling sequence, needed to calculate gradient.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> col_pooling_sequence: column pooling sequence, needed to calculate gradient. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: output tensor after fractional max pooling.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> row_pooling_sequence: row pooling sequence, needed to calculate gradient.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> col_pooling_sequence: column pooling sequence, needed to calculate gradient. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -67,13 +67,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fractional_max_pool_1a748fe1a39c41a21d5eaf354b983739d3">FractionalMaxPool</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fractional_max_pool_1a748fe1a39c41a21d5eaf354b983739d3">FractionalMaxPool</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fractional_max_pool_1a5f9caa3f2a12f0a745d2a5f77e52afb0">FractionalMaxPool</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">FractionalMaxPool::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fractional_max_pool_1a5f9caa3f2a12f0a745d2a5f77e52afb0">FractionalMaxPool</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const gtl::ArraySlice< float > & pooling_ratio, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">FractionalMaxPool::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -90,7 +90,17 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fractional_max_pool_1afa035a8f78003fcb87dc8f51f24fb46a">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -100,7 +110,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -110,7 +120,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -127,7 +137,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -137,7 +147,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -147,7 +157,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -157,7 +167,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -167,7 +177,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -180,35 +190,40 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs">tensorflow::<wbr/>ops::<wbr/>FractionalMaxPool::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs">tensorflow::<wbr/>ops::<wbr/>FractionalMaxPool::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/fractional-max-pool.html#classtensorflow_1_1ops_1_1_fractional_max_pool">FractionalMaxPool</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a52a611a1c5972852d61e4c7c4dba6080">
     <h3>col_pooling_sequence</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> col_pooling_sequence</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> col_pooling_sequence</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1afa035a8f78003fcb87dc8f51f24fb46a">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a45380706ca834036886853c3913471b5">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1af063f36da84313832493251d484684be">
     <h3>row_pooling_sequence</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> row_pooling_sequence</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> row_pooling_sequence</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a748fe1a39c41a21d5eaf354b983739d3">
     <h3>FractionalMaxPool</h3>
     <pre class="prettyprint"> FractionalMaxPool(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
   const gtl::ArraySlice< float > & pooling_ratio
 )</pre>
     <div />
@@ -216,45 +231,45 @@
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a5f9caa3f2a12f0a745d2a5f77e52afb0">
     <h3>FractionalMaxPool</h3>
     <pre class="prettyprint"> FractionalMaxPool(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
   const gtl::ArraySlice< float > & pooling_ratio,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">FractionalMaxPool::Attrs</a> & attrs
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">FractionalMaxPool::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a0c955e2c96408a546047eebe8e002ee2">
     <h3>Deterministic</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Deterministic(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Deterministic(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a36d5917904da7ccac4be43359030e297">
     <h3>Overlapping</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Overlapping(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Overlapping(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a9454041394465c0f816fabe29b8f1d8c">
     <h3>PseudoRandom</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> PseudoRandom(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> PseudoRandom(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a29ada28331cd58de0b10f1fa54a3651b">
     <h3>Seed</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Seed(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Seed(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fractional_max_pool_1a9e5bfbe203748402240a56db2df11d38">
     <h3>Seed2</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Seed2(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fractional-max-pool/attrs.html#structtensorflow_1_1ops_1_1_fractional_max_pool_1_1_attrs">Attrs</a> Seed2(
   int64 x
 )</pre>
     <div />

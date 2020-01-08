@@ -17,7 +17,7 @@ tf.contrib.image.transform(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Applies the given transform(s) to the image(s).
 

@@ -11,7 +11,7 @@ Inherits From: [`ConditionalAccumulatorBase`](../tf/ConditionalAccumulatorBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/data_flow_ops.py).
 
 See the guide: [Inputs and Readers > Conditional Accumulators](../../../api_guides/python/io_ops#Conditional_Accumulators)
 
@@ -30,7 +30,8 @@ __init__(
     dtype,
     shape=None,
     shared_name=None,
-    name='conditional_accumulator'
+    name='conditional_accumulator',
+    reduction_type='MEAN'
 )
 ```
 
@@ -43,6 +44,7 @@ Creates a new ConditionalAccumulator.
 * <b>`shared_name`</b>: Optional. If non-empty, this accumulator will be shared under
     the given name across multiple sessions.
 * <b>`name`</b>: Optional name for the accumulator.
+* <b>`reduction_type`</b>: Reduction type to use when taking the gradient.
 
 
 

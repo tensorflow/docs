@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/lite/python/lite.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lite/python/lite.py).
+Defined in [`tensorflow/contrib/lite/python/lite.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lite/python/lite.py).
 
 TensorFlow Lite tooling helper functionality.
 
@@ -21,11 +21,15 @@ EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
 ## Classes
 
+[`class ConverterMode`](../../tf/contrib/lite/ConverterMode): Enum class defining the converters available to generate TFLite models.
+
 [`class DecodeError`](../../tf/contrib/lite/DecodeError)
 
 [`class Interpreter`](../../tf/contrib/lite/Interpreter): Interpreter inferace for TF-Lite Models.
 
 [`class OpHint`](../../tf/contrib/lite/OpHint): A class that helps build tflite function invocations.
+
+[`class TFLiteConverter`](../../tf/contrib/lite/TFLiteConverter): Convert a TensorFlow model into `output_format` using TOCO.
 
 [`class TocoConverter`](../../tf/contrib/lite/TocoConverter): Convert a TensorFlow model into `output_format` using TOCO.
 
@@ -35,17 +39,17 @@ EXPERIMENTAL: APIs here are unstable and likely to change without notice.
 
 [`convert_op_hints_to_stubs(...)`](../../tf/contrib/lite/convert_op_hints_to_stubs): Converts a graphdef with LiteOp hints into stub operations.
 
-[`toco_convert(...)`](../../tf/contrib/lite/toco_convert): "Convert a model using TOCO. (deprecated)
+[`toco_convert(...)`](../../tf/contrib/lite/toco_convert): Convert a model using TOCO. (deprecated)
 
 [`toco_convert_protos(...)`](../../tf/contrib/lite/toco_convert_protos): Convert `input_data_str` according to model and toco parameters.
 
 ## Other Members
 
-`PY3`
+<h3 id="PY3"><code>PY3</code></h3>
 
-`absolute_import`
+<h3 id="absolute_import"><code>absolute_import</code></h3>
 
-`division`
+<h3 id="division"><code>division</code></h3>
 
-`print_function`
+<h3 id="print_function"><code>print_function</code></h3>
 

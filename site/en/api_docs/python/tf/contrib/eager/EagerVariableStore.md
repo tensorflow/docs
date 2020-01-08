@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variable_scope.py).
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/variable_scope.py).
 
 Wrapper allowing functional layers to be used with eager execution.
 

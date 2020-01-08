@@ -11,7 +11,7 @@ tfdbg.load_tensor_from_event(event)
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_data.py).
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/lib/debug_data.py).
 
 Load a tensor from an Event proto.
 
@@ -26,6 +26,6 @@ Load a tensor from an Event proto.
 The tensor value loaded from the event file, as a `numpy.ndarray`, if
 representation of the tensor value by a `numpy.ndarray` is possible.
 For uninitialized Tensors, returns `None`. For Tensors of data types that
-cannot be represented as `numpy.ndarray` (e.g., <a href="../tf/resource"><code>tf.resource</code></a>), return
+cannot be represented as `numpy.ndarray` (e.g., <a href="../tf#resource"><code>tf.resource</code></a>), return
 the `TensorProto` protobuf object without converting it to a
 `numpy.ndarray`.

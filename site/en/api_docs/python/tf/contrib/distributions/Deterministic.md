@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/deterministic.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/deterministic.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/deterministic.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/deterministic.py).
 
 Scalar `Deterministic` distribution on the real line.
 
@@ -34,8 +34,11 @@ cdf(x; loc) = 1, if x >= loc, else 0
 #### Examples
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Initialize a single Deterministic supported at zero.
-constant = tf.contrib.distributions.Deterministic(0.)
+constant = tfd.Deterministic(0.)
 constant.prob(0.)
 ==> 1.
 constant.prob(2.)
@@ -44,7 +47,7 @@ constant.prob(2.)
 # Initialize a [2, 2] batch of scalar constants.
 loc = [[0., 1.], [2., 3.]]
 x = [[0., 1.1], [1.99, 3.]]
-constant = tf.contrib.distributions.Deterministic(loc)
+constant = tfd.Deterministic(loc)
 constant.prob(x)
 ==> [[1., 0.], [0., 1.]]
 ```
@@ -323,7 +326,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -417,7 +420,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

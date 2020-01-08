@@ -7,11 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/data/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/data/__init__.py).
+
 
 <a href="../tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
 
 See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
+
+## Modules
+
+[`experimental`](../tf/data/experimental) module: Experimental API for building input pipelines.
 
 ## Classes
 
@@ -20,6 +24,8 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 [`class FixedLengthRecordDataset`](../tf/data/FixedLengthRecordDataset): A `Dataset` of fixed-length records from one or more binary files.
 
 [`class Iterator`](../tf/data/Iterator): Represents the state of iterating through a `Dataset`.
+
+[`class Options`](../tf/data/Options): Represents options for tf.data.Dataset.
 
 [`class TFRecordDataset`](../tf/data/TFRecordDataset): A `Dataset` comprising records from one or more TFRecord files.
 

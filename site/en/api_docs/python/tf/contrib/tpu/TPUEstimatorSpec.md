@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
 
@@ -22,7 +22,7 @@ For evaluation, `eval_metrics `is a tuple of `metric_fn` and `tensors`, where
 `metric_fn` runs on CPU to generate metrics and `tensors` represents the
 `Tensor`s transferred from TPU system to CPU host and passed to `metric_fn`.
 To be precise, TPU evaluation expects a slightly different signature from the
-<a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>. While `EstimatorSpec.eval_metric_ops` expects a
+`tf.estimator.Estimator`. While `EstimatorSpec.eval_metric_ops` expects a
 dict, `TPUEstimatorSpec.eval_metrics` is a tuple of `metric_fn` and `tensors`.
 The `tensors` could be a list of `Tensor`s or dict of names to `Tensor`s. The
 `tensors` usually specify the model logits, which are transferred back from
@@ -73,49 +73,49 @@ Creates a validated `TPUEstimatorSpec` instance.
 
 ## Properties
 
-<h3 id="eval_metrics"><code>eval_metrics</code></h3>
-
-Alias for field number 4
-
-<h3 id="evaluation_hooks"><code>evaluation_hooks</code></h3>
-
-Alias for field number 9
-
-<h3 id="export_outputs"><code>export_outputs</code></h3>
-
-Alias for field number 5
-
-<h3 id="host_call"><code>host_call</code></h3>
-
-Alias for field number 7
-
-<h3 id="loss"><code>loss</code></h3>
-
-Alias for field number 2
-
 <h3 id="mode"><code>mode</code></h3>
 
-Alias for field number 0
 
-<h3 id="prediction_hooks"><code>prediction_hooks</code></h3>
-
-Alias for field number 10
 
 <h3 id="predictions"><code>predictions</code></h3>
 
-Alias for field number 1
 
-<h3 id="scaffold_fn"><code>scaffold_fn</code></h3>
 
-Alias for field number 6
+<h3 id="loss"><code>loss</code></h3>
+
+
 
 <h3 id="train_op"><code>train_op</code></h3>
 
-Alias for field number 3
+
+
+<h3 id="eval_metrics"><code>eval_metrics</code></h3>
+
+
+
+<h3 id="export_outputs"><code>export_outputs</code></h3>
+
+
+
+<h3 id="scaffold_fn"><code>scaffold_fn</code></h3>
+
+
+
+<h3 id="host_call"><code>host_call</code></h3>
+
+
 
 <h3 id="training_hooks"><code>training_hooks</code></h3>
 
-Alias for field number 8
+
+
+<h3 id="evaluation_hooks"><code>evaluation_hooks</code></h3>
+
+
+
+<h3 id="prediction_hooks"><code>prediction_hooks</code></h3>
+
+
 
 
 

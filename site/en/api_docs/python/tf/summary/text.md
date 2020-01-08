@@ -15,7 +15,7 @@ tf.summary.text(
 
 
 
-Defined in [`tensorflow/python/summary/text_summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/text_summary.py).
+Defined in [`tensorflow/python/summary/text_summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/summary/text_summary.py).
 
 Summarizes textual data.
 

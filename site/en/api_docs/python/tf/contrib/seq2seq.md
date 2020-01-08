@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/__init__.py).
+Defined in [`tensorflow/contrib/seq2seq/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/__init__.py).
 
 Ops for building neural network seq2seq decoders and losses.
 

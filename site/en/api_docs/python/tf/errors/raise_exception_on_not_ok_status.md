@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/errors_impl.py).
-
-See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/errors_impl.py).
 
 Context manager to check for C API status.
 

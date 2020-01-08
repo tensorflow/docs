@@ -20,11 +20,15 @@ tf.train.string_input_producer(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_)
 
-Output strings (e.g. filenames) to a queue for an input pipeline.
+Output strings (e.g. filenames) to a queue for an input pipeline. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.from_tensor_slices(string_tensor).shuffle(tf.shape(input_tensor, out_type=tf.int64)[0]).repeat(num_epochs)`. If `shuffle=False`, omit the `.shuffle(...)`.
 
 Note: if `num_epochs` is not `None`, this function creates local counter
 `epochs`. Use `local_variables_initializer()` to initialize local variables.

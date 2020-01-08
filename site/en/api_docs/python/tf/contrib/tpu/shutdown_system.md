@@ -11,6 +11,6 @@ tf.contrib.tpu.shutdown_system(job=None)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu.py).
 
 Shuts down a running a distributed TPU system.

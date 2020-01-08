@@ -11,12 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Interface for the head/top of a model.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Given logits (or output of a hidden layer), a Head knows how to compute

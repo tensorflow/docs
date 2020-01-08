@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/optimizers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/optimizers/__init__.py).
+
 
 Built-in optimizer classes.
 

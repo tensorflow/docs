@@ -19,9 +19,7 @@ tf.foldl(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/functional_ops.py).
-
-See the guide: [Higher Order Functions > Higher Order Operators](../../../api_guides/python/functional_ops#Higher_Order_Operators)
+Defined in [`tensorflow/python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/functional_ops.py).
 
 foldl on the list of tensors unpacked from `elems` on dimension 0.
 

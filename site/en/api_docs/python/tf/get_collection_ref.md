@@ -11,9 +11,7 @@ tf.get_collection_ref(key)
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > Graph collections](../../../api_guides/python/framework#Graph_collections)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 Wrapper for `Graph.get_collection_ref()` using the default graph.
 

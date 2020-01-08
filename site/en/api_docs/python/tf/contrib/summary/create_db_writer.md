@@ -17,7 +17,7 @@ tf.contrib.summary.create_db_writer(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/summary_ops_v2.py).
 
 Creates a summary database writer in the current context.
 

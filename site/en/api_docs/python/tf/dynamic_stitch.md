@@ -17,8 +17,6 @@ tf.dynamic_stitch(
 
 Defined in generated file: `tensorflow/python/ops/gen_data_flow_ops.py`.
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
-
 Interleave the values from the `data` tensors into a single tensor.
 
 Builds a merged tensor such that

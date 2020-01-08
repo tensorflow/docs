@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
+Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 Optimizer wrapper making all-zero gradients harmless.
 

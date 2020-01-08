@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/linalg/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/linalg/__init__.py).
+
 
 Operations for linear algebra.
 
@@ -49,7 +49,7 @@ Operations for linear algebra.
 
 [`cholesky(...)`](../tf/linalg/cholesky): Computes the Cholesky decomposition of one or more square matrices.
 
-[`cholesky_solve(...)`](../tf/cholesky_solve): Solves systems of linear eqns `A X = RHS`, given Cholesky factorizations.
+[`cholesky_solve(...)`](../tf/linalg/cholesky_solve): Solves systems of linear eqns `A X = RHS`, given Cholesky factorizations.
 
 [`cross(...)`](../tf/linalg/cross): Compute the pairwise cross product.
 
@@ -59,9 +59,9 @@ Operations for linear algebra.
 
 [`diag_part(...)`](../tf/linalg/diag_part): Returns the batched diagonal part of a batched tensor.
 
-[`eigh(...)`](../tf/self_adjoint_eig): Computes the eigen decomposition of a batch of self-adjoint matrices.
+[`eigh(...)`](../tf/linalg/eigh): Computes the eigen decomposition of a batch of self-adjoint matrices.
 
-[`eigvalsh(...)`](../tf/self_adjoint_eigvals): Computes the eigenvalues of one or more self-adjoint matrices.
+[`eigvalsh(...)`](../tf/linalg/eigvalsh): Computes the eigenvalues of one or more self-adjoint matrices.
 
 [`einsum(...)`](../tf/einsum): A generalized contraction between tensors of arbitrary dimension.
 
@@ -69,13 +69,19 @@ Operations for linear algebra.
 
 [`eye(...)`](../tf/eye): Construct an identity matrix, or a batch of matrices.
 
+[`global_norm(...)`](../tf/linalg/global_norm): Computes the global norm of multiple tensors.
+
 [`inv(...)`](../tf/linalg/inv): Computes the inverse of one or more square invertible matrices or their
+
+[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
 
 [`logdet(...)`](../tf/linalg/logdet): Computes log of the determinant of a hermitian positive definite matrix.
 
 [`logm(...)`](../tf/linalg/logm): Computes the matrix logarithm of one or more square matrices:
 
-[`lstsq(...)`](../tf/matrix_solve_ls): Solves one or more linear least-squares problems.
+[`lstsq(...)`](../tf/linalg/lstsq): Solves one or more linear least-squares problems.
+
+[`matmul(...)`](../tf/linalg/matmul): Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
 
 [`norm(...)`](../tf/norm): Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
 
@@ -87,7 +93,7 @@ Operations for linear algebra.
 
 [`solve(...)`](../tf/linalg/solve): Solves systems of linear equations.
 
-[`svd(...)`](../tf/svd): Computes the singular value decompositions of one or more matrices.
+[`svd(...)`](../tf/linalg/svd): Computes the singular value decompositions of one or more matrices.
 
 [`tensor_diag(...)`](../tf/linalg/tensor_diag): Returns a diagonal tensor with a given diagonal values.
 
@@ -95,9 +101,9 @@ Operations for linear algebra.
 
 [`tensordot(...)`](../tf/tensordot): Tensor contraction of a and b along specified axes.
 
-[`trace(...)`](../tf/trace): Compute the trace of a tensor `x`.
+[`trace(...)`](../tf/linalg/trace): Compute the trace of a tensor `x`.
 
-[`transpose(...)`](../tf/matrix_transpose): Transposes last two dimensions of tensor `a`.
+[`transpose(...)`](../tf/linalg/transpose): Transposes last two dimensions of tensor `a`.
 
 [`triangular_solve(...)`](../tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by
 

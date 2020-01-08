@@ -11,9 +11,7 @@ tf.contrib.data.batch_and_drop_remainder(batch_size)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
-
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/batching.py).
 
 A batching transformation that omits the final small batch (if present). (deprecated)
 
@@ -41,7 +39,7 @@ known.
 
 #### Args:
 
-* <b>`batch_size`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+* <b>`batch_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
       consecutive elements of this dataset to combine in a single batch.
 
 

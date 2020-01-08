@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/stat_summarizer/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/stat_summarizer/__init__.py).
+Defined in [`tensorflow/contrib/stat_summarizer/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/stat_summarizer/__init__.py).
 
 Exposes the Python wrapper for StatSummarizer utility class.
 
@@ -20,7 +20,7 @@ technical reasons, but it should be accessed via tf.contrib.stat_summarizer.
 
 ## Other Members
 
-`DeleteStatSummarizer`
+<h3 id="DeleteStatSummarizer"><code>DeleteStatSummarizer</code></h3>
 
-`NewStatSummarizer`
+<h3 id="NewStatSummarizer"><code>NewStatSummarizer</code></h3>
 

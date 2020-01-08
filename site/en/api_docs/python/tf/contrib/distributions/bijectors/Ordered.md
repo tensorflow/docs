@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/ordered.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/ordered.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/ordered.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/ordered.py).
 
 Bijector which maps a tensor x_k that has increasing elements in the last
 dimension to an unconstrained tensor y_k.

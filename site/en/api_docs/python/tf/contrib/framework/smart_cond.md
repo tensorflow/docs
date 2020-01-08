@@ -16,7 +16,7 @@ tf.contrib.framework.smart_cond(
 
 
 
-Defined in [`tensorflow/python/framework/smart_cond.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/smart_cond.py).
+Defined in [`tensorflow/python/framework/smart_cond.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/smart_cond.py).
 
 Return either `true_fn()` if predicate `pred` is true else `false_fn()`.
 

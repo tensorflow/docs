@@ -12,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/factorization_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
 
 A model for Weighted Alternating Least Squares matrix factorization.
 

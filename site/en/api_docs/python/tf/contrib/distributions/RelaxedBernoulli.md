@@ -11,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/relaxed_bernoulli.py).
 
 RelaxedBernoulli distribution with temperature and logits parameters.
 
@@ -35,9 +35,9 @@ the RelaxedBernoulli can suffer from underflow issues. In many case loss
 functions such as these are invariant under invertible transformations of
 the random variables. The KL divergence, found in the variational autoencoder
 loss, is an example. Because RelaxedBernoullis are sampled by a Logistic
-random variable followed by a <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a> op, one solution is to treat
-the Logistic as the random variable and <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a> as downstream. The
-KL divergences of two Logistics, which are always followed by a <a href="../../../tf/nn/sigmoid"><code>tf.sigmoid</code></a>
+random variable followed by a <a href="../../../tf/math/sigmoid"><code>tf.sigmoid</code></a> op, one solution is to treat
+the Logistic as the random variable and <a href="../../../tf/math/sigmoid"><code>tf.sigmoid</code></a> as downstream. The
+KL divergences of two Logistics, which are always followed by a <a href="../../../tf/math/sigmoid"><code>tf.sigmoid</code></a>
 op, is equivalent to evaluating KL divergences of RelaxedBernoulli samples.
 See Maddison et al., 2016 for more details where this distribution is called
 the BinConcrete.
@@ -393,7 +393,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -487,7 +487,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

@@ -19,9 +19,7 @@ tf.cond(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/control_flow_ops.py).
-
-See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/control_flow_ops.py).
 
 Return `true_fn()` if the predicate `pred` is true else `false_fn()`. (deprecated arguments)
 
@@ -44,9 +42,9 @@ z = tf.multiply(a, b)
 result = tf.cond(x < y, lambda: tf.add(x, z), lambda: tf.square(y))
 ```
 
-If `x < y`, the <a href="../tf/math/add"><code>tf.add</code></a> operation will be executed and <a href="../tf/square"><code>tf.square</code></a>
+If `x < y`, the <a href="../tf/math/add"><code>tf.add</code></a> operation will be executed and <a href="../tf/math/square"><code>tf.square</code></a>
 operation will not be executed. Since `z` is needed for at least one
-branch of the `cond`, the <a href="../tf/multiply"><code>tf.multiply</code></a> operation is always executed,
+branch of the `cond`, the <a href="../tf/math/multiply"><code>tf.multiply</code></a> operation is always executed,
 unconditionally.
 
 Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
 

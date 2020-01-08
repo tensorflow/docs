@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/specs/python/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/specs/python/__init__.py).
+Defined in [`tensorflow/contrib/specs/python/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/specs/python/__init__.py).
 
 Init file, giving convenient access to all specs ops.
 

@@ -11,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/mixed_precision/python/loss_scale_optimizer.py).
 
 An optimizer that applies loss scaling in backprop.
 
@@ -51,10 +51,11 @@ opt = tf.AdamOptimizer(learning_rate=...)
 
 # Choose a loss scale manager which decides how to pick the right loss scale
 # throughout the training process.
-loss_scale_manger = tf.contrib.mixed_precision.FixedLossScaleManager(5000)
+loss_scale_manager = tf.contrib.mixed_precision.FixedLossScaleManager(5000)
 
 # Wraps the original optimizer in a LossScaleOptimizer.
-loss_scale_optimizer = LossScaleOptimizer(opt, loss_scale_manager)
+loss_scale_optimizer =
+    tf.contrib.mixed_precision.LossScaleOptimizer(opt, loss_scale_manager)
 
 # Call minimize() on the loss scale optimizer.
 train_op = loss_scale_optimizer.minimize(loss)
@@ -235,13 +236,12 @@ was not `None`, that operation also increments `global_step`.
 
 #### Eager Compatibility
 When eager execution is enabled, `loss` should be a Python function that
-takes elements of `var_list` as arguments and computes the value to be
-minimized. If `var_list` is None, `loss` should take no arguments.
-Minimization (and gradient computation) is done with respect to the
-elements of `var_list` if not None, else with respect to any trainable
-variables created during the execution of the `loss` function.
-`gate_gradients`, `aggregation_method`, `colocate_gradients_with_ops` and
-`grad_loss` are ignored when eager execution is enabled.
+takes no arguments and computes the value to be minimized. Minimization (and
+gradient computation) is done with respect to the elements of `var_list` if
+not None, else with respect to any trainable variables created during the
+execution of the `loss` function. `gate_gradients`, `aggregation_method`,
+`colocate_gradients_with_ops` and `grad_loss` are ignored when eager
+execution is enabled.
 
 
 

@@ -16,7 +16,7 @@ tf.keras.backend.map_fn(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Map the function fn over the elements elems and return the outputs.
 

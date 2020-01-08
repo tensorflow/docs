@@ -18,6 +18,6 @@ tf.contrib.eager.nan_callback(
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/execution_callbacks.py).
 
 A specialization of `inf_nan_callback` that checks for `nan`s only.

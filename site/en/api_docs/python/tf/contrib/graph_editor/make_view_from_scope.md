@@ -19,7 +19,7 @@ tf.contrib.graph_editor.make_view_from_scope(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/subgraph.py).
+Defined in [`tensorflow/contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/graph_editor/subgraph.py).
 
 See the guides: [Graph Editor (contrib) > Module: subgraph](../../../../../api_guides/python/contrib.graph_editor#Module_subgraph), [Graph Editor (contrib) > Useful aliases](../../../../../api_guides/python/contrib.graph_editor#Useful_aliases)
 

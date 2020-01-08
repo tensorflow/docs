@@ -19,7 +19,7 @@ tf.contrib.metrics.streaming_false_positive_rate_at_thresholds(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes various fpr values for different `thresholds` on `predictions`.
 

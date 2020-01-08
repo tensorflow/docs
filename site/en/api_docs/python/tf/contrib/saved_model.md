@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/saved_model/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/saved_model/__init__.py).
+Defined in [`tensorflow/contrib/saved_model/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/saved_model/__init__.py).
 
 SavedModel contrib support.
 
@@ -16,8 +16,6 @@ that is recoverable and hermetic. It enables higher-level systems and tools to
 produce, consume and transform TensorFlow models.
 
 ## Functions
-
-[`get_signature_def_by_key(...)`](../../tf/contrib/saved_model/get_signature_def_by_key): Utility function to get a SignatureDef protocol buffer by its key.
 
 [`load_keras_model(...)`](../../tf/contrib/saved_model/load_keras_model): Load a keras.Model from SavedModel.
 

@@ -14,7 +14,7 @@ tf.graph_util.must_run_on_cpu(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/graph_util_impl.py).
 
 Returns True if the given node_def must run on CPU, otherwise False.
 

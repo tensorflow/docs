@@ -14,7 +14,7 @@ tf.contrib.framework.nest.get_traverse_shallow_structure(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/nest.py).
 
 Generates a shallow structure from a `traverse_fn` and `structure`.
 

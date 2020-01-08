@@ -23,11 +23,15 @@ tf.train.maybe_batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
-Conditionally creates batches of tensors based on `keep_input`.
+Conditionally creates batches of tensors based on `keep_input`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.filter(...).batch(batch_size)` (or `padded_batch(...)` if `dynamic_pad=True`).
 
 See docstring in `batch` for more details.
 

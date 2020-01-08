@@ -11,7 +11,7 @@ Inherits From: [`QueueRunner`](../../../tf/train/QueueRunner)
 
 
 
-Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
+Defined in [`tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/estimator/inputs/queues/feeding_queue_runner.py).
 
 A queue runner that allows the feeding of values such as numpy arrays.
 

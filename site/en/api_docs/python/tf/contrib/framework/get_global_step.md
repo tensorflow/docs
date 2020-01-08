@@ -11,7 +11,7 @@ tf.contrib.framework.get_global_step(graph=None)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 DEPRECATED FUNCTION
 

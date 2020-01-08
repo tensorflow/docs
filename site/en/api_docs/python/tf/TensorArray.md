@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/tensor_array_ops.py).
+Defined in [`tensorflow/python/ops/tensor_array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/tensor_array_ops.py).
 
 Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 

@@ -19,7 +19,7 @@ tf.contrib.estimator.export_all_saved_models(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/export.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/export.py).
 
 Exports requested train/eval/predict graphs as separate SavedModels.
 

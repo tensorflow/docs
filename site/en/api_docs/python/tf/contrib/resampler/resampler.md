@@ -15,7 +15,7 @@ tf.contrib.resampler.resampler(
 
 
 
-Defined in [`tensorflow/contrib/resampler/python/ops/resampler_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/resampler/python/ops/resampler_ops.py).
+Defined in [`tensorflow/contrib/resampler/python/ops/resampler_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/resampler/python/ops/resampler_ops.py).
 
 Resamples input data at user defined coordinates.
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/metrics/__init__.py).
+
 
 Evaluation-related metrics.
 

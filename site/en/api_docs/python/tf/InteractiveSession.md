@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/client/session.py).
-
-See the guide: [Running Graphs > Session management](../../../api_guides/python/client#Session_management)
+Defined in [`tensorflow/python/client/session.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/client/session.py).
 
 A TensorFlow `Session` for use in interactive contexts, such as a shell.
 
@@ -231,7 +229,7 @@ it will return `None`.
     for details of the allowable fetch types.
 * <b>`feed_list`</b>: (Optional.) A list of `feed_dict` keys. See
     <a href="../tf/Session#run"><code>tf.Session.run</code></a> for details of the allowable feed key types.
-* <b>`accept_options`</b>: (Optional.) Iff `True`, the returned `Callable` will be
+* <b>`accept_options`</b>: (Optional.) If `True`, the returned `Callable` will be
     able to accept <a href="../tf/RunOptions"><code>tf.RunOptions</code></a> and <a href="../tf/RunMetadata"><code>tf.RunMetadata</code></a> as optional
     keyword arguments `options` and `run_metadata`, respectively, with
     the same syntax and semantics as <a href="../tf/Session#run"><code>tf.Session.run</code></a>, which is useful
@@ -369,7 +367,7 @@ elements at its leaves.  A graph element can be one of the following types:
 * A <a href="../tf/Tensor"><code>tf.Tensor</code></a>.
   The corresponding fetched value will be a numpy ndarray containing the
   value of that tensor.
-* A <a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>.
+* A <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
   The corresponding fetched value will be a
   <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>
   containing the value of that sparse tensor.
@@ -414,7 +412,7 @@ one of the following types:
   <a href="../tf/placeholder"><code>tf.placeholder</code></a>, the shape of
   the value will be checked for compatibility with the placeholder.
 * If the key is a
-  <a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>,
+  <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>,
   the value should be a
   <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>.
 * If the key is a nested tuple of `Tensor`s or `SparseTensor`s, the value

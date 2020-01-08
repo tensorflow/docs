@@ -17,8 +17,6 @@ tf.bitcast(
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
-See the guide: [Tensor Transformations > Casting](../../../api_guides/python/array_ops#Casting)
-
 Bitcasts a tensor from one type to another without copying data.
 
 Given a tensor `input`, this operation returns a tensor that has the same buffer
@@ -37,7 +35,7 @@ endian orderings will give different results.
 #### Args:
 
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int64`, `int32`, `uint8`, `uint16`, `uint32`, `uint64`, `int8`, `int16`, `complex64`, `complex128`, `qint8`, `quint8`, `qint16`, `quint16`, `qint32`.
-* <b>`type`</b>: A <a href="../tf/DType"><code>tf.DType</code></a> from: `tf.bfloat16, tf.half, tf.float32, tf.float64, tf.int64, tf.int32, tf.uint8, tf.uint16, tf.uint32, tf.uint64, tf.int8, tf.int16, tf.complex64, tf.complex128, tf.qint8, tf.quint8, tf.qint16, tf.quint16, tf.qint32`.
+* <b>`type`</b>: A <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.bfloat16, tf.half, tf.float32, tf.float64, tf.int64, tf.int32, tf.uint8, tf.uint16, tf.uint32, tf.uint64, tf.int8, tf.int16, tf.complex64, tf.complex128, tf.qint8, tf.quint8, tf.qint16, tf.quint16, tf.qint32`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

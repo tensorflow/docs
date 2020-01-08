@@ -14,9 +14,7 @@ tf.contrib.layers.sequence_input_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/experimental.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/experimental.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/framework/python/framework/experimental.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/experimental.py).
 
 Builds inputs for sequence models from `FeatureColumn`s. (experimental)
 

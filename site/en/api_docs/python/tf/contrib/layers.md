@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/__init__.py).
+Defined in [`tensorflow/contrib/layers/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/__init__.py).
 
 Ops for building neural network layers, regularizers, summaries, etc.
 
@@ -207,23 +207,23 @@ guide.
 
 ## Other Members
 
-`OPTIMIZER_CLS_NAMES`
+<h3 id="OPTIMIZER_CLS_NAMES"><code>OPTIMIZER_CLS_NAMES</code></h3>
 
-`OPTIMIZER_SUMMARIES`
+<h3 id="OPTIMIZER_SUMMARIES"><code>OPTIMIZER_SUMMARIES</code></h3>
 
-`SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY`
+<h3 id="SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY"><code>SPARSE_FEATURE_CROSS_DEFAULT_HASH_KEY</code></h3>
 
-`elu`
+<h3 id="elu"><code>elu</code></h3>
 
-`legacy_linear`
+<h3 id="legacy_linear"><code>legacy_linear</code></h3>
 
-`legacy_relu`
+<h3 id="legacy_relu"><code>legacy_relu</code></h3>
 
-`linear`
+<h3 id="linear"><code>linear</code></h3>
 
-`relu`
+<h3 id="relu"><code>relu</code></h3>
 
-`relu6`
+<h3 id="relu6"><code>relu6</code></h3>
 
-`scale_gradient`
+<h3 id="scale_gradient"><code>scale_gradient</code></h3>
 

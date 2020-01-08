@@ -11,7 +11,7 @@ tf.keras.datasets.reuters.get_word_index(path='reuters_word_index.json')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/reuters.py).
+Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/reuters.py).
 
 Retrieves the dictionary mapping word indices back to words.
 

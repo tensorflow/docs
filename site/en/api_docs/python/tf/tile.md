@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.tile
+
+### Aliases:
+
+* `tf.manip.tile`
+* `tf.tile`
 
 ``` python
 tf.tile(
@@ -19,8 +21,6 @@ tf.tile(
 
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
-
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
 Constructs a tensor by tiling a given tensor.
 

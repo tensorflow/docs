@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/main_op/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/saved_model/main_op/__init__.py).
+
 
 SavedModel main op.
 
@@ -18,5 +18,5 @@ SavedModel load/restore operations.
 
 [`main_op(...)`](../../tf/saved_model/main_op/main_op): Returns a main op to init variables and tables.
 
-[`main_op_with_restore(...)`](../../tf/saved_model/main_op/main_op_with_restore): Returns a main op to init variables, tables and restore the graph.
+[`main_op_with_restore(...)`](../../tf/saved_model/main_op_with_restore): Returns a main op to init variables, tables and restore the graph.
 

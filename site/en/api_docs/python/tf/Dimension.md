@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_shape.py).
-
-See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_shape.py).
 
 Represents the value of one dimension in a TensorShape.
 

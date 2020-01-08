@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/protobuf/checkpointable_object_graph.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/protobuf/checkpointable_object_graph.proto).
+Defined in [`tensorflow/core/protobuf/checkpointable_object_graph.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/protobuf/checkpointable_object_graph.proto).
 
 
 

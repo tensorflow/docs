@@ -19,7 +19,7 @@ tf.contrib.gan.eval.diagonal_only_frechet_classifier_distance_from_activations(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
 Classifier distance for evaluating a generative model.
 

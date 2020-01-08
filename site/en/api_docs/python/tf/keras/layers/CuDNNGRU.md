@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/layers/cudnn_recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/cudnn_recurrent.py).
+Defined in [`tensorflow/python/keras/layers/cudnn_recurrent.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/cudnn_recurrent.py).
 
 Fast GRU implementation backed by cuDNN.
 

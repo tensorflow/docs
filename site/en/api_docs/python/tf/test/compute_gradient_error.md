@@ -20,7 +20,7 @@ tf.test.compute_gradient_error(
 
 
 
-Defined in [`tensorflow/python/ops/gradient_checker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/gradient_checker.py).
+Defined in [`tensorflow/python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/gradient_checker.py).
 
 See the guide: [Testing > Gradient checking](../../../../api_guides/python/test#Gradient_checking)
 

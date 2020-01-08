@@ -19,8 +19,6 @@ tf.quantize_v2(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
-
-Please use <a href="../tf/quantize"><code>tf.quantize</code></a> instead.
+Please use <a href="../tf/quantization/quantize"><code>tf.quantize</code></a> instead.

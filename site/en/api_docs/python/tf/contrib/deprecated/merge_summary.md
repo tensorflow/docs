@@ -15,7 +15,7 @@ tf.contrib.deprecated.merge_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/logging_ops.py).
 
 Merges summaries. (deprecated)
 
@@ -27,7 +27,7 @@ This op is deprecated. Please switch to tf.summary.merge, which has identical
 behavior.
 
 This op creates a
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/summary.proto)
 protocol buffer that contains the union of all the values in the input
 summaries.
 

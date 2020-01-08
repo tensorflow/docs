@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/client/session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/client/session.py).
-
-See the guides: [Running Graphs > Session management](../../../api_guides/python/client#Session_management), [Running Graphs](../../../api_guides/python/client)
+Defined in [`tensorflow/python/client/session.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/client/session.py).
 
 A class for running TensorFlow operations.
 
@@ -35,7 +33,7 @@ print(sess.run(c))
 ```
 
 A session may own resources, such as
-<a href="../tf/Variable"><code>tf.Variable</code></a>, <a href="../tf/QueueBase"><code>tf.QueueBase</code></a>,
+<a href="../tf/Variable"><code>tf.Variable</code></a>, <a href="../tf/io/QueueBase"><code>tf.QueueBase</code></a>,
 and <a href="../tf/ReaderBase"><code>tf.ReaderBase</code></a>. It is important to release
 these resources when they are no longer required. To do this, either
 invoke the <a href="../tf/Session#close"><code>tf.Session.close</code></a> method on the session, or use
@@ -54,7 +52,7 @@ with tf.Session() as sess:
 ```
 
 The
-[`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/protobuf/config.proto)
+[`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/protobuf/config.proto)
 protocol buffer exposes various configuration options for a
 session. For example, to create a session that uses soft constraints
 for device placement, and log the resulting placement decisions,
@@ -95,7 +93,7 @@ the session constructor.
     for more examples.
 * <b>`graph`</b>: (Optional.) The `Graph` to be launched (described above).
 * <b>`config`</b>: (Optional.) A
-    [`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/protobuf/config.proto)
+    [`ConfigProto`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/protobuf/config.proto)
     protocol buffer with configuration options for the session.
 
 
@@ -277,7 +275,7 @@ it will return `None`.
     for details of the allowable fetch types.
 * <b>`feed_list`</b>: (Optional.) A list of `feed_dict` keys. See
     <a href="../tf/Session#run"><code>tf.Session.run</code></a> for details of the allowable feed key types.
-* <b>`accept_options`</b>: (Optional.) Iff `True`, the returned `Callable` will be
+* <b>`accept_options`</b>: (Optional.) If `True`, the returned `Callable` will be
     able to accept <a href="../tf/RunOptions"><code>tf.RunOptions</code></a> and <a href="../tf/RunMetadata"><code>tf.RunMetadata</code></a> as optional
     keyword arguments `options` and `run_metadata`, respectively, with
     the same syntax and semantics as <a href="../tf/Session#run"><code>tf.Session.run</code></a>, which is useful
@@ -453,7 +451,7 @@ elements at its leaves.  A graph element can be one of the following types:
 * A <a href="../tf/Tensor"><code>tf.Tensor</code></a>.
   The corresponding fetched value will be a numpy ndarray containing the
   value of that tensor.
-* A <a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>.
+* A <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
   The corresponding fetched value will be a
   <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>
   containing the value of that sparse tensor.
@@ -498,7 +496,7 @@ one of the following types:
   <a href="../tf/placeholder"><code>tf.placeholder</code></a>, the shape of
   the value will be checked for compatibility with the placeholder.
 * If the key is a
-  <a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>,
+  <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>,
   the value should be a
   <a href="../tf/SparseTensorValue"><code>tf.SparseTensorValue</code></a>.
 * If the key is a nested tuple of `Tensor`s or `SparseTensor`s, the value

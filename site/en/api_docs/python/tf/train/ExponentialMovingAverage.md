@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/moving_averages.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/moving_averages.py).
-
-See the guide: [Training > Moving Averages](../../../../api_guides/python/train#Moving_Averages)
+Defined in [`tensorflow/python/training/moving_averages.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/moving_averages.py).
 
 Maintains moving averages of variables by employing an exponential decay.
 
@@ -167,7 +165,7 @@ be called in a loop.
 #### Args:
 
 * <b>`var_list`</b>: A list of Variable or Tensor objects. The variables
-    and Tensors must be of types float16, float32, or float64.
+    and Tensors must be of types bfloat16, float16, float32, or float64.
 
 
 #### Returns:
@@ -177,7 +175,7 @@ An Operation that updates the moving averages.
 
 #### Raises:
 
-* <b>`TypeError`</b>: If the arguments are not all float16, float32, or float64.
+* <b>`TypeError`</b>: If the arguments are not an allowed type.
 * <b>`ValueError`</b>: If the moving average of one of the variables is already
     being computed.
 

@@ -18,11 +18,13 @@ tf.sparse_to_dense(
 
 
 
-Defined in [`tensorflow/python/ops/sparse_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/sparse_ops.py).
+Defined in [`tensorflow/python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/sparse_ops.py).
 
-See the guide: [Sparse Tensors > Conversion](../../../api_guides/python/sparse_ops#Conversion)
+Converts a sparse representation into a dense tensor. (deprecated)
 
-Converts a sparse representation into a dense tensor.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Create a <a href="../tf/sparse/SparseTensor"><code>tf.sparse.SparseTensor</code></a> and use <a href="../tf/sparse/to_dense"><code>tf.sparse.to_dense</code></a> instead.
 
 Builds an array `dense` with shape `output_shape` such that
 

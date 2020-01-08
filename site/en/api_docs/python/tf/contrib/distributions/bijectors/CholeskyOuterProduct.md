@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/cholesky_outer_product.py).
 
 Compute `g(X) = X @ X.T`; X is lower-triangular, positive-diagonal matrix.
 

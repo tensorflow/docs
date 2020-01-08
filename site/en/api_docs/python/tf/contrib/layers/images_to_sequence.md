@@ -16,7 +16,7 @@ tf.contrib.layers.images_to_sequence(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/layers.py).
 
 Convert a batch of images into a batch of sequences.
 

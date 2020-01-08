@@ -11,7 +11,7 @@ tf.contrib.quantize.create_eval_graph(input_graph=None)
 
 
 
-Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/quantize/python/quantize_graph.py).
+Defined in [`tensorflow/contrib/quantize/python/quantize_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/quantize/python/quantize_graph.py).
 
 Rewrites an eval input_graph in place for simulated quantization.
 

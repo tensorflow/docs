@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
 
 Convenience functions for working with time series saved_models.
 

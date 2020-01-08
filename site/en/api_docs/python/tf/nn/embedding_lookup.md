@@ -18,7 +18,7 @@ tf.nn.embedding_lookup(
 
 
 
-Defined in [`tensorflow/python/ops/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/embedding_ops.py).
+Defined in [`tensorflow/python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/embedding_ops.py).
 
 See the guide: [Neural Network > Embeddings](../../../../api_guides/python/nn#Embeddings)
 

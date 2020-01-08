@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 Represents a graph node that performs computation on tensors.
 
@@ -21,7 +19,7 @@ An `Operation` is a node in a TensorFlow `Graph` that takes zero or
 more `Tensor` objects as input, and produces zero or more `Tensor`
 objects as output. Objects of type `Operation` are created by
 calling a Python op constructor (such as
-<a href="../tf/matmul"><code>tf.matmul</code></a>)
+<a href="../tf/linalg/matmul"><code>tf.matmul</code></a>)
 or <a href="../tf/Graph#create_op"><code>tf.Graph.create_op</code></a>.
 
 For example `c = tf.matmul(a, b)` creates an `Operation` of type
@@ -136,7 +134,7 @@ Returns the `NodeDef` representation of this operation.
 #### Returns:
 
 A
-[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/node_def.proto)
+[`NodeDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/node_def.proto)
 protocol buffer.
 
 <h3 id="op_def"><code>op_def</code></h3>
@@ -146,7 +144,7 @@ Returns the `OpDef` proto that represents the type of this op.
 #### Returns:
 
 An
-[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/op_def.proto)
+[`OpDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/op_def.proto)
 protocol buffer.
 
 <h3 id="outputs"><code>outputs</code></h3>

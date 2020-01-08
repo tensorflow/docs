@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/test/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/test/__init__.py).
+
 
 Testing.
 

@@ -18,9 +18,7 @@ tf.contrib.layers.weighted_sum_from_feature_columns(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 A tf.contrib.layers style linear prediction builder based on FeatureColumn.
 

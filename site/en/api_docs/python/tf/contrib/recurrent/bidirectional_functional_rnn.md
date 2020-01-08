@@ -16,13 +16,14 @@ tf.contrib.recurrent.bidirectional_functional_rnn(
     sequence_length=None,
     time_major=False,
     use_tpu=False,
+    fast_reverse=False,
     scope=None
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/ops/functional_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/recurrent/python/ops/functional_rnn.py).
+Defined in [`tensorflow/contrib/recurrent/python/ops/functional_rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/recurrent/python/ops/functional_rnn.py).
 
 Creates a bidirectional recurrent neural network.
 
@@ -55,6 +56,10 @@ functional control flow for TPU compatibility.
 * <b>`use_tpu`</b>: Whether to enable TPU-compatible operation. If True, does not truly
     reverse `inputs` in the backwards RNN. Once b/69305369 is fixed, we can
     remove this flag.
+* <b>`fast_reverse`</b>: Whether to use fast tf.reverse to replace tf.reverse_sequence.
+    This is only possible when either all sequence lengths are the same inside
+    the batch, or when the cell function does not change the state on padded
+    input.
 * <b>`scope`</b>: An optional scope name for the dynamic RNN.
 
 

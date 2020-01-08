@@ -11,5 +11,5 @@ tf.keras.regularizers.get(identifier)
 
 
 
-Defined in [`tensorflow/python/keras/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/regularizers.py).
+Defined in [`tensorflow/python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/regularizers.py).
 

@@ -11,7 +11,7 @@ tf.contrib.framework.nest.flatten(nested)
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/pywrap_tensorflow_internal.py).
 
 Returns a flat list from a given nested structure.
 

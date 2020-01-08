@@ -15,9 +15,9 @@ tf.stack(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor.
 

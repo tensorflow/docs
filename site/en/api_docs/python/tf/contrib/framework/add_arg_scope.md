@@ -11,9 +11,7 @@ tf.contrib.framework.add_arg_scope(func)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/arg_scope.py).
-
-See the guide: [Framework (contrib) > Arg_Scope](../../../../../api_guides/python/contrib.framework#Arg_Scope)
+Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 Decorates a function with args so it can be used within an arg_scope.
 

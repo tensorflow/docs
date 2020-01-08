@@ -7,13 +7,13 @@ page_type: reference
 
 ## Class `OutOfRangeError`
 
-Inherits From: [`OpError`](../../tf/OpError)
+Inherits From: [`OpError`](../../tf/errors/OpError)
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/errors_impl.py).
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/errors_impl.py).
 
-See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management)
+See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management)
 
 Raised when an operation iterates past the valid input range.
 
@@ -60,7 +60,7 @@ The operation that failed, if known.
 or `Recv` op, there will be no corresponding
 <a href="../../tf/Operation"><code>tf.Operation</code></a>
 object.  In that case, this will return `None`, and you should
-instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.OpError.node_def</code></a> to
+instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.errors.OpError.node_def</code></a> to
 discover information about the op.
 
 #### Returns:

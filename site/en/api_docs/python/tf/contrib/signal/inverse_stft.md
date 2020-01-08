@@ -18,7 +18,7 @@ tf.contrib.signal.inverse_stft(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/signal/python/ops/spectral_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/signal/python/ops/spectral_ops.py).
 
 Computes the inverse [Short-time Fourier Transform][stft] of `stfts`.
 

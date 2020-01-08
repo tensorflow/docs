@@ -22,7 +22,7 @@ tf.contrib.framework.load_embedding_initializer(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_ops.py).
+Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_ops.py).
 
 Returns a variable initializer for loading pre-trained embeddings.
 

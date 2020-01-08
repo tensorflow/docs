@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/image/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/image/__init__.py).
+
 
 Image processing and decoding ops.
 
@@ -83,13 +83,15 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`pad_to_bounding_box(...)`](../tf/image/pad_to_bounding_box): Pad `image` with zeros to the specified `height` and `width`.
 
-[`per_image_standardization(...)`](../tf/image/per_image_standardization): Linearly scales `image` to have zero mean and unit norm.
+[`per_image_standardization(...)`](../tf/image/per_image_standardization): Linearly scales `image` to have zero mean and unit variance.
 
 [`psnr(...)`](../tf/image/psnr): Returns the Peak Signal-to-Noise Ratio between a and b.
 
 [`random_brightness(...)`](../tf/image/random_brightness): Adjust the brightness of images by a random factor.
 
 [`random_contrast(...)`](../tf/image/random_contrast): Adjust the contrast of an image by a random factor.
+
+[`random_crop(...)`](../tf/image/random_crop): Randomly crops a tensor to a given size.
 
 [`random_flip_left_right(...)`](../tf/image/random_flip_left_right): Randomly flip an image horizontally (left to right).
 

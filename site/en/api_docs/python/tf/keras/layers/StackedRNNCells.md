@@ -11,7 +11,7 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/recurrent.py).
+Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/recurrent.py).
 
 Wrapper allowing a stack of RNN cells to behave as a single cell.
 

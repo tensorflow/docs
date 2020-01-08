@@ -32,7 +32,7 @@ Computes Quantized Rectified Linear X: `min(max(features, 0), max_value)`
     The float value that the lowest quantized value represents.
 * <b>`max_features`</b>: A `Tensor` of type `float32`.
     The float value that the highest quantized value represents.
-* <b>`out_type`</b>: An optional <a href="../../tf/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf/quint8"><code>tf.quint8</code></a>.
+* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf#quint8"><code>tf.quint8</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/util.py).
+Defined in [`tensorflow/contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/graph_editor/util.py).
 
 Utility functions for the graph_editor.
 

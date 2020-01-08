@@ -19,7 +19,7 @@ tf.metrics.mean_cosine_distance(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/metrics_impl.py).
 
 Computes the cosine distance between the labels and predictions.
 

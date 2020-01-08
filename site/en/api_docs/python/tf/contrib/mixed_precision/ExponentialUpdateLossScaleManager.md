@@ -11,7 +11,7 @@ Inherits From: [`LossScaleManager`](../../../tf/contrib/mixed_precision/LossScal
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
 Loss scale manager uses an exponential update strategy.
 

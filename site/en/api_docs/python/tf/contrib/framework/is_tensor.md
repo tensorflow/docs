@@ -11,9 +11,7 @@ tf.contrib.framework.is_tensor(x)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_util.py).
-
-See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
+Defined in [`tensorflow/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_util.py).
 
 Check whether `x` is of tensor type.
 

@@ -14,9 +14,7 @@ tf.contrib.framework.get_variables_to_restore(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
-
-See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 Gets the list of the variables to restore.
 

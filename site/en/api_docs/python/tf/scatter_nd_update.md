@@ -17,9 +17,7 @@ tf.scatter_nd_update(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/state_ops.py).
-
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
+Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/state_ops.py).
 
 Applies sparse `updates` to individual values or slices in a Variable.
 
@@ -54,7 +52,7 @@ The resulting update to ref would look like this:
 
     [1, 11, 3, 10, 9, 6, 7, 12]
 
-See <a href="../tf/manip/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
+See <a href="../tf/scatter_nd"><code>tf.scatter_nd</code></a> for more details about how to make updates to
 slices.
 
 #### Args:

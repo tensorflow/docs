@@ -11,7 +11,7 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/io_ops.py).
 
 See the guides: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers), [Reading data > `QueueRunner`](../../../api_guides/python/reading_data#_QueueRunner_)
 
@@ -40,7 +40,11 @@ __init__(
 )
 ```
 
-Create a FixedLengthRecordReader.
+Create a FixedLengthRecordReader. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.data</code></a>. Use <a href="../tf/data/FixedLengthRecordDataset"><code>tf.data.FixedLengthRecordDataset</code></a>.
 
 #### Args:
 

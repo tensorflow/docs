@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/signature_def_utils/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/saved_model/signature_def_utils/__init__.py).
+
 
 SignatureDef utility functions.
 
@@ -15,13 +15,13 @@ Utility functions for building and inspecting SignatureDef protos.
 
 ## Functions
 
-[`build_signature_def(...)`](../../tf/saved_model/signature_def_utils/build_signature_def): Utility function to build a SignatureDef protocol buffer.
+[`build_signature_def(...)`](../../tf/saved_model/build_signature_def): Utility function to build a SignatureDef protocol buffer.
 
-[`classification_signature_def(...)`](../../tf/saved_model/signature_def_utils/classification_signature_def): Creates classification signature from given examples and predictions.
+[`classification_signature_def(...)`](../../tf/saved_model/classification_signature_def): Creates classification signature from given examples and predictions.
 
-[`is_valid_signature(...)`](../../tf/saved_model/signature_def_utils/is_valid_signature): Determine whether a SignatureDef can be served by TensorFlow Serving.
+[`is_valid_signature(...)`](../../tf/saved_model/is_valid_signature): Determine whether a SignatureDef can be served by TensorFlow Serving.
 
-[`predict_signature_def(...)`](../../tf/saved_model/signature_def_utils/predict_signature_def): Creates prediction signature from given inputs and outputs.
+[`predict_signature_def(...)`](../../tf/saved_model/predict_signature_def): Creates prediction signature from given inputs and outputs.
 
-[`regression_signature_def(...)`](../../tf/saved_model/signature_def_utils/regression_signature_def): Creates regression signature from given examples and predictions.
+[`regression_signature_def(...)`](../../tf/saved_model/regression_signature_def): Creates regression signature from given examples and predictions.
 

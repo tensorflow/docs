@@ -21,7 +21,7 @@ tf.nn.dynamic_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/rnn.py).
 
 See the guide: [Neural Network > Recurrent Neural Networks](../../../../api_guides/python/nn#Recurrent_Neural_Networks)
 

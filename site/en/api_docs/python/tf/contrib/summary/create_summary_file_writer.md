@@ -14,6 +14,6 @@ tf.contrib.summary.create_summary_file_writer(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/summary_ops_v2.py).
 
 Please use <a href="../../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>.

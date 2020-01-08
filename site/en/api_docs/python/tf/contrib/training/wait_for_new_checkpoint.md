@@ -16,7 +16,7 @@ tf.contrib.training.wait_for_new_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/evaluation.py).
 
 Waits until a new checkpoint file is found.
 

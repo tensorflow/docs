@@ -22,9 +22,7 @@ tf.tensordot(
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
-
-See the guide: [Math > Tensor Math Function](../../../api_guides/python/math_ops#Tensor_Math_Function)
+Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/math_ops.py).
 
 Tensor contraction of a and b along specified axes.
 

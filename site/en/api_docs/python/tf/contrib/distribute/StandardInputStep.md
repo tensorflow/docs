@@ -11,7 +11,7 @@ Inherits From: [`Step`](../../../tf/contrib/distribute/Step)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/step_fn.py).
+Defined in [`tensorflow/contrib/distribute/python/step_fn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/python/step_fn.py).
 
 Step with a standard implementation of input handling.
 

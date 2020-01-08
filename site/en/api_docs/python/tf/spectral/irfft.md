@@ -15,9 +15,7 @@ tf.spectral.irfft(
 
 
 
-Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/spectral_ops.py).
-
-See the guide: [Spectral Functions > Discrete Fourier Transforms](../../../../api_guides/python/spectral_ops#Discrete_Fourier_Transforms)
+Defined in [`tensorflow/python/ops/spectral_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/spectral_ops.py).
 
 Inverse real-valued fast Fourier transform.
 

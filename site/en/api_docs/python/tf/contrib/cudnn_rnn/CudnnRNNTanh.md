@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py).
 
 Cudnn implementation of the RNN-tanh layer.
 
@@ -51,7 +51,7 @@ Creates a CudnnRNN model from model spec.
 * <b>`dropout`</b>: dropout rate, a number between [0, 1]. Dropout is applied between
       each layer (no dropout is applied for a model with a single layer).
       When set to 0, dropout is disabled.
-* <b>`seed`</b>: the op seed used for initializing dropout. See <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+* <b>`seed`</b>: the op seed used for initializing dropout. See <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
       for behavior.
 * <b>`dtype`</b>: tf.float16, tf.float32 or tf.float64
 * <b>`kernel_initializer`</b>: starting value to initialize the weight.
@@ -178,9 +178,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

@@ -7,11 +7,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/__init__.py).
+Defined in [`tensorflow/contrib/opt/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/opt/__init__.py).
 
 A module containing optimization routines.
 
 ## Classes
+
+[`class AGNCustomGetter`](../../tf/contrib/opt/AGNCustomGetter): Custom_getter class is used to do:
+
+[`class AGNOptimizer`](../../tf/contrib/opt/AGNOptimizer): Wrapper that implements the Accumulated GradientNormalization algorithm.
 
 [`class AdaMaxOptimizer`](../../tf/contrib/opt/AdaMaxOptimizer): Optimizer that implements the AdaMax algorithm.
 

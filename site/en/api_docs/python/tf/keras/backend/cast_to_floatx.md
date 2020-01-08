@@ -11,7 +11,7 @@ tf.keras.backend.cast_to_floatx(x)
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Cast a Numpy array to the default Keras float type.
 

@@ -14,9 +14,7 @@ tf.train.latest_checkpoint(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_management.py).
-
-See the guide: [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
+Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_management.py).
 
 Finds the filename of latest saved checkpoint file.
 

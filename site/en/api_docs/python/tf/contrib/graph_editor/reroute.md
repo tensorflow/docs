@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/reroute.py).
+Defined in [`tensorflow/contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/graph_editor/reroute.py).
 
 Various function for graph rerouting.
 

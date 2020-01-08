@@ -22,7 +22,7 @@ tf.image.sample_distorted_bounding_box(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Working with Bounding Boxes](../../../../api_guides/python/image#Working_with_Bounding_Boxes)
 

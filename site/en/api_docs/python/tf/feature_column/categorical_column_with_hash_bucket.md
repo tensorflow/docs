@@ -15,7 +15,7 @@ tf.feature_column.categorical_column_with_hash_bucket(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 Represents sparse feature where ids are set by hashing.
 

@@ -1,12 +1,15 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.gather_nd
+
+### Aliases:
+
+* `tf.gather_nd`
+* `tf.manip.gather_nd`
 
 ``` python
 tf.gather_nd(
@@ -20,15 +23,13 @@ tf.gather_nd(
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
-
 Gather slices from `params` into a Tensor with shape specified by `indices`.
 
 `indices` is an K-dimensional integer tensor, best thought of as a
 (K-1)-dimensional tensor of indices into `params`, where each element defines a
 slice of `params`:
 
-    output[i_0, ..., i_{K-2}] = params[indices[i0, ..., i_{K-2}]]
+    output[\\(i_0, ..., i_{K-2}\\)] = params[indices[\\(i_0, ..., i_{K-2}\\)]]
 
 Whereas in <a href="../tf/gather"><code>tf.gather</code></a> `indices` defines slices into the first
 dimension of `params`, in <a href="../tf/gather_nd"><code>tf.gather_nd</code></a>, `indices` defines slices into the
@@ -126,6 +127,8 @@ Batched indexing into a 3-tensor:
               [['a1', 'b1'], ['c1', 'd1']]]
     output = [['b0', 'b1'], ['d0', 'c1']]
 ```
+
+See also <a href="../tf/gather"><code>tf.gather</code></a> and <a href="../tf/batch_gather"><code>tf.batch_gather</code></a>.
 
 #### Args:
 

@@ -16,7 +16,7 @@ tf.contrib.image.rotate(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Rotate image(s) counterclockwise by the passed angle(s) in radians.
 

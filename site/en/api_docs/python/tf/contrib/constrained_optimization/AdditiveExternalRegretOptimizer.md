@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py).
 
 A `ConstrainedOptimizer` based on external-regret minimization.
 

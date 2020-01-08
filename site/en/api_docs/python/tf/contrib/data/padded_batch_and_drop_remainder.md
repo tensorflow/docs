@@ -15,9 +15,7 @@ tf.contrib.data.padded_batch_and_drop_remainder(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
-
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/batching.py).
 
 A batching and padding transformation that omits the final small batch. (deprecated)
 
@@ -34,10 +32,10 @@ See <a href="../../../tf/contrib/data/batch_and_drop_remainder"><code>tf.contrib
 
 #### Args:
 
-* <b>`batch_size`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+* <b>`batch_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
     consecutive elements of this dataset to combine in a single batch.
 * <b>`padded_shapes`</b>: A nested structure of <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a> or
-    <a href="../../../tf/int64"><code>tf.int64</code></a> vector tensor-like objects. See
+    <a href="../../../tf#int64"><code>tf.int64</code></a> vector tensor-like objects. See
     <a href="../../../tf/data/Dataset#padded_batch"><code>tf.data.Dataset.padded_batch</code></a> for details.
 * <b>`padding_values`</b>: (Optional.) A nested structure of scalar-shaped
     <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>. See <a href="../../../tf/data/Dataset#padded_batch"><code>tf.data.Dataset.padded_batch</code></a> for details.

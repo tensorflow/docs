@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/wishart.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/wishart.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/wishart.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/wishart.py).
 
 The matrix Wishart distribution on positive definite matrices.
 
@@ -44,11 +44,14 @@ where:
 #### Examples
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Initialize a single 3x3 Wishart with Cholesky factored scale matrix and 5
 # degrees-of-freedom.(*)
 df = 5
 chol_scale = tf.cholesky(...)  # Shape is [3, 3].
-dist = tf.contrib.distributions.WishartCholesky(df=df, scale=chol_scale)
+dist = tfd.WishartCholesky(df=df, scale=chol_scale)
 
 # Evaluate this on an observation in R^3, returning a scalar.
 x = ...  # A 3x3 positive definite matrix.
@@ -62,14 +65,14 @@ dist.prob(x)  # Shape is [2].
 # Initialize two 3x3 Wisharts with Cholesky factored scale matrices.
 df = [5, 4]
 chol_scale = tf.cholesky(...)  # Shape is [2, 3, 3].
-dist = tf.contrib.distributions.WishartCholesky(df=df, scale=chol_scale)
+dist = tfd.WishartCholesky(df=df, scale=chol_scale)
 
 # Evaluate this on four observations.
 x = [[x0, x1], [x2, x3]]  # Shape is [2, 2, 3, 3].
 dist.prob(x)  # Shape is [2, 2].
 
 # (*) - To efficiently create a trainable covariance matrix, see the example
-#   in tf.contrib.distributions.matrix_diag_transform.
+#   in tfp.distributions.matrix_diag_transform.
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
@@ -342,7 +345,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -436,7 +439,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

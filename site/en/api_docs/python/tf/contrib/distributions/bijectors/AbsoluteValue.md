@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/absolute_value.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/absolute_value.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/absolute_value.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/absolute_value.py).
 
 Computes `Y = g(X) = Abs(X)`, element-wise.
 

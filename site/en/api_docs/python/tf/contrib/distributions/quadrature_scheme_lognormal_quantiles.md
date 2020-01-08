@@ -17,7 +17,7 @@ tf.contrib.distributions.quadrature_scheme_lognormal_quantiles(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/poisson_lognormal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/poisson_lognormal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
 
 Use LogNormal quantiles to form quadrature on positive-reals. (deprecated)
 

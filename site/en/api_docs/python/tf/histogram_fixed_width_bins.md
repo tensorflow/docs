@@ -17,7 +17,7 @@ tf.histogram_fixed_width_bins(
 
 
 
-Defined in [`tensorflow/python/ops/histogram_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/histogram_ops.py).
+Defined in [`tensorflow/python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/histogram_ops.py).
 
 Bins the given values for use in a histogram.
 

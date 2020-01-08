@@ -17,7 +17,7 @@ tf.contrib.batching.batch_function(
 
 
 
-Defined in [`tensorflow/contrib/batching/python/ops/batch_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/batching/python/ops/batch_ops.py).
+Defined in [`tensorflow/contrib/batching/python/ops/batch_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/batching/python/ops/batch_ops.py).
 
 Batches the computation done by the decorated function.
 

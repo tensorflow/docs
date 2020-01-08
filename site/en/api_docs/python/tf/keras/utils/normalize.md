@@ -15,7 +15,7 @@ tf.keras.utils.normalize(
 
 
 
-Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/np_utils.py).
+Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/np_utils.py).
 
 Normalizes a Numpy array.
 

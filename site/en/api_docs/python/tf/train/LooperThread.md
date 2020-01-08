@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/coordinator.py).
-
-See the guide: [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+Defined in [`tensorflow/python/training/coordinator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/coordinator.py).
 
 A thread that runs code repeatedly, optionally on a timer.
 

@@ -11,7 +11,7 @@ Inherits From: [`CheckpointableBase`](../../../../tf/contrib/checkpoint/Checkpoi
 
 
 
-Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/metrics_impl.py).
+Defined in [`tensorflow/contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/eager/python/metrics_impl.py).
 
 A metric holds state for aggregating statistics over an evaluation run.
 

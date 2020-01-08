@@ -11,9 +11,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
-See the guides: [Building Graphs > Core graph data structures](../../../api_guides/python/framework#Core_graph_data_structures), [Graph Editor (contrib) > Modules overview](../../../api_guides/python/contrib.graph_editor#Modules_overview), [Graph Editor (contrib)](../../../api_guides/python/contrib.graph_editor)
+See the guides: [Graph Editor (contrib) > Modules overview](../../../api_guides/python/contrib.graph_editor#Modules_overview), [Graph Editor (contrib)](../../../api_guides/python/contrib.graph_editor)
 
 A TensorFlow computation, represented as a dataflow graph.
 
@@ -88,7 +88,7 @@ True if this graph has been finalized.
 The GraphDef version information of this graph.
 
 For details on the meaning of each version, see
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/graph.proto).
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/graph.proto).
 
 #### Returns:
 
@@ -216,7 +216,7 @@ as_graph_def(
 Returns a serialized `GraphDef` representation of this graph.
 
 The serialized `GraphDef` can be imported into another `Graph`
-(using <a href="../tf/import_graph_def"><code>tf.import_graph_def</code></a>) or used with the
+(using <a href="../tf/graph_util/import_graph_def"><code>tf.import_graph_def</code></a>) or used with the
 [C++ Session API](../../api_docs/cc/index).
 
 This method is thread-safe.
@@ -233,7 +233,7 @@ This method is thread-safe.
 #### Returns:
 
 A
-[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/graph.proto)
+[`GraphDef`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/graph.proto)
 protocol buffer.
 
 
@@ -581,7 +581,7 @@ string, a device function, or None:
 
 For information about the valid syntax of device name strings, see
 the documentation in
-[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/util/device_name_utils.h).
+[`DeviceNameUtils`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/util/device_name_utils.h).
 
 For example:
 

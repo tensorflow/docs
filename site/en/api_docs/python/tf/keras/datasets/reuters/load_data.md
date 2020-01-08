@@ -22,7 +22,7 @@ tf.keras.datasets.reuters.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/reuters.py).
+Defined in [`tensorflow/python/keras/datasets/reuters.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/reuters.py).
 
 Loads the Reuters newswire classification dataset.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/profiler/trace_events.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/profiler/trace_events.proto).
+Defined in [`tensorflow/contrib/tpu/profiler/trace_events.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/profiler/trace_events.proto).
 
 
 

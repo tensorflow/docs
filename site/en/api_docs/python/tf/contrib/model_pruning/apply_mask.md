@@ -14,7 +14,7 @@ tf.contrib.model_pruning.apply_mask(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/pruning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/model_pruning/python/pruning.py).
 
 Apply mask to a given weight tensor.
 

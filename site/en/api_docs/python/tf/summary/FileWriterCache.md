@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/summary/writer/writer_cache.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/writer/writer_cache.py).
-
-See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
+Defined in [`tensorflow/python/summary/writer/writer_cache.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/summary/writer/writer_cache.py).
 
 Cache for file writers.
 

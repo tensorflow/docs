@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ResourceSparseApplyMomentum Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -16,7 +16,7 @@
   <p>That is for rows we have grad for, we update var and accum as follows:</p>
   <p>accum = accum * momentum + grad var -= lr * accum</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>accum: Should be from a Variable().</li>
       <li>lr: Learning rate. Must be a scalar.</li>
@@ -24,12 +24,12 @@
       <li>indices: A vector of indices into the first dimension of var and accum.</li>
       <li>momentum: Momentum. Must be a scalar.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
       <li>use_nesterov: If <code>True</code>, the tensor passed to compute grad will be var - lr * momentum * accum, so in the end, the var you get is actually var - lr * momentum * accum.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -39,13 +39,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a3b89e9c66e4d0dc308a10134ae6cbebf">ResourceSparseApplyMomentum</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a3b89e9c66e4d0dc308a10134ae6cbebf">ResourceSparseApplyMomentum</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a7bfac1b224e032491ecc86795f329c8e">ResourceSparseApplyMomentum</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">ResourceSparseApplyMomentum::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a7bfac1b224e032491ecc86795f329c8e">ResourceSparseApplyMomentum</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">ResourceSparseApplyMomentum::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -62,7 +62,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -96,7 +96,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -106,7 +106,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -119,44 +119,44 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyMomentum::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyMomentum::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-momentum.html#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum">ResourceSparseApplyMomentum</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-momentum.html#classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum">ResourceSparseApplyMomentum</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a11426b87c209f56e6dcf2292d88add6b">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a3b89e9c66e4d0dc308a10134ae6cbebf">
     <h3>ResourceSparseApplyMomentum</h3>
     <pre class="prettyprint"> ResourceSparseApplyMomentum(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a7bfac1b224e032491ecc86795f329c8e">
     <h3>ResourceSparseApplyMomentum</h3>
     <pre class="prettyprint"> ResourceSparseApplyMomentum(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">ResourceSparseApplyMomentum::Attrs</a> & attrs
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">ResourceSparseApplyMomentum::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -168,14 +168,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a4c78145c5e8b7aa22178f1a4d57812ac">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1a433bc4ac6cba2fdad7e05889843770e4">
     <h3>UseNesterov</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a> UseNesterov(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_momentum_1_1_attrs">Attrs</a> UseNesterov(
   bool x
 )</pre>
     <div />

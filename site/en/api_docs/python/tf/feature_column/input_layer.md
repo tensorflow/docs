@@ -11,13 +11,14 @@ tf.feature_column.input_layer(
     feature_columns,
     weight_collections=None,
     trainable=True,
-    cols_to_vars=None
+    cols_to_vars=None,
+    cols_to_output_tensors=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 Returns a dense `Tensor` as input layer based on given `feature_columns`.
 
@@ -64,6 +65,9 @@ prediction = tf.layers.dense(dense_tensor, 1)
       dimension=10): [<tf.Variable 'some_variable:0' shape=(5, 10),
                       <tf.Variable 'some_variable:1' shape=(5, 10)]}
     If a column creates no variables, its value will be an empty list.
+* <b>`cols_to_output_tensors`</b>: If not `None`, must be a dictionary that will be
+    filled with a mapping from '_FeatureColumn' to the associated
+    output `Tensor`s.
 
 
 #### Returns:

@@ -23,9 +23,7 @@ tf.norm(
 
 
 
-Defined in [`tensorflow/python/ops/linalg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg_ops.py).
-
-See the guide: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions)
+Defined in [`tensorflow/python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg_ops.py).
 
 Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
 

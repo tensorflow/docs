@@ -18,7 +18,7 @@ tf.contrib.learn.make_export_strategy(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/utils/saved_model_export_utils.py).
 
 Create an ExportStrategy for use with Experiment. (deprecated)
 
@@ -32,7 +32,7 @@ Switch to tf.estimator.Exporter and associated utilities.
     `InputFnOps`.
 * <b>`default_output_alternative_key`</b>: the name of the head to serve when an
     incoming serving request does not explicitly request a specific head.
-    Must be `None` if the estimator inherits from <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>
+    Must be `None` if the estimator inherits from `tf.estimator.Estimator`
     or for single-headed models.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
     within the exported SavedModel.  Each key should give the destination

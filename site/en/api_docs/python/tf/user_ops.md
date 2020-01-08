@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/user_ops/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/user_ops/__init__.py).
+
 
 Public API for tf.user_ops namespace.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
 
 Wrapper class for SDCA optimizer.
 

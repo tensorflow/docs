@@ -14,7 +14,7 @@ tf.linalg.adjoint(
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linalg_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linalg_impl.py).
+Defined in [`tensorflow/python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linalg_impl.py).
 
 Transposes the last two dimensions of and conjugates tensor `matrix`.
 

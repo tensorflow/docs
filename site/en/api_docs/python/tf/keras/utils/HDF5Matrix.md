@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/utils/io_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/io_utils.py).
+Defined in [`tensorflow/python/keras/utils/io_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/io_utils.py).
 
 Representation of HDF5 dataset to be used instead of a Numpy array.
 

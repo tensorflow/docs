@@ -11,9 +11,13 @@ tf.contrib.ffmpeg.decode_video(contents)
 
 
 
-Defined in [`tensorflow/contrib/ffmpeg/ffmpeg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
+Defined in [`tensorflow/contrib/ffmpeg/ffmpeg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
 
-Create an op that decodes the contents of a video file.
+Create an op that decodes the contents of a video file. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-09-04.
+Instructions for updating:
+This will be deleted and should not be used.
 
 #### Args:
 

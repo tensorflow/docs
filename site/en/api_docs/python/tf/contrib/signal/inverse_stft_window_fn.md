@@ -15,7 +15,7 @@ tf.contrib.signal.inverse_stft_window_fn(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/signal/python/ops/spectral_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/spectral_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/signal/python/ops/spectral_ops.py).
 
 Generates a window function that can be used in `inverse_stft`.
 

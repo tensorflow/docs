@@ -16,7 +16,7 @@ tf.image.random_contrast(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
 
@@ -31,7 +31,7 @@ picked in the interval `[lower, upper]`.
 * <b>`lower`</b>: float.  Lower bound for the random contrast factor.
 * <b>`upper`</b>: float.  Upper bound for the random contrast factor.
 * <b>`seed`</b>: A Python integer. Used to create a random seed. See
-    <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
 
 

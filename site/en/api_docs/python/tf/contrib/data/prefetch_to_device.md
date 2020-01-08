@@ -14,9 +14,13 @@ tf.contrib.data.prefetch_to_device(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/prefetching_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/prefetching_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/prefetching_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/prefetching_ops.py).
 
-A transformation that prefetches dataset values to the given `device`.
+A transformation that prefetches dataset values to the given `device`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.prefetch_to_device(...)`.
 
 NOTE: Although the transformation creates a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>, the
 transformation must be the final `Dataset` in the input pipeline.

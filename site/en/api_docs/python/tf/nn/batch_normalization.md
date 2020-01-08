@@ -20,7 +20,7 @@ tf.nn.batch_normalization(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Normalization](../../../../api_guides/python/nn#Normalization)
 

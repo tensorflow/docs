@@ -15,7 +15,7 @@ tf.keras.datasets.boston_housing.load_data(
 
 
 
-Defined in [`tensorflow/python/keras/datasets/boston_housing.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/boston_housing.py).
+Defined in [`tensorflow/python/keras/datasets/boston_housing.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/boston_housing.py).
 
 Loads the Boston Housing dataset.
 

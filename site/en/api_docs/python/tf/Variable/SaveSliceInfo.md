@@ -16,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/variables.py).
 
 Information on how to save this Variable as a slice.
 

@@ -15,7 +15,7 @@ tf.contrib.estimator.linear_logit_fn_builder(
 
 
 
-Defined in [`tensorflow/python/estimator/canned/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/linear.py).
+Defined in [`tensorflow/python/estimator/canned/linear.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/estimator/canned/linear.py).
 
 Function builder for a linear logit_fn.
 

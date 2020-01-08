@@ -12,7 +12,7 @@ Inherits From: [`GRUCell`](../../../tf/nn/rnn_cell/GRUCell)
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
 
 Cudnn Compatible GRUCell.
 
@@ -142,9 +142,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

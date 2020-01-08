@@ -11,9 +11,7 @@ tf.contrib.learn.infer_real_valued_columns_from_input(x)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
-
-See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 Creates `FeatureColumn` objects for inputs defined by input `x`. (deprecated)
 

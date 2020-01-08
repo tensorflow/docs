@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/loader/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/saved_model/loader/__init__.py).
+
 
 Loader functionality for SavedModel with hermetic, language-neutral exports.
 
@@ -57,7 +57,7 @@ with tf.Session(graph=tf.Graph()) as sess:
 
 ## Functions
 
-[`load(...)`](../../tf/saved_model/loader/load): Loads the model from a SavedModel as specified by tags.
+[`load(...)`](../../tf/saved_model/load): Loads the model from a SavedModel as specified by tags.
 
-[`maybe_saved_model_directory(...)`](../../tf/saved_model/loader/maybe_saved_model_directory): Checks whether the provided export directory could contain a SavedModel.
+[`maybe_saved_model_directory(...)`](../../tf/saved_model/maybe_saved_model_directory): Checks whether the provided export directory could contain a SavedModel.
 

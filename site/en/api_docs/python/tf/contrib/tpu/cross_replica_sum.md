@@ -15,9 +15,9 @@ tf.contrib.tpu.cross_replica_sum(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/ops/tpu_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/ops/tpu_ops.py).
+Defined in [`tensorflow/contrib/tpu/python/ops/tpu_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/ops/tpu_ops.py).
 
-Sum the input tensor accorss replicas according to group_assignment.
+Sum the input tensor across replicas according to group_assignment.
 
 #### Args:
 

@@ -17,7 +17,7 @@ tf.contrib.legacy_seq2seq.basic_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Basic RNN sequence-to-sequence model.
 

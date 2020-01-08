@@ -18,7 +18,7 @@ tf.contrib.distributions.auto_correlation(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/sample_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
 Auto correlation along one axis.
 

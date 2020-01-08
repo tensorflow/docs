@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.scatter_nd
+
+### Aliases:
+
+* `tf.manip.scatter_nd`
+* `tf.scatter_nd`
 
 ``` python
 tf.scatter_nd(
@@ -21,8 +23,6 @@ tf.scatter_nd(
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
-
 Scatter `updates` into a new tensor according to `indices`.
 
 Creates a new tensor by applying sparse `updates` to individual values or
@@ -30,8 +30,12 @@ slices within a tensor (initially zero for numeric, empty for string) of
 the given `shape` according to indices.  This operator is the inverse of the
 <a href="../tf/gather_nd"><code>tf.gather_nd</code></a> operator which extracts values or slices from a given tensor.
 
+If `indices` contains duplicates, then their updates are accumulated (summed).
+
 **WARNING**: The order in which updates are applied is nondeterministic, so the
-output will be nondeterministic if `indices` contains duplicates.
+output will be nondeterministic if `indices` contains duplicates -- because
+of some numerical approximation issues, numbers summed in different order
+may yield different results.
 
 `indices` is an integer tensor containing indices into a new tensor of shape
 `shape`.  The last dimension of `indices` can be at most the rank of `shape`:

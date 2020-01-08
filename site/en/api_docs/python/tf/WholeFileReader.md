@@ -11,7 +11,7 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/io_ops.py).
 
 See the guide: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers)
 
@@ -36,7 +36,11 @@ use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
 __init__(name=None)
 ```
 
-Create a WholeFileReader.
+Create a WholeFileReader. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.map(tf.read_file)`.
 
 #### Args:
 

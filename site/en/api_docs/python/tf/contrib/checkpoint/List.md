@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/data_structures.py).
+Defined in [`tensorflow/python/training/checkpointable/data_structures.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpointable/data_structures.py).
 
 An append-only sequence type which is checkpointable.
 
@@ -114,6 +114,14 @@ __add__(other)
 
 ``` python
 __contains__(value)
+```
+
+
+
+<h3 id="__deepcopy__"><code>__deepcopy__</code></h3>
+
+``` python
+__deepcopy__(memo)
 ```
 
 

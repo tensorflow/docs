@@ -16,15 +16,15 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/backprop.py).
 
 Record operations for automatic differentiation.
 
 Operations are recorded if they are executed within this context manager and
 at least one of their inputs is being "watched".
 
-Trainable variables (created by <a href="../tf/Variable"><code>tf.Variable</code></a> or <a href="../tf/get_variable"><code>tf.get_variable</code></a>,
-trainable=True is default in both cases) are automatically watched. Tensors
+Trainable variables (created by <a href="../tf/Variable"><code>tf.Variable</code></a> or <a href="../tf/get_variable"><code>tf.get_variable</code></a>, where
+`trainable=True` is default in both cases) are automatically watched. Tensors
 can be manually watched by invoking the `watch` method on this context
 manager.
 
@@ -44,6 +44,7 @@ GradientTapes can be nested to compute higher-order derivatives. For example,
 ```python
 x = tf.constant(3.0)
 with tf.GradientTape() as g:
+  g.watch(x)
   with tf.GradientTape() as gg:
     gg.watch(x)
     y = x * x
@@ -68,12 +69,46 @@ dy_dx = g.gradient(y, x)  # 6.0
 del g  # Drop the reference to the tape
 ```
 
+By default GradientTape will automatically watch any trainable variables that
+are accessed inside the context. If you want fine grained control over which
+variables are watched you can disable automatic tracking by passing
+`watch_accessed_variables=False` to the tape constructor:
+
+```python
+with tf.GradientTape(watch_accessed_variables=False) as tape:
+  tape.watch(variable_a)
+  y = variable_a ** 2  # Gradients will be available for `variable_a`.
+  z = variable_b ** 3  # No gradients will be avaialble since `variable_b` is
+                       # not being watched.
+```
+
+Note that when using models you should ensure that your variables exist when
+using `watch_accessed_variables=False`. Otherwise it's quite easy to make your
+first iteration not have any gradients:
+
+```python
+a = tf.keras.layers.Dense(32)
+b = tf.keras.layers.Dense(32)
+
+with tf.GradientTape(watch_accessed_variables=False) as tape:
+  tape.watch(a.variables)  # Since `a.build` has not been called at this point
+                           # `a.variables` will return an empty list and the
+                           # tape will not be watching anything.
+  result = b(a(inputs))
+  tape.gradient(result, a.variables)  # The result of this computation will be
+                                      # a list of `None`s since a's variables
+                                      # are not being watched.
+```
+
 Note that only tensors with real or complex dtypes are differentiable.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
-__init__(persistent=False)
+__init__(
+    persistent=False,
+    watch_accessed_variables=True
+)
 ```
 
 Creates a new GradientTape.
@@ -83,6 +118,12 @@ Creates a new GradientTape.
 * <b>`persistent`</b>: Boolean controlling whether a persistent gradient tape
     is created. False by default, which means at most one call can
     be made to the gradient() method on this object.
+* <b>`watch_accessed_variables`</b>: Boolean controlling whether the tape will
+    automatically `watch` any (trainable) variables accessed while the tape
+    is active. Defaults to True meaning gradients can be requested from any
+    result computed in the tape derived from reading a trainable `Variable`.
+    If False users must explicitly `watch` any `Variable`s they want to
+    request gradients from.
 
 
 

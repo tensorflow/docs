@@ -7,13 +7,16 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/nest.py).
 
 ## Functions for working with arbitrarily nested sequences of elements.
 
 This module can perform operations on nested structures. A nested structure is a
 Python sequence, tuple (including `namedtuple`), or dict that can contain
 further sequences, tuples, and dicts.
+
+attr.s decorated classes (http://www.attrs.org) are also supported, in the
+same way as `namedtuple`.
 
 The utilities here assume (and do not check) that the nested structures form a
 'tree', i.e., no references in the structure of the input of these functions

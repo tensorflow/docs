@@ -15,7 +15,7 @@ tf.keras.backend.in_train_phase(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Selects `x` in train phase, and `alt` otherwise.
 

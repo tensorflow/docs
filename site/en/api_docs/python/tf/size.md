@@ -15,9 +15,7 @@ tf.size(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Returns the size of a tensor.
 
@@ -36,12 +34,12 @@ tf.size(t)  # 12
 * <b>`input`</b>: A `Tensor` or `SparseTensor`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`out_type`</b>: (Optional) The specified non-quantized numeric output type
-    of the operation. Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+    of the operation. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 
 
 #### Returns:
 
-A `Tensor` of type `out_type`. Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+A `Tensor` of type `out_type`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 
 
 

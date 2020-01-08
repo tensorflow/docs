@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/callbacks/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/callbacks/__init__.py).
+
 
 Callbacks: utilities called at certain points during model training.
 

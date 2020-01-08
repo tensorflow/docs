@@ -17,7 +17,7 @@ tf.executing_eagerly()
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/context.py).
+Defined in [`tensorflow/python/eager/context.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/context.py).
 
 Returns True if the current thread has eager execution enabled.
 

@@ -11,9 +11,7 @@ tf.contrib.framework.list_variables(checkpoint_dir)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
-
-See the guide: [Framework (contrib) > Checkpoint utilities](../../../../../api_guides/python/contrib.framework#Checkpoint_utilities)
+Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
 Returns list of all variables in the latest checkpoint.
 

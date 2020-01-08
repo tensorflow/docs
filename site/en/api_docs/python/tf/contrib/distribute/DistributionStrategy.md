@@ -11,9 +11,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribute.py).
+Defined in [`tensorflow/python/training/distribute.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/distribute.py).
 
 A list of devices with a state & compute distribution policy.
+
+See [tensorflow/contrib/distribute/README.md](
+https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/README.md)
+for overview and examples.
 
 The intent is that you can write an algorithm in a stylized way and
 it will be usable with a variety of different `DistributionStrategy`
@@ -743,12 +747,18 @@ calling `fn`.
 * <b>`var`</b>: Variable, possibly mirrored to multiple devices, to operate on.
 * <b>`fn`</b>: Function to call. Should take the variable as the first argument.
 * <b>`*args`</b>: Additional positional arguments to pass to `fn()`.
-* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`.
+* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`. If "grouped=False" is
+    specified, the return value will be unwrapped.
 
 
 #### Returns:
 
-Merged return value of `fn` across all towers.
+By default, the merged return value of `fn` across all towers.  The merged
+result has dependencies to make sure that if it is evaluated at all, the
+side effects (updates) will happen on every tower. If instead
+"grouped=False" is specified, this function will return a nest of lists
+where each list has an element per tower, and the caller is responsible
+for ensuring all elements are executed.
 
 <h3 id="update_non_slot"><code>update_non_slot</code></h3>
 
@@ -768,7 +778,9 @@ Runs `fn(*args, **kwargs)` on `colocate_with` devices.
 * <b>`colocate_with`</b>: The return value of `non_slot_devices()`.
 * <b>`fn`</b>: Function to execute.
 * <b>`*args`</b>: Positional arguments to pass to `fn()`.
-* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`.
+* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`. If "grouped=False" is
+    specified, the return value will be unwrapped and the caller is
+    responsible for ensuring all elements are executed.
 
 
 #### Returns:

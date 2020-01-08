@@ -2,12 +2,12 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # Module: tf.estimator.inputs
-
-
-
-Defined in [`tensorflow/python/estimator/api/estimator/inputs/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/api/estimator/inputs/__init__.py).
 
 Utility methods to create simple input_fns.
 

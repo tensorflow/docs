@@ -15,11 +15,15 @@ tf.contrib.ffmpeg.encode_audio(
 
 
 
-Defined in [`tensorflow/contrib/ffmpeg/ffmpeg_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
+Defined in [`tensorflow/contrib/ffmpeg/ffmpeg_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
 
 See the guide: [FFmpeg (contrib) > Encoding and decoding audio using FFmpeg](../../../../../api_guides/python/contrib.ffmpeg#Encoding_and_decoding_audio_using_FFmpeg)
 
-Creates an op that encodes an audio file using sampled audio from a tensor.
+Creates an op that encodes an audio file using sampled audio from a tensor. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-09-04.
+Instructions for updating:
+This will be deleted and should not be used.
 
 #### Args:
 

@@ -11,7 +11,7 @@ tf.resource_loader.load_resource(path)
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/resource_loader.py).
+Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/resource_loader.py).
 
 Load the resource at given path, where path is relative to tensorflow/.
 

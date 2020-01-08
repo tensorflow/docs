@@ -19,7 +19,7 @@ tf.contrib.eager.make_template(
 
 
 
-Defined in [`tensorflow/python/ops/template.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/template.py).
+Defined in [`tensorflow/python/ops/template.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/template.py).
 
 Make a template, optionally compiling func_ into a graph function.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/_sklearn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/_sklearn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py).
 
 Exception class to raise if estimator is used before fitting.
 

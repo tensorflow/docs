@@ -11,9 +11,7 @@ tf.load_op_library(library_filename)
 
 
 
-Defined in [`tensorflow/python/framework/load_library.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/load_library.py).
-
-See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
+Defined in [`tensorflow/python/framework/load_library.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/load_library.py).
 
 Loads a TensorFlow plugin, containing custom ops and kernels.
 

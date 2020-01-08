@@ -19,7 +19,7 @@ tf.contrib.gan.eval.image_reshaper(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/eval_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/eval_utils_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/eval_utils_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/eval_utils_impl.py).
 
 A reshaped summary image.
 

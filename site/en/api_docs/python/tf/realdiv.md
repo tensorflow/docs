@@ -17,8 +17,6 @@ tf.realdiv(
 
 Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
 
-See the guide: [Math > Arithmetic Operators](../../../api_guides/python/math_ops#Arithmetic_Operators)
-
 Returns x / y element-wise for real types.
 
 If `x` and `y` are reals, this will return the floating-point division.

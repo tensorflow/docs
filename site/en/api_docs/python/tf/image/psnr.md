@@ -16,7 +16,7 @@ tf.image.psnr(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/image_ops_impl.py).
 
 Returns the Peak Signal-to-Noise Ratio between a and b.
 
@@ -52,5 +52,5 @@ Example:
 
 #### Returns:
 
-The scalar PSNR between a and b. The returned tensor has type <a href="../../tf/float32"><code>tf.float32</code></a>
+The scalar PSNR between a and b. The returned tensor has type <a href="../../tf#float32"><code>tf.float32</code></a>
 and shape [batch_size, 1].

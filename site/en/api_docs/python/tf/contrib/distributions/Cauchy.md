@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/cauchy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/cauchy.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/cauchy.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/cauchy.py).
 
 The Cauchy distribution with location `loc` and scale `scale`.
 
@@ -39,7 +39,8 @@ Y = loc + scale * X
 Examples of initialization of one or a batch of distributions.
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Define a single scalar Cauchy distribution.
 dist = tfd.Cauchy(loc=0., scale=3.)
@@ -330,7 +331,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -424,7 +425,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

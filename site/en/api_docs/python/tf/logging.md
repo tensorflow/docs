@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/logging/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/logging/__init__.py).
+
 
 Logging and Summary Operations.
 
@@ -45,13 +45,13 @@ Logging and Summary Operations.
 
 ## Other Members
 
-`DEBUG`
+<h3 id="DEBUG"><code>DEBUG</code></h3>
 
-`ERROR`
+<h3 id="ERROR"><code>ERROR</code></h3>
 
-`FATAL`
+<h3 id="FATAL"><code>FATAL</code></h3>
 
-`INFO`
+<h3 id="INFO"><code>INFO</code></h3>
 
-`WARN`
+<h3 id="WARN"><code>WARN</code></h3>
 

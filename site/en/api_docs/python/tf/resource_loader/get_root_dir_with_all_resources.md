@@ -11,7 +11,7 @@ tf.resource_loader.get_root_dir_with_all_resources()
 
 
 
-Defined in [`tensorflow/python/platform/resource_loader.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/resource_loader.py).
+Defined in [`tensorflow/python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/resource_loader.py).
 
 Get a root directory containing all the data attributes in the build rule.
 

@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/reshape.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/reshape.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/reshape.py).
 
 Reshapes the `event_shape` of a `Tensor`.
 
@@ -32,9 +32,10 @@ Example usage:
 
 ```python
 
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfb = tfp.bijectors
 
-r = tfd.bijectors.Reshape(event_shape_out=[1, -1])
+r = tfb.Reshape(event_shape_out=[1, -1])
 
 r.forward([3., 4.])    # shape [2]
 # ==> [[3., 4.]]       # shape [1, 2]

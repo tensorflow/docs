@@ -16,8 +16,6 @@ tf.stop_gradient(
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
 
-See the guide: [Training > Gradient Computation](../../../api_guides/python/train#Gradient_Computation)
-
 Stops gradient computation.
 
 When executed in a graph, this op outputs its input tensor as-is.

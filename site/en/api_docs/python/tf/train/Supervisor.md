@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/supervisor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/supervisor.py).
-
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+Defined in [`tensorflow/python/training/supervisor.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/supervisor.py).
 
 A training helper that checkpoints models and computes summaries.
 
@@ -218,10 +216,9 @@ Please switch to tf.train.MonitoredTrainingSession
 * <b>`ready_for_local_init_op`</b>: 1-D string `Tensor`.  This tensor is evaluated by
     supervisors in `prepare_or_wait_for_session()` to check if the model is
     ready to run the local_init_op.
-    The model is considered ready if it returns an empty array.  Defaults to
-    the tensor returned from
-    `tf.report_uninitialized_variables(tf.global_variables())`. If `None`,
-    the model is not checked for readiness before running local_init_op.
+    The model is considered ready if it returns an empty array. Defaults to
+    `None`. If `None`, the model is not checked for readiness before running
+    local_init_op.
 * <b>`is_chief`</b>: If True, create a chief supervisor in charge of initializing
     and restoring the model.  If False, create a supervisor that relies
     on a chief supervisor for inits and restore.

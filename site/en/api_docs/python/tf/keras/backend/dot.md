@@ -14,7 +14,7 @@ tf.keras.backend.dot(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Multiplies 2 tensors (and/or variables) and returns a *tensor*.
 

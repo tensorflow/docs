@@ -25,7 +25,7 @@ tf.contrib.training.evaluate_repeatedly(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/evaluation.py).
 
 Repeatedly searches for a checkpoint in `checkpoint_dir` and evaluates it.
 

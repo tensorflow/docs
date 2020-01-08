@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/profiler/tfprof_output.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/profiler/tfprof_output.proto).
+Defined in [`tensorflow/core/profiler/tfprof_output.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/profiler/tfprof_output.proto).
 
 
 

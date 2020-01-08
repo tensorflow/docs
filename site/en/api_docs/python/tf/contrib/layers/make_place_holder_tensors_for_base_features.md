@@ -11,9 +11,7 @@ tf.contrib.layers.make_place_holder_tensors_for_base_features(feature_columns)
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 Returns placeholder tensors for inference.
 

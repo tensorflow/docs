@@ -16,7 +16,9 @@ tf.contrib.deprecated.histogram_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/logging_ops.py).
+
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Outputs a `Summary` protocol buffer with a histogram. (deprecated)
 
@@ -30,7 +32,7 @@ For an explanation of why this op was deprecated, and information on how to
 migrate, look ['here'](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/deprecated/__init__.py)
 
 The generated
-[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/summary.proto)
+[`Summary`](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/summary.proto)
 has one summary value containing a histogram for `values`.
 
 This op reports an `InvalidArgument` error if any value is not finite.

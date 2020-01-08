@@ -20,7 +20,7 @@ tf.contrib.rnn.stack_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/rnn.py).
 
 Creates a bidirectional recurrent neural network.
 

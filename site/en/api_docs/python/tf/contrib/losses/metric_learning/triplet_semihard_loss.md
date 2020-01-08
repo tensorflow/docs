@@ -15,7 +15,7 @@ tf.contrib.losses.metric_learning.triplet_semihard_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
 Computes the triplet loss with semi-hard negative mining.
 

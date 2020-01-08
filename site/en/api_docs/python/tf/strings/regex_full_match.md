@@ -15,7 +15,7 @@ tf.strings.regex_full_match(
 
 
 
-Defined in generated file: `tensorflow/python/ops/gen_string_ops.py`.
+Defined in [`tensorflow/python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/string_ops.py).
 
 Check if the input matches the regex pattern.
 
@@ -31,7 +31,7 @@ The pattern follows the re2 syntax (https://github.com/google/re2/wiki/Syntax)
 * <b>`input`</b>: A `Tensor` of type `string`.
     A string tensor of the text to be processed.
 * <b>`pattern`</b>: A `Tensor` of type `string`.
-    A 1-D string tensor of the regular expression to match the input.
+    A scalar string tensor containing the regular expression to match the input.
 * <b>`name`</b>: A name for the operation (optional).
 
 

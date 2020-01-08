@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
-
-See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
+Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
 
 Abstract object representing a fused RNN cell.
 

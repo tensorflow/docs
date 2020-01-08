@@ -16,9 +16,9 @@ tf.setdiff1d(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
-See the guides: [Math > Sequence Comparison and Indexing](../../../api_guides/python/math_ops#Sequence_Comparison_and_Indexing), [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Computes the difference between two lists of numbers or strings.
 
@@ -48,7 +48,7 @@ idx ==> [1, 3, 5]
 
 * <b>`x`</b>: A `Tensor`. 1-D. Values to keep.
 * <b>`y`</b>: A `Tensor`. Must have the same type as `x`. 1-D. Values to remove.
-* <b>`out_idx`</b>: An optional <a href="../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

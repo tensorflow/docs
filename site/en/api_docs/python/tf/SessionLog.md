@@ -16,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/util/event.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/util/event.proto).
+Defined in [`tensorflow/core/util/event.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/util/event.proto).
 
 
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/periodic_resample/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/periodic_resample/__init__.py).
+Defined in [`tensorflow/contrib/periodic_resample/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/periodic_resample/__init__.py).
 
 Custom op used by periodic_resample.
 

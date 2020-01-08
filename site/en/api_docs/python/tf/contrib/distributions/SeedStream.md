@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/seed_stream.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/seed_stream.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/seed_stream.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/seed_stream.py).
 
 Local PRNG for amplifying seed entropy into seeds for base operations.
 

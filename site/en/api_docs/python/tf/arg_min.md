@@ -33,7 +33,7 @@ Note that in case of ties the identity of the return value is not guaranteed.
     int32 or int64, must be in the range `[-rank(input), rank(input))`.
     Describes which dimension of the input Tensor to reduce across. For vectors,
     use dimension = 0.
-* <b>`output_type`</b>: An optional <a href="../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/int64"><code>tf.int64</code></a>.
+* <b>`output_type`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int64"><code>tf.int64</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

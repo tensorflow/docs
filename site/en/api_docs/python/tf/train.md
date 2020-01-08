@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/train/__init__.py).
+
 
 Support for training models.
 
@@ -149,11 +149,13 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`basic_train_loop(...)`](../tf/train/basic_train_loop): Basic loop to train a model.
 
-[`batch(...)`](../tf/train/batch): Creates batches of tensors in `tensors`.
+[`batch(...)`](../tf/train/batch): Creates batches of tensors in `tensors`. (deprecated)
 
-[`batch_join(...)`](../tf/train/batch_join): Runs a list of tensors to fill a queue to create batches of examples.
+[`batch_join(...)`](../tf/train/batch_join): Runs a list of tensors to fill a queue to create batches of examples. (deprecated)
 
 [`checkpoint_exists(...)`](../tf/train/checkpoint_exists): Checks whether a V1 or V2 checkpoint exists with the specified prefix.
+
+[`confusion_matrix(...)`](../tf/train/confusion_matrix): Computes the confusion matrix from predictions and labels.
 
 [`cosine_decay(...)`](../tf/train/cosine_decay): Applies cosine decay to the learning rate.
 
@@ -161,7 +163,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`create_global_step(...)`](../tf/train/create_global_step): Create global step tensor in graph.
 
-[`do_quantize_training_on_graphdef(...)`](../tf/train/do_quantize_training_on_graphdef): A general quantization scheme is being developed in <a href="../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>.
+[`do_quantize_training_on_graphdef(...)`](../tf/train/do_quantize_training_on_graphdef): A general quantization scheme is being developed in <a href="../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>. (deprecated)
 
 [`exponential_decay(...)`](../tf/train/exponential_decay): Applies exponential decay to the learning rate.
 
@@ -183,13 +185,13 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`init_from_checkpoint(...)`](../tf/train/init_from_checkpoint): Initializes current variables with tensors loaded from given checkpoint.
 
-[`input_producer(...)`](../tf/train/input_producer): Output the rows of `input_tensor` to a queue for an input pipeline.
+[`input_producer(...)`](../tf/train/input_producer): Output the rows of `input_tensor` to a queue for an input pipeline. (deprecated)
 
 [`inverse_time_decay(...)`](../tf/train/inverse_time_decay): Applies inverse time decay to the initial learning rate.
 
 [`latest_checkpoint(...)`](../tf/train/latest_checkpoint): Finds the filename of latest saved checkpoint file.
 
-[`limit_epochs(...)`](../tf/train/limit_epochs): Returns tensor `num_epochs` times and then raises an `OutOfRange` error.
+[`limit_epochs(...)`](../tf/train/limit_epochs): Returns tensor `num_epochs` times and then raises an `OutOfRange` error. (deprecated)
 
 [`linear_cosine_decay(...)`](../tf/train/linear_cosine_decay): Applies linear cosine decay to the learning rate.
 
@@ -199,15 +201,15 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`load_variable(...)`](../tf/train/load_variable): Returns the tensor value of the given variable in the checkpoint.
 
-[`match_filenames_once(...)`](../tf/train/match_filenames_once): Save the list of files matching pattern, so it is only computed once.
+[`match_filenames_once(...)`](../tf/io/match_filenames_once): Save the list of files matching pattern, so it is only computed once.
 
-[`maybe_batch(...)`](../tf/train/maybe_batch): Conditionally creates batches of tensors based on `keep_input`.
+[`maybe_batch(...)`](../tf/train/maybe_batch): Conditionally creates batches of tensors based on `keep_input`. (deprecated)
 
-[`maybe_batch_join(...)`](../tf/train/maybe_batch_join): Runs a list of tensors to conditionally fill a queue to create batches.
+[`maybe_batch_join(...)`](../tf/train/maybe_batch_join): Runs a list of tensors to conditionally fill a queue to create batches. (deprecated)
 
-[`maybe_shuffle_batch(...)`](../tf/train/maybe_shuffle_batch): Creates batches by randomly shuffling conditionally-enqueued tensors.
+[`maybe_shuffle_batch(...)`](../tf/train/maybe_shuffle_batch): Creates batches by randomly shuffling conditionally-enqueued tensors. (deprecated)
 
-[`maybe_shuffle_batch_join(...)`](../tf/train/maybe_shuffle_batch_join): Create batches by randomly shuffling conditionally-enqueued tensors.
+[`maybe_shuffle_batch_join(...)`](../tf/train/maybe_shuffle_batch_join): Create batches by randomly shuffling conditionally-enqueued tensors. (deprecated)
 
 [`natural_exp_decay(...)`](../tf/train/natural_exp_decay): Applies natural exponential decay to the initial learning rate.
 
@@ -217,7 +219,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`polynomial_decay(...)`](../tf/train/polynomial_decay): Applies a polynomial decay to the learning rate.
 
-[`range_input_producer(...)`](../tf/train/range_input_producer): Produces the integers from 0 to limit-1 in a queue.
+[`range_input_producer(...)`](../tf/train/range_input_producer): Produces the integers from 0 to limit-1 in a queue. (deprecated)
 
 [`remove_checkpoint(...)`](../tf/train/remove_checkpoint): Removes a checkpoint given by `checkpoint_prefix`.
 
@@ -229,15 +231,15 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`sdca_shrink_l1(...)`](../tf/train/sdca_shrink_l1): Applies L1 regularization shrink step on the parameters.
 
-[`shuffle_batch(...)`](../tf/train/shuffle_batch): Creates batches by randomly shuffling tensors.
+[`shuffle_batch(...)`](../tf/train/shuffle_batch): Creates batches by randomly shuffling tensors. (deprecated)
 
-[`shuffle_batch_join(...)`](../tf/train/shuffle_batch_join): Create batches by randomly shuffling tensors.
+[`shuffle_batch_join(...)`](../tf/train/shuffle_batch_join): Create batches by randomly shuffling tensors. (deprecated)
 
-[`slice_input_producer(...)`](../tf/train/slice_input_producer): Produces a slice of each `Tensor` in `tensor_list`.
+[`slice_input_producer(...)`](../tf/train/slice_input_producer): Produces a slice of each `Tensor` in `tensor_list`. (deprecated)
 
 [`start_queue_runners(...)`](../tf/train/start_queue_runners): Starts all queue runners collected in the graph. (deprecated)
 
-[`string_input_producer(...)`](../tf/train/string_input_producer): Output strings (e.g. filenames) to a queue for an input pipeline.
+[`string_input_producer(...)`](../tf/train/string_input_producer): Output strings (e.g. filenames) to a queue for an input pipeline. (deprecated)
 
 [`summary_iterator(...)`](../tf/train/summary_iterator): An iterator for reading `Event` protocol buffers from an event file.
 
@@ -245,5 +247,5 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`warm_start(...)`](../tf/train/warm_start): Warm-starts a model using the given settings.
 
-[`write_graph(...)`](../tf/train/write_graph): Writes a graph proto to a file.
+[`write_graph(...)`](../tf/io/write_graph): Writes a graph proto to a file.
 

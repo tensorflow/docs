@@ -18,9 +18,7 @@ tf.hessians(
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/gradients_impl.py).
-
-See the guide: [Training > Gradient Computation](../../../api_guides/python/train#Gradient_Computation)
+Defined in [`tensorflow/python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/gradients_impl.py).
 
 Constructs the Hessian of sum of `ys` with respect to `x` in `xs`.
 

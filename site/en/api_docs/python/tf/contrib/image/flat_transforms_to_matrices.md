@@ -11,7 +11,7 @@ tf.contrib.image.flat_transforms_to_matrices(transforms)
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Converts <a href="../../../tf/contrib/image"><code>tf.contrib.image</code></a> projective transforms to affine matrices.
 

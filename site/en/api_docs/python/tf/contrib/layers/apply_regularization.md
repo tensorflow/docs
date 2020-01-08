@@ -14,9 +14,7 @@ tf.contrib.layers.apply_regularization(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/regularizers.py).
-
-See the guide: [Layers (contrib) > Regularizers](../../../../../api_guides/python/contrib.layers#Regularizers)
+Defined in [`tensorflow/contrib/layers/python/layers/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/regularizers.py).
 
 Returns the summed penalty by applying `regularizer` to the `weights_list`.
 

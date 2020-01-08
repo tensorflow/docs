@@ -17,7 +17,7 @@ tf.profiler.write_op_log(
 
 
 
-Defined in [`tensorflow/python/profiler/tfprof_logger.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/profiler/tfprof_logger.py).
+Defined in [`tensorflow/python/profiler/tfprof_logger.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/profiler/tfprof_logger.py).
 
 Log provided 'op_log', and add additional model information below.
 

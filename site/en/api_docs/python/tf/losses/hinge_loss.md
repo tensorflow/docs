@@ -18,7 +18,7 @@ tf.losses.hinge_loss(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/losses/losses_impl.py).
 
 Adds a hinge loss to the training procedure.
 

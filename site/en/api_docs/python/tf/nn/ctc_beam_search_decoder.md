@@ -17,7 +17,7 @@ tf.nn.ctc_beam_search_decoder(
 
 
 
-Defined in [`tensorflow/python/ops/ctc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/ctc_ops.py).
+Defined in [`tensorflow/python/ops/ctc_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/ctc_ops.py).
 
 See the guide: [Neural Network > Connectionist Temporal Classification (CTC)](../../../../api_guides/python/nn#Connectionist_Temporal_Classification_CTC_)
 
@@ -29,11 +29,11 @@ that decoder is faster for this special case).
 
 If `merge_repeated` is `True`, merge repeated classes in the output beams.
 This means that if consecutive entries in a beam are the same,
-only the first of these is emitted.  That is, when the top path
-is `A B B B B`, the return value is:
+only the first of these is emitted.  That is, when the sequence is
+`A B B * B * B` (where '*' is the blank label), the return value is:
 
   * `A B` if `merge_repeated = True`.
-  * `A B B B B` if `merge_repeated = False`.
+  * `A B B B` if `merge_repeated = False`.
 
 #### Args:
 

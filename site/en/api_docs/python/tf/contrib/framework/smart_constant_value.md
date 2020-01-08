@@ -11,7 +11,7 @@ tf.contrib.framework.smart_constant_value(pred)
 
 
 
-Defined in [`tensorflow/python/framework/smart_cond.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/smart_cond.py).
+Defined in [`tensorflow/python/framework/smart_cond.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/smart_cond.py).
 
 Return the bool value for `pred`, or None if `pred` had a dynamic value.
 

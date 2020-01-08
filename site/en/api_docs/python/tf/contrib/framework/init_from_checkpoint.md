@@ -14,9 +14,7 @@ tf.contrib.framework.init_from_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
-
-See the guide: [Framework (contrib) > Checkpoint utilities](../../../../../api_guides/python/contrib.framework#Checkpoint_utilities)
+Defined in [`tensorflow/contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
 Using assignment map initializes current variables with loaded tensors.
 

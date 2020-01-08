@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/example/example.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/example/example.proto).
+Defined in [`tensorflow/core/example/example.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/example/example.proto).
 
 See the guide: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_)
 

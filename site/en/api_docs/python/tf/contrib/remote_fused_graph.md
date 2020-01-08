@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/remote_fused_graph/pylib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/remote_fused_graph/pylib/__init__.py).
+Defined in [`tensorflow/contrib/remote_fused_graph/pylib/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/remote_fused_graph/pylib/__init__.py).
 
 Remote fused graph ops python library.
 

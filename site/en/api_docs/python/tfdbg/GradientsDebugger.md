@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_gradients.py).
+Defined in [`tensorflow/python/debug/lib/debug_gradients.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/lib/debug_gradients.py).
 
 Gradients Debugger.
 

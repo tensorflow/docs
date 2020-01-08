@@ -16,7 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/dirichlet.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/dirichlet.py).
+Defined in [`tensorflow/python/ops/distributions/dirichlet.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/dirichlet.py).
 
 Dirichlet distribution.
 
@@ -76,10 +76,13 @@ Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
 #### Examples
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Create a single trivariate Dirichlet, with the 3rd class being three times
 # more frequent than the first. I.e., batch_shape=[], event_shape=[3].
 alpha = [1., 2, 3]
-dist = tf.distributions.Dirichlet(alpha)
+dist = tfd.Dirichlet(alpha)
 
 dist.sample([4, 5])  # shape: [4, 5, 3]
 
@@ -101,7 +104,7 @@ dist.prob(x)  # shape: [5, 7]
 # Create batch_shape=[2], event_shape=[3]:
 alpha = [[1., 2, 3],
          [4, 5, 6]]   # shape: [2, 3]
-dist = tf.distributions.Dirichlet(alpha)
+dist = tfd.Dirichlet(alpha)
 
 dist.sample([4, 5])  # shape: [4, 5, 2, 3]
 
@@ -116,7 +119,7 @@ Compute the gradients of samples w.r.t. the parameters:
 
 ```python
 alpha = tf.constant([1.0, 2.0, 3.0])
-dist = tf.distributions.Dirichlet(alpha)
+dist = tfd.Dirichlet(alpha)
 samples = dist.sample(5)  # Shape [5, 3]
 loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
 # Unbiased stochastic gradients of the loss function
@@ -376,7 +379,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -470,7 +473,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

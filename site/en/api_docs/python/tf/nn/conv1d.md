@@ -20,7 +20,7 @@ tf.nn.conv1d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
@@ -58,7 +58,7 @@ returned to the caller.
 
 #### Args:
 
-* <b>`value`</b>: A 3D `Tensor`.  Must be of type `float16` or `float32`.
+* <b>`value`</b>: A 3D `Tensor`.  Must be of type `float16`, `float32`, or `float64`.
 * <b>`filters`</b>: A 3D `Tensor`.  Must have the same type as `value`.
 * <b>`stride`</b>: An `integer`.  The number of entries by which
     the filter is moved right at each step.

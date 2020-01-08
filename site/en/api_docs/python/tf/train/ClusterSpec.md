@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/server_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/server_lib.py).
-
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+Defined in [`tensorflow/python/training/server_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/server_lib.py).
 
 Represents a cluster as a set of "tasks", organized into "jobs".
 

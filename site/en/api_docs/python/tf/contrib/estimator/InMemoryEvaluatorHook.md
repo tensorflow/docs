@@ -11,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/hooks.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/hooks.py).
 
 Hook to run evaluation in training without a checkpoint.
 
@@ -34,6 +34,7 @@ estimator.train(train_input_fn, hooks=[evaluator])
 ```
 
 Current limitations of this approach are:
+
 * It doesn't support multi-node distributed mode.
 * It doesn't support saveable objects other than variables (such as boosted
   tree support)
@@ -57,7 +58,7 @@ Initializes a `InMemoryEvaluatorHook`.
 
 #### Args:
 
-* <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> instance to call evaluate.
+* <b>`estimator`</b>: A `tf.estimator.Estimator` instance to call evaluate.
 * <b>`input_fn`</b>:  Equivalent to the `input_fn` arg to `estimator.evaluate`. A
     function that constructs the input data for evaluation.
     See [Createing input functions](

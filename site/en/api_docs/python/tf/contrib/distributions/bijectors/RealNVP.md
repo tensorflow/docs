@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
 
 RealNVP "affine coupling layer" for vector-valued events.
 
@@ -67,8 +67,9 @@ graph execution (which is the case if using tf.layers).
 #### Example Use
 
 ```python
-tfd = tf.contrib.distributions
-tfb = tfd.bijectors
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+tfb = tfp.bijectors
 
 # A common choice for a normalizing flow is to use a Gaussian for the base
 # distribution. (However, any continuous distribution would work.) E.g.,

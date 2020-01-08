@@ -18,7 +18,7 @@ tf.contrib.distributions.bijectors.real_nvp_default_template(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
 
 Build a scale-and-shift function using a multi-layer neural network. (deprecated)
 

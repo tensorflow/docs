@@ -7,13 +7,11 @@ page_type: reference
 
 ## Class `NotFoundError`
 
-Inherits From: [`OpError`](../../tf/OpError)
+Inherits From: [`OpError`](../../tf/errors/OpError)
 
 
 
-Defined in [`tensorflow/python/framework/errors_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/errors_impl.py).
-
-See the guide: [Running Graphs > Error classes and convenience functions](../../../../api_guides/python/client#Error_classes_and_convenience_functions)
+Defined in [`tensorflow/python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/errors_impl.py).
 
 Raised when a requested entity (e.g., a file or directory) was not found.
 
@@ -59,7 +57,7 @@ The operation that failed, if known.
 or `Recv` op, there will be no corresponding
 <a href="../../tf/Operation"><code>tf.Operation</code></a>
 object.  In that case, this will return `None`, and you should
-instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.OpError.node_def</code></a> to
+instead use the <a href="../../tf/errors/OpError#node_def"><code>tf.errors.OpError.node_def</code></a> to
 discover information about the op.
 
 #### Returns:

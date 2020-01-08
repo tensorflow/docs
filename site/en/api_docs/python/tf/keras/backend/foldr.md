@@ -16,7 +16,7 @@ tf.keras.backend.foldr(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Reduce elems using fn to combine them from right to left.
 

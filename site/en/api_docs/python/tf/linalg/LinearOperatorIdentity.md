@@ -9,16 +9,9 @@ page_type: reference
 
 
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorIdentity`
-* Class `tf.linalg.LinearOperatorIdentity`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_identity.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_identity.py).
-
-See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
+Defined in [`tensorflow/python/ops/linalg/linear_operator_identity.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_identity.py).
 
 `LinearOperator` acting like a [batch] square identity matrix.
 

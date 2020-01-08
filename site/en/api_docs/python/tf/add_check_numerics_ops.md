@@ -11,9 +11,7 @@ tf.add_check_numerics_ops()
 
 
 
-Defined in [`tensorflow/python/ops/numerics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/numerics.py).
-
-See the guide: [Control Flow > Debugging Operations](../../../api_guides/python/control_flow_ops#Debugging_Operations)
+Defined in [`tensorflow/python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/numerics.py).
 
 Connect a `check_numerics` to every floating point tensor.
 

@@ -17,7 +17,7 @@ tf.contrib.distributions.quadrature_scheme_lognormal_gauss_hermite(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/poisson_lognormal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/poisson_lognormal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/poisson_lognormal.py).
 
 Use Gauss-Hermite quadrature to form quadrature on positive-reals. (deprecated)
 

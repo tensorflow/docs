@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/elastic_average_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/opt/python/training/elastic_average_optimizer.py).
 
 Custom_getter class is used to do:
 1. Change trainable variables to local collection and place them at worker

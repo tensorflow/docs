@@ -11,7 +11,7 @@ Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/momentum.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/momentum.py).
+Defined in [`tensorflow/contrib/optimizer_v2/momentum.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/optimizer_v2/momentum.py).
 
 Optimizer that implements the Momentum algorithm.
 

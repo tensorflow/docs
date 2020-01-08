@@ -14,7 +14,7 @@ tf.train.load_variable(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_utils.py).
 
 Returns the tensor value of the given variable in the checkpoint.
 

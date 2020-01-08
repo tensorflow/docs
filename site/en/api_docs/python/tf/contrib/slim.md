@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/slim/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/slim/__init__.py).
+Defined in [`tensorflow/contrib/slim/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/slim/__init__.py).
 
 Slim is an interface to contrib functions, examples and models.
 

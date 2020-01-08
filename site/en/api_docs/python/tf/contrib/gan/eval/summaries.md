@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/summaries.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/summaries.py).
 
 Common TFGAN summaries.
 
@@ -27,5 +27,5 @@ Common TFGAN summaries.
 
 ## Other Members
 
-`__all__`
+<h3 id="__all__"><code>__all__</code></h3>
 

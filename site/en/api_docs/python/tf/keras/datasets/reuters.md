@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/datasets/reuters/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/datasets/reuters/__init__.py).
+
 
 Reuters topic classification dataset.
 

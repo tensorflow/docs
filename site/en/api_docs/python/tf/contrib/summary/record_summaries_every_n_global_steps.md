@@ -14,6 +14,6 @@ tf.contrib.summary.record_summaries_every_n_global_steps(
 
 
 
-Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/summary_ops_v2.py).
+Defined in [`tensorflow/python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/summary_ops_v2.py).
 
 Sets the should_record_summaries Tensor to true if global_step % n == 0.

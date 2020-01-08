@@ -17,7 +17,7 @@ tf.py_func(
 
 
 
-Defined in [`tensorflow/python/ops/script_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/script_ops.py).
+Defined in [`tensorflow/python/ops/script_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/script_ops.py).
 
 Wraps a python function and uses it as a TensorFlow op.
 

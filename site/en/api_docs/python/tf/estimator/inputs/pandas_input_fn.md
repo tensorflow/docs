@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.inputs.pandas_input_fn
 
@@ -17,10 +21,6 @@ tf.estimator.inputs.pandas_input_fn(
     target_column='target'
 )
 ```
-
-
-
-Defined in [`tensorflow/python/estimator/inputs/pandas_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/inputs/pandas_io.py).
 
 Returns input function that would feed Pandas DataFrame into the model.
 

@@ -7,11 +7,11 @@ page_type: reference
 
 ## Class `RunConfig`
 
-Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
+
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
 
 RunConfig with TPU support.
 

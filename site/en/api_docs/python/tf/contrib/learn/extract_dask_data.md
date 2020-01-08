@@ -11,9 +11,7 @@ tf.contrib.learn.extract_dask_data(data)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
-
-See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/dask_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/learn_io/dask_io.py).
 
 Extract data from dask.Series or dask.DataFrame for predictors. (deprecated)
 

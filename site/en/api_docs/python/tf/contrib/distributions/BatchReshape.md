@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/batch_reshape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/batch_reshape.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/batch_reshape.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/batch_reshape.py).
 
 The Batch-Reshaping distribution.
 
@@ -21,7 +21,8 @@ distribution.
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 dtype = np.float32
 dims = 2
@@ -308,7 +309,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -402,7 +403,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

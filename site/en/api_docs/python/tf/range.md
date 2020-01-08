@@ -12,7 +12,7 @@ tf.range(start, limit, delta=1, dtype=None, name='range')
 
 
 
-Defined in [`tensorflow/python/ops/math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/math_ops.py).
+Defined in [`tensorflow/python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/math_ops.py).
 
 See the guide: [Constants, Sequences, and Random Values > Sequences](../../../api_guides/python/constant_op#Sequences)
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/monitor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/monitor.py).
+Defined in [`tensorflow/contrib/distribute/python/monitor.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/python/monitor.py).
 
 Executes training steps, recovers and checkpoints.
 

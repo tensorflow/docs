@@ -17,7 +17,7 @@ tf.feature_column.numeric_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 Represents real valued or numerical features.
 
@@ -48,11 +48,11 @@ linear_prediction = linear_model(features, columns)
 * <b>`default_value`</b>: A single value compatible with `dtype` or an iterable of
     values compatible with `dtype` which the column takes on during
     `tf.Example` parsing if data is missing. A default value of `None` will
-    cause <a href="../../tf/parse_example"><code>tf.parse_example</code></a> to fail if an example does not contain this
+    cause <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a> to fail if an example does not contain this
     column. If a single value is provided, the same value will be applied as
     the default value for every item. If an iterable of values is provided,
     the shape of the `default_value` should be equal to the given `shape`.
-* <b>`dtype`</b>: defines the type of values. Default value is <a href="../../tf/float32"><code>tf.float32</code></a>. Must be a
+* <b>`dtype`</b>: defines the type of values. Default value is <a href="../../tf#float32"><code>tf.float32</code></a>. Must be a
     non-quantized, real integer or floating point type.
 * <b>`normalizer_fn`</b>: If not `None`, a function that can be used to normalize the
     value of the tensor after `default_value` is applied for parsing.
@@ -73,4 +73,4 @@ A `_NumericColumn`.
 * <b>`ValueError`</b>: if any dimension in shape is not a positive integer
 * <b>`TypeError`</b>: if `default_value` is an iterable but not compatible with `shape`
 * <b>`TypeError`</b>: if `default_value` is not compatible with `dtype`.
-* <b>`ValueError`</b>: if `dtype` is not convertible to <a href="../../tf/float32"><code>tf.float32</code></a>.
+* <b>`ValueError`</b>: if `dtype` is not convertible to <a href="../../tf#float32"><code>tf.float32</code></a>.

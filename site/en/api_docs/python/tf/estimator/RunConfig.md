@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.RunConfig
 
 ## Class `RunConfig`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/run_config.py).
 
 This class specifies the configurations for an `Estimator` run.
 
@@ -31,8 +31,7 @@ __init__(
     train_distribute=None,
     device_fn=None,
     protocol=None,
-    eval_distribute=None,
-    experimental_distribute=None
+    eval_distribute=None
 )
 ```
 
@@ -164,10 +163,9 @@ find the checkpoint due to race condition.
 * <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
     global step/sec and the loss will be logged during training.
 * <b>`train_distribute`</b>: An optional instance of
-    <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
+    `tf.contrib.distribute.DistributionStrategy`. If specified,
     then Estimator will distribute the user's model during training,
-    according to the policy specified by that strategy. Setting
-    `experimental_distribute.train_distribute` is preferred.
+    according to the policy specified by that strategy.
 * <b>`device_fn`</b>: A callable invoked for every `Operation` that takes the
     `Operation` and returns the device string. If `None`, defaults to
     the device function returned by <a href="../../tf/train/replica_device_setter"><code>tf.train.replica_device_setter</code></a>
@@ -175,15 +173,9 @@ find the checkpoint due to race condition.
 * <b>`protocol`</b>: An optional argument which specifies the protocol used when
     starting server. None means default to grpc.
 * <b>`eval_distribute`</b>: An optional instance of
-    <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a>. If specified,
+    `tf.contrib.distribute.DistributionStrategy`. If specified,
     then Estimator will distribute the user's model during evaluation,
-    according to the policy specified by that strategy. Setting
-    `experimental_distribute.eval_distribute` is preferred.
-* <b>`experimental_distribute`</b>: an optional
-    <a href="../../tf/contrib/distribute/DistributeConfig"><code>tf.contrib.distribute.DistributeConfig</code></a> object specifying
-    DistributionStrategy-related configuration. The `train_distribute` and
-    `eval_distribute` can be passed as parameters to `RunConfig` or set in
-    `experimental_distribute` but not both.
+    according to the policy specified by that strategy.
 
 
 #### Raises:
@@ -209,7 +201,7 @@ Otherwise the default one is used.
 
 <h3 id="eval_distribute"><code>eval_distribute</code></h3>
 
-Optional <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for evaluation.
+Optional `tf.contrib.distribute.DistributionStrategy` for evaluation.
     
 
 <h3 id="evaluation_master"><code>evaluation_master</code></h3>
@@ -326,7 +318,7 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 <h3 id="train_distribute"><code>train_distribute</code></h3>
 
-Optional <a href="../../tf/contrib/distribute/DistributionStrategy"><code>tf.contrib.distribute.DistributionStrategy</code></a> for training.
+Optional `tf.contrib.distribute.DistributionStrategy` for training.
     
 
 
@@ -356,7 +348,6 @@ Only the properties in the following list are allowed to be replaced:
   - `device_fn`,
   - `protocol`.
   - `eval_distribute`,
-  - `experimental_distribute`,
 
 In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
 can be set (should not be both).

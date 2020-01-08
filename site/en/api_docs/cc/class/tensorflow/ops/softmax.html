@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Softmax Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -15,11 +15,11 @@
   <p>For each batch <code>i</code> and class <code>j</code> we have <pre class="prettyprint">$$softmax[i, j] = exp(logits[i, j]) / sum_j(exp(logits[i, j]))$$
 </pre></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>logits: 2-D with shape <code>[batch_size, num_classes]</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same shape as <code>logits</code>. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same shape as <code>logits</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_softmax_1a565ed3a9b8adbafdb0a1b2061ce9cb08">Softmax</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_softmax_1a565ed3a9b8adbafdb0a1b2061ce9cb08">Softmax</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits)</code>
         <br />
       </td>
     </tr>
@@ -42,11 +42,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_softmax_1ae62568a4488f40832dac845de04cff94">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_softmax_1af8238048a2a280f84eee57c9c1919084">softmax</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -89,17 +99,22 @@
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_softmax_1ae62568a4488f40832dac845de04cff94">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_softmax_1af8238048a2a280f84eee57c9c1919084">
     <h3>softmax</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> softmax</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> softmax</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_softmax_1a565ed3a9b8adbafdb0a1b2061ce9cb08">
     <h3>Softmax</h3>
     <pre class="prettyprint"> Softmax(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> logits
 )</pre>
     <div />
   </div>

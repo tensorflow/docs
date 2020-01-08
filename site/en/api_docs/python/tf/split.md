@@ -17,13 +17,13 @@ tf.split(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Splits a tensor into sub tensors.
 
-If `num_or_size_splits` is an integer type, `num_split`, then splits `value`
+If `num_or_size_splits` is an integer type, then `value` is split
 along dimension `axis` into `num_split` smaller tensors.
 Requires that `num_split` evenly divides `value.shape[axis]`.
 

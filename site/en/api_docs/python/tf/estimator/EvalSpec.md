@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.EvalSpec
 
 ## Class `EvalSpec`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
 
 Configuration for the "eval" part for the `train_and_evaluate` call.
 
@@ -81,33 +81,33 @@ A validated `EvalSpec` object.
 
 ## Properties
 
-<h3 id="exporters"><code>exporters</code></h3>
-
-Alias for field number 4
-
-<h3 id="hooks"><code>hooks</code></h3>
-
-Alias for field number 3
-
 <h3 id="input_fn"><code>input_fn</code></h3>
 
-Alias for field number 0
 
-<h3 id="name"><code>name</code></h3>
-
-Alias for field number 2
-
-<h3 id="start_delay_secs"><code>start_delay_secs</code></h3>
-
-Alias for field number 5
 
 <h3 id="steps"><code>steps</code></h3>
 
-Alias for field number 1
+
+
+<h3 id="name"><code>name</code></h3>
+
+
+
+<h3 id="hooks"><code>hooks</code></h3>
+
+
+
+<h3 id="exporters"><code>exporters</code></h3>
+
+
+
+<h3 id="start_delay_secs"><code>start_delay_secs</code></h3>
+
+
 
 <h3 id="throttle_secs"><code>throttle_secs</code></h3>
 
-Alias for field number 6
+
 
 
 

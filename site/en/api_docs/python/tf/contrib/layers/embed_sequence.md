@@ -21,9 +21,7 @@ tf.contrib.layers.embed_sequence(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/encoders.py).
-
-See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
+Defined in [`tensorflow/contrib/layers/python/layers/encoders.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/encoders.py).
 
 Maps a sequence of symbols to a sequence of embeddings.
 

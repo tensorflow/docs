@@ -7,9 +7,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distribute/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/__init__.py).
+Defined in [`tensorflow/contrib/distribute/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/__init__.py).
 
-Prototype of a distributed computation library for TF.
+A distributed computation library for TF.
+
+See [tensorflow/contrib/distribute/README.md](
+https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/README.md)
+for overview and examples.
 
 ## Classes
 

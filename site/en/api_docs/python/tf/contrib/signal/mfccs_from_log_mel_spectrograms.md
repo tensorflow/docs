@@ -14,7 +14,7 @@ tf.contrib.signal.mfccs_from_log_mel_spectrograms(
 
 
 
-Defined in [`tensorflow/contrib/signal/python/ops/mfcc_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/signal/python/ops/mfcc_ops.py).
+Defined in [`tensorflow/contrib/signal/python/ops/mfcc_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/signal/python/ops/mfcc_ops.py).
 
 See the guide: [Signal Processing (contrib) > Computing Mel-Frequency Cepstral Coefficients (MFCCs)](../../../../../api_guides/python/contrib.signal#Computing_Mel_Frequency_Cepstral_Coefficients_MFCCs_)
 

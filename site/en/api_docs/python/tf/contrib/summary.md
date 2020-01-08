@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/summary/summary.py).
+Defined in [`tensorflow/contrib/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/summary/summary.py).
 
 TensorFlow Summary API v2.
 
@@ -101,9 +101,9 @@ with tf.Session(...) as sess:
 
 ## Other Members
 
-`absolute_import`
+<h3 id="absolute_import"><code>absolute_import</code></h3>
 
-`division`
+<h3 id="division"><code>division</code></h3>
 
-`print_function`
+<h3 id="print_function"><code>print_function</code></h3>
 

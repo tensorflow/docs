@@ -11,7 +11,7 @@ Inherits From: [`Dropout`](../../tf/keras/layers/Dropout), [`Layer`](../../tf/la
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/core.py).
 
 Applies Dropout to the input.
 
@@ -31,7 +31,7 @@ sum is unchanged at training time and inference time.
     to be the same for all timesteps, you can use
     `noise_shape=[batch_size, 1, features]`.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a>.
+    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>.
     for behavior.
 * <b>`name`</b>: The name of the layer (string).
 
@@ -129,9 +129,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

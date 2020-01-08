@@ -14,7 +14,7 @@ tf.contrib.image.translations_to_projective_transforms(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/image_ops.py).
+Defined in [`tensorflow/contrib/image/python/ops/image_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/image_ops.py).
 
 Returns projective transform(s) for the given translation(s).
 

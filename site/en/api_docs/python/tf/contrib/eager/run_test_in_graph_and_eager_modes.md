@@ -17,7 +17,7 @@ tf.contrib.eager.run_test_in_graph_and_eager_modes(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/test_util.py).
 
 Execute the decorated test with and without enabling eager execution.
 

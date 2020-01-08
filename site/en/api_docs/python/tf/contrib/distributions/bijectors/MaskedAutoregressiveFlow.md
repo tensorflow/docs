@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
 Affine MaskedAutoregressiveFlow bijector for vector-valued events.
 
@@ -30,8 +30,8 @@ decomposition, `p(x) = prod{ p(x[i] | x[0:i]) : i=0, ..., d }`. The provided
 `shift_and_log_scale_fn`, `masked_autoregressive_default_template`, achieves
 this property by zeroing out weights in its `masked_dense` layers.
 
-In the <a href="../../../../tf/distributions"><code>tf.distributions</code></a> framework, a "normalizing flow" is implemented as a
-<a href="../../../../tf/contrib/distributions/bijectors/Bijector"><code>tf.contrib.distributions.bijectors.Bijector</code></a>. The `forward` "autoregression"
+In the `tfp` framework, a "normalizing flow" is implemented as a
+`tfp.bijectors.Bijector`. The `forward` "autoregression"
 is implemented using a <a href="../../../../tf/while_loop"><code>tf.while_loop</code></a> and a deep neural network (DNN) with
 masked weights such that the autoregressive property is automatically met in
 the `inverse`.
@@ -95,8 +95,9 @@ also proves the transform is bijective.)
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
-tfb = tfd.bijectors
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+tfb = tfp.bijectors
 
 dims = 5
 

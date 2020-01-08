@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/__init__.py).
+Defined in [`tensorflow/contrib/distributions/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/__init__.py).
 
 Classes representing statistical distributions and ops for working with them.
 
@@ -183,7 +183,7 @@ Classes representing statistical distributions and ops for working with them.
 
 ## Other Members
 
-`FULLY_REPARAMETERIZED`
+<h3 id="FULLY_REPARAMETERIZED"><code>FULLY_REPARAMETERIZED</code></h3>
 
-`NOT_REPARAMETERIZED`
+<h3 id="NOT_REPARAMETERIZED"><code>NOT_REPARAMETERIZED</code></h3>
 

@@ -43,7 +43,7 @@ is the same, though it is cleaner to use <a href="../../tf/image/decode_image"><
 * <b>`contents`</b>: A `Tensor` of type `string`. 0-D.  The PNG-encoded image.
 * <b>`channels`</b>: An optional `int`. Defaults to `0`.
     Number of color channels for the decoded image.
-* <b>`dtype`</b>: An optional <a href="../../tf/DType"><code>tf.DType</code></a> from: `tf.uint8, tf.uint16`. Defaults to <a href="../../tf/uint8"><code>tf.uint8</code></a>.
+* <b>`dtype`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.uint8, tf.uint16`. Defaults to <a href="../../tf#uint8"><code>tf.uint8</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -7,13 +7,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/initializers/__init__.py).
+
 
 Public API for tf.initializers namespace.
 
 ## Classes
 
 [`class constant`](../tf/keras/initializers/Constant): Initializer that generates tensors with constant values.
+
+[`class glorot_normal`](../tf/keras/initializers/glorot_normal): The Glorot normal initializer, also called Xavier normal initializer.
+
+[`class glorot_uniform`](../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
 [`class identity`](../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
 
@@ -37,10 +41,6 @@ Public API for tf.initializers namespace.
 
 [`global_variables(...)`](../tf/initializers/global_variables): Returns an Op that initializes global variables.
 
-[`glorot_normal(...)`](../tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
-
-[`glorot_uniform(...)`](../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
-
 [`he_normal(...)`](../tf/keras/initializers/he_normal): He normal initializer.
 
 [`he_uniform(...)`](../tf/keras/initializers/he_uniform): He uniform variance scaling initializer.
@@ -50,6 +50,8 @@ Public API for tf.initializers namespace.
 [`lecun_uniform(...)`](../tf/keras/initializers/lecun_uniform): LeCun uniform initializer.
 
 [`local_variables(...)`](../tf/initializers/local_variables): Returns an Op that initializes all local variables.
+
+[`tables_initializer(...)`](../tf/initializers/tables_initializer): Returns an Op that initializes all tables of the default graph.
 
 [`variables(...)`](../tf/initializers/variables): Returns an Op that initializes a list of variables.
 

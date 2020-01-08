@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/builder/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/saved_model/builder/__init__.py).
+
 
 SavedModel builder.
 
@@ -16,5 +16,5 @@ enables systems to produce, consume, or transform TensorFlow Models.
 
 ## Classes
 
-[`class SavedModelBuilder`](../../tf/saved_model/builder/SavedModelBuilder): Builds the `SavedModel` protocol buffer and saves variables and assets.
+[`class SavedModelBuilder`](../../tf/saved_model/Builder): Builds the `SavedModel` protocol buffer and saves variables and assets.
 

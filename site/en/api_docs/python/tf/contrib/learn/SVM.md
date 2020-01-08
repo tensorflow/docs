@@ -11,12 +11,12 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/svm.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/svm.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/svm.py).
 
 Support Vector Machine (SVM) model for binary classification.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Currently, only linear SVMs are supported. For the underlying optimization

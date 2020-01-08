@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.regressor_parse_example_spec
 
@@ -15,10 +19,6 @@ tf.estimator.regressor_parse_example_spec(
     weight_column=None
 )
 ```
-
-
-
-Defined in [`tensorflow/python/estimator/canned/parsing_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/parsing_utils.py).
 
 Generates parsing spec for tf.parse_example to be used with regressors.
 
@@ -94,10 +94,10 @@ estimator.train(input_fn=input_fn_train)
 * <b>`label_key`</b>: A string identifying the label. It means tf.Example stores labels
     with this key.
 * <b>`label_dtype`</b>: A `tf.dtype` identifies the type of labels. By default it is
-    <a href="../../tf/float32"><code>tf.float32</code></a>.
+    <a href="../../tf#float32"><code>tf.float32</code></a>.
 * <b>`label_default`</b>: used as label if label_key does not exist in given
     tf.Example. By default default_value is none, which means
-    <a href="../../tf/parse_example"><code>tf.parse_example</code></a> will error out if there is any missing label.
+    <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a> will error out if there is any missing label.
 * <b>`label_dimension`</b>: Number of regression targets per example. This is the
     size of the last dimension of the labels and logits `Tensor` objects
     (typically, these have shape `[batch_size, label_dimension]`).

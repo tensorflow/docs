@@ -10,7 +10,7 @@ tf.map_fn(
     fn,
     elems,
     dtype=None,
-    parallel_iterations=10,
+    parallel_iterations=None,
     back_prop=True,
     swap_memory=False,
     infer_shape=True,
@@ -20,9 +20,7 @@ tf.map_fn(
 
 
 
-Defined in [`tensorflow/python/ops/functional_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/functional_ops.py).
-
-See the guide: [Higher Order Functions > Higher Order Operators](../../../api_guides/python/functional_ops#Higher_Order_Operators)
+Defined in [`tensorflow/python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/functional_ops.py).
 
 map on the list of tensors unpacked from `elems` on dimension 0.
 
@@ -64,6 +62,25 @@ result = SparseTensor(
 
 instead.
 
+When executing eagerly, map_fn does not execute in parallel even if
+`parallel_iterations` is set to a value > 1. You can still get the
+performance benefits of running a function in parallel by using the
+<a href="../tf/contrib/eager/defun"><code>tf.contrib.eager.defun</code></a> decorator,
+
+```python
+# Assume the function being used in map_fn is fn.
+# To ensure map_fn calls fn in parallel, use the defun decorator.
+@tf.contrib.eager.defun
+def func(tensor):
+  return tf.map_fn(fn, tensor)
+```
+
+Note that if you use the defun decorator, any non-TensorFlow Python code
+that you may have written in your function won't get executed. See
+<a href="../tf/contrib/eager/defun"><code>tf.contrib.eager.defun</code></a> for more details. The recommendation would be to
+debug without defun but switch to defun to get performance benefits of
+running map_fn in parallel.
+
 #### Args:
 
 * <b>`fn`</b>: The callable to be performed.  It accepts one argument, which will
@@ -77,7 +94,8 @@ instead.
     of Tensors differing from the structure of `elems`, then `dtype` is not
     optional and must have the same structure as the output of `fn`.
 * <b>`parallel_iterations`</b>: (optional) The number of iterations allowed to run
-    in parallel.
+    in parallel. When graph building, the default value is 10. While executing
+    eagerly, the default value is set to 1.
 * <b>`back_prop`</b>: (optional) True enables support for back propagation.
 * <b>`swap_memory`</b>: (optional) True enables GPU-CPU memory swapping.
 * <b>`infer_shape`</b>: (optional) False disables tests for consistent output shapes.

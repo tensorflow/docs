@@ -11,9 +11,7 @@ tf.contrib.framework.has_arg_scope(func)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/arg_scope.py).
-
-See the guide: [Framework (contrib) > Arg_Scope](../../../../../api_guides/python/contrib.framework#Arg_Scope)
+Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 Checks whether a func has been decorated with @add_arg_scope or not.
 

@@ -11,7 +11,7 @@ tfdbg.reconstruct_non_debug_graph_def(debug_graph_def)
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_graphs.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_graphs.py).
+Defined in [`tensorflow/python/debug/lib/debug_graphs.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/lib/debug_graphs.py).
 
 Reconstruct original (non-debugger-decorated) partition GraphDef.
 

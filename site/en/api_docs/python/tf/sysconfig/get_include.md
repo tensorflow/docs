@@ -11,7 +11,7 @@ tf.sysconfig.get_include()
 
 
 
-Defined in [`tensorflow/python/platform/sysconfig.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/sysconfig.py).
+Defined in [`tensorflow/python/platform/sysconfig.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/sysconfig.py).
 
 Get the directory containing the TensorFlow C++ header files.
 

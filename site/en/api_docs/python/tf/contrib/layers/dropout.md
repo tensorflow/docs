@@ -19,7 +19,7 @@ tf.contrib.layers.dropout(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/layers.py).
 
 Returns a dropout op applied to the input.
 
@@ -40,7 +40,7 @@ sum is unchanged.
 * <b>`outputs_collections`</b>: Collection to add the outputs.
 * <b>`scope`</b>: Optional scope for name_scope.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 
 
 #### Returns:

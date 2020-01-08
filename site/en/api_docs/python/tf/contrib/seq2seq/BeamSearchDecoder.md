@@ -11,7 +11,7 @@ Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 BeamSearch sampling decoder.
 
@@ -19,7 +19,7 @@ BeamSearch sampling decoder.
 `AttentionWrapper`, then you must ensure that:
 
 - The encoder output has been tiled to `beam_width` via
-  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/manip/tile"><code>tf.tile</code></a>).
+  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/tile"><code>tf.tile</code></a>).
 - The `batch_size` argument passed to the `zero_state` method of this
   wrapper is equal to `true_batch_size * beam_width`.
 - The initial state created with `zero_state` above contains a
@@ -46,6 +46,10 @@ decoder_initial_state = decoder_initial_state.clone(
     cell_state=tiled_encoder_final_state)
 ```
 
+Meanwhile, with `AttentionWrapper`, coverage penalty is suggested to use
+when computing scores(https://arxiv.org/pdf/1609.08144.pdf). It encourages
+the translation to cover all inputs.
+
 <h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
@@ -58,6 +62,7 @@ __init__(
     beam_width,
     output_layer=None,
     length_penalty_weight=0.0,
+    coverage_penalty_weight=0.0,
     reorder_tensor_arrays=True
 )
 ```
@@ -77,6 +82,8 @@ Initialize the BeamSearchDecoder.
     <a href="../../../tf/layers/Dense"><code>tf.layers.Dense</code></a>.  Optional layer to apply to the RNN output prior
     to storing the result or sampling.
 * <b>`length_penalty_weight`</b>: Float weight to penalize length. Disabled with 0.0.
+* <b>`coverage_penalty_weight`</b>: Float weight to penalize the coverage of source
+    sentence. Disabled with 0.0.
 * <b>`reorder_tensor_arrays`</b>: If `True`, `TensorArray`s' elements within the cell
     state will be reordered according to the beam search path. If the
     `TensorArray` can be reordered, the stacked form will be returned.

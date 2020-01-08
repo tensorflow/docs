@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/errors/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/errors/__init__.py).
+
 
 Exception types for TensorFlow errors.
 
@@ -31,7 +31,7 @@ Exception types for TensorFlow errors.
 
 [`class NotFoundError`](../tf/errors/NotFoundError): Raised when a requested entity (e.g., a file or directory) was not found.
 
-[`class OpError`](../tf/OpError): A generic error that is raised when TensorFlow execution fails.
+[`class OpError`](../tf/errors/OpError): A generic error that is raised when TensorFlow execution fails.
 
 [`class OutOfRangeError`](../tf/errors/OutOfRangeError): Raised when an operation iterates past the valid input range.
 
@@ -57,37 +57,37 @@ Exception types for TensorFlow errors.
 
 ## Other Members
 
-`ABORTED`
+<h3 id="ABORTED"><code>ABORTED</code></h3>
 
-`ALREADY_EXISTS`
+<h3 id="ALREADY_EXISTS"><code>ALREADY_EXISTS</code></h3>
 
-`CANCELLED`
+<h3 id="CANCELLED"><code>CANCELLED</code></h3>
 
-`DATA_LOSS`
+<h3 id="DATA_LOSS"><code>DATA_LOSS</code></h3>
 
-`DEADLINE_EXCEEDED`
+<h3 id="DEADLINE_EXCEEDED"><code>DEADLINE_EXCEEDED</code></h3>
 
-`FAILED_PRECONDITION`
+<h3 id="FAILED_PRECONDITION"><code>FAILED_PRECONDITION</code></h3>
 
-`INTERNAL`
+<h3 id="INTERNAL"><code>INTERNAL</code></h3>
 
-`INVALID_ARGUMENT`
+<h3 id="INVALID_ARGUMENT"><code>INVALID_ARGUMENT</code></h3>
 
-`NOT_FOUND`
+<h3 id="NOT_FOUND"><code>NOT_FOUND</code></h3>
 
-`OK`
+<h3 id="OK"><code>OK</code></h3>
 
-`OUT_OF_RANGE`
+<h3 id="OUT_OF_RANGE"><code>OUT_OF_RANGE</code></h3>
 
-`PERMISSION_DENIED`
+<h3 id="PERMISSION_DENIED"><code>PERMISSION_DENIED</code></h3>
 
-`RESOURCE_EXHAUSTED`
+<h3 id="RESOURCE_EXHAUSTED"><code>RESOURCE_EXHAUSTED</code></h3>
 
-`UNAUTHENTICATED`
+<h3 id="UNAUTHENTICATED"><code>UNAUTHENTICATED</code></h3>
 
-`UNAVAILABLE`
+<h3 id="UNAVAILABLE"><code>UNAVAILABLE</code></h3>
 
-`UNIMPLEMENTED`
+<h3 id="UNIMPLEMENTED"><code>UNIMPLEMENTED</code></h3>
 
-`UNKNOWN`
+<h3 id="UNKNOWN"><code>UNKNOWN</code></h3>
 

@@ -16,9 +16,7 @@ tf.contrib.layers.parse_feature_columns_from_examples(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 Parses tf.Examples to extract tensors for given feature_columns.
 

@@ -16,7 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/categorical.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/categorical.py).
+Defined in [`tensorflow/python/ops/distributions/categorical.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/categorical.py).
 
 Categorical distribution.
 
@@ -27,7 +27,7 @@ log-probabilities of a set of `K` classes. It is defined over the integers
 The Categorical distribution is closely related to the `OneHotCategorical` and
 `Multinomial` distributions.  The Categorical distribution can be intuited as
 generating samples according to `argmax{ OneHotCategorical(probs) }` itself
-being identical to `argmax{ Multinomial(probs, total_count=1) }.
+being identical to `argmax{ Multinomial(probs, total_count=1) }`.
 
 #### Mathematical Details
 
@@ -41,7 +41,7 @@ pmf(k; pi) = prod_j pi_j**[k == j]
 
 The number of classes, `K`, must not exceed:
 - the largest integer representable by `self.dtype`, i.e.,
-  `2**(mantissa_bits+1)` (IEE754),
+  `2**(mantissa_bits+1)` (IEEE 754),
 - the maximum `Tensor` index, i.e., `2**31-1`.
 
 In other words,
@@ -369,7 +369,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -463,7 +463,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

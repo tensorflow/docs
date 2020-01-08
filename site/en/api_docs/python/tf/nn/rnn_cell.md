@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/nn/rnn_cell/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/nn/rnn_cell/__init__.py).
+
 
 Module for constructing RNN Cells.
 

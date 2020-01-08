@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
 
 Conditional Bijector is a Bijector that allows intrinsic conditioning.
 

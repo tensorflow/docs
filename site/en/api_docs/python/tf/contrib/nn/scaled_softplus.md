@@ -16,7 +16,7 @@ tf.contrib.nn.scaled_softplus(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/scaled_softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
+Defined in [`tensorflow/contrib/nn/python/ops/scaled_softplus.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/nn/python/ops/scaled_softplus.py).
 
 Returns `y = alpha * ln(1 + exp(x / alpha))` or `min(y, clip)`.
 

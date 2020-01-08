@@ -7,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/graph_actions.py).
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 High level operations on graphs (deprecated).
 
 This module and all its submodules are deprecated. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for migration instructions.
 

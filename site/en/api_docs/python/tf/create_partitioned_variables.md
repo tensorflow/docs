@@ -20,7 +20,7 @@ tf.create_partitioned_variables(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/partitioned_variables.py).
+Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/partitioned_variables.py).
 
 Create a list of partitioned variables according to the given `slicing`.
 

@@ -16,9 +16,7 @@ tf.clip_by_global_norm(
 
 
 
-Defined in [`tensorflow/python/ops/clip_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/clip_ops.py).
-
-See the guide: [Training > Gradient Clipping](../../../api_guides/python/train#Gradient_Clipping)
+Defined in [`tensorflow/python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/clip_ops.py).
 
 Clips values of multiple tensors by the ratio of the sum of their norms.
 

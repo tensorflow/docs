@@ -14,7 +14,7 @@ tf.gfile.Walk(
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/lib/io/file_io.py).
 
 Recursive directory tree generator for directories.
 

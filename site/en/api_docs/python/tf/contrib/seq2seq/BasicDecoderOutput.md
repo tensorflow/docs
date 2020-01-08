@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 
@@ -35,11 +35,11 @@ Create new instance of BasicDecoderOutput(rnn_output, sample_id)
 
 <h3 id="rnn_output"><code>rnn_output</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="sample_id"><code>sample_id</code></h3>
 
-Alias for field number 1
+
 
 
 

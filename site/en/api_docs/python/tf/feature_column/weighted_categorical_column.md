@@ -15,7 +15,7 @@ tf.feature_column.weighted_categorical_column(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 Applies weight values to a `_CategoricalColumn`.
 
@@ -72,7 +72,7 @@ the same indices and dense shape.
 * <b>`categorical_column`</b>: A `_CategoricalColumn` created by
     `categorical_column_with_*` functions.
 * <b>`weight_feature_key`</b>: String key for weight values.
-* <b>`dtype`</b>: Type of weights, such as <a href="../../tf/float32"><code>tf.float32</code></a>. Only float and integer weights
+* <b>`dtype`</b>: Type of weights, such as <a href="../../tf#float32"><code>tf.float32</code></a>. Only float and integer weights
     are supported.
 
 

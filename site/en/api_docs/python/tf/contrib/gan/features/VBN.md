@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/features/python/virtual_batchnorm_impl.py).
 
 A class to perform virtual batch normalization.
 

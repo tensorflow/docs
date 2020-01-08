@@ -11,14 +11,12 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/linear.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/linear.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/linear.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/linear.py).
 
 Linear classifier model.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Train a linear model to classify instances into one of multiple possible

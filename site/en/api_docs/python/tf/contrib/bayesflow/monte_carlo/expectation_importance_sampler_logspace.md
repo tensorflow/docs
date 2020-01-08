@@ -20,7 +20,7 @@ tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler_logspace(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 Importance sampling with a positive function, in log-space.
 
@@ -49,7 +49,7 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
     shape broadcastable to `q.batch_shape`.
     For example, `log_p` works "just like" `q.log_prob`.
 * <b>`sampling_dist_q`</b>:  The sampling distribution.
-    <a href="../../../../tf/distributions/Distribution"><code>tf.contrib.distributions.Distribution</code></a>.
+    `tfp.distributions.Distribution`.
     `float64` `dtype` recommended.
     `log_p` and `q` should be supported on the same set.
 * <b>`z`</b>:  `Tensor` of samples from `q`, produced by `q.sample` for some `n`.

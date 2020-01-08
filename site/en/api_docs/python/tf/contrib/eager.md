@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/tfe.py).
+Defined in [`tensorflow/contrib/eager/python/tfe.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/eager/python/tfe.py).
 
 TensorFlow Eager execution prototype.
 
@@ -127,13 +127,13 @@ To use, at program startup, call `tf.enable_eager_execution()`.
 
 ## Other Members
 
-`ASYNC`
+<h3 id="ASYNC"><code>ASYNC</code></h3>
 
-`DEVICE_PLACEMENT_EXPLICIT`
+<h3 id="DEVICE_PLACEMENT_EXPLICIT"><code>DEVICE_PLACEMENT_EXPLICIT</code></h3>
 
-`DEVICE_PLACEMENT_SILENT`
+<h3 id="DEVICE_PLACEMENT_SILENT"><code>DEVICE_PLACEMENT_SILENT</code></h3>
 
-`DEVICE_PLACEMENT_WARN`
+<h3 id="DEVICE_PLACEMENT_WARN"><code>DEVICE_PLACEMENT_WARN</code></h3>
 
-`SYNC`
+<h3 id="SYNC"><code>SYNC</code></h3>
 

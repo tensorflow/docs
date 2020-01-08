@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 Final outputs returned by the beam search after all decoding is finished.
 
@@ -39,13 +39,13 @@ Create new instance of FinalBeamDecoderOutput(predicted_ids, beam_search_decoder
 
 ## Properties
 
-<h3 id="beam_search_decoder_output"><code>beam_search_decoder_output</code></h3>
-
-Alias for field number 1
-
 <h3 id="predicted_ids"><code>predicted_ids</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="beam_search_decoder_output"><code>beam_search_decoder_output</code></h3>
+
+
 
 
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/estimator/python/gan_estimator.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/estimator/python/gan_estimator.py).
 
 `tf.Learn` components for `GANEstimator`.
 
@@ -19,5 +19,5 @@ Defined in [`tensorflow/contrib/gan/python/estimator/python/gan_estimator.py`](h
 
 ## Other Members
 
-`__all__`
+<h3 id="__all__"><code>__all__</code></h3>
 

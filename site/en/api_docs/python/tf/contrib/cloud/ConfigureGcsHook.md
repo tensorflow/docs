@@ -11,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
 ConfigureGcsHook configures GCS when used with Estimator/TPUEstimator.
 

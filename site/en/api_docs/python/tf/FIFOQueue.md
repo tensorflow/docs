@@ -7,17 +7,17 @@ page_type: reference
 
 ## Class `FIFOQueue`
 
-Inherits From: [`QueueBase`](../tf/QueueBase)
+Inherits From: [`QueueBase`](../tf/io/QueueBase)
 
 
 
-Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/data_flow_ops.py).
+Defined in [`tensorflow/python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/data_flow_ops.py).
 
 See the guides: [Inputs and Readers > Queues](../../../api_guides/python/io_ops#Queues), [Threading and Queues > Queue usage overview](../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Threading and Queues](../../../api_guides/python/threading_and_queues)
 
 A queue implementation that dequeues elements in first-in first-out order.
 
-See <a href="../tf/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
+See <a href="../tf/io/QueueBase"><code>tf.QueueBase</code></a> for a description of the methods on
 this class.
 
 <h2 id="__init__"><code>__init__</code></h2>

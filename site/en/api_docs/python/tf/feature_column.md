@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/feature_column/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/feature_column/__init__.py).
+
 
 Public API for tf.feature_column namespace.
 

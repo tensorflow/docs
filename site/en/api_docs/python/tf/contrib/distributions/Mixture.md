@@ -12,7 +12,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mixture.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mixture.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mixture.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/mixture.py).
 
 Mixture distribution.
 
@@ -28,7 +28,9 @@ Methods supported include `log_prob`, `prob`, `mean`, `sample`, and
 
 ```python
 # Create a mixture of two Gaussians:
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 mix = 0.3
 bimix_gauss = tfd.Mixture(
   cat=tfd.Categorical(probs=[mix, 1.-mix]),
@@ -332,7 +334,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -473,7 +475,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

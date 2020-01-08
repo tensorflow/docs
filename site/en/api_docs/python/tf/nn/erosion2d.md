@@ -18,7 +18,7 @@ tf.nn.erosion2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Morphological filtering](../../../../api_guides/python/nn#Morphological_filtering)
 

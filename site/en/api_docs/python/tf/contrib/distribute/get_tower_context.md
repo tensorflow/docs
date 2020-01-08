@@ -11,11 +11,12 @@ tf.contrib.distribute.get_tower_context()
 
 
 
-Defined in [`tensorflow/python/training/distribution_strategy_context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribution_strategy_context.py).
+Defined in [`tensorflow/python/training/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/distribution_strategy_context.py).
 
 Returns the current TowerContext or None if in a cross-tower context.
 
 Note that execution:
+
 1. starts in the default (single-tower) tower context (this function
    will return the default TowerContext object);
 2. switches to cross-tower context (in which case this will return

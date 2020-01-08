@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/datasets.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/datasets.py).
+Defined in [`tensorflow/contrib/eager/python/datasets.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/eager/python/datasets.py).
 
 An iterator producing tf.Tensor objects from a tf.data.Dataset.
 
@@ -56,7 +56,7 @@ was created.
 
 Returns the class of each component of an element of this iterator.
 
-The expected values are <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../../tf/SparseTensor"><code>tf.SparseTensor</code></a>.
+The expected values are <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 #### Returns:
 
@@ -78,7 +78,7 @@ Returns the type of each component of an element of this iterator.
 
 #### Returns:
 
-A nested structure of <a href="../../../tf/DType"><code>tf.DType</code></a> objects corresponding to each component
+A nested structure of <a href="../../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to each component
 of an element of this dataset.
 
 

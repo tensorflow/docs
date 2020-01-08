@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_diag_plus_low_rank.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mvn_diag_plus_low_rank.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_diag_plus_low_rank.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/mvn_diag_plus_low_rank.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -68,7 +68,8 @@ Y = scale @ X + loc
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Initialize a single 3-variate Gaussian with covariance `cov = S @ S.T`,
 # `S = diag(d) + U @ diag(m) @ U.T`. The perturbation, `U @ diag(m) @ U.T`, is
@@ -438,7 +439,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -532,7 +533,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

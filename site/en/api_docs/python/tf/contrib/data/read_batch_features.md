@@ -20,15 +20,13 @@ tf.contrib.data.read_batch_features(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/readers.py).
-
-See the guide: [Dataset Input Pipeline > Extra functions from `tf.contrib.data`](../../../../../api_guides/python/input_dataset#Extra_functions_from_tf_contrib_data_)
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/readers.py).
 
 Reads batches of Examples. (deprecated)
 
 THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use <a href="../../../tf/contrib/data/make_batched_features_dataset"><code>tf.contrib.data.make_batched_features_dataset</code></a>
+Use `tf.data.experimental.make_batched_features_dataset(...)`
 
 Example:
 
@@ -77,7 +75,7 @@ And the expected output is:
 * <b>`batch_size`</b>: An int representing the number of records to combine
     in a single batch.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values. See <a href="../../../tf/parse_example"><code>tf.parse_example</code></a>.
+    `VarLenFeature` values. See <a href="../../../tf/io/parse_example"><code>tf.parse_example</code></a>.
 * <b>`reader`</b>: A function or class that can be
     called with a `filenames` tensor and (optional) `reader_args` and returns
     a `Dataset` of `Example` tensors. Defaults to <a href="../../../tf/data/TFRecordDataset"><code>tf.data.TFRecordDataset</code></a>.

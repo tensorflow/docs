@@ -23,7 +23,7 @@ tf.contrib.gan.eval.run_inception(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
 Run images through a pretrained Inception classifier.
 

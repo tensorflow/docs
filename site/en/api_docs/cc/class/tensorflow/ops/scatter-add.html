@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ScatterAdd Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -26,20 +26,20 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
   <p>Requires <code>updates.shape = indices.shape + ref.shape[1:]</code> or <code>updates.shape = []</code>.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.11/api_docs/cc/images/ScatterAdd.png" />
+      <img src="/versions/r1.12/api_docs/cc/images/ScatterAdd.png" />
     </figure>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>ref: Should be from a <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: Should be from a <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
       <li>indices: A tensor of indices into the first dimension of <code>ref</code>.</li>
       <li>updates: A tensor of updated values to add to <code>ref</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If True, the addition will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -49,13 +49,13 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1aebad5eb3382d85a98694a67516fb31be">ScatterAdd</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1aebad5eb3382d85a98694a67516fb31be">ScatterAdd</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1a784b3e2e01f007a9c99a4bed4d2a52a7">ScatterAdd</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">ScatterAdd::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1a784b3e2e01f007a9c99a4bed4d2a52a7">ScatterAdd</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">ScatterAdd::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -68,11 +68,21 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1a3f10d947b38ba138d7b4b3841a6f86e9">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_scatter_add_1a10b0695ddf8f2320ea456a07d4d203b6">output_ref</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -126,7 +136,7 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -139,38 +149,43 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterAdd::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterAdd::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/scatter-add.html#classtensorflow_1_1ops_1_1_scatter_add">ScatterAdd</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/scatter-add.html#classtensorflow_1_1ops_1_1_scatter_add">ScatterAdd</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_add_1a3f10d947b38ba138d7b4b3841a6f86e9">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_scatter_add_1a10b0695ddf8f2320ea456a07d4d203b6">
     <h3>output_ref</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_add_1aebad5eb3382d85a98694a67516fb31be">
     <h3>ScatterAdd</h3>
     <pre class="prettyprint"> ScatterAdd(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_scatter_add_1a784b3e2e01f007a9c99a4bed4d2a52a7">
     <h3>ScatterAdd</h3>
     <pre class="prettyprint"> ScatterAdd(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">ScatterAdd::Attrs</a> & attrs
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">ScatterAdd::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -192,7 +207,7 @@ ref[indices[i, ..., j], ...] += updates[i, ..., j, ...]
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_scatter_add_1aaf4c7b793661818e64f807275f07c01e">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/scatter-add/attrs.html#structtensorflow_1_1ops_1_1_scatter_add_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

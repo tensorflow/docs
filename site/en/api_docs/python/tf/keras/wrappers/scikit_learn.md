@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/wrappers/scikit_learn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/wrappers/scikit_learn/__init__.py).
+
 
 Wrapper for using the Scikit-Learn API with Keras models.
 

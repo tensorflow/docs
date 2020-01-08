@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/power_transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/power_transform.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/power_transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/power_transform.py).
 
 Compute `Y = g(X) = (1 + X * c)**(1 / c), X >= -1 / c`.
 

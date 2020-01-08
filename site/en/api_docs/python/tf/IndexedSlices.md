@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 A sparse representation of a set of tensor slices at given indices.
 
@@ -38,7 +36,7 @@ gradients for operations that have sparse gradients
 (e.g. <a href="../tf/gather"><code>tf.gather</code></a>).
 
 Contrast this representation with
-<a href="../tf/SparseTensor"><code>tf.SparseTensor</code></a>,
+<a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>,
 which uses multi-dimensional indices and scalar values.
 
 <h2 id="__init__"><code>__init__</code></h2>

@@ -21,7 +21,7 @@ tf.contrib.integrate.odeint(
 
 
 
-Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/integrate/python/ops/odes.py).
+Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/integrate/python/ops/odes.py).
 
 See the guide: [Integrate (contrib) > Ops](../../../../../api_guides/python/contrib.integrate#Ops)
 

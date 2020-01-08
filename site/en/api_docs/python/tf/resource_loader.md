@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/resource_loader/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/resource_loader/__init__.py).
+
 
 Resource management library.
 

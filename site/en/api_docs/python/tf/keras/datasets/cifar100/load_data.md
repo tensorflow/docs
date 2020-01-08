@@ -11,7 +11,7 @@ tf.keras.datasets.cifar100.load_data(label_mode='fine')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/cifar100.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/cifar100.py).
+Defined in [`tensorflow/python/keras/datasets/cifar100.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/cifar100.py).
 
 Loads CIFAR100 dataset.
 

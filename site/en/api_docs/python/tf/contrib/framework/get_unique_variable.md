@@ -11,9 +11,7 @@ tf.contrib.framework.get_unique_variable(var_op_name)
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
-
-See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 Gets the variable uniquely identified by that var_op_name.
 

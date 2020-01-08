@@ -19,7 +19,7 @@ tf.contrib.image.interpolate_spline(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/interpolate_spline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/interpolate_spline.py).
+Defined in [`tensorflow/contrib/image/python/ops/interpolate_spline.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/interpolate_spline.py).
 
 Interpolate signal using polyharmonic interpolation.
 

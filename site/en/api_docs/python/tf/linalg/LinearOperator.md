@@ -9,16 +9,9 @@ page_type: reference
 
 
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperator`
-* Class `tf.linalg.LinearOperator`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator.py).
-
-See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
+Defined in [`tensorflow/python/ops/linalg/linear_operator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator.py).
 
 Base class defining a [batch of] linear operator[s].
 

@@ -12,7 +12,7 @@ Inherits From: [`AdamOptimizer`](../../../tf/train/AdamOptimizer)
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/nadam_optimizer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/nadam_optimizer.py).
+Defined in [`tensorflow/contrib/opt/python/training/nadam_optimizer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/opt/python/training/nadam_optimizer.py).
 
 Optimizer that implements the Nadam algorithm.
 
@@ -293,13 +293,12 @@ was not `None`, that operation also increments `global_step`.
 
 #### Eager Compatibility
 When eager execution is enabled, `loss` should be a Python function that
-takes elements of `var_list` as arguments and computes the value to be
-minimized. If `var_list` is None, `loss` should take no arguments.
-Minimization (and gradient computation) is done with respect to the
-elements of `var_list` if not None, else with respect to any trainable
-variables created during the execution of the `loss` function.
-`gate_gradients`, `aggregation_method`, `colocate_gradients_with_ops` and
-`grad_loss` are ignored when eager execution is enabled.
+takes no arguments and computes the value to be minimized. Minimization (and
+gradient computation) is done with respect to the elements of `var_list` if
+not None, else with respect to any trainable variables created during the
+execution of the `loss` function. `gate_gradients`, `aggregation_method`,
+`colocate_gradients_with_ops` and `grad_loss` are ignored when eager
+execution is enabled.
 
 
 

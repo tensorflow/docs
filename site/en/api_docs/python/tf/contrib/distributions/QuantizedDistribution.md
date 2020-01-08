@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/quantized_distribution.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/quantized_distribution.py).
 
 Distribution representing the quantization `Y = ceiling(X)`.
 
@@ -74,8 +74,9 @@ shape `[..., num_mixtures * 3]`, i.e., each mixture component has a `loc` and
 parameter determining the unnormalized probability of that component.
 
 ```python
-tfd = tf.contrib.distributions
-tfb = tfd.bijectors
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+tfb = tfp.bijectors
 
 net = wavenet(inputs)
 loc, unconstrained_scale, logits = tf.split(net,
@@ -406,7 +407,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -500,7 +501,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
+Defined in [`tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
 A return type for an input_fn (deprecated).
 
@@ -49,17 +49,17 @@ Create new instance of InputFnOps(features, labels, default_inputs)
 
 ## Properties
 
-<h3 id="default_inputs"><code>default_inputs</code></h3>
-
-Alias for field number 2
-
 <h3 id="features"><code>features</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="labels"><code>labels</code></h3>
 
-Alias for field number 1
+
+
+<h3 id="default_inputs"><code>default_inputs</code></h3>
+
+
 
 
 

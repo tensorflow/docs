@@ -22,11 +22,15 @@ tf.train.batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/input.py).
 
 See the guides: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline), [Reading data > Preloaded data](../../../../api_guides/python/reading_data#Preloaded_data)
 
-Creates batches of tensors in `tensors`.
+Creates batches of tensors in `tensors`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.batch(batch_size)` (or `padded_batch(...)` if `dynamic_pad=True`).
 
 The argument `tensors` can be a list or a dictionary of tensors.
 The value returned by the function will be of the same type

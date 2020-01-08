@@ -23,7 +23,7 @@ tf.contrib.training.create_train_op(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/training.py).
 
 Creates an `Operation` that evaluates the gradients and returns the loss.
 

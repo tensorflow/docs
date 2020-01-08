@@ -15,7 +15,7 @@ tf.contrib.lite.convert_op_hints_to_stubs(
 
 
 
-Defined in [`tensorflow/contrib/lite/python/op_hint.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lite/python/op_hint.py).
+Defined in [`tensorflow/contrib/lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lite/python/op_hint.py).
 
 Converts a graphdef with LiteOp hints into stub operations.
 

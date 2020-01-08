@@ -20,9 +20,7 @@ tf.contrib.layers.safe_embedding_lookup_sparse(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/embedding_ops.py).
-
-See the guide: [Layers (contrib) > Higher level ops for building neural network layers](../../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers)
+Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 Lookup embedding results, accounting for invalid IDs and empty features.
 

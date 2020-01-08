@@ -17,7 +17,7 @@ tf.train.generate_checkpoint_state_proto(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_management.py).
+Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_management.py).
 
 Generates a checkpoint state proto.
 

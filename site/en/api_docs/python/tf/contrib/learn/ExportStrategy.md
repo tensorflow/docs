@@ -11,14 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/export_strategy.py).
-
-See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
+Defined in [`tensorflow/contrib/learn/python/learn/export_strategy.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/export_strategy.py).
 
 A class representing a type of model export.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Typically constructed by a utility function specific to the exporter, such as
@@ -69,17 +67,17 @@ Please switch to tf.estimator.train_and_evaluate, and use tf.estimator.Exporter.
 
 ## Properties
 
-<h3 id="export_fn"><code>export_fn</code></h3>
-
-Alias for field number 1
-
 <h3 id="name"><code>name</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="export_fn"><code>export_fn</code></h3>
+
+
 
 <h3 id="strip_default_attrs"><code>strip_default_attrs</code></h3>
 
-Alias for field number 2
+
 
 
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/regularizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/regularizers.py).
+Defined in [`tensorflow/python/keras/regularizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/regularizers.py).
 
 Regularizer base class.
   

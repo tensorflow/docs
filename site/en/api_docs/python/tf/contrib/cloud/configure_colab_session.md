@@ -11,7 +11,7 @@ tf.contrib.cloud.configure_colab_session(session)
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
 ConfigureColabSession configures the GCS file system in Colab.
 

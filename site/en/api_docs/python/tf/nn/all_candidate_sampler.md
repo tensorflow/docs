@@ -18,7 +18,7 @@ tf.nn.all_candidate_sampler(
 
 
 
-Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/candidate_sampling_ops.py).
+Defined in [`tensorflow/python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/candidate_sampling_ops.py).
 
 Generate the set of all classes.
 

@@ -11,9 +11,7 @@ Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
-
-See the guide: [RNN and Cells (contrib) > Core RNN Cells for use with TensorFlow's core RNN methods](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cells_for_use_with_TensorFlow_s_core_RNN_methods)
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 LSTM unit with layer normalization and recurrent dropout.
 
@@ -40,7 +38,7 @@ __init__(
     num_units,
     forget_bias=1.0,
     input_size=None,
-    activation=tf.nn.tanh,
+    activation=tf.math.tanh,
     layer_norm=True,
     norm_gain=1.0,
     norm_shift=0.0,
@@ -151,9 +149,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

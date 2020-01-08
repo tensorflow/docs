@@ -14,7 +14,7 @@ tf.contrib.framework.get_trainable_variables(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 Gets the list of trainable variables, filtered by scope and/or suffix.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/namedtuples.py).
 
 GANLoss contains the generator and discriminator losses.
 
@@ -36,13 +36,13 @@ Create new instance of GANLoss(generator_loss, discriminator_loss)
 
 ## Properties
 
-<h3 id="discriminator_loss"><code>discriminator_loss</code></h3>
-
-Alias for field number 1
-
 <h3 id="generator_loss"><code>generator_loss</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="discriminator_loss"><code>discriminator_loss</code></h3>
+
+
 
 
 

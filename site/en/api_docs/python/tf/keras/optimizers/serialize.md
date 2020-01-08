@@ -11,5 +11,5 @@ tf.keras.optimizers.serialize(optimizer)
 
 
 
-Defined in [`tensorflow/python/keras/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/optimizers.py).
+Defined in [`tensorflow/python/keras/optimizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/optimizers.py).
 

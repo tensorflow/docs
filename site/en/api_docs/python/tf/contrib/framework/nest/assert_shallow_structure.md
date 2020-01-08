@@ -15,7 +15,7 @@ tf.contrib.framework.nest.assert_shallow_structure(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/nest.py).
 
 Asserts that `shallow_tree` is a shallow structure of `input_tree`.
 

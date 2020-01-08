@@ -14,9 +14,7 @@ tf.contrib.framework.arg_scope(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/arg_scope.py).
-
-See the guide: [Framework (contrib) > Arg_Scope](../../../../../api_guides/python/contrib.framework#Arg_Scope)
+Defined in [`tensorflow/contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 Stores the default arguments for the given set of list_ops.
 

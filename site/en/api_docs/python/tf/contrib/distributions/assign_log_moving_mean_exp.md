@@ -16,7 +16,7 @@ tf.contrib.distributions.assign_log_moving_mean_exp(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/moving_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
 Compute the log of the exponentially weighted moving mean of the exp.
 

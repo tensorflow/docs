@@ -9,14 +9,9 @@ page_type: reference
 
 
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorCirculant2D`
-* Class `tf.linalg.LinearOperatorCirculant2D`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_circulant.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_circulant.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_circulant.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_circulant.py).
 
 `LinearOperator` acting like a block circulant matrix.
 
@@ -213,20 +208,20 @@ With `A` the dense representation of this `Operator`,
 `block_depth = 1` means `A` is symmetric circulant.  For example,
 
 ```
-A = |x y z y|
-    |y x y z|
-    |z y x y|
-    |y z y x|
+A = |w z y x|
+    |x w z y|
+    |y x w z|
+    |z y x w|
 ```
 
 `block_depth = 2` means `A` is block symmetric circulant with symemtric
-circulant blocks.  For example, with `X`, `Y`, `Z` symmetric circulant,
+circulant blocks.  For example, with `W`, `X`, `Y`, `Z` symmetric circulant,
 
 ```
-A = |X Y Z Y|
-    |Y X Y Z|
-    |Z Y X Y|
-    |Y Z Y X|
+A = |W Z Y X|
+    |X W Z Y|
+    |Y X W Z|
+    |Z Y X W|
 ```
 
 `block_depth = 3` means `A` is block symmetric circulant with block

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/wrappers/scikit_learn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/wrappers/scikit_learn.py).
+Defined in [`tensorflow/python/keras/wrappers/scikit_learn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/wrappers/scikit_learn.py).
 
 Implementation of the scikit-learn classifier API for Keras.
   

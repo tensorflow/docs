@@ -17,7 +17,7 @@ tf.nn.softmax_cross_entropy_with_logits_v2(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
 See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 

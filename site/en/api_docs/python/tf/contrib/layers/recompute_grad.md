@@ -14,7 +14,7 @@ tf.contrib.layers.recompute_grad(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
 Decorator that recomputes the function on the backwards pass.
 

@@ -14,7 +14,7 @@ tf.graph_util.remove_training_nodes(
 
 
 
-Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/graph_util_impl.py).
+Defined in [`tensorflow/python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/graph_util_impl.py).
 
 Prunes out nodes that aren't needed for inference.
 

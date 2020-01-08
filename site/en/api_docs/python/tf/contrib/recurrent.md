@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/recurrent_api.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/recurrent/python/recurrent_api.py).
+Defined in [`tensorflow/contrib/recurrent/python/recurrent_api.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/recurrent/python/recurrent_api.py).
 
 Recurrent computations library.
 

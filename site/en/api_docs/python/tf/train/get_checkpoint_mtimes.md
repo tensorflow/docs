@@ -11,7 +11,7 @@ tf.train.get_checkpoint_mtimes(checkpoint_prefixes)
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_management.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_management.py).
+Defined in [`tensorflow/python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_management.py).
 
 Returns the mtimes (modification timestamps) of the checkpoints.
 

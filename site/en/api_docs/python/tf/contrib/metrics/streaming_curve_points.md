@@ -20,7 +20,7 @@ tf.contrib.metrics.streaming_curve_points(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes curve (ROC or PR) values for a prespecified number of points.
 

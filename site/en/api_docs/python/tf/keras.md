@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/__init__.py).
+
 
 Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
@@ -62,5 +62,5 @@ Detailed documentation and user guides are available at
 
 ## Other Members
 
-`__version__`
+<h3 id="__version__"><code>__version__</code></h3>
 

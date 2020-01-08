@@ -16,7 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/normal.py).
+Defined in [`tensorflow/python/ops/distributions/normal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/normal.py).
 
 The Normal distribution with location `loc` and `scale` parameters.
 
@@ -46,15 +46,18 @@ Y = loc + scale * X
 Examples of initialization of one or a batch of distributions.
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Define a single scalar Normal distribution.
-dist = tf.distributions.Normal(loc=0., scale=3.)
+dist = tfd.Normal(loc=0., scale=3.)
 
 # Evaluate the cdf at 1, returning a scalar.
 dist.cdf(1.)
 
 # Define a batch of two scalar valued Normals.
 # The first has mean 1 and standard deviation 11, the second 2 and 22.
-dist = tf.distributions.Normal(loc=[1, 2.], scale=[11, 22.])
+dist = tfd.Normal(loc=[1, 2.], scale=[11, 22.])
 
 # Evaluate the pdf of the first distribution on 0, and the second on 1.5,
 # returning a length two tensor.
@@ -69,7 +72,7 @@ Arguments are broadcast when possible.
 ```python
 # Define a batch of two scalar valued Normals.
 # Both have mean 1, but different standard deviations.
-dist = tf.distributions.Normal(loc=1., scale=[11, 22.])
+dist = tfd.Normal(loc=1., scale=[11, 22.])
 
 # Evaluate the pdf of both distributions on the same point, 3.0,
 # returning a length 2 tensor.
@@ -335,7 +338,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -429,7 +432,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

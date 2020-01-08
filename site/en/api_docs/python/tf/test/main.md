@@ -11,7 +11,7 @@ tf.test.main(argv=None)
 
 
 
-Defined in [`tensorflow/python/platform/test.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/test.py).
+Defined in [`tensorflow/python/platform/test.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/test.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 

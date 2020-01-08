@@ -14,7 +14,7 @@ tf.contrib.learn.learn_runner.tune(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/learn_runner.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
 Tune an experiment with hyper-parameters. (deprecated)
 

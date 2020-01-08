@@ -11,5 +11,5 @@ tf.keras.activations.serialize(activation)
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/activations.py).
+Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/activations.py).
 

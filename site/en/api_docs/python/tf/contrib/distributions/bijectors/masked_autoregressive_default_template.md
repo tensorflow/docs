@@ -21,7 +21,7 @@ tf.contrib.distributions.bijectors.masked_autoregressive_default_template(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
 Build the Masked Autoregressive Density Estimator (Germain et al., 2015). (deprecated)
 

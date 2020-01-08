@@ -11,11 +11,13 @@ tf.contrib.data.ignore_errors()
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/error_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/error_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/error_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/error_ops.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+Creates a `Dataset` from another `Dataset` and silently ignores any errors. (deprecated)
 
-Creates a `Dataset` from another `Dataset` and silently ignores any errors.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.ignore_errors()`.
 
 Use this transformation to produce a dataset that contains the same elements
 as the input, but silently drops any elements that caused an error. For

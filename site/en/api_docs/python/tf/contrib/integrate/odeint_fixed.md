@@ -18,7 +18,7 @@ tf.contrib.integrate.odeint_fixed(
 
 
 
-Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/integrate/python/ops/odes.py).
+Defined in [`tensorflow/contrib/integrate/python/ops/odes.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/integrate/python/ops/odes.py).
 
 ODE integration on a fixed grid (with no step size control).
 

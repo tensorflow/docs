@@ -24,11 +24,15 @@ tf.train.maybe_shuffle_batch(
 
 
 
-Defined in [`tensorflow/python/training/input.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/input.py).
+Defined in [`tensorflow/python/training/input.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/input.py).
 
 See the guide: [Inputs and Readers > Input pipeline](../../../../api_guides/python/io_ops#Input_pipeline)
 
-Creates batches by randomly shuffling conditionally-enqueued tensors.
+Creates batches by randomly shuffling conditionally-enqueued tensors. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../../tf/data"><code>tf.data</code></a>. Use `tf.data.Dataset.filter(...).shuffle(min_after_dequeue).batch(batch_size)`.
 
 See docstring in `shuffle_batch` for more details.
 

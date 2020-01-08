@@ -16,7 +16,7 @@ tf.image.decode_image(
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/image_ops_impl.py).
 
 See the guide: [Images > Encoding and Decoding](../../../../api_guides/python/image#Encoding_and_Decoding)
 

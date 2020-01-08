@@ -11,11 +11,12 @@ tf.contrib.distribute.get_cross_tower_context()
 
 
 
-Defined in [`tensorflow/python/training/distribution_strategy_context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribution_strategy_context.py).
+Defined in [`tensorflow/python/training/distribution_strategy_context.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/distribution_strategy_context.py).
 
 Returns the current DistributionStrategy if in a cross-tower context.
 
 Note that execution:
+
 1. starts in the default (single-tower) tower context;
 2. switches to cross-tower context when entering a
    `with DistributionStrategy.scope():` block;

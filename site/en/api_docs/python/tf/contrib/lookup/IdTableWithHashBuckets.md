@@ -11,7 +11,7 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
@@ -68,13 +68,13 @@ Construct a `IdTableWithHashBuckets` object.
 
 #### Args:
 
-* <b>`table`</b>: Table that maps <a href="../../../tf/string"><code>tf.string</code></a> or <a href="../../../tf/int64"><code>tf.int64</code></a> keys to <a href="../../../tf/int64"><code>tf.int64</code></a> ids.
+* <b>`table`</b>: Table that maps <a href="../../../tf#string"><code>tf.string</code></a> or <a href="../../../tf#int64"><code>tf.int64</code></a> keys to <a href="../../../tf#int64"><code>tf.int64</code></a> ids.
 * <b>`num_oov_buckets`</b>: Number of buckets to use for out-of-vocabulary keys.
 * <b>`hasher_spec`</b>: A `HasherSpec` to specify the hash function to use for
     assignation of out-of-vocabulary buckets  (optional).
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`key_dtype`</b>: Data type of keys passed to `lookup`. Defaults to
-    `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf/string"><code>tf.string</code></a>.
+    `table.key_dtype` if `table` is specified, otherwise <a href="../../../tf#string"><code>tf.string</code></a>.
     Must be string or integer, and must be castable to `table.key_dtype`.
 
 

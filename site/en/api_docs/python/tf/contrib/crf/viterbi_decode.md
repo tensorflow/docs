@@ -14,9 +14,7 @@ tf.contrib.crf.viterbi_decode(
 
 
 
-Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/crf/python/ops/crf.py).
-
-See the guide: [CRF (contrib)](../../../../../api_guides/python/contrib.crf)
+Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/crf/python/ops/crf.py).
 
 Decode the highest scoring sequence of tags outside of TensorFlow.
 

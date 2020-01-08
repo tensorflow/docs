@@ -9,16 +9,9 @@ page_type: reference
 
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorLowerTriangular`
-* Class `tf.linalg.LinearOperatorLowerTriangular`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
-
-See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
+Defined in [`tensorflow/python/ops/linalg/linear_operator_lower_triangular.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_lower_triangular.py).
 
 `LinearOperator` acting like a [batch] square lower triangular matrix.
 

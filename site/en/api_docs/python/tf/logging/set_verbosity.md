@@ -11,6 +11,6 @@ tf.logging.set_verbosity(v)
 
 
 
-Defined in [`tensorflow/python/platform/tf_logging.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/tf_logging.py).
+Defined in [`tensorflow/python/platform/tf_logging.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/tf_logging.py).
 
 Sets the threshold for what messages will be logged.

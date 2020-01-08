@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::FixedLengthRecordReader Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,10 +13,10 @@
   <p>A Reader that outputs fixed-length records from a file. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>record_bytes: Number of bytes in the record.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>):<ul>
       <li>header_bytes: Number of bytes in the header, defaults to 0.</li>
       <li>footer_bytes: Number of bytes in the footer, defaults to 0.</li>
       <li>hop_bytes: Number of bytes to hop before each read. Default of 0 means using record_bytes.</li>
@@ -25,7 +25,7 @@
       <li>encoding: The type of encoding for the file. Currently ZLIB and GZIP are supported. Defaults to none.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to reference the Reader. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to reference the Reader. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1aa6ad72f08d89016af3043f72912d11eb">FixedLengthRecordReader</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, int64 record_bytes)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1aa6ad72f08d89016af3043f72912d11eb">FixedLengthRecordReader</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, int64 record_bytes)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a6951f2cbfe13b445b6a134ce78fe77c1">FixedLengthRecordReader</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, int64 record_bytes, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">FixedLengthRecordReader::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a6951f2cbfe13b445b6a134ce78fe77c1">FixedLengthRecordReader</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, int64 record_bytes, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">FixedLengthRecordReader::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -54,11 +54,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a0c935fca537ef7bcdf2a50360d8fbd5b">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a00481a6bc3fe0179015426e24fc5e3c2">reader_handle</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -112,7 +122,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -122,7 +132,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -132,7 +142,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -142,7 +152,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -152,7 +162,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -162,7 +172,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -175,24 +185,29 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs">tensorflow::<wbr/>ops::<wbr/>FixedLengthRecordReader::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs">tensorflow::<wbr/>ops::<wbr/>FixedLengthRecordReader::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/fixed-length-record-reader.html#classtensorflow_1_1ops_1_1_fixed_length_record_reader">FixedLengthRecordReader</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/fixed-length-record-reader.html#classtensorflow_1_1ops_1_1_fixed_length_record_reader">FixedLengthRecordReader</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a0c935fca537ef7bcdf2a50360d8fbd5b">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a00481a6bc3fe0179015426e24fc5e3c2">
     <h3>reader_handle</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reader_handle</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reader_handle</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1aa6ad72f08d89016af3043f72912d11eb">
     <h3>FixedLengthRecordReader</h3>
     <pre class="prettyprint"> FixedLengthRecordReader(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
   int64 record_bytes
 )</pre>
     <div />
@@ -200,9 +215,9 @@
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a6951f2cbfe13b445b6a134ce78fe77c1">
     <h3>FixedLengthRecordReader</h3>
     <pre class="prettyprint"> FixedLengthRecordReader(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
   int64 record_bytes,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">FixedLengthRecordReader::Attrs</a> & attrs
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">FixedLengthRecordReader::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -224,42 +239,42 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1aed436fcc075716b55de242a06c31d66e">
     <h3>Container</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> Container(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> Container(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a3ff28d9038bbd2ff938d63ce611249c4">
     <h3>Encoding</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> Encoding(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> Encoding(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1acf06e389c6e04efa9e481214fea4c994">
     <h3>FooterBytes</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> FooterBytes(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> FooterBytes(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a22257b324b398ad5b5a7a5f5fee189a4">
     <h3>HeaderBytes</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> HeaderBytes(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> HeaderBytes(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1af4f10340eb21642925af29b97ee7fa0d">
     <h3>HopBytes</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> HopBytes(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> HopBytes(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fixed_length_record_reader_1a6adaddff1f2c88d557e6b7ffbb638d66">
     <h3>SharedName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> SharedName(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fixed-length-record-reader/attrs.html#structtensorflow_1_1ops_1_1_fixed_length_record_reader_1_1_attrs">Attrs</a> SharedName(
   StringPiece x
 )</pre>
     <div />

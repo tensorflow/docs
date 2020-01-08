@@ -20,7 +20,7 @@ tf.contrib.framework.load_linear_multiclass_bias_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
 Loads pre-trained multi-class biases for linear models from checkpoint.
 

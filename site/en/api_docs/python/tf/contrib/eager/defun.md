@@ -14,7 +14,7 @@ tf.contrib.eager.defun(
 
 
 
-Defined in [`tensorflow/python/eager/function.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/function.py).
+Defined in [`tensorflow/python/eager/function.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/function.py).
 
 Compiles a Python function into a callable TensorFlow graph.
 
@@ -130,6 +130,11 @@ The first time that `F(*args, **kwargs)` is called with a particular sequence
 of Tensor shapes and dtypes and Python values, it constructs a graph by
 tracing the execution of `f(*args, **kwargs)`; this graph is bound to an
 input signature inferred from `(*args, **kwargs)` and cached for future reuse.
+
+NumPy arrays passed as inputs to `F` are converted to <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> objects
+before being passed to `f`, and are treated as Tensors for caching. This
+allows a function to be called multiple times with NumPy arrays having
+different values but the same shape and dtype without re-tracing each time.
 
 <a href="../../../tf/contrib/eager/defun"><code>tf.contrib.eager.defun</code></a> caches graphs for your convenience, letting you
 define TensorFlow functions without explicitly specifying their signatures.

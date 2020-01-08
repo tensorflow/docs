@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu_config.py).
 
 TPU related configuration required by `TPUEstimator`.
 
@@ -62,7 +62,7 @@ TPU related configuration required by `TPUEstimator`.
     Current limitations: This feature is only supported with the PER_HOST_V2
     input mode.
 
-* <b>`Raises`</b>: * <b>`ValueError`</b>: If `num_cores_per_replica` is not 1, 2, 4 or 8.
+* <b>`Raises`</b>: * <b>`ValueError`</b>: If `num_cores_per_replica` is not 1, 2, 4, 8 or 16.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
@@ -86,33 +86,33 @@ __new__(
 
 ## Properties
 
-<h3 id="initial_infeed_sleep_secs"><code>initial_infeed_sleep_secs</code></h3>
-
-Alias for field number 5
-
-<h3 id="input_partition_dims"><code>input_partition_dims</code></h3>
-
-Alias for field number 6
-
 <h3 id="iterations_per_loop"><code>iterations_per_loop</code></h3>
 
-Alias for field number 0
 
-<h3 id="num_cores_per_replica"><code>num_cores_per_replica</code></h3>
-
-Alias for field number 2
 
 <h3 id="num_shards"><code>num_shards</code></h3>
 
-Alias for field number 1
+
+
+<h3 id="num_cores_per_replica"><code>num_cores_per_replica</code></h3>
+
+
 
 <h3 id="per_host_input_for_training"><code>per_host_input_for_training</code></h3>
 
-Alias for field number 3
+
 
 <h3 id="tpu_job_name"><code>tpu_job_name</code></h3>
 
-Alias for field number 4
+
+
+<h3 id="initial_infeed_sleep_secs"><code>initial_infeed_sleep_secs</code></h3>
+
+
+
+<h3 id="input_partition_dims"><code>input_partition_dims</code></h3>
+
+
 
 
 

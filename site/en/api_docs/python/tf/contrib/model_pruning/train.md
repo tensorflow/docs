@@ -37,7 +37,7 @@ tf.contrib.model_pruning.train(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/learning.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/learning.py).
+Defined in [`tensorflow/contrib/model_pruning/python/learning.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/model_pruning/python/learning.py).
 
 Wrapper around tf-slim's train function.
 

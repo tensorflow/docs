@@ -11,11 +11,11 @@ tf.image.per_image_standardization(image)
 
 
 
-Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/image_ops_impl.py).
+Defined in [`tensorflow/python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/image_ops_impl.py).
 
-See the guide: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments)
+See the guides: [Images > Image Adjustments](../../../../api_guides/python/image#Image_Adjustments), [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
-Linearly scales `image` to have zero mean and unit norm.
+Linearly scales `image` to have zero mean and unit variance.
 
 This op computes `(x - mean) / adjusted_stddev`, where `mean` is the average
 of all values in image, and

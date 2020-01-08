@@ -16,7 +16,9 @@ tf.contrib.deprecated.scalar_summary(
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/logging_ops.py).
+
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Outputs a `Summary` protocol buffer with scalar values. (deprecated)
 

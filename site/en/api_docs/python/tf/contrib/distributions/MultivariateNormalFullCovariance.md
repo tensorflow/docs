@@ -11,7 +11,7 @@ Inherits From: [`MultivariateNormalTriL`](../../../tf/contrib/distributions/Mult
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/mvn_full_covariance.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -53,7 +53,8 @@ Y = scale @ X + loc
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Initialize a single 3-variate Gaussian.
 mu = [1., 2, 3]
@@ -377,7 +378,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -471,7 +472,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

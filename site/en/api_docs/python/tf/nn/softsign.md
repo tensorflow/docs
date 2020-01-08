@@ -27,7 +27,7 @@ Computes softsign: `features / (abs(features) + 1)`.
 
 #### Args:
 
-* <b>`features`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `int64`, `bfloat16`, `uint16`, `half`, `uint32`, `uint64`.
+* <b>`features`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

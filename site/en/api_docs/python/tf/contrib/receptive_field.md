@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/receptive_field/receptive_field_api.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/receptive_field/receptive_field_api.py).
+Defined in [`tensorflow/contrib/receptive_field/receptive_field_api.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/receptive_field/receptive_field_api.py).
 
 Module that declares the functions in tf.contrib.receptive_field's API.
 

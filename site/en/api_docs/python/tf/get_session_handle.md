@@ -14,9 +14,7 @@ tf.get_session_handle(
 
 
 
-Defined in [`tensorflow/python/ops/session_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/session_ops.py).
-
-See the guide: [Tensor Handle Operations > Tensor Handle Operations](../../../api_guides/python/session_ops#Tensor_Handle_Operations)
+Defined in [`tensorflow/python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/session_ops.py).
 
 Return the handle of `data`.
 

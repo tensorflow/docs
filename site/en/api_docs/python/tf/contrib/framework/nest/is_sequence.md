@@ -11,7 +11,7 @@ tf.contrib.framework.nest.is_sequence(o)
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/pywrap_tensorflow_internal.py).
 
 Returns a true if its input is a collections.Sequence (except strings).
 

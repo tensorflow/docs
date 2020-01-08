@@ -15,7 +15,7 @@ tf.keras.backend.spatial_2d_padding(
 
 
 
-Defined in [`tensorflow/python/keras/backend.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/backend.py).
+Defined in [`tensorflow/python/keras/backend.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/backend.py).
 
 Pads the 2nd and 3rd dimensions of a 4D tensor.
 

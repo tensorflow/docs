@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.export.build_parsing_serving_input_receiver_fn
 
@@ -11,10 +15,6 @@ tf.estimator.export.build_parsing_serving_input_receiver_fn(
     default_batch_size=None
 )
 ```
-
-
-
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export.py).
 
 Build a serving_input_receiver_fn expecting fed tf.Examples.
 

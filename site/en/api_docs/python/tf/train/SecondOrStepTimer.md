@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_session_run_hooks.py).
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/basic_session_run_hooks.py).
 
 Timer that triggers at most once every N seconds or once every N steps.
   

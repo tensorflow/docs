@@ -16,7 +16,7 @@ tf.contrib.distributions.moving_mean_variance(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/moving_stats.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
 Compute exponentially weighted moving {mean,variance} of a streaming value.
 

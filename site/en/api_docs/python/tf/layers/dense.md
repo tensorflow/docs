@@ -26,7 +26,7 @@ tf.layers.dense(
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/core.py).
 
 Functional interface for the densely-connected layer.
 

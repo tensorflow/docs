@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::DynamicPartition Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -29,7 +29,7 @@
     partitions = 1
     num_partitions = 2
     data = [10, 20]
-    outputs[0] = []  &#35; <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> with shape [0, 2]
+    outputs[0] = []  &#35; <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> with shape [0, 2]
     outputs[1] = [[10, 20]]</pre>
   </p>
   <p>
@@ -44,12 +44,12 @@
   <p>See <code>dynamic_stitch</code> for an example on how to merge partitions back.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.11/api_docs/cc/images/DynamicPartition.png" />
+      <img src="/versions/r1.12/api_docs/cc/images/DynamicPartition.png" />
     </figure>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>partitions: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> shape. Indices in the range <code>[0, num_partitions)</code>.</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>partitions: <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> shape. Indices in the range <code>[0, num_partitions)</code>.</li>
       <li>num_partitions: The number of partitions to output.</li>
     </ul></p>
   <p>Returns:<ul>
@@ -63,7 +63,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_dynamic_partition_1a3054ef5ab4e012816521a61a98ff1cb8">DynamicPartition</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> partitions, int64 num_partitions)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_dynamic_partition_1a3054ef5ab4e012816521a61a98ff1cb8">DynamicPartition</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> partitions, int64 num_partitions)</code>
         <br />
       </td>
     </tr>
@@ -76,11 +76,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_dynamic_partition_1ae34cf25c6a4f479e6eab33dd8d6c7bca">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_dynamic_partition_1ac93870bad9fb8ccd554d368930d608c0">outputs</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -97,31 +107,36 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_dynamic_partition_1ae34cf25c6a4f479e6eab33dd8d6c7bca">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_dynamic_partition_1ac93870bad9fb8ccd554d368930d608c0">
     <h3>outputs</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> outputs</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> outputs</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_dynamic_partition_1a3054ef5ab4e012816521a61a98ff1cb8">
     <h3>DynamicPartition</h3>
     <pre class="prettyprint"> DynamicPartition(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> partitions,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> partitions,
   int64 num_partitions
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_dynamic_partition_1a69567b14d471387c73d2e2240c59d645">
     <h3>operator[]</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](
   size_t index
 ) const </pre>
     <div />

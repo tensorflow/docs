@@ -14,9 +14,13 @@ tf.contrib.data.choose_from_datasets(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/interleave_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
-Creates a dataset that deterministically chooses elements from `datasets`.
+Creates a dataset that deterministically chooses elements from `datasets`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.choose_from_datasets(...)`.
 
 For example, given the following datasets:
 
@@ -40,7 +44,7 @@ The elements of `result` will be:
 #### Args:
 
 * <b>`datasets`</b>: A list of <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> objects with compatible structure.
-* <b>`choice_dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> of scalar <a href="../../../tf/int64"><code>tf.int64</code></a> tensors between
+* <b>`choice_dataset`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> of scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensors between
     `0` and `len(datasets) - 1`.
 
 

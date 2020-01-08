@@ -11,7 +11,7 @@ Inherits From: [`InverseGamma`](../../../tf/contrib/distributions/InverseGamma)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
 
 `InverseGamma` with softplus of `concentration` and `rate`.
 
@@ -255,7 +255,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -349,7 +349,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

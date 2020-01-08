@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/datasets/cifar100/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/datasets/cifar100/__init__.py).
+
 
 CIFAR100 small images classification dataset.
 

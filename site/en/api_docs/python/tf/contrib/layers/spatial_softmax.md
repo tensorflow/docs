@@ -18,7 +18,7 @@ tf.contrib.layers.spatial_softmax(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/layers.py).
 
 Computes the spatial softmax of a convolutional feature map.
 

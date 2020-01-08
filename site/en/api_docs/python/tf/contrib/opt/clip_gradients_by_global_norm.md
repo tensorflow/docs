@@ -14,7 +14,7 @@ tf.contrib.opt.clip_gradients_by_global_norm(
 
 
 
-Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
+Defined in [`tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 Clips gradients of a multitask loss by their global norm.
 

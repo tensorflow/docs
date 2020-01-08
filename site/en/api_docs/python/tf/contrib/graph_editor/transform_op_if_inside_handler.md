@@ -15,7 +15,7 @@ tf.contrib.graph_editor.transform_op_if_inside_handler(
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/transform.py).
+Defined in [`tensorflow/contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/graph_editor/transform.py).
 
 See the guide: [Graph Editor (contrib) > Module: transform](../../../../../api_guides/python/contrib.graph_editor#Module_transform)
 

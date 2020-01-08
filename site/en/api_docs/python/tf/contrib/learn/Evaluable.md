@@ -11,14 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/evaluable.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/evaluable.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/evaluable.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/evaluable.py).
 
 Interface for objects that are evaluatable by, e.g., `Experiment`.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 ## Properties

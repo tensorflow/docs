@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_manager.py).
-
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+Defined in [`tensorflow/python/training/session_manager.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/session_manager.py).
 
 Training helper that restores from checkpoint and creates session.
 

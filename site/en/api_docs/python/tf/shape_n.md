@@ -15,9 +15,7 @@ tf.shape_n(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Returns shape of tensors.
 
@@ -25,7 +23,7 @@ Returns shape of tensors.
 
 * <b>`input`</b>: A list of at least 1 `Tensor` object with the same type.
 * <b>`out_type`</b>: The specified output type of the operation
-    (`int32` or `int64`). Defaults to <a href="../tf/int32"><code>tf.int32</code></a>(optional).
+    (`int32` or `int64`). Defaults to <a href="../tf#int32"><code>tf.int32</code></a>(optional).
 * <b>`name`</b>: A name for the operation (optional).
 
 

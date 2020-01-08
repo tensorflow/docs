@@ -14,9 +14,7 @@ tf.contrib.framework.with_shape(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/tensor_util.py).
-
-See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 Asserts tensor has expected shape.
 

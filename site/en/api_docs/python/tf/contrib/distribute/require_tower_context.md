@@ -11,6 +11,6 @@ tf.contrib.distribute.require_tower_context(tower_ctx)
 
 
 
-Defined in [`tensorflow/python/training/distribute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/distribute.py).
+Defined in [`tensorflow/python/training/distribute.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/distribute.py).
 
 Verify in `tower_ctx` tower context.

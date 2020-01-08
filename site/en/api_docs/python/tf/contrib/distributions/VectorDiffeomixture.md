@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py).
 
 VectorDiffeomixture distribution.
 
@@ -89,7 +89,8 @@ variables, then the gradient is not guaranteed correct!
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Create two batches of VectorDiffeomixtures, one with mix_loc=[0.],
 # another with mix_loc=[1]. In both cases, `K=2` and the affine
@@ -447,7 +448,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -541,7 +542,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

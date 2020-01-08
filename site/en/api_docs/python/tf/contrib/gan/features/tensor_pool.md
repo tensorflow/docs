@@ -16,7 +16,7 @@ tf.contrib.gan.features.tensor_pool(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/features/python/random_tensor_pool_impl.py).
 
 Queue storing input values and returning random previously stored ones.
 

@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
-
-See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 DEPRECATED CLASS.
 

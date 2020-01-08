@@ -20,7 +20,7 @@ tf.contrib.estimator.export_saved_model_for_mode(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/export.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/export.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/export.py).
 
 Exports a single train/eval/predict graph as a SavedModel.
 

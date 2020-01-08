@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/summaries.py).
+Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/summaries.py).
 
 Utility functions for summary creation.
 

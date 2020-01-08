@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/dumping_wrapper.py).
-
-See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
+Defined in [`tensorflow/python/debug/wrappers/dumping_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/wrappers/dumping_wrapper.py).
 
 Debug Session wrapper that dumps debug data to filesystem.
 

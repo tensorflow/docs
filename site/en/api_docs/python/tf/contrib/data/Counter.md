@@ -15,9 +15,13 @@ tf.contrib.data.Counter(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/counter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/counter.py).
+Defined in [`tensorflow/contrib/data/python/ops/counter.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/counter.py).
 
-Creates a `Dataset` that counts from `start` in steps of size `step`.
+Creates a `Dataset` that counts from `start` in steps of size `step`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.Counter(...)`.
 
 For example:
 
@@ -34,7 +38,7 @@ Dataset.count(10, -1) == [10, 9, ...)
 * <b>`start`</b>: (Optional.) The starting value for the counter. Defaults to 0.
 * <b>`step`</b>: (Optional.) The step size for the counter. Defaults to 1.
 * <b>`dtype`</b>: (Optional.) The data type for counter elements. Defaults to
-    <a href="../../../tf/int64"><code>tf.int64</code></a>.
+    <a href="../../../tf#int64"><code>tf.int64</code></a>.
 
 
 #### Returns:

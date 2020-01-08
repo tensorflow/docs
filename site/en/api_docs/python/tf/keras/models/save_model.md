@@ -16,7 +16,7 @@ tf.keras.models.save_model(
 
 
 
-Defined in [`tensorflow/python/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/engine/saving.py).
+Defined in [`tensorflow/python/keras/engine/saving.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/engine/saving.py).
 
 Saves a model to a HDF5 file.
 

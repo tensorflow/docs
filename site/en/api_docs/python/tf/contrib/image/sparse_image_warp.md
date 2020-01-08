@@ -19,7 +19,7 @@ tf.contrib.image.sparse_image_warp(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/sparse_image_warp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/sparse_image_warp.py).
+Defined in [`tensorflow/contrib/image/python/ops/sparse_image_warp.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/sparse_image_warp.py).
 
 Image warping using correspondences between sparse control points.
 

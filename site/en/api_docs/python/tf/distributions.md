@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/distributions/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/distributions/__init__.py).
+
 
 Core module for TensorFlow distribution objects and helpers.
 
@@ -49,7 +49,7 @@ Core module for TensorFlow distribution objects and helpers.
 
 ## Other Members
 
-`FULLY_REPARAMETERIZED`
+<h3 id="FULLY_REPARAMETERIZED"><code>FULLY_REPARAMETERIZED</code></h3>
 
-`NOT_REPARAMETERIZED`
+<h3 id="NOT_REPARAMETERIZED"><code>NOT_REPARAMETERIZED</code></h3>
 

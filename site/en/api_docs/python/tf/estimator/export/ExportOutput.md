@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.export.ExportOutput
 
 ## Class `ExportOutput`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/export/export_output.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export_output.py).
 
 Represents an output of a model that can be served.
 

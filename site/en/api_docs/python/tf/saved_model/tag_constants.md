@@ -7,17 +7,17 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/saved_model/tag_constants/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/saved_model/tag_constants/__init__.py).
+
 
 Common tags used for graphs in SavedModel.
 
 ## Other Members
 
-`GPU`
+<h3 id="GPU"><code>GPU</code></h3>
 
-`SERVING`
+<h3 id="SERVING"><code>SERVING</code></h3>
 
-`TPU`
+<h3 id="TPU"><code>TPU</code></h3>
 
-`TRAINING`
+<h3 id="TRAINING"><code>TRAINING</code></h3>
 

@@ -17,7 +17,7 @@ tf.contrib.estimator.call_logit_fn(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/logit_fns.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/logit_fns.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/logit_fns.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/logit_fns.py).
 
 Calls logit_fn.
 

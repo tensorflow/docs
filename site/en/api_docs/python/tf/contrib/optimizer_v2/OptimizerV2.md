@@ -11,7 +11,7 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
+Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/optimizer_v2/optimizer_v2.py).
 
 Updated base class for optimizers.
 

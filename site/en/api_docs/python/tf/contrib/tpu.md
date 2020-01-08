@@ -7,9 +7,10 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/__init__.py).
+Defined in [`tensorflow/contrib/tpu/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/__init__.py).
 
 Ops related to Tensor Processing Units.
+
 
 
 
@@ -24,6 +25,8 @@ Ops related to Tensor Processing Units.
 [`profiler`](../../tf/contrib/tpu/profiler) module: Classes for TPU trace events.
 
 ## Classes
+
+[`class AsyncCheckpointSaverHook`](../../tf/contrib/tpu/AsyncCheckpointSaverHook): Saves checkpoints every N steps or seconds.
 
 [`class CrossShardOptimizer`](../../tf/contrib/tpu/CrossShardOptimizer): An optimizer that averages gradients across TPU shards.
 
@@ -53,7 +56,7 @@ Ops related to Tensor Processing Units.
 
 [`core(...)`](../../tf/contrib/tpu/core): Returns the device name for a core in a replicated TPU computation.
 
-[`cross_replica_sum(...)`](../../tf/contrib/tpu/cross_replica_sum): Sum the input tensor accorss replicas according to group_assignment.
+[`cross_replica_sum(...)`](../../tf/contrib/tpu/cross_replica_sum): Sum the input tensor across replicas according to group_assignment.
 
 [`device_assignment(...)`](../../tf/contrib/tpu/device_assignment): Computes a device_assignment of a computation across a TPU topology.
 
@@ -69,7 +72,7 @@ Ops related to Tensor Processing Units.
 
 [`initialize_system(...)`](../../tf/contrib/tpu/initialize_system): Initializes a distributed TPU system for use with TensorFlow.
 
-[`keras_to_tpu_model(...)`](../../tf/contrib/tpu/keras_to_tpu_model): Copy `model` along with weights to the TPU.  Returns a TPU model. (experimental)
+[`keras_to_tpu_model(...)`](../../tf/contrib/tpu/keras_to_tpu_model): Copy `model` along with weights to the TPU. (experimental)
 
 [`outfeed_dequeue(...)`](../../tf/contrib/tpu/outfeed_dequeue): Retrieves a single tensor from the computation outfeed.  This operation will
 
@@ -78,6 +81,8 @@ Ops related to Tensor Processing Units.
 [`outfeed_enqueue(...)`](../../tf/contrib/tpu/outfeed_enqueue): An op which emits a single Tensor value from an XLA computation.
 
 [`outfeed_enqueue_tuple(...)`](../../tf/contrib/tpu/outfeed_enqueue_tuple): An op which emits multiple Tensor values from an XLA computation.
+
+[`outside_compilation(...)`](../../tf/contrib/tpu/outside_compilation): Builds part of a computation outside any current TPU replicate scope.
 
 [`repeat(...)`](../../tf/contrib/tpu/repeat): Builds a training loop that executes a fixed number of iterations.
 

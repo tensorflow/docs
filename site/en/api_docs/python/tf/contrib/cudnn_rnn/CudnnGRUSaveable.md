@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
+Defined in [`tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
 
 SaveableObject implementation handling Cudnn GRU opaque params.
 

@@ -20,9 +20,7 @@ tf.einsum(
 
 
 
-Defined in [`tensorflow/python/ops/special_math_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/special_math_ops.py).
-
-See the guide: [Math > Reduction](../../../api_guides/python/math_ops#Reduction)
+Defined in [`tensorflow/python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/special_math_ops.py).
 
 A generalized contraction between tensors of arbitrary dimension.
 

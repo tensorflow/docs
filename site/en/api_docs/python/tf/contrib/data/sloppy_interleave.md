@@ -15,7 +15,7 @@ tf.contrib.data.sloppy_interleave(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/interleave_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
 A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
 

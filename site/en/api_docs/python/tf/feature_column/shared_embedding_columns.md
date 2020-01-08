@@ -21,7 +21,7 @@ tf.feature_column.shared_embedding_columns(
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 List of dense columns that convert from sparse, categorical input.
 

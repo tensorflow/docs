@@ -5,6 +5,11 @@ page_type: reference
 
 # tf.nn.softmax
 
+### Aliases:
+
+* `tf.math.softmax`
+* `tf.nn.softmax`
+
 ``` python
 tf.nn.softmax(
     logits,
@@ -16,9 +21,9 @@ tf.nn.softmax(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
+See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
 
 Computes softmax activations. (deprecated arguments)
 

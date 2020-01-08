@@ -9,14 +9,9 @@ page_type: reference
 
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorBlockDiag`
-* Class `tf.linalg.LinearOperatorBlockDiag`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_block_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_block_diag.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_block_diag.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_block_diag.py).
 
 Combines one or more `LinearOperators` in to a Block Diagonal matrix.
 

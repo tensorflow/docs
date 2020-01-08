@@ -14,11 +14,9 @@ tf.contrib.framework.assert_scalar_int(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/tensor_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
-See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
-
-Assert `tensor` is 0-D, of type <a href="../../../tf/int32"><code>tf.int32</code></a> or <a href="../../../tf/int64"><code>tf.int64</code></a>.
+Assert `tensor` is 0-D, of type <a href="../../../tf#int32"><code>tf.int32</code></a> or <a href="../../../tf#int64"><code>tf.int64</code></a>.
 
 #### Args:
 

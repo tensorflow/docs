@@ -25,7 +25,7 @@ tf.contrib.gan.estimator.gan_head(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
+Defined in [`tensorflow/contrib/gan/python/estimator/python/head_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/estimator/python/head_impl.py).
 
 Creates a `GANHead`. (deprecated)
 
@@ -48,7 +48,7 @@ Please use tf.contrib.gan.GANEstimator without explicitly making a GANHead.
     list of hooks.
 * <b>`get_eval_metric_ops_fn`</b>: A function that takes a `GANModel`, and returns a
     dict of metric results keyed by name. The output of this function is
-    passed into <a href="../../../../tf/estimator/EstimatorSpec"><code>tf.estimator.EstimatorSpec</code></a> during evaluation.
+    passed into `tf.estimator.EstimatorSpec` during evaluation.
 * <b>`name`</b>: name of the head. If provided, summary and metrics keys will be
     suffixed by `"/" + name`.
 

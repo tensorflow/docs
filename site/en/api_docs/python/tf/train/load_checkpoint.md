@@ -11,7 +11,7 @@ tf.train.load_checkpoint(ckpt_dir_or_file)
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_utils.py).
+Defined in [`tensorflow/python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_utils.py).
 
 Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 

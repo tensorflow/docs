@@ -19,7 +19,7 @@ tf.contrib.metrics.sparse_recall_at_top_k(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes recall@k of top-k predictions with respect to sparse labels.
 

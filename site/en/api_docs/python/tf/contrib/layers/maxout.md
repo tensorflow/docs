@@ -16,7 +16,7 @@ tf.contrib.layers.maxout(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/layers.py).
 
 Adds a maxout op from https://arxiv.org/abs/1302.4389
 
@@ -33,7 +33,7 @@ used after fully-connected layers to reduce number of features.
 * <b>`inputs`</b>: Tensor input
 * <b>`num_units`</b>: Specifies how many features will remain after maxout
     in the `axis` dimension (usually channel).
-    This must be multiple of number of `axis`.
+    This must be a factor of number of features.
 * <b>`axis`</b>: The dimension where max pooling will be performed. Default is the
   last dimension.
 * <b>`scope`</b>: Optional scope for variable_scope.

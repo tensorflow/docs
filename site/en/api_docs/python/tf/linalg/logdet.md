@@ -14,7 +14,7 @@ tf.linalg.logdet(
 
 
 
-Defined in [`tensorflow/python/ops/linalg/linalg_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linalg_impl.py).
+Defined in [`tensorflow/python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linalg_impl.py).
 
 Computes log of the determinant of a hermitian positive definite matrix.
 

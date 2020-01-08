@@ -16,9 +16,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/queue_runner_impl.py).
+Defined in [`tensorflow/python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/queue_runner_impl.py).
 
-See the guides: [Exporting and Importing a MetaGraph > What's in a MetaGraph](../../../../api_guides/python/meta_graph#What_s_in_a_MetaGraph), [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+See the guides: [Exporting and Importing a MetaGraph > What's in a MetaGraph](../../../../api_guides/python/meta_graph#What_s_in_a_MetaGraph), [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management)
 
 Holds a list of enqueue operations for a queue, each to be run in a thread.
 

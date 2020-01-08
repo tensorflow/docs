@@ -14,9 +14,7 @@ tf.contrib.util.constant_value(
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_util.py).
-
-See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
+Defined in [`tensorflow/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_util.py).
 
 Returns the constant value of the given tensor, if efficiently calculable.
 

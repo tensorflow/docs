@@ -15,9 +15,7 @@ tf.contrib.layers.multi_class_target(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/target_column.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/target_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/target_column.py).
 
 Creates a _TargetColumn for multi class single label classification. (deprecated)
 

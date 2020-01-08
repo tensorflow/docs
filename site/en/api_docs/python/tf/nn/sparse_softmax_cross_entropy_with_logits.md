@@ -16,9 +16,9 @@ tf.nn.sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
-See the guide: [Neural Network > Classification](../../../../api_guides/python/nn#Classification)
+See the guides: [Neural Network > Classification](../../../../api_guides/python/nn#Classification), [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Computes sparse softmax cross entropy between `logits` and `labels`.
 

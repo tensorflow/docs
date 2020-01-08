@@ -2,26 +2,26 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::StringToHashBucketStrong Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>StringToHashBucketStrong</h1>
   <code>#include &lt;string_ops.h&gt;</code>
-  <p>Converts each string in the input <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
+  <p>Converts each string in the input <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to its hash mod by a number of buckets. </p>
   <h2>Summary</h2>
   <p>The hash function is deterministic on the content of the string within the process. The hash function is a keyed hash function, where attribute <code>key</code> defines the key of the hash function. <code>key</code> is an array of 2 elements.</p>
   <p>A strong hash is important when inputs may be malicious, e.g. URLs with additional components. Adversaries could try to make their inputs hash to the same bucket for a denial-of-service attack or to skew the results. A strong hash prevents this by making it difficult, if not infeasible, to compute inputs that hash to the same bucket. This comes at a cost of roughly 4x higher compute time than <code>tf.string_to_hash_bucket_fast</code>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input: The strings to assign a hash bucket.</li>
       <li>num_buckets: The number of buckets.</li>
       <li>key: The key for the keyed hash function passed as a list of two uint64 elements.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of the same shape as the input <code>string_tensor</code>. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of the same shape as the input <code>string_tensor</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1ac875272a421c27022485c1d156921526">StringToHashBucketStrong</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 num_buckets, const gtl::ArraySlice< int > & key)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1ac875272a421c27022485c1d156921526">StringToHashBucketStrong</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64 num_buckets, const gtl::ArraySlice< int > & key)</code>
         <br />
       </td>
     </tr>
@@ -44,11 +44,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1a6ef732f172d70e59235f3e6ede12b13a">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1a2b2f736fdbc1add249f1a4dfd72ab6dd">output</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -91,17 +101,22 @@
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1a6ef732f172d70e59235f3e6ede12b13a">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1a2b2f736fdbc1add249f1a4dfd72ab6dd">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_string_to_hash_bucket_strong_1ac875272a421c27022485c1d156921526">
     <h3>StringToHashBucketStrong</h3>
     <pre class="prettyprint"> StringToHashBucketStrong(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   int64 num_buckets,
   const gtl::ArraySlice< int > & key
 )</pre>

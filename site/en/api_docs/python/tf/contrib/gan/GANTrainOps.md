@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/namedtuples.py).
 
 GANTrainOps contains the training ops.
 
@@ -38,17 +38,17 @@ Create new instance of GANTrainOps(generator_train_op, discriminator_train_op, g
 
 ## Properties
 
-<h3 id="discriminator_train_op"><code>discriminator_train_op</code></h3>
-
-Alias for field number 1
-
 <h3 id="generator_train_op"><code>generator_train_op</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="discriminator_train_op"><code>discriminator_train_op</code></h3>
+
+
 
 <h3 id="global_step_inc_op"><code>global_step_inc_op</code></h3>
 
-Alias for field number 2
+
 
 
 

@@ -11,15 +11,13 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 
 
-Defined in [`tensorflow/python/training/adagrad.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/adagrad.py).
-
-See the guide: [Training > Optimizers](../../../../api_guides/python/train#Optimizers)
+Defined in [`tensorflow/python/training/adagrad.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/adagrad.py).
 
 Optimizer that implements the Adagrad algorithm.
 
 See this [paper](http://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf)
 or this
-[intro](http://cs.stanford.edu/~ppasupat/a9online/uploads/proximal_notes.pdf).
+[intro](https://ppasupat.github.io/a9online/uploads/proximal_notes.pdf).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -262,13 +260,12 @@ was not `None`, that operation also increments `global_step`.
 
 #### Eager Compatibility
 When eager execution is enabled, `loss` should be a Python function that
-takes elements of `var_list` as arguments and computes the value to be
-minimized. If `var_list` is None, `loss` should take no arguments.
-Minimization (and gradient computation) is done with respect to the
-elements of `var_list` if not None, else with respect to any trainable
-variables created during the execution of the `loss` function.
-`gate_gradients`, `aggregation_method`, `colocate_gradients_with_ops` and
-`grad_loss` are ignored when eager execution is enabled.
+takes no arguments and computes the value to be minimized. Minimization (and
+gradient computation) is done with respect to the elements of `var_list` if
+not None, else with respect to any trainable variables created during the
+execution of the `loss` function. `gate_gradients`, `aggregation_method`,
+`colocate_gradients_with_ops` and `grad_loss` are ignored when eager
+execution is enabled.
 
 
 

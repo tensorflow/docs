@@ -19,7 +19,7 @@ tf.metrics.sparse_average_precision_at_k(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/metrics_impl.py).
 
 Renamed to `average_precision_at_k`, please use that method instead. (deprecated)
 

@@ -15,7 +15,7 @@ tf.contrib.image.dense_image_warp(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/dense_image_warp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/dense_image_warp.py).
+Defined in [`tensorflow/contrib/image/python/ops/dense_image_warp.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/dense_image_warp.py).
 
 Image warping using per-pixel flow vectors.
 

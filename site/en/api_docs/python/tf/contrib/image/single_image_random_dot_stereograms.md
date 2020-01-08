@@ -25,7 +25,7 @@ tf.contrib.image.single_image_random_dot_stereograms(
 
 
 
-Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
+Defined in [`tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
 
 Output a RandomDotStereogram Tensor for export via encode_PNG/JPG OP.
 

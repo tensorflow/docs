@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.export.TensorServingInputReceiver
 
 ## Class `TensorServingInputReceiver`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/export/export.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/export/export.py).
 
 A return type for a serving_input_receiver_fn.
 
@@ -66,15 +66,15 @@ __new__(
 
 <h3 id="features"><code>features</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="receiver_tensors"><code>receiver_tensors</code></h3>
 
-Alias for field number 1
+
 
 <h3 id="receiver_tensors_alternatives"><code>receiver_tensors_alternatives</code></h3>
 
-Alias for field number 2
+
 
 
 

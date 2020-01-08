@@ -11,12 +11,12 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/dnn.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/dnn.py).
 
 A Estimator for TensorFlow DNN models with user specified _Head.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Example:

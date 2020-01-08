@@ -15,9 +15,7 @@ tf.unique_with_counts(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Finds unique elements in a 1-D tensor.
 
@@ -42,7 +40,7 @@ count ==> [2, 1, 3, 1, 2]
 #### Args:
 
 * <b>`x`</b>: A `Tensor`. 1-D.
-* <b>`out_idx`</b>: An optional <a href="../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

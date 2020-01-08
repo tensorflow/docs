@@ -11,7 +11,7 @@ Inherits From: [`InitializableLookupTableBase`](../../../tf/contrib/lookup/Initi
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 A generic hash table implementation.
 

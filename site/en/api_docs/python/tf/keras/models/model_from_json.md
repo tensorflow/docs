@@ -14,7 +14,7 @@ tf.keras.models.model_from_json(
 
 
 
-Defined in [`tensorflow/python/keras/engine/saving.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/engine/saving.py).
+Defined in [`tensorflow/python/keras/engine/saving.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/engine/saving.py).
 
 Parses a JSON model configuration file and returns a model instance.
 

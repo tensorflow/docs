@@ -20,7 +20,7 @@ tf.contrib.layers.rev_block(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
+Defined in [`tensorflow/contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
 A block of reversible residual layers.
 

@@ -21,9 +21,7 @@ tf.make_tensor_proto(
 
 
 
-Defined in [`tensorflow/python/framework/tensor_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_util.py).
-
-See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
+Defined in [`tensorflow/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_util.py).
 
 Create a TensorProto.
 
@@ -40,7 +38,7 @@ Create a TensorProto.
 A `TensorProto`. Depending on the type, it may contain data in the
 "tensor_content" attribute, which is not directly useful to Python programs.
 To access the values you should convert the proto back to a numpy ndarray
-with `tensor_util.MakeNdarray(proto)`.
+with `tf.make_ndarray(proto)`.
 
 If `values` is a `TensorProto`, it is immediately returned; `dtype` and
 `shape` are ignored.

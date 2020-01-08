@@ -14,7 +14,7 @@ tf.contrib.seq2seq.hardmax(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Returns batched one-hot vectors.
 

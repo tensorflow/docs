@@ -14,7 +14,7 @@ tf.layers.flatten(
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/core.py).
 
 Flattens an input tensor while preserving the batch axis (axis 0).
 

@@ -16,7 +16,7 @@ Inherits From: [`Gamma`](../../tf/distributions/Gamma)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/exponential.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/exponential.py).
+Defined in [`tensorflow/python/ops/distributions/exponential.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/exponential.py).
 
 Exponential distribution.
 
@@ -297,7 +297,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -391,7 +391,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/train/queue_runner/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/train/queue_runner/__init__.py).
+
 
 Public API for tf.train.queue_runner namespace.
 

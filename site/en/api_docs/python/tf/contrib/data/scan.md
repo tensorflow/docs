@@ -14,11 +14,13 @@ tf.contrib.data.scan(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/scan_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/scan_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/scan_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/scan_ops.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+A transformation that scans a function across an input dataset. (deprecated)
 
-A transformation that scans a function across an input dataset.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.scan(...)`.
 
 This transformation is a stateful relative of <a href="../../../tf/data/Dataset#map"><code>tf.data.Dataset.map</code></a>.
 In addition to mapping `scan_func` across the elements of the input dataset,

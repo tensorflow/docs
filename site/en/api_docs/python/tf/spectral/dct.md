@@ -18,9 +18,7 @@ tf.spectral.dct(
 
 
 
-Defined in [`tensorflow/python/ops/spectral_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/spectral_ops.py).
-
-See the guide: [Spectral Functions > Discrete Cosine Transforms](../../../../api_guides/python/spectral_ops#Discrete_Cosine_Transforms)
+Defined in [`tensorflow/python/ops/spectral_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/spectral_ops.py).
 
 Computes the 1D [Discrete Cosine Transform (DCT)][dct] of `input`.
 

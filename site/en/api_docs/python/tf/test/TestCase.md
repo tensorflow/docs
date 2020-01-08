@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/test_util.py).
 
 See the guide: [Testing > Unit tests](../../../../api_guides/python/test#Unit_tests)
 
@@ -1142,6 +1142,51 @@ class MyOperatorTest(test_util.TensorFlowTestCase):
 
 A Session object that should be used as a context manager to surround
 the graph building and execution code in a test case.
+
+<h3 id="captureWritesToStream"><code>captureWritesToStream</code></h3>
+
+``` python
+captureWritesToStream(
+    *args,
+    **kwds
+)
+```
+
+A context manager that captures the writes to a given stream.
+
+This context manager captures all writes to a given stream inside of a
+`CapturedWrites` object. When this context manager is created, it yields
+the `CapturedWrites` object. The captured contents can be accessed  by
+calling `.contents()` on the `CapturedWrites`.
+
+For this function to work, the stream must have a file descriptor that
+can be modified using `os.dup` and `os.dup2`, and the stream must support
+a `.flush()` method. The default python sys.stdout and sys.stderr are
+examples of this. Note that this does not work in Colab or Jupyter
+notebooks, because those use alternate stdout streams.
+
+Example:
+
+```python
+class MyOperatorTest(test_util.TensorFlowTestCase):
+  def testMyOperator(self):
+    input = [1.0, 2.0, 3.0, 4.0, 5.0]
+    with self.captureWritesToStream(sys.stdout) as captured:
+      result = MyOperator(input).eval()
+    self.assertStartsWith(captured.contents(), "This was printed.")
+```
+
+#### Args:
+
+* <b>`stream`</b>: The stream whose writes should be captured. This
+    stream must have a file descriptor, support writing via using that
+    file descriptor, and must have a `.flush()` method.
+
+
+#### Yields:
+
+A `CapturedWrites` object that contains all writes to the specified stream
+made during this context.
 
 <h3 id="checkedThread"><code>checkedThread</code></h3>
 

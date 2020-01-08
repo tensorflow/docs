@@ -23,7 +23,7 @@ tf.nn.nce_loss(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_impl.py).
 
 See the guide: [Neural Network > Candidate Sampling](../../../../api_guides/python/nn#Candidate_Sampling)
 
@@ -62,7 +62,7 @@ elif mode == "eval":
 Note: By default this uses a log-uniform (Zipfian) distribution for sampling,
 so your labels must be sorted in order of decreasing frequency to achieve
 good results.  For more details, see
-<a href="../../tf/nn/log_uniform_candidate_sampler"><code>tf.nn.log_uniform_candidate_sampler</code></a>.
+<a href="../../tf/random/log_uniform_candidate_sampler"><code>tf.nn.log_uniform_candidate_sampler</code></a>.
 
 Note: In the case where `num_true` > 1, we assign to each target class
 the target probability 1 / `num_true` so that the target probabilities

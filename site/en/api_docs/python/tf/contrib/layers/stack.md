@@ -16,7 +16,7 @@ tf.contrib.layers.stack(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/layers.py).
+Defined in [`tensorflow/contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/layers.py).
 
 Builds a stack of layers by applying layer repeatedly using stack_args.
 

@@ -18,7 +18,7 @@ tf.layers.average_pooling2d(
 
 
 
-Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/pooling.py).
+Defined in [`tensorflow/python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/pooling.py).
 
 Average pooling layer for 2D inputs (e.g. images).
 

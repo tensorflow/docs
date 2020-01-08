@@ -11,7 +11,7 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cluster_resolver/python/training/gce_cluster_resolver.py).
 
 Cluster Resolver for Google Compute Engine.
 

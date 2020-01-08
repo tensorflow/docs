@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/utils/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/utils/__init__.py).
+
 
 Keras utilities.
 
@@ -18,6 +18,8 @@ Keras utilities.
 [`class GeneratorEnqueuer`](../../tf/keras/utils/GeneratorEnqueuer): Builds a queue out of a data generator.
 
 [`class HDF5Matrix`](../../tf/keras/utils/HDF5Matrix): Representation of HDF5 dataset to be used instead of a Numpy array.
+
+[`class OrderedEnqueuer`](../../tf/keras/utils/OrderedEnqueuer): Builds a Enqueuer from a Sequence.
 
 [`class Progbar`](../../tf/keras/utils/Progbar): Displays a progress bar.
 
@@ -36,6 +38,8 @@ Keras utilities.
 [`get_custom_objects(...)`](../../tf/keras/utils/get_custom_objects): Retrieves a live reference to the global dictionary of custom objects.
 
 [`get_file(...)`](../../tf/keras/utils/get_file): Downloads a file from a URL if it not already in the cache.
+
+[`get_source_inputs(...)`](../../tf/keras/utils/get_source_inputs): Returns the list of input tensors necessary to compute `tensor`.
 
 [`multi_gpu_model(...)`](../../tf/keras/utils/multi_gpu_model): Replicates a model on different GPUs.
 

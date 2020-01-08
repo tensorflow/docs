@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.ModeKeys
 
 ## Class `ModeKeys`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/model_fn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/model_fn.py).
 
 Standard names for model modes.
 

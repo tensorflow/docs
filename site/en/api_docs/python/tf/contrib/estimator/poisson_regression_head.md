@@ -17,7 +17,7 @@ tf.contrib.estimator.poisson_regression_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for poisson regression using <a href="../../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
 

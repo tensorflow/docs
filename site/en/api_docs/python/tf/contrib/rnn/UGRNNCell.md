@@ -11,7 +11,7 @@ Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 Update Gate Recurrent Neural Network (UGRNN) cell.
 
@@ -34,7 +34,7 @@ __init__(
     num_units,
     initializer=None,
     forget_bias=1.0,
-    activation=tf.nn.tanh,
+    activation=tf.math.tanh,
     reuse=None
 )
 ```
@@ -49,7 +49,7 @@ Initialize the parameters for an UGRNN cell.
     forget gate, used to reduce the scale of forgetting at the beginning
     of the training.
 * <b>`activation`</b>: (optional) Activation function of the inner states.
-    Default is <a href="../../../tf/nn/tanh"><code>tf.tanh</code></a>.
+    Default is <a href="../../../tf/math/tanh"><code>tf.tanh</code></a>.
 * <b>`reuse`</b>: (optional) Python boolean describing whether to reuse variables
     in an existing scope.  If not `True`, and the existing scope already has
     the given variables, an error is raised.
@@ -134,9 +134,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

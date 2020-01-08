@@ -11,7 +11,7 @@ Inherits From: [`SequenceEnqueuer`](../../../tf/keras/utils/SequenceEnqueuer)
 
 
 
-Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/data_utils.py).
+Defined in [`tensorflow/python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/data_utils.py).
 
 Builds a queue out of a data generator.
 

@@ -11,11 +11,13 @@ tf.contrib.data.make_saveable_from_iterator(iterator)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/iterator_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/iterator_ops.py).
 
-See the guide: [Dataset Input Pipeline > Extra functions from `tf.contrib.data`](../../../../../api_guides/python/input_dataset#Extra_functions_from_tf_contrib_data_)
+Returns a SaveableObject for saving/restore iterator state using Saver. (deprecated)
 
-Returns a SaveableObject for saving/restore iterator state using Saver.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.make_saveable_from_iterator(...)`.
 
 #### Args:
 

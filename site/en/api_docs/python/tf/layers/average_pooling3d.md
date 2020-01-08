@@ -18,7 +18,7 @@ tf.layers.average_pooling3d(
 
 
 
-Defined in [`tensorflow/python/layers/pooling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/pooling.py).
+Defined in [`tensorflow/python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/pooling.py).
 
 Average pooling layer for 3D inputs (e.g. volumes).
 

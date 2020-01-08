@@ -11,7 +11,7 @@ tf.gfile.Glob(filename)
 
 
 
-Defined in [`tensorflow/python/lib/io/file_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/lib/io/file_io.py).
+Defined in [`tensorflow/python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/lib/io/file_io.py).
 
 Returns a list of files that match the given pattern(s).
 

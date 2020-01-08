@@ -11,7 +11,7 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 A helper to use during inference with a custom sampling function.
 

@@ -15,9 +15,7 @@ tf.convert_to_tensor_or_indexed_slices(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 Converts the given object to a `Tensor` or an `IndexedSlices`.
 

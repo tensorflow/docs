@@ -2,21 +2,22 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Substr Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>Substr</h1>
   <code>#include &lt;string_ops.h&gt;</code>
-  <p>Return substrings from <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of strings. </p>
+  <p>Return substrings from <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of strings. </p>
   <h2>Summary</h2>
-  <p>For each string in the input <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, creates a substring starting at index <code>pos</code> with a total length of <code>len</code>.</p>
+  <p>For each string in the input <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, creates a substring starting at index <code>pos</code> with a total length of <code>len</code>.</p>
   <p>If <code>len</code> defines a substring that would extend beyond the length of the input string, then as many characters as possible are used.</p>
-  <p>If <code>pos</code> is negative or specifies a character index larger than any of the input strings, then an <code>InvalidArgumentError</code> is thrown.</p>
+  <p>A negative <code>pos</code> indicates distance within the string backwards from the end.</p>
+  <p>If <code>pos</code> specifies an index which is out of range for any of the input strings, then an <code>InvalidArgumentError</code> is thrown.</p>
   <p><code>pos</code> and <code>len</code> must have the same shape, otherwise a <code>ValueError</code> is thrown on Op creation.</p>
-  <p><i>NOTE</i>: <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/substr.html#classtensorflow_1_1ops_1_1_substr">Substr</a></code> supports broadcasting up to two dimensions. More about broadcasting <a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">here</a><hr /></p>
+  <p><i>NOTE</i>: <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/substr.html#classtensorflow_1_1ops_1_1_substr">Substr</a></code> supports broadcasting up to two dimensions. More about broadcasting <a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">here</a><hr /></p>
   <p>Examples</p>
   <p>Using scalar <code>pos</code> and <code>len</code>:</p>
   <p>
@@ -77,13 +78,13 @@ length =   [3, 2, 1]</pre>
 </pre>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>input: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of strings</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of strings</li>
       <li>pos: Scalar defining the position of first character in each substring</li>
       <li>len: Scalar defining the number of characters to include in each substring</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of substrings </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of substrings </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -93,7 +94,7 @@ length =   [3, 2, 1]</pre>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_substr_1ac4ec231f379a3a957a1ba6c388900d2e">Substr</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pos, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> len)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_substr_1ac4ec231f379a3a957a1ba6c388900d2e">Substr</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pos, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> len)</code>
         <br />
       </td>
     </tr>
@@ -106,11 +107,21 @@ length =   [3, 2, 1]</pre>
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_substr_1a5cebdcec605f165be72c6ccb0b0a7b6c">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_substr_1a833ab93a8bd8153ad683227af6205edd">output</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -153,19 +164,24 @@ length =   [3, 2, 1]</pre>
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_substr_1a5cebdcec605f165be72c6ccb0b0a7b6c">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_substr_1a833ab93a8bd8153ad683227af6205edd">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_substr_1ac4ec231f379a3a957a1ba6c388900d2e">
     <h3>Substr</h3>
     <pre class="prettyprint"> Substr(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pos,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> len
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> pos,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> len
 )</pre>
     <div />
   </div>

@@ -13,13 +13,14 @@ tf.contrib.estimator.dnn_logit_fn_builder(
     activation_fn,
     dropout,
     input_layer_partitioner,
-    batch_norm
+    batch_norm,
+    shared_state_manager=None
 )
 ```
 
 
 
-Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/dnn.py).
+Defined in [`tensorflow/python/estimator/canned/dnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/estimator/canned/dnn.py).
 
 Function builder for a dnn logit_fn.
 
@@ -35,6 +36,8 @@ Function builder for a dnn logit_fn.
     coordinate.
 * <b>`input_layer_partitioner`</b>: Partitioner for input layer.
 * <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
+* <b>`shared_state_manager`</b>: A SharedEmbeddingStateManager object to hold the
+    shared state for SharedEmbeddingColumn's.
 
 
 #### Returns:

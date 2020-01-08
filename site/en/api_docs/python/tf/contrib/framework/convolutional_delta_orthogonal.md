@@ -11,7 +11,7 @@ Inherits From: [`Initializer`](../../../tf/keras/initializers/Initializer)
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/init_ops.py).
 
 Initializer that generates a delta orthogonal kernel for ConvNets.
 
@@ -27,7 +27,7 @@ algorithm 2 in [Xiao et al., 2018]: https://arxiv.org/abs/1806.05393
     The 2-norm of an input is multiplied by a factor of 'sqrt(gain)' after
     applying this convolution.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type.
 
 <h2 id="__init__"><code>__init__</code></h2>

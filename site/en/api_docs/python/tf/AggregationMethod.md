@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/gradients_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/gradients_impl.py).
-
-See the guide: [Training > Gradient Computation](../../../api_guides/python/train#Gradient_Computation)
+Defined in [`tensorflow/python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/gradients_impl.py).
 
 A class listing aggregation methods used to combine gradients.
 

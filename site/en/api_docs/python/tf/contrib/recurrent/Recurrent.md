@@ -14,13 +14,14 @@ tf.contrib.recurrent.Recurrent(
     cell_grad=None,
     extras=None,
     max_input_length=None,
-    use_tpu=False
+    use_tpu=False,
+    aligned_end=False
 )
 ```
 
 
 
-Defined in [`tensorflow/contrib/recurrent/python/ops/recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/recurrent/python/ops/recurrent.py).
+Defined in [`tensorflow/contrib/recurrent/python/ops/recurrent.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/recurrent/python/ops/recurrent.py).
 
 Compute a recurrent neural net.
 
@@ -65,6 +66,8 @@ customized backward function of cell_fn.
     truncate the computation if the inputs have been allocated to a
     larger size. A scalar tensor.
 * <b>`use_tpu`</b>: whether or not we are on TPU.
+* <b>`aligned_end`</b>: A boolean indicating whether the sequence is aligned at
+    the end.
 
 
 #### Returns:

@@ -15,7 +15,7 @@ tf.contrib.estimator.forward_features(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/extenders.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/extenders.py).
 
 Forward features to predictions dictionary.
 
@@ -39,7 +39,7 @@ Example:
 ```
 #### Args:
 
-* <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> object.
+* <b>`estimator`</b>: A `tf.estimator.Estimator` object.
 * <b>`keys`</b>: A `string` or a `list` of `string`. If it is `None`, all of the
     `features` in `dict` is forwarded to the `predictions`. If it is a
     `string`, only given key is forwarded. If it is a `list` of strings, all
@@ -52,7 +52,7 @@ Example:
 
 #### Returns:
 
-A new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which forwards features to predictions.
+A new `tf.estimator.Estimator` which forwards features to predictions.
 
 #### Raises:
 

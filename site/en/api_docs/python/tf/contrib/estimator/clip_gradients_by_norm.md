@@ -14,7 +14,7 @@ tf.contrib.estimator.clip_gradients_by_norm(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/extenders.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/extenders.py).
 
 Returns an optimizer which clips gradients before applying them.
 

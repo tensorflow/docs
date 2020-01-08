@@ -16,7 +16,7 @@ tf.contrib.framework.smart_case(
 
 
 
-Defined in [`tensorflow/python/framework/smart_cond.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/smart_cond.py).
+Defined in [`tensorflow/python/framework/smart_cond.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/smart_cond.py).
 
 Like tf.case, except attempts to statically evaluate predicates.
 

@@ -22,7 +22,7 @@ tf.floormod(
 
 Defined in generated file: `tensorflow/python/ops/gen_math_ops.py`.
 
-See the guide: [Math > Arithmetic Operators](../../../api_guides/python/math_ops#Arithmetic_Operators)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 

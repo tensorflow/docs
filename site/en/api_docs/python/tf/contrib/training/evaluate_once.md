@@ -21,7 +21,7 @@ tf.contrib.training.evaluate_once(
 
 
 
-Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/evaluation.py).
+Defined in [`tensorflow/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/evaluation.py).
 
 Evaluates the model at the given checkpoint path.
 

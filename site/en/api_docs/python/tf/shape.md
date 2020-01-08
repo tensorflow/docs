@@ -15,9 +15,7 @@ tf.shape(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Returns the shape of a tensor.
 
@@ -35,7 +33,7 @@ tf.shape(t)  # [2, 2, 3]
 * <b>`input`</b>: A `Tensor` or `SparseTensor`.
 * <b>`name`</b>: A name for the operation (optional).
 * <b>`out_type`</b>: (Optional) The specified output type of the operation
-    (`int32` or `int64`). Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+    (`int32` or `int64`). Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 
 
 #### Returns:

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/namedtuples.py).
 
 An CycleGANModel contains all the pieces needed for CycleGAN training.
 
@@ -47,19 +47,19 @@ Create new instance of CycleGANModel(model_x2y, model_y2x, reconstructed_x, reco
 
 <h3 id="model_x2y"><code>model_x2y</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="model_y2x"><code>model_y2x</code></h3>
 
-Alias for field number 1
+
 
 <h3 id="reconstructed_x"><code>reconstructed_x</code></h3>
 
-Alias for field number 2
+
 
 <h3 id="reconstructed_y"><code>reconstructed_y</code></h3>
 
-Alias for field number 3
+
 
 
 

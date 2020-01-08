@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ResourceSparseApplyCenteredRMSProp Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -17,7 +17,7 @@
   <p>mean_square = decay * mean_square + (1-decay) * gradient ** 2 mean_grad = decay * mean_grad + (1-decay) * gradient Delta = learning_rate * gradient / sqrt(mean_square + epsilon - mean_grad ** 2)</p>
   <p>ms <- rho * ms_{t-1} + (1-rho) * grad * grad mom <- momentum * mom_{t-1} + lr * grad / sqrt(ms + epsilon) var <- var - mom</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>mg: Should be from a Variable().</li>
       <li>ms: Should be from a Variable().</li>
@@ -28,11 +28,11 @@
       <li>grad: The gradient.</li>
       <li>indices: A vector of indices into the first dimension of var, ms and mom.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var, mg, ms, and mom tensors is protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -42,13 +42,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a13dce41e7458cfc667c93e6eb59c6b65">ResourceSparseApplyCenteredRMSProp</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a13dce41e7458cfc667c93e6eb59c6b65">ResourceSparseApplyCenteredRMSProp</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a52eb0f57f659a5ba696a88c140adcb50">ResourceSparseApplyCenteredRMSProp</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">ResourceSparseApplyCenteredRMSProp::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a52eb0f57f659a5ba696a88c140adcb50">ResourceSparseApplyCenteredRMSProp</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">ResourceSparseApplyCenteredRMSProp::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -65,7 +65,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -99,7 +99,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -112,52 +112,52 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyCenteredRMSProp::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyCenteredRMSProp::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop.html#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop">ResourceSparseApplyCenteredRMSProp</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop.html#classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop">ResourceSparseApplyCenteredRMSProp</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a9e8632bd56dbebb4ae758e5db70e362e">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a13dce41e7458cfc667c93e6eb59c6b65">
     <h3>ResourceSparseApplyCenteredRMSProp</h3>
     <pre class="prettyprint"> ResourceSparseApplyCenteredRMSProp(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1a52eb0f57f659a5ba696a88c140adcb50">
     <h3>ResourceSparseApplyCenteredRMSProp</h3>
     <pre class="prettyprint"> ResourceSparseApplyCenteredRMSProp(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">ResourceSparseApplyCenteredRMSProp::Attrs</a> & attrs
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mg,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ms,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mom,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> rho,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> epsilon,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">ResourceSparseApplyCenteredRMSProp::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -169,7 +169,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1ab5163ae6d398ae1e0b22fd8f71091162">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-centered-r-m-s-prop/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_centered_r_m_s_prop_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

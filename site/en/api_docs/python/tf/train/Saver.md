@@ -11,9 +11,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/saver.py).
 
-See the guides: [Exporting and Importing a MetaGraph > Exporting a Complete Model to MetaGraph](../../../../api_guides/python/meta_graph#Exporting_a_Complete_Model_to_MetaGraph), [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Saving and Restoring Variables](../../../../api_guides/python/state_ops#Saving_and_Restoring_Variables)
+See the guides: [Exporting and Importing a MetaGraph > Exporting a Complete Model to MetaGraph](../../../../api_guides/python/meta_graph#Exporting_a_Complete_Model_to_MetaGraph), [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph)
 
 Saves and restores variables.
 

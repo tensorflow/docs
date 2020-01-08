@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softplus.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/softplus.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py).
 
 Bijector which computes `Y = g(X) = Log[1 + exp(X)]`.
 

@@ -20,7 +20,7 @@ tf.contrib.gan.eval.sliced_wasserstein_distance(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/sliced_wasserstein_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/sliced_wasserstein_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/sliced_wasserstein_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/sliced_wasserstein_impl.py).
 
 Compute the Wasserstein distance between two distributions of images.
 

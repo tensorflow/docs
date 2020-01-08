@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_run_hook.py).
-
-See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/session_run_hook.py).
 
 Represents arguments to be added to a `Session.run()` call.
 
@@ -50,17 +48,17 @@ __new__(
 
 ## Properties
 
-<h3 id="feed_dict"><code>feed_dict</code></h3>
-
-Alias for field number 1
-
 <h3 id="fetches"><code>fetches</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="feed_dict"><code>feed_dict</code></h3>
+
+
 
 <h3 id="options"><code>options</code></h3>
 
-Alias for field number 2
+
 
 
 

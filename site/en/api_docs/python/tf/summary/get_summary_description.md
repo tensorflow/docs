@@ -11,9 +11,7 @@ tf.summary.get_summary_description(node_def)
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/summary.py).
-
-See the guide: [Summary Operations > Utilities](../../../../api_guides/python/summary#Utilities)
+Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/summary/summary.py).
 
 Given a TensorSummary node_def, retrieve its SummaryDescription.
 

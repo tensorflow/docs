@@ -11,7 +11,7 @@ tf.compat.as_str_any(value)
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/compat.py).
 
 Converts to `str` as `str(value)`, but use `as_str` for `bytes`.
 

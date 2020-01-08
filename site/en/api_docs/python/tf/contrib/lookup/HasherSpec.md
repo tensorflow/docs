@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 A structure for the spec of the hashing function to use for hash buckets.
 
@@ -43,11 +43,11 @@ Create new instance of HasherSpec(hasher, key)
 
 <h3 id="hasher"><code>hasher</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="key"><code>key</code></h3>
 
-Alias for field number 1
+
 
 
 

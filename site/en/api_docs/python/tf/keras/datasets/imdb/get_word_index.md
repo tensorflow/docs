@@ -11,7 +11,7 @@ tf.keras.datasets.imdb.get_word_index(path='imdb_word_index.json')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/imdb.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/imdb.py).
+Defined in [`tensorflow/python/keras/datasets/imdb.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/imdb.py).
 
 Retrieves the dictionary mapping word indices back to words.
 

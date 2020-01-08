@@ -18,7 +18,7 @@ tf.contrib.feature_column.sequence_categorical_column_with_vocabulary_file(
 
 
 
-Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
+Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
 
 A sequence of categorical terms where ids use a vocabulary file.
 

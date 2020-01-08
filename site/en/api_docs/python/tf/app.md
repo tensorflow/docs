@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/app/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/app/__init__.py).
+
 
 Generic entry point script.
 

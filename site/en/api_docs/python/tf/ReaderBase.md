@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/io_ops.py).
 
 See the guide: [Inputs and Readers > Readers](../../../api_guides/python/io_ops#Readers)
 

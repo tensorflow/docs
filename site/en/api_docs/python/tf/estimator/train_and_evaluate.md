@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.train_and_evaluate
 
@@ -13,10 +17,6 @@ tf.estimator.train_and_evaluate(
 )
 ```
 
-
-
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
-
 Train and evaluate the `estimator`.
 
 This utility function trains, evaluates, and (optionally) exports the model by
@@ -26,10 +26,8 @@ evaluation and export related specification is held in `eval_spec`, including
 evaluation `input_fn`, steps, etc.
 
 This utility function provides consistent behavior for both local
-(non-distributed) and distributed configurations. The default distribution
-configuration is parameter server-based between-graph replication. For other
-types of distribution configurations such as all-reduce training, please use
-[DistributionStrategies](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).  # pylint: disable=line-too-long
+(non-distributed) and distributed configurations. Currently, the only
+supported distributed training configuration is between-graph replication.
 
 Overfitting: In order to avoid overfitting, it is recommended to set up the
 training `input_fn` to shuffle the training data properly.
@@ -179,11 +177,6 @@ TF_CONFIG='{
     "task": {"type": "evaluator", "index": 0}
 }'
 ```
-
-When `distribute` or `experimental_distribute.train_distribute` and
-`experimental_distribute.remote_cluster` is set, this method will start a
-client running on the current host which connects to the `remote_cluster` for
-training and evaluation.
 
 #### Args:
 

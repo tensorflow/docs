@@ -17,7 +17,7 @@ tf.contrib.feature_column.sequence_numeric_column(
 
 
 
-Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
+Defined in [`tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
 
 Returns a feature column that represents sequences of numeric data.
 
@@ -60,4 +60,4 @@ A `_SequenceNumericColumn`.
 
 * <b>`TypeError`</b>: if any dimension in shape is not an int.
 * <b>`ValueError`</b>: if any dimension in shape is not a positive integer.
-* <b>`ValueError`</b>: if `dtype` is not convertible to <a href="../../../tf/float32"><code>tf.float32</code></a>.
+* <b>`ValueError`</b>: if `dtype` is not convertible to <a href="../../../tf#float32"><code>tf.float32</code></a>.

@@ -11,7 +11,7 @@ tf.contrib.deprecated.merge_all_summaries(key=tf.GraphKeys.SUMMARIES)
 
 
 
-Defined in [`tensorflow/python/ops/logging_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/logging_ops.py).
+Defined in [`tensorflow/python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/logging_ops.py).
 
 Merges all summaries collected in the default graph. (deprecated)
 

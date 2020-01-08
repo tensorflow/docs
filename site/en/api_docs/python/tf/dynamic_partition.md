@@ -18,8 +18,6 @@ tf.dynamic_partition(
 
 Defined in generated file: `tensorflow/python/ops/gen_data_flow_ops.py`.
 
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
-
 Partitions `data` into `num_partitions` tensors using indices from `partitions`.
 
 For each index tuple `js` of size `partitions.ndim`, the slice `data[js, ...]`

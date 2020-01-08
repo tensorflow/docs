@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/prediction_key.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/prediction_key.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/prediction_key.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/prediction_key.py).
 
 THIS CLASS IS DEPRECATED.
 

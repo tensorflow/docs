@@ -11,7 +11,7 @@ Inherits From: [`RNN`](../../../tf/keras/layers/RNN)
 
 
 
-Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/recurrent.py).
+Defined in [`tensorflow/python/keras/layers/recurrent.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/recurrent.py).
 
 Gated Recurrent Unit - Cho et al. 2014.
 

@@ -14,9 +14,7 @@ tf.report_uninitialized_variables(
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variables.py).
-
-See the guide: [Variables > Variable helper functions](../../../api_guides/python/state_ops#Variable_helper_functions)
+Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/variables.py).
 
 Adds ops to list the names of uninitialized variables.
 

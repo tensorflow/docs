@@ -16,7 +16,7 @@ tf.keras.utils.multi_gpu_model(
 
 
 
-Defined in [`tensorflow/python/keras/utils/multi_gpu_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/multi_gpu_utils.py).
+Defined in [`tensorflow/python/keras/utils/multi_gpu_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/multi_gpu_utils.py).
 
 Replicates a model on different GPUs.
 

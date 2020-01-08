@@ -23,7 +23,7 @@ tf.contrib.learn.read_keyed_batch_examples_shared_queue(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
 Adds operations to read, queue, batch `Example` protos. (deprecated)
 

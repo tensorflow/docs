@@ -11,7 +11,7 @@ tf.losses.get_regularization_losses(scope=None)
 
 
 
-Defined in [`tensorflow/python/ops/losses/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/losses/util.py).
+Defined in [`tensorflow/python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/losses/util.py).
 
 Gets the list of regularization losses.
 

@@ -11,14 +11,12 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/dnn_linear_combined.py).
 
 A classifier for TensorFlow Linear and DNN joined training models.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Note: New users must set `fix_global_step_increment_bug=True` when creating an

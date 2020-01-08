@@ -52,7 +52,7 @@ taking the returned minimum and maximum values into account.
     tensor.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
     The type of padding algorithm to use.
-* <b>`out_type`</b>: An optional <a href="../../tf/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf/qint32"><code>tf.qint32</code></a>.
+* <b>`out_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.qint8, tf.quint8, tf.qint32, tf.qint16, tf.quint16`. Defaults to <a href="../../tf#qint32"><code>tf.qint32</code></a>.
 * <b>`dilations`</b>: An optional list of `ints`. Defaults to `[1, 1, 1, 1]`.
     1-D tensor of length 4.  The dilation factor for each dimension of
     `input`. If set to k > 1, there will be k-1 skipped cells between each

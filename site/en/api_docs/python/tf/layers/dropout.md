@@ -18,7 +18,7 @@ tf.layers.dropout(
 
 
 
-Defined in [`tensorflow/python/layers/core.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/core.py).
+Defined in [`tensorflow/python/layers/core.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/core.py).
 
 See the guide: [Reading data > Multiple input pipelines](../../../../api_guides/python/reading_data#Multiple_input_pipelines)
 
@@ -41,7 +41,7 @@ sum is unchanged at training time and inference time.
     to be the same for all timesteps, you can use
     `noise_shape=[batch_size, 1, features]`.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
 * <b>`training`</b>: Either a Python boolean, or a TensorFlow boolean scalar tensor
     (e.g. a placeholder). Whether to return the output in training mode

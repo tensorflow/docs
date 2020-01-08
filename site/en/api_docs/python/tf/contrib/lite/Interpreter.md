@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/lite/python/interpreter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lite/python/interpreter.py).
+Defined in [`tensorflow/contrib/lite/python/interpreter.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lite/python/interpreter.py).
 
 Interpreter inferace for TF-Lite Models.
 
@@ -107,10 +107,10 @@ calling this.
 
 * <b>`ValueError`</b>: When the underlying interpreter fails raise ValueError.
 
-<h3 id="reset_all_variables_to_zero"><code>reset_all_variables_to_zero</code></h3>
+<h3 id="reset_all_variables"><code>reset_all_variables</code></h3>
 
 ``` python
-reset_all_variables_to_zero()
+reset_all_variables()
 ```
 
 

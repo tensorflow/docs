@@ -14,7 +14,7 @@ tf.contrib.framework.nest.flatten_with_joined_string_paths(
 
 
 
-Defined in [`tensorflow/python/util/nest.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/nest.py).
+Defined in [`tensorflow/python/util/nest.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/nest.py).
 
 Returns a list of (string path, data element) tuples.
 

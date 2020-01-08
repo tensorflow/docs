@@ -16,9 +16,7 @@ tf.transpose(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guides: [Math > Matrix Math Functions](../../../api_guides/python/math_ops#Matrix_Math_Functions), [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Transposes `a`. Permutes the dimensions according to `perm`.
 
@@ -58,7 +56,7 @@ x = tf.constant([[[ 1,  2,  3],
                   [10, 11, 12]]])
 
 # Take the transpose of the matrices in dimension-0
-# (this common operation has a shorthand `matrix_transpose`)
+# (this common operation has a shorthand `linalg.transpose`)
 tf.transpose(x, perm=[0, 2, 1])  # [[[1,  4],
                                  #   [2,  5],
                                  #   [3,  6]],

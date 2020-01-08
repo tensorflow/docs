@@ -11,11 +11,13 @@ tf.contrib.data.enumerate_dataset(start=0)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/enumerate_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/enumerate_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/enumerate_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/enumerate_ops.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+A transformation that enumerate the elements of a dataset. (deprecated)
 
-A transformation that enumerate the elements of a dataset.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.enumerate_dataset(...)`.
 
 It is Similar to python's `enumerate`.
 For example:
@@ -34,7 +36,7 @@ b.apply(tf.contrib.data.enumerate()) == { (0, (7, 8)), (1, (9, 10)) }
 
 #### Args:
 
-* <b>`start`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the start
+* <b>`start`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the start
     value for enumeration.
 
 

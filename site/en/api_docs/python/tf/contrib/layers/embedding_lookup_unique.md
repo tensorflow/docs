@@ -16,7 +16,7 @@ tf.contrib.layers.embedding_lookup_unique(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/embedding_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/embedding_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 Version of embedding_lookup that avoids duplicate lookups.
 

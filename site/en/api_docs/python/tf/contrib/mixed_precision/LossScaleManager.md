@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
+Defined in [`tensorflow/contrib/mixed_precision/python/loss_scale_manager.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
 Abstract loss scale manager class.
 

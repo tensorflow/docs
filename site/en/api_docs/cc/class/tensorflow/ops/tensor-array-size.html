@@ -2,23 +2,23 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::TensorArraySize Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>TensorArraySize</h1>
   <code>#include &lt;data_flow_ops.h&gt;</code>
-  <p>Get the current size of the <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </p>
+  <p>Get the current size of the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>handle: The handle to a <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> (output of <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> or <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array-grad.html#classtensorflow_1_1ops_1_1_tensor_array_grad">TensorArrayGrad</a>).</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> (output of <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> or <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array-grad.html#classtensorflow_1_1ops_1_1_tensor_array_grad">TensorArrayGrad</a>).</li>
       <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The current size of the <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The current size of the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a79ec3226fc0d0569b593f360c891ec31">TensorArraySize</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a79ec3226fc0d0569b593f360c891ec31">TensorArraySize</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in)</code>
         <br />
       </td>
     </tr>
@@ -41,11 +41,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1a5c730a883f1e21d895bcada863651bec">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_size_1ae4d19a80be163a77ee25c51aa493ecd1">size</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -88,18 +98,23 @@
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1a5c730a883f1e21d895bcada863651bec">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1ae4d19a80be163a77ee25c51aa493ecd1">
     <h3>size</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> size</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> size</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_tensor_array_size_1a79ec3226fc0d0569b593f360c891ec31">
     <h3>TensorArraySize</h3>
     <pre class="prettyprint"> TensorArraySize(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in
 )</pre>
     <div />
   </div>

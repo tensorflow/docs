@@ -16,7 +16,7 @@ tf.contrib.sparsemax.sparsemax_loss(
 
 
 
-Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py).
+Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py).
 
 Computes sparsemax loss function [1].
 

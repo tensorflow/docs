@@ -16,9 +16,7 @@ tf.variable_axis_size_partitioner(
 
 
 
-Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/partitioned_variables.py).
-
-See the guide: [Variables > Variable Partitioners for Sharding](../../../api_guides/python/state_ops#Variable_Partitioners_for_Sharding)
+Defined in [`tensorflow/python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/partitioned_variables.py).
 
 Get a partitioner for VariableScope to keep shards below `max_shard_bytes`.
 

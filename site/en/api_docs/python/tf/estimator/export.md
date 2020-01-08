@@ -2,12 +2,12 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # Module: tf.estimator.export
-
-
-
-Defined in [`tensorflow/python/estimator/api/estimator/export/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/api/estimator/export/__init__.py).
 
 Utility methods for exporting Estimator.
 

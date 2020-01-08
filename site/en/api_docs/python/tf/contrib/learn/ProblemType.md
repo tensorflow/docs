@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/constants.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/constants.py).
-
-See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/constants.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/constants.py).
 
 Enum-like values for the type of problem that the model solves.
 

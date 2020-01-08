@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow_internal.py).
+Defined in [`tensorflow/python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/pywrap_tensorflow_internal.py).
 
 
 

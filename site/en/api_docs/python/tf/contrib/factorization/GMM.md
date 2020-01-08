@@ -11,7 +11,7 @@ Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/gmm.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/gmm.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/gmm.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/factorization/python/ops/gmm.py).
 
 An estimator for GMM clustering.
 

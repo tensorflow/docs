@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/graph_util/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/graph_util/__init__.py).
+
 
 Helpers to manipulate a tensor graph in python.
 
@@ -16,6 +16,8 @@ Helpers to manipulate a tensor graph in python.
 [`convert_variables_to_constants(...)`](../tf/graph_util/convert_variables_to_constants): Replaces all the variables in a graph with constants of the same values.
 
 [`extract_sub_graph(...)`](../tf/graph_util/extract_sub_graph): Extract the subgraph that can reach any of the nodes in 'dest_nodes'.
+
+[`import_graph_def(...)`](../tf/graph_util/import_graph_def): Imports the graph from `graph_def` into the current default `Graph`. (deprecated arguments)
 
 [`must_run_on_cpu(...)`](../tf/graph_util/must_run_on_cpu): Returns True if the given node_def must run on CPU, otherwise False.
 

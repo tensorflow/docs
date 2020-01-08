@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/__init__.py).
+Defined in [`tensorflow/contrib/factorization/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/factorization/__init__.py).
 
 Ops and modules related to factorization.
 
@@ -31,11 +31,11 @@ Ops and modules related to factorization.
 
 ## Other Members
 
-`COSINE_DISTANCE`
+<h3 id="COSINE_DISTANCE"><code>COSINE_DISTANCE</code></h3>
 
-`KMEANS_PLUS_PLUS_INIT`
+<h3 id="KMEANS_PLUS_PLUS_INIT"><code>KMEANS_PLUS_PLUS_INIT</code></h3>
 
-`RANDOM_INIT`
+<h3 id="RANDOM_INIT"><code>RANDOM_INIT</code></h3>
 
-`SQUARED_EUCLIDEAN_DISTANCE`
+<h3 id="SQUARED_EUCLIDEAN_DISTANCE"><code>SQUARED_EUCLIDEAN_DISTANCE</code></h3>
 

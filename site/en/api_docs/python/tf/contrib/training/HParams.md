@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/hparam.py).
+Defined in [`tensorflow/contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/hparam.py).
 
 Class to hold a set of hyperparameters as name-value pairs.
 

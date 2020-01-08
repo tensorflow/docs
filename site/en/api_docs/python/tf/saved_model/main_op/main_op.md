@@ -11,7 +11,7 @@ tf.saved_model.main_op.main_op()
 
 
 
-Defined in [`tensorflow/python/saved_model/main_op_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/saved_model/main_op_impl.py).
+Defined in [`tensorflow/python/saved_model/main_op_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/saved_model/main_op_impl.py).
 
 Returns a main op to init variables and tables.
 

@@ -27,9 +27,7 @@ tf.train.MonitoredTrainingSession(
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
-
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/monitored_session.py).
 
 Creates a `MonitoredSession` for training.
 

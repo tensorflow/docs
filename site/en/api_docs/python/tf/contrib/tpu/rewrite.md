@@ -17,7 +17,7 @@ tf.contrib.tpu.rewrite(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu.py).
 
 Rewrites `computation` for execution on a TPU system.
 

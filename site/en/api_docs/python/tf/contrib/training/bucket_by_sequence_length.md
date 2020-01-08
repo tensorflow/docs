@@ -25,7 +25,7 @@ tf.contrib.training.bucket_by_sequence_length(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/bucket_ops.py).
+Defined in [`tensorflow/contrib/training/python/training/bucket_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/bucket_ops.py).
 
 See the guide: [Training (contrib) > Bucketing](../../../../../api_guides/python/contrib.training#Bucketing)
 

@@ -26,7 +26,7 @@ tf.contrib.model_pruning.masked_fully_connected(
 
 
 
-Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/model_pruning/python/layers/layers.py).
+Defined in [`tensorflow/contrib/model_pruning/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/model_pruning/python/layers/layers.py).
 
 Adds a sparse fully connected layer. The weight matrix is masked.
 

@@ -19,7 +19,7 @@ tf.contrib.metrics.streaming_dynamic_auc(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/ops/metric_ops.py).
+Defined in [`tensorflow/contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 Computes the apporixmate AUC by a Riemann sum with data-derived thresholds.
 

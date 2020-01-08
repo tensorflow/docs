@@ -20,7 +20,7 @@ tf.contrib.eager.inf_nan_callback(
 
 
 
-Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/execution_callbacks.py).
+Defined in [`tensorflow/python/eager/execution_callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/execution_callbacks.py).
 
 An execution callback that checks for `inf`s and `nan`s in output tensors.
 

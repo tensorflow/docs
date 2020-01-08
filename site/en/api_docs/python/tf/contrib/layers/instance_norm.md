@@ -24,7 +24,7 @@ tf.contrib.layers.instance_norm(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/normalization.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/normalization.py).
+Defined in [`tensorflow/contrib/layers/python/layers/normalization.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/normalization.py).
 
 Functional interface for the instance normalization layer.
 

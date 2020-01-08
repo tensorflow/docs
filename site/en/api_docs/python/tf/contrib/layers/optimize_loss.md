@@ -26,9 +26,7 @@ tf.contrib.layers.optimize_loss(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/optimizers.py).
-
-See the guide: [Layers (contrib) > Optimization](../../../../../api_guides/python/contrib.layers#Optimization)
+Defined in [`tensorflow/contrib/layers/python/layers/optimizers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/optimizers.py).
 
 Given loss and parameters for optimizer, returns a training op.
 

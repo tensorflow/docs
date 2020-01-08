@@ -15,8 +15,6 @@ tf.op_scope(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 DEPRECATED. Same as name_scope above, just different argument order.

@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.BoostedTreesRegressor
 
 ## Class `BoostedTreesRegressor`
 
 Inherits From: [`Estimator`](../../tf/estimator/Estimator)
-
-
-
-Defined in [`tensorflow/python/estimator/canned/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/boosted_trees.py).
 
 A Regressor for Tensorflow Boosted Trees models.
 
@@ -199,8 +199,7 @@ or
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the input data for evaluation. See
-    [Premade Estimators](
-    https://tensorflow.org/guide/premade_estimators#create_input_functions)
+    [Premade Estimators](https://tensorflow.org/guide/premade_estimators#create_input_functions}
     for more information. The
     function should construct and return one of the following:  * A
     <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be a tuple
@@ -228,11 +227,7 @@ or
 
 A dict containing the evaluation metrics specified in `model_fn` keyed by
 name, as well as an entry `global_step` which contains the value of the
-global step for which this evaluation was performed. For canned
-estimators, the dict contains the `loss` (mean loss per mini-batch) and
-the `average_loss` (mean loss per sample). Canned classifiers also return
-the `accuracy`. Canned regressors also return the `label/mean` and the
-`prediction/mean`.
+global step for which this evaluation was performed.
 
 
 #### Raises:
@@ -241,15 +236,16 @@ the `accuracy`. Canned regressors also return the `label/mean` and the
 * <b>`ValueError`</b>: If no model has been trained, namely `model_dir`, or the
     given `checkpoint_path` is empty.
 
-<h3 id="export_saved_model"><code>export_saved_model</code></h3>
+<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
 ``` python
-export_saved_model(
+export_savedmodel(
     export_dir_base,
     serving_input_receiver_fn,
     assets_extra=None,
     as_text=False,
-    checkpoint_path=None
+    checkpoint_path=None,
+    strip_default_attrs=False
 )
 ```
 
@@ -271,7 +267,7 @@ The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants/DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -299,6 +295,10 @@ is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 * <b>`as_text`</b>: whether to write the `SavedModel` proto in text format.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
     the most recent checkpoint found within the model directory is chosen.
+* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
+    removed from the `NodeDef`s. For a detailed guide, see [Stripping
+    Default-Valued
+    Attributes](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
 
 
 #### Returns:
@@ -309,36 +309,8 @@ The string path to the exported directory.
 #### Raises:
 
 * <b>`ValueError`</b>: if no `serving_input_receiver_fn` is provided, no
-  `export_outputs` are provided, or no checkpoint can be found.
-
-<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
-
-``` python
-export_savedmodel(
-    export_dir_base,
-    serving_input_receiver_fn,
-    assets_extra=None,
-    as_text=False,
-    checkpoint_path=None,
-    strip_default_attrs=False
-)
-```
-
-Exports inference graph as a `SavedModel` into the given dir.
-
-Note that `export_to_savedmodel` will be renamed to `export_to_saved_model`
-in TensorFlow 2.0. At that time, `export_to_savedmodel` without the
-additional underscore will be available only through tf.compat.v1.
-
-Please see <a href="../../tf/estimator/Estimator#export_saved_model"><code>tf.estimator.Estimator.export_saved_model</code></a> for more information.
-
-There is one additional arg versus the new method:
-  strip_default_attrs: This parameter is going away in TF 2.0, and
-    the new behavior will automatically strip all default attributes.
-    Boolean. If `True`, default-valued attributes will be
-    removed from the `NodeDef`s. For a detailed guide, see [Stripping
-    Default-Valued Attributes](
-    https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
+  `export_outputs`
+      are provided, or no checkpoint can be found.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
@@ -411,8 +383,8 @@ Yields predictions for given features.
 * <b>`input_fn`</b>: A function that constructs the features. Prediction continues
     until `input_fn` raises an end-of-input exception
     (<a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> or `StopIteration`).
-    See [Premade Estimators](
-    https://tensorflow.org/guide/premade_estimators#create_input_functions)
+    See [Premade
+    Estimators](https://tensorflow.org/guide/premade_estimators#create_input_functions)
     for more information. The function should construct and return one of
     the following:
 
@@ -470,17 +442,16 @@ Trains a model given training data `input_fn`.
 #### Args:
 
 * <b>`input_fn`</b>: A function that provides input data for training as minibatches.
-    See [Premade Estimators](
-    https://tensorflow.org/guide/premade_estimators#create_input_functions)
+    See [Premade
+    Estimators](https://tensorflow.org/guide/premade_estimators#create_input_functions)
     for more information. The function should construct and return one of
-    the following:  * A
-    <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be a tuple
-    `(features, labels)` with same constraints as below. * A tuple
-    `(features, labels)`: Where `features` is a <a href="../../tf/Tensor"><code>tf.Tensor</code></a> or a dictionary
-    of string feature name to `Tensor` and `labels` is a `Tensor` or a
-    dictionary of string label name to `Tensor`. Both `features` and
-    `labels` are consumed by `model_fn`. They should satisfy the expectation
-    of `model_fn` from inputs.
+    the following:  * A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset`
+    object must be a tuple `(features, labels)` with same constraints as
+    below. * A tuple `(features, labels)`: Where `features` is a <a href="../../tf/Tensor"><code>tf.Tensor</code></a>
+    or a dictionary of string feature name to `Tensor` and `labels` is a
+    `Tensor` or a dictionary of string label name to `Tensor`. Both
+    `features` and `labels` are consumed by `model_fn`. They should satisfy
+    the expectation of `model_fn` from inputs.
 * <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
     callbacks inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train the model. If `None`, train

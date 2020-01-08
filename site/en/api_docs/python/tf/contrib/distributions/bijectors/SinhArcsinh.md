@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/sinh_arcsinh.py).
 
 Compute `Y = g(X) = Sinh( (Arcsinh(X) + skewness) * tailweight )`.
 

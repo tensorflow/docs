@@ -11,7 +11,7 @@ tf.contrib.training.byte_size_load_fn(op)
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/device_setter.py).
 
 Load function that computes the byte size of a single-output `Operation`.
 

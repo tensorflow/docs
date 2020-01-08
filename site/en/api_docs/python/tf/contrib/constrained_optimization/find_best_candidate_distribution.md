@@ -15,7 +15,7 @@ tf.contrib.constrained_optimization.find_best_candidate_distribution(
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/candidates.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/constrained_optimization/python/candidates.py).
 
 Finds a distribution minimizing an objective subject to constraints.
 

@@ -19,8 +19,6 @@ tf.scatter_mul(
 
 Defined in generated file: `tensorflow/python/ops/gen_state_ops.py`.
 
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
-
 Multiplies sparse updates into a variable reference.
 
 This operation computes

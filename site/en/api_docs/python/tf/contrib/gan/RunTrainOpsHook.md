@@ -11,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/train.py).
+Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/train.py).
 
 A hook to run train ops a fixed number of times.
 

@@ -7,11 +7,11 @@ page_type: reference
 
 ## Class `CheckpointInputPipelineHook`
 
-Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
+Inherits From: [`CheckpointInputPipelineHook`](../../../tf/data/experimental/CheckpointInputPipelineHook)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/iterator_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/iterator_ops.py).
 
 Checkpoints input pipeline state every N steps or seconds.
 
@@ -62,17 +62,11 @@ collector when building the eval graph.
 __init__(estimator)
 ```
 
-Initializes a `CheckpointInputPipelineHook`.
+DEPRECATED FUNCTION
 
-#### Args:
-
-* <b>`estimator`</b>: Estimator.
-
-
-#### Raises:
-
-* <b>`ValueError`</b>: One of `save_steps` or `save_secs` should be set.
-* <b>`ValueError`</b>: At most one of saver or scaffold should be set.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.CheckpointInputPipelineHook(...)`.
 
 
 

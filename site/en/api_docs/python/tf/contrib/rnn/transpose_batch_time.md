@@ -11,7 +11,7 @@ tf.contrib.rnn.transpose_batch_time(x)
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/rnn.py).
 
 Transposes the batch and time dimensions of a Tensor.
 

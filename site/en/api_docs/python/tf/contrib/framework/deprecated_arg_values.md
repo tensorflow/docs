@@ -16,9 +16,7 @@ tf.contrib.framework.deprecated_arg_values(
 
 
 
-Defined in [`tensorflow/python/util/deprecation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/deprecation.py).
-
-See the guide: [Framework (contrib) > Deprecation](../../../../../api_guides/python/contrib.framework#Deprecation)
+Defined in [`tensorflow/python/util/deprecation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/deprecation.py).
 
 Decorator for marking specific function argument values as deprecated.
 

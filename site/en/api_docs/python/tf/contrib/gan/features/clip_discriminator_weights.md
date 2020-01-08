@@ -15,7 +15,7 @@ tf.contrib.gan.features.clip_discriminator_weights(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/clip_weights_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/clip_weights_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/clip_weights_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/features/python/clip_weights_impl.py).
 
 Modifies an optimizer so it clips weights to a certain value.
 

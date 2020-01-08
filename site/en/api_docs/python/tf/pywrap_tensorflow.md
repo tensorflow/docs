@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/pywrap_tensorflow.py).
+Defined in [`tensorflow/python/pywrap_tensorflow.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/pywrap_tensorflow.py).
 
 A wrapper for TensorFlow SWIG-generated bindings.
 

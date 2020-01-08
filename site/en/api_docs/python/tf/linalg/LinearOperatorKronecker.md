@@ -9,14 +9,9 @@ page_type: reference
 
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorKronecker`
-* Class `tf.linalg.LinearOperatorKronecker`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_kronecker.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_kronecker.py).
+Defined in [`tensorflow/python/ops/linalg/linear_operator_kronecker.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_kronecker.py).
 
 Kronecker product between two `LinearOperators`.
 

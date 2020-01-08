@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/matrix_inverse_tril.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/matrix_inverse_tril.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/matrix_inverse_tril.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/matrix_inverse_tril.py).
 
 Computes `g(L) = inv(L)`, where `L` is a lower-triangular matrix.
 

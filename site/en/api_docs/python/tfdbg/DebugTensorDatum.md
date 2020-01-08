@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/lib/debug_data.py).
-
-See the guide: [TensorFlow Debugger > Classes for debug-dump data and directories](../../../api_guides/python/tfdbg#Classes_for_debug_dump_data_and_directories)
+Defined in [`tensorflow/python/debug/lib/debug_data.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/lib/debug_data.py).
 
 A single tensor dumped by TensorFlow Debugger (tfdbg).
 

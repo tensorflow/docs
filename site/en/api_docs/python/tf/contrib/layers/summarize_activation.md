@@ -11,9 +11,7 @@ tf.contrib.layers.summarize_activation(op)
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/summaries.py).
-
-See the guide: [Layers (contrib) > Summaries](../../../../../api_guides/python/contrib.layers#Summaries)
+Defined in [`tensorflow/contrib/layers/python/layers/summaries.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/summaries.py).
 
 Summarize an activation.
 

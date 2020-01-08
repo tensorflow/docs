@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tensorboard/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tensorboard/__init__.py).
+Defined in [`tensorflow/contrib/tensorboard/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tensorboard/__init__.py).
 
 tensorboard module containing volatile or experimental code.
 

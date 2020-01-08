@@ -11,7 +11,7 @@ tf.contrib.nccl.all_min(tensors)
 
 
 
-Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
+Defined in [`tensorflow/contrib/nccl/python/ops/nccl_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/nccl/python/ops/nccl_ops.py).
 
 Returns a list of tensors with the all-reduce min across `tensors`.
 

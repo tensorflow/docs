@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 `namedtuple` storing the state of a `AttentionWrapper`.
 
@@ -50,29 +50,29 @@ Create new instance of AttentionWrapperState(cell_state, attention, time, alignm
 
 ## Properties
 
-<h3 id="alignment_history"><code>alignment_history</code></h3>
+<h3 id="cell_state"><code>cell_state</code></h3>
 
-Alias for field number 4
 
-<h3 id="alignments"><code>alignments</code></h3>
-
-Alias for field number 3
 
 <h3 id="attention"><code>attention</code></h3>
 
-Alias for field number 1
 
-<h3 id="attention_state"><code>attention_state</code></h3>
-
-Alias for field number 5
-
-<h3 id="cell_state"><code>cell_state</code></h3>
-
-Alias for field number 0
 
 <h3 id="time"><code>time</code></h3>
 
-Alias for field number 2
+
+
+<h3 id="alignments"><code>alignments</code></h3>
+
+
+
+<h3 id="alignment_history"><code>alignment_history</code></h3>
+
+
+
+<h3 id="attention_state"><code>attention_state</code></h3>
+
+
 
 
 

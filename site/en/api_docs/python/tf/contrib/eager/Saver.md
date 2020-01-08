@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/eager/python/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/saver.py).
+Defined in [`tensorflow/contrib/eager/python/saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/eager/python/saver.py).
 
 A tf.train.Saver adapter for use when eager execution is enabled.
   

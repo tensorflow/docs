@@ -11,7 +11,7 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/keras/layers/wrappers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/wrappers.py).
+Defined in [`tensorflow/python/keras/layers/wrappers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/wrappers.py).
 
 Abstract wrapper base class.
 

@@ -11,7 +11,7 @@ Inherits From: [`ClusterResolver`](../../../tf/contrib/cluster_resolver/ClusterR
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cluster_resolver/python/training/tpu_cluster_resolver.py).
 
 Cluster Resolver for Google Cloud TPUs.
 
@@ -109,6 +109,14 @@ A ClusterSpec containing host information returned from Cloud TPUs.
 #### Raises:
 
 * <b>`RuntimeError`</b>: If the provided TPU is not healthy.
+
+<h3 id="get_job_name"><code>get_job_name</code></h3>
+
+``` python
+get_job_name()
+```
+
+
 
 <h3 id="get_master"><code>get_master</code></h3>
 

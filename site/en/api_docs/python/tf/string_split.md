@@ -15,9 +15,7 @@ tf.string_split(
 
 
 
-Defined in [`tensorflow/python/ops/string_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/string_ops.py).
-
-See the guide: [Strings > Splitting](../../../api_guides/python/string_ops#Splitting)
+Defined in [`tensorflow/python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/string_ops.py).
 
 Split elements of `source` based on `delimiter` into a `SparseTensor`.
 

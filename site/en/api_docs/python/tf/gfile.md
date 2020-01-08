@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/gfile/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/gfile/__init__.py).
+
 
 Import router for file_io.
 

@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.inputs.numpy_input_fn
 
@@ -16,10 +20,6 @@ tf.estimator.inputs.numpy_input_fn(
     num_threads=1
 )
 ```
-
-
-
-Defined in [`tensorflow/python/estimator/inputs/numpy_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/inputs/numpy_io.py).
 
 Returns input function that would feed dict of numpy arrays into the model.
 

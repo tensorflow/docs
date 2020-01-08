@@ -19,9 +19,7 @@ tf.one_hot(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Returns a one-hot tensor.
 
@@ -62,9 +60,9 @@ shape will be:
 If `dtype` is not provided, it will attempt to assume the data type of
 `on_value` or `off_value`, if one or both are passed in. If none of
 `on_value`, `off_value`, or `dtype` are provided, `dtype` will default to the
-value <a href="../tf/float32"><code>tf.float32</code></a>.
+value <a href="../tf#float32"><code>tf.float32</code></a>.
 
-Note: If a non-numeric data type output is desired (<a href="../tf/string"><code>tf.string</code></a>, <a href="../tf/bool"><code>tf.bool</code></a>,
+Note: If a non-numeric data type output is desired (<a href="../tf#string"><code>tf.string</code></a>, <a href="../tf#bool"><code>tf.bool</code></a>,
 etc.), both `on_value` and `off_value` _must_ be provided to `one_hot`.
 
 For example:

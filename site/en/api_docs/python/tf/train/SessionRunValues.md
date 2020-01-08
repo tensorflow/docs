@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_run_hook.py).
-
-See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/session_run_hook.py).
 
 Contains the results of `Session.run()`.
 
@@ -51,17 +49,17 @@ Create new instance of SessionRunValues(results, options, run_metadata)
 
 ## Properties
 
-<h3 id="options"><code>options</code></h3>
-
-Alias for field number 1
-
 <h3 id="results"><code>results</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="options"><code>options</code></h3>
+
+
 
 <h3 id="run_metadata"><code>run_metadata</code></h3>
 
-Alias for field number 2
+
 
 
 

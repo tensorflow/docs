@@ -11,7 +11,7 @@ Inherits From: [`PowerTransform`](../../../../tf/contrib/distributions/bijectors
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/exp.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/exp.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/exp.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/exp.py).
 
 Compute `Y = g(X) = exp(X)`.
 

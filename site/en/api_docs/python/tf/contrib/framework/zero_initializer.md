@@ -15,9 +15,7 @@ tf.contrib.framework.zero_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
-
-See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 Initialize 'ref' with all zeros, ref tensor should be uninitialized.
 If already initialized, you will get ValueError. This op is intended to

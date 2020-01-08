@@ -18,7 +18,7 @@ tf.contrib.timeseries.saved_model_utils.predict_continuation(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
 
 Perform prediction using an exported saved model.
 
@@ -31,10 +31,10 @@ saved model rather than feeding into Estimator's predict method.
     evaluate method or filter_continuation. Used to determine the model
     state to make predictions starting from.
 * <b>`signatures`</b>: The `MetaGraphDef` protocol buffer returned from
-    <a href="../../../../tf/saved_model/loader/load"><code>tf.saved_model.loader.load</code></a>. Used to determine the names of Tensors to
+    <a href="../../../../tf/saved_model/load"><code>tf.saved_model.loader.load</code></a>. Used to determine the names of Tensors to
     feed and fetch. Must be from the same model as `continue_from`.
 * <b>`session`</b>: The session to use. The session's graph must be the one into which
-    <a href="../../../../tf/saved_model/loader/load"><code>tf.saved_model.loader.load</code></a> loaded the model.
+    <a href="../../../../tf/saved_model/load"><code>tf.saved_model.loader.load</code></a> loaded the model.
 * <b>`steps`</b>: The number of steps to predict (scalar), starting after the
     evaluation or filtering. If `times` is specified, `steps` must not be; one
     is required.

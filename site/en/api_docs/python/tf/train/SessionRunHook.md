@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/session_run_hook.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/session_run_hook.py).
-
-See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
+Defined in [`tensorflow/python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/session_run_hook.py).
 
 Hook to extend calls to MonitoredSession.run().
 

@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.WarmStartSettings
 
 ## Class `WarmStartSettings`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/estimator.py).
 
 Settings for warm-starting in `tf.estimator.Estimators`.
 
@@ -172,19 +172,19 @@ __new__(
 
 <h3 id="ckpt_to_initialize_from"><code>ckpt_to_initialize_from</code></h3>
 
-Alias for field number 0
 
-<h3 id="var_name_to_prev_var_name"><code>var_name_to_prev_var_name</code></h3>
-
-Alias for field number 3
-
-<h3 id="var_name_to_vocab_info"><code>var_name_to_vocab_info</code></h3>
-
-Alias for field number 2
 
 <h3 id="vars_to_warm_start"><code>vars_to_warm_start</code></h3>
 
-Alias for field number 1
+
+
+<h3 id="var_name_to_vocab_info"><code>var_name_to_vocab_info</code></h3>
+
+
+
+<h3 id="var_name_to_prev_var_name"><code>var_name_to_prev_var_name</code></h3>
+
+
 
 
 

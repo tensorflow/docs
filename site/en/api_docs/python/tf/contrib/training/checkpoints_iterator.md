@@ -16,7 +16,7 @@ tf.contrib.training.checkpoints_iterator(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/evaluation.py).
 
 Continuously yield new checkpoint files as they appear.
 

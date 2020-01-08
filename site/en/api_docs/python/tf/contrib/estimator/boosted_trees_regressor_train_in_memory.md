@@ -28,7 +28,7 @@ tf.contrib.estimator.boosted_trees_regressor_train_in_memory(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/boosted_trees.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/boosted_trees.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/boosted_trees.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/boosted_trees.py).
 
 Trains a boosted tree regressor with in memory dataset.
 

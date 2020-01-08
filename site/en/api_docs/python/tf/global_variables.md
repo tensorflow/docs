@@ -11,9 +11,9 @@ tf.global_variables(scope=None)
 
 
 
-Defined in [`tensorflow/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variables.py).
+Defined in [`tensorflow/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/variables.py).
 
-See the guide: [Variables > Variable helper functions](../../../api_guides/python/state_ops#Variable_helper_functions)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Returns global variables.
 

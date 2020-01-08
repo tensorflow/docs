@@ -14,7 +14,7 @@ tf.contrib.sparsemax.sparsemax(
 
 
 
-Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/sparsemax/python/ops/sparsemax.py).
+Defined in [`tensorflow/contrib/sparsemax/python/ops/sparsemax.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/sparsemax/python/ops/sparsemax.py).
 
 Computes sparsemax activations [1].
 

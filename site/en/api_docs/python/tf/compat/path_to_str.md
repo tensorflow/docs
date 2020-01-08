@@ -11,7 +11,7 @@ tf.compat.path_to_str(path)
 
 
 
-Defined in [`tensorflow/python/util/compat.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/util/compat.py).
+Defined in [`tensorflow/python/util/compat.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/util/compat.py).
 
 Returns the file system path representation of a `PathLike` object, else as it is.
 

@@ -11,7 +11,7 @@ Inherits From: [`DistributionStrategy`](../../../tf/contrib/distribute/Distribut
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/mirrored_strategy.py).
+Defined in [`tensorflow/contrib/distribute/python/mirrored_strategy.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/python/mirrored_strategy.py).
 
 Mirrors vars to distribute across multiple devices and machines.
 
@@ -59,6 +59,8 @@ cross-tower model where variable or tensor reduction happens.
     set, the `configure` method will try to find the best one.
 * <b>`prefetch_on_device`</b>: optional boolean to specify whether to prefetch input
     data to devices.
+* <b>`auto_shard_dataset`</b>: whether to auto-shard the dataset when there are
+    multiple workers.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
@@ -68,7 +70,8 @@ __init__(
     num_gpus=None,
     num_gpus_per_worker=None,
     cross_tower_ops=None,
-    prefetch_on_device=None
+    prefetch_on_device=None,
+    auto_shard_dataset=False
 )
 ```
 
@@ -533,12 +536,18 @@ calling `fn`.
 * <b>`var`</b>: Variable, possibly mirrored to multiple devices, to operate on.
 * <b>`fn`</b>: Function to call. Should take the variable as the first argument.
 * <b>`*args`</b>: Additional positional arguments to pass to `fn()`.
-* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`.
+* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`. If "grouped=False" is
+    specified, the return value will be unwrapped.
 
 
 #### Returns:
 
-Merged return value of `fn` across all towers.
+By default, the merged return value of `fn` across all towers.  The merged
+result has dependencies to make sure that if it is evaluated at all, the
+side effects (updates) will happen on every tower. If instead
+"grouped=False" is specified, this function will return a nest of lists
+where each list has an element per tower, and the caller is responsible
+for ensuring all elements are executed.
 
 <h3 id="update_non_slot"><code>update_non_slot</code></h3>
 
@@ -558,7 +567,9 @@ Runs `fn(*args, **kwargs)` on `colocate_with` devices.
 * <b>`colocate_with`</b>: The return value of `non_slot_devices()`.
 * <b>`fn`</b>: Function to execute.
 * <b>`*args`</b>: Positional arguments to pass to `fn()`.
-* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`.
+* <b>`**kwargs`</b>: Keyword arguments to pass to `fn()`. If "grouped=False" is
+    specified, the return value will be unwrapped and the caller is
+    responsible for ensuring all elements are executed.
 
 
 #### Returns:

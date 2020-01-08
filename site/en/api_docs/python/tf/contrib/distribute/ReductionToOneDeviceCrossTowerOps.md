@@ -11,7 +11,7 @@ Inherits From: [`CrossTowerOps`](../../../tf/contrib/distribute/CrossTowerOps)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/cross_tower_ops.py).
+Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/python/cross_tower_ops.py).
 
 Always do reduction to one device first and then do broadcasting.
 
@@ -22,7 +22,7 @@ Batch reduction is done by reduction on each element one by one.
 ``` python
 __init__(
     reduce_to_device=None,
-    accumulation_fn=tf.add_n
+    accumulation_fn=tf.math.add_n
 )
 ```
 

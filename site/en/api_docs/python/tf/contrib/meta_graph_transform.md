@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/meta_graph_transform/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/meta_graph_transform/__init__.py).
+Defined in [`tensorflow/contrib/meta_graph_transform/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/meta_graph_transform/__init__.py).
 
 Utility for applying the Graph Transform tool to a MetaGraphDef.
 

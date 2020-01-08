@@ -15,9 +15,13 @@ tf.contrib.data.sample_from_datasets(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/interleave_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
-Samples elements at random from the datasets in `datasets`.
+Samples elements at random from the datasets in `datasets`. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.sample_from_datasets(...)`.
 
 #### Args:
 
@@ -27,9 +31,9 @@ Samples elements at random from the datasets in `datasets`.
     sampled from `datasets[i]`, or a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object where each
     element is such a list. Defaults to a uniform distribution across
     `datasets`.
-* <b>`seed`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
+* <b>`seed`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
     random seed that will be used to create the distribution. See
-    <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+    <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 
 
 #### Returns:

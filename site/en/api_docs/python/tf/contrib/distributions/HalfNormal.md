@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/half_normal.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/half_normal.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/half_normal.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/half_normal.py).
 
 The Half Normal distribution with scale `scale`.
 
@@ -40,15 +40,18 @@ distribution.
 Examples of initialization of one or a batch of distributions.
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Define a single scalar HalfNormal distribution.
-dist = tf.contrib.distributions.HalfNormal(scale=3.0)
+dist = tfd.HalfNormal(scale=3.0)
 
 # Evaluate the cdf at 1, returning a scalar.
 dist.cdf(1.)
 
 # Define a batch of two scalar valued HalfNormals.
 # The first has scale 11.0, the second 22.0
-dist = tf.contrib.distributions.HalfNormal(scale=[11.0, 22.0])
+dist = tfd.HalfNormal(scale=[11.0, 22.0])
 
 # Evaluate the pdf of the first distribution on 1.0, and the second on 1.5,
 # returning a length two tensor.
@@ -307,7 +310,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -401,7 +404,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

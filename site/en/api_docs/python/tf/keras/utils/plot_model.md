@@ -17,7 +17,7 @@ tf.keras.utils.plot_model(
 
 
 
-Defined in [`tensorflow/python/keras/utils/vis_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/vis_utils.py).
+Defined in [`tensorflow/python/keras/utils/vis_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/vis_utils.py).
 
 Converts a Keras model to dot format and save to a file.
 

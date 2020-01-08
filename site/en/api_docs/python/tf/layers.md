@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/layers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/layers/__init__.py).
+
 
 Public API for tf.layers namespace.
 

@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ParameterizedTruncatedNormal Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -15,19 +15,19 @@
   <p>The parameters may each be a</p>
   <p>scalar which applies to the entire output, or a vector of length shape[0] which stores the parameters for each batch.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>shape: The shape of the output tensor. Batches are indexed by the 0th dimension.</li>
       <li>means: The mean parameter of each batch.</li>
       <li>stdevs: The standard deviation parameter of each batch. Must be greater than 0.</li>
       <li>minvals: The minimum cutoff. May be -infinity.</li>
       <li>maxvals: The maximum cutoff. May be +infinity, and must be more than the minval for each batch.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>):<ul>
       <li>seed: If either <code>seed</code> or <code>seed2</code> are set to be non-zero, the random number generator is seeded by the given seed. Otherwise, it is seeded by a random seed.</li>
       <li>seed2: A second seed to avoid seed collision.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A matrix of shape num_batches x samples_per_batch, filled with random truncated normal values using the parameters for each row. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A matrix of shape num_batches x samples_per_batch, filled with random truncated normal values using the parameters for each row. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -37,13 +37,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1af8d4ae1d204cc4ef9a6361f11cbb90de">ParameterizedTruncatedNormal</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1af8d4ae1d204cc4ef9a6361f11cbb90de">ParameterizedTruncatedNormal</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1afd00b3375c16739bcc7f72c930c1f751">ParameterizedTruncatedNormal</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">ParameterizedTruncatedNormal::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1afd00b3375c16739bcc7f72c930c1f751">ParameterizedTruncatedNormal</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">ParameterizedTruncatedNormal::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,11 +56,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a3447014cf835b9d848b15705f2e11045">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a87a77c67acb67f7dabb5cb5673ebb0d9">output</a></code>
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -114,7 +124,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -124,7 +134,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -137,42 +147,47 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs">tensorflow::<wbr/>ops::<wbr/>ParameterizedTruncatedNormal::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs">tensorflow::<wbr/>ops::<wbr/>ParameterizedTruncatedNormal::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/parameterized-truncated-normal.html#classtensorflow_1_1ops_1_1_parameterized_truncated_normal">ParameterizedTruncatedNormal</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/parameterized-truncated-normal.html#classtensorflow_1_1ops_1_1_parameterized_truncated_normal">ParameterizedTruncatedNormal</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a3447014cf835b9d848b15705f2e11045">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a87a77c67acb67f7dabb5cb5673ebb0d9">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1af8d4ae1d204cc4ef9a6361f11cbb90de">
     <h3>ParameterizedTruncatedNormal</h3>
     <pre class="prettyprint"> ParameterizedTruncatedNormal(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1afd00b3375c16739bcc7f72c930c1f751">
     <h3>ParameterizedTruncatedNormal</h3>
     <pre class="prettyprint"> ParameterizedTruncatedNormal(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">ParameterizedTruncatedNormal::Attrs</a> & attrs
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> means,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> stdevs,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> minvals,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> maxvals,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">ParameterizedTruncatedNormal::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -194,14 +209,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a60be0f9d8ac8255d74a9c8d0a16ba1b6">
     <h3>Seed</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a> Seed(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a> Seed(
   int64 x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_parameterized_truncated_normal_1a90dde5272c669275d2e05df64fdbc647">
     <h3>Seed2</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a> Seed2(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parameterized-truncated-normal/attrs.html#structtensorflow_1_1ops_1_1_parameterized_truncated_normal_1_1_attrs">Attrs</a> Seed2(
   int64 x
 )</pre>
     <div />

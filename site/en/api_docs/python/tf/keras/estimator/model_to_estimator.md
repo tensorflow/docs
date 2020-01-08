@@ -17,7 +17,7 @@ tf.keras.estimator.model_to_estimator(
 
 
 
-Defined in [`tensorflow/python/estimator/keras.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/keras.py).
+Defined in [`tensorflow/python/estimator/keras.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/estimator/keras.py).
 
 Constructs an `Estimator` instance from given keras model.
 

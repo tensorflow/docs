@@ -11,9 +11,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
+Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/monitored_session.py).
 
-See the guides: [Threading and Queues > Queue usage overview](../../../../api_guides/python/threading_and_queues#Queue_usage_overview), [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+See the guide: [Threading and Queues > Queue usage overview](../../../../api_guides/python/threading_and_queues#Queue_usage_overview)
 
 Session-like object that handles initialization, recovery and hooks.
 

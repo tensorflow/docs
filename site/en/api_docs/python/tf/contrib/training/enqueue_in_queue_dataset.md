@@ -14,7 +14,7 @@ tf.contrib.training.enqueue_in_queue_dataset(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
+Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
 
 Enqueue components into queue from `PrependFromQueueAndPaddedBatchDataset`.
 

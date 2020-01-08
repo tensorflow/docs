@@ -11,9 +11,7 @@ Inherits From: [`LSTMBlockWrapper`](../../../tf/contrib/rnn/LSTMBlockWrapper)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
-
-See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
+Defined in [`tensorflow/contrib/rnn/python/ops/lstm_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
 
 FusedRNNCell implementation of LSTM.
 
@@ -137,9 +135,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

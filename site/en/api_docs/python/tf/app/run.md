@@ -14,6 +14,6 @@ tf.app.run(
 
 
 
-Defined in [`tensorflow/python/platform/app.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/app.py).
+Defined in [`tensorflow/python/platform/app.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/app.py).
 
 Runs the program with an optional 'main' function and 'argv' list.

@@ -15,7 +15,7 @@ tf.contrib.copy_graph.copy_variable_to_graph(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
 Given a `Variable` instance from one `Graph`, initializes and returns
 a copy of it from another `Graph`, under the specified scope

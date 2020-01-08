@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
+Defined in [`tensorflow/contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
 BlockCacheParams is a struct used for configuring the GCS Block Cache.
 

@@ -11,7 +11,7 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 
 
-Defined in [`tensorflow/python/keras/callbacks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/callbacks.py).
+Defined in [`tensorflow/python/keras/callbacks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/callbacks.py).
 
 Callback that prints metrics to stdout.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/gfile.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/gfile.py).
+Defined in [`tensorflow/python/platform/gfile.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/gfile.py).
 
 File I/O wrappers without thread locking.
 
@@ -30,7 +30,11 @@ __init__(
 )
 ```
 
+DEPRECATED FUNCTION
 
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use tf.gfile.GFile.
 
 
 

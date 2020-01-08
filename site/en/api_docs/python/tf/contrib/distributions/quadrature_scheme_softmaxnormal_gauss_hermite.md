@@ -17,7 +17,7 @@ tf.contrib.distributions.quadrature_scheme_softmaxnormal_gauss_hermite(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py).
 
 Use Gauss-Hermite quadrature to form quadrature on `K - 1` simplex. (deprecated)
 

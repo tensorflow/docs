@@ -9,16 +9,9 @@ page_type: reference
 
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorFullMatrix`
-* Class `tf.linalg.LinearOperatorFullMatrix`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_full_matrix.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_full_matrix.py).
-
-See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
+Defined in [`tensorflow/python/ops/linalg/linear_operator_full_matrix.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_full_matrix.py).
 
 `LinearOperator` that wraps a [batch] matrix.
 

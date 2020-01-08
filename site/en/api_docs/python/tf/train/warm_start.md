@@ -16,7 +16,7 @@ tf.train.warm_start(
 
 
 
-Defined in [`tensorflow/python/training/warm_starting_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/warm_starting_util.py).
+Defined in [`tensorflow/python/training/warm_starting_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/warm_starting_util.py).
 
 Warm-starts a model using the given settings.
 

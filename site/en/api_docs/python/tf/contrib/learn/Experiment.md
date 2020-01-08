@@ -11,14 +11,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/experiment.py).
-
-See the guide: [Learn (contrib) > Distributed training utilities](../../../../../api_guides/python/contrib.learn#Distributed_training_utilities)
+Defined in [`tensorflow/contrib/learn/python/learn/experiment.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/experiment.py).
 
 Experiment is a class containing all information needed to train a model.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 After an experiment is created (by passing an Estimator and inputs for
@@ -65,14 +63,14 @@ when a method is executed which requires it.
 * <b>`estimator`</b>: Object implementing Estimator interface, which could be a
     combination of <a href="../../../tf/contrib/learn/Trainable"><code>tf.contrib.learn.Trainable</code></a> and
     <a href="../../../tf/contrib/learn/Evaluable"><code>tf.contrib.learn.Evaluable</code></a> (deprecated), or
-    <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>.
+    `tf.estimator.Estimator`.
 * <b>`train_input_fn`</b>: function, returns features and labels for training.
 * <b>`eval_input_fn`</b>: function, returns features and labels for evaluation. If
     `eval_steps` is `None`, this should be configured only to produce for a
     finite number of batches (generally, 1 epoch over the evaluation data).
 * <b>`eval_metrics`</b>: `dict` of string, metric function. If `None`, default set
     is used. This should be `None` if the `estimator` is
-    <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>. If metrics are provided they will be
+    `tf.estimator.Estimator`. If metrics are provided they will be
     *appended* to the default set.
 * <b>`train_steps`</b>: Perform this many steps of training. `None`, the default,
     means train forever.

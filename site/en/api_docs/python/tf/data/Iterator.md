@@ -11,9 +11,7 @@ Inherits From: [`CheckpointableBase`](../../tf/contrib/checkpoint/Checkpointable
 
 
 
-Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/data/ops/iterator_ops.py).
-
-See the guide: [Dataset Input Pipeline > Iterating over datasets](../../../../api_guides/python/input_dataset#Iterating_over_datasets)
+Defined in [`tensorflow/python/data/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/data/ops/iterator_ops.py).
 
 Represents the state of iterating through a `Dataset`.
 
@@ -37,15 +35,15 @@ instead use `Dataset.make_initializable_iterator()` or
 
 #### Args:
 
-* <b>`iterator_resource`</b>: A <a href="../../tf/resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
+* <b>`iterator_resource`</b>: A <a href="../../tf#resource"><code>tf.resource</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> representing the
     iterator.
 * <b>`initializer`</b>: A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run to initialize this
     iterator.
-* <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
-    each component of an element of this dataset.
+* <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
+    each component of an element of this iterator.
 * <b>`output_shapes`</b>: A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
-    corresponding to each component of an element of this dataset.
-* <b>`output_classes`</b>: A nested structure of Python `type` object corresponding
+    corresponding to each component of an element of this iterator.
+* <b>`output_classes`</b>: A nested structure of Python `type` objects corresponding
     to each component of an element of this iterator.
 
 
@@ -69,7 +67,7 @@ A <a href="../../tf/Operation"><code>tf.Operation</code></a> that should be run 
 
 Returns the class of each component of an element of this iterator.
 
-The expected values are <a href="../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../tf/SparseTensor"><code>tf.SparseTensor</code></a>.
+The expected values are <a href="../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 #### Returns:
 
@@ -91,7 +89,7 @@ Returns the type of each component of an element of this iterator.
 
 #### Returns:
 
-A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to each component
+A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to each component
 of an element of this dataset.
 
 
@@ -141,9 +139,9 @@ test_loss = sess.run(loss, feed_dict={handle: test_iterator_handle})
 
 #### Args:
 
-* <b>`string_handle`</b>: A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf/string"><code>tf.string</code></a> that evaluates
+* <b>`string_handle`</b>: A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf#string"><code>tf.string</code></a> that evaluates
     to a handle produced by the `Iterator.string_handle()` method.
-* <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
+* <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
     each component of an element of this dataset.
 * <b>`output_shapes`</b>: (Optional.) A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
     corresponding to each component of an element of this dataset. If
@@ -216,7 +214,7 @@ for _ in range(num_epochs):
 
 #### Args:
 
-* <b>`output_types`</b>: A nested structure of <a href="../../tf/DType"><code>tf.DType</code></a> objects corresponding to
+* <b>`output_types`</b>: A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to
     each component of an element of this dataset.
 * <b>`output_shapes`</b>: (Optional.) A nested structure of <a href="../../tf/TensorShape"><code>tf.TensorShape</code></a> objects
     corresponding to each component of an element of this dataset. If
@@ -334,7 +332,7 @@ Returns a string-valued <a href="../../tf/Tensor"><code>tf.Tensor</code></a> tha
 
 #### Returns:
 
-A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf/string"><code>tf.string</code></a>.
+A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf#string"><code>tf.string</code></a>.
 
 
 

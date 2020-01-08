@@ -17,7 +17,7 @@ tf.saved_model.simple_save(
 
 
 
-Defined in [`tensorflow/python/saved_model/simple_save.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/saved_model/simple_save.py).
+Defined in [`tensorflow/python/saved_model/simple_save.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/saved_model/simple_save.py).
 
 Convenience function to build a SavedModel suitable for serving.
 

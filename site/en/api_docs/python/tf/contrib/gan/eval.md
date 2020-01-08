@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/__init__.py).
+Defined in [`tensorflow/contrib/gan/python/eval/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/__init__.py).
 
 TFGAN evaluation module.
 
@@ -68,9 +68,9 @@ distance, and Sliced Wasserstein distance.
 
 ## Other Members
 
-`INCEPTION_DEFAULT_IMAGE_SIZE`
+<h3 id="INCEPTION_DEFAULT_IMAGE_SIZE"><code>INCEPTION_DEFAULT_IMAGE_SIZE</code></h3>
 
-`frechet_inception_distance`
+<h3 id="frechet_inception_distance"><code>frechet_inception_distance</code></h3>
 
-`inception_score`
+<h3 id="inception_score"><code>inception_score</code></h3>
 

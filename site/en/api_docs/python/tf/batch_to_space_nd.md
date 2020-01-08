@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.batch_to_space_nd
+
+### Aliases:
+
+* `tf.batch_to_space_nd`
+* `tf.manip.batch_to_space_nd`
 
 ``` python
 tf.batch_to_space_nd(
@@ -20,8 +22,6 @@ tf.batch_to_space_nd(
 
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
-
-See the guide: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining)
 
 BatchToSpace for N-D tensors of type T.
 

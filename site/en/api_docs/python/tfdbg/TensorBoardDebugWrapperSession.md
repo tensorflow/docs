@@ -11,7 +11,7 @@ Inherits From: [`GrpcDebugWrapperSession`](../tfdbg/GrpcDebugWrapperSession)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/grpc_wrapper.py).
+Defined in [`tensorflow/python/debug/wrappers/grpc_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/wrappers/grpc_wrapper.py).
 
 A tfdbg Session wrapper that can be used with TensorBoard Debugger Plugin.
 

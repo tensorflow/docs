@@ -18,7 +18,7 @@ tf.contrib.training.weighted_resample(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/resample.py).
+Defined in [`tensorflow/contrib/training/python/training/resample.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/resample.py).
 
 See the guide: [Training (contrib) > Online data resampling](../../../../../api_guides/python/contrib.training#Online_data_resampling)
 

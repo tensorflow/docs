@@ -11,7 +11,7 @@ tf.keras.utils.custom_object_scope(*args)
 
 
 
-Defined in [`tensorflow/python/keras/utils/generic_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/generic_utils.py).
+Defined in [`tensorflow/python/keras/utils/generic_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/generic_utils.py).
 
 Provides a scope that changes to `_GLOBAL_CUSTOM_OBJECTS` cannot escape.
 

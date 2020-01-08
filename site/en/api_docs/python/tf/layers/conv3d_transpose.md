@@ -30,7 +30,7 @@ tf.layers.conv3d_transpose(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/convolutional.py).
 
 Functional interface for transposed 3D convolution layer.
 

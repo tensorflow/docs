@@ -19,8 +19,6 @@ tf.scatter_div(
 
 Defined in generated file: `tensorflow/python/ops/gen_state_ops.py`.
 
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
-
 Divides a variable reference by sparse updates.
 
 This operation computes

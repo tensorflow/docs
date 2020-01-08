@@ -18,7 +18,7 @@ tf.contrib.lookup.string_to_index_table_from_file(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lookup/lookup_ops.py).
 
 DEPRECATED FUNCTION
 

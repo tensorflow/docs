@@ -20,9 +20,13 @@ tf.contrib.bayesflow.monte_carlo.expectation(
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
-Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\).
+Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\). (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
+Instructions for updating:
+The tf.contrib.bayesflow library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). Use `tfp.monte_carlo.expectation` instead.
 
 This function computes the Monte-Carlo approximation of an expectation, i.e.,
 
@@ -68,17 +72,17 @@ distribution.
 Example Use:
 
 ```python
-bf = tf.contrib.bayesflow
-ds = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Monte-Carlo approximation of a reparameterized distribution, e.g., Normal.
 
 num_draws = int(1e5)
-p = ds.Normal(loc=0., scale=1.)
-q = ds.Normal(loc=1., scale=2.)
-exact_kl_normal_normal = ds.kl_divergence(p, q)
+p = tfd.Normal(loc=0., scale=1.)
+q = tfd.Normal(loc=1., scale=2.)
+exact_kl_normal_normal = tfd.kl_divergence(p, q)
 # ==> 0.44314718
-approx_kl_normal_normal = bf.expectation(
+approx_kl_normal_normal = tfp.monte_carlo.expectation(
     f=lambda x: p.log_prob(x) - q.log_prob(x),
     samples=p.sample(num_draws, seed=42),
     log_prob=p.log_prob,
@@ -92,9 +96,9 @@ approx_kl_normal_normal = bf.expectation(
 num_draws = int(1e5)
 p = ds.Gamma(concentration=1., rate=1.)
 q = ds.Gamma(concentration=2., rate=3.)
-exact_kl_gamma_gamma = ds.kl_divergence(p, q)
+exact_kl_gamma_gamma = tfd.kl_divergence(p, q)
 # ==> 0.37999129
-approx_kl_gamma_gamma = bf.expectation(
+approx_kl_gamma_gamma = tfp.monte_carlo.expectation(
     f=lambda x: p.log_prob(x) - q.log_prob(x),
     samples=p.sample(num_draws, seed=42),
     log_prob=p.log_prob,
@@ -110,7 +114,7 @@ Note: The above example is for illustration only. To compute approximate
 KL-divergence, the following is preferred:
 
 ```python
-approx_kl_p_q = bf.monte_carlo_csiszar_f_divergence(
+approx_kl_p_q = tfp.vi.monte_carlo_csiszar_f_divergence(
     f=bf.kl_reverse,
     p_log_prob=q.log_prob,
     q=p,

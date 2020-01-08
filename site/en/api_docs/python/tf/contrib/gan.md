@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/__init__.py).
+Defined in [`tensorflow/contrib/gan/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/__init__.py).
 
 TFGAN is a lightweight library for training and evaluating GANs.
 

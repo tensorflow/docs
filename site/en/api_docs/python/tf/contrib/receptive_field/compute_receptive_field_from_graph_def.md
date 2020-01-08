@@ -17,7 +17,7 @@ tf.contrib.receptive_field.compute_receptive_field_from_graph_def(
 
 
 
-Defined in [`tensorflow/contrib/receptive_field/python/util/receptive_field.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/receptive_field/python/util/receptive_field.py).
+Defined in [`tensorflow/contrib/receptive_field/python/util/receptive_field.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/receptive_field/python/util/receptive_field.py).
 
 Computes receptive field (RF) parameters from a Graph or GraphDef object.
 

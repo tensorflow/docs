@@ -11,18 +11,16 @@ Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
-
-See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
+Defined in [`tensorflow/contrib/rnn/python/ops/rnn_cell.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 Long short-term memory unit (LSTM) recurrent network cell.
 
 The default non-peephole implementation is based on:
 
-  http://www.bioinf.jku.at/publications/older/2604.pdf
+  https://pdfs.semanticscholar.org/1154/0131eae85b2e11d53df7f1360eeb6476e7f4.pdf
 
-S. Hochreiter and J. Schmidhuber.
-"Long Short-Term Memory". Neural Computation, 9(8):1735-1780, 1997.
+Felix Gers, Jurgen Schmidhuber, and Fred Cummins.
+"Learning to forget: Continual prediction with LSTM." IET, 850-855, 1999.
 
 The peephole implementation is based on:
 
@@ -62,7 +60,7 @@ __init__(
     num_proj_shards=1,
     forget_bias=1.0,
     state_is_tuple=True,
-    activation=tf.nn.tanh,
+    activation=tf.math.tanh,
     reuse=None,
     layer_norm=False,
     norm_gain=1.0,
@@ -183,9 +181,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

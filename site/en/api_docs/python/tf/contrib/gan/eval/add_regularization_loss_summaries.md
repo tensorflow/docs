@@ -16,7 +16,7 @@ tf.contrib.gan.eval.add_regularization_loss_summaries(gan_model)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/summaries_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/summaries_impl.py).
 
 Adds summaries for a regularization losses..
 

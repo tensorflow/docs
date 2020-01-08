@@ -16,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/distribution.py).
+Defined in [`tensorflow/python/ops/distributions/distribution.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/distribution.py).
 
 Instances of this class represent how sampling is reparameterized.
 

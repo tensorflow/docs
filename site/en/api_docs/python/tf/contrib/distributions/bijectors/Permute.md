@@ -11,14 +11,15 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/permute.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/permute.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/permute.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/permute.py).
 
 Permutes the rightmost dimension of a `Tensor`.
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfb = tfp.bijectors
 
-reverse = tfd.bijectors.Permute(permutation=[2, 1, 0])
+reverse = tfb.Permute(permutation=[2, 1, 0])
 
 reverse.forward([-1., 0., 1.])
 # ==> [1., 0., -1]

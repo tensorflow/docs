@@ -16,11 +16,13 @@ tf.contrib.data.rejection_resample(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/resampling.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/resampling.py).
+Defined in [`tensorflow/contrib/data/python/ops/resampling.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/resampling.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+A transformation that resamples a dataset to achieve a target distribution. (deprecated)
 
-A transformation that resamples a dataset to achieve a target distribution.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.rejection_resample(...)`.
 
 **NOTE** Resampling is performed via rejection sampling; some fraction
 of the input values will be dropped.
@@ -28,7 +30,7 @@ of the input values will be dropped.
 #### Args:
 
 * <b>`class_func`</b>: A function mapping an element of the input dataset to a scalar
-    <a href="../../../tf/int32"><code>tf.int32</code></a> tensor. Values should be in `[0, num_classes)`.
+    <a href="../../../tf#int32"><code>tf.int32</code></a> tensor. Values should be in `[0, num_classes)`.
 * <b>`target_dist`</b>: A floating point type tensor, shaped `[num_classes]`.
 * <b>`initial_dist`</b>: (Optional.)  A floating point type tensor, shaped
     `[num_classes]`.  If not provided, the true class distribution is

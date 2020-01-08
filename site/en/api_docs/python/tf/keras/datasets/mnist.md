@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/datasets/mnist/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/datasets/mnist/__init__.py).
+
 
 MNIST handwritten digits dataset.
 

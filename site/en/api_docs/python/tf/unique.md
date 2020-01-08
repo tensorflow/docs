@@ -15,9 +15,7 @@ tf.unique(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guide: [Math > Sequence Comparison and Indexing](../../../api_guides/python/math_ops#Sequence_Comparison_and_Indexing)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Finds unique elements in a 1-D tensor.
 
@@ -40,7 +38,7 @@ idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4]
 #### Args:
 
 * <b>`x`</b>: A `Tensor`. 1-D.
-* <b>`out_idx`</b>: An optional <a href="../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf/int32"><code>tf.int32</code></a>.
+* <b>`out_idx`</b>: An optional <a href="../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

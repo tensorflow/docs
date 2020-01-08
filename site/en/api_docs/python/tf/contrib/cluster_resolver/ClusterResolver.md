@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py).
+Defined in [`tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/cluster_resolver/python/training/cluster_resolver.py).
 
 Abstract class for all implementations of ClusterResolvers.
 

@@ -21,7 +21,7 @@ tf.contrib.gan.cyclegan_model(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/train.py).
+Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/train.py).
 
 Returns a CycleGAN model outputs and variables.
 

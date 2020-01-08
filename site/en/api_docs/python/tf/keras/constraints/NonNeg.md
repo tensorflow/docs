@@ -16,7 +16,7 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 
 
-Defined in [`tensorflow/python/keras/constraints.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/constraints.py).
+Defined in [`tensorflow/python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/constraints.py).
 
 Constrains the weights to be non-negative.
   

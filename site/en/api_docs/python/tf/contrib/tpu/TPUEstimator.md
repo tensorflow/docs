@@ -7,16 +7,16 @@ page_type: reference
 
 ## Class `TPUEstimator`
 
-Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
+
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu_estimator.py).
 
 Estimator with TPU support.
 
 TPUEstimator also supports training on CPU and GPU. You don't need to define
-a separate <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>.
+a separate `tf.estimator.Estimator`.
 
 TPUEstimator handles many of the details of running on TPU devices, such as
 replicating inputs and models for each core, and returning to host
@@ -274,7 +274,7 @@ Constructs an `TPUEstimator` instance.
 * <b>`export_to_tpu`</b>: If True, `export_savedmodel()` exports a metagraph for
     serving on TPU besides the one on CPU.
 * <b>`warm_start_from`</b>: Optional string filepath to a checkpoint or SavedModel to
-                   warm-start from, or a <a href="../../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>
+                   warm-start from, or a `tf.estimator.WarmStartSettings`
                    object to fully configure warm-starting.  If the string
                    filepath is provided instead of a `WarmStartSettings`,
                    then all variables are warm-started, and it is assumed
@@ -378,11 +378,11 @@ The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../../tf/saved_model/signature_constants/DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+<a href="../../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
-<a href="../../../tf/estimator/export/ExportOutput"><code>tf.estimator.export.ExportOutput</code></a>s, and the inputs are always the input
+`tf.estimator.export.ExportOutput`s, and the inputs are always the input
 receivers provided by
 the `serving_input_receiver_fn`.
 
@@ -398,8 +398,8 @@ is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 * <b>`export_dir_base`</b>: A string containing a directory in which to create
     timestamped subdirectories containing exported `SavedModel`s.
 * <b>`serving_input_receiver_fn`</b>: A function that takes no argument and returns a
-    <a href="../../../tf/estimator/export/ServingInputReceiver"><code>tf.estimator.export.ServingInputReceiver</code></a> or
-    <a href="../../../tf/estimator/export/TensorServingInputReceiver"><code>tf.estimator.export.TensorServingInputReceiver</code></a>.
+    `tf.estimator.export.ServingInputReceiver` or
+    `tf.estimator.export.TensorServingInputReceiver`.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
     within the exported `SavedModel`, or `None` if no extra assets are
     needed.
@@ -433,11 +433,11 @@ export_savedmodel(
 
 Exports inference graph as a `SavedModel` into the given dir.
 
-Note that `export_to_savedmodel` will be renamed to `export_to_saved_model`
+Note that `export_to_savedmodel` will be renamed to `export_saved_model`
 in TensorFlow 2.0. At that time, `export_to_savedmodel` without the
 additional underscore will be available only through tf.compat.v1.
 
-Please see <a href="../../../tf/estimator/Estimator#export_saved_model"><code>tf.estimator.Estimator.export_saved_model</code></a> for more information.
+Please see `tf.estimator.Estimator.export_saved_model` for more information.
 
 There is one additional arg versus the new method:
   strip_default_attrs: This parameter is going away in TF 2.0, and

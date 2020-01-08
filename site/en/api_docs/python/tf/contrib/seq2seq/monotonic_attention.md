@@ -15,7 +15,7 @@ tf.contrib.seq2seq.monotonic_attention(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Compute monotonic attention distribution from choosing probabilities.
 

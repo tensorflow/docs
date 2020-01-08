@@ -20,7 +20,7 @@ tf.contrib.learn.multi_label_head(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/head.py).
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 Creates a Head for multi label classification. (deprecated)
 

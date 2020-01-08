@@ -11,7 +11,7 @@ Inherits From: [`Helper`](../../../tf/contrib/seq2seq/Helper)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/helper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/helper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/helper.py).
 
 See the guide: [Seq2seq Library (contrib) > Dynamic Decoding](../../../../../api_guides/python/contrib.seq2seq#Dynamic_Decoding)
 

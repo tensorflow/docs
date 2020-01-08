@@ -16,6 +16,6 @@ tf.contrib.gan.eval.get_graph_def_from_resource(filename)
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
 Get a GraphDef proto from within a .par file.

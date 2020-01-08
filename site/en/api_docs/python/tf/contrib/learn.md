@@ -7,12 +7,12 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/__init__.py).
+Defined in [`tensorflow/contrib/learn/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/__init__.py).
 
 High level API for learning (DEPRECATED).
 
 This module and all its submodules are deprecated. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for migration instructions.
 
 See the [Contrib Learn](https://tensorflow.org/api_guides/python/contrib.learn)

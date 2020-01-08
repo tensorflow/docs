@@ -15,9 +15,7 @@ tf.contrib.framework.assign_from_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/variables.py).
-
-See the guide: [Framework (contrib) > Variables](../../../../../api_guides/python/contrib.framework#Variables)
+Defined in [`tensorflow/contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/variables.py).
 
 Creates an operation to assign specific variables from a checkpoint.
 

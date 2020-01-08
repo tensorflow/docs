@@ -25,7 +25,7 @@ tf.contrib.framework.load_variable_slot_initializer(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
 Loads pre-trained multi-class slots for linear models from checkpoint.
 

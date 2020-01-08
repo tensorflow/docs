@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/checkpointable/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpointable/util.py).
+Defined in [`tensorflow/python/training/checkpointable/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpointable/util.py).
 
 Saves and restores a `Checkpointable` object and its dependencies.
 
@@ -47,6 +47,14 @@ Configure saving.
 
 
 ## Methods
+
+<h3 id="freeze"><code>freeze</code></h3>
+
+``` python
+freeze()
+```
+
+Creates a <a href="../../../tf/train/Saver"><code>tf.train.Saver</code></a> with the current object graph frozen.
 
 <h3 id="restore"><code>restore</code></h3>
 

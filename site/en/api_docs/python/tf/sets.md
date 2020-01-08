@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/sets/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/sets/__init__.py).
+
 
 Tensorflow set operations.
 

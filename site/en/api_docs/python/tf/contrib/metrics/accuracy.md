@@ -16,7 +16,7 @@ tf.contrib.metrics.accuracy(
 
 
 
-Defined in [`tensorflow/contrib/metrics/python/metrics/classification.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/metrics/python/metrics/classification.py).
+Defined in [`tensorflow/contrib/metrics/python/metrics/classification.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/metrics/python/metrics/classification.py).
 
 See the guide: [Metrics (contrib) > Metric `Ops`](../../../../../api_guides/python/contrib.metrics#Metric_Ops_)
 

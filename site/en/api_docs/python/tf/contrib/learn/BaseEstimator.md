@@ -11,14 +11,12 @@ Inherits From: [`Evaluable`](../../../tf/contrib/learn/Evaluable), [`Trainable`]
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 Abstract BaseEstimator class to train and evaluate TensorFlow models.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 Users should not instantiate or subclass this class. Instead, use an

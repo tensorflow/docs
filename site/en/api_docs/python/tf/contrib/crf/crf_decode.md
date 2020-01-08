@@ -15,7 +15,7 @@ tf.contrib.crf.crf_decode(
 
 
 
-Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/crf/python/ops/crf.py).
+Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/crf/python/ops/crf.py).
 
 Decode the highest scoring sequence of tags in TensorFlow.
 
@@ -32,6 +32,6 @@ This is a function for tensor.
 
 #### Returns:
 
-* <b>`decode_tags`</b>: A [batch_size, max_seq_len] matrix, with dtype <a href="../../../tf/int32"><code>tf.int32</code></a>.
+* <b>`decode_tags`</b>: A [batch_size, max_seq_len] matrix, with dtype <a href="../../../tf#int32"><code>tf.int32</code></a>.
               Contains the highest scoring tag indices.
 * <b>`best_score`</b>: A [batch_size] vector, containing the score of `decode_tags`.

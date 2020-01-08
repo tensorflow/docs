@@ -15,7 +15,7 @@ tf.contrib.seq2seq.safe_cumprod(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 Computes cumprod of x in logspace using cumsum to avoid underflow.
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/framework.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/framework.py).
+Defined in [`tensorflow/python/debug/wrappers/framework.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/wrappers/framework.py).
 
 Type for return values of watch_fn.
 

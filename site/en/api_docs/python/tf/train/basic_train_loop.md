@@ -17,9 +17,7 @@ tf.train.basic_train_loop(
 
 
 
-Defined in [`tensorflow/python/training/basic_loops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_loops.py).
-
-See the guide: [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
+Defined in [`tensorflow/python/training/basic_loops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/basic_loops.py).
 
 Basic loop to train a model.
 

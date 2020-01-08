@@ -15,7 +15,7 @@ tf.contrib.losses.metric_learning.lifted_struct_loss(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
 Computes the lifted structured loss.
 

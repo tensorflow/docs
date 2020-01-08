@@ -11,9 +11,7 @@ tf.contrib.util.ops_used_by_graph_def(graph_def)
 
 
 
-Defined in [`tensorflow/python/framework/meta_graph.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/meta_graph.py).
-
-See the guide: [Utilities (contrib) > Miscellaneous Utility Functions](../../../../../api_guides/python/contrib.util#Miscellaneous_Utility_Functions)
+Defined in [`tensorflow/python/framework/meta_graph.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/meta_graph.py).
 
 Collect the list of ops used by a graph.
 

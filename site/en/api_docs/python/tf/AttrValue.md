@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/core/framework/attr_value.proto`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/core/framework/attr_value.proto).
+Defined in [`tensorflow/core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/core/framework/attr_value.proto).
 
 
 

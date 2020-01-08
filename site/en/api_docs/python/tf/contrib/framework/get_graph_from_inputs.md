@@ -14,9 +14,7 @@ tf.contrib.framework.get_graph_from_inputs(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/ops.py).
-
-See the guide: [Framework (contrib)](../../../../../api_guides/python/contrib.framework)
+Defined in [`tensorflow/contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/ops.py).
 
 Returns the appropriate graph to use for the given inputs.
 

@@ -17,7 +17,7 @@ tf.contrib.losses.metric_learning.npairs_loss_multilabel(
 
 
 
-Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
+Defined in [`tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
 Computes the npairs loss with multilabel data.
 

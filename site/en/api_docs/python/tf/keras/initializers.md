@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/initializers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/initializers/__init__.py).
+
 
 Keras initializer serialization / deserialization.
 
@@ -35,6 +35,10 @@ Keras initializer serialization / deserialization.
 
 [`class constant`](../../tf/keras/initializers/Constant): Initializer that generates tensors with constant values.
 
+[`class glorot_normal`](../../tf/keras/initializers/glorot_normal): The Glorot normal initializer, also called Xavier normal initializer.
+
+[`class glorot_uniform`](../../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
+
 [`class identity`](../../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
 
 [`class normal`](../../tf/keras/initializers/RandomNormal): Initializer that generates tensors with a normal distribution.
@@ -58,10 +62,6 @@ Keras initializer serialization / deserialization.
 [`deserialize(...)`](../../tf/keras/initializers/deserialize)
 
 [`get(...)`](../../tf/keras/initializers/get)
-
-[`glorot_normal(...)`](../../tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
-
-[`glorot_uniform(...)`](../../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
 
 [`he_normal(...)`](../../tf/keras/initializers/he_normal): He normal initializer.
 

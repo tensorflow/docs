@@ -11,7 +11,7 @@ Inherits From: [`TensorSpec`](../../../tf/contrib/eager/TensorSpec)
 
 
 
-Defined in [`tensorflow/python/framework/tensor_spec.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_spec.py).
+Defined in [`tensorflow/python/framework/tensor_spec.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_spec.py).
 
 A `TensorSpec` that specifies minimum and maximum values.
 
@@ -48,7 +48,7 @@ Initializes a new `BoundedTensorSpec`.
 #### Args:
 
 * <b>`shape`</b>: Value convertible to <a href="../../../tf/TensorShape"><code>tf.TensorShape</code></a>. The shape of the tensor.
-* <b>`dtype`</b>: Value convertible to <a href="../../../tf/DType"><code>tf.DType</code></a>. The type of the tensor values.
+* <b>`dtype`</b>: Value convertible to <a href="../../../tf/dtypes/DType"><code>tf.DType</code></a>. The type of the tensor values.
 * <b>`minimum`</b>: Number or sequence specifying the minimum element bounds
     (inclusive). Must be broadcastable to `shape`.
 * <b>`maximum`</b>: Number or sequence specifying the maximum element bounds

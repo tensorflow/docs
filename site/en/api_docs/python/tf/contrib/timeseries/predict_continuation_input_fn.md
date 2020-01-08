@@ -16,7 +16,7 @@ tf.contrib.timeseries.predict_continuation_input_fn(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 An Estimator input_fn for running predict() after evaluate().
 

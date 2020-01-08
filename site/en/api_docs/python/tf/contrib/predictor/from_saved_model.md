@@ -20,7 +20,7 @@ tf.contrib.predictor.from_saved_model(
 
 
 
-Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/predictor/predictor_factories.py).
+Defined in [`tensorflow/contrib/predictor/predictor_factories.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/predictor/predictor_factories.py).
 
 Constructs a `Predictor` from a `SavedModel` on disk.
 

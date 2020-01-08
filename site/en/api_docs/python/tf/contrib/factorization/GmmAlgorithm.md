@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
+Defined in [`tensorflow/contrib/factorization/python/ops/gmm_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
 
 Tensorflow Gaussian mixture model clustering class.
 

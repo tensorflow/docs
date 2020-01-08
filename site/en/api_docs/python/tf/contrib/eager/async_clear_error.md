@@ -11,6 +11,6 @@ tf.contrib.eager.async_clear_error()
 
 
 
-Defined in [`tensorflow/python/eager/context.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/context.py).
+Defined in [`tensorflow/python/eager/context.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/context.py).
 
 Clears errors raised during ASYNC execution mode.

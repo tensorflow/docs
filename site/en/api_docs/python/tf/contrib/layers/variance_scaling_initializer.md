@@ -17,9 +17,7 @@ tf.contrib.layers.variance_scaling_initializer(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/initializers.py).
-
-See the guide: [Layers (contrib) > Initializers](../../../../../api_guides/python/contrib.layers#Initializers)
+Defined in [`tensorflow/contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/initializers.py).
 
 Returns an initializer that generates tensors without scaling variance.
 
@@ -59,7 +57,7 @@ by reaching the final layer. This initializer use the following formula:
 * <b>`mode`</b>: String.  'FAN_IN', 'FAN_OUT', 'FAN_AVG'.
 * <b>`uniform`</b>: Whether to use uniform or normal distributed random initialization.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-        <a href="../../../tf/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
+        <a href="../../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a> for behavior.
 * <b>`dtype`</b>: The data type. Only floating point types are supported.
 
 

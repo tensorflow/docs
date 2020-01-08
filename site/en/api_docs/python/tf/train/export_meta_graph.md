@@ -24,9 +24,9 @@ tf.train.export_meta_graph(
 
 
 
-Defined in [`tensorflow/python/training/saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/saver.py).
+Defined in [`tensorflow/python/training/saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/saver.py).
 
-See the guides: [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph), [Variables > Exporting and Importing Meta Graphs](../../../../api_guides/python/state_ops#Exporting_and_Importing_Meta_Graphs)
+See the guide: [Exporting and Importing a MetaGraph](../../../../api_guides/python/meta_graph)
 
 Returns `MetaGraphDef` proto. Optionally writes it to filename.
 

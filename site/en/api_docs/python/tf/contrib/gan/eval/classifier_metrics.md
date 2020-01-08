@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/classifier_metrics.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/classifier_metrics.py).
 
 Model evaluation tools for TFGAN.
 
@@ -39,11 +39,11 @@ Model evaluation tools for TFGAN.
 
 ## Other Members
 
-`INCEPTION_DEFAULT_IMAGE_SIZE`
+<h3 id="INCEPTION_DEFAULT_IMAGE_SIZE"><code>INCEPTION_DEFAULT_IMAGE_SIZE</code></h3>
 
-`__all__`
+<h3 id="__all__"><code>__all__</code></h3>
 
-`frechet_inception_distance`
+<h3 id="frechet_inception_distance"><code>frechet_inception_distance</code></h3>
 
-`inception_score`
+<h3 id="inception_score"><code>inception_score</code></h3>
 

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/containers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/checkpoint/python/containers.py).
+Defined in [`tensorflow/contrib/checkpoint/python/containers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/checkpoint/python/containers.py).
 
 Adds dependencies on checkpointable objects with name hints.
 

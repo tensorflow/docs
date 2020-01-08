@@ -16,7 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/beta.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/beta.py).
+Defined in [`tensorflow/python/ops/distributions/beta.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/beta.py).
 
 Beta distribution.
 
@@ -68,10 +68,13 @@ Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
 #### Examples
 
 ```python
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 # Create a batch of three Beta distributions.
 alpha = [1, 2, 3]
 beta = [1, 2, 3]
-dist = tf.distributions.Beta(alpha, beta)
+dist = tfd.Beta(alpha, beta)
 
 dist.sample([4, 5])  # Shape [4, 5, 3]
 
@@ -87,7 +90,7 @@ dist.prob(x)         # Shape [2, 3]
 # Create batch_shape=[2, 3] via parameter broadcast:
 alpha = [[1.], [2]]      # Shape [2, 1]
 beta = [3., 4, 5]        # Shape [3]
-dist = tf.distributions.Beta(alpha, beta)
+dist = tfd.Beta(alpha, beta)
 
 # alpha broadcast as: [[1., 1, 1,],
 #                      [2, 2, 2]]
@@ -108,7 +111,7 @@ Compute the gradients of samples w.r.t. the parameters:
 ```python
 alpha = tf.constant(1.0)
 beta = tf.constant(2.0)
-dist = tf.distributions.Beta(alpha, beta)
+dist = tfd.Beta(alpha, beta)
 samples = dist.sample(5)  # Shape [5]
 loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
 # Unbiased stochastic gradients of the loss function
@@ -380,7 +383,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -474,7 +477,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

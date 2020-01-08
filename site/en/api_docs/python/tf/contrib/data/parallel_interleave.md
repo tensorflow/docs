@@ -18,11 +18,13 @@ tf.contrib.data.parallel_interleave(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/interleave_ops.py).
+Defined in [`tensorflow/contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+A parallel version of the `Dataset.interleave()` transformation. (deprecated)
 
-A parallel version of the `Dataset.interleave()` transformation.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.parallel_interleave(...)`.
 
 `parallel_interleave()` maps `map_func` across its input to produce nested
 datasets, and outputs their elements interleaved. Unlike

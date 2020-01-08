@@ -7,17 +7,15 @@ page_type: reference
 
 ## Class `RunConfig`
 
-Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
-See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 This class specifies the configurations for an `Estimator` run.
 
-This class is a deprecated implementation of <a href="../../../tf/estimator/RunConfig"><code>tf.estimator.RunConfig</code></a>
+This class is a deprecated implementation of `tf.estimator.RunConfig`
 interface.
 
 <h2 id="__init__"><code>__init__</code></h2>

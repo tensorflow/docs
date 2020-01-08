@@ -15,7 +15,7 @@ tf.contrib.gan.features.condition_tensor_from_onehot(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py).
+Defined in [`tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/features/python/conditioning_utils_impl.py).
 
 Condition a tensor based on a one-hot tensor.
 

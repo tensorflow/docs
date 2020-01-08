@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
 
 Mapping from logical cores in a computation to the physical TPU topology.
 
@@ -47,31 +47,15 @@ Constructs a `DeviceAssignment` object.
 
 ## Properties
 
-<h3 id="computation_shape"><code>computation_shape</code></h3>
-
-The computation shape.
-
-#### Returns:
-
-A rank-1 int32 numpy array with size equal to the TPU topology rank.
-Describes the logical shape in numbers of core of each replica of the
-computation in the TPU topology.
-
-
-#### Returns:
-
-The computation shape.
-
 <h3 id="core_assignment"><code>core_assignment</code></h3>
 
 The logical to physical core mapping.
 
 #### Returns:
 
-A numpy array of rank `topology_rank + 2`, with shape
-`[num_replicas] + computation_shape + [topology_rank]`. Maps
-(replica, logical core coordinates) pairs to physical topology
-coordinates.
+An integer numpy array of rank 3, with shape
+`[num_replicas, num_cores_per_replica, topology_rank]`. Maps
+(replica, logical core) pairs to physical topology coordinates.
 
 <h3 id="num_cores_per_replica"><code>num_cores_per_replica</code></h3>
 
@@ -94,7 +78,7 @@ A `Topology` that describes the TPU topology.
 ``` python
 host_device(
     replica=0,
-    logical_core=None,
+    logical_core=0,
     job=None
 )
 ```
@@ -115,7 +99,7 @@ Lookup replica ids by task number and logical core.
 #### Args:
 
 * <b>`task_id`</b>: TensorFlow task number.
-* <b>`logical_core`</b>: A tuple of three integers which represents a logical core.
+* <b>`logical_core`</b>: An integer, identifying a logical core.
 
 #### Returns:
 
@@ -132,7 +116,7 @@ logical_core.
 ``` python
 tpu_device(
     replica=0,
-    logical_core=None,
+    logical_core=0,
     job=None
 )
 ```
@@ -144,7 +128,7 @@ Returns the name of the TPU device assigned to a logical core.
 ``` python
 tpu_ordinal(
     replica=0,
-    logical_core=None
+    logical_core=0
 )
 ```
 

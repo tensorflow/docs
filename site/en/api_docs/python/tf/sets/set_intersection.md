@@ -20,7 +20,7 @@ tf.sets.set_intersection(
 
 
 
-Defined in [`tensorflow/python/ops/sets_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/sets_impl.py).
+Defined in [`tensorflow/python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/sets_impl.py).
 
 See the guide: [Metrics (contrib) > Set `Ops`](../../../../api_guides/python/contrib.metrics#Set_Ops_)
 

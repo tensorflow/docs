@@ -22,7 +22,7 @@ tf.contrib.legacy_seq2seq.embedding_tied_rnn_seq2seq(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 Embedding RNN sequence-to-sequence model with tied (shared) parameters.
 

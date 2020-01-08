@@ -11,7 +11,7 @@ tf.contrib.eager.implicit_value_and_gradients(f)
 
 
 
-Defined in [`tensorflow/python/eager/backprop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/eager/backprop.py).
+Defined in [`tensorflow/python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/eager/backprop.py).
 
 Returns a function which differentiates f with respect to variables.
 

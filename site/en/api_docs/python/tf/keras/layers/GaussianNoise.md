@@ -11,7 +11,7 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 
 
-Defined in [`tensorflow/python/keras/layers/noise.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/noise.py).
+Defined in [`tensorflow/python/keras/layers/noise.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/noise.py).
 
 Apply additive zero-centered Gaussian noise.
 
@@ -121,9 +121,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

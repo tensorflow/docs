@@ -11,7 +11,7 @@ Inherits From: [`TableInitializerBase`](../../../tf/contrib/lookup/TableInitiali
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 Table initializers from a text file.
 
@@ -46,7 +46,7 @@ second column as values:
 * `palmer -> 30`
 
 ```python
-table = tf.contrib.lookup.HashTable(tf.contrib.lookup.TextFileInitializer(
+table = tf.lookup.HashTable(tf.lookup.TextFileInitializer(
     "test.txt", tf.string, 0, tf.int64, 1, delimiter=" "), -1)
 ...
 table.init.run()
@@ -59,9 +59,9 @@ Similarly to initialize the whole line as keys and the line number as values.
 * `palmer 30 -> 2`
 
 ```python
-table = tf.contrib.lookup.HashTable(tf.contrib.lookup.TextFileInitializer(
-    "test.txt", tf.string, tf.contrib.lookup.TextFileIndex.WHOLE_LINE,
-    tf.int64, tf.contrib.lookup.TextFileIndex.LINE_NUMBER, delimiter=" "), -1)
+table = tf.lookup.HashTable(tf.lookup.TextFileInitializer(
+    "test.txt", tf.string, tf.lookup.TextFileIndex.WHOLE_LINE,
+    tf.int64, tf.lookup.TextFileIndex.LINE_NUMBER, delimiter=" "), -1)
 ...
 table.init.run()
 ```

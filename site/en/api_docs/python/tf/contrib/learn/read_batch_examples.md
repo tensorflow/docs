@@ -23,9 +23,7 @@ tf.contrib.learn.read_batch_examples(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
-
-See the guide: [Learn (contrib) > Input processing](../../../../../api_guides/python/contrib.learn#Input_processing)
+Defined in [`tensorflow/contrib/learn/python/learn/learn_io/graph_io.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
 Adds operations to read, queue, batch `Example` protos. (deprecated)
 

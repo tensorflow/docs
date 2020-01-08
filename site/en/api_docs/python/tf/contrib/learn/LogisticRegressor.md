@@ -17,14 +17,12 @@ tf.contrib.learn.LogisticRegressor(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
-
-See the guide: [Learn (contrib) > Estimators](../../../../../api_guides/python/contrib.learn#Estimators)
+Defined in [`tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/estimators/logistic_regressor.py).
 
 Builds a logistic regression Estimator for binary classification.
 
 THIS CLASS IS DEPRECATED. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for general migration instructions.
 
 This method provides a basic Estimator with some additional metrics for custom

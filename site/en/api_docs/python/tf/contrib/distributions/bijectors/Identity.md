@@ -11,7 +11,7 @@ Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijec
 
 
 
-Defined in [`tensorflow/python/ops/distributions/identity_bijector.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/identity_bijector.py).
+Defined in [`tensorflow/python/ops/distributions/identity_bijector.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/identity_bijector.py).
 
 Compute Y = g(X) = X.
 

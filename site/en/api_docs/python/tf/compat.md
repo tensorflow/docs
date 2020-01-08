@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/compat/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/compat/__init__.py).
+
 
 Functions for Python 2 vs. 3 compatibility.
 
@@ -41,11 +41,11 @@ The compatibility module also provides the following types:
 
 ## Other Members
 
-`bytes_or_text_types`
+<h3 id="bytes_or_text_types"><code>bytes_or_text_types</code></h3>
 
-`complex_types`
+<h3 id="complex_types"><code>complex_types</code></h3>
 
-`integral_types`
+<h3 id="integral_types"><code>integral_types</code></h3>
 
-`real_types`
+<h3 id="real_types"><code>real_types</code></h3>
 

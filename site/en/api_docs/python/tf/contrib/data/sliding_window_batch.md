@@ -16,13 +16,17 @@ tf.contrib.data.sliding_window_batch(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/sliding.py).
+Defined in [`tensorflow/contrib/data/python/ops/sliding.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/sliding.py).
 
-A sliding window over a dataset. (deprecated arguments)
+A sliding window over a dataset. (deprecated) (deprecated arguments)
 
 SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
 Instructions for updating:
 stride is deprecated, use window_shift instead
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.window(size=window_size, shift=window_shift, stride=window_stride).flat_map(lambda x: x.batch(window.size))` instead.
 
 This transformation passes a sliding window over this dataset. The window size
 is `window_size`, the stride of the input elements is `window_stride`, and the
@@ -47,15 +51,15 @@ a.apply(sliding_window_batch(window_size=3, window_stride=2)) ==
 
 #### Args:
 
-* <b>`window_size`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+* <b>`window_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
     elements in the sliding window. It must be positive.
-* <b>`stride`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
+* <b>`stride`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
     forward shift of the sliding window in each iteration. The default is `1`.
     It must be positive. Deprecated alias for `window_shift`.
-* <b>`window_shift`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
+* <b>`window_shift`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
     forward shift of the sliding window in each iteration. The default is `1`.
     It must be positive.
-* <b>`window_stride`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
+* <b>`window_stride`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
     stride of the input elements in the sliding window. The default is `1`.
     It must be positive.
 

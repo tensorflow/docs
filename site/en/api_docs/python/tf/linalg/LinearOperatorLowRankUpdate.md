@@ -9,16 +9,9 @@ page_type: reference
 
 Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
-### Aliases:
-
-* Class `tf.contrib.linalg.LinearOperatorLowRankUpdate`
-* Class `tf.linalg.LinearOperatorLowRankUpdate`
 
 
-
-Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
-
-See the guide: [Linear Algebra (contrib) > `LinearOperator`](../../../../api_guides/python/contrib.linalg#_LinearOperator_)
+Defined in [`tensorflow/python/ops/linalg/linear_operator_low_rank_update.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/linalg/linear_operator_low_rank_update.py).
 
 Perturb a `LinearOperator` with a rank `K` update.
 

@@ -11,14 +11,12 @@ Inherits From: [`SessionRunHook`](../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/hooks.py).
-
-See the guide: [TensorFlow Debugger > Session wrapper class and `SessionRunHook` implementations](../../../api_guides/python/tfdbg#Session_wrapper_class_and_SessionRunHook_implementations)
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/wrappers/hooks.py).
 
 Command-line-interface debugger hook.
 
 Can be used as a hook for <a href="../tf/train/MonitoredSession"><code>tf.train.MonitoredSession</code></a>s and
-<a href="../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a>s. Provides a substitute for
+`tf.estimator.Estimator`s. Provides a substitute for
 <a href="../tfdbg/LocalCLIDebugWrapperSession"><code>tfdbg.LocalCLIDebugWrapperSession</code></a> in cases where the session is not directly
 available.
 

@@ -14,7 +14,7 @@ tf.contrib.training.clip_gradient_norms(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/training.py).
+Defined in [`tensorflow/contrib/training/python/training/training.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/training.py).
 
 Clips the gradients by the given value.
 

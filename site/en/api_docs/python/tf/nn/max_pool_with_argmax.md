@@ -44,7 +44,7 @@ in a safe backwards compatible way, especially due to flattening.
     input tensor.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
     The type of padding algorithm to use.
-* <b>`Targmax`</b>: An optional <a href="../../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf/int64"><code>tf.int64</code></a>.
+* <b>`Targmax`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf#int64"><code>tf.int64</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
 
 

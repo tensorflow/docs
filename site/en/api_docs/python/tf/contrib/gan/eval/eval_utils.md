@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/eval_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/eval_utils.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/eval_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/eval_utils.py).
 
 Utility file for visualizing generated images.
 
@@ -19,5 +19,5 @@ Utility file for visualizing generated images.
 
 ## Other Members
 
-`__all__`
+<h3 id="__all__"><code>__all__</code></h3>
 

@@ -2,16 +2,16 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.TrainSpec
 
 ## Class `TrainSpec`
 
 
-
-
-
-Defined in [`tensorflow/python/estimator/training.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/training.py).
 
 Configuration for the "train" part for the `train_and_evaluate` call.
 
@@ -66,17 +66,17 @@ A validated `TrainSpec` object.
 
 ## Properties
 
-<h3 id="hooks"><code>hooks</code></h3>
-
-Alias for field number 2
-
 <h3 id="input_fn"><code>input_fn</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="max_steps"><code>max_steps</code></h3>
 
-Alias for field number 1
+
+
+<h3 id="hooks"><code>hooks</code></h3>
+
+
 
 
 

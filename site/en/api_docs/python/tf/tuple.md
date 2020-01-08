@@ -15,9 +15,7 @@ tf.tuple(
 
 
 
-Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/control_flow_ops.py).
-
-See the guide: [Control Flow > Control Flow Operations](../../../api_guides/python/control_flow_ops#Control_Flow_Operations)
+Defined in [`tensorflow/python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/control_flow_ops.py).
 
 Group tensors together.
 

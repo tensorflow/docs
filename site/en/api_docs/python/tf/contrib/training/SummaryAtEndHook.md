@@ -11,7 +11,7 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/evaluation.py).
+Defined in [`tensorflow/contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/evaluation.py).
 
 A run hook that saves a summary with the results of evaluation.
 

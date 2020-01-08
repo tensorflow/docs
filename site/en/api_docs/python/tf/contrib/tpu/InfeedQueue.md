@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/tpu_feed.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/tpu_feed.py).
 
 A helper object to build a device infeed queue.
 

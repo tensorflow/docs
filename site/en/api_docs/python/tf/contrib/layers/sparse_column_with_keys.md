@@ -17,9 +17,7 @@ tf.contrib.layers.sparse_column_with_keys(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 Creates a _SparseColumn with keys.
 

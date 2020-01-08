@@ -20,9 +20,9 @@ tf.nn.separable_conv2d(
 
 
 
-Defined in [`tensorflow/python/ops/nn_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_impl.py).
+Defined in [`tensorflow/python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_impl.py).
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
+See the guide: [Neural Network > Convolution](../../../../api_guides/python/nn#Convolution)
 
 2-D convolution with separable filters.
 

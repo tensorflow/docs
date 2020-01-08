@@ -1,12 +1,14 @@
-
-
 page_type: reference
-<style> table img { max-width: 100%; } </style>
-
+<style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.reshape
+
+### Aliases:
+
+* `tf.manip.reshape`
+* `tf.reshape`
 
 ``` python
 tf.reshape(
@@ -19,8 +21,6 @@ tf.reshape(
 
 
 Defined in generated file: `tensorflow/python/ops/gen_array_ops.py`.
-
-See the guide: [Tensor Transformations > Shapes and Shaping](../../../api_guides/python/array_ops#Shapes_and_Shaping)
 
 Reshapes a tensor.
 

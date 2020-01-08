@@ -17,9 +17,7 @@ tf.gather(
 
 
 
-Defined in [`tensorflow/python/ops/array_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/array_ops.py).
-
-See the guides: [Tensor Transformations > Slicing and Joining](../../../api_guides/python/array_ops#Slicing_and_Joining), [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
+Defined in [`tensorflow/python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/array_ops.py).
 
 Gather slices from `params` axis `axis` according to `indices`.
 
@@ -49,7 +47,7 @@ Note that on CPU, if an out of bound index is found, an error is returned.
 On GPU, if an out of bound index is found, a 0 is stored in the
 corresponding output value.
 
-See also <a href="../tf/batch_gather"><code>tf.batch_gather</code></a> and <a href="../tf/manip/gather_nd"><code>tf.gather_nd</code></a>.
+See also <a href="../tf/batch_gather"><code>tf.batch_gather</code></a> and <a href="../tf/gather_nd"><code>tf.gather_nd</code></a>.
 
 #### Args:
 

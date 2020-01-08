@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mvn_tril.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mvn_tril.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mvn_tril.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/mvn_tril.py).
 
 The multivariate normal distribution on `R^k`.
 
@@ -58,13 +58,14 @@ Y = scale @ X + loc
 ```
 
 Trainable (batch) lower-triangular matrices can be created with
-`tf.contrib.distributions.matrix_diag_transform()` and/or
-`tf.contrib.distributions.fill_triangular()`
+`tfp.distributions.matrix_diag_transform()` and/or
+`tfp.distributions.fill_triangular()`
 
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 # Initialize a single 3-variate Gaussian.
 mu = [1., 2, 3]
@@ -402,7 +403,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -496,7 +497,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

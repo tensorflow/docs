@@ -16,7 +16,7 @@ tf.contrib.checkpoint.split_dependency(
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/python/split_dependency.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/checkpoint/python/split_dependency.py).
+Defined in [`tensorflow/contrib/checkpoint/python/split_dependency.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/checkpoint/python/split_dependency.py).
 
 Creates multiple dependencies with a synchronized save/restore.
 

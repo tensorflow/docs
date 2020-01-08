@@ -16,7 +16,7 @@ tf.contrib.distributions.normal_conjugates_known_scale_posterior(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/normal_conjugate_posteriors.py).
 
 Posterior Normal distribution with conjugate prior on the mean.
 

@@ -14,9 +14,9 @@ tf.contrib.estimator.add_metrics(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/extenders.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/extenders.py).
 
-Creates a new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
+Creates a new `tf.estimator.Estimator` which has given metrics.
 
 Example:
 
@@ -44,7 +44,7 @@ Example usage of custom metric which uses features:
 
 #### Args:
 
-* <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> object.
+* <b>`estimator`</b>: A `tf.estimator.Estimator` object.
 * <b>`metric_fn`</b>: A function which should obey the following signature:
     - Args: can only have following four arguments in any order:
       * predictions: Predictions `Tensor` or dict of `Tensor` created by given
@@ -64,5 +64,5 @@ Example usage of custom metric which uses features:
 
 #### Returns:
 
-A new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has a union of original metrics with
+A new `tf.estimator.Estimator` which has a union of original metrics with
   given ones.

@@ -21,7 +21,7 @@ tf.distributions.kl_divergence(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/kullback_leibler.py).
+Defined in [`tensorflow/python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 Get the KL-divergence KL(distribution_a || distribution_b).
 

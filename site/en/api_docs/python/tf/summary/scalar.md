@@ -16,9 +16,9 @@ tf.summary.scalar(
 
 
 
-Defined in [`tensorflow/python/summary/summary.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/summary/summary.py).
+Defined in [`tensorflow/python/summary/summary.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/summary/summary.py).
 
-See the guide: [Summary Operations > Generation of Summaries](../../../../api_guides/python/summary#Generation_of_Summaries)
+See the guide: [Upgrade to TensorFlow 1.0 > Upgrading your code manually](../../../../api_guides/python/upgrade#Upgrading_your_code_manually)
 
 Outputs a `Summary` protocol buffer containing a single scalar value.
 

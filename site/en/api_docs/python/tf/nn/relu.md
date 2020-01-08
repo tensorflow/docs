@@ -16,7 +16,7 @@ tf.nn.relu(
 
 Defined in generated file: `tensorflow/python/ops/gen_nn_ops.py`.
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
+See the guide: [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
 Computes rectified linear: `max(features, 0)`.
 

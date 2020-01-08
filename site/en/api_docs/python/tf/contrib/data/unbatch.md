@@ -11,11 +11,13 @@ tf.contrib.data.unbatch()
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/batching.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+Splits elements of a dataset into multiple elements on the batch dimension. (deprecated)
 
-Splits elements of a dataset into multiple elements on the batch dimension.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.unbatch()`.
 
 For example, if elements of the dataset are shaped `[B, a0, a1, ...]`,
 where `B` may vary for each input element, then for each element in the

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/framework/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/__init__.py).
+Defined in [`tensorflow/contrib/framework/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/__init__.py).
 
 Framework utilities.
 
@@ -67,11 +67,11 @@ guide.
 
 [`assert_or_get_global_step(...)`](../../tf/contrib/framework/assert_or_get_global_step): Verifies that a global step tensor is valid or gets one if None is given.
 
-[`assert_same_float_dtype(...)`](../../tf/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
+[`assert_same_float_dtype(...)`](../../tf/debugging/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
-[`assert_scalar(...)`](../../tf/assert_scalar)
+[`assert_scalar(...)`](../../tf/debugging/assert_scalar)
 
-[`assert_scalar_int(...)`](../../tf/contrib/framework/assert_scalar_int): Assert `tensor` is 0-D, of type <a href="../../tf/int32"><code>tf.int32</code></a> or <a href="../../tf/int64"><code>tf.int64</code></a>.
+[`assert_scalar_int(...)`](../../tf/contrib/framework/assert_scalar_int): Assert `tensor` is 0-D, of type <a href="../../tf#int32"><code>tf.int32</code></a> or <a href="../../tf#int64"><code>tf.int64</code></a>.
 
 [`assign_from_checkpoint(...)`](../../tf/contrib/framework/assign_from_checkpoint): Creates an operation to assign specific variables from a checkpoint.
 

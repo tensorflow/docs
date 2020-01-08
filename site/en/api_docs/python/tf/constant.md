@@ -17,7 +17,7 @@ tf.constant(
 
 
 
-Defined in [`tensorflow/python/framework/constant_op.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/constant_op.py).
+Defined in [`tensorflow/python/framework/constant_op.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/constant_op.py).
 
 See the guide: [Constants, Sequences, and Random Values > Constant Value Tensors](../../../api_guides/python/constant_op#Constant_Value_Tensors)
 

@@ -17,9 +17,7 @@ tf.scatter_update(
 
 
 
-Defined in [`tensorflow/python/ops/state_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/state_ops.py).
-
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
+Defined in [`tensorflow/python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/state_ops.py).
 
 Applies sparse updates to a variable reference.
 

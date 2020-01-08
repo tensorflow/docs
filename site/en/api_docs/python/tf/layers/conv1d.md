@@ -31,7 +31,7 @@ tf.layers.conv1d(
 
 
 
-Defined in [`tensorflow/python/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/layers/convolutional.py).
+Defined in [`tensorflow/python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/layers/convolutional.py).
 
 Functional interface for 1D convolution layer (e.g. temporal convolution).
 

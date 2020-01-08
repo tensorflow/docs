@@ -11,7 +11,7 @@ tf.contrib.rnn.best_effort_input_batch_size(flat_input)
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/rnn.py).
+Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/rnn.py).
 
 Get static input batch size if available, with fallback to the dynamic one.
 

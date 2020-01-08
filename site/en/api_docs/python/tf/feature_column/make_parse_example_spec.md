@@ -11,11 +11,11 @@ tf.feature_column.make_parse_example_spec(feature_columns)
 
 
 
-Defined in [`tensorflow/python/feature_column/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/feature_column/feature_column.py).
+Defined in [`tensorflow/python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/feature_column/feature_column.py).
 
 Creates parsing spec dictionary from input feature_columns.
 
-The returned dictionary can be used as arg 'features' in <a href="../../tf/parse_example"><code>tf.parse_example</code></a>.
+The returned dictionary can be used as arg 'features' in <a href="../../tf/io/parse_example"><code>tf.parse_example</code></a>.
 
 Typical usage example:
 

@@ -15,7 +15,7 @@ tf.contrib.timeseries.saved_model_utils.cold_start_filter(
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/saved_model_utils.py).
 
 Perform filtering using an exported saved model.
 
@@ -28,10 +28,10 @@ Starts from the model's default/uninformed state.
 #### Args:
 
 * <b>`signatures`</b>: The `MetaGraphDef` protocol buffer returned from
-    <a href="../../../../tf/saved_model/loader/load"><code>tf.saved_model.loader.load</code></a>. Used to determine the names of Tensors to
+    <a href="../../../../tf/saved_model/load"><code>tf.saved_model.loader.load</code></a>. Used to determine the names of Tensors to
     feed and fetch. Must be from the same model as `continue_from`.
 * <b>`session`</b>: The session to use. The session's graph must be the one into which
-    <a href="../../../../tf/saved_model/loader/load"><code>tf.saved_model.loader.load</code></a> loaded the model.
+    <a href="../../../../tf/saved_model/load"><code>tf.saved_model.loader.load</code></a> loaded the model.
 * <b>`features`</b>: A dictionary mapping keys to Numpy arrays, with several possible
     shapes (requires keys `FilteringFeatures.TIMES` and
     `FilteringFeatures.VALUES`):

@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/device_setter.py).
+Defined in [`tensorflow/contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/device_setter.py).
 
 Returns a random PS task for op placement.
 

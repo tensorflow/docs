@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/losses/python/losses_wargs.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/losses/python/losses_wargs.py).
+Defined in [`tensorflow/contrib/gan/python/losses/python/losses_wargs.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/losses/python/losses_wargs.py).
 
 TFGAN grouped API. Please see README.md for details and usage.
 

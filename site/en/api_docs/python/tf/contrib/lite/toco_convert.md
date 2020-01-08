@@ -17,17 +17,18 @@ tf.contrib.lite.toco_convert(
 
 
 
-Defined in [`tensorflow/contrib/lite/python/convert.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lite/python/convert.py).
+Defined in [`tensorflow/contrib/lite/python/convert.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lite/python/convert.py).
 
-"Convert a model using TOCO. (deprecated)
+Convert a model using TOCO. (deprecated)
 
 THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use `lite.TocoConverter` instead.
+Use `lite.TFLiteConverter` instead.
 
 Typically this function is used to convert from TensorFlow GraphDef to TFLite.
 Conversion can be customized by providing arguments that are forwarded to
-`build_toco_convert_protos` (see documentation for details).
+`build_toco_convert_protos` (see documentation for details). This function has
+been deprecated. Please use `lite.TFLiteConverter` instead.
 
 #### Args:
 

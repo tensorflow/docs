@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/__init__.py).
+Defined in [`tensorflow/contrib/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/__init__.py).
 
 contrib module containing volatile or experimental code.
 
@@ -15,7 +15,7 @@ contrib module containing volatile or experimental code.
 
 [`all_reduce`](../tf/contrib/all_reduce) module: All-reduce implementations.
 
-[`autograph`](../tf/contrib/autograph) module: Autograph compiles Python code into equivalent TensorFlow code.
+[`autograph`](../tf/contrib/autograph) module: This is the legacy module for AutoGraph, kept for backward compatibility.
 
 [`batching`](../tf/contrib/batching) module: Ops and modules related to batch.
 
@@ -47,7 +47,7 @@ contrib module containing volatile or experimental code.
 
 [`deprecated`](../tf/contrib/deprecated) module: Non-core alias for the deprecated tf.X_summary ops.
 
-[`distribute`](../tf/contrib/distribute) module: Prototype of a distributed computation library for TF.
+[`distribute`](../tf/contrib/distribute) module: A distributed computation library for TF.
 
 [`distributions`](../tf/contrib/distributions) module: Classes representing statistical distributions and ops for working with them.
 
@@ -86,8 +86,6 @@ contrib module containing volatile or experimental code.
 [`learn`](../tf/contrib/learn) module: High level API for learning (DEPRECATED).
 
 [`legacy_seq2seq`](../tf/contrib/legacy_seq2seq) module: Deprecated library for creating sequence-to-sequence models in TensorFlow.
-
-[`linalg`](../tf/contrib/linalg) module: Linear algebra libraries.
 
 [`linear_optimizer`](../tf/contrib/linear_optimizer) module: Ops for training linear models.
 

@@ -11,7 +11,7 @@ Inherits From: [`GrpcDebugHook`](../tfdbg/GrpcDebugHook)
 
 
 
-Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/debug/wrappers/hooks.py).
+Defined in [`tensorflow/python/debug/wrappers/hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/debug/wrappers/hooks.py).
 
 A tfdbg hook that can be used with TensorBoard Debugger Plugin.
 

@@ -19,8 +19,6 @@ tf.scatter_min(
 
 Defined in generated file: `tensorflow/python/ops/gen_state_ops.py`.
 
-See the guide: [Variables > Sparse Variable Updates](../../../api_guides/python/state_ops#Sparse_Variable_Updates)
-
 Reduces sparse updates into a variable reference using the `min` operation.
 
 This operation computes

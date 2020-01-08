@@ -10,12 +10,10 @@ upper_tabs:
     - name: Python
       skip_translation: true
       contents:
-      - title: Python r1.11
-      - include: /versions/r1.11/api_docs/python/_toc.yaml
+      - title: Python r1.12
+      - include: /versions/r1.12/api_docs/python/_toc.yaml
       - title: All Symbols
-        path: /versions/r1.11/api_docs/python/
-      - title: Guides
-      - include: /versions/r1.11/api_guides/python/_toc.yaml
+        path: /versions/r1.12/api_docs/python/
 
     - name: JavaScript
       contents:
@@ -26,28 +24,23 @@ upper_tabs:
       skip_translation: true
       contents:
       - title: C++
-        path: /versions/r1.11/api_docs/cc/
-      - include: /versions/r1.11/api_docs/cc/_doxygen.yaml
+        path: /versions/r1.12/api_docs/cc/
+      - include: /versions/r1.12/api_docs/cc/_doxygen.yaml
       - title: Guides
         path: /api_guides/cc/guide
+
     - name: Java
       skip_translation: true
       contents:
       - title: Java
-        path: /versions/r1.11/api_docs/java/reference/org/tensorflow/package-summary.html
-      - include: /versions/r1.11/api_docs/java/reference/_toc.yaml
-
-    - name: Serving
-      contents:
-      - title: Serving
-        path: /tfx/serving/api_docs/cc/
-      - include: /tfx/serving/api_docs/cc/_doxygen.yaml
-
+        path: /versions/r1.12/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r1.12/api_docs/java/reference/_toc.yaml
+      
     - name: More…
       contents:
       - title: Overview
-        path: /versions/r1.11/api_docs/
-      - include: /versions/r1.11/api_docs/_more_toc.yaml
+        path: /versions/r1.12/api_docs/
+      - include: /versions/r1.12/api_docs/_more_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml
 - include: /_upper_tabs_right.yaml

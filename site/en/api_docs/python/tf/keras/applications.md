@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/applications/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/applications/__init__.py).
+
 
 Keras Applications are canned architectures with pre-trained weights.
 

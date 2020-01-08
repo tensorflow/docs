@@ -11,9 +11,9 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/coordinator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/coordinator.py).
+Defined in [`tensorflow/python/training/coordinator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/coordinator.py).
 
-See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management), [Training > Coordinator and QueueRunner](../../../../api_guides/python/train#Coordinator_and_QueueRunner)
+See the guides: [Reading data > `QueueRunner`](../../../../api_guides/python/reading_data#_QueueRunner_), [Threading and Queues > Manual Thread Management](../../../../api_guides/python/threading_and_queues#Manual_Thread_Management)
 
 A coordinator for threads.
 

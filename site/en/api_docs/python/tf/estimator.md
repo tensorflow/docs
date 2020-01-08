@@ -1,13 +1,10 @@
 page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
+<script src="/_static/js/managed/mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
 
 # Module: tf.estimator
-
-
-
-Defined in [`tensorflow/python/estimator/api/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/api/estimator/__init__.py).
 
 Estimator: High level tools for working with models.
 
@@ -70,4 +67,3 @@ Estimator: High level tools for working with models.
 [`regressor_parse_example_spec(...)`](../tf/estimator/regressor_parse_example_spec): Generates parsing spec for tf.parse_example to be used with regressors.
 
 [`train_and_evaluate(...)`](../tf/estimator/train_and_evaluate): Train and evaluate the `estimator`.
-

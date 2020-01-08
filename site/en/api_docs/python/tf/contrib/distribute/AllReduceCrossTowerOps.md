@@ -11,7 +11,7 @@ Inherits From: [`CrossTowerOps`](../../../tf/contrib/distribute/CrossTowerOps)
 
 
 
-Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distribute/python/cross_tower_ops.py).
+Defined in [`tensorflow/contrib/distribute/python/cross_tower_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distribute/python/cross_tower_ops.py).
 
 Reduction using all reduce.
 

@@ -16,7 +16,7 @@ Inherits From: [`Distribution`](../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/gamma.py).
+Defined in [`tensorflow/python/ops/distributions/gamma.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/gamma.py).
 
 Gamma distribution.
 
@@ -63,7 +63,7 @@ Warning: The samples of this distribution are always non-negative. However,
 the samples that are smaller than `np.finfo(dtype).tiny` are rounded
 to this value, so it appears more often than it should.
 This should only be noticeable when the `concentration` is very small, or the
-`rate` is very large. See note in <a href="../../tf/random_gamma"><code>tf.random_gamma</code></a> docstring.
+`rate` is very large. See note in <a href="../../tf/random/gamma"><code>tf.random_gamma</code></a> docstring.
 
 Samples of this distribution are reparameterized (pathwise differentiable).
 The derivatives are computed using the approach described in the paper
@@ -74,8 +74,11 @@ Implicit Reparameterization Gradients, 2018](https://arxiv.org/abs/1805.08498)
 #### Examples
 
 ```python
-dist = tf.distributions.Gamma(concentration=3.0, rate=2.0)
-dist2 = tf.distributions.Gamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
+dist = tfd.Gamma(concentration=3.0, rate=2.0)
+dist2 = tfd.Gamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
 ```
 
 Compute the gradients of samples w.r.t. the parameters:
@@ -83,7 +86,7 @@ Compute the gradients of samples w.r.t. the parameters:
 ```python
 concentration = tf.constant(3.0)
 rate = tf.constant(2.0)
-dist = tf.distributions.Gamma(concentration, rate)
+dist = tfd.Gamma(concentration, rate)
 samples = dist.sample(5)  # Shape [5]
 loss = tf.reduce_mean(tf.square(samples))  # Arbitrary loss function
 # Unbiased stochastic gradients of the loss function
@@ -350,7 +353,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -444,7 +447,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

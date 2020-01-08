@@ -19,7 +19,7 @@ tf.contrib.lookup.index_to_string_table_from_file(
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 Returns a lookup table that maps a `Tensor` of indices into strings.
 
@@ -56,7 +56,7 @@ palmer
 
 ```python
 indices = tf.constant([1, 5], tf.int64)
-table = tf.contrib.lookup.index_to_string_table_from_file(
+table = tf.lookup.index_to_string_table_from_file(
     vocabulary_file="test.txt", default_value="UNKNOWN")
 values = table.lookup(indices)
 ...

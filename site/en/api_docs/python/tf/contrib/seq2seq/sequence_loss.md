@@ -19,7 +19,7 @@ tf.contrib.seq2seq.sequence_loss(
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/loss.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/loss.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/loss.py).
 
 Weighted cross-entropy loss for a sequence of logits.
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/estimator/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/__init__.py).
+Defined in [`tensorflow/contrib/estimator/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/__init__.py).
 
 Experimental utilities re:tf.estimator.*.
 
@@ -33,7 +33,11 @@ Experimental utilities re:tf.estimator.*.
 
 ## Functions
 
-[`add_metrics(...)`](../../tf/contrib/estimator/add_metrics): Creates a new <a href="../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
+[`DNNClassifierWithLayerAnnotations(...)`](../../tf/contrib/estimator/DNNClassifierWithLayerAnnotations): A classifier for TensorFlow DNN models with layer annotations.
+
+[`DNNRegressorWithLayerAnnotations(...)`](../../tf/contrib/estimator/DNNRegressorWithLayerAnnotations): A regressor for TensorFlow DNN models with layer annotations.
+
+[`add_metrics(...)`](../../tf/contrib/estimator/add_metrics): Creates a new `tf.estimator.Estimator` which has given metrics.
 
 [`binary_classification_head(...)`](../../tf/contrib/estimator/binary_classification_head): Creates a `_Head` for single label binary classification.
 

@@ -17,11 +17,13 @@ tf.contrib.data.map_and_batch(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/batching.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+Fused implementation of `map` and `batch`. (deprecated)
 
-Fused implementation of `map` and `batch`.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.map_and_batch(...)`.
 
 Maps `map_func` across `batch_size` consecutive elements of this dataset
 and then combines them into a batch. Functionally, it is equivalent to `map`
@@ -35,16 +37,16 @@ deprecated.
 
 * <b>`map_func`</b>: A function mapping a nested structure of tensors to another
     nested structure of tensors.
-* <b>`batch_size`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+* <b>`batch_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
     consecutive elements of this dataset to combine in a single batch.
-* <b>`num_parallel_batches`</b>: (Optional.) A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>,
+* <b>`num_parallel_batches`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>,
     representing the number of batches to create in parallel. On one hand,
     higher values can help mitigate the effect of stragglers. On the other
     hand, higher values can increase contention if CPU is scarce.
-* <b>`drop_remainder`</b>: (Optional.) A <a href="../../../tf/bool"><code>tf.bool</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing
+* <b>`drop_remainder`</b>: (Optional.) A <a href="../../../tf#bool"><code>tf.bool</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing
     whether the last batch should be dropped in case its size is smaller than
     desired; the default behavior is not to drop the smaller batch.
-* <b>`num_parallel_calls`</b>: (Optional.) A <a href="../../../tf/int32"><code>tf.int32</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>,
+* <b>`num_parallel_calls`</b>: (Optional.) A <a href="../../../tf#int32"><code>tf.int32</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>,
       representing the number of elements to process in parallel. If not
       specified, `batch_size * num_parallel_batches` elements will be
       processed in parallel.

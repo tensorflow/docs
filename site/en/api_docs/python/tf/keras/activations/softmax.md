@@ -14,7 +14,7 @@ tf.keras.activations.softmax(
 
 
 
-Defined in [`tensorflow/python/keras/activations.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/activations.py).
+Defined in [`tensorflow/python/keras/activations.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/activations.py).
 
 Softmax activation function.
 

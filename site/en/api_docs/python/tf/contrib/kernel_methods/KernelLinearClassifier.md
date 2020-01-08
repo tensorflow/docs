@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/kernel_estimators.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/kernel_estimators.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/kernel_estimators.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/kernel_methods/python/kernel_estimators.py).
 
 Linear classifier using kernel methods as feature preprocessing.
 

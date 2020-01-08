@@ -18,7 +18,7 @@ tf.metrics.root_mean_squared_error(
 
 
 
-Defined in [`tensorflow/python/ops/metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/metrics_impl.py).
+Defined in [`tensorflow/python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/metrics_impl.py).
 
 Computes the root mean squared error between the labels and predictions.
 

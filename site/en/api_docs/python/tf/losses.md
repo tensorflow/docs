@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/losses/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/losses/__init__.py).
+
 
 Loss operations for use in neural networks.
 

@@ -11,7 +11,7 @@ tf.contrib.training.get_or_create_eval_step()
 
 
 
-Defined in [`tensorflow/python/training/evaluation.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/evaluation.py).
+Defined in [`tensorflow/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/evaluation.py).
 
 Gets or creates the eval step `Tensor`.
 

@@ -19,7 +19,7 @@ tf.contrib.distributions.estimator_head_distribution_regression(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/estimator.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/estimator.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/estimator.py).
 
 Creates a `Head` for regression under a generic distribution. (deprecated)
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/bitwise/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/bitwise/__init__.py).
+
 
 Operations for manipulating the binary representations of integers.
 

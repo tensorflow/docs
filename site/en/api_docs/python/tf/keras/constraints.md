@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/constraints/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/constraints/__init__.py).
+
 
 Constraints: functions that impose constraints on weight values.
 

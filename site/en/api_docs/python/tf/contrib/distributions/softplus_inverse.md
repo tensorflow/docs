@@ -14,7 +14,7 @@ tf.contrib.distributions.softplus_inverse(
 
 
 
-Defined in [`tensorflow/python/ops/distributions/util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/distributions/util.py).
+Defined in [`tensorflow/python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/distributions/util.py).
 
 Computes the inverse softplus, i.e., x = softplus_inverse(softplus(x)).
 

@@ -16,9 +16,11 @@ tf.contrib.tpu.device_assignment(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/device_assignment.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/device_assignment.py).
 
 Computes a device_assignment of a computation across a TPU topology.
+
+Attempts to choose a compact grid of cores for locality.
 
 Returns a `DeviceAssignment` that describes the cores in the topology assigned
 to each core of each replica.
@@ -33,12 +35,12 @@ optimal packing.
     `initialize_system` using `Session.run`. Either a serialized
     `TopologyProto` or a `Topology` object may be passed. Note: you must
     evaluate the `Tensor` first; you cannot pass an unevaluated `Tensor` here.
-* <b>`computation_shape`</b>: A rank 1 int32 numpy array of size 3, describing the
-    shape of the computation's block of cores. If None, the
-    `computation_shape` is `[1, 1, 1]`.
-* <b>`computation_stride`</b>: A rank 1 int32 numpy array of size 3, describing the
-    inter-core spacing of the `computation_shape` cores in the TPU topology.
-    If None, the `computation_stride` is `[1, 1, 1]`.
+* <b>`computation_shape`</b>: A rank 1 int32 numpy array with size equal to the
+    topology rank, describing the shape of the computation's block of cores.
+    If None, the `computation_shape` is `[1] * topology_rank`.
+* <b>`computation_stride`</b>: A rank 1 int32 numpy array of size `topology_rank`,
+    describing the inter-core spacing of the `computation_shape` cores in the
+    TPU topology. If None, the `computation_stride` is `[1] * topology_rank`.
 * <b>`num_replicas`</b>: The number of computation replicas to run. The replicas will
     be packed into the free spaces of the topology.
 

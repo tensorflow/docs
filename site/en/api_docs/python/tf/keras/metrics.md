@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/metrics/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/metrics/__init__.py).
+
 
 Built-in metrics.
 
@@ -64,6 +64,8 @@ Built-in metrics.
 [`poisson(...)`](../../tf/keras/metrics/poisson)
 
 [`serialize(...)`](../../tf/keras/metrics/serialize)
+
+[`sparse_categorical_accuracy(...)`](../../tf/keras/metrics/sparse_categorical_accuracy)
 
 [`sparse_categorical_crossentropy(...)`](../../tf/keras/metrics/sparse_categorical_crossentropy)
 

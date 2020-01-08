@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/tensor_shape.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/tensor_shape.py).
-
-See the guide: [Building Graphs > Defining new operations](../../../api_guides/python/framework#Defining_new_operations)
+Defined in [`tensorflow/python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/tensor_shape.py).
 
 Represents the shape of a `Tensor`.
 
@@ -107,8 +105,8 @@ slice.
 
 #### Raises:
 
-* <b>`ValueError`</b>: If `key` is a slice, and any of its elements are negative, or
-    if `self` is completely unknown and the step is set.
+* <b>`ValueError`</b>: If `key` is a slice and `self` is completely unknown and
+    the step is set.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 

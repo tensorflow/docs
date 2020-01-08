@@ -11,7 +11,7 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 
 
-Defined in [`tensorflow/python/ops/io_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/io_ops.py).
+Defined in [`tensorflow/python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/io_ops.py).
 
 A Reader that outputs the records from a LMDB file.
 
@@ -34,7 +34,11 @@ __init__(
 )
 ```
 
-Create a LMDBReader.
+Create a LMDBReader. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by <a href="../tf/data"><code>tf.data</code></a>. Use <a href="../tf/contrib/data/LMDBDataset"><code>tf.contrib.data.LMDBDataset</code></a>.
 
 #### Args:
 

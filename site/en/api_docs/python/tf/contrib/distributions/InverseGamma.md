@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/inverse_gamma.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/inverse_gamma.py).
 
 InverseGamma distribution.
 
@@ -55,12 +55,14 @@ Distribution parameters are automatically broadcast in all functions; see
 examples for details.
 
 WARNING: This distribution may draw 0-valued samples for small concentration
-values. See note in <a href="../../../tf/random_gamma"><code>tf.random_gamma</code></a> docstring.
+values. See note in <a href="../../../tf/random/gamma"><code>tf.random_gamma</code></a> docstring.
 
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
+
 dist = tfd.InverseGamma(concentration=3.0, rate=2.0)
 dist2 = tfd.InverseGamma(concentration=[3.0, 4.0], rate=[2.0, 3.0])
 ```
@@ -330,7 +332,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -424,7 +426,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

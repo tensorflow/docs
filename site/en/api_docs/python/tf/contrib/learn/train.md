@@ -31,9 +31,7 @@ tf.contrib.learn.train(
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/graph_actions.py).
-
-See the guide: [Learn (contrib) > Graph actions](../../../../../api_guides/python/contrib.learn#Graph_actions)
+Defined in [`tensorflow/contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 Train a model. (deprecated)
 

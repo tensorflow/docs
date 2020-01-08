@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
+Defined in [`tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
 
 Stochastic dual coordinate ascent solver for linear models.
 

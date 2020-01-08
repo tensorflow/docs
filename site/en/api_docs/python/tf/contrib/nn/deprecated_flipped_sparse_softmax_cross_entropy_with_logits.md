@@ -15,7 +15,7 @@ tf.contrib.nn.deprecated_flipped_sparse_softmax_cross_entropy_with_logits(
 
 
 
-Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/nn/python/ops/cross_entropy.py).
+Defined in [`tensorflow/contrib/nn/python/ops/cross_entropy.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/nn/python/ops/cross_entropy.py).
 
 Computes sparse softmax cross entropy between `logits` and `labels`.
 

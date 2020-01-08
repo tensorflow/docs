@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::FusedBatchNormV2 Class Reference</title>
-  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,24 +14,24 @@
   <h2>Summary</h2>
   <p>Note that the size of 4D Tensors are defined by either "NHWC" or "NCHW". The size of 1D Tensors matches the dimension C of the 4D Tensors.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>x: A 4D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for input data.</li>
-      <li>scale: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for scaling factor, to scale the normalized x.</li>
-      <li>offset: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for offset, to shift to the normalized x.</li>
-      <li>mean: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for population mean. Used for inference only; must be empty for training.</li>
-      <li>variance: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for population variance. Used for inference only; must be empty for training.</li>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: A 4D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for input data.</li>
+      <li>scale: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for scaling factor, to scale the normalized x.</li>
+      <li>offset: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for offset, to shift to the normalized x.</li>
+      <li>mean: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for population mean. Used for inference only; must be empty for training.</li>
+      <li>variance: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for population variance. Used for inference only; must be empty for training.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>):<ul>
       <li>epsilon: A small float number added to the variance of x.</li>
       <li>data_format: The data format for x and y. Either "NHWC" (default) or "NCHW".</li>
       <li>is_training: A bool value to indicate the operation is for training (default) or inference.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> y: A 4D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for output data.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> batch_mean: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch mean, to be used by TensorFlow to compute the running mean.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> batch_variance: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch variance, to be used by TensorFlow to compute the running variance.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> reserve_space_1: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch mean, to be reused in the gradient computation.</li>
-      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> reserve_space_2: A 1D <a href="/versions/r1.11/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch variance (inverted variance in the cuDNN case), to be reused in the gradient computation. </li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> y: A 4D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for output data.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> batch_mean: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch mean, to be used by TensorFlow to compute the running mean.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> batch_variance: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch variance, to be used by TensorFlow to compute the running variance.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> reserve_space_1: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch mean, to be reused in the gradient computation.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> reserve_space_2: A 1D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> for the computed batch variance (inverted variance in the cuDNN case), to be reused in the gradient computation. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -41,13 +41,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a41b5d9943718ba17353eb0bea3660fb5">FusedBatchNormV2</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a41b5d9943718ba17353eb0bea3660fb5">FusedBatchNormV2</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a22fcefed0156ba86e64e061602ec0502">FusedBatchNormV2</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">FusedBatchNormV2::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a22fcefed0156ba86e64e061602ec0502">FusedBatchNormV2</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">FusedBatchNormV2::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -64,7 +64,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -74,7 +74,17 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a62346d231fb85e6491b13e4fc411ab46">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -84,7 +94,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -94,7 +104,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -104,7 +114,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -121,7 +131,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -131,7 +141,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -141,7 +151,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -154,83 +164,88 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs">tensorflow::<wbr/>ops::<wbr/>FusedBatchNormV2::<wbr/>Attrs</a>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs">tensorflow::<wbr/>ops::<wbr/>FusedBatchNormV2::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/fused-batch-norm-v2.html#classtensorflow_1_1ops_1_1_fused_batch_norm_v2">FusedBatchNormV2</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/fused-batch-norm-v2.html#classtensorflow_1_1ops_1_1_fused_batch_norm_v2">FusedBatchNormV2</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1ad9498789c65ee5d72dd6402f5835b8b0">
     <h3>batch_mean</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> batch_mean</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> batch_mean</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1af3991b993b39913909e81cd81d31c9c8">
     <h3>batch_variance</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> batch_variance</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> batch_variance</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a62346d231fb85e6491b13e4fc411ab46">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1ab49ecd24ce13e304ef6ab0fab40d0db2">
     <h3>reserve_space_1</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reserve_space_1</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reserve_space_1</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1ae91d40f4fb497e2879f0df7a2e9ee3b4">
     <h3>reserve_space_2</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reserve_space_2</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reserve_space_2</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a5d32535fa6ebf586beef899f5fa9d9d1">
     <h3>y</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a41b5d9943718ba17353eb0bea3660fb5">
     <h3>FusedBatchNormV2</h3>
     <pre class="prettyprint"> FusedBatchNormV2(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a22fcefed0156ba86e64e061602ec0502">
     <h3>FusedBatchNormV2</h3>
     <pre class="prettyprint"> FusedBatchNormV2(
-  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean,
-  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance,
-  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">FusedBatchNormV2::Attrs</a> & attrs
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scale,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> offset,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> mean,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> variance,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">FusedBatchNormV2::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a3067def97f7ccef0ca9214a5c3edcb65">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a23f682a773a88566f7b763b43f804830">
     <h3>Epsilon</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> Epsilon(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> Epsilon(
   float x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_fused_batch_norm_v2_1a3f4305936738a332346a877a56f0efd3">
     <h3>IsTraining</h3>
-    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> IsTraining(
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/fused-batch-norm-v2/attrs.html#structtensorflow_1_1ops_1_1_fused_batch_norm_v2_1_1_attrs">Attrs</a> IsTraining(
   bool x
 )</pre>
     <div />

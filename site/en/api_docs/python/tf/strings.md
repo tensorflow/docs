@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/strings/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/strings/__init__.py).
+
 
 Operations for working with string Tensors.
 
@@ -15,9 +15,13 @@ See the [Strings](https://tensorflow.org/api_guides/python/string_ops) guide.
 
 ## Functions
 
+[`format(...)`](../tf/strings/format): Formats a string template using a list of tensors.
+
 [`join(...)`](../tf/strings/join): Joins the strings in the given list of string tensors into one tensor;
 
 [`length(...)`](../tf/strings/length): String lengths of `input`.
+
+[`reduce_join(...)`](../tf/strings/reduce_join): Joins a string Tensor across the given dimensions.
 
 [`regex_full_match(...)`](../tf/strings/regex_full_match): Check if the input matches the regex pattern.
 
@@ -36,4 +40,6 @@ See the [Strings](https://tensorflow.org/api_guides/python/string_ops) guide.
 [`to_hash_bucket_strong(...)`](../tf/strings/to_hash_bucket_strong): Converts each string in the input Tensor to its hash mod by a number of buckets.
 
 [`to_number(...)`](../tf/strings/to_number): Converts each string in the input Tensor to the specified numeric type.
+
+[`unicode_script(...)`](../tf/strings/unicode_script): Determine the script codes of a given tensor of Unicode integer code points.
 

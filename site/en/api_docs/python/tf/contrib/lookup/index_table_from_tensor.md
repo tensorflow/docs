@@ -18,7 +18,7 @@ tf.contrib.lookup.index_table_from_tensor(
 
 
 
-Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lookup/lookup_ops.py).
+Defined in [`tensorflow/contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lookup/lookup_ops.py).
 
 Returns a lookup table that converts a string tensor into int64 IDs.
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/keras/wrappers/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/keras/wrappers/__init__.py).
+
 
 Wrappers for Keras models, providing compatibility with other frameworks.
 

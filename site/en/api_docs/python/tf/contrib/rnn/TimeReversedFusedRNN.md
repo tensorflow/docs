@@ -11,9 +11,7 @@ Inherits From: [`FusedRNNCell`](../../../tf/contrib/rnn/FusedRNNCell)
 
 
 
-Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
-
-See the guide: [RNN and Cells (contrib) > Core RNN Cell wrappers (RNNCells that wrap other RNNCells)](../../../../../api_guides/python/contrib.rnn#Core_RNN_Cell_wrappers_RNNCells_that_wrap_other_RNNCells_)
+Defined in [`tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
 
 This is an adaptor to time-reverse a FusedRNNCell.
 

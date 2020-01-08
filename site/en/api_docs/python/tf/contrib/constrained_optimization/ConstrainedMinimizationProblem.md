@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
+Defined in [`tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
 
 Abstract class representing a `ConstrainedMinimizationProblem`.
 

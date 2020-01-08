@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
+Defined in [`tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 Reads from a collection of CSV-formatted files.
 
@@ -38,7 +38,7 @@ CSV-parsing reader for a `TimeSeriesInputFn`.
       required; `VALUES` may be repeated to indicate a multivariate series.
 * <b>`column_dtypes`</b>: If provided, must be a list with the same length as
       `column_names`, indicating dtypes for each column. Defaults to
-      <a href="../../../tf/int64"><code>tf.int64</code></a> for `TrainEvalFeatures.TIMES` and <a href="../../../tf/float32"><code>tf.float32</code></a> for
+      <a href="../../../tf#int64"><code>tf.int64</code></a> for `TrainEvalFeatures.TIMES` and <a href="../../../tf#float32"><code>tf.float32</code></a> for
       everything else.
 * <b>`skip_header_lines`</b>: Passed on to <a href="../../../tf/TextLineReader"><code>tf.TextLineReader</code></a>; skips this number of
       lines at the beginning of each file.

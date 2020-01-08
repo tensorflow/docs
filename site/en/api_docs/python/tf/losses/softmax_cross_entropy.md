@@ -19,7 +19,7 @@ tf.losses.softmax_cross_entropy(
 
 
 
-Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/losses/losses_impl.py).
+Defined in [`tensorflow/python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/losses/losses_impl.py).
 
 Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
 

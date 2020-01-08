@@ -22,7 +22,7 @@ tf.contrib.gan.eval.run_image_classifier(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
+Defined in [`tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/eval/python/classifier_metrics_impl.py).
 
 Runs a network from a frozen graph.
 

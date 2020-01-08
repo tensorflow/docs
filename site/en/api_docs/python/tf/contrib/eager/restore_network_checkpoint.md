@@ -15,7 +15,7 @@ tf.contrib.eager.restore_network_checkpoint(
 
 
 
-Defined in [`tensorflow/contrib/eager/python/network.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/eager/python/network.py).
+Defined in [`tensorflow/contrib/eager/python/network.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/eager/python/network.py).
 
 Restore the Network from a checkpoint. (deprecated)
 

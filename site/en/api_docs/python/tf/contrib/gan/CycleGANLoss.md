@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/namedtuples.py).
 
 CycleGANLoss contains the losses for `CycleGANModel`.
 
@@ -40,11 +40,11 @@ Create new instance of CycleGANLoss(loss_x2y, loss_y2x)
 
 <h3 id="loss_x2y"><code>loss_x2y</code></h3>
 
-Alias for field number 0
+
 
 <h3 id="loss_y2x"><code>loss_y2x</code></h3>
 
-Alias for field number 1
+
 
 
 

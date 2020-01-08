@@ -11,7 +11,7 @@ tf.keras.datasets.cifar10.load_data()
 
 
 
-Defined in [`tensorflow/python/keras/datasets/cifar10.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/cifar10.py).
+Defined in [`tensorflow/python/keras/datasets/cifar10.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/cifar10.py).
 
 Loads CIFAR10 dataset.
 

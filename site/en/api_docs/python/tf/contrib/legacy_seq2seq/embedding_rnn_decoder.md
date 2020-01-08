@@ -21,7 +21,7 @@ tf.contrib.legacy_seq2seq.embedding_rnn_decoder(
 
 
 
-Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
+Defined in [`tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 RNN decoder with embedding and a pure-decoding option.
 

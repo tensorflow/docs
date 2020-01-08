@@ -12,7 +12,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
 
 Class that implements Random Fourier Feature Mapping (RFFM) in TensorFlow.
 

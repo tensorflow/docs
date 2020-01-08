@@ -14,9 +14,7 @@ tf.train.global_step(
 
 
 
-Defined in [`tensorflow/python/training/training_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/training_util.py).
-
-See the guide: [Training > Training Utilities](../../../../api_guides/python/train#Training_Utilities)
+Defined in [`tensorflow/python/training/training_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/training_util.py).
 
 Small helper to get the global step.
 

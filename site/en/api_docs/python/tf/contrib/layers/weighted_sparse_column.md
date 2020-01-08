@@ -15,9 +15,7 @@ tf.contrib.layers.weighted_sparse_column(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column.py).
-
-See the guide: [Layers (contrib) > Feature columns](../../../../../api_guides/python/contrib.layers#Feature_columns)
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 Creates a _SparseColumn by combining sparse_id_column with a weight column.
 
@@ -44,7 +42,7 @@ Example:
     `sparse_column_with_*` functions.
 * <b>`weight_column_name`</b>: A string defining a sparse column name which represents
     weight or value of the corresponding sparse id feature.
-* <b>`dtype`</b>: Type of weights, such as <a href="../../../tf/float32"><code>tf.float32</code></a>. Only floating and integer
+* <b>`dtype`</b>: Type of weights, such as <a href="../../../tf#float32"><code>tf.float32</code></a>. Only floating and integer
     weights are supported.
 
 

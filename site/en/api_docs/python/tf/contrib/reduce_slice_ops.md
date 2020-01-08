@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/reduce_slice_ops/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/reduce_slice_ops/__init__.py).
+Defined in [`tensorflow/contrib/reduce_slice_ops/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/reduce_slice_ops/__init__.py).
 
 reduce by slice
 
@@ -18,9 +18,9 @@ reduce by slice
 
 ## Other Members
 
-`absolute_import`
+<h3 id="absolute_import"><code>absolute_import</code></h3>
 
-`division`
+<h3 id="division"><code>division</code></h3>
 
-`print_function`
+<h3 id="print_function"><code>print_function</code></h3>
 

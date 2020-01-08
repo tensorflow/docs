@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/framework/device.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/device.py).
+Defined in [`tensorflow/python/framework/device.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/device.py).
 
 Represents a (possibly partial) specification for a TensorFlow device.
 

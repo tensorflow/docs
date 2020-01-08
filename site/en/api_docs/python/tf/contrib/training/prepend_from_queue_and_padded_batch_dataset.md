@@ -15,7 +15,7 @@ tf.contrib.training.prepend_from_queue_and_padded_batch_dataset(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
+Defined in [`tensorflow/contrib/training/python/training/tensor_queue_dataset.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/tensor_queue_dataset.py).
 
 A transformation that prepends a queue to a `Dataset` and batches results.
 

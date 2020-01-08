@@ -15,7 +15,7 @@ tf.contrib.lite.toco_convert_protos(
 
 
 
-Defined in [`tensorflow/contrib/lite/python/convert.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/lite/python/convert.py).
+Defined in [`tensorflow/contrib/lite/python/convert.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/lite/python/convert.py).
 
 Convert `input_data_str` according to model and toco parameters.
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/summary/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/summary/__init__.py).
+
 
 Public API for tf.summary namespace.
 

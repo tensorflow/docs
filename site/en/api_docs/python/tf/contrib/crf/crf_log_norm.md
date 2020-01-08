@@ -15,9 +15,7 @@ tf.contrib.crf.crf_log_norm(
 
 
 
-Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/crf/python/ops/crf.py).
-
-See the guide: [CRF (contrib)](../../../../../api_guides/python/contrib.crf)
+Defined in [`tensorflow/contrib/crf/python/ops/crf.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/crf/python/ops/crf.py).
 
 Computes the normalization for a CRF.
 

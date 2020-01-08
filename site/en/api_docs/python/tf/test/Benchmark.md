@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/platform/benchmark.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/platform/benchmark.py).
+Defined in [`tensorflow/python/platform/benchmark.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/platform/benchmark.py).
 
 Abstract class that provides helpers for TensorFlow benchmarks.
 

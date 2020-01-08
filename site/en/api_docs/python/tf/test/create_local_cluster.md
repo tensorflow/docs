@@ -17,7 +17,7 @@ tf.test.create_local_cluster(
 
 
 
-Defined in [`tensorflow/python/framework/test_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/test_util.py).
+Defined in [`tensorflow/python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/test_util.py).
 
 Create and start local servers and return the associated `Server` objects.
 

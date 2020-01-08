@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/namedtuples.py).
+Defined in [`tensorflow/contrib/gan/python/namedtuples.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/namedtuples.py).
 
 Contains configuration for the GAN Training.
 
@@ -37,13 +37,13 @@ Create new instance of GANTrainSteps(generator_train_steps, discriminator_train_
 
 ## Properties
 
-<h3 id="discriminator_train_steps"><code>discriminator_train_steps</code></h3>
-
-Alias for field number 1
-
 <h3 id="generator_train_steps"><code>generator_train_steps</code></h3>
 
-Alias for field number 0
+
+
+<h3 id="discriminator_train_steps"><code>discriminator_train_steps</code></h3>
+
+
 
 
 

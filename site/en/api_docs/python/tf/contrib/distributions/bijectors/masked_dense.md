@@ -21,7 +21,7 @@ tf.contrib.distributions.bijectors.masked_dense(
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/bijectors/masked_autoregressive.py).
 
 A autoregressively masked dense layer. Analogous to <a href="../../../../tf/layers/dense"><code>tf.layers.dense</code></a>. (deprecated)
 

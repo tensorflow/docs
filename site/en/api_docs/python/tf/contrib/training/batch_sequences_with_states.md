@@ -26,7 +26,7 @@ tf.contrib.training.batch_sequences_with_states(
 
 
 
-Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
+Defined in [`tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 See the guide: [Training (contrib) > Splitting sequence inputs into minibatches with state saving](../../../../../api_guides/python/contrib.training#Splitting_sequence_inputs_into_minibatches_with_state_saving)
 

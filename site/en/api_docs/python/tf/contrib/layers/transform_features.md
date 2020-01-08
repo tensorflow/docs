@@ -14,7 +14,7 @@ tf.contrib.layers.transform_features(
 
 
 
-Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
+Defined in [`tensorflow/contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 Returns transformed features based on features columns passed in.
 

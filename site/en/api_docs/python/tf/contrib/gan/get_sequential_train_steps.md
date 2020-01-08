@@ -11,7 +11,7 @@ tf.contrib.gan.get_sequential_train_steps(train_steps=namedtuples.GANTrainSteps(
 
 
 
-Defined in [`tensorflow/contrib/gan/python/train.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/gan/python/train.py).
+Defined in [`tensorflow/contrib/gan/python/train.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/gan/python/train.py).
 
 Returns a thin wrapper around slim.learning.train_step, for GANs.
 

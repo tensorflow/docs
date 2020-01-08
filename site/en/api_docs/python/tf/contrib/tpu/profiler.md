@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/profiler/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/profiler/__init__.py).
+Defined in [`tensorflow/contrib/tpu/python/profiler/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/profiler/__init__.py).
 
 Classes for TPU trace events.
 

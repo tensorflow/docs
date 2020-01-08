@@ -2,6 +2,10 @@ page_type: reference
 <style>{% include "site-assets/css/style.css" %}</style>
 
 <!-- DO NOT EDIT! Automatically generated file. -->
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
 
 # tf.estimator.classifier_parse_example_spec
 
@@ -14,10 +18,6 @@ tf.estimator.classifier_parse_example_spec(
     weight_column=None
 )
 ```
-
-
-
-Defined in [`tensorflow/python/estimator/canned/parsing_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/estimator/canned/parsing_utils.py).
 
 Generates parsing spec for tf.parse_example to be used with classifiers.
 
@@ -95,8 +95,8 @@ estimator.train(input_fn=input_fn_train)
 * <b>`label_key`</b>: A string identifying the label. It means tf.Example stores labels
     with this key.
 * <b>`label_dtype`</b>: A `tf.dtype` identifies the type of labels. By default it is
-    <a href="../../tf/int64"><code>tf.int64</code></a>. If user defines a `label_vocabulary`, this should be set as
-    <a href="../../tf/string"><code>tf.string</code></a>. <a href="../../tf/float32"><code>tf.float32</code></a> labels are only supported for binary
+    <a href="../../tf#int64"><code>tf.int64</code></a>. If user defines a `label_vocabulary`, this should be set as
+    <a href="../../tf#string"><code>tf.string</code></a>. <a href="../../tf#float32"><code>tf.float32</code></a> labels are only supported for binary
     classification.
 * <b>`label_default`</b>: used as label if label_key does not exist in given
     tf.Example. An example usage: let's say `label_key` is 'clicked' and

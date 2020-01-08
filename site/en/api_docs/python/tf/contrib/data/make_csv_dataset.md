@@ -21,7 +21,7 @@ tf.contrib.data.make_csv_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=1,
+    prefetch_buffer_size=optimization.AUTOTUNE,
     num_parallel_reads=1,
     sloppy=False,
     num_rows_for_inference=100,
@@ -31,9 +31,13 @@ tf.contrib.data.make_csv_dataset(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/readers.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/readers.py).
 
-Reads CSV files into a dataset.
+Reads CSV files into a dataset. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.make_csv_dataset(...)`.
 
 Reads CSV files into a dataset, where each element is a (features, labels)
 tuple that corresponds to a batch of CSV rows. The features dictionary
@@ -91,9 +95,9 @@ feature data, and labels is a `Tensor` containing the batch's label data.
 * <b>`shuffle_buffer_size`</b>: Buffer size to use for shuffling. A large buffer size
     ensures better shuffling, but increases memory usage and startup time.
 * <b>`shuffle_seed`</b>: Randomization seed to use for shuffling.
-* <b>`prefetch_buffer_size`</b>: An int specifying the number of feature batches to
-    prefetch for performance improvement. Recommended value is the number of
-    batches consumed per training step.
+* <b>`prefetch_buffer_size`</b>: An int specifying the number of feature
+    batches to prefetch for performance improvement. Recommended value is the
+    number of batches consumed per training step. Defaults to auto-tune.
 * <b>`num_parallel_reads`</b>: Number of threads used to read CSV records from files.
     If >1, the results will be interleaved.
 * <b>`sloppy`</b>: If `True`, reading performance will be improved at
@@ -104,7 +108,7 @@ feature data, and labels is a `Tensor` containing the batch's label data.
 * <b>`num_rows_for_inference`</b>: Number of rows of a file to use for type inference
     if record_defaults is not provided. If None, reads all the rows of all
     the files. Defaults to 100.
-* <b>`compression_type`</b>: (Optional.) A <a href="../../../tf/string"><code>tf.string</code></a> scalar evaluating to one of
+* <b>`compression_type`</b>: (Optional.) A <a href="../../../tf#string"><code>tf.string</code></a> scalar evaluating to one of
     `""` (no compression), `"ZLIB"`, or `"GZIP"`. Defaults to no compression.
 
 

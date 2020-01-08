@@ -11,7 +11,7 @@ tf.keras.datasets.mnist.load_data(path='mnist.npz')
 
 
 
-Defined in [`tensorflow/python/keras/datasets/mnist.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/datasets/mnist.py).
+Defined in [`tensorflow/python/keras/datasets/mnist.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/datasets/mnist.py).
 
 Loads the MNIST dataset.
 

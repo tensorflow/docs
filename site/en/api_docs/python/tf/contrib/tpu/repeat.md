@@ -17,7 +17,7 @@ tf.contrib.tpu.repeat(
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/training_loop.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/training_loop.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/training_loop.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/training_loop.py).
 
 Builds a training loop that executes a fixed number of iterations.
 

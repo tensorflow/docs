@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/mixture_same_family.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/mixture_same_family.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/mixture_same_family.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/mixture_same_family.py).
 
 Mixture (same-family) distribution.
 
@@ -25,7 +25,8 @@ each (batch of) component.
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 ### Create a mixture of two scalar Gaussians:
 
@@ -95,12 +96,12 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 
 #### Args:
 
-* <b>`mixture_distribution`</b>: <a href="../../../tf/distributions/Categorical"><code>tf.distributions.Categorical</code></a>-like instance.
+* <b>`mixture_distribution`</b>: `tfp.distributions.Categorical`-like instance.
     Manages the probability of selecting components. The number of
     categories must match the rightmost batch dimension of the
     `components_distribution`. Must have either scalar `batch_shape` or
     `batch_shape` matching `components_distribution.batch_shape[:-1]`.
-* <b>`components_distribution`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a>-like instance.
+* <b>`components_distribution`</b>: `tfp.distributions.Distribution`-like instance.
     Right-most batch dimension indexes components.
 * <b>`validate_args`</b>: Python `bool`, default `False`. When `True` distribution
     parameters are checked for validity despite possibly degrading runtime
@@ -345,7 +346,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -439,7 +440,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

@@ -25,7 +25,7 @@ tf.contrib.framework.load_and_remap_matrix_initializer(
 
 
 
-Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/checkpoint_ops.py).
+Defined in [`tensorflow/python/training/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/checkpoint_ops.py).
 
 Returns a var initializer for loading and remapping a 2-D (matrix) tensor.
 
@@ -79,7 +79,8 @@ vocab files are the same, and no row remapping is done. If
 vocab files are the same, and no column remapping is done.
 
 The returned initializer only supports div-partitioning along the row axis. It
-does not support partitioning along the column axis or mod-partitioning.
+does not support partitioning along the column axis (as this is not common in
+practice) or mod-partitioning.
 
 NOTE: When this is used to warm-start variables, client code should use
 `tf.lookup.index_table_from_tensor()` like

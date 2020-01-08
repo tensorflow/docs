@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py).
+Defined in [`tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/optimizer_v2/optimizer_v2_symbols.py).
 
 Distribution-aware version of Optimizer.
 

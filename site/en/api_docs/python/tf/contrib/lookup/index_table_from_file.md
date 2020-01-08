@@ -22,7 +22,7 @@ tf.contrib.lookup.index_table_from_file(
 
 
 
-Defined in [`tensorflow/python/ops/lookup_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/lookup_ops.py).
+Defined in [`tensorflow/python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/lookup_ops.py).
 
 Returns a lookup table that converts a string tensor into int64 IDs.
 
@@ -62,7 +62,7 @@ palmer
 
 ```python
 features = tf.constant(["emerson", "lake", "and", "palmer"])
-table = tf.contrib.lookup.index_table_from_file(
+table = tf.lookup.index_table_from_file(
     vocabulary_file="test.txt", num_oov_buckets=1)
 ids = table.lookup(features)
 ...

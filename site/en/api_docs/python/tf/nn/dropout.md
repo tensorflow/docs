@@ -17,9 +17,9 @@ tf.nn.dropout(
 
 
 
-Defined in [`tensorflow/python/ops/nn_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/nn_ops.py).
+Defined in [`tensorflow/python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/nn_ops.py).
 
-See the guides: [Layers (contrib) > Higher level ops for building neural network layers](../../../../api_guides/python/contrib.layers#Higher_level_ops_for_building_neural_network_layers), [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
+See the guide: [Neural Network > Activation Functions](../../../../api_guides/python/nn#Activation_Functions)
 
 Computes dropout.
 
@@ -43,7 +43,7 @@ kept independently and each row and column will be kept or not kept together.
 * <b>`noise_shape`</b>: A 1-D `Tensor` of type `int32`, representing the
     shape for randomly generated keep/drop flags.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+    <a href="../../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
 * <b>`name`</b>: A name for this operation (optional).
 

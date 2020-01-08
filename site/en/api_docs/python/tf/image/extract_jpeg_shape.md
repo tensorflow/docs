@@ -24,7 +24,7 @@ This op only parses the image header, so it is much faster than DecodeJpeg.
 #### Args:
 
 * <b>`contents`</b>: A `Tensor` of type `string`. 0-D. The JPEG-encoded image.
-* <b>`output_type`</b>: An optional <a href="../../tf/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf/int32"><code>tf.int32</code></a>.
+* <b>`output_type`</b>: An optional <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> from: `tf.int32, tf.int64`. Defaults to <a href="../../tf#int32"><code>tf.int32</code></a>.
     (Optional) The output type of the operation (int32 or int64).
     Defaults to int32.
 * <b>`name`</b>: A name for the operation (optional).

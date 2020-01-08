@@ -16,11 +16,13 @@ tf.contrib.data.group_by_window(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/grouping.py).
+Defined in [`tensorflow/contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/grouping.py).
 
-See the guide: [Dataset Input Pipeline > Transformations on existing datasets](../../../../../api_guides/python/input_dataset#Transformations_on_existing_datasets)
+A transformation that groups windows of elements by key and reduces them. (deprecated)
 
-A transformation that groups windows of elements by key and reduces them.
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.group_by_window(...)`.
 
 This transformation maps each consecutive element in a dataset to a key
 using `key_func` and groups the elements by key. It then applies
@@ -35,14 +37,14 @@ the key through `window_size_func`.
 
 * <b>`key_func`</b>: A function mapping a nested structure of tensors
     (having shapes and types defined by `self.output_shapes` and
-    `self.output_types`) to a scalar <a href="../../../tf/int64"><code>tf.int64</code></a> tensor.
+    `self.output_types`) to a scalar <a href="../../../tf#int64"><code>tf.int64</code></a> tensor.
 * <b>`reduce_func`</b>: A function mapping a key and a dataset of up to `window_size`
     consecutive elements matching that key to another dataset.
-* <b>`window_size`</b>: A <a href="../../../tf/int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
+* <b>`window_size`</b>: A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of
     consecutive elements matching the same key to combine in a single
     batch, which will be passed to `reduce_func`. Mutually exclusive with
     `window_size_func`.
-* <b>`window_size_func`</b>: A function mapping a key to a <a href="../../../tf/int64"><code>tf.int64</code></a> scalar
+* <b>`window_size_func`</b>: A function mapping a key to a <a href="../../../tf#int64"><code>tf.int64</code></a> scalar
     <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the number of consecutive elements matching
     the same key to combine in a single batch, which will be passed to
     `reduce_func`. Mutually exclusive with `window_size`.

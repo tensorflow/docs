@@ -7,11 +7,11 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/learn/python/learn/datasets/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/python/learn/datasets/__init__.py).
+Defined in [`tensorflow/contrib/learn/python/learn/datasets/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/python/learn/datasets/__init__.py).
 
 Dataset utilities and synthetic/reference datasets (deprecated).
 
 This module and all its submodules are deprecated. See
-[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/learn/README.md)
+[contrib/learn/README.md](https://www.github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/learn/README.md)
 for migration instructions.
 

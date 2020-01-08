@@ -19,7 +19,7 @@ tf.contrib.framework.fuse_op(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/framework/graph_util.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/framework/graph_util.py).
+Defined in [`tensorflow/contrib/framework/python/framework/graph_util.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/framework/graph_util.py).
 
 Fuse subgraph between input_nodes and output_nodes into a single custom op.
 

@@ -14,7 +14,7 @@ tf.keras.utils.to_categorical(
 
 
 
-Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/utils/np_utils.py).
+Defined in [`tensorflow/python/keras/utils/np_utils.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/utils/np_utils.py).
 
 Converts a class vector (integers) to binary class matrix.
 

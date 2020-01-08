@@ -24,8 +24,6 @@ tf.variable_op_scope(
 
 
 
-Defined in [`tensorflow/python/ops/variable_scope.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/variable_scope.py).
-
-See the guide: [Variables > Sharing Variables](../../../api_guides/python/state_ops#Sharing_Variables)
+Defined in [`tensorflow/python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/variable_scope.py).
 
 Deprecated: context manager for defining an op that creates variables.

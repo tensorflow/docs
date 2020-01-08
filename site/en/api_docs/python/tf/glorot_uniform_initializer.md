@@ -5,22 +5,19 @@ page_type: reference
 
 # tf.glorot_uniform_initializer
 
+## Class `glorot_uniform_initializer`
+
+Inherits From: [`VarianceScaling`](../tf/keras/initializers/VarianceScaling)
+
 ### Aliases:
 
-* `tf.glorot_uniform_initializer`
-* `tf.initializers.glorot_uniform`
-* `tf.keras.initializers.glorot_uniform`
-
-``` python
-tf.glorot_uniform_initializer(
-    seed=None,
-    dtype=tf.float32
-)
-```
+* Class `tf.glorot_uniform_initializer`
+* Class `tf.initializers.glorot_uniform`
+* Class `tf.keras.initializers.glorot_uniform`
 
 
 
-Defined in [`tensorflow/python/ops/init_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/init_ops.py).
+Defined in [`tensorflow/python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/init_ops.py).
 
 The Glorot uniform initializer, also called Xavier uniform initializer.
 
@@ -34,11 +31,73 @@ Reference: http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf
 #### Args:
 
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-    <a href="../tf/set_random_seed"><code>tf.set_random_seed</code></a>
+    <a href="../tf/random/set_random_seed"><code>tf.set_random_seed</code></a>
     for behavior.
 * <b>`dtype`</b>: The data type. Only floating point types are supported.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+``` python
+__init__(
+    seed=None,
+    dtype=tf.float32
+)
+```
+
+
+
+
+
+## Methods
+
+<h3 id="__call__"><code>__call__</code></h3>
+
+``` python
+__call__(
+    shape,
+    dtype=None,
+    partition_info=None
+)
+```
+
+
+
+<h3 id="from_config"><code>from_config</code></h3>
+
+``` python
+from_config(
+    cls,
+    config
+)
+```
+
+Instantiates an initializer from a configuration dictionary.
+
+Example:
+
+```python
+initializer = RandomUniform(-1, 1)
+config = initializer.get_config()
+initializer = RandomUniform.from_config(config)
+```
+
+#### Args:
+
+* <b>`config`</b>: A Python dictionary.
+    It will typically be the output of `get_config`.
 
 
 #### Returns:
 
-An initializer.
+An Initializer instance.
+
+<h3 id="get_config"><code>get_config</code></h3>
+
+``` python
+get_config()
+```
+
+
+
+
+

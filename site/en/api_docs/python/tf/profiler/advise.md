@@ -15,7 +15,7 @@ tf.profiler.advise(
 
 
 
-Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/profiler/model_analyzer.py).
+Defined in [`tensorflow/python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/profiler/model_analyzer.py).
 
 Auto profile and advise.
 

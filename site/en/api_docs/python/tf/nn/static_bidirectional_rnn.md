@@ -25,9 +25,7 @@ tf.nn.static_bidirectional_rnn(
 
 
 
-Defined in [`tensorflow/python/ops/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/ops/rnn.py).
-
-See the guide: [RNN and Cells (contrib) > Recurrent Neural Networks](../../../../api_guides/python/contrib.rnn#Recurrent_Neural_Networks)
+Defined in [`tensorflow/python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/ops/rnn.py).
 
 Creates a bidirectional recurrent neural network.
 

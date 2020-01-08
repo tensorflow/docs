@@ -11,9 +11,7 @@ tf.control_dependencies(control_inputs)
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > Utility functions](../../../api_guides/python/framework#Utility_functions)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 Wrapper for `Graph.control_dependencies()` using the default graph.
 

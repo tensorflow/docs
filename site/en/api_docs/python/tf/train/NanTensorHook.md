@@ -11,9 +11,7 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 
 
-Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/basic_session_run_hooks.py).
-
-See the guide: [Training > Training Hooks](../../../../api_guides/python/train#Training_Hooks)
+Defined in [`tensorflow/python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/basic_session_run_hooks.py).
 
 Monitors the loss tensor and stops training if loss is NaN.
 

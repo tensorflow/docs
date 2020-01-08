@@ -11,7 +11,7 @@ Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
 
 
-Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
+Defined in [`tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 See the guide: [Seq2seq Library (contrib) > Attention](../../../../../api_guides/python/contrib.seq2seq#Attention)
 
@@ -40,7 +40,7 @@ Construct the `AttentionWrapper`.
 `AttentionWrapper`, then you must ensure that:
 
 - The encoder output has been tiled to `beam_width` via
-  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/manip/tile"><code>tf.tile</code></a>).
+  <a href="../../../tf/contrib/seq2seq/tile_batch"><code>tf.contrib.seq2seq.tile_batch</code></a> (NOT <a href="../../../tf/tile"><code>tf.tile</code></a>).
 - The `batch_size` argument passed to the `zero_state` method of this
   wrapper is equal to `true_batch_size * beam_width`.
 - The initial state created with `zero_state` above contains a
@@ -194,9 +194,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

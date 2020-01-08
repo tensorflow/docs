@@ -17,7 +17,7 @@ tf.contrib.data.make_batched_features_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=1,
+    prefetch_buffer_size=optimization.AUTOTUNE,
     reader_num_threads=1,
     parser_num_threads=2,
     sloppy_ordering=False,
@@ -27,9 +27,13 @@ tf.contrib.data.make_batched_features_dataset(
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/readers.py).
+Defined in [`tensorflow/contrib/data/python/ops/readers.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/readers.py).
 
-Returns a `Dataset` of feature dictionaries from `Example` protos.
+Returns a `Dataset` of feature dictionaries from `Example` protos. (deprecated)
+
+THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use `tf.data.experimental.make_batched_features_dataset(...)`.
 
 If label_key argument is provided, returns a `Dataset` of tuple
 comprising of feature dictionaries and label.
@@ -81,7 +85,7 @@ And the expected output is:
 * <b>`batch_size`</b>: An int representing the number of records to combine
     in a single batch.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
-    `VarLenFeature` values. See <a href="../../../tf/parse_example"><code>tf.parse_example</code></a>.
+    `VarLenFeature` values. See <a href="../../../tf/io/parse_example"><code>tf.parse_example</code></a>.
 * <b>`reader`</b>: A function or class that can be
     called with a `filenames` tensor and (optional) `reader_args` and returns
     a `Dataset` of `Example` tensors. Defaults to <a href="../../../tf/data/TFRecordDataset"><code>tf.data.TFRecordDataset</code></a>.
@@ -98,7 +102,7 @@ And the expected output is:
 * <b>`shuffle_seed`</b>: Randomization seed to use for shuffling.
 * <b>`prefetch_buffer_size`</b>: Number of feature batches to prefetch in order to
     improve performance. Recommended value is the number of batches consumed
-    per training step (default is 1).
+    per training step. Defaults to auto-tune.
 * <b>`reader_num_threads`</b>: Number of threads used to read `Example` records. If >1,
     the results will be interleaved.
 * <b>`parser_num_threads`</b>: Number of threads to use for parsing `Example` tensors

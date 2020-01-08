@@ -11,7 +11,7 @@ tf.contrib.graph_editor.bypass(sgv)
 
 
 
-Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/graph_editor/edit.py).
+Defined in [`tensorflow/contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/graph_editor/edit.py).
 
 See the guide: [Graph Editor (contrib) > Module: edit](../../../../../api_guides/python/contrib.graph_editor#Module_edit)
 

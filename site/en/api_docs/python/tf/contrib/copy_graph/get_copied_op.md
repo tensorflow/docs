@@ -15,7 +15,7 @@ tf.contrib.copy_graph.get_copied_op(
 
 
 
-Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
+Defined in [`tensorflow/contrib/copy_graph/python/util/copy_elements.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/copy_graph/python/util/copy_elements.py).
 
 Given an `Operation` instance from some `Graph`, returns
 its namesake from `graph`, under the specified scope

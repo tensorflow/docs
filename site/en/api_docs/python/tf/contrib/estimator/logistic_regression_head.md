@@ -15,7 +15,7 @@ tf.contrib.estimator.logistic_regression_head(
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/head.py).
+Defined in [`tensorflow/contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/head.py).
 
 Creates a `_Head` for logistic regression.
 

@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/nn/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/nn/__init__.py).
+
 
 Wrappers for primitive Neural Net (NN) Operations.
 
@@ -63,6 +63,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`ctc_loss(...)`](../tf/nn/ctc_loss): Computes the CTC (Connectionist Temporal Classification) Loss.
 
+[`depth_to_space(...)`](../tf/nn/depth_to_space): DepthToSpace for tensors of type T.
+
 [`depthwise_conv2d(...)`](../tf/nn/depthwise_conv2d): Depthwise 2-D convolution.
 
 [`depthwise_conv2d_native(...)`](../tf/nn/depthwise_conv2d_native): Computes a 2-D depthwise convolution given 4-D `input` and `filter` tensors.
@@ -93,11 +95,11 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`fused_batch_norm(...)`](../tf/nn/fused_batch_norm): Batch normalization.
 
-[`in_top_k(...)`](../tf/nn/in_top_k): Says whether the targets are in the top `K` predictions.
+[`in_top_k(...)`](../tf/math/in_top_k): Says whether the targets are in the top `K` predictions.
 
 [`l2_loss(...)`](../tf/nn/l2_loss): L2 Loss.
 
-[`l2_normalize(...)`](../tf/nn/l2_normalize): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
+[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
 
 [`leaky_relu(...)`](../tf/nn/leaky_relu): Compute the Leaky ReLU activation function.
 
@@ -109,7 +111,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`log_softmax(...)`](../tf/nn/log_softmax): Computes log softmax activations. (deprecated arguments)
 
-[`log_uniform_candidate_sampler(...)`](../tf/nn/log_uniform_candidate_sampler): Samples a set of classes using a log-uniform (Zipfian) base distribution.
+[`log_uniform_candidate_sampler(...)`](../tf/random/log_uniform_candidate_sampler): Samples a set of classes using a log-uniform (Zipfian) base distribution.
 
 [`lrn(...)`](../tf/nn/local_response_normalization): Local Response Normalization.
 
@@ -151,7 +153,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`separable_conv2d(...)`](../tf/nn/separable_conv2d): 2-D convolution with separable filters.
 
-[`sigmoid(...)`](../tf/nn/sigmoid): Computes sigmoid of `x` element-wise.
+[`sigmoid(...)`](../tf/math/sigmoid): Computes sigmoid of `x` element-wise.
 
 [`sigmoid_cross_entropy_with_logits(...)`](../tf/nn/sigmoid_cross_entropy_with_logits): Computes sigmoid cross entropy given `logits`.
 
@@ -165,6 +167,10 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`softsign(...)`](../tf/nn/softsign): Computes softsign: `features / (abs(features) + 1)`.
 
+[`space_to_batch(...)`](../tf/nn/space_to_batch): SpaceToBatch for 4-D tensors of type T.
+
+[`space_to_depth(...)`](../tf/nn/space_to_depth): SpaceToDepth for tensors of type T.
+
 [`sparse_softmax_cross_entropy_with_logits(...)`](../tf/nn/sparse_softmax_cross_entropy_with_logits): Computes sparse softmax cross entropy between `logits` and `labels`.
 
 [`static_bidirectional_rnn(...)`](../tf/nn/static_bidirectional_rnn): Creates a bidirectional recurrent neural network.
@@ -175,11 +181,11 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sufficient_statistics(...)`](../tf/nn/sufficient_statistics): Calculate the sufficient statistics for the mean and variance of `x`.
 
-[`tanh(...)`](../tf/nn/tanh): Computes hyperbolic tangent of `x` element-wise.
+[`tanh(...)`](../tf/math/tanh): Computes hyperbolic tangent of `x` element-wise.
 
-[`top_k(...)`](../tf/nn/top_k): Finds values and indices of the `k` largest entries for the last dimension.
+[`top_k(...)`](../tf/math/top_k): Finds values and indices of the `k` largest entries for the last dimension.
 
-[`uniform_candidate_sampler(...)`](../tf/nn/uniform_candidate_sampler): Samples a set of classes using a uniform base distribution.
+[`uniform_candidate_sampler(...)`](../tf/random/uniform_candidate_sampler): Samples a set of classes using a uniform base distribution.
 
 [`weighted_cross_entropy_with_logits(...)`](../tf/nn/weighted_cross_entropy_with_logits): Computes a weighted cross entropy.
 
@@ -189,9 +195,9 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`xw_plus_b(...)`](../tf/nn/xw_plus_b): Computes matmul(x, weights) + biases.
 
-[`zero_fraction(...)`](../tf/nn/zero_fraction): Returns the fraction of zeros in `value`.
+[`zero_fraction(...)`](../tf/math/zero_fraction): Returns the fraction of zeros in `value`.
 
 ## Other Members
 
-`swish`
+<h3 id="swish"><code>swish</code></h3>
 

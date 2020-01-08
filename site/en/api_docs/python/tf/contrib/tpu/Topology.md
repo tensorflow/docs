@@ -11,7 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/tpu/python/tpu/topology.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/tpu/python/tpu/topology.py).
+Defined in [`tensorflow/contrib/tpu/python/tpu/topology.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/tpu/python/tpu/topology.py).
 
 Describes a set of TPU devices.
 
@@ -71,9 +71,21 @@ cluster topology. Each entry gives the `axis`-th coordinate in the
 topology of a task/device pair. TPU topologies are 3-dimensional, with
 dimensions `(x, y, core number)`.
 
+<h3 id="mesh_rank"><code>mesh_rank</code></h3>
+
+Returns the number of dimensions in the mesh.
+
 <h3 id="mesh_shape"><code>mesh_shape</code></h3>
 
 A rank 1 int32 array describing the shape of the TPU topology.
+
+<h3 id="num_tasks"><code>num_tasks</code></h3>
+
+Returns the number of TensorFlow tasks in the TPU slice.
+
+<h3 id="num_tpus_per_task"><code>num_tpus_per_task</code></h3>
+
+Returns the number of TPU devices per task in the TPU slice.
 
 
 

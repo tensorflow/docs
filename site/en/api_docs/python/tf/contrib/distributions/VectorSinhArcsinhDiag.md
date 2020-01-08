@@ -11,7 +11,7 @@ Inherits From: [`TransformedDistribution`](../../../tf/contrib/distributions/Tra
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/vector_sinh_arcsinh_diag.py).
 
 The (diagonal) SinhArcsinh transformation of a distribution on `R^k`.
 
@@ -134,7 +134,7 @@ Additional leading dimensions (if any) will index batches.
     broadcastable with `event_shape`.
 * <b>`distribution`</b>: `tf.Distribution`-like instance. Distribution from which `k`
     iid samples are used as input to transformation `F`.  Default is
-    `tf.distributions.Normal(loc=0., scale=1.)`.
+    `tfp.distributions.Normal(loc=0., scale=1.)`.
     Must be a scalar-batch, scalar-event distribution.  Typically
     `distribution.reparameterization_type = FULLY_REPARAMETERIZED` or it is
     a function of non-trainable parameters. WARNING: If you backprop through
@@ -394,7 +394,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -488,7 +488,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

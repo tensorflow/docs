@@ -19,9 +19,7 @@ tf.train.polynomial_decay(
 
 
 
-Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/learning_rate_decay.py).
-
-See the guide: [Training > Decaying the learning rate](../../../../api_guides/python/train#Decaying_the_learning_rate)
+Defined in [`tensorflow/python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/learning_rate_decay.py).
 
 Applies a polynomial decay to the learning rate.
 

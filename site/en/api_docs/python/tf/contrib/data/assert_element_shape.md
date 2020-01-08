@@ -11,7 +11,7 @@ tf.contrib.data.assert_element_shape(expected_shapes)
 
 
 
-Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/data/python/ops/batching.py).
+Defined in [`tensorflow/contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/data/python/ops/batching.py).
 
 Assert the shape of this `Dataset`.
 

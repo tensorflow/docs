@@ -15,9 +15,7 @@ tf.register_tensor_conversion_function(
 
 
 
-Defined in [`tensorflow/python/framework/ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/framework/ops.py).
-
-See the guide: [Building Graphs > For libraries building on TensorFlow](../../../api_guides/python/framework#For_libraries_building_on_TensorFlow)
+Defined in [`tensorflow/python/framework/ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/framework/ops.py).
 
 Registers a function for converting objects of `base_type` to `Tensor`.
 

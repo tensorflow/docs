@@ -11,9 +11,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/training/monitored_session.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/training/monitored_session.py).
-
-See the guide: [Training > Distributed execution](../../../../api_guides/python/train#Distributed_execution)
+Defined in [`tensorflow/python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/training/monitored_session.py).
 
 Structure to create or gather pieces commonly needed to train a model.
 
@@ -154,7 +152,7 @@ Returns an op that groups the default local init ops.
 
 This op is used during session initialization when a Scaffold is
 initialized without specifying the local_init_op arg. It includes
-<a href="../../tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/tables_initializer"><code>tf.tables_initializer</code></a>, and also
+<a href="../../tf/initializers/local_variables"><code>tf.local_variables_initializer</code></a>, <a href="../../tf/initializers/tables_initializer"><code>tf.tables_initializer</code></a>, and also
 initializes local session resources.
 
 #### Returns:

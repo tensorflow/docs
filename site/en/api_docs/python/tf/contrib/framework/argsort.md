@@ -17,7 +17,7 @@ tf.contrib.framework.argsort(
 
 
 
-Defined in [`tensorflow/contrib/framework/python/ops/sort_ops.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/framework/python/ops/sort_ops.py).
+Defined in [`tensorflow/contrib/framework/python/ops/sort_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/framework/python/ops/sort_ops.py).
 
 Returns the indices of a tensor that give its sorted order along an axis.
 

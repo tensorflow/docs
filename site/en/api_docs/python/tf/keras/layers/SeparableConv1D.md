@@ -16,7 +16,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/python/keras/layers/convolutional.py).
+Defined in [`tensorflow/python/keras/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/python/keras/layers/convolutional.py).
 
 Depthwise separable 1D convolution.
 
@@ -36,7 +36,7 @@ It then optionally applies an activation function to produce the final output.
     of the convolution.
     Specifying any `stride` value != 1 is incompatible with specifying
     any `dilation_rate` value != 1.
-* <b>`padding`</b>: One of `"valid"` or `"same"` (case-insensitive).
+* <b>`padding`</b>: One of `"valid"`, `"same"`, or `"causal"` (case-insensitive).
 * <b>`data_format`</b>: A string, one of `channels_last` (default) or `channels_first`.
     The ordering of the dimensions in the inputs.
     `channels_last` corresponds to inputs with shape
@@ -181,9 +181,9 @@ Input shape, as an integer shape tuple
 
 Losses which are associated with this `Layer`.
 
-Note that when executing eagerly, getting this property evaluates
-regularizers. When using graph execution, variable regularization ops have
-already been created and are simply returned here.
+Variable regularization tensors are created when this property is accessed,
+so it is eager safe: accessing `losses` under a <a href="../../../tf/GradientTape"><code>tf.GradientTape</code></a> will
+propagate gradients back to the corresponding variables.
 
 #### Returns:
 

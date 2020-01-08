@@ -7,7 +7,7 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/checkpoint/__init__.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/checkpoint/__init__.py).
+Defined in [`tensorflow/contrib/checkpoint/__init__.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/checkpoint/__init__.py).
 
 Tools for working with object-based checkpoints.
 
@@ -38,6 +38,8 @@ Saving and restoring Python state:
 [`class NoDependency`](../../tf/contrib/checkpoint/NoDependency): Allows attribute assignment to `Checkpointable` objects with no dependency.
 
 [`class NumpyState`](../../tf/contrib/checkpoint/NumpyState): A checkpointable object whose NumPy array attributes are saved/restored.
+
+[`class PythonStateWrapper`](../../tf/contrib/checkpoint/PythonStateWrapper): Wraps a Python object for storage in an object-based checkpoint.
 
 [`class UniqueNameTracker`](../../tf/contrib/checkpoint/UniqueNameTracker): Adds dependencies on checkpointable objects with name hints.
 

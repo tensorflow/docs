@@ -11,7 +11,7 @@ Inherits From: [`Distribution`](../../../tf/distributions/Distribution)
 
 
 
-Defined in [`tensorflow/contrib/distributions/python/ops/autoregressive.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/distributions/python/ops/autoregressive.py).
+Defined in [`tensorflow/contrib/distributions/python/ops/autoregressive.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/distributions/python/ops/autoregressive.py).
 
 Autoregressive distributions.
 
@@ -51,13 +51,14 @@ x = fn(...fn(fn(x0).sample()).sample()).sample()
 ```
 
 where the ellipses (`...`) represent `n-2` composed calls to `fn`, `fn`
-constructs a <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a>-like instance, and `x0` is a
+constructs a `tfp.distributions.Distribution`-like instance, and `x0` is a
 fixed initializing `Tensor`.
 
 #### Examples
 
 ```python
-tfd = tf.contrib.distributions
+import tensorflow_probability as tfp
+tfd = tfp.distributions
 
 def normal_fn(self, event_size):
   n = event_size * (event_size + 1) / 2
@@ -115,7 +116,7 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 #### Args:
 
 * <b>`distribution_fn`</b>: Python `callable` which constructs a
-    <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a>-like instance from a `Tensor` (e.g.,
+    `tfp.distributions.Distribution`-like instance from a `Tensor` (e.g.,
     `sample0`). The function must respect the "autoregressive property",
     i.e., there exists a permutation of event such that each coordinate is a
     diffeomorphic function of on preceding coordinates.
@@ -373,7 +374,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -467,7 +468,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 
 #### Args:
 
-* <b>`other`</b>: <a href="../../../tf/distributions/Distribution"><code>tf.distributions.Distribution</code></a> instance.
+* <b>`other`</b>: `tfp.distributions.Distribution` instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 

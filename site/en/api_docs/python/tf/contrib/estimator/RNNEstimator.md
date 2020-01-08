@@ -7,11 +7,11 @@ page_type: reference
 
 ## Class `RNNEstimator`
 
-Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 
 
-Defined in [`tensorflow/contrib/estimator/python/estimator/rnn.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/estimator/python/estimator/rnn.py).
+
+Defined in [`tensorflow/contrib/estimator/python/estimator/rnn.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/estimator/python/estimator/rnn.py).
 
 An Estimator for TensorFlow RNN models with user-specified head.
 
@@ -118,7 +118,7 @@ Initializes a `RNNClassifier` instance.
     the cell type. Supported strings are: `'basic_rnn'`, `'lstm'`, and
     `'gru'`. If set, `num_units` must also be specified and `rnn_cell_fn`
     must be `None`.
-* <b>`rnn_cell_fn`</b>: A function with one argument, a <a href="../../../tf/estimator/ModeKeys"><code>tf.estimator.ModeKeys</code></a>, and
+* <b>`rnn_cell_fn`</b>: A function with one argument, a `tf.estimator.ModeKeys`, and
     returns an object of type <a href="../../../tf/nn/rnn_cell/RNNCell"><code>tf.nn.rnn_cell.RNNCell</code></a> that will be used to
     construct the RNN. If set, `num_units` and `cell_type` cannot be set.
     This is for advanced users who need additional customization beyond
@@ -284,11 +284,11 @@ The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../../tf/saved_model/signature_constants/DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+<a href="../../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
-<a href="../../../tf/estimator/export/ExportOutput"><code>tf.estimator.export.ExportOutput</code></a>s, and the inputs are always the input
+`tf.estimator.export.ExportOutput`s, and the inputs are always the input
 receivers provided by
 the `serving_input_receiver_fn`.
 
@@ -304,8 +304,8 @@ is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
 * <b>`export_dir_base`</b>: A string containing a directory in which to create
     timestamped subdirectories containing exported `SavedModel`s.
 * <b>`serving_input_receiver_fn`</b>: A function that takes no argument and returns a
-    <a href="../../../tf/estimator/export/ServingInputReceiver"><code>tf.estimator.export.ServingInputReceiver</code></a> or
-    <a href="../../../tf/estimator/export/TensorServingInputReceiver"><code>tf.estimator.export.TensorServingInputReceiver</code></a>.
+    `tf.estimator.export.ServingInputReceiver` or
+    `tf.estimator.export.TensorServingInputReceiver`.
 * <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
     within the exported `SavedModel`, or `None` if no extra assets are
     needed.
@@ -339,11 +339,11 @@ export_savedmodel(
 
 Exports inference graph as a `SavedModel` into the given dir.
 
-Note that `export_to_savedmodel` will be renamed to `export_to_saved_model`
+Note that `export_to_savedmodel` will be renamed to `export_saved_model`
 in TensorFlow 2.0. At that time, `export_to_savedmodel` without the
 additional underscore will be available only through tf.compat.v1.
 
-Please see <a href="../../../tf/estimator/Estimator#export_saved_model"><code>tf.estimator.Estimator.export_saved_model</code></a> for more information.
+Please see `tf.estimator.Estimator.export_saved_model` for more information.
 
 There is one additional arg versus the new method:
   strip_default_attrs: This parameter is going away in TF 2.0, and
@@ -419,6 +419,10 @@ predict(
 
 Yields predictions for given features.
 
+Please note that interleaving two predict outputs does not work. See:
+[issue/20506](
+https://github.com/tensorflow/tensorflow/issues/20506#issuecomment-422208517)
+
 #### Args:
 
 * <b>`input_fn`</b>: A function that constructs the features. Prediction continues
@@ -437,7 +441,7 @@ Yields predictions for given features.
       * A tuple, in which case the first item is extracted as features.
 
 * <b>`predict_keys`</b>: list of `str`, name of the keys to predict. It is used if
-    the <a href="../../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is a `dict`. If
+    the `tf.estimator.EstimatorSpec.predictions` is a `dict`. If
     `predict_keys` is used then rest of the predictions will be filtered
     from the dictionary. If `None`, returns all.
 * <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
@@ -464,7 +468,7 @@ Evaluated values of `predictions` tensors.
     `yield_single_examples` is `True`.
 * <b>`ValueError`</b>: If there is a conflict between `predict_keys` and
     `predictions`. For example if `predict_keys` is not `None` but
-    <a href="../../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is not a `dict`.
+    `tf.estimator.EstimatorSpec.predictions` is not a `dict`.
 
 <h3 id="train"><code>train</code></h3>
 

@@ -8,13 +8,13 @@ page_type: reference
 
 
 
-Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/bayesflow/python/ops/monte_carlo.py).
+Defined in [`tensorflow/contrib/bayesflow/python/ops/monte_carlo.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/bayesflow/python/ops/monte_carlo.py).
 
 Monte Carlo integration and helpers.
 
 ## Functions
 
-[`expectation(...)`](../../../tf/contrib/bayesflow/monte_carlo/expectation): Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\).
+[`expectation(...)`](../../../tf/contrib/bayesflow/monte_carlo/expectation): Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\). (deprecated)
 
 [`expectation_importance_sampler(...)`](../../../tf/contrib/bayesflow/monte_carlo/expectation_importance_sampler): Monte Carlo estimate of \\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\).
 

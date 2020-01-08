@@ -19,7 +19,7 @@ tf.contrib.kernel_methods.sparse_multiclass_hinge_loss(
 
 
 
-Defined in [`tensorflow/contrib/kernel_methods/python/losses.py`](https://www.github.com/tensorflow/tensorflow/blob/r1.11/tensorflow/contrib/kernel_methods/python/losses.py).
+Defined in [`tensorflow/contrib/kernel_methods/python/losses.py`](https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/kernel_methods/python/losses.py).
 
 Adds Ops for computing the multiclass hinge loss.
 
