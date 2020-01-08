@@ -541,21 +541,6 @@ def write_docs(output_dir,
           'to': os.path.join('/', to_path)
       })
 
-  if redirects:
-    if yaml_toc:
-      redirects.append({
-          'from': os.path.join('/', site_path, 'tf_overview'),
-          'to': os.path.join('/', site_path, 'tf')
-      })
-
-    redirects_dict = {
-        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
-    }
-
-    api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
-    with open(api_redirects_path, 'w') as redirect_file:
-      yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
-
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
     toc_dict = toc_gen.generate()
@@ -571,6 +556,21 @@ def write_docs(output_dir,
     leftnav_toc = os.path.join(output_dir, '_toc.yaml')
     with open(leftnav_toc, 'w') as toc_file:
       yaml.dump(toc_dict, toc_file, default_flow_style=False)
+
+  if redirects:
+    if yaml_toc and toc_values['title'] == 'tf':
+      redirects.append({
+          'from': os.path.join('/', site_path, 'tf_overview'),
+          'to': os.path.join('/', site_path, 'tf')
+      })
+
+    redirects_dict = {
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
+
+    api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
+    with open(api_redirects_path, 'w') as redirect_file:
+      yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
 
   # Write a global index containing all full names with links.
   with open(os.path.join(output_dir, 'index.md'), 'w') as f:

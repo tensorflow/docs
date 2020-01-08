@@ -1,6 +1,7 @@
 # User groups
 
-TensorFlow has communities around the world. [Add your community!](https://github.com/tensorflow/docs/blob/master/site/en/community/groups.md)
+TensorFlow has communities around the world.
+[Add your community!](https://docs.google.com/forms/d/e/1FAIpQLSc_RQIUYtVgLLihzATaO_WUXkEyBDE_OoRoOXYDPmBEvHuEBA/viewform)
 
 ## Africa
 
@@ -57,9 +58,12 @@ TensorFlow has communities around the world. [Add your community!](https://githu
 * [Tensorflow Community Sri Lanka](https://www.facebook.com/groups/150363118841298/)
 * [TensorFlow Việt Nam](https://www.facebook.com/gdgtensorflowvietnam)
 * [TF Nepal](https://www.facebook.com/groups/tfnepal/)
+* [TensorFlow User Group Coimbatore](https://www.meetup.com/TFUGCbe/)
+* [TensorFlow UserGroup Kolkata](https://www.meetup.com/TFUG-Kol/)
+* [TensorFlow UserGroup Kozhikode](https://www.meetup.com/Tensorflow-User-Group-Kozhikode/)
 * [TensorFlow UserGroup Mumbai](https://t.me/tfugmumbai/)
 * [TensorFlow UserGroup Mysuru] (https://www.meetup.com/TFUG-Mysuru/)
-
+* [TensorFlow User Group Pune](https://www.meetup.com/Tensorflow-User-Group-Pune/)
 
 ## Europe
 

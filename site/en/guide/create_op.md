@@ -693,6 +693,13 @@ REGISTER_OP("AttrDefaultExample")
     .Attr("i: int = 0");
 ```
 
+Additionally, both a constraint and a default value can be specified:
+
+```c++
+REGISTER_OP("AttrConstraintAndDefaultExample")
+    .Attr("i: int >= 1 = 1");
+```
+
 The supported syntax of the default value is what would be used in the proto
 representation of the resulting GraphDef definition.
 

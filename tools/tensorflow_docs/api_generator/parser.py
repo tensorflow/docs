@@ -1775,6 +1775,7 @@ class Metadata(object):
 
   def build_html(self):
     """Returns the Metadata block as an Html string."""
+    # Note: A schema is not a URL. It is defined with http: but doesn't resolve.
     schema = 'http://developers.google.com/ReferenceObject'
     parts = ['<div itemscope itemtype="%s">' % schema]
 
