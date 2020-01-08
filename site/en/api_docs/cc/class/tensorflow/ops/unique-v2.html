@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::UniqueV2 Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>UniqueV2</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Finds unique elements along an axis of a tensor. </p>
+  <h2>Summary</h2>
+  <p>This operation either returns a tensor <code>y</code> containing unique elements along the <code>axis</code> of a tensor. The returned unique elements is sorted in the same order as they occur along <code>axis</code> in <code>x</code>. This operation also returns a tensor <code>idx</code> that is the same size as the number of the elements in <code>x</code> along the <code>axis</code> dimension. It contains the index in the unique output <code>y</code>. In other words, for an <code>1-D</code> tensor <code>x</code> with `axis = None:</p>
+  <p>
+    <code>y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]</code>
+  </p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]
+y, idx = unique(x)
+y ==> [1, 2, 4, 7, 8]
+idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4]
+</pre>
+  </p>
+  <p>For an <code>2-D</code> tensor <code>x</code> with <code>axis = 0</code>:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'x' is [[1, 0, 0],
+&#35;                [1, 0, 0],
+&#35;                [2, 0, 0]]
+y, idx = unique(x, axis=0)
+y ==> [[1, 0, 0],
+       [2, 0, 0]]
+idx ==> [0, 0, 1]
+</pre>
+  </p>
+  <p>For an <code>2-D</code> tensor <code>x</code> with <code>axis = 1</code>:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; tensor 'x' is [[1, 0, 0],
+&#35;                [1, 0, 0],
+&#35;                [2, 0, 0]]
+y, idx = unique(x, axis=1)
+y ==> [[1, 0],
+       [1, 0],
+       [2, 0]]
+idx ==> [0, 1, 1]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: A <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
+      <li>axis: A <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>int32</code> (default: None). The axis of the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to find the unique elements.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> y: A <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/unique.html#classtensorflow_1_1ops_1_1_unique">Unique</a> elements along the <code>axis</code> of <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> x.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> idx: A 1-D <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each value of x in the output y. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1aaa7727d5e2857e344044d9a0786d91b4">UniqueV2</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1a3a97ea9f8f6912a075cabd6cf27b41d3">UniqueV2</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/unique-v2/attrs.html#structtensorflow_1_1ops_1_1_unique_v2_1_1_attrs">UniqueV2::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1abf4abfbffdf83f8b36a3a5549f511824">idx</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1ac3d78cd2b0db6fdd05dc5dd66915803a">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1ab4422326487ebc2c335cdc1bfb3555e6">y</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unique_v2_1ab4ca52e8728f9eabc702ad43876aab33">OutIdx</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/unique-v2/attrs.html#structtensorflow_1_1ops_1_1_unique_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/unique-v2/attrs">tensorflow::<wbr/>ops::<wbr/>UniqueV2::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/unique-v2.html#classtensorflow_1_1ops_1_1_unique_v2">UniqueV2</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1abf4abfbffdf83f8b36a3a5549f511824">
+    <h3>idx</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1ac3d78cd2b0db6fdd05dc5dd66915803a">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1ab4422326487ebc2c335cdc1bfb3555e6">
+    <h3>y</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1aaa7727d5e2857e344044d9a0786d91b4">
+    <h3>UniqueV2</h3>
+    <pre class="prettyprint"> UniqueV2(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1a3a97ea9f8f6912a075cabd6cf27b41d3">
+    <h3>UniqueV2</h3>
+    <pre class="prettyprint"> UniqueV2(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/unique-v2/attrs.html#structtensorflow_1_1ops_1_1_unique_v2_1_1_attrs">UniqueV2::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unique_v2_1ab4ca52e8728f9eabc702ad43876aab33">
+    <h3>OutIdx</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/unique-v2/attrs.html#structtensorflow_1_1ops_1_1_unique_v2_1_1_attrs">Attrs</a> OutIdx(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

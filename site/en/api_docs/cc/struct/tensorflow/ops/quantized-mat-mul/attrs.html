@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizedMatMul::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizedMatMul::<wbr/>Attrs</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/quantized-mat-mul.html#classtensorflow_1_1ops_1_1_quantized_mat_mul">QuantizedMatMul</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a4ec61ca1633c71f9778635daa7a1891a">Tactivation_</a> = DT_QUINT8</code>
+      </td>
+      <td>
+        <div>
+          <code>DataType</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a2d64400431cee46f3b2f01ebce918312">Toutput_</a> = DT_QINT32</code>
+      </td>
+      <td>
+        <div>
+          <code>DataType</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a5be09bd03f0fdf0b4e57cb33664361e8">transpose_a_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a633d7f13c23dea40282a3b296d7f996c">transpose_b_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a6e5cb6be951ef2554cc04296ad0bffad">Tactivation</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The type of output produced by activation function following this operation. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1af3a761ecd8ebc7dad74137b6a11e172f">Toutput</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to DT_QINT32. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a960ecd4efbd8278fac1812933e2ec61a">TransposeA</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true, <code>a</code> is transposed before multiplication. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1af6da7dd47a4cd0b885ee662f29745f93">TransposeB</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true, <code>b</code> is transposed before multiplication. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a4ec61ca1633c71f9778635daa7a1891a">
+    <h3>Tactivation_</h3>
+    <pre class="prettyprint">DataType tensorflow::ops::QuantizedMatMul::Attrs::Tactivation_ = DT_QUINT8</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a2d64400431cee46f3b2f01ebce918312">
+    <h3>Toutput_</h3>
+    <pre class="prettyprint">DataType tensorflow::ops::QuantizedMatMul::Attrs::Toutput_ = DT_QINT32</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a5be09bd03f0fdf0b4e57cb33664361e8">
+    <h3>transpose_a_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizedMatMul::Attrs::transpose_a_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a633d7f13c23dea40282a3b296d7f996c">
+    <h3>transpose_b_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizedMatMul::Attrs::transpose_b_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a6e5cb6be951ef2554cc04296ad0bffad">
+    <h3>Tactivation</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedMatMul::Attrs::Tactivation(
+  DataType x
+)</pre>
+    <div>
+      <p>The type of output produced by activation function following this operation. </p>
+      <p>Defaults to DT_QUINT8 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1af3a761ecd8ebc7dad74137b6a11e172f">
+    <h3>Toutput</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedMatMul::Attrs::Toutput(
+  DataType x
+)</pre>
+    <div>
+      <p>Defaults to DT_QINT32. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1a960ecd4efbd8278fac1812933e2ec61a">
+    <h3>TransposeA</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedMatMul::Attrs::TransposeA(
+  bool x
+)</pre>
+    <div>
+      <p>If true, <code>a</code> is transposed before multiplication. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs_1af6da7dd47a4cd0b885ee662f29745f93">
+    <h3>TransposeB</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/quantized-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_quantized_mat_mul_1_1_attrs">Attrs</a> tensorflow::ops::QuantizedMatMul::Attrs::TransposeB(
+  bool x
+)</pre>
+    <div>
+      <p>If true, <code>b</code> is transposed before multiplication. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

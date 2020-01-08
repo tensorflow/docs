@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ParseSequenceExample::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ParseSequenceExample::<wbr/>Attrs</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/parse-sequence-example.html#classtensorflow_1_1ops_1_1_parse_sequence_example">ParseSequenceExample</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ac17a70531fb7d9bac99e73220299216f">Ncontext_dense_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a7267b6a313171b1c379a33e2f25eba25">Ncontext_sparse_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a42f6d2c184d5fac2f0cb05c384ff5082">Nfeature_list_dense_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a090e20c0b0c1f5be0e30da10b3210d60">Nfeature_list_sparse_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a1c22599e2208dbf4010e7314b4d8fe59">context_dense_shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< PartialTensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a88fd6e4349374bbc5ecea3f5fc666fa0">context_sparse_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ad7b925df6db57915b2a79f9209783c7e">feature_list_dense_shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< PartialTensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab2858a6a52415eb9b39d98683e8cb2ca">feature_list_dense_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab11ac986d0e04836f1ff6ae6be8b1165">feature_list_sparse_types_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>DataTypeSlice</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1afda1c2a4f20c141bb94f5b6893b91e90">ContextDenseShapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Ncontext_dense shapes; the shapes of data in each context Feature given in context_dense_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a3c7594d814f40b934bdb96f7c9e1962f">ContextSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Ncontext_sparse types; the data types of data in each context Feature given in context_sparse_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a45e9cfb7e46d71908897a9c7deb1c16f">FeatureListDenseShapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Nfeature_list_dense shapes; the shapes of data in each FeatureList given in feature_list_dense_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a251456608b42e19305bef7f870f2c26b">FeatureListDenseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to []. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ad3342f91dc76ca34a46e21922cac216b">FeatureListSparseTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A list of Nfeature_list_sparse types; the data types of data in each FeatureList given in feature_list_sparse_keys. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a6f3f08b5256e4d3a4a567ee17d2e6b48">NcontextDense</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to 0. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a432066b15ab843b1fab687f5c836a862">NcontextSparse</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to 0. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab8d70685df066f0e233ef678998abd98">NfeatureListDense</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to 0. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1aeabe8ba43df8b1f3bdd2db18303e5642">NfeatureListSparse</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to 0. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ac17a70531fb7d9bac99e73220299216f">
+    <h3>Ncontext_dense_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::ParseSequenceExample::Attrs::Ncontext_dense_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a7267b6a313171b1c379a33e2f25eba25">
+    <h3>Ncontext_sparse_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::ParseSequenceExample::Attrs::Ncontext_sparse_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a42f6d2c184d5fac2f0cb05c384ff5082">
+    <h3>Nfeature_list_dense_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::ParseSequenceExample::Attrs::Nfeature_list_dense_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a090e20c0b0c1f5be0e30da10b3210d60">
+    <h3>Nfeature_list_sparse_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::ParseSequenceExample::Attrs::Nfeature_list_sparse_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a1c22599e2208dbf4010e7314b4d8fe59">
+    <h3>context_dense_shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< PartialTensorShape > tensorflow::ops::ParseSequenceExample::Attrs::context_dense_shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a88fd6e4349374bbc5ecea3f5fc666fa0">
+    <h3>context_sparse_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSequenceExample::Attrs::context_sparse_types_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ad7b925df6db57915b2a79f9209783c7e">
+    <h3>feature_list_dense_shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< PartialTensorShape > tensorflow::ops::ParseSequenceExample::Attrs::feature_list_dense_shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab2858a6a52415eb9b39d98683e8cb2ca">
+    <h3>feature_list_dense_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSequenceExample::Attrs::feature_list_dense_types_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab11ac986d0e04836f1ff6ae6be8b1165">
+    <h3>feature_list_sparse_types_</h3>
+    <pre class="prettyprint">DataTypeSlice tensorflow::ops::ParseSequenceExample::Attrs::feature_list_sparse_types_ = {}</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1afda1c2a4f20c141bb94f5b6893b91e90">
+    <h3>ContextDenseShapes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::ContextDenseShapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div>
+      <p>A list of Ncontext_dense shapes; the shapes of data in each context Feature given in context_dense_keys. </p>
+      <p>The number of elements in the Feature corresponding to context_dense_key[j] must always equal context_dense_shapes[j].NumEntries(). The shape of context_dense_values[j] will match context_dense_shapes[j].</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a3c7594d814f40b934bdb96f7c9e1962f">
+    <h3>ContextSparseTypes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::ContextSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>A list of Ncontext_sparse types; the data types of data in each context Feature given in context_sparse_keys. </p>
+      <p>Currently the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a45e9cfb7e46d71908897a9c7deb1c16f">
+    <h3>FeatureListDenseShapes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::FeatureListDenseShapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div>
+      <p>A list of Nfeature_list_dense shapes; the shapes of data in each FeatureList given in feature_list_dense_keys. </p>
+      <p>The shape of each Feature in the FeatureList corresponding to feature_list_dense_key[j] must always equal feature_list_dense_shapes[j].NumEntries().</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a251456608b42e19305bef7f870f2c26b">
+    <h3>FeatureListDenseTypes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::FeatureListDenseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>Defaults to []. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ad3342f91dc76ca34a46e21922cac216b">
+    <h3>FeatureListSparseTypes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::FeatureListSparseTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div>
+      <p>A list of Nfeature_list_sparse types; the data types of data in each FeatureList given in feature_list_sparse_keys. </p>
+      <p>Currently the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/parse-single-sequence-example.html#classtensorflow_1_1ops_1_1_parse_single_sequence_example">ParseSingleSequenceExample</a> supports DT_FLOAT (FloatList), DT_INT64 (Int64List), and DT_STRING (BytesList).</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a6f3f08b5256e4d3a4a567ee17d2e6b48">
+    <h3>NcontextDense</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::NcontextDense(
+  int64 x
+)</pre>
+    <div>
+      <p>Defaults to 0. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1a432066b15ab843b1fab687f5c836a862">
+    <h3>NcontextSparse</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::NcontextSparse(
+  int64 x
+)</pre>
+    <div>
+      <p>Defaults to 0. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1ab8d70685df066f0e233ef678998abd98">
+    <h3>NfeatureListDense</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::NfeatureListDense(
+  int64 x
+)</pre>
+    <div>
+      <p>Defaults to 0. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs_1aeabe8ba43df8b1f3bdd2db18303e5642">
+    <h3>NfeatureListSparse</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/parse-sequence-example/attrs.html#structtensorflow_1_1ops_1_1_parse_sequence_example_1_1_attrs">Attrs</a> tensorflow::ops::ParseSequenceExample::Attrs::NfeatureListSparse(
+  int64 x
+)</pre>
+    <div>
+      <p>Defaults to 0. </p>
+    </div>
+  </div>
+</body>
+</html>

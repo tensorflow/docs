@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FakeQuantWithMinMaxVarsGradient::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FakeQuantWithMinMaxVarsGradient::<wbr/>Attrs</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/fake-quant-with-min-max-vars-gradient.html#classtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient">FakeQuantWithMinMaxVarsGradient</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1acf5b622a8301951bb06a117ee8f469fd">narrow_range_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1af26251a3f20404321f755be4909b30b0">num_bits_</a> = 8</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1a1c24ca7db4de2e1c6b9fff5ed496c742">NarrowRange</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Whether to quantize into 2^num_bits - 1 distinct values. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1a81834c121ffed56623556a3f30798089">NumBits</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The bitwidth of the quantization; between 2 and 8, inclusive. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1acf5b622a8301951bb06a117ee8f469fd">
+    <h3>narrow_range_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::FakeQuantWithMinMaxVarsGradient::Attrs::narrow_range_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1af26251a3f20404321f755be4909b30b0">
+    <h3>num_bits_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FakeQuantWithMinMaxVarsGradient::Attrs::num_bits_ = 8</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1a1c24ca7db4de2e1c6b9fff5ed496c742">
+    <h3>NarrowRange</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs">Attrs</a> tensorflow::ops::FakeQuantWithMinMaxVarsGradient::Attrs::NarrowRange(
+  bool x
+)</pre>
+    <div>
+      <p>Whether to quantize into 2^num_bits - 1 distinct values. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs_1a81834c121ffed56623556a3f30798089">
+    <h3>NumBits</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/fake-quant-with-min-max-vars-gradient/attrs.html#structtensorflow_1_1ops_1_1_fake_quant_with_min_max_vars_gradient_1_1_attrs">Attrs</a> tensorflow::ops::FakeQuantWithMinMaxVarsGradient::Attrs::NumBits(
+  int64 x
+)</pre>
+    <div>
+      <p>The bitwidth of the quantization; between 2 and 8, inclusive. </p>
+      <p>Defaults to 8 </p>
+    </div>
+  </div>
+</body>
+</html>

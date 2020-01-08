@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TopK Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TopK</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Finds values and indices of the <code>k</code> largest elements for the last dimension. </p>
+  <h2>Summary</h2>
+  <p>If the input is a vector (rank-1), finds the <code>k</code> largest entries in the vector and outputs their values and indices as vectors. Thus <code>values[j]</code> is the <code>j</code>-th largest entry in <code>input</code>, and its index is <code>indices[j]</code>.</p>
+  <p>For matrices (resp. higher rank input), computes the top <code>k</code> entries in each row (resp. vector along the last dimension). Thus, <pre class="prettyprint">values.shape = indices.shape = input.shape[:-1] + [k]
+</pre></p>
+  <p>If two elements are equal, the lower-index element appears first.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 1-D or higher with last dimension at least <code>k</code>.</li>
+      <li>k: 0-D. Number of top elements to look for along the last dimension (along each row for matrices).</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs.html#structtensorflow_1_1ops_1_1_top_k_1_1_attrs">Attrs</a></code>):<ul>
+      <li>sorted: If true the resulting <code>k</code> elements will be sorted by the values in descending order.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values: The <code>k</code> largest elements along each last dimensional slice.</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices: The indices of <code>values</code> within the last dimension of <code>input</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1a0c8404c5e20cae7d52b460b213d13bf4">TopK</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1ad55e14f1c8e36a07ae7e3e5189ce1de6">TopK</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs.html#structtensorflow_1_1ops_1_1_top_k_1_1_attrs">TopK::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1a702b5fcc223806a5b43892c840294e6e">indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1a6772614af084e9178999f8b10e356ce4">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1a3d754e075cd5e04093e27e60a6a07727">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_top_k_1ac5e55d49539ee3457dc1a432480e85c2">Sorted</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs.html#structtensorflow_1_1ops_1_1_top_k_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs">tensorflow::<wbr/>ops::<wbr/>TopK::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/top-k.html#classtensorflow_1_1ops_1_1_top_k">TopK</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1a702b5fcc223806a5b43892c840294e6e">
+    <h3>indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1a6772614af084e9178999f8b10e356ce4">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1a3d754e075cd5e04093e27e60a6a07727">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1a0c8404c5e20cae7d52b460b213d13bf4">
+    <h3>TopK</h3>
+    <pre class="prettyprint"> TopK(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1ad55e14f1c8e36a07ae7e3e5189ce1de6">
+    <h3>TopK</h3>
+    <pre class="prettyprint"> TopK(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs.html#structtensorflow_1_1ops_1_1_top_k_1_1_attrs">TopK::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_top_k_1ac5e55d49539ee3457dc1a432480e85c2">
+    <h3>Sorted</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/top-k/attrs.html#structtensorflow_1_1ops_1_1_top_k_1_1_attrs">Attrs</a> Sorted(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

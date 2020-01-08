@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SampleDistortedBoundingBoxV2::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/sample-distorted-bounding-box-v2.html#classtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2">SampleDistortedBoundingBoxV2</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a69ae593a1a5a7780e524e2356d2faff8">area_range_</a> = Default_area_range()</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< float ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a0c4e44eabfe7afab174ee2f85df1726d">aspect_ratio_range_</a> = Default_aspect_ratio_range()</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< float ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a730472cdd7975ef9d970e1f8b5023364">max_attempts_</a> = 100</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a7c9b9d92bf0a822f1545d6ca832b0422">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1acff1116d6929f772cb713fe9a3d32eeb">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1ad86cffc54629ac12206d2c500e0779cb">use_image_if_no_bounding_boxes_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a8df62937b62cff944feb1b8fa311ded7">AreaRange</a>(const gtl::ArraySlice< float > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The cropped area of the image must contain a fraction of the supplied image within this range. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3cbee228822ba7b22c16480f4b924bf0">AspectRatioRange</a>(const gtl::ArraySlice< float > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The cropped area of the image must have an aspect ratio = width / height within this range. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3d45be2446f3ad2895375dc1dad9cc0b">MaxAttempts</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Number of attempts at generating a cropped region of the image of the specified constraints. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1adc049c4ba5c6fdd2d276098deeb8c992">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either <code>seed</code> or <code>seed2</code> are set to non-zero, the random number generator is seeded by the given <code>seed</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a676c3cc02479e14a7f557fe7d469cb93">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3179a059c42359549522461cb227d6c3">UseImageIfNoBoundingBoxes</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Controls behavior if no bounding boxes supplied. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a69ae593a1a5a7780e524e2356d2faff8">
+    <h3>area_range_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< float > tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::area_range_ = Default_area_range()</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a0c4e44eabfe7afab174ee2f85df1726d">
+    <h3>aspect_ratio_range_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< float > tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::aspect_ratio_range_ = Default_aspect_ratio_range()</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a730472cdd7975ef9d970e1f8b5023364">
+    <h3>max_attempts_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::max_attempts_ = 100</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a7c9b9d92bf0a822f1545d6ca832b0422">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1acff1116d6929f772cb713fe9a3d32eeb">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1ad86cffc54629ac12206d2c500e0779cb">
+    <h3>use_image_if_no_bounding_boxes_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::use_image_if_no_bounding_boxes_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a8df62937b62cff944feb1b8fa311ded7">
+    <h3>AreaRange</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::AreaRange(
+  const gtl::ArraySlice< float > & x
+)</pre>
+    <div>
+      <p>The cropped area of the image must contain a fraction of the supplied image within this range. </p>
+      <p>Defaults to [0.05, 1] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3cbee228822ba7b22c16480f4b924bf0">
+    <h3>AspectRatioRange</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::AspectRatioRange(
+  const gtl::ArraySlice< float > & x
+)</pre>
+    <div>
+      <p>The cropped area of the image must have an aspect ratio = width / height within this range. </p>
+      <p>Defaults to [0.75, 1.33] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3d45be2446f3ad2895375dc1dad9cc0b">
+    <h3>MaxAttempts</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::MaxAttempts(
+  int64 x
+)</pre>
+    <div>
+      <p>Number of attempts at generating a cropped region of the image of the specified constraints. </p>
+      <p>After <code>max_attempts</code> failures, return the entire image.</p>
+      <p>Defaults to 100 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1adc049c4ba5c6fdd2d276098deeb8c992">
+    <h3>Seed</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either <code>seed</code> or <code>seed2</code> are set to non-zero, the random number generator is seeded by the given <code>seed</code>. </p>
+      <p>Otherwise, it is seeded by a random seed.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a676c3cc02479e14a7f557fe7d469cb93">
+    <h3>Seed2</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>A second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs_1a3179a059c42359549522461cb227d6c3">
+    <h3>UseImageIfNoBoundingBoxes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sample-distorted-bounding-box-v2/attrs.html#structtensorflow_1_1ops_1_1_sample_distorted_bounding_box_v2_1_1_attrs">Attrs</a> tensorflow::ops::SampleDistortedBoundingBoxV2::Attrs::UseImageIfNoBoundingBoxes(
+  bool x
+)</pre>
+    <div>
+      <p>Controls behavior if no bounding boxes supplied. </p>
+      <p>If true, assume an implicit bounding box covering the whole input. If false, raise an error.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>
