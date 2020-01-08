@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::Operation Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>Operation</h1>
+  <code>#include &lt;ops.h&gt;</code>
+  <p>Represents a node in the computation graph. </p>
+  <h2>Summary</h2>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_operation_1affdd1229a28ca12d41c2016dc06bac9c">Operation</a>()</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_operation_1a01d5e9099d2a89c48a0a2c18166bb61c">Operation</a>(Node *n)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1af7eb400d7e525015a6da3564136fb2da">hash</a>(int32 index) const </code>
+      </td>
+      <td>
+        <div>
+          <code>uint64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a9c93f80be1cee24c1f85b10dc69464fc">input</a>(int32 i) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a1efce29997d6aa843fb4347386a7b842">input_type</a>(int32 o) const </code>
+      </td>
+      <td>
+        <div>
+          <code>DataType</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a0aaad0fb0775e40848f879780892c62a">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a6ea6441affa16d05401440d30c157554">num_inputs</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>int32</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a314711a8e16149c0ef823e1100a3a136">num_outputs</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>int32</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a59f85b71ca828099976b3f183a37203f">operator==</a>(const <a href="/versions/r1.10/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & other) const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a3e595ca82b9830a41d5d396b93c8f160">output</a>(int32 i) const </code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_operation_1a17c38a7f7d7d899e387d25bcdf967d68">output_type</a>(int32 o) const </code>
+      </td>
+      <td>
+        <div>
+          <code>DataType</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1_operation_1affdd1229a28ca12d41c2016dc06bac9c">
+    <h3>Operation</h3>
+    <pre class="prettyprint"> Operation()</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a01d5e9099d2a89c48a0a2c18166bb61c">
+    <h3>Operation</h3>
+    <pre class="prettyprint"> Operation(
+  Node *n
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1af7eb400d7e525015a6da3564136fb2da">
+    <h3>hash</h3>
+    <pre class="prettyprint">uint64 hash(
+  int32 index
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a9c93f80be1cee24c1f85b10dc69464fc">
+    <h3>input</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> input(
+  int32 i
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a1efce29997d6aa843fb4347386a7b842">
+    <h3>input_type</h3>
+    <pre class="prettyprint">DataType input_type(
+  int32 o
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a0aaad0fb0775e40848f879780892c62a">
+    <h3>node</h3>
+    <pre class="prettyprint">Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a6ea6441affa16d05401440d30c157554">
+    <h3>num_inputs</h3>
+    <pre class="prettyprint">int32 num_inputs() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a314711a8e16149c0ef823e1100a3a136">
+    <h3>num_outputs</h3>
+    <pre class="prettyprint">int32 num_outputs() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a59f85b71ca828099976b3f183a37203f">
+    <h3>operator==</h3>
+    <pre class="prettyprint">bool operator==(
+  const <a href="/versions/r1.10/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> & other
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a3e595ca82b9830a41d5d396b93c8f160">
+    <h3>output</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> output(
+  int32 i
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_operation_1a17c38a7f7d7d899e387d25bcdf967d68">
+    <h3>output_type</h3>
+    <pre class="prettyprint">DataType output_type(
+  int32 o
+) const </pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RandomNormal::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RandomNormal::<wbr/>Attrs</h1>
+  <code>#include &lt;random_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/random-normal.html#classtensorflow_1_1ops_1_1_random_normal">RandomNormal</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1ad302367a057050556c4ed270ad82e430">seed2_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1a682f5af8e6b2b1f37617d3aca6238971">seed_</a> = 0</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1ac097ea8c492d19b5bc842616405ebc33">Seed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/random-normal/attrs.html#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If either <code>seed</code> or <code>seed2</code> are set to be non-zero, the random number generator is seeded by the given seed. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1afd07d55bb44d1dcf637cf192ae54c8ee">Seed2</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/random-normal/attrs.html#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A second seed to avoid seed collision. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1ad302367a057050556c4ed270ad82e430">
+    <h3>seed2_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomNormal::Attrs::seed2_ = 0</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1a682f5af8e6b2b1f37617d3aca6238971">
+    <h3>seed_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::RandomNormal::Attrs::seed_ = 0</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1ac097ea8c492d19b5bc842616405ebc33">
+    <h3>Seed</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/random-normal/attrs.html#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs">Attrs</a> tensorflow::ops::RandomNormal::Attrs::Seed(
+  int64 x
+)</pre>
+    <div>
+      <p>If either <code>seed</code> or <code>seed2</code> are set to be non-zero, the random number generator is seeded by the given seed. </p>
+      <p>Otherwise, it is seeded by a random seed.</p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_random_normal_1_1_attrs_1afd07d55bb44d1dcf637cf192ae54c8ee">
+    <h3>Seed2</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/random-normal/attrs.html#structtensorflow_1_1ops_1_1_random_normal_1_1_attrs">Attrs</a> tensorflow::ops::RandomNormal::Attrs::Seed2(
+  int64 x
+)</pre>
+    <div>
+      <p>A second seed to avoid seed collision. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+</body>
+</html>

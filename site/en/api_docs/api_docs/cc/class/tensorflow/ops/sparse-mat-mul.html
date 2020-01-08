@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseMatMul Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseMatMul</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p><a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/multiply.html#classtensorflow_1_1ops_1_1_multiply">Multiply</a> matrix "a" by matrix "b". </p>
+  <h2>Summary</h2>
+  <p>The inputs must be two-dimensional matrices and the inner dimension of "a" must match the outer dimension of "b". Both "a" and "b" must be <code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>s not <code>SparseTensor</code>s. This op is optimized for the case where at least one of "a" or "b" is sparse, in the sense that they have a large proportion of zero values. The breakeven for using this versus a dense matrix multiply on one platform was 30% zero values in the sparse matrix.</p>
+  <p>The gradient computation of this operation will only take advantage of sparsity in the input gradient when that gradient comes from a <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/relu.html#classtensorflow_1_1ops_1_1_relu">Relu</a>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The product tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a44ec3b9c8a4a6c27ec1e5defa921a8c2">SparseMatMul</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a29e8ca18f70b1f18d2d5931606fa5108">SparseMatMul</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a, ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">SparseMatMul::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a9b708969f18250faa3e40edad285ae45">product</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1ae461c34d275e4d996e21af14b8870531">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a7e6d0d764e73510a120ea967abaf9250">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a3fee7729e51d2b640d654a25a84f0185">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1acaa26e8e9d1e5854dcfef57dcb4efd5b">AIsSparse</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1aaf87a4805b8269233969a514bea852ef">BIsSparse</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1a41b864162f17688227aa34ee4d8021b2">TransposeA</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_mat_mul_1af58949ad4394aa0ba7869e65ba742487">TransposeB</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs">tensorflow::<wbr/>ops::<wbr/>SparseMatMul::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/sparse-mat-mul.html#classtensorflow_1_1ops_1_1_sparse_mat_mul">SparseMatMul</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a9b708969f18250faa3e40edad285ae45">
+    <h3>product</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> product</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a44ec3b9c8a4a6c27ec1e5defa921a8c2">
+    <h3>SparseMatMul</h3>
+    <pre class="prettyprint"> SparseMatMul(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a29e8ca18f70b1f18d2d5931606fa5108">
+    <h3>SparseMatMul</h3>
+    <pre class="prettyprint"> SparseMatMul(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> a,
+  ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> b,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">SparseMatMul::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1ae461c34d275e4d996e21af14b8870531">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a7e6d0d764e73510a120ea967abaf9250">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a3fee7729e51d2b640d654a25a84f0185">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1acaa26e8e9d1e5854dcfef57dcb4efd5b">
+    <h3>AIsSparse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a> AIsSparse(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1aaf87a4805b8269233969a514bea852ef">
+    <h3>BIsSparse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a> BIsSparse(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1a41b864162f17688227aa34ee4d8021b2">
+    <h3>TransposeA</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a> TransposeA(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_mat_mul_1af58949ad4394aa0ba7869e65ba742487">
+    <h3>TransposeB</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/sparse-mat-mul/attrs.html#structtensorflow_1_1ops_1_1_sparse_mat_mul_1_1_attrs">Attrs</a> TransposeB(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

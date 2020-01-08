@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorSummaryV2 Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorSummaryV2</h1>
+  <code>#include &lt;logging_ops.h&gt;</code>
+  <p>Outputs a <code>Summary</code> protocol buffer with a tensor and per-plugin data. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>tag: A string attached to this summary. Used for organization in TensorBoard.</li>
+      <li>tensor: A tensor to serialize.</li>
+      <li>serialized_summary_metadata: A serialized SummaryMetadata proto. Contains plugin data.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The summary tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_v2_1ae4d9f13a8cda5ca768e26fb2b2fe3011">TensorSummaryV2</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized_summary_metadata)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_v2_1a6b792c9f3c6063da8097cba5f7def05b">summary</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_v2_1ad09282ad83638be513d856c7a3925c60">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_v2_1a4944187c981147ce4d8924b2165a4b94">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_summary_v2_1aaba8ff081daeab0e94d5a321f5c95522">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_summary_v2_1a6b792c9f3c6063da8097cba5f7def05b">
+    <h3>summary</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> summary</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_summary_v2_1ae4d9f13a8cda5ca768e26fb2b2fe3011">
+    <h3>TensorSummaryV2</h3>
+    <pre class="prettyprint"> TensorSummaryV2(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tag,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> serialized_summary_metadata
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_summary_v2_1ad09282ad83638be513d856c7a3925c60">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_summary_v2_1a4944187c981147ce4d8924b2165a4b94">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_summary_v2_1aaba8ff081daeab0e94d5a321f5c95522">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

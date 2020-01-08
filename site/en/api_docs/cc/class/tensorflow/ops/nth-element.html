@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::NthElement Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>NthElement</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Finds values of the <code>n</code>-th order statistic for the last dimension. </p>
+  <h2>Summary</h2>
+  <p>If the input is a vector (rank-1), finds the entries which is the nth-smallest value in the vector and outputs their values as scalar tensor.</p>
+  <p>For matrices (resp. higher rank input), computes the entries which is the nth-smallest value in each row (resp. vector along the last dimension). Thus, <pre class="prettyprint">values.shape = input.shape[:-1]
+</pre></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 1-D or higher with last dimension at least <code>n+1</code>.</li>
+      <li>n: 0-D. Position of sorted vector to select along the last dimension (along each row for matrices). Valid range of n is <code>[0, input.shape[:-1])</code></li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs.html#structtensorflow_1_1ops_1_1_nth_element_1_1_attrs">Attrs</a></code>):<ul>
+      <li>reverse: When set to True, find the nth-largest value in the vector and vice versa.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The <code>n</code>-th order statistic along each last dimensional slice. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1ad57d32106099de0a7c5cd0e118f56250">NthElement</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1a2c84dbdc0bb358d13e010718142e8462">NthElement</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs.html#structtensorflow_1_1ops_1_1_nth_element_1_1_attrs">NthElement::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1a2b48d7270f25613807700819eff1cb49">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1a3f9b0440c04a7d951228451e291f008b">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1a9c60d391af60a8d7c268aacbf8a7093b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1ab7ba43882ec3623ce6d7c9bd9e2b47ba">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_nth_element_1ad86f92398afd7420e3f6db7643954291">Reverse</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs.html#structtensorflow_1_1ops_1_1_nth_element_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs">tensorflow::<wbr/>ops::<wbr/>NthElement::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/nth-element.html#classtensorflow_1_1ops_1_1_nth_element">NthElement</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1a2b48d7270f25613807700819eff1cb49">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1ad57d32106099de0a7c5cd0e118f56250">
+    <h3>NthElement</h3>
+    <pre class="prettyprint"> NthElement(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1a2c84dbdc0bb358d13e010718142e8462">
+    <h3>NthElement</h3>
+    <pre class="prettyprint"> NthElement(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> n,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs.html#structtensorflow_1_1ops_1_1_nth_element_1_1_attrs">NthElement::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1a3f9b0440c04a7d951228451e291f008b">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1a9c60d391af60a8d7c268aacbf8a7093b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1ab7ba43882ec3623ce6d7c9bd9e2b47ba">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_nth_element_1ad86f92398afd7420e3f6db7643954291">
+    <h3>Reverse</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/nth-element/attrs.html#structtensorflow_1_1ops_1_1_nth_element_1_1_attrs">Attrs</a> Reverse(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

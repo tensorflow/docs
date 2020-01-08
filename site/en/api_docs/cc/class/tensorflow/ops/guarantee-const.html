@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::GuaranteeConst Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>GuaranteeConst</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Gives a guarantee to the TF runtime that the input tensor is a constant. </p>
+  <h2>Summary</h2>
+  <p>The runtime is then free to make optimizations based on this.</p>
+  <p>Only accepts value typed tensors as inputs and rejects resource variable handles as input.</p>
+  <p>Returns the input tensor without modification.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_guarantee_const_1aecb7186521992db83d5ca625a67922db">GuaranteeConst</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_guarantee_const_1a27746912bbdc11f993cfa01346811693">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_guarantee_const_1acc70f6644738d60162d522b63d03022a">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_guarantee_const_1a5293cfbc228fadedc0e21bc36385d263">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_guarantee_const_1a72efaf63dbaa36a174de160a775dc517">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_guarantee_const_1a27746912bbdc11f993cfa01346811693">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_guarantee_const_1aecb7186521992db83d5ca625a67922db">
+    <h3>GuaranteeConst</h3>
+    <pre class="prettyprint"> GuaranteeConst(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_guarantee_const_1acc70f6644738d60162d522b63d03022a">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_guarantee_const_1a5293cfbc228fadedc0e21bc36385d263">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_guarantee_const_1a72efaf63dbaa36a174de160a775dc517">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

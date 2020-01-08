@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::RecordInput Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>RecordInput</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Emits randomized records. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>file_pattern: Glob pattern for the data files.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>):<ul>
+      <li>file_random_seed: Random seeds used to produce randomized records.</li>
+      <li>file_shuffle_shift_ratio: Shifts the list of files after the list is randomly shuffled.</li>
+      <li>file_buffer_size: The randomization shuffling buffer.</li>
+      <li>file_parallelism: How many sstables are opened and concurrently iterated over.</li>
+      <li>batch_size: The batch size.</li>
+      <li>compression_type: The type of compression for the file. Currently ZLIB and GZIP are supported. Defaults to none.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A tensor of shape [batch_size]. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a26e51531e5c0542bd24f55dba61221ae">RecordInput</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, StringPiece file_pattern)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1ae26a3c80b78f1c3123122b57250d2e1c">RecordInput</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, StringPiece file_pattern, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">RecordInput::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a95bec6ed7fc088ae5e33dce3df3e10c9">records</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1ab90acc0d521544c16095592c023a0bd6">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a8c3725ea7466c860d0094502f83c3758">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a81dea1e6e25486fcc6c8eabd37f4160d">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a24754dad89c4e9c994ecbb5eefc394e9">BatchSize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a37f4ac12cc85c0f43e79b1873b283306">CompressionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a967b712c3342641c3b5cd4238d9dd123">FileBufferSize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a0bc86f167dbe3e24d0e72f5ea3126a84">FileParallelism</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1a7e8b28adca52696f37fc119b4c5f27e0">FileRandomSeed</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_record_input_1abf3d0890e42b0646036a3c3b0224708f">FileShuffleShiftRatio</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs">tensorflow::<wbr/>ops::<wbr/>RecordInput::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/record-input.html#classtensorflow_1_1ops_1_1_record_input">RecordInput</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a95bec6ed7fc088ae5e33dce3df3e10c9">
+    <h3>records</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> records</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a26e51531e5c0542bd24f55dba61221ae">
+    <h3>RecordInput</h3>
+    <pre class="prettyprint"> RecordInput(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  StringPiece file_pattern
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1ae26a3c80b78f1c3123122b57250d2e1c">
+    <h3>RecordInput</h3>
+    <pre class="prettyprint"> RecordInput(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  StringPiece file_pattern,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">RecordInput::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1ab90acc0d521544c16095592c023a0bd6">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a8c3725ea7466c860d0094502f83c3758">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a81dea1e6e25486fcc6c8eabd37f4160d">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a24754dad89c4e9c994ecbb5eefc394e9">
+    <h3>BatchSize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> BatchSize(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a37f4ac12cc85c0f43e79b1873b283306">
+    <h3>CompressionType</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> CompressionType(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a967b712c3342641c3b5cd4238d9dd123">
+    <h3>FileBufferSize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> FileBufferSize(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a0bc86f167dbe3e24d0e72f5ea3126a84">
+    <h3>FileParallelism</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> FileParallelism(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1a7e8b28adca52696f37fc119b4c5f27e0">
+    <h3>FileRandomSeed</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> FileRandomSeed(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_record_input_1abf3d0890e42b0646036a3c3b0224708f">
+    <h3>FileShuffleShiftRatio</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/record-input/attrs.html#structtensorflow_1_1ops_1_1_record_input_1_1_attrs">Attrs</a> FileShuffleShiftRatio(
+  float x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MapSize Class Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MapSize</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Op returns the number of elements in the underlying container. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The size tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1a88c2287aaee2e54989feddca67500907">MapSize</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & dtypes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1a7d40c8041f9cadd36547b38cdb7313ca">MapSize</a>(const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & dtypes, const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">MapSize::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1afc34434fd421088c3eb7b8754b304c5f">size</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1ae0c7743d3c1cbe50d90a4239a6ce5077">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1aa41a8023725a6e3d947547c942d10c1e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1afd6f90785b9762747d138cc89ebd0f35">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1a804c4c9e337506ac76e8fdad08a65570">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1a51283875596704ed9da7e5dde786af03">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1abbd8538c054507746a46afea57d51339">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_map_size_1ae32734e03b927164ba648e7844c73f1c">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs">tensorflow::<wbr/>ops::<wbr/>MapSize::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/map-size.html#classtensorflow_1_1ops_1_1_map_size">MapSize</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1afc34434fd421088c3eb7b8754b304c5f">
+    <h3>size</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> size</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1a88c2287aaee2e54989feddca67500907">
+    <h3>MapSize</h3>
+    <pre class="prettyprint"> MapSize(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & dtypes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1a7d40c8041f9cadd36547b38cdb7313ca">
+    <h3>MapSize</h3>
+    <pre class="prettyprint"> MapSize(
+  const ::<a href="/versions/r1.10/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & dtypes,
+  const <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">MapSize::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1ae0c7743d3c1cbe50d90a4239a6ce5077">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1aa41a8023725a6e3d947547c942d10c1e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1afd6f90785b9762747d138cc89ebd0f35">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1a804c4c9e337506ac76e8fdad08a65570">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1a51283875596704ed9da7e5dde786af03">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1abbd8538c054507746a46afea57d51339">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a> MemoryLimit(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_map_size_1ae32734e03b927164ba648e7844c73f1c">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/map-size/attrs.html#structtensorflow_1_1ops_1_1_map_size_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

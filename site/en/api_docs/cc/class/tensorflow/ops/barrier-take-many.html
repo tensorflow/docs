@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BarrierTakeMany Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BarrierTakeMany</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Takes the given number of completed elements from a barrier. </p>
+  <h2>Summary</h2>
+  <p>This operation concatenates completed-element component tensors along the 0th dimension to make a single component tensor.</p>
+  <p>Elements come out of the barrier when they are complete, and in the order in which they were placed into the barrier. The indices output provides information about the batch in which each element was originally inserted into the barrier.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to a barrier.</li>
+      <li>num_elements: A single-element tensor containing the number of elements to take.</li>
+      <li>component_types: The type of each component in a value.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>):<ul>
+      <li>allow_small_batch: Allow to return less than num_elements items if barrier is already closed.</li>
+      <li>timeout_ms: If the queue is empty, this operation will block for up to timeout_ms milliseconds. Note: This option is not supported yet.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices: A one-dimensional tensor of indices, with length num_elems. These indices refer to the batch in which the values were placed into the barrier (starting with MIN_LONG and increasing with each <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/barrier-insert-many.html#classtensorflow_1_1ops_1_1_barrier_insert_many">BarrierInsertMany</a>).</li>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> keys: A one-dimensional tensor of keys, with length num_elements.</li>
+      <li><code>OutputList</code> values: One any-dimensional tensor per component in a barrier element. <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> values have length num_elements in the 0th dimension. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a7079c660a8be7b93534d6b9342549375">BarrierTakeMany</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_elements, const DataTypeSlice & component_types)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a0bbc5e5e2af22792ad5bd4a246591fc4">BarrierTakeMany</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_elements, const DataTypeSlice & component_types, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">BarrierTakeMany::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a43e71cac399402222c6beab7c297d2ff">indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1aac3b84f41d8da26a1b15f6c3f8294a34">keys</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a55d011199c39e515002a93b15e1358a9">values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a58a8882a1c18ccb037a4e5876d16abde">AllowSmallBatch</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a31d75880ce856ac91e2eff9c8938ea12">TimeoutMs</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_barrier_take_many_1a7e1cffc4f5b0b94d3892d02b7843e02d">WaitForIncomplete</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs">tensorflow::<wbr/>ops::<wbr/>BarrierTakeMany::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/barrier-take-many.html#classtensorflow_1_1ops_1_1_barrier_take_many">BarrierTakeMany</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a43e71cac399402222c6beab7c297d2ff">
+    <h3>indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1aac3b84f41d8da26a1b15f6c3f8294a34">
+    <h3>keys</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> keys</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a55d011199c39e515002a93b15e1358a9">
+    <h3>values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> values</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a7079c660a8be7b93534d6b9342549375">
+    <h3>BarrierTakeMany</h3>
+    <pre class="prettyprint"> BarrierTakeMany(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_elements,
+  const DataTypeSlice & component_types
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a0bbc5e5e2af22792ad5bd4a246591fc4">
+    <h3>BarrierTakeMany</h3>
+    <pre class="prettyprint"> BarrierTakeMany(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_elements,
+  const DataTypeSlice & component_types,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">BarrierTakeMany::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a58a8882a1c18ccb037a4e5876d16abde">
+    <h3>AllowSmallBatch</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> AllowSmallBatch(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a31d75880ce856ac91e2eff9c8938ea12">
+    <h3>TimeoutMs</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> TimeoutMs(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_barrier_take_many_1a7e1cffc4f5b0b94d3892d02b7843e02d">
+    <h3>WaitForIncomplete</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/barrier-take-many/attrs.html#structtensorflow_1_1ops_1_1_barrier_take_many_1_1_attrs">Attrs</a> WaitForIncomplete(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

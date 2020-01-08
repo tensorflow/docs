@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Variable::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Variable::<wbr/>Attrs</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_variable_1_1_attrs_1a6e4b22d4fd5ffc4577ae074f5e8326fd">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_variable_1_1_attrs_1ad319f0780ed16ffc06c0b37dde1d48c9">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_variable_1_1_attrs_1a03383bc7015aaa7a15753a1efd13f261">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/variable/attrs.html#structtensorflow_1_1ops_1_1_variable_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this variable is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_variable_1_1_attrs_1aa39e5eb0fe345d5dbf228ead0475f83b">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/variable/attrs.html#structtensorflow_1_1ops_1_1_variable_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this variable is named in the given bucket with this shared_name. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_variable_1_1_attrs_1a6e4b22d4fd5ffc4577ae074f5e8326fd">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Variable::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_variable_1_1_attrs_1ad319f0780ed16ffc06c0b37dde1d48c9">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Variable::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_variable_1_1_attrs_1a03383bc7015aaa7a15753a1efd13f261">
+    <h3>Container</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/variable/attrs.html#structtensorflow_1_1ops_1_1_variable_1_1_attrs">Attrs</a> tensorflow::ops::Variable::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this variable is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_variable_1_1_attrs_1aa39e5eb0fe345d5dbf228ead0475f83b">
+    <h3>SharedName</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/variable/attrs.html#structtensorflow_1_1ops_1_1_variable_1_1_attrs">Attrs</a> tensorflow::ops::Variable::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this variable is named in the given bucket with this shared_name. </p>
+      <p>Otherwise, the node name is used instead.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

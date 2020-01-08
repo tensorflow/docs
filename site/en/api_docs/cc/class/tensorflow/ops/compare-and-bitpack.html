@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::CompareAndBitpack Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>CompareAndBitpack</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Compare values of <code>input</code> to <code>threshold</code> and pack resulting bits into a <code>uint8</code>. </p>
+  <h2>Summary</h2>
+  <p>Each comparison returns a boolean <code>true</code> (if <code>input_value > threshold</code>) or and <code>false</code> otherwise.</p>
+  <p>This operation is useful for Locality-Sensitive-Hashing (LSH) and other algorithms that use hashing approximations of cosine and <code>L2</code> distances; codes can be generated from an input via:</p>
+  <p>
+    <pre class="prettyprint">
+codebook_size = 50
+codebook_bits = codebook_size * 32
+codebook = tf.get_variable('codebook', [x.shape[-1].value, codebook_bits],
+                           dtype=x.dtype,
+                           initializer=tf.orthogonal_initializer())
+codes = compare_and_threshold(tf.matmul(x, codebook), threshold=0.)
+codes = tf.bitcast(codes, tf.int32)  &#35; go from uint8 to int32
+&#35; now codes has shape x.shape[:-1] + [codebook_size]
+</pre>
+  </p>
+  <p><b>NOTE</b>: Currently, the innermost dimension of the tensor must be divisible by 8.</p>
+  <p>Given an <code>input</code> shaped <code>[s0, s1, ..., s_n]</code>, the output is a <code>uint8</code> tensor shaped <code>[s0, s1, ..., s_n / 8]</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: Values to compare against <code>threshold</code> and bitpack.</li>
+      <li>threshold: Threshold to compare against.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The bitpacked comparisons. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_compare_and_bitpack_1aa00f05feb63c6001dbeb274f30d67977">CompareAndBitpack</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> threshold)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_compare_and_bitpack_1a52739fa1033fe1e93ee013270d8adb3c">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_compare_and_bitpack_1af6f8f9c40e4b60d75a6a6eb9d0c39ae8">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_compare_and_bitpack_1a107c8a31460e12f5d2c4892c9e3c6c1e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_compare_and_bitpack_1ade9a5b902ca0f3af8969b0157da966de">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_compare_and_bitpack_1a52739fa1033fe1e93ee013270d8adb3c">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_compare_and_bitpack_1aa00f05feb63c6001dbeb274f30d67977">
+    <h3>CompareAndBitpack</h3>
+    <pre class="prettyprint"> CompareAndBitpack(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> threshold
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_compare_and_bitpack_1af6f8f9c40e4b60d75a6a6eb9d0c39ae8">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_compare_and_bitpack_1a107c8a31460e12f5d2c4892c9e3c6c1e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_compare_and_bitpack_1ade9a5b902ca0f3af8969b0157da966de">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

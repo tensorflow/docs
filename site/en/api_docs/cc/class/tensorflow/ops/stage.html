@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Stage Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Stage</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p><a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a> values similar to a lightweight Enqueue. </p>
+  <h2>Summary</h2>
+  <p>The basic functionality of this Op is similar to a queue with many fewer capabilities and options. This Op is optimized for performance.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>values: a list of tensors dtypes A list of data types that inserted values should adhere to.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>):<ul>
+      <li>capacity: <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. If > 0, inserts on the container will block when the capacity is reached.</li>
+      <li>memory_limit: The maximum number of bytes allowed for Tensors in the Staging Area. If > 0, inserts will block until sufficient space is available.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: It is necessary to match this name to the matching <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1a2e6dddeaa815c5474e05e750d6e386bd">Stage</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1a15dff0cc88976331c3c77a3cca8f8ac5">Stage</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Stage::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1a9b9eb57d3e297f80b61856f1b299118d">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1ab21fa3ef760d64ed97217cb2121990c0">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1ac904517f73b2d8d7319ae4283f32b803">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1ad5b1a9624677491e271d10594f568223">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1af4e300d7df49830d41d0eba7b35d1ccd">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_stage_1a5a7ee7353ea1bc8416645b9e9568ce68">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs">tensorflow::<wbr/>ops::<wbr/>Stage::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_stage_1a9b9eb57d3e297f80b61856f1b299118d">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_stage_1a2e6dddeaa815c5474e05e750d6e386bd">
+    <h3>Stage</h3>
+    <pre class="prettyprint"> Stage(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_stage_1a15dff0cc88976331c3c77a3cca8f8ac5">
+    <h3>Stage</h3>
+    <pre class="prettyprint"> Stage(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Stage::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_stage_1ab21fa3ef760d64ed97217cb2121990c0">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_stage_1ac904517f73b2d8d7319ae4283f32b803">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_stage_1ad5b1a9624677491e271d10594f568223">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_stage_1af4e300d7df49830d41d0eba7b35d1ccd">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> MemoryLimit(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_stage_1a5a7ee7353ea1bc8416645b9e9568ce68">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/stage/attrs.html#structtensorflow_1_1ops_1_1_stage_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

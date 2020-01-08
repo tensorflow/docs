@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::PriorityQueue Class Reference</title>
+  <meta name="project_path" value="/versions/r1.11/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.11/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>PriorityQueue</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A queue that produces elements sorted by the first component value. </p>
+  <h2>Summary</h2>
+  <p>Note that the <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/priority-queue.html#classtensorflow_1_1ops_1_1_priority_queue">PriorityQueue</a> requires the first component of any element to be a scalar int64, in addition to the other elements declared by component_types. Therefore calls to Enqueue and EnqueueMany (resp. Dequeue and DequeueMany) on a <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/priority-queue.html#classtensorflow_1_1ops_1_1_priority_queue">PriorityQueue</a> will all require (resp. output) one extra entry in their input (resp. output) lists.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shapes: The shape of each component in a value. The length of this attr must be either 0 or the same as the length of component_types. If the length of this attr is 0, the shapes of queue elements are not constrained, and only one element may be dequeued at a time.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a></code>):<ul>
+      <li>component_types: The type of each component in a value.</li>
+      <li>capacity: The upper bound on the number of elements in this queue. Negative numbers mean no limit.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this queue will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the queue. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a48d6f04225414471ca632c2c2f7fa61f">PriorityQueue</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const gtl::ArraySlice< PartialTensorShape > & shapes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a077fbbd3ddd4d6bfcc097cd3cc1b6707">PriorityQueue</a>(const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const gtl::ArraySlice< PartialTensorShape > & shapes, const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">PriorityQueue::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a7c9339da7e19f49ed3ba718fa3abbc03">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a1106c32e99fdb703d51f0ec5bc64bb14">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a7370046bb9ab89339a4cf36af96a2587">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a208f5da928335dc25e8cf5305a5de879">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a309e1701f67df0908bd467ef311b9a89">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a4bf430a0014584ae607d39e9baf2bec2">ComponentTypes</a>(const DataTypeSlice & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1aed5d6a8c02b6008dbc0bbd5244966901">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_priority_queue_1a27e53635a6e2a4732caef1194ed237b8">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs">tensorflow::<wbr/>ops::<wbr/>PriorityQueue::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.11/api_docs/cc/class/tensorflow/ops/priority-queue.html#classtensorflow_1_1ops_1_1_priority_queue">PriorityQueue</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a7c9339da7e19f49ed3ba718fa3abbc03">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a48d6f04225414471ca632c2c2f7fa61f">
+    <h3>PriorityQueue</h3>
+    <pre class="prettyprint"> PriorityQueue(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const gtl::ArraySlice< PartialTensorShape > & shapes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a077fbbd3ddd4d6bfcc097cd3cc1b6707">
+    <h3>PriorityQueue</h3>
+    <pre class="prettyprint"> PriorityQueue(
+  const ::<a href="/versions/r1.11/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const gtl::ArraySlice< PartialTensorShape > & shapes,
+  const <a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">PriorityQueue::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a1106c32e99fdb703d51f0ec5bc64bb14">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a7370046bb9ab89339a4cf36af96a2587">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a208f5da928335dc25e8cf5305a5de879">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a309e1701f67df0908bd467ef311b9a89">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a4bf430a0014584ae607d39e9baf2bec2">
+    <h3>ComponentTypes</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a> ComponentTypes(
+  const DataTypeSlice & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1aed5d6a8c02b6008dbc0bbd5244966901">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_priority_queue_1a27e53635a6e2a4732caef1194ed237b8">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.11/api_docs/cc/struct/tensorflow/ops/priority-queue/attrs.html#structtensorflow_1_1ops_1_1_priority_queue_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
