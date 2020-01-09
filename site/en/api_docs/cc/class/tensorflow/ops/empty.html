@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Empty Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Empty</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Creates a tensor with the given shape. </p>
+  <h2>Summary</h2>
+  <p>This operation creates a tensor of <code>shape</code> and <code>dtype</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: 1-D. Represents the shape of the output tensor.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs.html#structtensorflow_1_1ops_1_1_empty_1_1_attrs">Attrs</a></code>):<ul>
+      <li>init: If True, initialize the returned tensor with the default value of dtype. Otherwise, the implementation is free not to initializethe tensor's content.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>T</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1afbeeb90876baaa5131ccd9ae1a733689">Empty</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1a17ea31d51cede367a541675480d77a3f">Empty</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, DataType dtype, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs.html#structtensorflow_1_1ops_1_1_empty_1_1_attrs">Empty::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1ae377e8630513546e65d719d56ecfe136">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1a9c7d05401a0aa67f82fe592682f0bc15">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1a4fdbda6ce5b2f476acc70ada9df3eaa2">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1ac54e9b4ae90bf596166c770dc6d22ce5">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1a9ae3f6fbe95cde1fcec65896b5397511">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_empty_1ac0b3b4819671ba0dd14c7ca6c1bacae4">Init</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs.html#structtensorflow_1_1ops_1_1_empty_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs">tensorflow::<wbr/>ops::<wbr/>Empty::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_empty_1ae377e8630513546e65d719d56ecfe136">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_empty_1a9c7d05401a0aa67f82fe592682f0bc15">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_empty_1afbeeb90876baaa5131ccd9ae1a733689">
+    <h3>Empty</h3>
+    <pre class="prettyprint"> Empty(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_empty_1a17ea31d51cede367a541675480d77a3f">
+    <h3>Empty</h3>
+    <pre class="prettyprint"> Empty(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  DataType dtype,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs.html#structtensorflow_1_1ops_1_1_empty_1_1_attrs">Empty::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_empty_1a4fdbda6ce5b2f476acc70ada9df3eaa2">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_empty_1ac54e9b4ae90bf596166c770dc6d22ce5">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_empty_1a9ae3f6fbe95cde1fcec65896b5397511">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_empty_1ac0b3b4819671ba0dd14c7ca6c1bacae4">
+    <h3>Init</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/empty/attrs.html#structtensorflow_1_1ops_1_1_empty_1_1_attrs">Attrs</a> Init(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

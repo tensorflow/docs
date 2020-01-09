@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::IdentityReader Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>IdentityReader</h1>
+  <code>#include &lt;io_ops.h&gt;</code>
+  <p>A Reader that outputs the queued work as both the key and value. </p>
+  <h2>Summary</h2>
+  <p>To use, enqueue strings in a Queue. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/reader-read.html#classtensorflow_1_1ops_1_1_reader_read">ReaderRead</a> will take the front work string and output (work, work).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">Attrs</a></code>):<ul>
+      <li>container: If non-empty, this reader is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this reader is named in the given bucket with this shared_name. Otherwise, the node name is used instead.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to reference the Reader. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1a8377a1278a34db6e77c425ff2e9e7ff3">IdentityReader</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1af33f0b851d794d0ec80d99c58487d2c2">IdentityReader</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">IdentityReader::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1a7ec93f43074ad744acc98e1d1a733114">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1a99941351a078c0603e987274e036aaec">reader_handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1aaca21556a5e7953519c4f3bb2e8e586d">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1a040ff71a57aa70dc1302a1a02ca4642f">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1aa542e40b49ddb2813861d60aad258ed7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1a0143cf6ae20b8eb585dc75f7ca9e1b65">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_identity_reader_1acc58b573c228deef23d4680b1c5fb452">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs">tensorflow::<wbr/>ops::<wbr/>IdentityReader::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/identity-reader.html#classtensorflow_1_1ops_1_1_identity_reader">IdentityReader</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1a7ec93f43074ad744acc98e1d1a733114">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1a99941351a078c0603e987274e036aaec">
+    <h3>reader_handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reader_handle</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1a8377a1278a34db6e77c425ff2e9e7ff3">
+    <h3>IdentityReader</h3>
+    <pre class="prettyprint"> IdentityReader(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1af33f0b851d794d0ec80d99c58487d2c2">
+    <h3>IdentityReader</h3>
+    <pre class="prettyprint"> IdentityReader(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">IdentityReader::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1aaca21556a5e7953519c4f3bb2e8e586d">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1a040ff71a57aa70dc1302a1a02ca4642f">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1aa542e40b49ddb2813861d60aad258ed7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1a0143cf6ae20b8eb585dc75f7ca9e1b65">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_identity_reader_1acc58b573c228deef23d4680b1c5fb452">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/identity-reader/attrs.html#structtensorflow_1_1ops_1_1_identity_reader_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

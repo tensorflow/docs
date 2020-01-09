@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Conv2DBackpropInput::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Conv2DBackpropInput::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/conv2-d-backprop-input.html#classtensorflow_1_1ops_1_1_conv2_d_backprop_input">Conv2DBackpropInput</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a0c1c7f7d2cbf215df9dc979b0fc2f1b2">data_format_</a> = "NHWC"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1ae1d90c85a264053bf6ace3e7c8998ee3">dilations_</a> = Default_dilations()</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a56d59dc45e96f03d6289660936e4f78a">explicit_paddings_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1aeda7580c5db6f5c41aa8c2e447e5cc66">use_cudnn_on_gpu_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a6c39cb6a5daf9fab2fe4861667e94c8c">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Specify the data format of the input and output data. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a46e0bc68887b3aa0ab727f45de1e2a1b">Dilations</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>1-D tensor of length 4. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a4b187401b5a1bd9344fb0e8a9b7a2363">ExplicitPaddings</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>padding</code> is <code>"EXPLICIT"</code>, the list of explicit padding amounts. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a7aff147907d16ee4db66d8e6a6782cf0">UseCudnnOnGpu</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to true. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a0c1c7f7d2cbf215df9dc979b0fc2f1b2">
+    <h3>data_format_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Conv2DBackpropInput::Attrs::data_format_ = "NHWC"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1ae1d90c85a264053bf6ace3e7c8998ee3">
+    <h3>dilations_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::Conv2DBackpropInput::Attrs::dilations_ = Default_dilations()</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a56d59dc45e96f03d6289660936e4f78a">
+    <h3>explicit_paddings_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::Conv2DBackpropInput::Attrs::explicit_paddings_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1aeda7580c5db6f5c41aa8c2e447e5cc66">
+    <h3>use_cudnn_on_gpu_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::Conv2DBackpropInput::Attrs::use_cudnn_on_gpu_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a6c39cb6a5daf9fab2fe4861667e94c8c">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::Conv2DBackpropInput::Attrs::DataFormat(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Specify the data format of the input and output data. </p>
+      <p>With the default format "NHWC", the data is stored in the order of: [batch, in_height, in_width, in_channels]. Alternatively, the format could be "NCHW", the data storage order of: [batch, in_channels, in_height, in_width].</p>
+      <p>Defaults to "NHWC" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a46e0bc68887b3aa0ab727f45de1e2a1b">
+    <h3>Dilations</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::Conv2DBackpropInput::Attrs::Dilations(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>1-D tensor of length 4. </p>
+      <p>The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</p>
+      <p>Defaults to [1, 1, 1, 1] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a4b187401b5a1bd9344fb0e8a9b7a2363">
+    <h3>ExplicitPaddings</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::Conv2DBackpropInput::Attrs::ExplicitPaddings(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>If <code>padding</code> is <code>"EXPLICIT"</code>, the list of explicit padding amounts. </p>
+      <p>For the ith dimension, the amount of padding inserted before and after the dimension is <code>explicit_paddings[2 * i]</code> and <code>explicit_paddings[2 * i + 1]</code>, respectively. If <code>padding</code> is not <code>"EXPLICIT"</code>, <code>explicit_paddings</code> must be empty.</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs_1a7aff147907d16ee4db66d8e6a6782cf0">
+    <h3>UseCudnnOnGpu</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d-backprop-input/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_backprop_input_1_1_attrs">Attrs</a> tensorflow::ops::Conv2DBackpropInput::Attrs::UseCudnnOnGpu(
+  bool x
+)</pre>
+    <div>
+      <p>Defaults to true. </p>
+    </div>
+  </div>
+</body>
+</html>

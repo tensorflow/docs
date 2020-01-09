@@ -1,0 +1,40 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# Module: tf.keras.preprocessing.sequence
+
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/sequence">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Utilities for preprocessing sequence data.
+
+### Aliases:
+
+* Module <a href="/api_docs/python/tf/keras/preprocessing/sequence"><code>tf.compat.v1.keras.preprocessing.sequence</code></a>
+
+
+<!-- Placeholder for "Used in" -->
+
+
+## Classes
+
+[`class TimeseriesGenerator`](../../../tf/keras/preprocessing/sequence/TimeseriesGenerator): Utility class for generating batches of temporal data.
+
+## Functions
+
+[`make_sampling_table(...)`](../../../tf/keras/preprocessing/sequence/make_sampling_table): Generates a word rank-based probabilistic sampling table.
+
+[`pad_sequences(...)`](../../../tf/keras/preprocessing/sequence/pad_sequences): Pads sequences to the same length.
+
+[`skipgrams(...)`](../../../tf/keras/preprocessing/sequence/skipgrams): Generates skipgram word pairs.

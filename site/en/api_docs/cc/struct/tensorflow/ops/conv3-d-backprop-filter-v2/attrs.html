@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Conv3DBackpropFilterV2::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropFilterV2::<wbr/>Attrs</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/conv3-d-backprop-filter-v2.html#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2">Conv3DBackpropFilterV2</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a817dee48e17a4d1656b1a3c6d10fc831">data_format_</a> = "NDHWC"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a55235480274b8bbb9f6e13e64fdffa89">dilations_</a> = Default_dilations()</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1ac7eafac498c8a737a5cb7a59079ee399">DataFormat</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The data format of the input and output data. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a5a096dd5562a09fc023c1b5f16a0a696">Dilations</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>1-D tensor of length 5. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a817dee48e17a4d1656b1a3c6d10fc831">
+    <h3>data_format_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::Conv3DBackpropFilterV2::Attrs::data_format_ = "NDHWC"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a55235480274b8bbb9f6e13e64fdffa89">
+    <h3>dilations_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::Conv3DBackpropFilterV2::Attrs::dilations_ = Default_dilations()</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1ac7eafac498c8a737a5cb7a59079ee399">
+    <h3>DataFormat</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> tensorflow::ops::Conv3DBackpropFilterV2::Attrs::DataFormat(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The data format of the input and output data. </p>
+      <p>With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</p>
+      <p>Defaults to "NDHWC" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs_1a5a096dd5562a09fc023c1b5f16a0a696">
+    <h3>Dilations</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> tensorflow::ops::Conv3DBackpropFilterV2::Attrs::Dilations(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>1-D tensor of length 5. </p>
+      <p>The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</p>
+      <p>Defaults to [1, 1, 1, 1, 1] </p>
+    </div>
+  </div>
+</body>
+</html>

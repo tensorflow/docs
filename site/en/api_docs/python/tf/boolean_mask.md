@@ -1,0 +1,100 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.boolean_mask
+
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/boolean_mask">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1423-L1507">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Apply boolean mask to tensor.
+
+### Aliases:
+
+* <a href="/api_docs/python/tf/boolean_mask"><code>tf.compat.v1.boolean_mask</code></a>
+
+
+``` python
+tf.boolean_mask(
+    tensor,
+    mask,
+    name='boolean_mask',
+    axis=None
+)
+```
+
+
+
+<!-- Placeholder for "Used in" -->
+
+Numpy equivalent is `tensor[mask]`.
+
+```python
+# 1-D example
+tensor = [0, 1, 2, 3]
+mask = np.array([True, False, True, False])
+boolean_mask(tensor, mask)  # [0, 2]
+```
+
+In general, `0 < dim(mask) = K <= dim(tensor)`, and `mask`'s shape must match
+the first K dimensions of `tensor`'s shape.  We then have:
+  `boolean_mask(tensor, mask)[i, j1,...,jd] = tensor[i1,...,iK,j1,...,jd]`
+where `(i1,...,iK)` is the ith `True` entry of `mask` (row-major order).
+The `axis` could be used with `mask` to indicate the axis to mask from.
+In that case, `axis + dim(mask) <= dim(tensor)` and `mask`'s shape must match
+the first `axis + dim(mask)` dimensions of `tensor`'s shape.
+
+See also: <a href="../tf/ragged/boolean_mask"><code>tf.ragged.boolean_mask</code></a>, which can be applied to both dense and
+ragged tensors, and can be used if you need to preserve the masked dimensions
+of `tensor` (rather than flattening them, as <a href="../tf/boolean_mask"><code>tf.boolean_mask</code></a> does).
+
+#### Args:
+
+
+* <b>`tensor`</b>:  N-D tensor.
+* <b>`mask`</b>:  K-D boolean tensor, K <= N and K must be known statically.
+* <b>`name`</b>:  A name for this operation (optional).
+* <b>`axis`</b>:  A 0-D int Tensor representing the axis in `tensor` to mask from. By
+  default, axis is 0 which will mask from the first dimension. Otherwise K +
+  axis <= N.
+
+
+#### Returns:
+
+(N-K+1)-dimensional tensor populated by entries in `tensor` corresponding
+to `True` values in `mask`.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>:  If shapes do not conform.
+
+
+#### Examples:
+
+
+
+```python
+# 2-D example
+tensor = [[1, 2], [3, 4], [5, 6]]
+mask = np.array([True, False, True])
+boolean_mask(tensor, mask)  # [[1, 2], [5, 6]]
+```

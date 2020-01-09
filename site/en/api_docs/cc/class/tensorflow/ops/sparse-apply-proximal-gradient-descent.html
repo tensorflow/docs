@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseApplyProximalGradientDescent Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseApplyProximalGradientDescent</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Sparse update '*var' as FOBOS algorithm with fixed learning rate. </p>
+  <h2>Summary</h2>
+  <p>That is for rows we have grad for, we update var as follows: $$prox_v = var - alpha * grad$$ $$var = sign(prox_v)/(1+alpha*l2) * max{|prox_v|-alpha*l1,0}$$</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>var: Should be from a Variable().</li>
+      <li>alpha: Scaling factor. Must be a scalar.</li>
+      <li>l1: L1 regularization. Must be a scalar.</li>
+      <li>l2: L2 regularization. Must be a scalar.</li>
+      <li>grad: The gradient.</li>
+      <li>indices: A vector of indices into the first dimension of var and accum.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If True, the subtraction will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a372f39ab528e739f2009829f8209517b">SparseApplyProximalGradientDescent</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l1, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l2, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a8ba255097ba97fd395eb2528cf675341">SparseApplyProximalGradientDescent</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l1, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l2, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1_1_attrs">SparseApplyProximalGradientDescent::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a8787a4b4f05f63e721e95dc8c8ae25e6">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a0f7e7354d7d857df6ba06081c84b4f97">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a479c0fc042fbe24ce695f756d8254d0b">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a94b9654761c297155f6b1ad3a8aa86e2">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1af963b74c94589fa8d01e7c6731da53f1">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1ad1049d2df604f472a032326555f15024">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs">tensorflow::<wbr/>ops::<wbr/>SparseApplyProximalGradientDescent::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/sparse-apply-proximal-gradient-descent.html#classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent">SparseApplyProximalGradientDescent</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a8787a4b4f05f63e721e95dc8c8ae25e6">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a0f7e7354d7d857df6ba06081c84b4f97">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a372f39ab528e739f2009829f8209517b">
+    <h3>SparseApplyProximalGradientDescent</h3>
+    <pre class="prettyprint"> SparseApplyProximalGradientDescent(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l1,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l2,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a8ba255097ba97fd395eb2528cf675341">
+    <h3>SparseApplyProximalGradientDescent</h3>
+    <pre class="prettyprint"> SparseApplyProximalGradientDescent(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> alpha,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l1,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> l2,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1_1_attrs">SparseApplyProximalGradientDescent::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a479c0fc042fbe24ce695f756d8254d0b">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1a94b9654761c297155f6b1ad3a8aa86e2">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1af963b74c94589fa8d01e7c6731da53f1">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1ad1049d2df604f472a032326555f15024">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/sparse-apply-proximal-gradient-descent/attrs.html#structtensorflow_1_1ops_1_1_sparse_apply_proximal_gradient_descent_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

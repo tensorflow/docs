@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseFillEmptyRows Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseFillEmptyRows</h1>
+  <code>#include &lt;sparse_ops.h&gt;</code>
+  <p>Fills empty rows in the input 2-D <code>SparseTensor</code> with a default value. </p>
+  <h2>Summary</h2>
+  <p>The input <code>SparseTensor</code> is represented via the tuple of inputs (<code>indices</code>, <code>values</code>, <code>dense_shape</code>). The output <code>SparseTensor</code> has the same <code>dense_shape</code> but with indices <code>output_indices</code> and values <code>output_values</code>.</p>
+  <p>This op inserts a single entry for every row that doesn't have any values. The index is created as <code>[row, 0, ..., 0]</code> and the inserted value is <code>default_value</code>.</p>
+  <p>For example, suppose <code>sp_input</code> has shape <code>[5, 6]</code> and non-empty values: <pre class="prettyprint">[0, 1]: a
+[0, 3]: b
+[2, 0]: c
+[3, 1]: d
+</pre></p>
+  <p>Rows 1 and 4 are empty, so the output will be of shape <code>[5, 6]</code> with values: <pre class="prettyprint">[0, 1]: a
+[0, 3]: b
+[1, 0]: default_value
+[2, 0]: c
+[3, 1]: d
+[4, 0]: default_value
+</pre></p>
+  <p>The output <code>SparseTensor</code> will be in row-major order and will have the same shape as the input.</p>
+  <p>This op also returns an indicator vector shaped <code>[dense_shape[0]]</code> such that <pre class="prettyprint">empty_row_indicator[i] = True iff row i was an empty row.
+</pre></p>
+  <p>And a reverse index map vector shaped <code>[indices.shape[0]]</code> that is used during backpropagation, <pre class="prettyprint">reverse_index_map[j] = out_j s.t. indices[j, :] == output_indices[out_j, :]
+</pre></p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>indices: 2-D. the indices of the sparse tensor.</li>
+      <li>values: 1-D. the values of the sparse tensor.</li>
+      <li>dense_shape: 1-D. the shape of the sparse tensor.</li>
+      <li>default_value: 0-D. default value to insert into location <code>[row, 0, ..., 0]</code> for rows missing from the input sparse tensor. output indices: 2-D. the indices of the filled sparse tensor.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_indices</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output_values: 1-D. the values of the filled sparse tensor.</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> empty_row_indicator: 1-D. whether the dense row was missing in the input sparse tensor.</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> reverse_index_map: 1-D. a map from the input indices to the output indices. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a879e72f00ec2907ae24319568619e724">SparseFillEmptyRows</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dense_shape, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> default_value)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1adb1b94f12679619031e52393d4dde736">empty_row_indicator</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a904fc23a9366dfb3edb6e9ce97f51176">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a2e77eb808d738a81625bc66d14e269c2">output_indices</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a050f6a03931adf4b1fe9fe0933537d4f">output_values</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1af0519edc8137614dd36f96f10ed6e4ef">reverse_index_map</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1adb1b94f12679619031e52393d4dde736">
+    <h3>empty_row_indicator</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> empty_row_indicator</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a904fc23a9366dfb3edb6e9ce97f51176">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a2e77eb808d738a81625bc66d14e269c2">
+    <h3>output_indices</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_indices</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a050f6a03931adf4b1fe9fe0933537d4f">
+    <h3>output_values</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_values</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1af0519edc8137614dd36f96f10ed6e4ef">
+    <h3>reverse_index_map</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> reverse_index_map</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_fill_empty_rows_1a879e72f00ec2907ae24319568619e724">
+    <h3>SparseFillEmptyRows</h3>
+    <pre class="prettyprint"> SparseFillEmptyRows(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dense_shape,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> default_value
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

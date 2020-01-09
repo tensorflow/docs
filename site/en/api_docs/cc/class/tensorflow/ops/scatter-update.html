@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ScatterUpdate Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ScatterUpdate</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Applies sparse updates to a variable reference. </p>
+  <h2>Summary</h2>
+  <p>This operation computes</p>
+  <p>
+    <pre class="prettyprint">
+    &#35; Scalar indices
+    ref[indices, ...] = updates[...]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    &#35; Vector indices (for each i)
+    ref[indices[i], ...] = updates[i, ...]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    &#35; High rank indices (for each i, ..., j)
+    ref[indices[i, ..., j], ...] = updates[i, ..., j, ...]
+</pre>
+  </p>
+  <p>This operation outputs <code>ref</code> after the update is done. This makes it easier to chain operations that need to use the reset value.</p>
+  <p>If values in <code>ref</code> is to be updated more than once, because there are duplicate entries in <code>indices</code>, the order at which the updates happen for each value is undefined.</p>
+  <p>Requires <code>updates.shape = indices.shape + ref.shape[1:]</code> or <code>updates.shape = []</code>.</p>
+  <p>
+    <figure id="@name">
+      <img src="/versions/r1.15/api_docs/cc/images/ScatterUpdate.png" />
+    </figure>
+  </p>
+  <p>See also <code>tf.batch_scatter_update</code> and <code>tf.scatter_nd_update</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>ref: Should be from a <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a></code> node.</li>
+      <li>indices: A tensor of indices into the first dimension of <code>ref</code>.</li>
+      <li>updates: A tensor of updated values to store in <code>ref</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_update_1_1_attrs">Attrs</a></code>):<ul>
+      <li>use_locking: If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = Same as <code>ref</code>. Returned as a convenience for operations that want to use the updated values after the update is done. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1af11a28f7f16034316972ca7af5300091">ScatterUpdate</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a24930d0359067d34acd2eb9909cb7284">ScatterUpdate</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_update_1_1_attrs">ScatterUpdate::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a947a92603c1a76d79f820bcfbd770085">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a3393017bac00574a56c1e9dbfa571e13">output_ref</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1ae8ab84fd6c4d480a1e0d0f7b5ddf0511">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a001e1fa15db57c166861b2299d0eb2dc">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a06922deb16980eff51b1ca3d6474285a">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_scatter_update_1a2c494808116c7f942974b90f363d323f">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_update_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs">tensorflow::<wbr/>ops::<wbr/>ScatterUpdate::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/scatter-update.html#classtensorflow_1_1ops_1_1_scatter_update">ScatterUpdate</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a947a92603c1a76d79f820bcfbd770085">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a3393017bac00574a56c1e9dbfa571e13">
+    <h3>output_ref</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1af11a28f7f16034316972ca7af5300091">
+    <h3>ScatterUpdate</h3>
+    <pre class="prettyprint"> ScatterUpdate(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a24930d0359067d34acd2eb9909cb7284">
+    <h3>ScatterUpdate</h3>
+    <pre class="prettyprint"> ScatterUpdate(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_update_1_1_attrs">ScatterUpdate::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1ae8ab84fd6c4d480a1e0d0f7b5ddf0511">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a001e1fa15db57c166861b2299d0eb2dc">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a06922deb16980eff51b1ca3d6474285a">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_scatter_update_1a2c494808116c7f942974b90f363d323f">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/scatter-update/attrs.html#structtensorflow_1_1ops_1_1_scatter_update_1_1_attrs">Attrs</a> UseLocking(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

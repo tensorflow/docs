@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::StringFormat::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>StringFormat::<wbr/>Attrs</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/string-format.html#classtensorflow_1_1ops_1_1_string_format">StringFormat</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1ae154169fdc319721c6265fd1564fa6c5">placeholder_</a> = "%s"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a4ac645e6fc8777047aab38b524b9b1bf">summarize_</a> = 3</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a49784b093dfa331fba507913ac889721">template_</a> = "%s"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a429fe5e592abbc155c1f6f5a7a8570ce">Placeholder</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A string, at each placeholder in the template a subsequent tensor summary will be inserted. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1aba0615598d71a58eb226fe2553559e94">Summarize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>When formatting the tensor summaries print the first and last summarize entries of each tensor dimension. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a928ee0aff5ef8fa9e14e0410bf96afac">Template</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A string, the template to format tensor summaries into. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1ae154169fdc319721c6265fd1564fa6c5">
+    <h3>placeholder_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::StringFormat::Attrs::placeholder_ = "%s"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a4ac645e6fc8777047aab38b524b9b1bf">
+    <h3>summarize_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::StringFormat::Attrs::summarize_ = 3</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a49784b093dfa331fba507913ac889721">
+    <h3>template_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::StringFormat::Attrs::template_ = "%s"</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a429fe5e592abbc155c1f6f5a7a8570ce">
+    <h3>Placeholder</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a> tensorflow::ops::StringFormat::Attrs::Placeholder(
+  StringPiece x
+)</pre>
+    <div>
+      <p>A string, at each placeholder in the template a subsequent tensor summary will be inserted. </p>
+      <p>Defaults to "%s" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1aba0615598d71a58eb226fe2553559e94">
+    <h3>Summarize</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a> tensorflow::ops::StringFormat::Attrs::Summarize(
+  int64 x
+)</pre>
+    <div>
+      <p>When formatting the tensor summaries print the first and last summarize entries of each tensor dimension. </p>
+      <p>Defaults to 3 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_string_format_1_1_attrs_1a928ee0aff5ef8fa9e14e0410bf96afac">
+    <h3>Template</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-format/attrs.html#structtensorflow_1_1ops_1_1_string_format_1_1_attrs">Attrs</a> tensorflow::ops::StringFormat::Attrs::Template(
+  StringPiece x
+)</pre>
+    <div>
+      <p>A string, the template to format tensor summaries into. </p>
+      <p>Defaults to "%s" </p>
+    </div>
+  </div>
+</body>
+</html>

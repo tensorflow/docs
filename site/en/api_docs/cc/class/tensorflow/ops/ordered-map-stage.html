@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::OrderedMapStage Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>OrderedMapStage</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/stage.html#classtensorflow_1_1ops_1_1_stage">Stage</a> (key, values) in the underlying container which behaves like a ordered. </p>
+  <h2>Summary</h2>
+  <p>associative container. Elements are ordered by key.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>key: int64</li>
+      <li>values: a list of tensors dtypes A list of data types that inserted values should adhere to.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a></code>):<ul>
+      <li>capacity: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/maximum.html#classtensorflow_1_1ops_1_1_maximum">Maximum</a> number of elements in the Staging Area. If > 0, inserts on the container will block when the capacity is reached.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: It is necessary to match this name to the matching <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/unstage.html#classtensorflow_1_1ops_1_1_unstage">Unstage</a> Op.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1adf188c3597b625e81bcb70ff56667db7">OrderedMapStage</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1aaa1699a9f09c104ca0a64ba8362bcd67">OrderedMapStage</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values, const DataTypeSlice & dtypes, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">OrderedMapStage::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1a879532a804924ee18c8f93b5696dab60">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1ac0d1962e39443ff063cafdb7e02b19de">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1afb3caabf3337c15b43fde879648be5cb">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1ae78db609e6d2caa71d25b0dedd45fa0e">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1a335dd884f3d2149b623b69ede1b8b172">MemoryLimit</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_ordered_map_stage_1a1fa852bca494c90e1a83a3a7f05a9af8">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs">tensorflow::<wbr/>ops::<wbr/>OrderedMapStage::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/ordered-map-stage.html#classtensorflow_1_1ops_1_1_ordered_map_stage">OrderedMapStage</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1a879532a804924ee18c8f93b5696dab60">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1adf188c3597b625e81bcb70ff56667db7">
+    <h3>OrderedMapStage</h3>
+    <pre class="prettyprint"> OrderedMapStage(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  const DataTypeSlice & dtypes
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1aaa1699a9f09c104ca0a64ba8362bcd67">
+    <h3>OrderedMapStage</h3>
+    <pre class="prettyprint"> OrderedMapStage(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> key,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> values,
+  const DataTypeSlice & dtypes,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">OrderedMapStage::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1ac0d1962e39443ff063cafdb7e02b19de">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1afb3caabf3337c15b43fde879648be5cb">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1ae78db609e6d2caa71d25b0dedd45fa0e">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1a335dd884f3d2149b623b69ede1b8b172">
+    <h3>MemoryLimit</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a> MemoryLimit(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_ordered_map_stage_1a1fa852bca494c90e1a83a3a7f05a9af8">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/ordered-map-stage/attrs.html#structtensorflow_1_1ops_1_1_ordered_map_stage_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

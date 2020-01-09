@@ -1,0 +1,86 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.losses.sigmoid_cross_entropy
+
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L649-L710">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with_logits.
+
+### Aliases:
+
+* <a href="/api_docs/python/tf/losses/sigmoid_cross_entropy"><code>tf.compat.v1.losses.sigmoid_cross_entropy</code></a>
+
+
+``` python
+tf.losses.sigmoid_cross_entropy(
+    multi_class_labels,
+    logits,
+    weights=1.0,
+    label_smoothing=0,
+    scope=None,
+    loss_collection=tf.GraphKeys.LOSSES,
+    reduction=Reduction.SUM_BY_NONZERO_WEIGHTS
+)
+```
+
+
+
+<!-- Placeholder for "Used in" -->
+
+`weights` acts as a coefficient for the loss. If a scalar is provided,
+then the loss is simply scaled by the given value. If `weights` is a
+tensor of shape `[batch_size]`, then the loss weights apply to each
+corresponding sample.
+
+If `label_smoothing` is nonzero, smooth the labels towards 1/2:
+
+    new_multiclass_labels = multiclass_labels * (1 - label_smoothing)
+                            + 0.5 * label_smoothing
+
+#### Args:
+
+
+* <b>`multi_class_labels`</b>: `[batch_size, num_classes]` target integer labels in
+  `{0, 1}`.
+* <b>`logits`</b>: Float `[batch_size, num_classes]` logits outputs of the network.
+* <b>`weights`</b>: Optional `Tensor` whose rank is either 0, or the same rank as
+  `labels`, and must be broadcastable to `labels` (i.e., all dimensions must
+  be either `1`, or the same as the corresponding `losses` dimension).
+* <b>`label_smoothing`</b>: If greater than `0` then smooth the labels.
+* <b>`scope`</b>: The scope for the operations performed in computing the loss.
+* <b>`loss_collection`</b>: collection to which the loss will be added.
+* <b>`reduction`</b>: Type of reduction to apply to loss.
+
+
+#### Returns:
+
+Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
+`NONE`, this has the same shape as `logits`; otherwise, it is scalar.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If the shape of `logits` doesn't match that of
+  `multi_class_labels` or if the shape of `weights` is invalid, or if
+  `weights` is None.  Also if `multi_class_labels` or `logits` is None.
+
+
+
+#### Eager Compatibility
+The `loss_collection` argument is ignored when executing eagerly. Consider
+holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.

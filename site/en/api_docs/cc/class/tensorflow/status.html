@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::Status Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>Status</h1>
+  <code>#include &lt;status.h&gt;</code>
+  <p>Denotes success or failure of a call in Tensorflow. </p>
+  <h2>Summary</h2>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_status_1a71ab5e0bcbba7dce4f36a9655244ba28">Status</a>()</code>
+        <br />
+        <div>Create a success status. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_status_1ae5db42baf704c6cfd9b2218258e2ecb0">Status</a>(tensorflow::error::Code code, tensorflow::StringPiece msg)</code>
+        <br />
+        <div>Create a status with the specified error code and msg as a human-readable string containing more detailed information. </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_status_1a1601d7da5d517e2292c4550c4dabd4f6">Status</a>(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & s)</code>
+        <br />
+        <div>Copy the specified status. </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1ab716b30a0414df51c44293d437bcb6d1">IgnoreError</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>void</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1ae9ec82110337db2d5f7fccbf074c576f">ToString</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>string</code>
+        </div>
+        <div>Return a string representation of this status suitable for printing. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1a167c59a5e6ec8bb8b5fa480a225d0fa1">Update</a>(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & new_status)</code>
+      </td>
+      <td>
+        <div>
+          <code>void</code>
+        </div>
+        <div>If <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status_1a6c078283eadeeb5ed337f36582138c00">ok()</a></code>, stores <code>new_status</code> into <code>*this</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1ae7e45879c3f69b952877461a02950ce9">code</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>tensorflow::error::Code</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1ab354605de9047f27583cc93d9b256aca">error_message</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>const string &</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1a6c078283eadeeb5ed337f36582138c00">ok</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+        <div>Returns true iff the status indicates success. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1a60ddc141060b51174bdd78c65c933a43">operator!=</a>(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & x) const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1a0dda7e9456d71fb05365b62136526a94">operator=</a>(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & s)</code>
+      </td>
+      <td>
+        <div>
+          <code>void</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1aea3db351a06f796f13ab9ca483d53f73">operator==</a>(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & x) const </code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_status_1a2c9dab72c1556a7a88706947dff45944">OK</a>()</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1_status_1ab716b30a0414df51c44293d437bcb6d1">
+    <h3>IgnoreError</h3>
+    <pre class="prettyprint">void IgnoreError() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_status_1a71ab5e0bcbba7dce4f36a9655244ba28">
+    <h3>Status</h3>
+    <pre class="prettyprint"> Status()</pre>
+    <div>
+      <p>Create a success status. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1ae5db42baf704c6cfd9b2218258e2ecb0">
+    <h3>Status</h3>
+    <pre class="prettyprint"> Status(
+  tensorflow::error::Code code,
+  tensorflow::StringPiece msg
+)</pre>
+    <div>
+      <p>Create a status with the specified error code and msg as a human-readable string containing more detailed information. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1a1601d7da5d517e2292c4550c4dabd4f6">
+    <h3>Status</h3>
+    <pre class="prettyprint"> Status(
+  const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & s
+)</pre>
+    <div>
+      <p>Copy the specified status. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1ae9ec82110337db2d5f7fccbf074c576f">
+    <h3>ToString</h3>
+    <pre class="prettyprint">string ToString() const </pre>
+    <div>
+      <p>Return a string representation of this status suitable for printing. </p>
+      <p>Returns the string <code>"OK"</code> for success. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1a167c59a5e6ec8bb8b5fa480a225d0fa1">
+    <h3>Update</h3>
+    <pre class="prettyprint">void Update(
+  const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & new_status
+)</pre>
+    <div>
+      <p>If <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status_1a6c078283eadeeb5ed337f36582138c00">ok()</a></code>, stores <code>new_status</code> into <code>*this</code>. </p>
+      <p>If <code>!ok()</code>, preserves the current status, but may augment with additional information about <code>new_status</code>.</p>
+      <p>Convenient way of keeping track of the first error encountered. Instead of: <code>if (overall_status.ok()) overall_status = new_status</code> Use: <code>overall_status.Update(new_status);</code></p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1ae7e45879c3f69b952877461a02950ce9">
+    <h3>code</h3>
+    <pre class="prettyprint">tensorflow::error::Code code() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_status_1ab354605de9047f27583cc93d9b256aca">
+    <h3>error_message</h3>
+    <pre class="prettyprint">const string & error_message() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_status_1a6c078283eadeeb5ed337f36582138c00">
+    <h3>ok</h3>
+    <pre class="prettyprint">bool ok() const </pre>
+    <div>
+      <p>Returns true iff the status indicates success. </p>
+    </div>
+  </div>
+  <div id="classtensorflow_1_1_status_1a60ddc141060b51174bdd78c65c933a43">
+    <h3>operator!=</h3>
+    <pre class="prettyprint">bool operator!=(
+  const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & x
+) const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_status_1a0dda7e9456d71fb05365b62136526a94">
+    <h3>operator=</h3>
+    <pre class="prettyprint">void operator=(
+  const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & s
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1_status_1aea3db351a06f796f13ab9ca483d53f73">
+    <h3>operator==</h3>
+    <pre class="prettyprint">bool operator==(
+  const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> & x
+) const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1_status_1a2c9dab72c1556a7a88706947dff45944">
+    <h3>OK</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/status.html#classtensorflow_1_1_status">Status</a> OK()</pre>
+    <div />
+  </div>
+</body>
+</html>

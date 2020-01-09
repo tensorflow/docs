@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::TensorBuffer Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body><div id="top"><!-- do not remove this div --></div><h1>tensorflow::<wbr/>TensorBuffer</h1><b>This is an abstract class.</b><br /><br /><code>#include &lt;tensor.h&gt;</code><h2>Summary</h2><p>Interface to access the raw ref-counted data buffer. </p><h3>Inheritance</h3>Inherits from: RefCounted<table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1ade0441d867aabc7d8c4f4a553d1e5fd3">TensorBuffer</a>(void *data_ptr)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a18b48c272459852177bbc653354b5b9a">~TensorBuffer</a>()</code>
+        <br />
+      </td>
+    </tr>
+  </table><table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1ab705a2c85f480e615dad7e7456fc121a">FillAllocationDescription</a>(AllocationDescription *proto) const =0</code>
+      </td>
+      <td>
+        <div>
+          <code>virtual void</code>
+        </div>
+        <div>Fills metadata about the allocation into the proto. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a3c7bd551682ef698b66f432c32a3419f">OwnsMemory</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>virtual bool</code>
+        </div>
+        <div>Whether this <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> owns the underlying memory. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a13f72af307351613523799b8b3944ed5">base</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>T *</code>
+        </div>
+        <div>Helper method to reinterpret the buffer as an array of <code>T</code>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a7e8cdbb48073e1a8890427acad00a30e">data</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>void *</code>
+        </div>
+        <div><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer_1a7e8cdbb48073e1a8890427acad00a30e">data()</a> points to a memory region of <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer_1a36b022bd5ed41ce31242d6f3bbe6757b">size()</a> bytes. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a0b406028a1e487cca2eacca453381fc3">root_buffer</a>()=0</code>
+      </td>
+      <td>
+        <div>
+          <code>virtual <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> *</code>
+        </div>
+        <div>If this <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> is sub-buffer of another <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a>, returns that <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a>. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1_tensor_buffer_1a36b022bd5ed41ce31242d6f3bbe6757b">size</a>() const =0</code>
+      </td>
+      <td>
+        <div>
+          <code>virtual size_t</code>
+        </div>
+        <div>Size (in bytes) of the buffer. </div>
+      </td>
+    </tr>
+  </table><h2>Public functions</h2><div id="classtensorflow_1_1_tensor_buffer_1ab705a2c85f480e615dad7e7456fc121a">
+    <h3>FillAllocationDescription</h3>
+    <pre class="prettyprint">virtual void FillAllocationDescription(
+  AllocationDescription *proto
+) const =0</pre>
+    <div>
+      <p>Fills metadata about the allocation into the proto. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a3c7bd551682ef698b66f432c32a3419f">
+    <h3>OwnsMemory</h3>
+    <pre class="prettyprint">virtual bool OwnsMemory() const </pre>
+    <div>
+      <p>Whether this <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> owns the underlying memory. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1ade0441d867aabc7d8c4f4a553d1e5fd3">
+    <h3>TensorBuffer</h3>
+    <pre class="prettyprint"> TensorBuffer(
+  void *data_ptr
+)</pre>
+    <div />
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a13f72af307351613523799b8b3944ed5">
+    <h3>base</h3>
+    <pre class="prettyprint">T * base() const </pre>
+    <div>
+      <p>Helper method to reinterpret the buffer as an array of <code>T</code>. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a7e8cdbb48073e1a8890427acad00a30e">
+    <h3>data</h3>
+    <pre class="prettyprint">void * data() const </pre>
+    <div>
+      <p><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer_1a7e8cdbb48073e1a8890427acad00a30e">data()</a> points to a memory region of <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer_1a36b022bd5ed41ce31242d6f3bbe6757b">size()</a> bytes. </p>
+      <p>NOTE(mrry): The <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer_1a7e8cdbb48073e1a8890427acad00a30e">data()</a></code> method is not virtual for performance reasons. It can be called multiple times when the contents of a <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> are accessed, and so making it non-virtual allows the body to be inlined. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a0b406028a1e487cca2eacca453381fc3">
+    <h3>root_buffer</h3>
+    <pre class="prettyprint">virtual <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> * root_buffer()=0</pre>
+    <div>
+      <p>If this <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a> is sub-buffer of another <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a>, returns that <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor-buffer.html#classtensorflow_1_1_tensor_buffer">TensorBuffer</a>. </p>
+      <p>Otherwise, returns this. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a36b022bd5ed41ce31242d6f3bbe6757b">
+    <h3>size</h3>
+    <pre class="prettyprint">virtual size_t size() const =0</pre>
+    <div>
+      <p>Size (in bytes) of the buffer. </p>
+    </div>
+  </div><div id="classtensorflow_1_1_tensor_buffer_1a18b48c272459852177bbc653354b5b9a">
+    <h3>~TensorBuffer</h3>
+    <pre class="prettyprint"> ~TensorBuffer() override</pre>
+    <div />
+  </div></body>
+</html>

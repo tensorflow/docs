@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DiagPart Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DiagPart</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns the diagonal part of the tensor. </p>
+  <h2>Summary</h2>
+  <p>This operation returns a tensor with the <code>diagonal</code> part of the <code>input</code>. The <code>diagonal</code> part is computed as follows:</p>
+  <p>Assume <code>input</code> has dimensions <code>[D1,..., Dk, D1,..., Dk]</code>, then the output is a tensor of rank <code>k</code> with dimensions <code>[D1,..., Dk]</code> where:</p>
+  <p><code>diagonal[i1,..., ik] = input[i1, ..., ik, i1,..., ik]</code>.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; 'input' is [[1, 0, 0, 0]
+              [0, 2, 0, 0]
+              [0, 0, 3, 0]
+              [0, 0, 0, 4]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">tf.diag_part(input) ==> [1, 2, 3, 4]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: Rank k tensor where k is even and not zero.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The extracted diagonal. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1a722e0fbf9139d42128d88361fcceffbb">DiagPart</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1a5c2700969d74c5dcd441f482f69f0575">diagonal</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1a4a4d8b4387110108a77726a4e37f75ef">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1a7f5dfaa792daf4eebe39b740aaa5a117">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1aef16d4b10102516c099741c0935952e9">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_diag_part_1a3ffd8291e65d1b66c89fbcc0bb34225e">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1a5c2700969d74c5dcd441f482f69f0575">
+    <h3>diagonal</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> diagonal</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1a4a4d8b4387110108a77726a4e37f75ef">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1a722e0fbf9139d42128d88361fcceffbb">
+    <h3>DiagPart</h3>
+    <pre class="prettyprint"> DiagPart(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1a7f5dfaa792daf4eebe39b740aaa5a117">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1aef16d4b10102516c099741c0935952e9">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_diag_part_1a3ffd8291e65d1b66c89fbcc0bb34225e">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

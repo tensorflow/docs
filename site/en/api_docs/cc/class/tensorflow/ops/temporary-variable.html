@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TemporaryVariable Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TemporaryVariable</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Returns a tensor that may be mutated, but only persists within a single step. </p>
+  <h2>Summary</h2>
+  <p>This is an experimental op for internal use only and it is possible to use this op in unsafe ways. DO NOT USE unless you fully understand the risks.</p>
+  <p>It is the caller's responsibility to ensure that 'ref' is eventually passed to a matching '<a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/destroy-temporary-variable.html#classtensorflow_1_1ops_1_1_destroy_temporary_variable">DestroyTemporaryVariable</a>' op after all other uses have completed.</p>
+  <p>Outputs a ref to the tensor state so it may be read or modified.</p>
+  <p>E.g. var = state_ops._temporary_variable([1, 2], types.float_) var_name = var.op.name var = state_ops.assign(var, [[4.0, 5.0]]) var = state_ops.assign_add(var, [[6.0, 7.0]]) final = state_ops._destroy_temporary_variable(var, var_name=var_name)</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>shape: The shape of the variable tensor.</li>
+      <li>dtype: The type of elements in the variable tensor.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs.html#structtensorflow_1_1ops_1_1_temporary_variable_1_1_attrs">Attrs</a></code>):<ul>
+      <li>var_name: Overrides the name used for the temporary variable resource. Default value is the name of the '<a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/temporary-variable.html#classtensorflow_1_1ops_1_1_temporary_variable">TemporaryVariable</a>' op (which is guaranteed unique).</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A reference to the variable tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a694e6c48eaf39d57f59d52796a9a71d1">TemporaryVariable</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, PartialTensorShape shape, DataType dtype)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a43909369fdad702faf95e5aab8346b1a">TemporaryVariable</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, PartialTensorShape shape, DataType dtype, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs.html#structtensorflow_1_1ops_1_1_temporary_variable_1_1_attrs">TemporaryVariable::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1abf90e66f914f45a8e9c11f7409917423">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a62601e5fd1b28bd28a6f0db0c691fe61">ref</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a3dbe9a732d4ec4ab4f94240c0ba61210">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a8414b80274ac7ca395a565b59e90cd9e">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a62b24d2f958c91a5a1005127d7056dc9">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_temporary_variable_1a6647c19d0e761d2c6c11ff667576cfb5">VarName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs.html#structtensorflow_1_1ops_1_1_temporary_variable_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs">tensorflow::<wbr/>ops::<wbr/>TemporaryVariable::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/temporary-variable.html#classtensorflow_1_1ops_1_1_temporary_variable">TemporaryVariable</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1abf90e66f914f45a8e9c11f7409917423">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a62601e5fd1b28bd28a6f0db0c691fe61">
+    <h3>ref</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> ref</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a694e6c48eaf39d57f59d52796a9a71d1">
+    <h3>TemporaryVariable</h3>
+    <pre class="prettyprint"> TemporaryVariable(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  PartialTensorShape shape,
+  DataType dtype
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a43909369fdad702faf95e5aab8346b1a">
+    <h3>TemporaryVariable</h3>
+    <pre class="prettyprint"> TemporaryVariable(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  PartialTensorShape shape,
+  DataType dtype,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs.html#structtensorflow_1_1ops_1_1_temporary_variable_1_1_attrs">TemporaryVariable::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a3dbe9a732d4ec4ab4f94240c0ba61210">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a8414b80274ac7ca395a565b59e90cd9e">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a62b24d2f958c91a5a1005127d7056dc9">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_temporary_variable_1a6647c19d0e761d2c6c11ff667576cfb5">
+    <h3>VarName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/temporary-variable/attrs.html#structtensorflow_1_1ops_1_1_temporary_variable_1_1_attrs">Attrs</a> VarName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

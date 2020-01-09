@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ConditionalAccumulator::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ConditionalAccumulator::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/conditional-accumulator.html#classtensorflow_1_1ops_1_1_conditional_accumulator">ConditionalAccumulator</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a7f2f89c42e3cbf95526aa907a77f53d4">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a32ecfc7e8a37074ae856258693dcf747">reduction_type_</a> = "MEAN"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a142283e0a1c4e6cc92be292f7ae7f561">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1af778e825f25825f460d90645e79ee5af">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this accumulator is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1ae1598d66943f12caae75afdcc7f40e9b">ReductionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to "MEAN". </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a62fd2007c7828997be44f69c19d0829a">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this accumulator will be shared under the given name across multiple sessions. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a7f2f89c42e3cbf95526aa907a77f53d4">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::ConditionalAccumulator::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a32ecfc7e8a37074ae856258693dcf747">
+    <h3>reduction_type_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::ConditionalAccumulator::Attrs::reduction_type_ = "MEAN"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a142283e0a1c4e6cc92be292f7ae7f561">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::ConditionalAccumulator::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1af778e825f25825f460d90645e79ee5af">
+    <h3>Container</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> tensorflow::ops::ConditionalAccumulator::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this accumulator is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1ae1598d66943f12caae75afdcc7f40e9b">
+    <h3>ReductionType</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> tensorflow::ops::ConditionalAccumulator::Attrs::ReductionType(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Defaults to "MEAN". </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs_1a62fd2007c7828997be44f69c19d0829a">
+    <h3>SharedName</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> tensorflow::ops::ConditionalAccumulator::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this accumulator will be shared under the given name across multiple sessions. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

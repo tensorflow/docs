@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::QuantizeAndDequantizeV2::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>QuantizeAndDequantizeV2::<wbr/>Attrs</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/quantize-and-dequantize-v2.html#classtensorflow_1_1ops_1_1_quantize_and_dequantize_v2">QuantizeAndDequantizeV2</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1adf347e0c1f8214c14d7694ae285cc9d0">narrow_range_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a11159f89f2414130b6a3ad313b27716c">num_bits_</a> = 8</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a865cf4c82b9089b872eb9b918531f2db">range_given_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a6dfc7a75f4a69171c6497bb1edfa0d05">round_mode_</a> = "HALF_TO_EVEN"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a790cd895eec69aba604ac8e9cb7f8a9f">signed_input_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1afaceca0792d45c8137aeb043c8cfda94">NarrowRange</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If True, then the absolute value of the quantized minimum value is the same as the quantized maximum value, instead of 1 greater. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a76057cdbc84759b92af376d7af6e5542">NumBits</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The bitwidth of the quantization. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a6fa06a82baf6f5d343626b0ff362f28b">RangeGiven</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Whether the range is given or should be determined from the <code>input</code> tensor. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1abbc6241855f1eb74e6c30f9bb38a9bea">RoundMode</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The 'round_mode' attribute controls which rounding tie-breaking algorithm is used when rounding float values to their quantized equivalents. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1acc49af3428f348e5f27485c3d72e5598">SignedInput</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Whether the quantization is signed or unsigned. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1adf347e0c1f8214c14d7694ae285cc9d0">
+    <h3>narrow_range_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizeAndDequantizeV2::Attrs::narrow_range_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a11159f89f2414130b6a3ad313b27716c">
+    <h3>num_bits_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::QuantizeAndDequantizeV2::Attrs::num_bits_ = 8</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a865cf4c82b9089b872eb9b918531f2db">
+    <h3>range_given_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizeAndDequantizeV2::Attrs::range_given_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a6dfc7a75f4a69171c6497bb1edfa0d05">
+    <h3>round_mode_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::QuantizeAndDequantizeV2::Attrs::round_mode_ = "HALF_TO_EVEN"</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a790cd895eec69aba604ac8e9cb7f8a9f">
+    <h3>signed_input_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::QuantizeAndDequantizeV2::Attrs::signed_input_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1afaceca0792d45c8137aeb043c8cfda94">
+    <h3>NarrowRange</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantizeV2::Attrs::NarrowRange(
+  bool x
+)</pre>
+    <div>
+      <p>If True, then the absolute value of the quantized minimum value is the same as the quantized maximum value, instead of 1 greater. </p>
+      <p>i.e. for 8 bit quantization, the minimum value is -127 instead of -128.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a76057cdbc84759b92af376d7af6e5542">
+    <h3>NumBits</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantizeV2::Attrs::NumBits(
+  int64 x
+)</pre>
+    <div>
+      <p>The bitwidth of the quantization. </p>
+      <p>Defaults to 8 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1a6fa06a82baf6f5d343626b0ff362f28b">
+    <h3>RangeGiven</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantizeV2::Attrs::RangeGiven(
+  bool x
+)</pre>
+    <div>
+      <p>Whether the range is given or should be determined from the <code>input</code> tensor. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1abbc6241855f1eb74e6c30f9bb38a9bea">
+    <h3>RoundMode</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantizeV2::Attrs::RoundMode(
+  StringPiece x
+)</pre>
+    <div>
+      <p>The 'round_mode' attribute controls which rounding tie-breaking algorithm is used when rounding float values to their quantized equivalents. </p>
+      <p>The following rounding modes are currently supported:</p>
+      <p>
+        <ul>
+          <li>HALF_TO_EVEN: this is the default round_mode.</li>
+          <li>HALF_UP: round towards positive. In this mode 7.5 rounds up to 8 and -7.5 rounds up to -7.</li>
+        </ul>
+      </p>
+      <p>Defaults to "HALF_TO_EVEN" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs_1acc49af3428f348e5f27485c3d72e5598">
+    <h3>SignedInput</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/quantize-and-dequantize-v2/attrs.html#structtensorflow_1_1ops_1_1_quantize_and_dequantize_v2_1_1_attrs">Attrs</a> tensorflow::ops::QuantizeAndDequantizeV2::Attrs::SignedInput(
+  bool x
+)</pre>
+    <div>
+      <p>Whether the quantization is signed or unsigned. </p>
+      <p>(actually this parameter should have been called <b>
+          <code>signed_output</code>
+        </b>)</p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+</body>
+</html>

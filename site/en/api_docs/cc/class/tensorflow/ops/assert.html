@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Assert Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Assert</h1>
+  <code>#include &lt;logging_ops.h&gt;</code>
+  <p>Asserts that the given condition is true. </p>
+  <h2>Summary</h2>
+  <p>If <code>condition</code> evaluates to false, print the list of tensors in <code>data</code>. <code>summarize</code> determines how many entries of the tensors to print.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>condition: The condition to evaluate.</li>
+      <li>data: The tensors to print out when condition is false.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs.html#structtensorflow_1_1ops_1_1_assert_1_1_attrs">Attrs</a></code>):<ul>
+      <li>summarize: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/print.html#classtensorflow_1_1ops_1_1_print">Print</a> this many entries of each tensor.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_assert_1af81dc219d43af5f1f57633edd6869d35">Assert</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_assert_1a0dc850b92e0420af7e04c28133d91328">Assert</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs.html#structtensorflow_1_1ops_1_1_assert_1_1_attrs">Assert::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assert_1ac87c4c74ab1959fb429df106cd771128">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assert_1a715a4538d968886307e951aaeb975e3a">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_assert_1adba119f0fab568f3e6f338108ab2277f">Summarize</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs.html#structtensorflow_1_1ops_1_1_assert_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs">tensorflow::<wbr/>ops::<wbr/>Assert::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/assert.html#classtensorflow_1_1ops_1_1_assert">Assert</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_assert_1ac87c4c74ab1959fb429df106cd771128">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_assert_1af81dc219d43af5f1f57633edd6869d35">
+    <h3>Assert</h3>
+    <pre class="prettyprint"> Assert(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assert_1a0dc850b92e0420af7e04c28133d91328">
+    <h3>Assert</h3>
+    <pre class="prettyprint"> Assert(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> data,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs.html#structtensorflow_1_1ops_1_1_assert_1_1_attrs">Assert::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_assert_1a715a4538d968886307e951aaeb975e3a">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_assert_1adba119f0fab568f3e6f338108ab2277f">
+    <h3>Summarize</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/assert/attrs.html#structtensorflow_1_1ops_1_1_assert_1_1_attrs">Attrs</a> Summarize(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+page_type: reference
+<style>{% include "site-assets/css/style.css" %}</style>
+
+<!-- DO NOT EDIT! Automatically generated file. -->
+
+# tf.contrib.seq2seq.hardmax
+
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L2081-L2100">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Returns batched one-hot vectors.
+
+``` python
+tf.contrib.seq2seq.hardmax(
+    logits,
+    name=None
+)
+```
+
+
+
+<!-- Placeholder for "Used in" -->
+
+The depth index containing the `1` is that of the maximum logit value.
+
+#### Args:
+
+
+* <b>`logits`</b>: A batch tensor of logit values.
+* <b>`name`</b>: Name to use when creating ops.
+
+
+#### Returns:
+
+A batched one-hot tensor.

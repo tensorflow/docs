@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::UnicodeTranscode Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>UnicodeTranscode</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Transcode the input text from a source encoding to a destination encoding. </p>
+  <h2>Summary</h2>
+  <p>The input is a string tensor of any shape. The output is a string tensor of the same shape containing the transcoded strings. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> strings are always valid unicode. If the input contains invalid encoding positions, the <code>errors</code> attribute sets the policy for how to deal with them. If the default error-handling policy is used, invalid formatting will be substituted in the output by the <code>replacement_char</code>. If the errors policy is to <code>ignore</code>, any invalid encoding positions in the input are skipped and not included in the output. If it set to <code>strict</code> then any invalid formatting will result in an InvalidArgument error.</p>
+  <p>This operation can be used with <code>output_encoding = input_encoding</code> to enforce correct formatting for inputs even if they are already in the desired encoding.</p>
+  <p>If the input is prefixed by a Byte Order Mark needed to determine encoding (e.g. if the encoding is UTF-16 and the BOM indicates big-endian), then that BOM will be consumed and not emitted into the output. If the input encoding is marked with an explicit endianness (e.g. UTF-16-BE), then the BOM is interpreted as a non-breaking-space and is preserved in the output (including always for UTF-8).</p>
+  <p>The end result is that if the input is marked as an explicit endianness the transcoding is faithful to all codepoints in the source. If it is not marked with an explicit endianness, the BOM is not considered part of the string itself but as metadata, and so is not preserved in the output.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: The text to be processed. Can have any shape.</li>
+      <li>input_encoding: Text encoding of the input strings. This is any of the encodings supported by ICU ucnv algorithmic converters. Examples: <code>"UTF-16", "US ASCII", "UTF-8"</code>.</li>
+      <li>output_encoding: The unicode encoding to use in the output. Must be one of <code>"UTF-8", "UTF-16-BE", "UTF-32-BE"</code>. Multi-byte encodings will be big-endian.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a></code>):<ul>
+      <li>errors: Error handling policy when there is invalid formatting found in the input. The value of 'strict' will cause the operation to produce a InvalidArgument error on any invalid input formatting. A value of 'replace' (the default) will cause the operation to replace any invalid formatting in the input with the <code>replacement_char</code> codepoint. A value of 'ignore' will cause the operation to skip any invalid formatting in the input and produce no corresponding output character.</li>
+      <li>replacement_char: The replacement character codepoint to be used in place of any invalid formatting in the input when <code>errors='replace'</code>. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/any.html#classtensorflow_1_1ops_1_1_any">Any</a> valid unicode codepoint may be used. The default value is the default unicode replacement character is 0xFFFD or U+65533.)</li>
+    </ul></p>
+  <p>Note that for UTF-8, passing a replacement character expressible in 1 byte, such as ' ', will preserve string alignment to the source since invalid bytes will be replaced with a 1-byte replacement. For UTF-16-BE and UTF-16-LE, any 1 or 2 byte replacement character will preserve byte alignment to the source.<ul>
+      <li>replace_control_characters: Whether to replace the C0 control characters (00-1F) with the <code>replacement_char</code>. Default is false.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A string tensor containing unicode text encoded using <code>output_encoding</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a7f5400ef43a30cade48ec26babb8d8ac">UnicodeTranscode</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, StringPiece input_encoding, StringPiece output_encoding)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a40d3c0e8ec4a39090a41db687a75e81e">UnicodeTranscode</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, StringPiece input_encoding, StringPiece output_encoding, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">UnicodeTranscode::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a9121969d40f22188b5468ef3a88c7e85">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a72ea1928a722003c6a454fb3e4d99cf8">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a5bd626fd8293b9ba38989e199cb56039">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1aa3ed5d86e608fef6fe501acc1886adc4">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a228a8c3c53116beb44e18691ba954e40">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a4ec0643c5c92c98679d67690e8d6826c">Errors</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1ac2031f1a1d602c2981d079a72e41ad8b">ReplaceControlCharacters</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_unicode_transcode_1a006b666456f90b0903bcaea23ee678cd">ReplacementChar</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs">tensorflow::<wbr/>ops::<wbr/>UnicodeTranscode::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/unicode-transcode.html#classtensorflow_1_1ops_1_1_unicode_transcode">UnicodeTranscode</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a9121969d40f22188b5468ef3a88c7e85">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a72ea1928a722003c6a454fb3e4d99cf8">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a7f5400ef43a30cade48ec26babb8d8ac">
+    <h3>UnicodeTranscode</h3>
+    <pre class="prettyprint"> UnicodeTranscode(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  StringPiece input_encoding,
+  StringPiece output_encoding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a40d3c0e8ec4a39090a41db687a75e81e">
+    <h3>UnicodeTranscode</h3>
+    <pre class="prettyprint"> UnicodeTranscode(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  StringPiece input_encoding,
+  StringPiece output_encoding,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">UnicodeTranscode::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a5bd626fd8293b9ba38989e199cb56039">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1aa3ed5d86e608fef6fe501acc1886adc4">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a228a8c3c53116beb44e18691ba954e40">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a4ec0643c5c92c98679d67690e8d6826c">
+    <h3>Errors</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a> Errors(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1ac2031f1a1d602c2981d079a72e41ad8b">
+    <h3>ReplaceControlCharacters</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a> ReplaceControlCharacters(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_unicode_transcode_1a006b666456f90b0903bcaea23ee678cd">
+    <h3>ReplacementChar</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/unicode-transcode/attrs.html#structtensorflow_1_1ops_1_1_unicode_transcode_1_1_attrs">Attrs</a> ReplacementChar(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
