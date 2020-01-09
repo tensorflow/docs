@@ -1,0 +1,64 @@
+##Test 01 :
+
+import tensorflow as tf
+
+a = tf.zeros([10])
+b = tf.zeros([10])
+**state = tf.tuple([a, b], name='initial_state')**
+
+with tf.Session() as sess:
+    s = sess.run(['zeros:0', 'zeros_1:0'])
+    
+    
+# [
+#  array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32),
+#  array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32)
+# ]
+Tuples in TensorFlow are not tensors, but a list of tensors, and so cannot be fetched as a whole through an operation in the graph. tf.tuple will create a few grouping and dependency control operations (initial_state/group_deps, initial_state/control_dependency and initial_state/control_dependency_1 in this case), but that's about it.
+
+Since state is a list, it is a valid fetches argument to Session#run. One can also build a list of operation names from each tuple element and use that instead.
+
+
+
+##Test 02:
+import tensorflow as tf;
+
+tf.enable_v2_behavior()
+
+@tf.function
+def func(a):
+    i = tf.constant(0);
+    return a[i];
+
+t = tf.tuple([tf.constant(0),tf.constant(1)]);
+print(t[0].numpy())  # prints 0
+a = func(tf.convert_to_tensor(t));
+print(a.numpy())  # prints 0
+
+##Another :
+def _build_computation_graph(self, x, y, opt):
+        """Builds the (device or runtime specific) computation graph.
+        Parameters
+        ----------
+        x: n-D Tensor
+            The inputs tensor.
+        y: m-D Tensor
+            The targets tensor.
+        opt: Optimizer
+            The TensorFlow optimizer instance.
+        Returns
+        ----------
+        A tuple of (grads, summaries, total_loss, loss, eval_dict)
+        """
+        pass 
+        
+        
+##Another :
+def datasets(self):
+        """Gets the datasets as a named tuple.
+           Use the members ds.train, ds.valid or ds.test
+           of the returned tuple."""
+        return self._datasets 
+
+
+
