@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::CropAndResize::Attrs Struct Reference</title>
+  <meta name="project_path" value="/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.10/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>CropAndResize::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.10/api_docs/cc/class/tensorflow/ops/crop-and-resize.html#classtensorflow_1_1ops_1_1_crop_and_resize">CropAndResize</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a68fe7c5f9f6c6289bd4e674b31290529">extrapolation_value_</a> = 0.0f</code>
+      </td>
+      <td>
+        <div>
+          <code>float</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a9b39d5075386c3c8a0678ddeb482d1d7">method_</a> = "bilinear"</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a516eb5e4125c3e4abf0b3a4e86f492ab">ExtrapolationValue</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/crop-and-resize/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Value used for extrapolation, when applicable. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a2e87e7aef6ba8075918fa95259af4b6f">Method</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/crop-and-resize/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>A string specifying the sampling method for resizing. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a68fe7c5f9f6c6289bd4e674b31290529">
+    <h3>extrapolation_value_</h3>
+    <pre class="prettyprint">float tensorflow::ops::CropAndResize::Attrs::extrapolation_value_ = 0.0f</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a9b39d5075386c3c8a0678ddeb482d1d7">
+    <h3>method_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::CropAndResize::Attrs::method_ = "bilinear"</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a516eb5e4125c3e4abf0b3a4e86f492ab">
+    <h3>ExtrapolationValue</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/crop-and-resize/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs">Attrs</a> tensorflow::ops::CropAndResize::Attrs::ExtrapolationValue(
+  float x
+)</pre>
+    <div>
+      <p>Value used for extrapolation, when applicable. </p>
+      <p>Defaults to 0 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs_1a2e87e7aef6ba8075918fa95259af4b6f">
+    <h3>Method</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.10/api_docs/cc/struct/tensorflow/ops/crop-and-resize/attrs.html#structtensorflow_1_1ops_1_1_crop_and_resize_1_1_attrs">Attrs</a> tensorflow::ops::CropAndResize::Attrs::Method(
+  StringPiece x
+)</pre>
+    <div>
+      <p>A string specifying the sampling method for resizing. </p>
+      <p>It can be either <code>"bilinear"</code> or <code>"nearest"</code> and default to <code>"bilinear"</code>. Currently two sampling methods are supported: Bilinear and Nearest Neighbor.</p>
+      <p>Defaults to "bilinear" </p>
+    </div>
+  </div>
+</body>
+</html>

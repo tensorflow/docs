@@ -8,6 +8,3 @@ hide_from_products_list: true
 content_license: cc-apache
 buganizer_id: 162698
 include: /_project_included.yaml
-# https://developers.google.com/devsite/reference/metadata/project#controlling_where_your_product_appears
-search_suggest_blacklist:
-- /versions/r1.12/api_docs/...
