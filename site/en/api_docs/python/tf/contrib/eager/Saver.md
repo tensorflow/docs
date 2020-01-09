@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.Saver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/saver.py#L116-L172">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Saver`
 
 A tf.compat.v1.train.Saver adapter for use when eager execution is enabled.
 
 
-
-
-
-Defined in [`contrib/eager/python/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,6 +31,8 @@ robust object-based saving. These APIs will load checkpoints written by
 `Saver`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/saver.py#L125-L143">View source</a>
 
 ``` python
 __init__(var_list)
@@ -52,6 +62,8 @@ A  tf.compat.v1.train.Saver adapter for use when eager execution is enabled.
 
 <h3 id="restore"><code>restore</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/saver.py#L163-L172">View source</a>
+
 ``` python
 restore(file_prefix)
 ```
@@ -67,6 +79,8 @@ Restores previously saved variables.
   <a href="../../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint</code></a>.
 
 <h3 id="save"><code>save</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/saver.py#L145-L161">View source</a>
 
 ``` python
 save(
@@ -92,7 +106,3 @@ Saves variables.
 A string: prefix of filenames created for the checkpoint. This may be
  an extension of file_prefix that is suitable to pass as an argument
  to a subsequent call to `restore()`.
-
-
-
-

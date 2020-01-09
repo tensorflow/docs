@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.training.GreedyLoadBalancingStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L56-L102">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GreedyLoadBalancingStrategy`
 
 Returns the least-loaded ps task for op placement.
 
 
-
-
-
-Defined in [`contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/device_setter.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,6 +43,8 @@ This class is intended to be used as a `ps_strategy` in
 <a href="../../../tf/train/replica_device_setter"><code>tf.compat.v1.train.replica_device_setter</code></a>.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L77-L87">View source</a>
 
 ``` python
 __init__(
@@ -59,6 +69,8 @@ Create a new `LoadBalancingStrategy`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L89-L102">View source</a>
+
 ``` python
 __call__(op)
 ```
@@ -77,7 +89,3 @@ Choose a ps task index for the given `Operation`.
 The next ps task index to use for the `Operation`. Greedily
 places the op on the least-loaded ps task so far, as determined
 by the load function.
-
-
-
-

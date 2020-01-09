@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.metrics.FalsePositives
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/metrics/FalsePositives">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L905-L951">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FalsePositives`
 
 Calculates the number of false positives.
@@ -13,14 +31,10 @@ Calculates the number of false positives.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.metrics.FalsePositives`
-* Class `tf.compat.v2.keras.metrics.FalsePositives`
-* Class `tf.compat.v2.metrics.FalsePositives`
-* Class `tf.keras.metrics.FalsePositives`
+* Class <a href="/api_docs/python/tf/keras/metrics/FalsePositives"><code>tf.compat.v1.keras.metrics.FalsePositives</code></a>
+* Class <a href="/api_docs/python/tf/keras/metrics/FalsePositives"><code>tf.compat.v2.keras.metrics.FalsePositives</code></a>
+* Class <a href="/api_docs/python/tf/keras/metrics/FalsePositives"><code>tf.compat.v2.metrics.FalsePositives</code></a>
 
-
-
-Defined in [`python/keras/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/metrics.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -54,6 +68,8 @@ model.compile('sgd', loss='mse', metrics=[tf.keras.metrics.FalsePositives()])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L935-L951">View source</a>
+
 ``` python
 __init__(
     thresholds=None,
@@ -76,29 +92,54 @@ Creates a `FalsePositives` instance.
 * <b>`name`</b>: (Optional) string name of the metric instance.
 * <b>`dtype`</b>: (Optional) data type of the metric result.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+
+``` python
+__new__(
+    cls,
+    *args,
+    **kwargs
+)
+```
+
+Create and return a new object.  See help(type) for accurate signature.
+
+
 
 
 ## Methods
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L893-L896">View source</a>
+
 ``` python
 reset_states()
 ```
 
+Resets all of the metric state variables.
 
-
+This function is called between epochs/steps,
+when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L886-L891">View source</a>
 
 ``` python
 result()
 ```
 
+Computes and returns the metric value tensor.
 
-
+Result computation is an idempotent operation that simply calculates the
+metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L866-L884">View source</a>
 
 ``` python
 update_state(
@@ -124,7 +165,3 @@ Accumulates the given confusion matrix condition statistics.
 #### Returns:
 
 Update op.
-
-
-
-

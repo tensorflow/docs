@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.LSTMCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/LSTMCell">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2043-L2314">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LSTMCell`
 
 Cell class for the LSTM layer.
@@ -13,12 +31,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.LSTMCell`
-* Class `tf.keras.layers.LSTMCell`
+* Class <a href="/api_docs/python/tf/keras/layers/LSTMCell"><code>tf.compat.v1.keras.layers.LSTMCell</code></a>
 
-
-
-Defined in [`python/keras/layers/recurrent.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/recurrent.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -83,6 +97,8 @@ Defined in [`python/keras/layers/recurrent.py`](https://github.com/tensorflow/te
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2100-L2148">View source</a>
+
 ``` python
 __init__(
     units,
@@ -115,6 +131,8 @@ __init__(
 
 <h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1033-L1067">View source</a>
+
 ``` python
 get_dropout_mask_for_cell(
     inputs,
@@ -145,6 +163,8 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2312-L2314">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -157,6 +177,8 @@ get_initial_state(
 
 
 <h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1069-L1105">View source</a>
 
 ``` python
 get_recurrent_dropout_mask_for_cell(
@@ -188,6 +210,8 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1009-L1019">View source</a>
+
 ``` python
 reset_dropout_mask()
 ```
@@ -202,6 +226,8 @@ against certain index of data within the batch.
 
 <h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1021-L1031">View source</a>
+
 ``` python
 reset_recurrent_dropout_mask()
 ```
@@ -213,6 +239,3 @@ that the cached mask is cleared before calling the cell.call(). The mask
 should be cached across the timestep within the same batch, but shouldn't
 be cached between batches. Otherwise it will introduce unreasonable bias
 against certain index of data within the batch.
-
-
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.infer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/graph_actions.py#L711-L735">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Restore graph from `restore_checkpoint_path` and run `output_dict` tensors. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.learn.infer(
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/graph_actions.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/graph_actions.py).
 
 <!-- Placeholder for "Used in" -->
 

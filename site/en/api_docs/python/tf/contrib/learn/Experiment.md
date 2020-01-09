@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.Experiment
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L122-L917">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Experiment`
 
 Experiment is a class containing all information needed to train a model.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/experiment.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/experiment.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,6 +34,8 @@ training and evaluation), an Experiment instance knows how to invoke training
 and eval loops in a sensible fashion for distributed training.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L136-L280">View source</a>
 
 ``` python
 __init__(
@@ -159,6 +169,8 @@ when a method is executed which requires it.
 
 <h3 id="continuous_eval"><code>continuous_eval</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L568-L580">View source</a>
+
 ``` python
 continuous_eval(
     delay_secs=None,
@@ -174,6 +186,8 @@ continuous_eval(
 
 <h3 id="continuous_eval_on_train_data"><code>continuous_eval_on_train_data</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L582-L593">View source</a>
+
 ``` python
 continuous_eval_on_train_data(
     delay_secs=None,
@@ -187,6 +201,8 @@ continuous_eval_on_train_data(
 
 
 <h3 id="continuous_train_and_eval"><code>continuous_train_and_eval</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/framework/experimental.py#L691-L793">View source</a>
 
 ``` python
 continuous_train_and_eval(
@@ -257,6 +273,8 @@ export results using the specified `ExportStrategy`.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L391-L421">View source</a>
+
 ``` python
 evaluate(
     delay_secs=None,
@@ -288,6 +306,8 @@ The result of the `evaluate` call to the `Estimator`.
 
 <h3 id="extend_train_hooks"><code>extend_train_hooks</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L312-L314">View source</a>
+
 ``` python
 extend_train_hooks(additional_hooks)
 ```
@@ -296,6 +316,8 @@ Extends the hooks for training.
 
 
 <h3 id="local_run"><code>local_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L423-L431">View source</a>
 
 ``` python
 local_run()
@@ -308,6 +330,8 @@ Instructions for updating:
 local_run will be renamed to train_and_evaluate and the new default behavior will be to run evaluation every time there is a new checkpoint.
 
 <h3 id="reset_export_strategies"><code>reset_export_strategies</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L316-L328">View source</a>
 
 ``` python
 reset_export_strategies(new_export_strategies=None)
@@ -330,6 +354,8 @@ The old export strategies.
 
 <h3 id="run_std_server"><code>run_std_server</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L813-L822">View source</a>
+
 ``` python
 run_std_server()
 ```
@@ -346,6 +372,8 @@ Typically used for parameter servers.
 
 <h3 id="test"><code>test</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L824-L843">View source</a>
+
 ``` python
 test()
 ```
@@ -359,6 +387,8 @@ The result of the `evaluate` call to the `Estimator`.
 
 
 <h3 id="train"><code>train</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L330-L389">View source</a>
 
 ``` python
 train(delay_secs=None)
@@ -381,6 +411,8 @@ The trained estimator.
 
 
 <h3 id="train_and_evaluate"><code>train_and_evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/experiment.py#L595-L689">View source</a>
 
 ``` python
 train_and_evaluate()
@@ -407,7 +439,3 @@ performing evaluation allows for the second.
 
 The result of the `evaluate` call to the `Estimator` as well as the
 export results using the specified `ExportStrategy`.
-
-
-
-

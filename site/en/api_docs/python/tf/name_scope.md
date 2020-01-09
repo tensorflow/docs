@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.name_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/name_scope">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6251-L6361">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `name_scope`
 
 A context manager for use when defining a Python op.
@@ -13,14 +31,10 @@ A context manager for use when defining a Python op.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.backend.name_scope`
-* Class `tf.compat.v1.name_scope`
-* Class `tf.keras.backend.name_scope`
-* Class `tf.name_scope`
+* Class <a href="/api_docs/python/tf/name_scope"><code>tf.compat.v1.keras.backend.name_scope</code></a>
+* Class <a href="/api_docs/python/tf/name_scope"><code>tf.compat.v1.name_scope</code></a>
+* Class <a href="/api_docs/python/tf/name_scope"><code>tf.keras.backend.name_scope</code></a>
 
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,6 +57,8 @@ def my_op(a, b, c, name=None):
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6277-L6303">View source</a>
 
 ``` python
 __init__(
@@ -83,6 +99,8 @@ Initialize the context manager.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6305-L6350">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -104,6 +122,8 @@ The scope name.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6352-L6361">View source</a>
+
 ``` python
 __exit__(
     type_arg,
@@ -111,9 +131,3 @@ __exit__(
     traceback_arg
 )
 ```
-
-
-
-
-
-

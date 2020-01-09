@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.models.clone_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/models/clone_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/models.py#L366-L409">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Clone any `Model` instance.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.models.clone_model`
-* `tf.compat.v2.keras.models.clone_model`
-* `tf.keras.models.clone_model`
+* <a href="/api_docs/python/tf/keras/models/clone_model"><code>tf.compat.v1.keras.models.clone_model</code></a>
+* <a href="/api_docs/python/tf/keras/models/clone_model"><code>tf.compat.v2.keras.models.clone_model</code></a>
+
 
 ``` python
 tf.keras.models.clone_model(
@@ -22,8 +40,6 @@ tf.keras.models.clone_model(
 ```
 
 
-
-Defined in [`python/keras/models.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/models.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.remove_checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L442-L467">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Removes a checkpoint given by `checkpoint_prefix`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.remove_checkpoint`
-* `tf.train.remove_checkpoint`
+* <a href="/api_docs/python/tf/train/remove_checkpoint"><code>tf.compat.v1.train.remove_checkpoint</code></a>
+
 
 ``` python
 tf.train.remove_checkpoint(
@@ -21,8 +33,6 @@ tf.train.remove_checkpoint(
 ```
 
 
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 

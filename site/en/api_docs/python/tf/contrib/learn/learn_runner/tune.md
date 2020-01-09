@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.learn_runner.tune
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/learn_runner.py#L228-L262">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Tune an experiment with hyper-parameters. (deprecated)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.learn.learn_runner.tune(
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/learn_runner.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_runner.py).
 
 <!-- Placeholder for "Used in" -->
 

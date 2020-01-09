@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.math.bincount
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3145-L3217">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Counts the number of occurrences of each value in an integer array.
 
 ``` python
@@ -20,8 +32,6 @@ tf.compat.v2.math.bincount(
 
 
 
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 If `minlength` and `maxlength` are not given, returns a vector with length
@@ -29,6 +39,26 @@ If `minlength` and `maxlength` are not given, returns a vector with length
 If `weights` are non-None, then index `i` of the output stores the sum of the
 value in `weights` at each index where the corresponding value in `arr` is
 `i`.
+
+```python
+values = tf.constant([1,1,2,3,2,4,4,5])
+tf.math.bincount(values) #[0 2 2 1 2 1]
+```
+Vector length = Maximum element in vector `values` is 5. Adding 1, which is 6
+                will be the vector length.
+
+Each bin value in the output indicates number of occurrences of the particular
+index. Here, index 1 in output has a value 2. This indicates value 1 occurs
+two times in `values`.
+
+```python
+values = tf.constant([1,1,2,3,2,4,4,5])
+weights = tf.constant([1,5,0,1,0,5,4,5])
+tf.math.bincount(values, weights=weights) #[0 6 0 1 9 5]
+```
+Bin will be incremented by the corresponding weight instead of 1.
+Here, index 1 in output has a value 6. This is the summation of weights
+corresponding to the value in `values`.
 
 #### Args:
 
@@ -49,3 +79,9 @@ value in `weights` at each index where the corresponding value in `arr` is
 
 A vector with the same dtype as `weights` or the given `dtype`. The bin
 values.
+
+
+
+#### Raises:
+
+`InvalidArgumentError` if negative values are provided as an input.

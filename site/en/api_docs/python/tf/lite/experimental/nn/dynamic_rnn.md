@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.lite.experimental.nn.dynamic_rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/experimental/examples/lstm/rnn.py#L41-L276">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a recurrent neural network specified by RNNCell `cell`.
 
 ### Aliases:
 
-* `tf.compat.v1.lite.experimental.nn.dynamic_rnn`
-* `tf.lite.experimental.nn.dynamic_rnn`
+* <a href="/api_docs/python/tf/lite/experimental/nn/dynamic_rnn"><code>tf.compat.v1.lite.experimental.nn.dynamic_rnn</code></a>
+
 
 ``` python
 tf.lite.experimental.nn.dynamic_rnn(
@@ -27,8 +39,6 @@ tf.lite.experimental.nn.dynamic_rnn(
 ```
 
 
-
-Defined in [`lite/experimental/examples/lstm/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/experimental/examples/lstm/rnn.py).
 
 <!-- Placeholder for "Used in" -->
 

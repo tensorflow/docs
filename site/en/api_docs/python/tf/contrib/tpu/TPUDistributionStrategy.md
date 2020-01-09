@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.tpu.TPUDistributionStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/tpu/python/tpu/keras_support.py#L191-L245">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TPUDistributionStrategy`
 
 The strategy to run Keras model on TPU.
 
 
 
-
-
-Defined in [`contrib/tpu/python/tpu/keras_support.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tpu/python/tpu/keras_support.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/tpu/python/tpu/keras_support.py#L194-L234">View source</a>
 
 ``` python
 __init__(
@@ -47,6 +57,3 @@ Construct a TPUDistributionStrategy.
 
 
 * <b>`Exception`</b>: No TPU Found on the given worker.
-
-
-

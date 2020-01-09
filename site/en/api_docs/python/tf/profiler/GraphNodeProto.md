@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.profiler.GraphNodeProto
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/profiler/tfprof_output.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GraphNodeProto`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.profiler.GraphNodeProto`
-* Class `tf.profiler.GraphNodeProto`
+* Class <a href="/api_docs/python/tf/profiler/GraphNodeProto"><code>tf.compat.v1.profiler.GraphNodeProto</code></a>
 
-
-
-Defined in [`core/profiler/tfprof_output.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/profiler/tfprof_output.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -161,7 +169,3 @@ Defined in [`core/profiler/tfprof_output.proto`](https://github.com/tensorflow/t
 <h3 id="total_run_count"><code>total_run_count</code></h3>
 
 `int64 total_run_count`
-
-
-
-

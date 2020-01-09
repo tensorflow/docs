@@ -6,13 +6,25 @@ page_type: reference
 # Module: tf.random
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.random namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`experimental`](../tf/random/experimental) module
+[`experimental`](../tf/random/experimental) module: Public API for tf.random.experimental namespace.
 
 ## Functions
 
@@ -55,4 +67,3 @@ page_type: reference
 [`uniform(...)`](../tf/random/uniform): Outputs random values from a uniform distribution.
 
 [`uniform_candidate_sampler(...)`](../tf/random/uniform_candidate_sampler): Samples a set of classes using a uniform base distribution.
-

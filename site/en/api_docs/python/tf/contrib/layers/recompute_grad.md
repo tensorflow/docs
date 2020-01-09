@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.recompute_grad
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/rev_block_lib.py#L457-L513">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Decorator that recomputes the function on the backwards pass.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.layers.recompute_grad(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
 
 <!-- Placeholder for "Used in" -->
 

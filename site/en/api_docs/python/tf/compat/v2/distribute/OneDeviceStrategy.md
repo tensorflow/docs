@@ -5,27 +5,72 @@ page_type: reference
 
 # tf.compat.v2.distribute.OneDeviceStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L41-L229">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OneDeviceStrategy`
 
 A distribution strategy for running on a single device.
 
 Inherits From: [`Strategy`](../../../../tf/compat/v2/distribute/Strategy)
 
-
-
-Defined in [`python/distribute/one_device_strategy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/one_device_strategy.py).
-
 <!-- Placeholder for "Used in" -->
 
+Using this strategy will place any variables created in its scope on the
+specified device. Input distributed through this strategy will be
+prefetched to the specified device. Moreover, any functions called via
+`strategy.experimental_run_v2` will also be placed on the specified device
+as well.
+
+Typical usage of this strategy could be testing your code with the
+tf.distribute.Strategy API before switching to other strategies which
+actually distribute to multiple devices/machines.
+
+#### For example:
+
+
+```
+strategy = tf.distribute.OneDeviceStrategy(device="/gpu:0")
+
+with strategy.scope():
+  v = tf.Variable(1.0)
+  print(v.device)  # /job:localhost/replica:0/task:0/device:GPU:0
+
+def step_fn(x):
+  return x * 2
+
+result = 0
+for i in range(10):
+  result += strategy.experimental_run_v2(step_fn, args=(i,))
+print(result)  # 90
+```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L72-L80">View source</a>
 
 ``` python
 __init__(device)
 ```
 
+Creates a `OneDeviceStrategy`.
 
 
+#### Args:
+
+
+* <b>`device`</b>: Device string identifier for the device on which the variables
+  should be placed. See class docs for more details on how the device is
+  used. Examples: "/cpu:0", "/gpu:0", "/device:CPU:0", "/device:GPU:0"
 
 
 
@@ -47,65 +92,91 @@ Returns number of replicas over which gradients are aggregated.
 
 <h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L82-L108">View source</a>
+
 ``` python
 experimental_distribute_dataset(dataset)
 ```
 
-Distributes a tf.data.Dataset instance provided via `dataset`.
+Distributes a tf.data.Dataset instance provided via dataset.
 
-In a multi-worker setting, we will first attempt to distribute the dataset
-by attempting to detect whether the dataset is being created out of
-ReaderDatasets (e.g. TFRecordDataset, TextLineDataset, etc.) and if so,
-attempting to shard the input files. Note that there has to be at least one
-input file per worker. If you have less than one input file per worker, we
-suggest that you should disable distributing your dataset using the method
-below.
+In this case, there is only one device, so this is only a thin wrapper
+around the input dataset. It will, however, prefetch the input data to the
+specified device. The returned distributed dataset can be iterated over
+similar to how regular datasets can.
 
-If that attempt is unsuccessful (e.g. the dataset is created from a
-Dataset.range), we will shard the dataset evenly at the end by appending a
-`.shard` operation to the end of the processing pipeline. This will cause
-the entire preprocessing pipeline for all the data to be run on every
-worker, and each worker will do redundant work. We will print a warning
-if this method of sharding is selected.
+NOTE: Currently, the user cannot add any more transformations to a
+distributed dataset.
 
-You can disable dataset distribution using the `auto_shard` option in
-<a href="../../../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a>.
+#### Example:
 
-Within each host, we will also split the data among all the worker devices
-(if more than one a present), and this will happen even if multi-worker
-sharding is disabled using the method above.
 
-The following is an example:
-
-```python
-strategy = tf.distribute.MirroredStrategy()
-
-# Create a dataset
-dataset = dataset_ops.Dataset.TFRecordDataset([
-  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", /a/4.tfr"])
-
-# Distribute that dataset
-dist_dataset = strategy.experimental_distribute_dataset(dataset)
-# Iterate over the distributed dataset
-for x in dist_dataset:
-  # process dataset elements
-  strategy.experimental_run_v2(train_step, args=(x,))
 ```
+strategy = tf.distribute.OneDeviceStrategy()
+dataset = tf.data.Dataset.range(10).batch(2)
+dist_dataset = strategy.experimental_distribute_dataset(dataset)
+for x in dist_dataset:
+  print(x)  # [0, 1], [2, 3],...
+```
+Args:
+  dataset: <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> to be prefetched to device.
+
+#### Returns:
+
+A "distributed `Dataset`" that the caller can iterate over.
+
+
+<h3 id="experimental_distribute_datasets_from_function"><code>experimental_distribute_datasets_from_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L110-L148">View source</a>
+
+``` python
+experimental_distribute_datasets_from_function(dataset_fn)
+```
+
+Distributes <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> instances created by calls to `dataset_fn`.
+
+`dataset_fn` will be called once for each worker in the strategy. In this
+case, we only have one worker and one device so `dataset_fn` is called
+once.
+
+The `dataset_fn` should take an <a href="../../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> instance where
+information about batching and input replication can be accessed:
+
+```
+def dataset_fn(input_context):
+  batch_size = input_context.get_per_replica_batch_size(global_batch_size)
+  d = tf.data.Dataset.from_tensors([[1.]]).repeat().batch(batch_size)
+  return d.shard(
+      input_context.num_input_pipelines, input_context.input_pipeline_id)
+
+inputs = strategy.experimental_distribute_datasets_from_function(dataset_fn)
+
+for batch in inputs:
+  replica_results = strategy.experimental_run_v2(replica_fn, args=(batch,))
+```
+
+IMPORTANT: The <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returned by `dataset_fn` should have a
+per-replica batch size, unlike `experimental_distribute_dataset`, which uses
+the global batch size.  This may be computed using
+`input_context.get_per_replica_batch_size`.
 
 #### Args:
 
 
-* <b>`dataset`</b>: <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> that will be sharded across all replicas using
-  the rules stated above.
+* <b>`dataset_fn`</b>: A function taking a <a href="../../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> instance and
+  returning a <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
 
 
 #### Returns:
 
-A `DistributedDataset` which returns inputs for each step of the
-computation.
+A "distributed `Dataset`", which the caller can iterate over like regular
+datasets.
 
 
 <h3 id="experimental_local_results"><code>experimental_local_results</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L150-L164">View source</a>
 
 ``` python
 experimental_local_results(value)
@@ -113,11 +184,8 @@ experimental_local_results(value)
 
 Returns the list of all local per-replica values contained in `value`.
 
-Note: This only returns values on the workers initiated by this client.
-When using a `Strategy` like
-<a href="../../../../tf/distribute/experimental/MultiWorkerMirroredStrategy"><code>tf.distribute.experimental.MultiWorkerMirroredStrategy</code></a>, each worker
-will be its own client, and this function will only return values
-computed on that worker.
+In `OneDeviceStrategy`, the `value` is always expected to be a single
+value, so the result is just the value in a tuple.
 
 #### Args:
 
@@ -134,22 +202,36 @@ value, this returns `(value,).`
 
 <h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L579-L605">View source</a>
+
 ``` python
 experimental_make_numpy_dataset(numpy_input)
 ```
 
-Makes a dataset for input provided via a numpy array.
+Makes a <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> for input provided via a numpy array.
 
 This avoids adding `numpy_input` as a large constant in the graph,
 and copies the data to the machine or machines that will be processing
 the input.
 
+Note that you will likely need to use `experimental_distribute_dataset`
+with the returned dataset to further distribute it with the strategy.
+
+#### Example:
+
+
+```
+numpy_input = np.ones([10], dtype=np.float32)
+dataset = strategy.experimental_make_numpy_dataset(numpy_input)
+dist_dataset = strategy.experimental_distribute_dataset(dataset)
+```
+
 #### Args:
 
 
-* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be distributed evenly
-  across all replicas. Note that lists of Numpy arrays are stacked,
-  as that is normal <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
+* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be converted into a
+dataset. Note that lists of Numpy arrays are stacked, as that is normal
+<a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
 
 
 #### Returns:
@@ -159,6 +241,8 @@ A <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> represe
 
 <h3 id="experimental_run_v2"><code>experimental_run_v2</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L166-L180">View source</a>
+
 ``` python
 experimental_run_v2(
     fn,
@@ -167,17 +251,10 @@ experimental_run_v2(
 )
 ```
 
-Runs ops in `fn` on each replica, with the given arguments.
+Run `fn` on each replica, with the given arguments.
 
-When eager execution is enabled, executes ops specified by `fn` on each
-replica. Otherwise, builds a graph to execute the ops on each replica.
-
-`fn` may call <a href="../../../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context()</code></a> to access members such
-as `replica_id_in_sync_group`.
-
-IMPORTANT: Depending on the <a href="../../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> implementation being
-used, and whether eager execution is enabled, `fn` may be called one or more
-times (once for each replica).
+In `OneDeviceStrategy`, `fn` is simply called within a device scope for the
+given device, with the provided arguments.
 
 #### Args:
 
@@ -189,14 +266,12 @@ times (once for each replica).
 
 #### Returns:
 
-Merged return value of `fn` across replicas. The structure of the return
-value is the same as the return value from `fn`. Each element in the
-structure can either be `PerReplica` (if the values are unsynchronized),
-`Mirrored` (if the values are kept in sync), or `Tensor` (if running on a
-single replica).
+Return value from running `fn`.
 
 
 <h3 id="reduce"><code>reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L182-L213">View source</a>
 
 ``` python
 reduce(
@@ -208,27 +283,22 @@ reduce(
 
 Reduce `value` across replicas.
 
-Given a per-replica value returned by `experimental_run_v2`, say a
-per-example loss, the batch will be divided across all the replicas.  This
-function allows you to aggregate across replicas and optionally also across
-batch elements.  For example, if you have a global batch size of 8 and 2
-replicas, values for examples `[0, 1, 2, 3]` will be on replica 0 and
-`[4, 5, 6, 7]` will be on replica 1. By default, `reduce` will just
-aggregate across replicas, returning `[0+4, 1+5, 2+6, 3+7]`. This is useful
-when each replica is computing a scalar or some other value that doesn't
-have a "batch" dimension (like a gradient). More often you will want to
-aggregate across the global batch, which you can get by specifying the batch
-dimension as the `axis`, typically `axis=0`. In this case it would return a
-scalar `0+1+2+3+4+5+6+7`.
+In `OneDeviceStrategy`, there is only one replica, so if axis=None, value
+is simply returned. If axis is specified as something other than None,
+such as axis=0, value is reduced along that axis and returned.
 
-If there is a last partial batch, you will need to specify an axis so
-that the resulting shape is consistent across replicas. So if the last
-batch has size 6 and it is divided into [0, 1, 2, 3] and [4, 5], you
-would get a shape mismatch unless you specify `axis=0`. If you specify
-<a href="../../../../tf/distribute/ReduceOp#MEAN"><code>tf.distribute.ReduceOp.MEAN</code></a>, using `axis=0` will use the correct
-denominator of 6. Contrast this with computing `reduce_mean` to get a
-scalar value on each replica and this function to average those means,
-which will weigh some values `1/8` and others `1/4`.
+#### Example:
+
+
+```
+t = tf.range(10)
+
+result = strategy.reduce(tf.distribute.ReduceOp.SUM, t, axis=None).numpy()
+# result: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+result = strategy.reduce(tf.distribute.ReduceOp.SUM, t, axis=0).numpy()
+# result: 45
+```
 
 #### Args:
 
@@ -250,6 +320,8 @@ A `Tensor`.
 
 <h3 id="scope"><code>scope</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/one_device_strategy.py#L215-L229">View source</a>
+
 ``` python
 scope()
 ```
@@ -260,10 +332,10 @@ Inside a `with strategy.scope():` code block, this thread
 will use a variable creator set by `strategy`, and will
 enter its "cross-replica context".
 
+In `OneDeviceStrategy`, all variables created inside `strategy.scope()`
+will be on `device` specified at strategy construction time.
+See example in the docs for this class.
+
 #### Returns:
 
-A context manager.
-
-
-
-
+A context manager to use for creating variables with this strategy.

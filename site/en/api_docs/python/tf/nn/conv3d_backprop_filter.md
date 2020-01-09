@@ -5,14 +5,22 @@ page_type: reference
 
 # tf.nn.conv3d_backprop_filter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes the gradients of 3-D convolution with respect to the filter.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.conv3d_backprop_filter`
-* `tf.compat.v1.nn.conv3d_backprop_filter_v2`
-* `tf.nn.conv3d_backprop_filter`
-* `tf.nn.conv3d_backprop_filter_v2`
+* <a href="/api_docs/python/tf/nn/conv3d_backprop_filter"><code>tf.compat.v1.nn.conv3d_backprop_filter</code></a>
+* <a href="/api_docs/python/tf/nn/conv3d_backprop_filter"><code>tf.compat.v1.nn.conv3d_backprop_filter_v2</code></a>
+* <a href="/api_docs/python/tf/nn/conv3d_backprop_filter"><code>tf.nn.conv3d_backprop_filter_v2</code></a>
+
 
 ``` python
 tf.nn.conv3d_backprop_filter(
@@ -28,8 +36,6 @@ tf.nn.conv3d_backprop_filter(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

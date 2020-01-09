@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.utils.plot_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/utils/plot_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/vis_utils.py#L252-L300">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts a Keras model to dot format and save to a file.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.utils.plot_model`
-* `tf.compat.v2.keras.utils.plot_model`
-* `tf.keras.utils.plot_model`
+* <a href="/api_docs/python/tf/keras/utils/plot_model"><code>tf.compat.v1.keras.utils.plot_model</code></a>
+* <a href="/api_docs/python/tf/keras/utils/plot_model"><code>tf.compat.v2.keras.utils.plot_model</code></a>
+
 
 ``` python
 tf.keras.utils.plot_model(
@@ -19,13 +37,13 @@ tf.keras.utils.plot_model(
     to_file='model.png',
     show_shapes=False,
     show_layer_names=True,
-    rankdir='TB'
+    rankdir='TB',
+    expand_nested=False,
+    dpi=96
 )
 ```
 
 
-
-Defined in [`python/keras/utils/vis_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/vis_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,6 +59,8 @@ Defined in [`python/keras/utils/vis_utils.py`](https://github.com/tensorflow/ten
     a string specifying the format of the plot:
     'TB' creates a vertical plot;
     'LR' creates a horizontal plot.
+* <b>`expand_nested`</b>: Whether to expand nested models into clusters.
+* <b>`dpi`</b>: Dots per inch.
 
 
 #### Returns:

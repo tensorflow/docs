@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.Bijector
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L136-L1119">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Bijector`
 
 Interface for transformations of a `Distribution` sample.
 
 
-
-
-
-Defined in [`python/ops/distributions/bijector_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/bijector_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -129,22 +137,20 @@ def transformed_sample(bijector, x):
 >           # to do so because we called `super` `__init__` with
 >           # `forward_min_event_ndims = 0`.
 >           return x
->       ```
->     
->     "Affine"
->     
-  Y = g(X) = sqrtSigma * X + mu
-  X ~ MultivariateNormal(0, I_d)
->     
->     Implies:
->     
-    g^{-1}(Y) = inv(sqrtSigma) * (Y - mu)
-    |Jacobian(g^{-1})(y)| = det(inv(sqrtSigma))
-    Y ~ MultivariateNormal(mu, sqrtSigma) , i.e.,
-    prob(Y=y) = |Jacobian(g^{-1})(y)| * prob(X=g^{-1}(y))
-              = det(sqrtSigma)^(-d) *
-                MultivariateNormal(inv(sqrtSigma) * (y - mu); 0, I_d)
-    ```
+
+- "Affine"
+
+>     Y = g(X) = sqrtSigma * X + mu
+>     X ~ MultivariateNormal(0, I_d)
+
+  Implies:
+
+>       g^{-1}(Y) = inv(sqrtSigma) * (Y - mu)
+>       |Jacobian(g^{-1})(y)| = det(inv(sqrtSigma))
+>       Y ~ MultivariateNormal(mu, sqrtSigma) , i.e.,
+>       prob(Y=y) = |Jacobian(g^{-1})(y)| * prob(X=g^{-1}(y))
+>                 = det(sqrtSigma)^(-d) *
+>                   MultivariateNormal(inv(sqrtSigma) * (y - mu); 0, I_d)
 
 #### Min_event_ndims and Naming
 
@@ -205,9 +211,7 @@ The correctness of this approach can be seen from the following claim.
     Assume `Y = g(X)` is a bijection whose derivative exists and is nonzero
     for its domain, i.e., `dY/dX = d/dX g(X) != 0`. Then:
 
-    ```none
-    (log o det o jacobian o g^{-1})(Y) = -(log o det o jacobian o g)(X)
-    ```
+>     (log o det o jacobian o g^{-1})(Y) = -(log o det o jacobian o g)(X)
 
 - Proof:
 
@@ -244,32 +248,30 @@ The semantics of this argument are the following:
     independent). Specifically, `log_det_jacobian` is implemented as the
     log jacobian determinant for a single input.
 
-    ```python
-    class Identity(Bijector):
-
-      def __init__(self, validate_args=False, name="identity"):
-        super(Identity, self).__init__(
-            is_constant_jacobian=True,
-            validate_args=validate_args,
-            forward_min_event_ndims=0,
-            name=name)
-
-      def _forward(self, x):
-        return x
-
-      def _inverse(self, y):
-        return y
-
-      def _inverse_log_det_jacobian(self, y):
-        return -self._forward_log_det_jacobian(self._inverse(y))
-
-      def _forward_log_det_jacobian(self, x):
-        # The full log jacobian determinant would be array_ops.zero_like(x).
-        # However, we circumvent materializing that, since the jacobian
-        # calculation is input independent, and we specify it for one input.
-        return constant_op.constant(0., x.dtype.base_dtype)
-
-    ```
+>     class Identity(Bijector):
+>     
+>       def __init__(self, validate_args=False, name="identity"):
+>         super(Identity, self).__init__(
+>             is_constant_jacobian=True,
+>             validate_args=validate_args,
+>             forward_min_event_ndims=0,
+>             name=name)
+>     
+>       def _forward(self, x):
+>         return x
+>     
+>       def _inverse(self, y):
+>         return y
+>     
+>       def _inverse_log_det_jacobian(self, y):
+>         return -self._forward_log_det_jacobian(self._inverse(y))
+>     
+>       def _forward_log_det_jacobian(self, x):
+>         # The full log jacobian determinant would be array_ops.zero_like(x).
+>         # However, we circumvent materializing that, since the jacobian
+>         # calculation is input independent, and we specify it for one input.
+>         return constant_op.constant(0., x.dtype.base_dtype)
+>     
 
 #### Subclass Requirements
 
@@ -364,6 +366,8 @@ abs.inverse_log_det_jacobian(0., event_ndims=0)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L493-L588">View source</a>
 
 ``` python
 __init__(
@@ -474,6 +478,8 @@ Returns True if Tensor arguments will be validated.
 
 <h3 id="forward"><code>forward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L753-L768">View source</a>
+
 ``` python
 forward(
     x,
@@ -506,6 +512,8 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
 <h3 id="forward_event_shape"><code>forward_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L677-L690">View source</a>
+
 ``` python
 forward_event_shape(input_shape)
 ```
@@ -528,6 +536,8 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
   after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L653-L670">View source</a>
 
 ``` python
 forward_event_shape_tensor(
@@ -554,6 +564,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `forward`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L973-L997">View source</a>
 
 ``` python
 forward_log_det_jacobian(
@@ -596,6 +608,8 @@ Returns both the forward_log_det_jacobian.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L787-L804">View source</a>
+
 ``` python
 inverse(
     y,
@@ -630,6 +644,8 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
 <h3 id="inverse_event_shape"><code>inverse_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L721-L734">View source</a>
+
 ``` python
 inverse_event_shape(output_shape)
 ```
@@ -652,6 +668,8 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
   after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L697-L714">View source</a>
 
 ``` python
 inverse_event_shape_tensor(
@@ -678,6 +696,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `inverse`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L871-L900">View source</a>
 
 ``` python
 inverse_log_det_jacobian(
@@ -721,6 +741,3 @@ evaluated at `g^{-1}(y)`.
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
   `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_inverse_log_det_jacobian` is not implemented.
-
-
-

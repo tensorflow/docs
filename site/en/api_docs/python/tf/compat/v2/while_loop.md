@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.while_loop
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L2302-L2478">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Repeat `body` while the condition `cond` is true.
 
 ``` python
@@ -23,8 +35,6 @@ tf.compat.v2.while_loop(
 
 
 
-Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 `cond` is a callable returning a boolean scalar tensor. `body` is a callable
@@ -39,7 +49,7 @@ return TensorArray objects.  The flows of the TensorArray objects will
 be appropriately forwarded between loops and during gradient calculations.
 
 Note that `while_loop` calls `cond` and `body` *exactly once* (inside the
-call to `while_loop`, and not at all during `Session.run()`). `while_loop`
+call to `while_loop`, and not at all during <a href="/api_docs/python/tf/InteractiveSession#run"><code>Session.run()</code></a>). `while_loop`
 stitches together the graph fragments created during the `cond` and `body`
 calls with some additional graph nodes to create the graph flow that
 repeats `body` until `cond` returns false.

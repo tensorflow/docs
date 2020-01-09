@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.recall_at_thresholds
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L2651-L2726">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes various recall values for different `thresholds` on `predictions`.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.recall_at_thresholds`
-* `tf.metrics.recall_at_thresholds`
+* <a href="/api_docs/python/tf/metrics/recall_at_thresholds"><code>tf.compat.v1.metrics.recall_at_thresholds</code></a>
+
 
 ``` python
 tf.metrics.recall_at_thresholds(
@@ -25,8 +37,6 @@ tf.metrics.recall_at_thresholds(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

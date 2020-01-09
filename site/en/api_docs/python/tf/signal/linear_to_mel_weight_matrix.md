@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.signal.linear_to_mel_weight_matrix
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/linear_to_mel_weight_matrix">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/mel_ops.py#L91-L213">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a matrix to warp linear scale spectrograms to the [mel scale][mel].
 
 ### Aliases:
 
-* `tf.compat.v1.signal.linear_to_mel_weight_matrix`
-* `tf.compat.v2.signal.linear_to_mel_weight_matrix`
-* `tf.contrib.signal.linear_to_mel_weight_matrix`
-* `tf.signal.linear_to_mel_weight_matrix`
+* <a href="/api_docs/python/tf/signal/linear_to_mel_weight_matrix"><code>tf.compat.v1.signal.linear_to_mel_weight_matrix</code></a>
+* <a href="/api_docs/python/tf/signal/linear_to_mel_weight_matrix"><code>tf.compat.v2.signal.linear_to_mel_weight_matrix</code></a>
+* <a href="/api_docs/python/tf/signal/linear_to_mel_weight_matrix"><code>tf.contrib.signal.linear_to_mel_weight_matrix</code></a>
+
 
 ``` python
 tf.signal.linear_to_mel_weight_matrix(
@@ -27,8 +45,6 @@ tf.signal.linear_to_mel_weight_matrix(
 ```
 
 
-
-Defined in [`python/ops/signal/mel_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/mel_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -86,6 +102,7 @@ A `Tensor` of shape `[num_spectrogram_bins, num_mel_bins]`.
 
 * <b>`ValueError`</b>: If `num_mel_bins`/`num_spectrogram_bins`/`sample_rate` are not
   positive, `lower_edge_hertz` is negative, frequency edges are incorrectly
-  ordered, or `upper_edge_hertz` is larger than the Nyquist frequency.
+  ordered, `upper_edge_hertz` is larger than the Nyquist frequency, or
+  `sample_rate` is neither a Python float nor a constant Tensor.
 
 [mel]: https://en.wikipedia.org/wiki/Mel_scale

@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.math.invert_permutation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/invert_permutation">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Computes the inverse permutation of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.invert_permutation`
-* `tf.compat.v1.math.invert_permutation`
-* `tf.compat.v2.math.invert_permutation`
-* `tf.invert_permutation`
-* `tf.math.invert_permutation`
+* <a href="/api_docs/python/tf/math/invert_permutation"><code>tf.compat.v1.invert_permutation</code></a>
+* <a href="/api_docs/python/tf/math/invert_permutation"><code>tf.compat.v1.math.invert_permutation</code></a>
+* <a href="/api_docs/python/tf/math/invert_permutation"><code>tf.compat.v2.math.invert_permutation</code></a>
+* <a href="/api_docs/python/tf/math/invert_permutation"><code>tf.invert_permutation</code></a>
+
 
 ``` python
 tf.math.invert_permutation(
@@ -23,8 +37,6 @@ tf.math.invert_permutation(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

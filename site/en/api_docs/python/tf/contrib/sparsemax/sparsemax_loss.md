@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.sparsemax.sparsemax_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py#L28-L76">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes sparsemax loss function [1].
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.sparsemax.sparsemax_loss(
 ```
 
 
-
-Defined in [`contrib/sparsemax/python/ops/sparsemax_loss.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/sparsemax/python/ops/sparsemax_loss.py).
 
 <!-- Placeholder for "Used in" -->
 

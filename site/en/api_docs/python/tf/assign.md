@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.assign
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/state_ops.py#L198-L228">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Update `ref` by assigning `value` to it.
 
 ### Aliases:
 
-* `tf.assign`
-* `tf.compat.v1.assign`
+* <a href="/api_docs/python/tf/assign"><code>tf.compat.v1.assign</code></a>
+
 
 ``` python
 tf.assign(
@@ -23,8 +35,6 @@ tf.assign(
 ```
 
 
-
-Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

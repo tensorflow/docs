@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.sparse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/sparse">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Sparse Tensor Representation.
 
 <!-- Placeholder for "Used in" -->
@@ -31,6 +43,8 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 [`fill_empty_rows(...)`](../../../tf/sparse/fill_empty_rows): Fills empty rows in the input 2-D `SparseTensor` with a default value.
 
+[`from_dense(...)`](../../../tf/sparse/from_dense): Converts a dense tensor into a sparse tensor.
+
 [`mask(...)`](../../../tf/sparse/mask): Masks elements of `IndexedSlices`.
 
 [`maximum(...)`](../../../tf/sparse/maximum): Returns the element-wise max of two SparseTensors.
@@ -53,7 +67,7 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 [`segment_sqrt_n(...)`](../../../tf/compat/v2/sparse/segment_sqrt_n): Computes the sum along sparse segments of a tensor divided by the sqrt(N).
 
-[`segment_sum(...)`](../../../tf/compat/v2/sparse/segment_sum)
+[`segment_sum(...)`](../../../tf/compat/v2/sparse/segment_sum): Computes the sum along sparse segments of a tensor.
 
 [`slice(...)`](../../../tf/sparse/slice): Slice a `SparseTensor` based on the `start` and `size.
 
@@ -68,4 +82,3 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 [`to_indicator(...)`](../../../tf/sparse/to_indicator): Converts a `SparseTensor` of ids into a dense bool indicator tensor.
 
 [`transpose(...)`](../../../tf/sparse/transpose): Transposes a `SparseTensor`
-

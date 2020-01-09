@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.feature_column.sequence_numeric_column
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/sequence_numeric_column">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/sequence_feature_column.py#L428-L488">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a feature column that represents sequences of numeric data.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.sequence_numeric_column`
-* `tf.compat.v2.feature_column.sequence_numeric_column`
-* `tf.feature_column.sequence_numeric_column`
+* <a href="/api_docs/python/tf/feature_column/sequence_numeric_column"><code>tf.compat.v1.feature_column.sequence_numeric_column</code></a>
+* <a href="/api_docs/python/tf/feature_column/sequence_numeric_column"><code>tf.compat.v2.feature_column.sequence_numeric_column</code></a>
+
 
 ``` python
 tf.feature_column.sequence_numeric_column(
@@ -24,8 +42,6 @@ tf.feature_column.sequence_numeric_column(
 ```
 
 
-
-Defined in [`python/feature_column/sequence_feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/sequence_feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

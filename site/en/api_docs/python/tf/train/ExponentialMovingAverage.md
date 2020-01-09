@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.train.ExponentialMovingAverage
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/ExponentialMovingAverage">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L260-L550">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ExponentialMovingAverage`
 
 Maintains moving averages of variables by employing an exponential decay.
@@ -13,13 +31,9 @@ Maintains moving averages of variables by employing an exponential decay.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.ExponentialMovingAverage`
-* Class `tf.compat.v2.train.ExponentialMovingAverage`
-* Class `tf.train.ExponentialMovingAverage`
+* Class <a href="/api_docs/python/tf/train/ExponentialMovingAverage"><code>tf.compat.v1.train.ExponentialMovingAverage</code></a>
+* Class <a href="/api_docs/python/tf/train/ExponentialMovingAverage"><code>tf.compat.v2.train.ExponentialMovingAverage</code></a>
 
-
-
-Defined in [`python/training/moving_averages.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/moving_averages.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -102,6 +116,8 @@ saver.restore(...checkpoint filename...)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L341-L371">View source</a>
+
 ``` python
 __init__(
     decay,
@@ -149,6 +165,8 @@ The name of this ExponentialMovingAverage object.
 
 <h3 id="apply"><code>apply</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L378-L462">View source</a>
+
 ``` python
 apply(var_list=None)
 ```
@@ -193,6 +211,8 @@ An Operation that updates the moving averages.
 
 <h3 id="average"><code>average</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L464-L474">View source</a>
+
 ``` python
 average(var)
 ```
@@ -213,6 +233,8 @@ is not maintained.
 
 
 <h3 id="average_name"><code>average_name</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L476-L501">View source</a>
 
 ``` python
 average_name(var)
@@ -245,6 +267,8 @@ by the `ExponentialMovingAverage class` to hold the moving average of
 
 
 <h3 id="variables_to_restore"><code>variables_to_restore</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L503-L550">View source</a>
 
 ``` python
 variables_to_restore(moving_avg_variables=None)
@@ -283,7 +307,3 @@ Below is an example of such mapping:
 A map from restore_names to variables. The restore_name is either the
 original or the moving average version of the variable name, depending
 on whether the variable name is in the `moving_avg_variables`.
-
-
-
-

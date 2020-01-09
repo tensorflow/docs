@@ -6,9 +6,30 @@ page_type: reference
 # Module: tf.signal
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Signal processing operations.
 
 <!-- Placeholder for "Used in" -->
 
+See the [tf.signal](https://tensorflow.org/api_guides/python/contrib.signal)
+guide.
+
+
+[hamming]: https://en.wikipedia.org/wiki/Window_function#Hamming_window
+[hann]: https://en.wikipedia.org/wiki/Window_function#Hann_window
+[mel]: https://en.wikipedia.org/wiki/Mel_scale
+[mfcc]: https://en.wikipedia.org/wiki/Mel-frequency_cepstrum
+[stft]: https://en.wikipedia.org/wiki/Short-time_Fourier_transform
 
 ## Functions
 
@@ -19,6 +40,8 @@ page_type: reference
 [`fft2d(...)`](../tf/signal/fft2d): 2D fast Fourier transform.
 
 [`fft3d(...)`](../tf/signal/fft3d): 3D fast Fourier transform.
+
+[`fftshift(...)`](../tf/signal/fftshift): Shift the zero-frequency component to the center of the spectrum.
 
 [`frame(...)`](../tf/signal/frame): Expands `signal`'s `axis` dimension into frames of `frame_length`.
 
@@ -33,6 +56,8 @@ page_type: reference
 [`ifft2d(...)`](../tf/signal/ifft2d): Inverse 2D fast Fourier transform.
 
 [`ifft3d(...)`](../tf/signal/ifft3d): Inverse 3D fast Fourier transform.
+
+[`ifftshift(...)`](../tf/signal/ifftshift): The inverse of fftshift.
 
 [`inverse_stft(...)`](../tf/signal/inverse_stft): Computes the inverse [Short-time Fourier Transform][stft] of `stfts`.
 
@@ -57,4 +82,3 @@ page_type: reference
 [`rfft3d(...)`](../tf/signal/rfft3d): 3D real-valued fast Fourier transform.
 
 [`stft(...)`](../tf/signal/stft): Computes the [Short-time Fourier Transform][stft] of `signals`.
-

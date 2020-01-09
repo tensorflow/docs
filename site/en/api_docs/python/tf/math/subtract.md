@@ -5,19 +5,37 @@ page_type: reference
 
 # tf.math.subtract
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/subtract">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L349-L352">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns x - y element-wise.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__sub__`
-* `tf.compat.v1.RaggedTensor.__sub__`
-* `tf.compat.v1.math.subtract`
-* `tf.compat.v1.subtract`
-* `tf.compat.v2.RaggedTensor.__sub__`
-* `tf.compat.v2.math.subtract`
-* `tf.compat.v2.subtract`
-* `tf.math.subtract`
-* `tf.subtract`
+* <a href="/api_docs/python/tf/RaggedTensor#__sub__"><code>tf.RaggedTensor.__sub__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__sub__"><code>tf.compat.v1.RaggedTensor.__sub__</code></a>
+* <a href="/api_docs/python/tf/math/subtract"><code>tf.compat.v1.math.subtract</code></a>
+* <a href="/api_docs/python/tf/math/subtract"><code>tf.compat.v1.subtract</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__sub__"><code>tf.compat.v2.RaggedTensor.__sub__</code></a>
+* <a href="/api_docs/python/tf/math/subtract"><code>tf.compat.v2.math.subtract</code></a>
+* <a href="/api_docs/python/tf/math/subtract"><code>tf.compat.v2.subtract</code></a>
+* <a href="/api_docs/python/tf/math/subtract"><code>tf.subtract</code></a>
+
 
 ``` python
 tf.math.subtract(
@@ -28,8 +46,6 @@ tf.math.subtract(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

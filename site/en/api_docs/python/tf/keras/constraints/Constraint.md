@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.constraints.Constraint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/constraints/Constraint">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L35-L41">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Constraint`
 
 
@@ -13,13 +31,9 @@ page_type: reference
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.constraints.Constraint`
-* Class `tf.compat.v2.keras.constraints.Constraint`
-* Class `tf.keras.constraints.Constraint`
+* Class <a href="/api_docs/python/tf/keras/constraints/Constraint"><code>tf.compat.v1.keras.constraints.Constraint</code></a>
+* Class <a href="/api_docs/python/tf/keras/constraints/Constraint"><code>tf.compat.v2.keras.constraints.Constraint</code></a>
 
-
-
-Defined in [`python/keras/constraints.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/constraints.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,21 +42,19 @@ Defined in [`python/keras/constraints.py`](https://github.com/tensorflow/tensorf
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L37-L38">View source</a>
+
 ``` python
 __call__(w)
 ```
 
-
+Call self as a function.
 
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L40-L41">View source</a>
+
 ``` python
 get_config()
 ```
-
-
-
-
-
-

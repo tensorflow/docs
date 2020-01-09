@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.feature_column.categorical_column_with_hash_bucket
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/categorical_column_with_hash_bucket">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1415-L1471">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Represents sparse feature where ids are set by hashing.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.categorical_column_with_hash_bucket`
-* `tf.compat.v2.feature_column.categorical_column_with_hash_bucket`
-* `tf.feature_column.categorical_column_with_hash_bucket`
+* <a href="/api_docs/python/tf/feature_column/categorical_column_with_hash_bucket"><code>tf.compat.v1.feature_column.categorical_column_with_hash_bucket</code></a>
+* <a href="/api_docs/python/tf/feature_column/categorical_column_with_hash_bucket"><code>tf.compat.v2.feature_column.categorical_column_with_hash_bucket</code></a>
+
 
 ``` python
 tf.feature_column.categorical_column_with_hash_bucket(
@@ -22,8 +40,6 @@ tf.feature_column.categorical_column_with_hash_bucket(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

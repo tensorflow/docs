@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.distributions.RegisterKL
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/kullback_leibler.py#L165-L213">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RegisterKL`
 
 Decorator to register a KL divergence implementation function.
@@ -13,13 +25,9 @@ Decorator to register a KL divergence implementation function.
 
 ### Aliases:
 
-* Class `tf.compat.v1.distributions.RegisterKL`
-* Class `tf.contrib.distributions.RegisterKL`
-* Class `tf.distributions.RegisterKL`
+* Class <a href="/api_docs/python/tf/distributions/RegisterKL"><code>tf.compat.v1.distributions.RegisterKL</code></a>
+* Class <a href="/api_docs/python/tf/distributions/RegisterKL"><code>tf.contrib.distributions.RegisterKL</code></a>
 
-
-
-Defined in [`python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/kullback_leibler.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,6 +42,8 @@ def _kl_normal_mvn(norm_a, norm_b):
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/kullback_leibler.py#L175-L190">View source</a>
+
 ``` python
 __init__(
     dist_cls_a,
@@ -45,7 +55,7 @@ Initialize the KL registrar. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-01-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
 
 #### Args:
 
@@ -58,6 +68,8 @@ The TensorFlow Distributions library has moved to TensorFlow Probability (https:
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/kullback_leibler.py#L192-L213">View source</a>
 
 ``` python
 __call__(kl_fn)
@@ -84,6 +96,3 @@ kl_fn
 * <b>`TypeError`</b>: if kl_fn is not a callable.
 * <b>`ValueError`</b>: if a KL divergence function has already been registered for
   the given argument classes.
-
-
-

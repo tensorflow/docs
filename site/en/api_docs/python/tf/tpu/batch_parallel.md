@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.tpu.batch_parallel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L1407-L1461">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Shards `computation` along the batch dimension for parallel execution.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.batch_parallel`
-* `tf.contrib.tpu.batch_parallel`
-* `tf.tpu.batch_parallel`
+* <a href="/api_docs/python/tf/tpu/batch_parallel"><code>tf.compat.v1.tpu.batch_parallel</code></a>
+* <a href="/api_docs/python/tf/tpu/batch_parallel"><code>tf.contrib.tpu.batch_parallel</code></a>
+
 
 ``` python
 tf.tpu.batch_parallel(
@@ -25,8 +37,6 @@ tf.tpu.batch_parallel(
 ```
 
 
-
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.add_arg_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/arg_scope.py#L165-L186">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Decorates a function with args so it can be used within an arg_scope.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.add_arg_scope(func)
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/arg_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/arg_scope.py).
 
 <!-- Placeholder for "Used in" -->
 

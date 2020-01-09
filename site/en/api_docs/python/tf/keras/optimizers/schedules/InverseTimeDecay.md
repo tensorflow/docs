@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.optimizers.schedules.InverseTimeDecay
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L410-L511">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InverseTimeDecay`
 
 A LearningRateSchedule that uses an inverse time decay schedule.
@@ -13,19 +31,17 @@ Inherits From: [`LearningRateSchedule`](../../../../tf/keras/optimizers/schedule
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.schedules.InverseTimeDecay`
-* Class `tf.compat.v2.keras.optimizers.schedules.InverseTimeDecay`
-* Class `tf.compat.v2.optimizers.schedules.InverseTimeDecay`
-* Class `tf.keras.optimizers.schedules.InverseTimeDecay`
+* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay"><code>tf.compat.v1.keras.optimizers.schedules.InverseTimeDecay</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay"><code>tf.compat.v2.keras.optimizers.schedules.InverseTimeDecay</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay"><code>tf.compat.v2.optimizers.schedules.InverseTimeDecay</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/learning_rate_schedule.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L413-L486">View source</a>
 
 ``` python
 __init__(
@@ -72,7 +88,7 @@ initial_learning_rate = 0.1
 decay_steps = 1.0
 decay_rate = 0.5
 learning_rate_fn = keras.optimizers.schedules.InverseTimeDecay(
-  initial_learning_rate, global_step, decay_steps, decay_rate)
+  initial_learning_rate, decay_steps, decay_rate)
 
 model.compile(optimizer=tf.keras.optimizers.SGD(
                   learning_rate=learning_rate_fn),
@@ -108,14 +124,18 @@ type as `initial_learning_rate`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L488-L502">View source</a>
+
 ``` python
 __call__(step)
 ```
 
-
+Call self as a function.
 
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
 
 ``` python
 from_config(
@@ -140,12 +160,8 @@ A `LearningRateSchedule` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L504-L511">View source</a>
+
 ``` python
 get_config()
 ```
-
-
-
-
-
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.input_pipeline.obtain_next
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py#L35-L46">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Basic wrapper for the ObtainNextOp.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.input_pipeline.obtain_next(
 ```
 
 
-
-Defined in [`contrib/input_pipeline/python/ops/input_pipeline_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/input_pipeline/python/ops/input_pipeline_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

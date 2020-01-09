@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.Iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/datasets.py#L27-L75">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Iterator`
 
 An iterator producing tf.Tensor objects from a tf.data.Dataset.
 
 
-
-
-
-Defined in [`contrib/eager/python/datasets.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/datasets.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,6 +30,8 @@ NOTE: Unlike the iterator created by the
 additional experimental functionality, such as prefetching to the GPU.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/datasets.py#L35-L66">View source</a>
 
 ``` python
 __init__(dataset)
@@ -57,6 +67,17 @@ was created.
 
 
 ## Properties
+
+<h3 id="element_spec"><code>element_spec</code></h3>
+
+The type specification of an element of this iterator.
+
+
+#### Returns:
+
+A nested structure of <a href="../../../tf/TypeSpec"><code>tf.TypeSpec</code></a> objects matching the structure of an
+element of this iterator and specifying the type of individual components.
+
 
 <h3 id="output_classes"><code>output_classes</code></h3>
 
@@ -108,6 +129,8 @@ of an element of this dataset.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L618-L619">View source</a>
+
 ``` python
 __iter__()
 ```
@@ -116,6 +139,8 @@ __iter__()
 
 
 <h3 id="get_next"><code>get_next</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L724-L737">View source</a>
 
 ``` python
 get_next(name=None)
@@ -143,12 +168,10 @@ A nested structure of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> ob
 
 <h3 id="next"><code>next</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L663-L668">View source</a>
+
 ``` python
 next()
 ```
 
-Returns a nested structure of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>s containing the next element.
-    
-
-
-
+Returns a nested structure of `Tensor`s containing the next element.

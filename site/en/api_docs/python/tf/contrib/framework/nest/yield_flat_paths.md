@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.nest.yield_flat_paths
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L1240-L1277">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Yields paths for some nested structure.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.framework.nest.yield_flat_paths(
 ```
 
 
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 

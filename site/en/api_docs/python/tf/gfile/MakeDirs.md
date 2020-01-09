@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.gfile.MakeDirs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L426-L438">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a directory and all parent/intermediate directories.
 
 ### Aliases:
 
-* `tf.compat.v1.gfile.MakeDirs`
-* `tf.gfile.MakeDirs`
+* <a href="/api_docs/python/tf/gfile/MakeDirs"><code>tf.compat.v1.gfile.MakeDirs</code></a>
+
 
 ``` python
 tf.gfile.MakeDirs(dirname)
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,4 +43,4 @@ It succeeds if dirname already exists and is writable.
 #### Raises:
 
 
-* <b>`errors.OpError`</b>: If the operation fails.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.

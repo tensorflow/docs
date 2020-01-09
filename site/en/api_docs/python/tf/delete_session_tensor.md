@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.delete_session_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/session_ops.py#L223-L244">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Delete the tensor for the given tensor handle.
 
 ### Aliases:
 
-* `tf.compat.v1.delete_session_tensor`
-* `tf.delete_session_tensor`
+* <a href="/api_docs/python/tf/delete_session_tensor"><code>tf.compat.v1.delete_session_tensor</code></a>
+
 
 ``` python
 tf.delete_session_tensor(
@@ -20,8 +32,6 @@ tf.delete_session_tensor(
 ```
 
 
-
-Defined in [`python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/session_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

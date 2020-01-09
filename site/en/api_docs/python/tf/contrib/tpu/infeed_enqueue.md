@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.tpu.infeed_enqueue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_tpu_ops.py`
+
+
+
 An op which feeds a single Tensor value into the computation.
 
 ``` python
@@ -18,8 +26,6 @@ tf.contrib.tpu.infeed_enqueue(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

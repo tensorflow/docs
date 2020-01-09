@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sparse.split
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/split">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L841-L912">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.split`
-* `tf.compat.v1.sparse_split`
-* `tf.sparse.split`
-* `tf.sparse_split`
+* <a href="/api_docs/python/tf/sparse/split"><code>tf.compat.v1.sparse.split</code></a>
+* <a href="/api_docs/python/tf/sparse/split"><code>tf.compat.v1.sparse_split</code></a>
+* <a href="/api_docs/python/tf/sparse/split"><code>tf.sparse_split</code></a>
+
 
 ``` python
 tf.sparse.split(
@@ -26,8 +44,6 @@ tf.sparse.split(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

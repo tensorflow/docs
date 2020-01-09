@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.name_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6383-L6451">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `name_scope`
 
 A context manager for use when defining a Python op.
 
 Inherits From: [`name_scope`](../../../tf/name_scope)
-
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,6 +48,8 @@ If the scope name already exists, the name will be made unique by appending
 etc.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6409-L6421">View source</a>
 
 ``` python
 __init__(name)
@@ -74,6 +84,8 @@ Initialize the context manager.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6427-L6446">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -95,6 +107,8 @@ The scope name.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6448-L6451">View source</a>
+
 ``` python
 __exit__(
     type_arg,
@@ -102,9 +116,3 @@ __exit__(
     traceback_arg
 )
 ```
-
-
-
-
-
-

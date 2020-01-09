@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.nondifferentiable_batch_function
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nondifferentiable_batch_function">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/batch_ops.py#L31-L111">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Batches the computation done by the decorated function.
 
 ### Aliases:
 
-* `tf.compat.v1.nondifferentiable_batch_function`
-* `tf.compat.v2.nondifferentiable_batch_function`
-* `tf.contrib.batching.batch_function`
-* `tf.nondifferentiable_batch_function`
+* <a href="/api_docs/python/tf/nondifferentiable_batch_function"><code>tf.compat.v1.nondifferentiable_batch_function</code></a>
+* <a href="/api_docs/python/tf/nondifferentiable_batch_function"><code>tf.compat.v2.nondifferentiable_batch_function</code></a>
+* <a href="/api_docs/python/tf/nondifferentiable_batch_function"><code>tf.contrib.batching.batch_function</code></a>
+
 
 ``` python
 tf.nondifferentiable_batch_function(
@@ -26,8 +44,6 @@ tf.nondifferentiable_batch_function(
 ```
 
 
-
-Defined in [`python/ops/batch_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/batch_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

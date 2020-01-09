@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.Exporter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/Exporter">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/exporter.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Exporter`
 
 A class representing a type of model export.
@@ -13,13 +31,9 @@ A class representing a type of model export.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.Exporter`
-* Class `tf.compat.v2.estimator.Exporter`
-* Class `tf.estimator.Exporter`
+* Class <a href="/api_docs/python/tf/estimator/Exporter"><code>tf.compat.v1.estimator.Exporter</code></a>
+* Class <a href="/api_docs/python/tf/estimator/Exporter"><code>tf.compat.v2.estimator.Exporter</code></a>
 
-
-
-Defined in [`python/estimator/exporter.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/exporter.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,6 +52,8 @@ this type are written.  Should not be `None` nor empty.
 ## Methods
 
 <h3 id="export"><code>export</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/exporter.py">View source</a>
 
 ``` python
 export(
@@ -70,7 +86,3 @@ Exports the given `Estimator` to a specific format.
 #### Returns:
 
 The string path to the exported directory or `None` if export is skipped.
-
-
-
-

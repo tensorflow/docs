@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.app
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Generic entry point script.
 
 <!-- Placeholder for "Used in" -->
 
@@ -13,4 +19,3 @@ page_type: reference
 ## Functions
 
 [`run(...)`](../tf/app/run): Runs the program with an optional 'main' function and 'argv' list.
-

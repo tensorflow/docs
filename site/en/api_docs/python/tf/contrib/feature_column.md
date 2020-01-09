@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.feature_column
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/feature_column/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Experimental utilities for tf.feature_column.
-
-
-
-Defined in [`contrib/feature_column/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/feature_column/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,4 +35,3 @@ Defined in [`contrib/feature_column/__init__.py`](https://github.com/tensorflow/
 [`sequence_input_layer(...)`](../../tf/contrib/feature_column/sequence_input_layer): "Builds input layer for sequence input.
 
 [`sequence_numeric_column(...)`](../../tf/contrib/feature_column/sequence_numeric_column): Returns a feature column that represents sequences of numeric data.
-

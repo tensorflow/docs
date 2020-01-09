@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.config.experimental
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.config.experimental namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,4 +51,3 @@ page_type: reference
 [`set_virtual_device_configuration(...)`](../../tf/config/experimental/set_virtual_device_configuration): Set the virtual device configuration for a PhysicalDevice.
 
 [`set_visible_devices(...)`](../../tf/config/experimental/set_visible_devices): Set the list of visible devices.
-

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.errors.AbortedError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/errors/AbortedError">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L389-L403">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AbortedError`
 
 The operation was aborted, typically due to a concurrent action.
@@ -13,13 +31,9 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class `tf.compat.v1.errors.AbortedError`
-* Class `tf.compat.v2.errors.AbortedError`
-* Class `tf.errors.AbortedError`
+* Class <a href="/api_docs/python/tf/errors/AbortedError"><code>tf.compat.v1.errors.AbortedError</code></a>
+* Class <a href="/api_docs/python/tf/errors/AbortedError"><code>tf.compat.v2.errors.AbortedError</code></a>
 
-
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +45,8 @@ previously ran.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L401-L403">View source</a>
 
 ``` python
 __init__(
@@ -76,7 +92,3 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-

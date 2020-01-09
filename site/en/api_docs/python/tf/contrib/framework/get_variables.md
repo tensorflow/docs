@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.get_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/variables.py#L365-L386">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Gets the list of variables, filtered by scope and/or suffix.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.framework.get_variables(
 
 
 
-Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -29,7 +39,7 @@ Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tens
   variable scope or a string.
 * <b>`suffix`</b>: an optional suffix for filtering the variables to return.
 * <b>`collection`</b>: in which collection search for. Defaults to
-  `GraphKeys.GLOBAL_VARIABLES`.
+  <a href="/api_docs/python/tf/GraphKeys#GLOBAL_VARIABLES"><code>GraphKeys.GLOBAL_VARIABLES</code></a>.
 
 
 #### Returns:

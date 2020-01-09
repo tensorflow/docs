@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.opt
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A module containing optimization routines.
-
-
-
-Defined in [`contrib/opt/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -73,4 +81,3 @@ Defined in [`contrib/opt/__init__.py`](https://github.com/tensorflow/tensorflow/
 [`clip_gradients_by_global_norm(...)`](../../tf/contrib/opt/clip_gradients_by_global_norm): Clips gradients of a multitask loss by their global norm.
 
 [`extend_with_decoupled_weight_decay(...)`](../../tf/contrib/opt/extend_with_decoupled_weight_decay): Factory function returning an optimizer class with decoupled weight decay.
-

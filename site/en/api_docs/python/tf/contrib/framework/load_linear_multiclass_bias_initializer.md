@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.load_linear_multiclass_bias_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/checkpoint_ops.py#L32-L86">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Loads pre-trained multi-class biases for linear models from checkpoint.
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.framework.load_linear_multiclass_bias_initializer(
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/checkpoint_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

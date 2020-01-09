@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.utils.SequenceEnqueuer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/utils/SequenceEnqueuer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L575-L700">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SequenceEnqueuer`
 
 Base class to enqueue inputs.
@@ -13,13 +31,9 @@ Base class to enqueue inputs.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.utils.SequenceEnqueuer`
-* Class `tf.compat.v2.keras.utils.SequenceEnqueuer`
-* Class `tf.keras.utils.SequenceEnqueuer`
+* Class <a href="/api_docs/python/tf/keras/utils/SequenceEnqueuer"><code>tf.compat.v1.keras.utils.SequenceEnqueuer</code></a>
+* Class <a href="/api_docs/python/tf/keras/utils/SequenceEnqueuer"><code>tf.compat.v2.keras.utils.SequenceEnqueuer</code></a>
 
-
-
-Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,6 +58,8 @@ The `enqueuer.get()` should be an infinite stream of datas.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L596-L624">View source</a>
+
 ``` python
 __init__(
     sequence,
@@ -51,7 +67,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -59,6 +75,8 @@ __init__(
 ## Methods
 
 <h3 id="get"><code>get</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L691-L700">View source</a>
 
 ``` python
 get()
@@ -73,6 +91,8 @@ Skip the data if it is `None`.
 
 <h3 id="is_running"><code>is_running</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L626-L627">View source</a>
+
 ``` python
 is_running()
 ```
@@ -81,6 +101,8 @@ is_running()
 
 
 <h3 id="start"><code>start</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L629-L647">View source</a>
 
 ``` python
 start(
@@ -101,6 +123,8 @@ Starts the handler's workers.
 
 <h3 id="stop"><code>stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L654-L668">View source</a>
+
 ``` python
 stop(timeout=None)
 ```
@@ -113,6 +137,3 @@ Should be called by the same thread which called `start()`.
 
 
 * <b>`timeout`</b>: maximum time to wait on `thread.join()`
-
-
-

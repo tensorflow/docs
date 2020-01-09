@@ -5,16 +5,24 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.losses
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/losses">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Built-in loss functions.
 
 ### Aliases:
 
-* Module `tf.compat.v2.keras.losses`
-* Module `tf.compat.v2.losses`
+* Module <a href="/api_docs/python/tf/compat/v2/keras/losses"><code>tf.compat.v2.losses</code></a>
 
-
-
-Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/losses/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,7 +41,7 @@ Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/
 
 [`class Huber`](../../../../tf/keras/losses/Huber): Computes the Huber loss between `y_true` and `y_pred`.
 
-[`class KLDivergence`](../../../../tf/keras/losses/KLDivergence): Computes Kullback Leibler divergence loss between `y_true` and `y_pred`.
+[`class KLDivergence`](../../../../tf/keras/losses/KLDivergence): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`class LogCosh`](../../../../tf/keras/losses/LogCosh): Computes the logarithm of the hyperbolic cosine of the prediction error.
 
@@ -57,7 +65,7 @@ Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/
 
 ## Functions
 
-[`KLD(...)`](../../../../tf/keras/losses/KLD)
+[`KLD(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`MAE(...)`](../../../../tf/keras/losses/MAE)
 
@@ -71,7 +79,7 @@ Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/
 
 [`categorical_crossentropy(...)`](../../../../tf/keras/losses/categorical_crossentropy): Computes the categorical crossentropy loss.
 
-[`categorical_hinge(...)`](../../../../tf/keras/losses/categorical_hinge)
+[`categorical_hinge(...)`](../../../../tf/keras/losses/categorical_hinge): Computes the categorical hinge loss between `y_true` and `y_pred`.
 
 [`cosine_similarity(...)`](../../../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
@@ -81,9 +89,9 @@ Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/
 
 [`hinge(...)`](../../../../tf/keras/losses/hinge): Computes the hinge loss between `y_true` and `y_pred`.
 
-[`kld(...)`](../../../../tf/keras/losses/KLD)
+[`kld(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
-[`kullback_leibler_divergence(...)`](../../../../tf/keras/losses/KLD)
+[`kullback_leibler_divergence(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`logcosh(...)`](../../../../tf/keras/losses/logcosh): Logarithm of the hyperbolic cosine of the prediction error.
 
@@ -103,11 +111,10 @@ Defined in [`python/keras/api/_v2/keras/losses/__init__.py`](https://github.com/
 
 [`msle(...)`](../../../../tf/keras/losses/MSLE)
 
-[`poisson(...)`](../../../../tf/keras/losses/poisson)
+[`poisson(...)`](../../../../tf/keras/losses/poisson): Computes the Poisson loss between y_true and y_pred.
 
 [`serialize(...)`](../../../../tf/keras/losses/serialize)
 
 [`sparse_categorical_crossentropy(...)`](../../../../tf/keras/losses/sparse_categorical_crossentropy)
 
 [`squared_hinge(...)`](../../../../tf/keras/losses/squared_hinge): Computes the squared hinge loss between `y_true` and `y_pred`.
-

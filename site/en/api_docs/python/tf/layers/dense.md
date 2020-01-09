@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.dense
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L113-L187">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface for the densely-connected layer. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.dense`
-* `tf.layers.dense`
+* <a href="/api_docs/python/tf/layers/dense"><code>tf.compat.v1.layers.dense</code></a>
+
 
 ``` python
 tf.layers.dense(
@@ -33,13 +45,11 @@ tf.layers.dense(
 
 
 
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use keras.layers.dense instead.
+Use keras.layers.Dense instead.
 
 This layer implements the operation:
 `outputs = activation(inputs * kernel + bias)`

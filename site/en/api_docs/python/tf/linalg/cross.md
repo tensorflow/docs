@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.cross
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/cross">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Compute the pairwise cross product.
 
 ### Aliases:
 
-* `tf.compat.v1.cross`
-* `tf.compat.v1.linalg.cross`
-* `tf.compat.v2.linalg.cross`
-* `tf.cross`
-* `tf.linalg.cross`
+* <a href="/api_docs/python/tf/linalg/cross"><code>tf.compat.v1.cross</code></a>
+* <a href="/api_docs/python/tf/linalg/cross"><code>tf.compat.v1.linalg.cross</code></a>
+* <a href="/api_docs/python/tf/linalg/cross"><code>tf.compat.v2.linalg.cross</code></a>
+* <a href="/api_docs/python/tf/linalg/cross"><code>tf.cross</code></a>
+
 
 ``` python
 tf.linalg.cross(
@@ -24,8 +38,6 @@ tf.linalg.cross(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

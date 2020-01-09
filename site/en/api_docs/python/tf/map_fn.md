@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.map_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/map_fn">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/map_fn.py#L37-L285">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 map on the list of tensors unpacked from `elems` on dimension 0.
 
 ### Aliases:
 
-* `tf.compat.v1.map_fn`
-* `tf.compat.v2.map_fn`
-* `tf.map_fn`
+* <a href="/api_docs/python/tf/map_fn"><code>tf.compat.v1.map_fn</code></a>
+* <a href="/api_docs/python/tf/map_fn"><code>tf.compat.v2.map_fn</code></a>
+
 
 ``` python
 tf.map_fn(
@@ -27,8 +45,6 @@ tf.map_fn(
 ```
 
 
-
-Defined in [`python/ops/map_fn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/map_fn.py).
 
 <!-- Placeholder for "Used in" -->
 

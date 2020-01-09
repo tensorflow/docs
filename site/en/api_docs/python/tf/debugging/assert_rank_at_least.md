@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.debugging.assert_rank_at_least
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_rank_at_least">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1191-L1254">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert `x` has rank equal to `rank` or higher.
 
 ### Aliases:
 
-* `tf.assert_rank_at_least`
-* `tf.compat.v1.assert_rank_at_least`
-* `tf.compat.v1.debugging.assert_rank_at_least`
-* `tf.debugging.assert_rank_at_least`
+* <a href="/api_docs/python/tf/debugging/assert_rank_at_least"><code>tf.assert_rank_at_least</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_rank_at_least"><code>tf.compat.v1.assert_rank_at_least</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_rank_at_least"><code>tf.compat.v1.debugging.assert_rank_at_least</code></a>
+
 
 ``` python
 tf.debugging.assert_rank_at_least(
@@ -26,8 +44,6 @@ tf.debugging.assert_rank_at_least(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

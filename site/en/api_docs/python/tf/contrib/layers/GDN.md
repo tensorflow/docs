@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.layers.GDN
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L1885-L2113">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GDN`
 
 Generalized divisive normalization layer.
 
 Inherits From: [`Layer`](../../../tf/layers/Layer)
-
-
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -73,7 +81,7 @@ more flexible, as `beta` and `gamma` are trainable parameters.
   and `'channels_last'`.
 * <b>`activity_regularizer`</b>: Regularizer function for the output.
 * <b>`trainable`</b>: Boolean, if `True`, also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`name`</b>: String, the name of the layer. Layers with the same name will share
   weights, but to avoid mistakes we require `reuse=True` in such cases.
 
@@ -87,6 +95,8 @@ more flexible, as `beta` and `gamma` are trainable parameters.
 * <b>`gamma`</b>: The gamma parameter as defined above (2D `Tensor`).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L1950-L1971">View source</a>
 
 ``` python
 __init__(
@@ -118,9 +128,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

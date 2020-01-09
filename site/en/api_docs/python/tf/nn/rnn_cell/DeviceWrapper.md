@@ -5,26 +5,36 @@ page_type: reference
 
 # tf.nn.rnn_cell.DeviceWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1188-L1194">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DeviceWrapper`
 
-
+Operator that ensures an RNNCell runs on a particular device.
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.nn.rnn_cell.DeviceWrapper`
-* Class `tf.contrib.rnn.DeviceWrapper`
-* Class `tf.nn.rnn_cell.DeviceWrapper`
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/DeviceWrapper"><code>tf.compat.v1.nn.rnn_cell.DeviceWrapper</code></a>
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/DeviceWrapper"><code>tf.contrib.rnn.DeviceWrapper</code></a>
 
-
-
-Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1191-L1192">View source</a>
 
 ``` python
 __init__(
@@ -42,6 +52,7 @@ Ensures the wrapped `cell` is called with <a href="../../../tf/device"><code>tf.
 
 * <b>`cell`</b>: An instance of `RNNCell`.
 * <b>`device`</b>: A device string or function, for passing to <a href="../../../tf/device"><code>tf.device</code></a>.
+* <b>`**kwargs`</b>: dict of keyword arguments for base layer.
 
 
 
@@ -76,6 +87,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -89,15 +102,11 @@ get_initial_state(
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_wrapper_impl.py#L428-L431">View source</a>
+
 ``` python
 zero_state(
     batch_size,
     dtype
 )
 ```
-
-
-
-
-
-

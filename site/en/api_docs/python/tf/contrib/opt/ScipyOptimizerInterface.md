@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.ScipyOptimizerInterface
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/external_optimizer.py#L299-L420">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ScipyOptimizerInterface`
 
 Wrapper allowing `scipy.optimize.minimize` to operate a <a href="../../../tf/Session"><code>tf.compat.v1.Session</code></a>.
 
 Inherits From: [`ExternalOptimizerInterface`](../../../tf/contrib/opt/ExternalOptimizerInterface)
-
-
-
-Defined in [`contrib/opt/python/training/external_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/external_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -78,6 +86,8 @@ with tf.compat.v1.Session() as session:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/external_optimizer.py#L46-L140">View source</a>
+
 ``` python
 __init__(
     loss,
@@ -98,7 +108,7 @@ Initialize a new interface instance.
 * <b>`loss`</b>: A scalar `Tensor` to be minimized.
 * <b>`var_list`</b>: Optional `list` of `Variable` objects to update to minimize
   `loss`.  Defaults to the list of variables collected in the graph
-  under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`equalities`</b>: Optional `list` of equality constraint scalar `Tensor`s to be
   held equal to zero.
 * <b>`inequalities`</b>: Optional `list` of inequality constraint scalar `Tensor`s
@@ -128,6 +138,8 @@ Initialize a new interface instance.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/external_optimizer.py#L142-L216">View source</a>
+
 ``` python
 minimize(
     session=None,
@@ -145,7 +157,7 @@ Variables subject to optimization are updated in-place at the end of
 optimization.
 
 Note that this method does *not* just return a minimization `Op`, unlike
-`Optimizer.minimize()`; instead it actually performs minimization by
+<a href="/api_docs/python/tf/keras/optimizers/Optimizer#minimize"><code>Optimizer.minimize()</code></a>; instead it actually performs minimization by
 executing commands to control a `Session`.
 
 #### Args:
@@ -161,6 +173,3 @@ executing commands to control a `Session`.
 * <b>`loss_callback`</b>: A function to be called every time the loss and gradients
   are computed, with evaluated fetches supplied as positional arguments.
 * <b>`**run_kwargs`</b>: kwargs to pass to `session.run`.
-
-
-

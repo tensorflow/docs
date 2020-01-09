@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Maximum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Maximum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L324-L336">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Maximum`
 
 Layer that computes the maximum (element-wise) a list of inputs.
@@ -13,13 +31,9 @@ Layer that computes the maximum (element-wise) a list of inputs.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Maximum`
-* Class `tf.compat.v2.keras.layers.Maximum`
-* Class `tf.keras.layers.Maximum`
+* Class <a href="/api_docs/python/tf/keras/layers/Maximum"><code>tf.compat.v1.keras.layers.Maximum</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Maximum"><code>tf.compat.v2.keras.layers.Maximum</code></a>
 
-
-
-Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,12 +43,8 @@ a single tensor (also of the same shape).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L41-L43">View source</a>
+
 ``` python
 __init__(**kwargs)
 ```
-
-
-
-
-
-

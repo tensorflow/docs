@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.profiler.profile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L309-L381">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Profile model.
 
 ### Aliases:
 
-* `tf.compat.v1.profiler.profile`
-* `tf.profiler.profile`
+* <a href="/api_docs/python/tf/profiler/profile"><code>tf.compat.v1.profiler.profile</code></a>
+
 
 ``` python
 tf.profiler.profile(
@@ -23,8 +35,6 @@ tf.profiler.profile(
 ```
 
 
-
-Defined in [`python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/model_analyzer.py).
 
 <!-- Placeholder for "Used in" -->
 

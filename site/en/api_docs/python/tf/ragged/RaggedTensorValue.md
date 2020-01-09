@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.ragged.RaggedTensorValue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor_value.py#L27-L110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RaggedTensorValue`
 
 Represents the value of a `RaggedTensor`.
@@ -13,12 +25,8 @@ Represents the value of a `RaggedTensor`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.ragged.RaggedTensorValue`
-* Class `tf.ragged.RaggedTensorValue`
+* Class <a href="/api_docs/python/tf/ragged/RaggedTensorValue"><code>tf.compat.v1.ragged.RaggedTensorValue</code></a>
 
-
-
-Defined in [`python/ops/ragged/ragged_tensor_value.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_tensor_value.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +36,8 @@ eager mode, the <a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a>
 See <a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a> for a description of ragged tensors.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor_value.py#L36-L53">View source</a>
 
 ``` python
 __init__(
@@ -90,12 +100,10 @@ The concatenated values for all rows in this tensor.
 
 <h3 id="to_list"><code>to_list</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor_value.py#L101-L110">View source</a>
+
 ``` python
 to_list()
 ```
 
 Returns this ragged tensor value as a nested Python list.
-
-
-
-

@@ -5,17 +5,31 @@ page_type: reference
 
 # tf.signal.ifft
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/ifft">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_spectral_ops.py`
+
+
+
 Inverse fast Fourier transform.
 
 ### Aliases:
 
-* `tf.compat.v1.ifft`
-* `tf.compat.v1.signal.ifft`
-* `tf.compat.v1.spectral.ifft`
-* `tf.compat.v2.signal.ifft`
-* `tf.ifft`
-* `tf.signal.ifft`
-* `tf.spectral.ifft`
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.compat.v1.ifft</code></a>
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.compat.v1.signal.ifft</code></a>
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.compat.v1.spectral.ifft</code></a>
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.compat.v2.signal.ifft</code></a>
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.ifft</code></a>
+* <a href="/api_docs/python/tf/signal/ifft"><code>tf.spectral.ifft</code></a>
+
 
 ``` python
 tf.signal.ifft(
@@ -25,8 +39,6 @@ tf.signal.ifft(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_spectral_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

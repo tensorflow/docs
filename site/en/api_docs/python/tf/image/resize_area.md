@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.image.resize_area
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_image_ops.py`
+
+
+
 Resize `images` to `size` using area interpolation.
 
 ### Aliases:
 
-* `tf.compat.v1.image.resize_area`
-* `tf.image.resize_area`
+* <a href="/api_docs/python/tf/image/resize_area"><code>tf.compat.v1.image.resize_area</code></a>
+
 
 ``` python
 tf.image.resize_area(
@@ -22,8 +30,6 @@ tf.image.resize_area(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_image_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

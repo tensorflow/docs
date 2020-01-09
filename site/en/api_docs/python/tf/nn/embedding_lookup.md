@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.embedding_lookup
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/embedding_lookup">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/embedding_ops.py#L250-L317">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Looks up `ids` in a list of embedding tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.embedding_lookup`
-* `tf.nn.embedding_lookup`
+* <a href="/api_docs/python/tf/nn/embedding_lookup"><code>tf.compat.v1.nn.embedding_lookup</code></a>
+
 
 ``` python
 tf.nn.embedding_lookup(
@@ -24,8 +42,6 @@ tf.nn.embedding_lookup(
 ```
 
 
-
-Defined in [`python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/embedding_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

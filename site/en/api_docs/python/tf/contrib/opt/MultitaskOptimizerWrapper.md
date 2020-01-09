@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.MultitaskOptimizerWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py#L53-L112">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MultitaskOptimizerWrapper`
 
 Optimizer wrapper making all-zero gradients harmless.
 
 
-
-
-
-Defined in [`contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,6 +66,8 @@ train_op = multitask_momentum_optimizer.apply_gradients(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py#L94-L109">View source</a>
+
 ``` python
 __init__(opt)
 ```
@@ -69,6 +79,3 @@ Constructor.
 
 
 * <b>`opt`</b>: an instance of a class that implements tf.train.Optimizer.
-
-
-

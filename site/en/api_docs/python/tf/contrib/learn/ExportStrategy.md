@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.ExportStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/export_strategy.py#L34-L110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ExportStrategy`
 
 A class representing a type of model export.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/export_strategy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/export_strategy.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,6 +56,28 @@ The signature of this function must be one of:
     the `GraphDef` will be stripped on write. This is recommended for better
     forward compatibility of the resulting `SavedModel`.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/export_strategy.py#L69-L73">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    name,
+    export_fn,
+    strip_default_attrs=None
+)
+```
+
+DEPRECATED FUNCTION
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please switch to tf.estimator.train_and_evaluate, and use tf.estimator.Exporter.
+
+
+
 ## Properties
 
 <h3 id="name"><code>name</code></h3>
@@ -70,6 +100,8 @@ The signature of this function must be one of:
 ## Methods
 
 <h3 id="export"><code>export</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/export_strategy.py#L75-L110">View source</a>
 
 ``` python
 export(
@@ -105,6 +137,3 @@ The string path to the exported directory.
 
 
 * <b>`ValueError`</b>: if the export_fn does not have the required signature
-
-
-

@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.io.parse_sequence_example
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/parse_sequence_example">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L1163-L1270">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Parses a batch of `SequenceExample` protos.
 
 ### Aliases:
 
-* `tf.compat.v1.io.parse_sequence_example`
-* `tf.compat.v2.io.parse_sequence_example`
-* `tf.io.parse_sequence_example`
+* <a href="/api_docs/python/tf/io/parse_sequence_example"><code>tf.compat.v1.io.parse_sequence_example</code></a>
+* <a href="/api_docs/python/tf/io/parse_sequence_example"><code>tf.compat.v2.io.parse_sequence_example</code></a>
+
 
 ``` python
 tf.io.parse_sequence_example(
@@ -25,16 +43,14 @@ tf.io.parse_sequence_example(
 
 
 
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Parses a vector of serialized
 [`SequenceExample`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
 protos given in `serialized`.
 
-This op parses serialized sequence examples into a tuple of dictionaries
-mapping keys to `Tensor` and `SparseTensor` objects respectively.
+This op parses serialized sequence examples into a tuple of dictionaries,
+each mapping keys to `Tensor` and `SparseTensor` objects.
 The first dictionary contains mappings for keys appearing in
 `context_features`, and the second dictionary contains mappings for keys
 appearing in `sequence_features`.

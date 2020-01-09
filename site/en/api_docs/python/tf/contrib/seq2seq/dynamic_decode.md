@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.seq2seq.dynamic_decode
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L282-L486">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Perform dynamic decoding with `decoder`.
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.seq2seq.dynamic_decode(
 ```
 
 
-
-Defined in [`contrib/seq2seq/python/ops/decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/decoder.py).
 
 <!-- Placeholder for "Used in" -->
 

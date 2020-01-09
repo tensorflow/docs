@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.mixed_precision.LossScaleManager
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py#L33-L70">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LossScaleManager`
 
 Abstract loss scale manager class.
 
 
-
-
-
-Defined in [`contrib/mixed_precision/python/loss_scale_manager.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ See <a href="../../../tf/contrib/mixed_precision/LossScaleOptimizer"><code>tf.co
 
 <h3 id="get_loss_scale"><code>get_loss_scale</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py#L52-L55">View source</a>
+
 ``` python
 get_loss_scale()
 ```
@@ -44,6 +54,8 @@ Returns the loss scale as a scalar `float32` tensor.
 
 
 <h3 id="update_loss_scale"><code>update_loss_scale</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/mixed_precision/python/loss_scale_manager.py#L57-L70">View source</a>
 
 ``` python
 update_loss_scale(finite_grads)
@@ -63,7 +75,3 @@ Updates loss scale based on if gradients are finite in current step.
 
 An op, when executed updates the loss scale. If eager execution is
 enabled, does not return anything.
-
-
-
-

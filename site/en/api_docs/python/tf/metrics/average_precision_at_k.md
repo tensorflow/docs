@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.average_precision_at_k
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L3237-L3319">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes average precision@k of predictions with respect to sparse labels.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.average_precision_at_k`
-* `tf.metrics.average_precision_at_k`
+* <a href="/api_docs/python/tf/metrics/average_precision_at_k"><code>tf.compat.v1.metrics.average_precision_at_k</code></a>
+
 
 ``` python
 tf.metrics.average_precision_at_k(
@@ -25,8 +37,6 @@ tf.metrics.average_precision_at_k(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

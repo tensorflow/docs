@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.get_name_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/ops.py#L58-L73">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the current name scope of the default graph.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.get_name_scope()
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

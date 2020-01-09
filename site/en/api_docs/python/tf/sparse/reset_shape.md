@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.sparse.reset_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/reset_shape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1767-L1869">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Resets the shape of a `SparseTensor` with indices and values unchanged.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.reset_shape`
-* `tf.compat.v1.sparse_reset_shape`
-* `tf.compat.v2.sparse.reset_shape`
-* `tf.sparse.reset_shape`
-* `tf.sparse_reset_shape`
+* <a href="/api_docs/python/tf/sparse/reset_shape"><code>tf.compat.v1.sparse.reset_shape</code></a>
+* <a href="/api_docs/python/tf/sparse/reset_shape"><code>tf.compat.v1.sparse_reset_shape</code></a>
+* <a href="/api_docs/python/tf/sparse/reset_shape"><code>tf.compat.v2.sparse.reset_shape</code></a>
+* <a href="/api_docs/python/tf/sparse/reset_shape"><code>tf.sparse_reset_shape</code></a>
+
 
 ``` python
 tf.sparse.reset_shape(
@@ -23,8 +41,6 @@ tf.sparse.reset_shape(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

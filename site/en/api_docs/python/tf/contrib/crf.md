@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.crf
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/crf/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Linear-chain CRF layer.
-
-
-
-Defined in [`contrib/crf/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/crf/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,4 +47,3 @@ Defined in [`contrib/crf/__init__.py`](https://github.com/tensorflow/tensorflow/
 [`crf_unary_score(...)`](../../tf/contrib/crf/crf_unary_score): Computes the unary scores of tag sequences.
 
 [`viterbi_decode(...)`](../../tf/contrib/crf/viterbi_decode): Decode the highest scoring sequence of tags outside of TensorFlow.
-

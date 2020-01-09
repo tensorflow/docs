@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.test.create_local_cluster
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/test/create_local_cluster">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2947-L3034">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create and start local servers and return the associated `Server` objects.
 
 ### Aliases:
 
-* `tf.compat.v1.test.create_local_cluster`
-* `tf.compat.v2.test.create_local_cluster`
-* `tf.test.create_local_cluster`
+* <a href="/api_docs/python/tf/test/create_local_cluster"><code>tf.compat.v1.test.create_local_cluster</code></a>
+* <a href="/api_docs/python/tf/test/create_local_cluster"><code>tf.compat.v2.test.create_local_cluster</code></a>
+
 
 ``` python
 tf.test.create_local_cluster(
@@ -24,8 +42,6 @@ tf.test.create_local_cluster(
 ```
 
 
-
-Defined in [`python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/test_util.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.Model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/Model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L82-L2904">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Model`
 
 `Model` groups layers into an object with training and inference features.
@@ -13,16 +31,12 @@ page_type: reference
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.Model`
-* Class `tf.compat.v1.keras.models.Model`
-* Class `tf.compat.v2.keras.Model`
-* Class `tf.compat.v2.keras.models.Model`
-* Class `tf.keras.Model`
-* Class `tf.keras.models.Model`
+* Class <a href="/api_docs/python/tf/keras/Model"><code>tf.compat.v1.keras.Model</code></a>
+* Class <a href="/api_docs/python/tf/keras/Model"><code>tf.compat.v1.keras.models.Model</code></a>
+* Class <a href="/api_docs/python/tf/keras/Model"><code>tf.compat.v2.keras.Model</code></a>
+* Class <a href="/api_docs/python/tf/keras/Model"><code>tf.compat.v2.keras.models.Model</code></a>
+* Class <a href="/api_docs/python/tf/keras/Model"><code>tf.keras.models.Model</code></a>
 
-
-
-Defined in [`python/keras/engine/training.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/engine/training.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -88,6 +102,8 @@ model = MyModel()
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L146-L160">View source</a>
+
 ``` python
 __init__(
     *args,
@@ -101,17 +117,6 @@ __init__(
 
 
 ## Properties
-
-<h3 id="input_spec"><code>input_spec</code></h3>
-
-Gets the network's input specs.
-
-
-#### Returns:
-
-A list of `InputSpec` instances (one per input to the model)
-    or a single instance if the model has only one input.
-
 
 <h3 id="layers"><code>layers</code></h3>
 
@@ -168,9 +173,11 @@ A list of update ops.
 
 <h3 id="compile"><code>compile</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L184-L400">View source</a>
+
 ``` python
 compile(
-    optimizer,
+    optimizer='rmsprop',
     loss=None,
     metrics=None,
     loss_weights=None,
@@ -243,6 +250,8 @@ Configures the model for training.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L729-L832">View source</a>
+
 ``` python
 evaluate(
     x=None,
@@ -272,20 +281,20 @@ Computation is done in batches.
     (in case the model has multiple inputs).
   - A dict mapping input names to the corresponding array/tensors,
     if the model has named inputs.
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset.
   - A generator or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance.
 * <b>`y`</b>: Target data. Like the input data `x`,
   it could be either Numpy array(s) or TensorFlow tensor(s).
   It should be consistent with `x` (you cannot have Numpy inputs and
   tensor targets, or inversely).
-  If `x` is a dataset, dataset iterator, generator or
+  If `x` is a dataset, generator or
   <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance, `y` should not be specified (since
   targets will be obtained from the iterator/dataset).
 * <b>`batch_size`</b>: Integer or `None`.
     Number of samples per gradient update.
     If unspecified, `batch_size` will default to 32.
     Do not specify the `batch_size` is your data is in the
-    form of symbolic tensors, dataset, dataset iterators,
+    form of symbolic tensors, dataset,
     generators, or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instances (since they generate
     batches).
 * <b>`verbose`</b>: 0 or 1. Verbosity mode.
@@ -301,14 +310,15 @@ Computation is done in batches.
     to apply a different weight to every timestep of every sample.
     In this case you should make sure to specify
     `sample_weight_mode="temporal"` in `compile()`. This argument is not
-    supported when `x` is a dataset or a dataset iterator, instead pass
+    supported when `x` is a dataset, instead pass
     sample weights as the third element of `x`.
 * <b>`steps`</b>: Integer or `None`.
     Total number of steps (batches of samples)
     before declaring the evaluation round finished.
     Ignored with the default value of `None`.
-    If x is a <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator, and `steps` is
+    If x is a <a href="../../tf/data"><code>tf.data</code></a> dataset and `steps` is
     None, 'evaluate' will run until the dataset is exhausted.
+    This argument is not supported with array inputs.
 * <b>`callbacks`</b>: List of <a href="../../tf/keras/callbacks/Callback"><code>keras.callbacks.Callback</code></a> instances.
     List of callbacks to apply during evaluation.
     See [callbacks](/api_docs/python/tf/keras/callbacks).
@@ -342,6 +352,8 @@ the display labels for the scalar outputs.
 * <b>`ValueError`</b>: in case of invalid arguments.
 
 <h3 id="evaluate_generator"><code>evaluate_generator</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1298-L1363">View source</a>
 
 ``` python
 evaluate_generator(
@@ -411,6 +423,8 @@ the display labels for the scalar outputs.
 
 <h3 id="fit"><code>fit</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L534-L727">View source</a>
+
 ``` python
 fit(
     x=None,
@@ -448,7 +462,7 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
     (in case the model has multiple inputs).
   - A dict mapping input names to the corresponding array/tensors,
     if the model has named inputs.
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator. Should return a tuple
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset. Should return a tuple
     of either `(inputs, targets)` or
     `(inputs, targets, sample_weights)`.
   - A generator or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> returning `(inputs, targets)`
@@ -456,14 +470,14 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
 * <b>`y`</b>: Target data. Like the input data `x`,
   it could be either Numpy array(s) or TensorFlow tensor(s).
   It should be consistent with `x` (you cannot have Numpy inputs and
-  tensor targets, or inversely). If `x` is a dataset, dataset
-  iterator, generator, or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance, `y` should
+  tensor targets, or inversely). If `x` is a dataset, generator,
+  or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance, `y` should
   not be specified (since targets will be obtained from `x`).
 * <b>`batch_size`</b>: Integer or `None`.
     Number of samples per gradient update.
     If unspecified, `batch_size` will default to 32.
     Do not specify the `batch_size` if your data is in the
-    form of symbolic tensors, dataset, dataset iterators,
+    form of symbolic tensors, datasets,
     generators, or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instances (since they generate
     batches).
 * <b>`epochs`</b>: Integer. Number of epochs to train the model.
@@ -490,7 +504,7 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
     on this data at the end of each epoch.
     The validation data is selected from the last samples
     in the `x` and `y` data provided, before shuffling. This argument is
-    not supported when `x` is a dataset, dataset iterator, generator or
+    not supported when `x` is a dataset, generator or
    <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance.
 * <b>`validation_data`</b>: Data on which to evaluate
     the loss and any model metrics at the end of each epoch.
@@ -499,7 +513,7 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
     `validation_data` could be:
       - tuple `(x_val, y_val)` of Numpy arrays or tensors
       - tuple `(x_val, y_val, val_sample_weights)` of Numpy arrays
-      - dataset or a dataset iterator
+      - dataset
     For the first two cases, `batch_size` must be provided.
     For the last case, `validation_steps` must be provided.
 * <b>`shuffle`</b>: Boolean (whether to shuffle the training data
@@ -524,7 +538,7 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
     to apply a different weight to every timestep of every sample.
     In this case you should make sure to specify
     `sample_weight_mode="temporal"` in `compile()`. This argument is not
-    supported when `x` is a dataset, dataset iterator, generator, or
+    supported when `x` is a dataset, generator, or
    <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance, instead provide the sample_weights
     as the third element of `x`.
 * <b>`initial_epoch`</b>: Integer.
@@ -537,18 +551,19 @@ Trains the model for a fixed number of epochs (iterations on a dataset).
     TensorFlow data tensors, the default `None` is equal to
     the number of samples in your dataset divided by
     the batch size, or 1 if that cannot be determined. If x is a
-    <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator, and 'steps_per_epoch'
+    <a href="../../tf/data"><code>tf.data</code></a> dataset, and 'steps_per_epoch'
     is None, the epoch will run until the input dataset is exhausted.
+    This argument is not supported with array inputs.
 * <b>`validation_steps`</b>: Only relevant if `validation_data` is provided and
-    is a dataset or dataset iterator. Total number of steps (batches of
+    is a <a href="../../tf/data"><code>tf.data</code></a> dataset. Total number of steps (batches of
     samples) to draw before stopping when performing validation
     at the end of every epoch. If validation_data is a <a href="../../tf/data"><code>tf.data</code></a> dataset
-    or a dataset iterator, and 'validation_steps' is None, validation
+    and 'validation_steps' is None, validation
     will run until the `validation_data` dataset is exhausted.
 * <b>`validation_freq`</b>: Only relevant if validation data is provided. Integer
-    or `collections.Container` instance (e.g. list, tuple, etc.). If an
-    integer, specifies how many training epochs to run before a new
-    validation run is performed, e.g. `validation_freq=2` runs
+    or `collections_abc.Container` instance (e.g. list, tuple, etc.).
+    If an integer, specifies how many training epochs to run before a
+    new validation run is performed, e.g. `validation_freq=2` runs
     validation every 2 epochs. If a Container, specifies the epochs on
     which to run validation, e.g. `validation_freq=[1, 2, 10]` runs
     validation at the end of the 1st, 2nd, and 10th epochs.
@@ -586,6 +601,8 @@ and validation metrics values (if applicable).
     and what the model expects.
 
 <h3 id="fit_generator"><code>fit_generator</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1162-L1296">View source</a>
 
 ``` python
 fit_generator(
@@ -657,9 +674,9 @@ using `use_multiprocessing=True`.
     Optional for `Sequence`: if unspecified, will use
     the `len(validation_data)` as a number of steps.
 * <b>`validation_freq`</b>: Only relevant if validation data is provided. Integer
-    or `collections.Container` instance (e.g. list, tuple, etc.). If an
-    integer, specifies how many training epochs to run before a new
-    validation run is performed, e.g. `validation_freq=2` runs
+    or `collections_abc.Container` instance (e.g. list, tuple, etc.).
+    If an integer, specifies how many training epochs to run before a
+    new validation run is performed, e.g. `validation_freq=2` runs
     validation every 2 epochs. If a Container, specifies the epochs on
     which to run validation, e.g. `validation_freq=[1, 2, 10]` runs
     validation at the end of the 1st, 2nd, and 10th epochs.
@@ -714,6 +731,8 @@ Raises:
 
 <h3 id="get_layer"><code>get_layer</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L500-L531">View source</a>
+
 ``` python
 get_layer(
     name=None,
@@ -746,6 +765,8 @@ A layer instance.
 
 <h3 id="load_weights"><code>load_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L175-L182">View source</a>
+
 ``` python
 load_weights(
     filepath,
@@ -757,6 +778,8 @@ Loads all layer weights, either from a TensorFlow or an HDF5 file.
 
 
 <h3 id="predict"><code>predict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L834-L908">View source</a>
 
 ``` python
 predict(
@@ -783,20 +806,20 @@ Computation is done in batches.
     (in case the model has multiple inputs).
   - A TensorFlow tensor, or a list of tensors
     (in case the model has multiple inputs).
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset.
   - A generator or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instance.
 * <b>`batch_size`</b>: Integer or `None`.
     Number of samples per gradient update.
     If unspecified, `batch_size` will default to 32.
     Do not specify the `batch_size` is your data is in the
-    form of symbolic tensors, dataset, dataset iterators,
+    form of symbolic tensors, dataset,
     generators, or <a href="../../tf/keras/utils/Sequence"><code>keras.utils.Sequence</code></a> instances (since they generate
     batches).
 * <b>`verbose`</b>: Verbosity mode, 0 or 1.
 * <b>`steps`</b>: Total number of steps (batches of samples)
     before declaring the prediction round finished.
     Ignored with the default value of `None`. If x is a <a href="../../tf/data"><code>tf.data</code></a>
-    dataset or a dataset iterator, and `steps` is None, `predict` will
+    dataset and `steps` is None, `predict` will
     run until the input dataset is exhausted.
 * <b>`callbacks`</b>: List of <a href="../../tf/keras/callbacks/Callback"><code>keras.callbacks.Callback</code></a> instances.
     List of callbacks to apply during prediction.
@@ -832,6 +855,8 @@ Numpy array(s) of predictions.
     that is not a multiple of the batch size.
 
 <h3 id="predict_generator"><code>predict_generator</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1365-L1420">View source</a>
 
 ``` python
 predict_generator(
@@ -890,6 +915,8 @@ Numpy array(s) of predictions.
 
 <h3 id="predict_on_batch"><code>predict_on_batch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1114-L1160">View source</a>
+
 ``` python
 predict_on_batch(x)
 ```
@@ -905,7 +932,7 @@ Returns predictions for a single batch of samples.
     (in case the model has multiple inputs).
   - A TensorFlow tensor, or a list of tensors
     (in case the model has multiple inputs).
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset.
 
 
 #### Returns:
@@ -922,6 +949,8 @@ Numpy array(s) of predictions.
 
 <h3 id="reset_metrics"><code>reset_metrics</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L910-L918">View source</a>
+
 ``` python
 reset_metrics()
 ```
@@ -930,6 +959,8 @@ Resets the state of metrics.
 
 
 <h3 id="reset_states"><code>reset_states</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L443-L446">View source</a>
 
 ``` python
 reset_states()
@@ -940,12 +971,15 @@ reset_states()
 
 <h3 id="save"><code>save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1122-L1171">View source</a>
+
 ``` python
 save(
     filepath,
     overwrite=True,
     include_optimizer=True,
-    save_format=None
+    save_format=None,
+    signatures=None
 )
 ```
 
@@ -970,15 +1004,18 @@ was never compiled in the first place).
 
 #### Arguments:
 
-
-* <b>`filepath`</b>: String, path to SavedModel or H5 file to save the model.
-* <b>`overwrite`</b>: Whether to silently overwrite any existing file at the
+filepath: String, path to SavedModel or H5 file to save the model.
+overwrite: Whether to silently overwrite any existing file at the
     target location, or provide the user with a manual prompt.
-* <b>`include_optimizer`</b>: If True, save optimizer's state together.
-* <b>`save_format`</b>: Either 'tf' or 'h5', indicating whether to save the model
+include_optimizer: If True, save optimizer's state together.
+save_format: Either 'tf' or 'h5', indicating whether to save the model
   to Tensorflow SavedModel or HDF5. The default is currently 'h5', but
   will switch to 'tf' in TensorFlow 2.0. The 'tf' option is currently
   disabled (use <a href="../../tf/keras/experimental/export_saved_model"><code>tf.keras.experimental.export_saved_model</code></a> instead).
+
+* <b>`signatures`</b>: Signatures to save with the SavedModel. Applicable to the 'tf'
+  format only. Please see the `signatures` argument in
+  <a href="../../tf/saved_model/save"><code>tf.saved_model.save</code></a> for details.
 
 
 #### Example:
@@ -997,6 +1034,8 @@ model = load_model('my_model.h5')
 ```
 
 <h3 id="save_weights"><code>save_weights</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1173-L1292">View source</a>
 
 ``` python
 save_weights(
@@ -1071,6 +1110,8 @@ on the TensorFlow format.
 
 <h3 id="summary"><code>summary</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1434-L1461">View source</a>
+
 ``` python
 summary(
     line_length=None,
@@ -1104,6 +1145,8 @@ Prints a string summary of the network.
 
 <h3 id="test_on_batch"><code>test_on_batch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1026-L1112">View source</a>
+
 ``` python
 test_on_batch(
     x,
@@ -1126,13 +1169,12 @@ Test the model on a single batch of samples.
     (in case the model has multiple inputs).
   - A dict mapping input names to the corresponding array/tensors,
     if the model has named inputs.
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset.
 * <b>`y`</b>: Target data. Like the input data `x`,
   it could be either Numpy array(s) or TensorFlow tensor(s).
   It should be consistent with `x` (you cannot have Numpy inputs and
-  tensor targets, or inversely). If `x` is a dataset or a
-  dataset iterator, `y` should not be specified
-  (since targets will be obtained from the iterator).
+  tensor targets, or inversely). If `x` is a dataset `y` should
+  not be specified (since targets will be obtained from the iterator).
 * <b>`sample_weight`</b>: Optional array of the same length as x, containing
     weights to apply to the model's loss for each sample.
     In the case of temporal data, you can pass a 2D array
@@ -1140,7 +1182,7 @@ Test the model on a single batch of samples.
     to apply a different weight to every timestep of every sample.
     In this case you should make sure to specify
     sample_weight_mode="temporal" in compile(). This argument is not
-    supported when `x` is a dataset or a dataset iterator.
+    supported when `x` is a dataset.
 * <b>`reset_metrics`</b>: If `True`, the metrics returned will be only for this
   batch. If `False`, the metrics will be statefully accumulated across
   batches.
@@ -1161,6 +1203,8 @@ the display labels for the scalar outputs.
 * <b>`ValueError`</b>: In case of invalid user-provided arguments.
 
 <h3 id="to_json"><code>to_json</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1392-L1407">View source</a>
 
 ``` python
 to_json(**kwargs)
@@ -1184,6 +1228,8 @@ A JSON string.
 
 
 <h3 id="to_yaml"><code>to_yaml</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1409-L1432">View source</a>
 
 ``` python
 to_yaml(**kwargs)
@@ -1218,6 +1264,8 @@ A YAML string.
 
 <h3 id="train_on_batch"><code>train_on_batch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L920-L1024">View source</a>
+
 ``` python
 train_on_batch(
     x,
@@ -1241,11 +1289,11 @@ Runs a single gradient update on a single batch of data.
       (in case the model has multiple inputs).
   - A dict mapping input names to the corresponding array/tensors,
       if the model has named inputs.
-  - A <a href="../../tf/data"><code>tf.data</code></a> dataset or a dataset iterator.
+  - A <a href="../../tf/data"><code>tf.data</code></a> dataset.
 * <b>`y`</b>: Target data. Like the input data `x`, it could be either Numpy
   array(s) or TensorFlow tensor(s). It should be consistent with `x`
   (you cannot have Numpy inputs and tensor targets, or inversely). If
-  `x` is a dataset or a dataset iterator, `y` should not be specified
+  `x` is a dataset, `y` should not be specified
   (since targets will be obtained from the iterator).
 * <b>`sample_weight`</b>: Optional array of the same length as x, containing
   weights to apply to the model's loss for each sample. In the case of
@@ -1253,7 +1301,7 @@ Runs a single gradient update on a single batch of data.
   sequence_length), to apply a different weight to every timestep of
   every sample. In this case you should make sure to specify
   sample_weight_mode="temporal" in compile(). This argument is not
-  supported when `x` is a dataset or a dataset iterator.
+  supported when `x` is a dataset.
 * <b>`class_weight`</b>: Optional dictionary mapping class indices (integers) to a
   weight (float) to apply to the model's loss for the samples from this
   class during training. This can be useful to tell the model to "pay
@@ -1277,6 +1325,3 @@ the display labels for the scalar outputs.
 
 
 * <b>`ValueError`</b>: In case of invalid user-provided arguments.
-
-
-

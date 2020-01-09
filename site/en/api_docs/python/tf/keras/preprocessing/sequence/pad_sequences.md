@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.sequence.pad_sequences
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/sequence/pad_sequences">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Pads sequences to the same length.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.sequence.pad_sequences`
-* `tf.compat.v2.keras.preprocessing.sequence.pad_sequences`
-* `tf.keras.preprocessing.sequence.pad_sequences`
+* <a href="/api_docs/python/tf/keras/preprocessing/sequence/pad_sequences"><code>tf.compat.v1.keras.preprocessing.sequence.pad_sequences</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/sequence/pad_sequences"><code>tf.compat.v2.keras.preprocessing.sequence.pad_sequences</code></a>
+
 
 ``` python
 tf.keras.preprocessing.sequence.pad_sequences(
@@ -23,6 +35,8 @@ tf.keras.preprocessing.sequence.pad_sequences(
     value=0.0
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

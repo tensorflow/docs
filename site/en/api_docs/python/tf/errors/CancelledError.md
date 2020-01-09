@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.errors.CancelledError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/errors/CancelledError">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L213-L229">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CancelledError`
 
 Raised when an operation or step is cancelled.
@@ -13,13 +31,9 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class `tf.compat.v1.errors.CancelledError`
-* Class `tf.compat.v2.errors.CancelledError`
-* Class `tf.errors.CancelledError`
+* Class <a href="/api_docs/python/tf/errors/CancelledError"><code>tf.compat.v1.errors.CancelledError</code></a>
+* Class <a href="/api_docs/python/tf/errors/CancelledError"><code>tf.compat.v2.errors.CancelledError</code></a>
 
-
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +47,8 @@ A step that is running such a long-running operation will fail by raising
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L227-L229">View source</a>
 
 ``` python
 __init__(
@@ -78,7 +94,3 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-

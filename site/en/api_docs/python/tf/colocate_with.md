@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.colocate_with
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5218-L5222">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 DEPRECATED FUNCTION
 
 ### Aliases:
 
-* `tf.colocate_with`
-* `tf.compat.v1.colocate_with`
+* <a href="/api_docs/python/tf/colocate_with"><code>tf.compat.v1.colocate_with</code></a>
+
 
 ``` python
 tf.colocate_with(
@@ -20,8 +32,6 @@ tf.colocate_with(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

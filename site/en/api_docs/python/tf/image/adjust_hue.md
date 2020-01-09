@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.adjust_hue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/adjust_hue">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1913-L1954">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adjust hue of RGB images.
 
 ### Aliases:
 
-* `tf.compat.v1.image.adjust_hue`
-* `tf.compat.v2.image.adjust_hue`
-* `tf.image.adjust_hue`
+* <a href="/api_docs/python/tf/image/adjust_hue"><code>tf.compat.v1.image.adjust_hue</code></a>
+* <a href="/api_docs/python/tf/image/adjust_hue"><code>tf.compat.v2.image.adjust_hue</code></a>
+
 
 ``` python
 tf.image.adjust_hue(
@@ -22,8 +40,6 @@ tf.image.adjust_hue(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,3 +65,13 @@ image(s) to HSV and rotating the hue channel (H) by
 #### Returns:
 
 Adjusted image(s), same shape and DType as `image`.
+
+
+
+#### Usage Example:
+
+```python
+>> import tensorflow as tf
+>> x = tf.random.normal(shape=(256, 256, 3))
+>> tf.image.adjust_hue(x, 0.2)
+```

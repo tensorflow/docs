@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.rnn.LSTMBlockWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/lstm_ops.py#L402-L537">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LSTMBlockWrapper`
 
 This is a helper class that provides housekeeping for LSTM cells.
 
 Inherits From: [`Layer`](../../../tf/layers/Layer)
-
-
-
-Defined in [`contrib/rnn/python/ops/lstm_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,6 +29,8 @@ This may be useful for alternative LSTM and similar type of cells.
 The subclasses must implement `_call_cell` method and `num_units` property.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/base.py#L192-L235">View source</a>
 
 ``` python
 __init__(
@@ -52,9 +62,3 @@ Number of units in this cell (output dimension).
 
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

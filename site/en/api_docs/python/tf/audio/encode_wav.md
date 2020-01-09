@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.audio.encode_wav
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/audio/encode_wav">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_audio_ops.py`
+
+
+
 Encode audio data using the WAV file format.
 
 ### Aliases:
 
-* `tf.audio.encode_wav`
-* `tf.compat.v1.audio.encode_wav`
-* `tf.compat.v2.audio.encode_wav`
+* <a href="/api_docs/python/tf/audio/encode_wav"><code>tf.compat.v1.audio.encode_wav</code></a>
+* <a href="/api_docs/python/tf/audio/encode_wav"><code>tf.compat.v2.audio.encode_wav</code></a>
+
 
 ``` python
 tf.audio.encode_wav(
@@ -22,8 +36,6 @@ tf.audio.encode_wav(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_audio_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

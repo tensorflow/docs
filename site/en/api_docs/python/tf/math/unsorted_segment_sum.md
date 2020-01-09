@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.unsorted_segment_sum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/unsorted_segment_sum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the sum along segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.unsorted_segment_sum`
-* `tf.compat.v1.unsorted_segment_sum`
-* `tf.compat.v2.math.unsorted_segment_sum`
-* `tf.math.unsorted_segment_sum`
-* `tf.unsorted_segment_sum`
+* <a href="/api_docs/python/tf/math/unsorted_segment_sum"><code>tf.compat.v1.math.unsorted_segment_sum</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_sum"><code>tf.compat.v1.unsorted_segment_sum</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_sum"><code>tf.compat.v2.math.unsorted_segment_sum</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_sum"><code>tf.unsorted_segment_sum</code></a>
+
 
 ``` python
 tf.math.unsorted_segment_sum(
@@ -26,8 +40,6 @@ tf.math.unsorted_segment_sum(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

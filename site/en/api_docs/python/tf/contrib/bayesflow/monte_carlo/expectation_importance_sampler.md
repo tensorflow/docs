@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py#L39-L108">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Monte Carlo estimate of \\(E_p[f(Z)] = E_q[f(Z) p(Z) / q(Z)]\\).
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.bayesflow.monte_carlo.expectation_importance_sampler(
 ```
 
 
-
-Defined in [`contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,7 +60,7 @@ User supplies either `Tensor` of samples `z`, or number of samples to draw `n`
   shape broadcastable to `q.batch_shape`.
   For example, `log_p` works "just like" `sampling_dist_q.log_prob`.
 * <b>`sampling_dist_q`</b>:  The sampling distribution.
-  `tfp.distributions.Distribution`.
+  <a href="/probability/api_docs/python/tfp/distributions/Distribution"><code>tfp.distributions.Distribution</code></a>.
   `float64` `dtype` recommended.
   `log_p` and `q` should be supported on the same set.
 * <b>`z`</b>:  `Tensor` of samples from `q`, produced by `q.sample` for some `n`.

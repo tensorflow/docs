@@ -47,8 +47,8 @@
 <html devsite>
   <head>
     <title>Tensor</title>
-    <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
-    <meta name="project_path" value="/_project.yaml" />
+    <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+    <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -1144,7 +1144,8 @@
           
   <div class="jd-tagdata jd-tagdescr"><p>Release resources associated with the Tensor.
 
- <p><b>WARNING:</b>If not invoked, memory will be leaked.
+ <p><b>WARNING:</b>This must be invoked for all tensors that were not been produced by an eager
+ operation or memory will be leaked.
 
  <p>The Tensor object is no longer usable after <code>close</code> returns.
 </p></div>

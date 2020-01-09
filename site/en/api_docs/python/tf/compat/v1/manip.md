@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.manip
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/manip">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Operators for manipulating tensors.
 
 <!-- Placeholder for "Used in" -->
@@ -27,4 +39,3 @@ Operators for manipulating tensors.
 [`space_to_batch_nd(...)`](../../../tf/space_to_batch_nd): SpaceToBatch for N-D tensors of type T.
 
 [`tile(...)`](../../../tf/tile): Constructs a tensor by tiling a given tensor.
-

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Lambda
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Lambda">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L652-L913">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Lambda`
 
 Wraps arbitrary expressions as a `Layer` object.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Lambda`
-* Class `tf.compat.v2.keras.layers.Lambda`
-* Class `tf.keras.layers.Lambda`
+* Class <a href="/api_docs/python/tf/keras/layers/Lambda"><code>tf.compat.v1.keras.layers.Lambda</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Lambda"><code>tf.compat.v2.keras.layers.Lambda</code></a>
 
-
-
-Defined in [`python/keras/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -109,6 +123,8 @@ Output shape: Specified by `output_shape` argument
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L735-L751">View source</a>
+
 ``` python
 __init__(
     function,
@@ -118,9 +134,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

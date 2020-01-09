@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.create_feature_spec_for_parsing
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column.py#L2581-L2625">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Helper that prepares features config from input feature_columns.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.layers.create_feature_spec_for_parsing(feature_columns)
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

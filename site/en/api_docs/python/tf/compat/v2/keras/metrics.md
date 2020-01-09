@@ -5,16 +5,24 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.metrics
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/metrics">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Built-in metrics.
 
 ### Aliases:
 
-* Module `tf.compat.v2.keras.metrics`
-* Module `tf.compat.v2.metrics`
+* Module <a href="/api_docs/python/tf/compat/v2/keras/metrics"><code>tf.compat.v2.metrics</code></a>
 
-
-
-Defined in [`python/keras/api/_v2/keras/metrics/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/metrics/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -95,7 +103,7 @@ Defined in [`python/keras/api/_v2/keras/metrics/__init__.py`](https://github.com
 
 ## Functions
 
-[`KLD(...)`](../../../../tf/keras/losses/KLD)
+[`KLD(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`MAE(...)`](../../../../tf/keras/losses/MAE)
 
@@ -119,9 +127,9 @@ Defined in [`python/keras/api/_v2/keras/metrics/__init__.py`](https://github.com
 
 [`hinge(...)`](../../../../tf/keras/losses/hinge): Computes the hinge loss between `y_true` and `y_pred`.
 
-[`kld(...)`](../../../../tf/keras/losses/KLD)
+[`kld(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
-[`kullback_leibler_divergence(...)`](../../../../tf/keras/losses/KLD)
+[`kullback_leibler_divergence(...)`](../../../../tf/keras/losses/KLD): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`mae(...)`](../../../../tf/keras/losses/MAE)
 
@@ -139,7 +147,7 @@ Defined in [`python/keras/api/_v2/keras/metrics/__init__.py`](https://github.com
 
 [`msle(...)`](../../../../tf/keras/losses/MSLE)
 
-[`poisson(...)`](../../../../tf/keras/losses/poisson)
+[`poisson(...)`](../../../../tf/keras/losses/poisson): Computes the Poisson loss between y_true and y_pred.
 
 [`serialize(...)`](../../../../tf/keras/metrics/serialize)
 
@@ -152,4 +160,3 @@ Defined in [`python/keras/api/_v2/keras/metrics/__init__.py`](https://github.com
 [`squared_hinge(...)`](../../../../tf/keras/losses/squared_hinge): Computes the squared hinge loss between `y_true` and `y_pred`.
 
 [`top_k_categorical_accuracy(...)`](../../../../tf/keras/metrics/top_k_categorical_accuracy)
-

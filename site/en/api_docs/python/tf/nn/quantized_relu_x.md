@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.nn.quantized_relu_x
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes Quantized Rectified Linear X: `min(max(features, 0), max_value)`
 
 ### Aliases:
 
-* `tf.compat.v1.nn.quantized_relu_x`
-* `tf.nn.quantized_relu_x`
+* <a href="/api_docs/python/tf/nn/quantized_relu_x"><code>tf.compat.v1.nn.quantized_relu_x</code></a>
+
 
 ``` python
 tf.nn.quantized_relu_x(
@@ -24,8 +32,6 @@ tf.nn.quantized_relu_x(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

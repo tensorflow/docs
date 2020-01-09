@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.nn.space_to_batch
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L3205-L3218">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 SpaceToBatch for 4-D tensors of type T.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.space_to_batch`
-* `tf.compat.v1.space_to_batch`
-* `tf.nn.space_to_batch`
-* `tf.space_to_batch`
+* <a href="/api_docs/python/tf/nn/space_to_batch"><code>tf.compat.v1.nn.space_to_batch</code></a>
+* <a href="/api_docs/python/tf/nn/space_to_batch"><code>tf.compat.v1.space_to_batch</code></a>
+* <a href="/api_docs/python/tf/nn/space_to_batch"><code>tf.space_to_batch</code></a>
+
 
 ``` python
 tf.nn.space_to_batch(
@@ -25,8 +37,6 @@ tf.nn.space_to_batch(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

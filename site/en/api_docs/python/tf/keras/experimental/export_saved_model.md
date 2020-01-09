@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.keras.experimental.export_saved_model
 
-Exports a <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/experimental/export_saved_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/saved_model_experimental.py#L63-L145">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Exports a <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.keras.experimental.export_saved_model`
-* `tf.compat.v2.keras.experimental.export_saved_model`
-* `tf.contrib.saved_model.save_keras_model`
-* `tf.keras.experimental.export_saved_model`
+* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.compat.v1.keras.experimental.export_saved_model</code></a>
+* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.compat.v2.keras.experimental.export_saved_model</code></a>
+* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.contrib.saved_model.save_keras_model</code></a>
+
 
 ``` python
 tf.keras.experimental.export_saved_model(
@@ -27,9 +45,11 @@ tf.keras.experimental.export_saved_model(
 
 
 
-Defined in [`python/keras/saving/saved_model.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/saving/saved_model.py).
-
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please use `model.save(..., save_format="tf")` or `tf.keras.models.save_model(..., save_format="tf")`.
 
 Note that at this time, subclassed models can only be saved using
 `serving_only=True`.

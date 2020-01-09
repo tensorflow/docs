@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.image.apply_affine_transform
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/apply_affine_transform">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Applies an affine transformation specified by the parameters given.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.image.apply_affine_transform`
-* `tf.compat.v2.keras.preprocessing.image.apply_affine_transform`
-* `tf.keras.preprocessing.image.apply_affine_transform`
+* <a href="/api_docs/python/tf/keras/preprocessing/image/apply_affine_transform"><code>tf.compat.v1.keras.preprocessing.image.apply_affine_transform</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/image/apply_affine_transform"><code>tf.compat.v2.keras.preprocessing.image.apply_affine_transform</code></a>
+
 
 ``` python
 tf.keras.preprocessing.image.apply_affine_transform(
@@ -30,6 +42,8 @@ tf.keras.preprocessing.image.apply_affine_transform(
     order=1
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.fill
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/fill">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L136-L173">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a tensor filled with a scalar value.
 
 ### Aliases:
 
-* `tf.compat.v1.fill`
-* `tf.compat.v2.fill`
-* `tf.fill`
+* <a href="/api_docs/python/tf/fill"><code>tf.compat.v1.fill</code></a>
+* <a href="/api_docs/python/tf/fill"><code>tf.compat.v2.fill</code></a>
+
 
 ``` python
 tf.fill(
@@ -22,8 +40,6 @@ tf.fill(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,7 +59,8 @@ fill([2, 3], 9) ==> [[9, 9, 9]
 
 *   <a href="../tf/fill"><code>tf.fill</code></a> only supports scalar contents, whereas <a href="../tf/constant"><code>tf.constant</code></a> supports
     Tensor values.
-*   <a href="../tf/fill"><code>tf.fill</code></a> creates an Op in the computation graph that constructs the actual
+*   <a href="../tf/fill"><code>tf.fill</code></a> creates an Op in the computation graph that constructs the
+actual
     Tensor value at runtime. This is in contrast to <a href="../tf/constant"><code>tf.constant</code></a> which embeds
     the entire Tensor into the graph with a `Const` node.
 *   Because <a href="../tf/fill"><code>tf.fill</code></a> evaluates at graph runtime, it supports dynamic shapes
@@ -52,19 +69,13 @@ fill([2, 3], 9) ==> [[9, 9, 9]
 #### Args:
 
 
-* <b>`dims`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`.
-  1-D. Represents the shape of the output tensor.
+* <b>`dims`</b>: A `Tensor`. Must be one of the following types: `int32`, `int64`. 1-D.
+  Represents the shape of the output tensor.
 * <b>`value`</b>: A `Tensor`. 0-D (scalar). Value to fill the returned tensor.
-
-
+  @compatibility(numpy) Equivalent to np.full @end_compatibility
 * <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:
 
 A `Tensor`. Has the same type as `value`.
-
-
-#### Numpy Compatibility
-Equivalent to np.full
-

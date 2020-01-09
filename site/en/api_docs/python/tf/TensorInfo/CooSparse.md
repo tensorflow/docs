@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.TensorInfo.CooSparse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/meta_graph.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CooSparse`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.TensorInfo.CooSparse`
-* Class `tf.compat.v1.TensorInfo.CooSparse`
+* Class <a href="/api_docs/python/tf/TensorInfo/CooSparse"><code>tf.compat.v1.TensorInfo.CooSparse</code></a>
 
-
-
-Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/meta_graph.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,7 +46,3 @@ Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tens
 <h3 id="values_tensor_name"><code>values_tensor_name</code></h3>
 
 `string values_tensor_name`
-
-
-
-

@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.layers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Keras layers API.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.layers`
-* Module `tf.keras.layers`
+* Module <a href="/api_docs/python/tf/keras/layers"><code>tf.compat.v1.keras.layers</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/layers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/layers/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -243,7 +251,7 @@ Defined in [`python/keras/api/_v1/keras/layers/__init__.py`](https://github.com/
 
 [`dot(...)`](../../tf/keras/layers/dot): Functional interface to the `Dot` layer.
 
-[`maximum(...)`](../../tf/keras/layers/maximum): Functional interface to the `Maximum` layer.
+[`maximum(...)`](../../tf/keras/layers/maximum): Functional interface to the `Maximum` layer that computes
 
 [`minimum(...)`](../../tf/keras/layers/minimum): Functional interface to the `Minimum` layer.
 
@@ -252,4 +260,3 @@ Defined in [`python/keras/api/_v1/keras/layers/__init__.py`](https://github.com/
 [`serialize(...)`](../../tf/keras/layers/serialize)
 
 [`subtract(...)`](../../tf/keras/layers/subtract): Functional interface to the `Subtract` layer.
-

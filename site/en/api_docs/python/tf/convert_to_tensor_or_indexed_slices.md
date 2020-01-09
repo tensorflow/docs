@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.convert_to_tensor_or_indexed_slices
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/indexed_slices.py#L249-L271">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts the given object to a `Tensor` or an `IndexedSlices`.
 
 ### Aliases:
 
-* `tf.compat.v1.convert_to_tensor_or_indexed_slices`
-* `tf.convert_to_tensor_or_indexed_slices`
+* <a href="/api_docs/python/tf/convert_to_tensor_or_indexed_slices"><code>tf.compat.v1.convert_to_tensor_or_indexed_slices</code></a>
+
 
 ``` python
 tf.convert_to_tensor_or_indexed_slices(
@@ -21,8 +33,6 @@ tf.convert_to_tensor_or_indexed_slices(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

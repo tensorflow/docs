@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.linalg.expm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/expm">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linalg_impl.py#L231-L342">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the matrix exponential of one or more square matrices.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.expm`
-* `tf.compat.v2.linalg.expm`
-* `tf.linalg.expm`
+* <a href="/api_docs/python/tf/linalg/expm"><code>tf.compat.v1.linalg.expm</code></a>
+* <a href="/api_docs/python/tf/linalg/expm"><code>tf.compat.v2.linalg.expm</code></a>
+
 
 ``` python
 tf.linalg.expm(
@@ -21,8 +39,6 @@ tf.linalg.expm(
 ```
 
 
-
-Defined in [`python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg/linalg_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -60,4 +76,3 @@ the matrix exponential of the input.
 
 #### Scipy Compatibility
 Equivalent to scipy.linalg.expm
-

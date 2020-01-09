@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.estimator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/estimator/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 estimator python module.
-
-
-
-Defined in [`contrib/estimator/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/estimator/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,5 +78,4 @@ is unsupported and will soon break!
 
 [`regression_head(...)`](../../tf/contrib/estimator/regression_head): Creates a `_Head` for regression using the `mean_squared_error` loss.
 
-[`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate `Estimator.model_fn` over GPUs. (deprecated)
-
+[`replicate_model_fn(...)`](../../tf/contrib/estimator/replicate_model_fn): Replicate <a href="/api_docs/python/tf/estimator/Estimator#model_fn"><code>Estimator.model_fn</code></a> over GPUs. (deprecated)

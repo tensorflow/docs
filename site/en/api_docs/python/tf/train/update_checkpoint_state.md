@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.update_checkpoint_state
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L124-L167">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Updates the content of the 'checkpoint' file. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.update_checkpoint_state`
-* `tf.train.update_checkpoint_state`
+* <a href="/api_docs/python/tf/train/update_checkpoint_state"><code>tf.compat.v1.train.update_checkpoint_state</code></a>
+
 
 ``` python
 tf.train.update_checkpoint_state(
@@ -24,8 +36,6 @@ tf.train.update_checkpoint_state(
 ```
 
 
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 

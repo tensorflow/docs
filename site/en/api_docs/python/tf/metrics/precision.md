@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.precision
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L1947-L2039">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the precision of the predictions with respect to the labels.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.precision`
-* `tf.metrics.precision`
+* <a href="/api_docs/python/tf/metrics/precision"><code>tf.compat.v1.metrics.precision</code></a>
+
 
 ``` python
 tf.metrics.precision(
@@ -24,8 +36,6 @@ tf.metrics.precision(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

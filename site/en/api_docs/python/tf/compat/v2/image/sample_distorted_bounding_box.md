@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.image.sample_distorted_bounding_box
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2391-L2487">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generate a single randomly distorted bounding box for an image.
 
 ``` python
@@ -22,8 +34,6 @@ tf.compat.v2.image.sample_distorted_bounding_box(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

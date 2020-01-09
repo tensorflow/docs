@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.layers.subtract
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/subtract">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L590-L616">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface to the `Subtract` layer.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.layers.subtract`
-* `tf.compat.v2.keras.layers.subtract`
-* `tf.keras.layers.subtract`
+* <a href="/api_docs/python/tf/keras/layers/subtract"><code>tf.compat.v1.keras.layers.subtract</code></a>
+* <a href="/api_docs/python/tf/keras/layers/subtract"><code>tf.compat.v2.keras.layers.subtract</code></a>
+
 
 ``` python
 tf.keras.layers.subtract(
@@ -21,8 +39,6 @@ tf.keras.layers.subtract(
 ```
 
 
-
-Defined in [`python/keras/layers/merge.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/merge.py).
 
 <!-- Placeholder for "Used in" -->
 

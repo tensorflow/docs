@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.softplus_inverse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L1147-L1200">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the inverse softplus, i.e., x = softplus_inverse(softplus(x)).
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.distributions.softplus_inverse(
 ```
 
 
-
-Defined in [`python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/util.py).
 
 <!-- Placeholder for "Used in" -->
 

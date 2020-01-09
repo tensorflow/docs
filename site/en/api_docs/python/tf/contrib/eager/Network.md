@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.Network
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L73-L525">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Network`
 
 Represents the composition of a set of Layers.
 
 Inherits From: [`Layer`](../../../tf/layers/Layer)
-
-
-
-Defined in [`contrib/eager/python/network.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/network.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -88,6 +96,8 @@ custom `Layer`s which manage stateful ops) may break with this change.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L151-L192">View source</a>
+
 ``` python
 __init__(name=None)
 ```
@@ -146,6 +156,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="get_layer"><code>get_layer</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L413-L447">View source</a>
+
 ``` python
 get_layer(
     name=None,
@@ -182,6 +194,8 @@ A <a href="../../../tf/layers/Layer"><code>tf.compat.v1.layers.Layer</code></a> 
 
 <h3 id="track_layer"><code>track_layer</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L350-L411">View source</a>
+
 ``` python
 track_layer(layer)
 ```
@@ -209,6 +223,3 @@ The passed in `layer`.
 * <b>`RuntimeError`</b>: If __init__ has not been called.
 * <b>`TypeError`</b>: If `layer` is the wrong type.
 * <b>`ValueError`</b>: If a `Layer` with the same name has already been added.
-
-
-

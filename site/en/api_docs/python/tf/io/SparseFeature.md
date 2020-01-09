@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.io.SparseFeature
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/SparseFeature">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L61-L132">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SparseFeature`
 
 Configuration for parsing a sparse input feature from an `Example`.
@@ -13,15 +31,11 @@ Configuration for parsing a sparse input feature from an `Example`.
 
 ### Aliases:
 
-* Class `tf.SparseFeature`
-* Class `tf.compat.v1.SparseFeature`
-* Class `tf.compat.v1.io.SparseFeature`
-* Class `tf.compat.v2.io.SparseFeature`
-* Class `tf.io.SparseFeature`
+* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.SparseFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v1.SparseFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v1.io.SparseFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v2.io.SparseFeature</code></a>
 
-
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -89,6 +103,27 @@ SparseFeature(index_key=["ix0", "ix1"],
   `value_key` are already sorted by their index position. If so skip
   sorting. False by default (optional).
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L130-L132">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    index_key,
+    value_key,
+    dtype,
+    size,
+    already_sorted=False
+)
+```
+
+Create new instance of SparseFeature(index_key, value_key, dtype, size, already_sorted)
+
+
+
+
 ## Properties
 
 <h3 id="index_key"><code>index_key</code></h3>
@@ -112,9 +147,3 @@ SparseFeature(index_key=["ix0", "ix1"],
 
 
 <h3 id="already_sorted"><code>already_sorted</code></h3>
-
-
-
-
-
-

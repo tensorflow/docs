@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.summary.graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/summary_ops_v2.py#L840-L882">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Writes a TensorFlow graph to the summary interface.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.summary.graph(
 ```
 
 
-
-Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

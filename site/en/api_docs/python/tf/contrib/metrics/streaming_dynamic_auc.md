@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_dynamic_auc
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/metrics/python/ops/metric_ops.py#L1145-L1228">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the apporixmate AUC by a Riemann sum with data-derived thresholds.
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.metrics.streaming_dynamic_auc(
 
 
 
-Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 USAGE NOTE: this approach requires storing all of the predictions and labels
@@ -37,8 +47,9 @@ and performing the final calculation using all of the concatenated values.
 #### Args:
 
 
-* <b>`labels`</b>: A `Tensor` of ground truth labels with the same shape as `labels`
-  and with values of 0 or 1 whose values are castable to `int64`.
+* <b>`labels`</b>:  A `Tensor` of ground truth labels with the same shape as 
+  `predictions` and with values of 0 or 1 whose values are castable to
+  `int64`.
 * <b>`predictions`</b>: A `Tensor` of predictions whose values are castable to
   `float64`. Will be flattened into a 1-D `Tensor`.
 * <b>`curve`</b>: The name of the curve for which to compute AUC, 'ROC' for the

@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.betainc
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/betainc">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Compute the regularized incomplete beta integral \\(I_x(a, b)\\).
 
 ### Aliases:
 
-* `tf.betainc`
-* `tf.compat.v1.betainc`
-* `tf.compat.v1.math.betainc`
-* `tf.compat.v2.math.betainc`
-* `tf.math.betainc`
+* <a href="/api_docs/python/tf/math/betainc"><code>tf.betainc</code></a>
+* <a href="/api_docs/python/tf/math/betainc"><code>tf.compat.v1.betainc</code></a>
+* <a href="/api_docs/python/tf/math/betainc"><code>tf.compat.v1.math.betainc</code></a>
+* <a href="/api_docs/python/tf/math/betainc"><code>tf.compat.v2.math.betainc</code></a>
+
 
 ``` python
 tf.math.betainc(
@@ -26,8 +40,6 @@ tf.math.betainc(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.Initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L47-L89">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Initializer`
 
 Initializer base class: all initializers inherit from this class.
@@ -13,12 +25,8 @@ Initializer base class: all initializers inherit from this class.
 
 ### Aliases:
 
-* Class `tf.compat.v2.initializers.Initializer`
-* Class `tf.compat.v2.keras.initializers.Initializer`
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Initializer"><code>tf.compat.v2.initializers.Initializer</code></a>
 
-
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
   
@@ -26,6 +34,8 @@ Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflo
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L51-L59">View source</a>
 
 ``` python
 __call__(
@@ -45,6 +55,8 @@ Returns a tensor object initialized as specified by the initializer.
  of <a href="../../../../../tf#float32"><code>tf.float32</code></a>.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 @classmethod
@@ -81,6 +93,8 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L61-L67">View source</a>
+
 ``` python
 get_config()
 ```
@@ -91,7 +105,3 @@ Returns the configuration of the initializer as a JSON-serializable dict.
 #### Returns:
 
 A JSON-serializable Python dict.
-
-
-
-

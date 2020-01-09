@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.signal.rfft
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/rfft">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/fft_ops.py#L114-L125">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Real-valued fast Fourier transform.
 
 ### Aliases:
 
-* `tf.compat.v1.signal.rfft`
-* `tf.compat.v1.spectral.rfft`
-* `tf.compat.v2.signal.rfft`
-* `tf.signal.rfft`
-* `tf.spectral.rfft`
+* <a href="/api_docs/python/tf/signal/rfft"><code>tf.compat.v1.signal.rfft</code></a>
+* <a href="/api_docs/python/tf/signal/rfft"><code>tf.compat.v1.spectral.rfft</code></a>
+* <a href="/api_docs/python/tf/signal/rfft"><code>tf.compat.v2.signal.rfft</code></a>
+* <a href="/api_docs/python/tf/signal/rfft"><code>tf.spectral.rfft</code></a>
+
 
 ``` python
 tf.signal.rfft(
@@ -24,8 +42,6 @@ tf.signal.rfft(
 ```
 
 
-
-Defined in [`python/ops/signal/fft_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/fft_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

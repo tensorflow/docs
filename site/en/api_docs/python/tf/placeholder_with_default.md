@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.placeholder_with_default
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2622-L2635">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A placeholder op that passes through `input` when its output is not fed.
 
 ### Aliases:
 
-* `tf.compat.v1.placeholder_with_default`
-* `tf.placeholder_with_default`
+* <a href="/api_docs/python/tf/placeholder_with_default"><code>tf.compat.v1.placeholder_with_default</code></a>
+
 
 ``` python
 tf.placeholder_with_default(
@@ -21,8 +33,6 @@ tf.placeholder_with_default(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

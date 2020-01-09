@@ -6,15 +6,28 @@ page_type: reference
 # Module: tf.train
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Support for training models.
 
 <!-- Placeholder for "Used in" -->
 
+See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 ## Modules
 
-[`experimental`](../tf/train/experimental) module
+[`experimental`](../tf/train/experimental) module: Public API for tf.train.experimental namespace.
 
-[`queue_runner`](../tf/train/queue_runner) module
+[`queue_runner`](../tf/train/queue_runner) module: Public API for tf.train.queue_runner namespace.
 
 ## Classes
 
@@ -26,7 +39,7 @@ page_type: reference
 
 [`class AdamOptimizer`](../tf/train/AdamOptimizer): Optimizer that implements the Adam algorithm.
 
-[`class BytesList`](../tf/train/BytesList)
+[`class BytesList`](../tf/train/BytesList): A ProtocolMessage
 
 [`class Checkpoint`](../tf/train/Checkpoint): Groups trackable objects, saving and restoring them.
 
@@ -38,29 +51,29 @@ page_type: reference
 
 [`class ChiefSessionCreator`](../tf/train/ChiefSessionCreator): Creates a tf.compat.v1.Session for a chief.
 
-[`class ClusterDef`](../tf/train/ClusterDef)
+[`class ClusterDef`](../tf/train/ClusterDef): A ProtocolMessage
 
 [`class ClusterSpec`](../tf/train/ClusterSpec): Represents a cluster as a set of "tasks", organized into "jobs".
 
 [`class Coordinator`](../tf/train/Coordinator): A coordinator for threads.
 
-[`class Example`](../tf/train/Example)
+[`class Example`](../tf/train/Example): A ProtocolMessage
 
 [`class ExponentialMovingAverage`](../tf/train/ExponentialMovingAverage): Maintains moving averages of variables by employing an exponential decay.
 
-[`class Feature`](../tf/train/Feature)
+[`class Feature`](../tf/train/Feature): A ProtocolMessage
 
-[`class FeatureList`](../tf/train/FeatureList)
+[`class FeatureList`](../tf/train/FeatureList): A ProtocolMessage
 
-[`class FeatureLists`](../tf/train/FeatureLists)
+[`class FeatureLists`](../tf/train/FeatureLists): A ProtocolMessage
 
-[`class Features`](../tf/train/Features)
+[`class Features`](../tf/train/Features): A ProtocolMessage
 
 [`class FeedFnHook`](../tf/train/FeedFnHook): Runs `feed_fn` and sets the `feed_dict` accordingly.
 
 [`class FinalOpsHook`](../tf/train/FinalOpsHook): A hook which evaluates `Tensors` at the end of a session.
 
-[`class FloatList`](../tf/train/FloatList)
+[`class FloatList`](../tf/train/FloatList): A ProtocolMessage
 
 [`class FtrlOptimizer`](../tf/train/FtrlOptimizer): Optimizer that implements the FTRL algorithm.
 
@@ -68,9 +81,9 @@ page_type: reference
 
 [`class GradientDescentOptimizer`](../tf/train/GradientDescentOptimizer): Optimizer that implements the gradient descent algorithm.
 
-[`class Int64List`](../tf/train/Int64List)
+[`class Int64List`](../tf/train/Int64List): A ProtocolMessage
 
-[`class JobDef`](../tf/train/JobDef)
+[`class JobDef`](../tf/train/JobDef): A ProtocolMessage
 
 [`class LoggingTensorHook`](../tf/train/LoggingTensorHook): Prints the given tensors every N local steps, every N seconds, or at end.
 
@@ -80,7 +93,7 @@ page_type: reference
 
 [`class MonitoredSession`](../tf/train/MonitoredSession): Session-like object that handles initialization, recovery and hooks.
 
-[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError)
+[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError): Unspecified run-time error.
 
 [`class NanTensorHook`](../tf/train/NanTensorHook): Monitors the loss tensor and stops training if loss is NaN.
 
@@ -98,17 +111,17 @@ page_type: reference
 
 [`class Saver`](../tf/train/Saver): Saves and restores variables.
 
-[`class SaverDef`](../tf/train/SaverDef)
+[`class SaverDef`](../tf/train/SaverDef): A ProtocolMessage
 
 [`class Scaffold`](../tf/train/Scaffold): Structure to create or gather pieces commonly needed to train a model.
 
 [`class SecondOrStepTimer`](../tf/train/SecondOrStepTimer): Timer that triggers at most once every N seconds or once every N steps.
 
-[`class SequenceExample`](../tf/train/SequenceExample)
+[`class SequenceExample`](../tf/train/SequenceExample): A ProtocolMessage
 
 [`class Server`](../tf/distribute/Server): An in-process TensorFlow server, for use in distributed training.
 
-[`class ServerDef`](../tf/train/ServerDef)
+[`class ServerDef`](../tf/train/ServerDef): A ProtocolMessage
 
 [`class SessionCreator`](../tf/train/SessionCreator): A factory for tf.Session.
 
@@ -251,4 +264,3 @@ page_type: reference
 [`warm_start(...)`](../tf/train/warm_start): Warm-starts a model using the given settings.
 
 [`write_graph(...)`](../tf/io/write_graph): Writes a graph proto to a file.
-

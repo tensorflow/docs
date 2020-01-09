@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.applications
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/applications">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Keras Applications are canned architectures with pre-trained weights.
-
-
-
-Defined in [`python/keras/api/_v2/keras/applications/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/applications/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -17,6 +25,8 @@ Defined in [`python/keras/api/_v2/keras/applications/__init__.py`](https://githu
 ## Modules
 
 [`densenet`](../../../../tf/compat/v2/keras/applications/densenet) module: DenseNet models for Keras.
+
+[`imagenet_utils`](../../../../tf/compat/v2/keras/applications/imagenet_utils) module: Utilities for ImageNet data preprocessing & prediction decoding.
 
 [`inception_resnet_v2`](../../../../tf/compat/v2/keras/applications/inception_resnet_v2) module: Inception-ResNet V2 model for Keras.
 
@@ -28,7 +38,11 @@ Defined in [`python/keras/api/_v2/keras/applications/__init__.py`](https://githu
 
 [`nasnet`](../../../../tf/compat/v2/keras/applications/nasnet) module: NASNet-A models for Keras.
 
-[`resnet50`](../../../../tf/compat/v2/keras/applications/resnet50) module: ResNet50 model for Keras.
+[`resnet`](../../../../tf/compat/v2/keras/applications/resnet) module: ResNet models for Keras.
+
+[`resnet50`](../../../../tf/compat/v2/keras/applications/resnet50) module: Public API for tf.keras.applications.resnet50 namespace.
+
+[`resnet_v2`](../../../../tf/compat/v2/keras/applications/resnet_v2) module: ResNet v2 models for Keras.
 
 [`vgg16`](../../../../tf/compat/v2/keras/applications/vgg16) module: VGG16 model for Keras.
 
@@ -56,11 +70,20 @@ Defined in [`python/keras/api/_v2/keras/applications/__init__.py`](https://githu
 
 [`NASNetMobile(...)`](../../../../tf/keras/applications/NASNetMobile)
 
+[`ResNet101(...)`](../../../../tf/keras/applications/ResNet101)
+
+[`ResNet101V2(...)`](../../../../tf/keras/applications/ResNet101V2)
+
+[`ResNet152(...)`](../../../../tf/keras/applications/ResNet152)
+
+[`ResNet152V2(...)`](../../../../tf/keras/applications/ResNet152V2)
+
 [`ResNet50(...)`](../../../../tf/keras/applications/ResNet50)
+
+[`ResNet50V2(...)`](../../../../tf/keras/applications/ResNet50V2)
 
 [`VGG16(...)`](../../../../tf/keras/applications/VGG16)
 
 [`VGG19(...)`](../../../../tf/keras/applications/VGG19)
 
 [`Xception(...)`](../../../../tf/keras/applications/Xception)
-

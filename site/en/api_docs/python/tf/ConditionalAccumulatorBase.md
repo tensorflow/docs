@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.ConditionalAccumulatorBase
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1163-L1249">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ConditionalAccumulatorBase`
 
 A conditional accumulator for aggregating gradients.
@@ -13,12 +25,8 @@ A conditional accumulator for aggregating gradients.
 
 ### Aliases:
 
-* Class `tf.ConditionalAccumulatorBase`
-* Class `tf.compat.v1.ConditionalAccumulatorBase`
+* Class <a href="/api_docs/python/tf/ConditionalAccumulatorBase"><code>tf.compat.v1.ConditionalAccumulatorBase</code></a>
 
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ Extraction of the average gradient is blocked until the required number of
 gradients has been accumulated.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1173-L1191">View source</a>
 
 ``` python
 __init__(
@@ -74,6 +84,8 @@ The name of the underlying accumulator.
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1208-L1225">View source</a>
+
 ``` python
 num_accumulated(name=None)
 ```
@@ -93,6 +105,8 @@ Number of accumulated gradients currently in accumulator.
 
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1227-L1249">View source</a>
 
 ``` python
 set_global_step(
@@ -116,7 +130,3 @@ lower than the accumulator's own time step.
 #### Returns:
 
 Operation that sets the accumulator's time step.
-
-
-
-

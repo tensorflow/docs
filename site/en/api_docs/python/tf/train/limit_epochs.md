@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.limit_epochs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/input.py#L81-L114">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns tensor `num_epochs` times and then raises an `OutOfRange` error. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.limit_epochs`
-* `tf.train.limit_epochs`
+* <a href="/api_docs/python/tf/train/limit_epochs"><code>tf.compat.v1.train.limit_epochs</code></a>
+
 
 ``` python
 tf.train.limit_epochs(
@@ -21,8 +33,6 @@ tf.train.limit_epochs(
 ```
 
 
-
-Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
 <!-- Placeholder for "Used in" -->
 

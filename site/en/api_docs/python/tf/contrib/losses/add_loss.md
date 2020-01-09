@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.losses.add_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/losses/python/losses/loss_ops.py#L176-L186">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a externally defined loss to the collection of losses. (deprecated)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.losses.add_loss(
 ```
 
 
-
-Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.random.experimental
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.random.experimental namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,4 +33,3 @@ page_type: reference
 [`get_global_generator(...)`](../../tf/random/experimental/get_global_generator)
 
 [`set_global_generator(...)`](../../tf/random/experimental/set_global_generator): Replaces the global generator with another `Generator` object.
-

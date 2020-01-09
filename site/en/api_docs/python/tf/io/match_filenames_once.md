@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.io.match_filenames_once
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/match_filenames_once">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/input.py#L58-L78">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Save the list of files matching pattern, so it is only computed once.
 
 ### Aliases:
 
-* `tf.compat.v1.io.match_filenames_once`
-* `tf.compat.v1.train.match_filenames_once`
-* `tf.compat.v2.io.match_filenames_once`
-* `tf.io.match_filenames_once`
-* `tf.train.match_filenames_once`
+* <a href="/api_docs/python/tf/io/match_filenames_once"><code>tf.compat.v1.io.match_filenames_once</code></a>
+* <a href="/api_docs/python/tf/io/match_filenames_once"><code>tf.compat.v1.train.match_filenames_once</code></a>
+* <a href="/api_docs/python/tf/io/match_filenames_once"><code>tf.compat.v2.io.match_filenames_once</code></a>
+* <a href="/api_docs/python/tf/io/match_filenames_once"><code>tf.train.match_filenames_once</code></a>
+
 
 ``` python
 tf.io.match_filenames_once(
@@ -24,11 +42,9 @@ tf.io.match_filenames_once(
 
 
 
-Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
-
 <!-- Placeholder for "Used in" -->
 
-NOTE: The order of the files returned can be non-deterministic.
+NOTE: The order of the files returned is deterministic.
 
 #### Args:
 

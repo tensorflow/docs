@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.distribute.HierarchicalCopyAllReduce
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/HierarchicalCopyAllReduce">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L821-L849">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HierarchicalCopyAllReduce`
 
 Reduction using hierarchical copy all-reduce.
@@ -13,40 +31,50 @@ Inherits From: [`AllReduceCrossDeviceOps`](../../tf/contrib/distribute/AllReduce
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.HierarchicalCopyAllReduce`
-* Class `tf.compat.v2.distribute.HierarchicalCopyAllReduce`
-* Class `tf.distribute.HierarchicalCopyAllReduce`
+* Class <a href="/api_docs/python/tf/distribute/HierarchicalCopyAllReduce"><code>tf.compat.v1.distribute.HierarchicalCopyAllReduce</code></a>
+* Class <a href="/api_docs/python/tf/distribute/HierarchicalCopyAllReduce"><code>tf.compat.v2.distribute.HierarchicalCopyAllReduce</code></a>
 
-
-
-Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cross_device_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
-This is a good reduction for configurations like Nvidia DGX-1.
+It reduces to one GPU along edges in some hierarchy and broadcasts back to
+each GPU along the same path. Before performing all-reduce, tensors will be
+repacked or aggregated for more efficient cross-device transportation.
+
+This is a reduction created for Nvidia DGX-1 which assumes GPUs connects like
+that on DGX-1 machine. If you have different GPU inter-connections, it is
+likely that it would be slower than <a href="../../tf/distribute/ReductionToOneDevice"><code>tf.distribute.ReductionToOneDevice</code></a>.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L833-L849">View source</a>
 
 ``` python
 __init__(num_packs=1)
 ```
 
-Hierarchical copy all-reduce implementation of CrossDeviceOps.
+Initializes the object.
 
-Before performing all-reduce, tensors will be repacked or aggregated for
-more efficient cross-device transportation.
 
 #### Args:
 
 
 * <b>`num_packs`</b>: values will be packed in this many splits.  `num_packs` should
-  be greater than 0.
+  be greater than or equals 0. When it is zero, no packing will be done.
+
+
+#### Raises:
+
+ValueError if `num_packs` is negative.
+
 
 
 
 ## Methods
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
 
 ``` python
 batch_reduce(
@@ -83,6 +111,8 @@ a list of Mirrored objects.
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
+
 ``` python
 broadcast(
     tensor,
@@ -106,6 +136,8 @@ a Mirrored object.
 
 
 <h3 id="reduce"><code>reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
 
 ``` python
 reduce(
@@ -140,6 +172,3 @@ a Mirrored object.
 
 * <b>`ValueError`</b>: if per_replica_value can't be converted to a PerReplica
   object.
-
-
-

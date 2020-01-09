@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.config.experimental_run_functions_eagerly
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/experimental_run_functions_eagerly">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/def_function.py#L218-L235">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Enables / disables eager execution of <a href="../../tf/function"><code>tf.function</code></a>s.
 
 ### Aliases:
 
-* `tf.compat.v1.config.experimental_run_functions_eagerly`
-* `tf.compat.v2.config.experimental_run_functions_eagerly`
-* `tf.config.experimental_run_functions_eagerly`
+* <a href="/api_docs/python/tf/config/experimental_run_functions_eagerly"><code>tf.compat.v1.config.experimental_run_functions_eagerly</code></a>
+* <a href="/api_docs/python/tf/config/experimental_run_functions_eagerly"><code>tf.compat.v2.config.experimental_run_functions_eagerly</code></a>
+
 
 ``` python
 tf.config.experimental_run_functions_eagerly(run_eagerly)
 ```
 
 
-
-Defined in [`python/eager/def_function.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/def_function.py).
 
 <!-- Placeholder for "Used in" -->
 

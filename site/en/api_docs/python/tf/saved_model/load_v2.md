@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.saved_model.load_v2
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/load.py#L441-L519">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Load a SavedModel from `export_dir`.
 
 ### Aliases:
 
-* `tf.compat.v1.saved_model.load_v2`
-* `tf.compat.v2.saved_model.load`
-* `tf.saved_model.load_v2`
+* <a href="/api_docs/python/tf/saved_model/load_v2"><code>tf.compat.v1.saved_model.load_v2</code></a>
+* <a href="/api_docs/python/tf/saved_model/load_v2"><code>tf.compat.v2.saved_model.load</code></a>
+
 
 ``` python
 tf.saved_model.load_v2(
@@ -21,8 +33,6 @@ tf.saved_model.load_v2(
 ```
 
 
-
-Defined in [`python/saved_model/load.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/load.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,6 +57,22 @@ imported = tf.saved_model.load(path)
 assert 3. == imported.v.numpy()
 assert 6. == imported.f(x=tf.constant(2.)).numpy()
 ```
+
+_Loading Keras models_
+
+Keras models are trackable, so they can be saved to SavedModel. The object
+returned by <a href="../../tf/saved_model/load"><code>tf.saved_model.load</code></a> is not a Keras object (i.e. doesn't have
+`.fit`, `.predict`, etc. methods). A few attributes and functions are still
+available: `.variables`, `.trainable_variables` and `.__call__`.
+
+```python
+model = tf.keras.Model(...)
+tf.saved_model.save(model, path)
+imported = tf.saved_model.load(path)
+outputs = imported(inputs)
+```
+
+Use <a href="../../tf/keras/models/load_model"><code>tf.keras.models.load_model</code></a> to restore the Keras model.
 
 _Importing SavedModels from TensorFlow 1.x_
 

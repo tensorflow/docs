@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.mean_squared_error
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L596-L646">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a Sum-of-Squares loss to the training procedure.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.mean_squared_error`
-* `tf.losses.mean_squared_error`
+* <a href="/api_docs/python/tf/losses/mean_squared_error"><code>tf.compat.v1.losses.mean_squared_error</code></a>
+
 
 ``` python
 tf.losses.mean_squared_error(
@@ -24,8 +36,6 @@ tf.losses.mean_squared_error(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,4 +79,3 @@ shape as `labels`; otherwise, it is scalar.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

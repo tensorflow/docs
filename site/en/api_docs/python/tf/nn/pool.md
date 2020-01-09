@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.pool
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/pool">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L1139-L1310">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Performs an N-D pooling operation.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.pool`
-* `tf.nn.pool`
+* <a href="/api_docs/python/tf/nn/pool"><code>tf.compat.v1.nn.pool</code></a>
+
 
 ``` python
 tf.nn.pool(
@@ -27,8 +45,6 @@ tf.nn.pool(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

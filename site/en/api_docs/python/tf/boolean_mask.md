@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.boolean_mask
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/boolean_mask">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1423-L1507">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Apply boolean mask to tensor.
 
 ### Aliases:
 
-* `tf.boolean_mask`
-* `tf.compat.v1.boolean_mask`
+* <a href="/api_docs/python/tf/boolean_mask"><code>tf.compat.v1.boolean_mask</code></a>
+
 
 ``` python
 tf.boolean_mask(
@@ -22,8 +40,6 @@ tf.boolean_mask(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

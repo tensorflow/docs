@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.math.round
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/round">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L618-L643">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rounds the values of a tensor to the nearest integer, element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.round`
-* `tf.compat.v1.round`
-* `tf.compat.v2.math.round`
-* `tf.compat.v2.round`
-* `tf.math.round`
-* `tf.round`
+* <a href="/api_docs/python/tf/math/round"><code>tf.compat.v1.math.round</code></a>
+* <a href="/api_docs/python/tf/math/round"><code>tf.compat.v1.round</code></a>
+* <a href="/api_docs/python/tf/math/round"><code>tf.compat.v2.math.round</code></a>
+* <a href="/api_docs/python/tf/math/round"><code>tf.compat.v2.round</code></a>
+* <a href="/api_docs/python/tf/math/round"><code>tf.round</code></a>
+
 
 ``` python
 tf.math.round(
@@ -24,8 +42,6 @@ tf.math.round(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

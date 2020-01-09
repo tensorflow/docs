@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.nn.elu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/elu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes exponential linear: `exp(features) - 1` if < 0, `features` otherwise.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.elu`
-* `tf.compat.v2.nn.elu`
-* `tf.nn.elu`
+* <a href="/api_docs/python/tf/nn/elu"><code>tf.compat.v1.nn.elu</code></a>
+* <a href="/api_docs/python/tf/nn/elu"><code>tf.compat.v2.nn.elu</code></a>
+
 
 ``` python
 tf.nn.elu(
@@ -21,8 +35,6 @@ tf.nn.elu(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

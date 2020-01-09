@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.nest.is_sequence
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/pywrap_tensorflow_internal.py#L2502-L2514">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns true if its input is a collections.Sequence (except strings).
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.nest.is_sequence(o)
 ```
 
 
-
-Defined in [`python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/pywrap_tensorflow_internal.py).
 
 <!-- Placeholder for "Used in" -->
 

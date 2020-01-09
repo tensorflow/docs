@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.strings.unicode_split_with_offsets
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/unicode_split_with_offsets">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L334-L396">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Splits each string into a sequence of code points with start offsets.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.unicode_split_with_offsets`
-* `tf.compat.v2.strings.unicode_split_with_offsets`
-* `tf.strings.unicode_split_with_offsets`
+* <a href="/api_docs/python/tf/strings/unicode_split_with_offsets"><code>tf.compat.v1.strings.unicode_split_with_offsets</code></a>
+* <a href="/api_docs/python/tf/strings/unicode_split_with_offsets"><code>tf.compat.v2.strings.unicode_split_with_offsets</code></a>
+
 
 ``` python
 tf.strings.unicode_split_with_offsets(
@@ -24,8 +42,6 @@ tf.strings.unicode_split_with_offsets(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,10 +85,11 @@ The returned tensors are <a href="../../tf/Tensor"><code>tf.Tensor</code></a>s i
 
 
 #### Example:
->     >>> input = [s.encode('utf8') for s in (u'G\xf6\xf6dnight', u'\U0001f60a')]
->     >>> result = tf.strings.unicode_split_with_offsets(input, 'UTF-8')
->     >>> result[0].tolist()  # character substrings
->     [['G', '\xc3\xb6', '\xc3\xb6', 'd', 'n', 'i', 'g', 'h', 't'],
->      ['\xf0\x9f\x98\x8a']]
->     >>> result[1].tolist()  # offsets
->     [0, 1, 3, 5, 6, 7, 8, 9, 10], [0]]
+
+>      >>> input = [s.encode('utf8') for s in (u'G\xf6\xf6dnight', u'\U0001f60a')]
+>      >>> result = tf.strings.unicode_split_with_offsets(input, 'UTF-8')
+>      >>> result[0].tolist()  # character substrings
+>      [['G', '\xc3\xb6', '\xc3\xb6', 'd', 'n', 'i', 'g', 'h', 't'],
+>       ['\xf0\x9f\x98\x8a']]
+>      >>> result[1].tolist()  # offsets
+>     [[0, 1, 3, 5, 6, 7, 8, 9, 10], [0]]

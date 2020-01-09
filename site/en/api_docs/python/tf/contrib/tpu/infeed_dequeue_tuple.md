@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.tpu.infeed_dequeue_tuple
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/ops/tpu_ops.py#L220-L242">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A placeholder op for values fed into the TPU simultaneously as a tuple.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.tpu.infeed_dequeue_tuple(
 ```
 
 
-
-Defined in [`python/tpu/ops/tpu_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/ops/tpu_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

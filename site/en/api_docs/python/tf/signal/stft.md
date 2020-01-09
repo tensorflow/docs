@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.signal.stft
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/stft">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/spectral_ops.py#L36-L92">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the [Short-time Fourier Transform][stft] of `signals`.
 
 ### Aliases:
 
-* `tf.compat.v1.signal.stft`
-* `tf.compat.v2.signal.stft`
-* `tf.contrib.signal.stft`
-* `tf.signal.stft`
+* <a href="/api_docs/python/tf/signal/stft"><code>tf.compat.v1.signal.stft</code></a>
+* <a href="/api_docs/python/tf/signal/stft"><code>tf.compat.v2.signal.stft</code></a>
+* <a href="/api_docs/python/tf/signal/stft"><code>tf.contrib.signal.stft</code></a>
+
 
 ``` python
 tf.signal.stft(
@@ -27,8 +45,6 @@ tf.signal.stft(
 ```
 
 
-
-Defined in [`python/ops/signal/spectral_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/spectral_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

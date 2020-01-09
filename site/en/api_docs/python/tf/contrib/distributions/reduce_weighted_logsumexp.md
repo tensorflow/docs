@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.reduce_weighted_logsumexp
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L1049-L1141">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes `log(abs(sum(weight * exp(elements across tensor dimensions))))`.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.distributions.reduce_weighted_logsumexp(
 ```
 
 
-
-Defined in [`python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/util.py).
 
 <!-- Placeholder for "Used in" -->
 

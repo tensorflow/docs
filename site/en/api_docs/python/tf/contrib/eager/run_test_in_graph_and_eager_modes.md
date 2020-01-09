@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.run_test_in_graph_and_eager_modes
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1006-L1115">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Execute the decorated test with and without enabling eager execution.
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.eager.run_test_in_graph_and_eager_modes(
 ```
 
 
-
-Defined in [`python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/test_util.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.lite.TFLiteConverter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lite/TFLiteConverter">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L456-L1034">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TFLiteConverter`
 
 Convert a TensorFlow model into `output_format`.
@@ -13,17 +31,13 @@ Convert a TensorFlow model into `output_format`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.lite.TFLiteConverter`
-* Class `tf.lite.TFLiteConverter`
+* Class <a href="/api_docs/python/tf/lite/TFLiteConverter"><code>tf.compat.v1.lite.TFLiteConverter</code></a>
 
-
-
-Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/lite.py).
 
 <!-- Placeholder for "Used in" -->
 
-This is used to convert from a TensorFlow GraphDef or SavedModel into either a
-TFLite FlatBuffer or graph visualization.
+This is used to convert from a TensorFlow GraphDef, SavedModel or tf.keras
+model into either a TFLite FlatBuffer or graph visualization.
 
 #### Attributes:
 
@@ -75,25 +89,29 @@ TFLite FlatBuffer or graph visualization.
   created for any op that is unknown. The developer will need to provide
   these to the TensorFlow Lite runtime with a custom resolver.
   (default False)
-* <b>`post_training_quantize`</b>: deprecated, please specify
- `[Optimize.DEFAULT]` for `optimizations` instead. Boolean
- indicating whether to quantize the weights of the converted float model.
- Model size will be reduced and there will be latency improvements
- (at the cost of accuracy). (default False)
+* <b>`post_training_quantize`</b>: Deprecated. Please specify `[Optimize.DEFAULT]` for
+  `optimizations` instead. Boolean indicating whether to quantize the
+  weights of the converted float model.  Model size will be reduced and
+  there will be latency improvements (at the cost of accuracy).
+  (default False)
 * <b>`dump_graphviz_dir`</b>: Full filepath of folder to dump the graphs at various
   stages of processing GraphViz .dot files. Preferred over
   --output_format=GRAPHVIZ_DOT in order to keep the requirements of the
   output file. (default None)
 * <b>`dump_graphviz_video`</b>: Boolean indicating whether to dump the graph after
   every graph transformation. (default False)
-* <b>`target_ops`</b>: Experimental flag, subject to change. Set of OpsSet
-  options indicating which converter to use.
+* <b>`target_ops`</b>: Deprecated. Please specify `target_spec.supported_ops` instead.
+  Set of OpsSet options indicating which converter to use.
   (default set([OpsSet.TFLITE_BUILTINS]))
+* <b>`target_spec`</b>: Experimental flag, subject to change. Specification of target
+  device.
 * <b>`optimizations`</b>: Experimental flag, subject to change. A list of optimizations
   to apply when converting the model. E.g. `[Optimize.DEFAULT]`
 * <b>`representative_dataset`</b>: A representative dataset that can be used to
   generate input and output samples for the model. The converter can use
   the dataset to evaluate different optimizations.
+* <b>`experimental_enable_mlir_converter`</b>: Experimental flag, subject to change.
+  Enables the MLIR converter instead of the TOCO converter.
 
 
 #### Example usage:
@@ -114,14 +132,18 @@ open("converted_model.tflite", "wb").write(tflite_model)
 # Converting a SavedModel.
 converter = lite.TFLiteConverter.from_saved_model(saved_model_dir)
 tflite_model = converter.convert()
+open("converted_model.tflite", "wb").write(tflite_model)
 
 # Converting a tf.keras model.
 converter = lite.TFLiteConverter.from_keras_model_file(keras_model)
 tflite_model = converter.convert()
+open("converted_model.tflite", "wb").write(tflite_model)
 ```
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L560-L613">View source</a>
 
 ``` python
 __init__(
@@ -129,7 +151,8 @@ __init__(
     input_tensors,
     output_tensors,
     input_arrays_with_shape=None,
-    output_arrays=None
+    output_arrays=None,
+    experimental_debug_info_func=None
 )
 ```
 
@@ -151,6 +174,8 @@ Constructor for TFLiteConverter.
 * <b>`output_arrays`</b>: List of output tensors to freeze graph with. Use only when
   graph cannot be loaded into TensorFlow and when `input_tensors` and
   `output_tensors` are None. (default None)
+* <b>`experimental_debug_info_func`</b>: An experimental function to retrieve the
+  graph debug info for a set of nodes from the `graph_def`.
 
 
 #### Raises:
@@ -163,6 +188,8 @@ Constructor for TFLiteConverter.
 ## Methods
 
 <h3 id="convert"><code>convert</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L871-L995">View source</a>
 
 ``` python
 convert()
@@ -185,6 +212,8 @@ Graphviz graph depending on value in `output_format`.
   None value for dimension in input_tensor.
 
 <h3 id="from_frozen_graph"><code>from_frozen_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L635-L726">View source</a>
 
 ``` python
 @classmethod
@@ -229,6 +258,8 @@ TFLiteConverter class.
 
 <h3 id="from_keras_model_file"><code>from_keras_model_file</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L769-L840">View source</a>
+
 ``` python
 @classmethod
 from_keras_model_file(
@@ -266,6 +297,8 @@ TFLiteConverter class.
 
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L728-L767">View source</a>
 
 ``` python
 @classmethod
@@ -308,6 +341,8 @@ TFLiteConverter class.
 
 <h3 id="from_session"><code>from_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L615-L633">View source</a>
+
 ``` python
 @classmethod
 from_session(
@@ -337,6 +372,8 @@ TFLiteConverter class.
 
 <h3 id="get_input_arrays"><code>get_input_arrays</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L997-L1006">View source</a>
+
 ``` python
 get_input_arrays()
 ```
@@ -347,7 +384,3 @@ Returns a list of the names of the input tensors.
 #### Returns:
 
 List of strings.
-
-
-
-

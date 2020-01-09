@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.opt.extend_with_decoupled_weight_decay
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L229-L289">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Factory function returning an optimizer class with decoupled weight decay.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.opt.extend_with_decoupled_weight_decay(base_optimizer)
 ```
 
 
-
-Defined in [`contrib/opt/python/training/weight_decay_optimizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py).
 
 <!-- Placeholder for "Used in" -->
 

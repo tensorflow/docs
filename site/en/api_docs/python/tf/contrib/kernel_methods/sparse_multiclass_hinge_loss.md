@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.contrib.kernel_methods.sparse_multiclass_hinge_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/kernel_methods/python/losses.py#L30-L135">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds Ops for computing the multiclass hinge loss.
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.kernel_methods.sparse_multiclass_hinge_loss(
 
 
 
-Defined in [`contrib/kernel_methods/python/losses.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/kernel_methods/python/losses.py).
-
 <!-- Placeholder for "Used in" -->
 
 The implementation is based on the following paper:
@@ -32,9 +42,9 @@ link: http://jmlr.csail.mit.edu/papers/volume2/crammer01a/crammer01a.pdf
 
 This is a generalization of standard (binary) hinge loss. For a given instance
 with correct label c*, the loss is given by:
-<div>   $$loss = max_{c != c*} logits_c - logits_{c*} + 1.$$ </div>
+  <div> $$loss = max_{c != c*} logits_c - logits_{c*} + 1.$$ </div>
 or equivalently
-<div>   $$loss = max_c { logits_c - logits_{c*} + I_{c != c*} }$$ </div>
+  <div> $$loss = max_c { logits_c - logits_{c*} + I_{c != c*} }$$ </div>
 where \\(I_{c != c*} = 1\ \text{if}\ c != c*\\) and 0 otherwise.
 
 #### Args:

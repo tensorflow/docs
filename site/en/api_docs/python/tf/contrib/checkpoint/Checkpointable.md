@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.checkpoint.Checkpointable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/tracking.py#L48-L112">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Checkpointable`
 
 Manages dependencies on other objects.
@@ -13,12 +25,8 @@ Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/Checkpointa
 
 ### Aliases:
 
-* Class `tf.contrib.checkpoint.Checkpointable`
-* Class `tf.contrib.eager.Checkpointable`
+* Class <a href="/api_docs/python/tf/contrib/checkpoint/Checkpointable"><code>tf.contrib.eager.Checkpointable</code></a>
 
-
-
-Defined in [`python/training/tracking/tracking.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/tracking.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,4 +53,3 @@ variable.
 directly (e.g. a `Variable` indicating how to save itself) rather than through
 dependencies on other objects. See
 `Trackable._gather_saveables_for_checkpoint` for details.
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.variable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/variables.py#L209-L281">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Gets an existing variable with these parameters or creates a new one.
 
 ``` python
@@ -28,8 +40,6 @@ tf.contrib.framework.variable(
 
 
 
-Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -44,7 +54,7 @@ Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tens
   it on a newly created variable will be added to the collection
   GraphKeys.REGULARIZATION_LOSSES and can be used for regularization.
 * <b>`trainable`</b>: If `True` also add the variable to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`collections`</b>: A list of collection names to which the Variable will be added.
   If None it would default to <a href="../../../tf/GraphKeys#GLOBAL_VARIABLES"><code>tf.GraphKeys.GLOBAL_VARIABLES</code></a>.
 * <b>`caching_device`</b>: Optional device string or function describing where the
@@ -61,8 +71,6 @@ Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tens
   Accepted values are constants defined in the class
   <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
   `AUTO` and the current `DistributionStrategy` chooses when to synchronize.
-  If `synchronization` is set to `ON_READ`, `trainable` must not be set to
-  `True`.
 * <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
   Accepted values are constants defined in the class
   <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.

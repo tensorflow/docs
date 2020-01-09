@@ -5,23 +5,36 @@ page_type: reference
 
 # tf.distribute.cluster_resolver.KubernetesClusterResolver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/KubernetesClusterResolver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L35-L158">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `KubernetesClusterResolver`
 
-Cluster Resolver for Kubernetes.
+ClusterResolver for Kubernetes.
 
 Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/ClusterResolver)
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.cluster_resolver.KubernetesClusterResolver`
-* Class `tf.compat.v2.distribute.cluster_resolver.KubernetesClusterResolver`
-* Class `tf.contrib.cluster_resolver.KubernetesClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.KubernetesClusterResolver`
-* Class `tf.distribute.cluster_resolver.KubernetesClusterResolver`
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/KubernetesClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.KubernetesClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/KubernetesClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.KubernetesClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/KubernetesClusterResolver"><code>tf.contrib.cluster_resolver.KubernetesClusterResolver</code></a>
 
-
-
-Defined in [`python/distribute/cluster_resolver/kubernetes_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +44,8 @@ pod IP addresses of all running pods matching the selector, and return a
 ClusterSpec based on that information.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L44-L94">View source</a>
 
 ``` python
 __init__(
@@ -43,7 +58,7 @@ __init__(
 
 Initializes a new KubernetesClusterResolver.
 
-This initializes a new Kubernetes Cluster Resolver. The Cluster Resolver
+This initializes a new Kubernetes ClusterResolver. The ClusterResolver
 will attempt to talk to the Kubernetes master to retrieve all the instances
 of pods matching a label selector.
 
@@ -98,6 +113,8 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L122-L158">View source</a>
+
 ``` python
 cluster_spec()
 ```
@@ -120,6 +137,8 @@ A ClusterSpec containing host information returned from Kubernetes.
   `Running` phase.
 
 <h3 id="master"><code>master</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L96-L120">View source</a>
 
 ``` python
 master(
@@ -150,6 +169,8 @@ The name or URL of the session master.
 
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
 
 ``` python
 num_accelerators(
@@ -183,7 +204,3 @@ where the number of accelerators cores per host is different.
 #### Returns:
 
 A map of accelerator types to number of cores.
-
-
-
-

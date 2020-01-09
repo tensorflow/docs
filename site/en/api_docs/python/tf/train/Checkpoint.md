@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.train.Checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/Checkpoint">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1317-L1675">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Checkpoint`
 
 Groups trackable objects, saving and restoring them.
@@ -13,13 +31,9 @@ Inherits From: [`Checkpointable`](../../tf/contrib/checkpoint/Checkpointable)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.Checkpoint`
-* Class `tf.contrib.eager.Checkpoint`
-* Class `tf.train.Checkpoint`
+* Class <a href="/api_docs/python/tf/train/Checkpoint"><code>tf.compat.v1.train.Checkpoint</code></a>
+* Class <a href="/api_docs/python/tf/train/Checkpoint"><code>tf.contrib.eager.Checkpoint</code></a>
 
-
-
-Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -130,6 +144,8 @@ training checkpoints.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1424-L1446">View source</a>
+
 ``` python
 __init__(**kwargs)
 ```
@@ -169,6 +185,8 @@ The save counter variable.
 ## Methods
 
 <h3 id="restore"><code>restore</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1568-L1675">View source</a>
 
 ``` python
 restore(save_path)
@@ -282,6 +300,8 @@ The returned status object has the following methods:
 
 <h3 id="save"><code>save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1508-L1566">View source</a>
+
 ``` python
 save(
     file_prefix,
@@ -320,6 +340,8 @@ The full path to the checkpoint.
 
 <h3 id="write"><code>write</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1463-L1494">View source</a>
+
 ``` python
 write(
     file_prefix,
@@ -351,7 +373,3 @@ basic implementation of these features.
 #### Returns:
 
 The full path to the checkpoint (i.e. `file_prefix`).
-
-
-
-

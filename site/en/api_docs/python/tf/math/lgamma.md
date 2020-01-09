@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.math.lgamma
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/lgamma">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the log of the absolute value of `Gamma(x)` element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.lgamma`
-* `tf.compat.v1.math.lgamma`
-* `tf.compat.v2.math.lgamma`
-* `tf.lgamma`
-* `tf.math.lgamma`
+* <a href="/api_docs/python/tf/math/lgamma"><code>tf.compat.v1.lgamma</code></a>
+* <a href="/api_docs/python/tf/math/lgamma"><code>tf.compat.v1.math.lgamma</code></a>
+* <a href="/api_docs/python/tf/math/lgamma"><code>tf.compat.v2.math.lgamma</code></a>
+* <a href="/api_docs/python/tf/math/lgamma"><code>tf.lgamma</code></a>
+
 
 ``` python
 tf.math.lgamma(
@@ -23,8 +37,6 @@ tf.math.lgamma(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.one_hot_encoding
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L2540-L2566">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Transform numeric labels into onehot_labels using <a href="../../../tf/one_hot"><code>tf.one_hot</code></a>.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.layers.one_hot_encoding(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 

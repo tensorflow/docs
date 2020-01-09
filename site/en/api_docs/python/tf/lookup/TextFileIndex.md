@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.lookup.TextFileIndex
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lookup/TextFileIndex">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L477-L493">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TextFileIndex`
 
 The key and value content to get from each line.
@@ -13,14 +31,10 @@ The key and value content to get from each line.
 
 ### Aliases:
 
-* Class `tf.compat.v1.lookup.TextFileIndex`
-* Class `tf.compat.v2.lookup.TextFileIndex`
-* Class `tf.contrib.lookup.TextFileIndex`
-* Class `tf.lookup.TextFileIndex`
+* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.compat.v1.lookup.TextFileIndex</code></a>
+* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.compat.v2.lookup.TextFileIndex</code></a>
+* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.contrib.lookup.TextFileIndex</code></a>
 
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

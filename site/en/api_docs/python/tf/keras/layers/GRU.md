@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.GRU
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/GRU">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1766-L2039">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GRU`
 
 Gated Recurrent Unit - Cho et al. 2014.
@@ -13,12 +31,8 @@ Inherits From: [`RNN`](../../../tf/keras/layers/RNN)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.GRU`
-* Class `tf.keras.layers.GRU`
+* Class <a href="/api_docs/python/tf/keras/layers/GRU"><code>tf.compat.v1.keras.layers.GRU</code></a>
 
-
-
-Defined in [`python/keras/layers/recurrent.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/recurrent.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -117,6 +131,8 @@ inference on CPU. Thus it has separate biases for `kernel` and
   call of the cell.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1859-L1916">View source</a>
 
 ``` python
 __init__(
@@ -250,6 +266,8 @@ __init__(
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L593-L614">View source</a>
+
 ``` python
 get_initial_state(inputs)
 ```
@@ -259,12 +277,8 @@ get_initial_state(inputs)
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L806-L858">View source</a>
+
 ``` python
 reset_states(states=None)
 ```
-
-
-
-
-
-

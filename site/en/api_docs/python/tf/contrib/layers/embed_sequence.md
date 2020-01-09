@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.embed_sequence
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/encoders.py#L90-L141">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Maps a sequence of symbols to a sequence of embeddings.
 
 ``` python
@@ -23,8 +35,6 @@ tf.contrib.layers.embed_sequence(
 
 
 
-Defined in [`contrib/layers/python/layers/encoders.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/encoders.py).
-
 <!-- Placeholder for "Used in" -->
 
 Typical use case would be reusing embeddings between an encoder and decoder.
@@ -42,7 +52,7 @@ Typical use case would be reusing embeddings between an encoder and decoder.
     current scope is used.
 * <b>`regularizer`</b>: Optional regularizer for the embeddings.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`scope`</b>: Optional string specifying the variable scope for the op, required
     if `reuse=True`.
 * <b>`reuse`</b>: If `True`, variables inside the op will be reused.

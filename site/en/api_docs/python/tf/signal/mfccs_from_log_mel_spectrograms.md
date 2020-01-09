@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.signal.mfccs_from_log_mel_spectrograms
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/mfccs_from_log_mel_spectrograms">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/mfcc_ops.py#L29-L111">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes [MFCCs][mfcc] of `log_mel_spectrograms`.
 
 ### Aliases:
 
-* `tf.compat.v1.signal.mfccs_from_log_mel_spectrograms`
-* `tf.compat.v2.signal.mfccs_from_log_mel_spectrograms`
-* `tf.contrib.signal.mfccs_from_log_mel_spectrograms`
-* `tf.signal.mfccs_from_log_mel_spectrograms`
+* <a href="/api_docs/python/tf/signal/mfccs_from_log_mel_spectrograms"><code>tf.compat.v1.signal.mfccs_from_log_mel_spectrograms</code></a>
+* <a href="/api_docs/python/tf/signal/mfccs_from_log_mel_spectrograms"><code>tf.compat.v2.signal.mfccs_from_log_mel_spectrograms</code></a>
+* <a href="/api_docs/python/tf/signal/mfccs_from_log_mel_spectrograms"><code>tf.contrib.signal.mfccs_from_log_mel_spectrograms</code></a>
+
 
 ``` python
 tf.signal.mfccs_from_log_mel_spectrograms(
@@ -22,8 +40,6 @@ tf.signal.mfccs_from_log_mel_spectrograms(
 ```
 
 
-
-Defined in [`python/ops/signal/mfcc_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/mfcc_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

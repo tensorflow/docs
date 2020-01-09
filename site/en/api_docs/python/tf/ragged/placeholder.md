@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.ragged.placeholder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_factory_ops.py#L316-L349">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a placeholder for a <a href="../../tf/RaggedTensor"><code>tf.RaggedTensor</code></a> that will always be fed.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.placeholder`
-* `tf.ragged.placeholder`
+* <a href="/api_docs/python/tf/ragged/placeholder"><code>tf.compat.v1.ragged.placeholder</code></a>
+
 
 ``` python
 tf.ragged.placeholder(
@@ -22,8 +34,6 @@ tf.ragged.placeholder(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_factory_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_factory_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

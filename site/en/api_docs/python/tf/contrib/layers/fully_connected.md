@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.fully_connected
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L1779-L1882">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a fully connected layer.
 
 ``` python
@@ -27,8 +39,6 @@ tf.contrib.layers.fully_connected(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -66,7 +76,7 @@ prior to the initial matrix multiply by `weights`.
   a dictionary containing a different list of collections per variable.
 * <b>`outputs_collections`</b>: Collection to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 

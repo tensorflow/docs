@@ -5,18 +5,36 @@ page_type: reference
 
 # tf.math.floordiv
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/floordiv">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1152-L1180">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Divides `x / y` elementwise, rounding toward the most negative integer.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__floordiv__`
-* `tf.compat.v1.RaggedTensor.__floordiv__`
-* `tf.compat.v1.floordiv`
-* `tf.compat.v1.math.floordiv`
-* `tf.compat.v2.RaggedTensor.__floordiv__`
-* `tf.compat.v2.math.floordiv`
-* `tf.floordiv`
-* `tf.math.floordiv`
+* <a href="/api_docs/python/tf/RaggedTensor#__floordiv__"><code>tf.RaggedTensor.__floordiv__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__floordiv__"><code>tf.compat.v1.RaggedTensor.__floordiv__</code></a>
+* <a href="/api_docs/python/tf/math/floordiv"><code>tf.compat.v1.floordiv</code></a>
+* <a href="/api_docs/python/tf/math/floordiv"><code>tf.compat.v1.math.floordiv</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__floordiv__"><code>tf.compat.v2.RaggedTensor.__floordiv__</code></a>
+* <a href="/api_docs/python/tf/math/floordiv"><code>tf.compat.v2.math.floordiv</code></a>
+* <a href="/api_docs/python/tf/math/floordiv"><code>tf.floordiv</code></a>
+
 
 ``` python
 tf.math.floordiv(
@@ -27,8 +45,6 @@ tf.math.floordiv(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

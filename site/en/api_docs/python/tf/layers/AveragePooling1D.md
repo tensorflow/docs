@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.AveragePooling1D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L29-L58">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AveragePooling1D`
 
 Average Pooling layer for 1D inputs.
@@ -13,12 +25,8 @@ Inherits From: [`AveragePooling1D`](../../tf/keras/layers/AveragePooling1D), [`L
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.AveragePooling1D`
-* Class `tf.layers.AveragePooling1D`
+* Class <a href="/api_docs/python/tf/layers/AveragePooling1D"><code>tf.compat.v1.layers.AveragePooling1D</code></a>
 
-
-
-Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/pooling.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,6 +48,8 @@ Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow
 * <b>`name`</b>: A string, the name of the layer.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L47-L58">View source</a>
 
 ``` python
 __init__(
@@ -68,9 +78,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

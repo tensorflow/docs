@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.kernel_methods
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/kernel_methods/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops and estimators that enable explicit kernel methods in TensorFlow.
-
-
-
-Defined in [`contrib/kernel_methods/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/kernel_methods/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,4 +31,3 @@ Defined in [`contrib/kernel_methods/__init__.py`](https://github.com/tensorflow/
 ## Functions
 
 [`sparse_multiclass_hinge_loss(...)`](../../tf/contrib/kernel_methods/sparse_multiclass_hinge_loss): Adds Ops for computing the multiclass hinge loss.
-

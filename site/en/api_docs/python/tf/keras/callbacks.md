@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.callbacks
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/callbacks">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Callbacks: utilities called at certain points during model training.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.callbacks`
-* Module `tf.keras.callbacks`
+* Module <a href="/api_docs/python/tf/keras/callbacks"><code>tf.compat.v1.keras.callbacks</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/callbacks/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/callbacks/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,4 +54,3 @@ Defined in [`python/keras/api/_v1/keras/callbacks/__init__.py`](https://github.c
 [`class TensorBoard`](../../tf/keras/callbacks/TensorBoard): Enable visualizations for TensorBoard.
 
 [`class TerminateOnNaN`](../../tf/keras/callbacks/TerminateOnNaN): Callback that terminates training when a NaN loss is encountered.
-

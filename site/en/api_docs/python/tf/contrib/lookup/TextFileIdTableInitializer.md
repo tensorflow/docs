@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.lookup.TextFileIdTableInitializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L729-L779">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TextFileIdTableInitializer`
 
 Table initializer for string to `int64` IDs tables from a text file.
 
 Inherits From: [`TextFileInitializer`](../../../tf/lookup/TextFileInitializer)
 
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L732-L779">View source</a>
 
 ``` python
 __init__(
@@ -88,6 +98,8 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L634-L660">View source</a>
+
 ``` python
 initialize(table)
 ```
@@ -112,6 +124,3 @@ The operation that initializes the table.
 
 * <b>`TypeError`</b>: when the keys and values data types do not match the table
 key and value data types.
-
-
-

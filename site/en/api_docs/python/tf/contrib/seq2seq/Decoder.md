@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.Decoder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L50-L150">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Decoder`
 
 An RNN Decoder abstract interface object.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/decoder.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,6 +78,8 @@ Python bool.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L115-L130">View source</a>
+
 ``` python
 finalize(
     outputs,
@@ -78,10 +88,29 @@ finalize(
 )
 ```
 
+Called after decoding iterations complete.
 
+
+#### Args:
+
+
+* <b>`outputs`</b>: RNNCell outputs (possibly nested tuple of) tensor[s] for all time
+  steps.
+* <b>`final_state`</b>: RNNCell final state (possibly nested tuple of) tensor[s] for
+  last time step.
+* <b>`sequence_lengths`</b>: 1-D `int32` tensor containing lengths of each sequence.
+
+
+#### Returns:
+
+`(final_outputs, final_state)`: `final_outputs` is an object containing
+the final decoder output, `final_state` is a (structure of) state tensors
+and TensorArrays.
 
 
 <h3 id="initialize"><code>initialize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L79-L92">View source</a>
 
 ``` python
 initialize(name=None)
@@ -104,6 +133,8 @@ This methods must compute initial input values and initial state.
 
 
 <h3 id="step"><code>step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L94-L113">View source</a>
 
 ``` python
 step(
@@ -135,7 +166,3 @@ containing the decoder output, `next_state` is a (structure of) state
 tensors and TensorArrays, `next_inputs` is the tensor that should be used
 as input for the next step, `finished` is a boolean tensor telling whether
 the sequence is complete, for each sequence in the batch.
-
-
-
-

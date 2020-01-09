@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.DNNRegressor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L530-L806">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DNNRegressor`
 
 A regressor for TensorFlow DNN models.
 
 Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/dnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/dnn.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -76,6 +84,8 @@ Input of `fit` and `evaluate` should have following features,
     whose `value` is a `Tensor`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L590-L670">View source</a>
 
 ``` python
 __init__(
@@ -158,7 +168,7 @@ A `DNNRegressor` estimator.
 
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-
+Returns a path in which the eval process will look for checkpoints.
 
 
 <h3 id="model_fn"><code>model_fn</code></h3>
@@ -177,6 +187,8 @@ The model_fn with the following signature:
 ## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L672-L704">View source</a>
 
 ``` python
 evaluate(
@@ -198,6 +210,8 @@ See evaluable.Evaluable.
 
 <h3 id="export"><code>export</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L784-L806">View source</a>
+
 ``` python
 export(
     export_dir,
@@ -217,6 +231,8 @@ Instructions for updating:
 Please use Estimator.export_savedmodel() instead.
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L1317-L1490">View source</a>
 
 ``` python
 export_savedmodel(
@@ -276,6 +292,8 @@ The string path to the exported directory.
 
 <h3 id="fit"><code>fit</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L487-L526">View source</a>
+
 ``` python
 fit(
     x=None,
@@ -306,6 +324,8 @@ Example conversion:
 
 <h3 id="get_params"><code>get_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L41-L67">View source</a>
+
 ``` python
 get_params(deep=True)
 ```
@@ -330,6 +350,8 @@ Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L683-L689">View source</a>
+
 ``` python
 get_variable_names()
 ```
@@ -343,6 +365,8 @@ List of names.
 
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L672-L681">View source</a>
 
 ``` python
 get_variable_value(name)
@@ -363,6 +387,8 @@ Numpy array - value of the tensor.
 
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L528-L578">View source</a>
 
 ``` python
 partial_fit(
@@ -426,6 +452,8 @@ to converge, and you want to split up training into subparts.
 
 <h3 id="predict"><code>predict</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L706-L749">View source</a>
+
 ``` python
 predict(
     x=None,
@@ -475,6 +503,8 @@ If `outputs` is set, returns a dict of predictions.
 
 <h3 id="predict_scores"><code>predict_scores</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/dnn.py#L751-L782">View source</a>
+
 ``` python
 predict_scores(
     x=None,
@@ -513,6 +543,8 @@ is `[batch_size]`, otherwise the shape is `[batch_size, label_dimension]`.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L69-L110">View source</a>
+
 ``` python
 set_params(**params)
 ```
@@ -540,6 +572,3 @@ self
 
 
 * <b>`ValueError`</b>: If params contain invalid names.
-
-
-

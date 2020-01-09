@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.keras.preprocessing.text.Tokenizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 ## Class `Tokenizer`
 
 Text tokenization utility class.
@@ -14,9 +26,9 @@ Text tokenization utility class.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.preprocessing.text.Tokenizer`
-* Class `tf.compat.v2.keras.preprocessing.text.Tokenizer`
-* Class `tf.keras.preprocessing.text.Tokenizer`
+* Class <a href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer"><code>tf.compat.v1.keras.preprocessing.text.Tokenizer</code></a>
+* Class <a href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer"><code>tf.compat.v2.keras.preprocessing.text.Tokenizer</code></a>
+
 
 <!-- Placeholder for "Used in" -->
 
@@ -60,7 +72,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -245,6 +257,3 @@ To load a tokenizer from a JSON string, use
 
 # Returns
     A JSON string containing the tokenizer configuration.
-
-
-

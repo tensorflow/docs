@@ -6,15 +6,23 @@ page_type: reference
 
 # tf.contrib.rnn.IndyGRUCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/rnn_cell.py#L3155-L3275">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `IndyGRUCell`
 
 Independently Gated Recurrent Unit cell.
 
 Inherits From: [`LayerRNNCell`](../../../tf/contrib/rnn/LayerRNNCell)
-
-
-
-Defined in [`contrib/rnn/python/ops/rnn_cell.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,12 +31,12 @@ yet with the \\(U_r\\), \\(U_z\\), and \\(U\\) matrices in equations 5, 6, and
 8 of http://arxiv.org/abs/1406.1078 respectively replaced by diagonal
 matrices, i.e. a Hadamard product with a single vector:
 
-<div>   $$r_j = \sigma\left([\mathbf W_r\mathbf x]_j +
-    [\mathbf u_r\circ \mathbf h_{(t-1)}]_j\right)$$</div>
-<div>   $$z_j = \sigma\left([\mathbf W_z\mathbf x]_j +
-    [\mathbf u_z\circ \mathbf h_{(t-1)}]_j\right)$$</div>
-<div>   $$\tilde{h}^{(t)}_j = \phi\left([\mathbf W \mathbf x]_j +
-    [\mathbf u \circ \mathbf r \circ \mathbf h_{(t-1)}]_j\right)$$</div>
+  <div> $$r_j = \sigma\left([\mathbf W_r\mathbf x]_j +
+    [\mathbf u_r\circ \mathbf h_{(t-1)}]_j\right)$$ </div>
+  <div> $$z_j = \sigma\left([\mathbf W_z\mathbf x]_j +
+    [\mathbf u_z\circ \mathbf h_{(t-1)}]_j\right)$$ </div>
+  <div> $$\tilde{h}^{(t)}_j = \phi\left([\mathbf W \mathbf x]_j +
+    [\mathbf u \circ \mathbf r \circ \mathbf h_{(t-1)}]_j\right)$$ </div>
 
 where \\(\circ\\) denotes the Hadamard operator. This means that each IndyGRU
 node sees only its own state, as opposed to seeing all states in the same
@@ -52,6 +60,8 @@ layer.
   of the first input). Required when `build` is called before `call`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/rnn_cell.py#L3190-L3206">View source</a>
 
 ``` python
 __init__(
@@ -82,7 +92,7 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-
+Integer or TensorShape: size of outputs produced by this cell.
 
 
 <h3 id="scope_name"><code>scope_name</code></h3>
@@ -92,14 +102,18 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="state_size"><code>state_size</code></h3>
 
+size(s) of state(s) used by this cell.
 
-
+It can be represented by an Integer, a TensorShape or a tuple of Integers
+or TensorShapes.
 
 
 
 ## Methods
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
 
 ``` python
 get_initial_state(
@@ -113,6 +127,8 @@ get_initial_state(
 
 
 <h3 id="zero_state"><code>zero_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L311-L340">View source</a>
 
 ``` python
 zero_state(
@@ -139,7 +155,3 @@ If `state_size` is an int or TensorShape, then the return value is a
 If `state_size` is a nested list or tuple, then the return value is
 a nested list or tuple (of the same structure) of `2-D` tensors with
 the shapes `[batch_size, s]` for each s in `state_size`.
-
-
-
-

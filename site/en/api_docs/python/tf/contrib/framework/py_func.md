@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.py_func
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/script_ops.py#L32-L147">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Wraps a python function and uses it as a TensorFlow op.
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.framework.py_func(
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/script_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/script_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

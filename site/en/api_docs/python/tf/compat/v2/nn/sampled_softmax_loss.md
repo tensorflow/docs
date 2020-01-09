@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.sampled_softmax_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L2028-L2116">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes and returns the sampled softmax training loss.
 
 ``` python
@@ -24,8 +36,6 @@ tf.compat.v2.nn.sampled_softmax_loss(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -55,7 +65,8 @@ elif mode == "eval":
       logits=logits)
 ```
 
-See our [Candidate Sampling Algorithms Reference](https://www.tensorflow.org/extras/candidate_sampling.pdf)
+See our [Candidate Sampling Algorithms Reference]
+(https://www.tensorflow.org/extras/candidate_sampling.pdf)
 
 Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 ([pdf](http://arxiv.org/pdf/1412.2007.pdf)) for the math.
@@ -73,7 +84,7 @@ later.
 * <b>`biases`</b>: A `Tensor` of shape `[num_classes]`.  The class biases.
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size, num_true]`. The
   target classes.  Note that this format differs from the `labels` argument
-  of `nn.softmax_cross_entropy_with_logits`.
+  of <a href="/api_docs/python/tf/nn/softmax_cross_entropy_with_logits"><code>nn.softmax_cross_entropy_with_logits</code></a>.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`.  The forward activations of
   the input network.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample per batch.

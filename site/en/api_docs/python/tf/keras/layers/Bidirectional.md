@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Bidirectional
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Bidirectional">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L339-L742">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Bidirectional`
 
 Bidirectional wrapper for RNNs.
@@ -13,13 +31,9 @@ Inherits From: [`Wrapper`](../../../tf/keras/layers/Wrapper)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Bidirectional`
-* Class `tf.compat.v2.keras.layers.Bidirectional`
-* Class `tf.keras.layers.Bidirectional`
+* Class <a href="/api_docs/python/tf/keras/layers/Bidirectional"><code>tf.compat.v1.keras.layers.Bidirectional</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Bidirectional"><code>tf.compat.v2.keras.layers.Bidirectional</code></a>
 
-
-
-Defined in [`python/keras/layers/wrappers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/wrappers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -86,6 +100,8 @@ model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L393-L453">View source</a>
+
 ``` python
 __init__(
     layer,
@@ -114,12 +130,8 @@ __init__(
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L676-L678">View source</a>
+
 ``` python
 reset_states()
 ```
-
-
-
-
-
-

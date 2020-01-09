@@ -6,22 +6,40 @@ page_type: reference
 
 # tf.math.abs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/abs">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the absolute value of a tensor.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__abs__`
-* `tf.Tensor.__abs__`
-* `tf.abs`
-* `tf.compat.v1.RaggedTensor.__abs__`
-* `tf.compat.v1.Tensor.__abs__`
-* `tf.compat.v1.abs`
-* `tf.compat.v1.math.abs`
-* `tf.compat.v2.RaggedTensor.__abs__`
-* `tf.compat.v2.Tensor.__abs__`
-* `tf.compat.v2.abs`
-* `tf.compat.v2.math.abs`
-* `tf.math.abs`
+* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.RaggedTensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.Tensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/math/abs"><code>tf.abs</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.compat.v1.RaggedTensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.compat.v1.Tensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v1.abs</code></a>
+* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v1.math.abs</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.compat.v2.RaggedTensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.compat.v2.Tensor.__abs__</code></a>
+* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v2.abs</code></a>
+* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v2.math.abs</code></a>
+
 
 ``` python
 tf.math.abs(
@@ -31,8 +49,6 @@ tf.math.abs(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

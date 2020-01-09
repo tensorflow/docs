@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.gfile.Copy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L456-L469">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Copies data from `oldpath` to `newpath`.
 
 ### Aliases:
 
-* `tf.compat.v1.gfile.Copy`
-* `tf.gfile.Copy`
+* <a href="/api_docs/python/tf/gfile/Copy"><code>tf.compat.v1.gfile.Copy</code></a>
+
 
 ``` python
 tf.gfile.Copy(
@@ -21,8 +33,6 @@ tf.gfile.Copy(
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,4 +49,4 @@ Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow
 #### Raises:
 
 
-* <b>`errors.OpError`</b>: If the operation fails.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.

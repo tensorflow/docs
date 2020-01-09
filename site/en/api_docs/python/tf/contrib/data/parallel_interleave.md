@@ -5,7 +5,19 @@ page_type: reference
 
 # tf.contrib.data.parallel_interleave
 
-A parallel version of the `Dataset.interleave()` transformation. (deprecated)
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/interleave_ops.py#L24-L77">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+A parallel version of the <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 ``` python
 tf.contrib.data.parallel_interleave(
@@ -19,8 +31,6 @@ tf.contrib.data.parallel_interleave(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

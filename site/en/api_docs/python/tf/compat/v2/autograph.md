@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.autograph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/autograph">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Conversion of plain Python into TensorFlow graph code.
 
 <!-- Placeholder for "Used in" -->
@@ -33,4 +45,3 @@ using AutoGraph can be thought of as running Python in TensorFlow.
 [`to_graph(...)`](../../../tf/compat/v2/autograph/to_graph): Converts a Python entity into a TensorFlow graph.
 
 [`trace(...)`](../../../tf/autograph/trace): Traces argument information at compilation time.
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.CheckpointSaverListener
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L446-L509">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CheckpointSaverListener`
 
 Interface for listeners that take action before or after checkpoint save.
@@ -13,15 +25,11 @@ Interface for listeners that take action before or after checkpoint save.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.CheckpointSaverListener`
-* Class `tf.compat.v1.train.CheckpointSaverListener`
-* Class `tf.compat.v2.estimator.CheckpointSaverListener`
-* Class `tf.estimator.CheckpointSaverListener`
-* Class `tf.train.CheckpointSaverListener`
+* Class <a href="/api_docs/python/tf/train/CheckpointSaverListener"><code>tf.compat.v1.estimator.CheckpointSaverListener</code></a>
+* Class <a href="/api_docs/python/tf/train/CheckpointSaverListener"><code>tf.compat.v1.train.CheckpointSaverListener</code></a>
+* Class <a href="/api_docs/python/tf/train/CheckpointSaverListener"><code>tf.compat.v2.estimator.CheckpointSaverListener</code></a>
+* Class <a href="/api_docs/python/tf/train/CheckpointSaverListener"><code>tf.estimator.CheckpointSaverListener</code></a>
 
-
-
-Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -78,6 +86,8 @@ their own evaluation, which may be wasteful of resources.
 
 <h3 id="after_save"><code>after_save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L505-L506">View source</a>
+
 ``` python
 after_save(
     session,
@@ -89,6 +99,8 @@ after_save(
 
 
 <h3 id="before_save"><code>before_save</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L502-L503">View source</a>
 
 ``` python
 before_save(
@@ -102,6 +114,8 @@ before_save(
 
 <h3 id="begin"><code>begin</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L499-L500">View source</a>
+
 ``` python
 begin()
 ```
@@ -111,15 +125,11 @@ begin()
 
 <h3 id="end"><code>end</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L508-L509">View source</a>
+
 ``` python
 end(
     session,
     global_step_value
 )
 ```
-
-
-
-
-
-

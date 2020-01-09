@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.util.ops_used_by_graph_def
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/meta_graph.py#L138-L171">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Collect the list of ops used by a graph.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.util.ops_used_by_graph_def(graph_def)
 ```
 
 
-
-Defined in [`python/framework/meta_graph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/meta_graph.py).
 
 <!-- Placeholder for "Used in" -->
 

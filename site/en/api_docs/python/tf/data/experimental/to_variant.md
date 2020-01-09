@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.data.experimental.to_variant
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/to_variant">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2465-L2475">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a variant representing the given dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.to_variant`
-* `tf.compat.v2.data.experimental.to_variant`
-* `tf.data.experimental.to_variant`
+* <a href="/api_docs/python/tf/data/experimental/to_variant"><code>tf.compat.v1.data.experimental.to_variant</code></a>
+* <a href="/api_docs/python/tf/data/experimental/to_variant"><code>tf.compat.v2.data.experimental.to_variant</code></a>
+
 
 ``` python
 tf.data.experimental.to_variant(dataset)
 ```
 
 
-
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

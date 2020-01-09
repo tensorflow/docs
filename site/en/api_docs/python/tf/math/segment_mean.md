@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.segment_mean
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/segment_mean">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the mean along segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.segment_mean`
-* `tf.compat.v1.segment_mean`
-* `tf.compat.v2.math.segment_mean`
-* `tf.math.segment_mean`
-* `tf.segment_mean`
+* <a href="/api_docs/python/tf/math/segment_mean"><code>tf.compat.v1.math.segment_mean</code></a>
+* <a href="/api_docs/python/tf/math/segment_mean"><code>tf.compat.v1.segment_mean</code></a>
+* <a href="/api_docs/python/tf/math/segment_mean"><code>tf.compat.v2.math.segment_mean</code></a>
+* <a href="/api_docs/python/tf/math/segment_mean"><code>tf.segment_mean</code></a>
+
 
 ``` python
 tf.math.segment_mean(
@@ -25,8 +39,6 @@ tf.math.segment_mean(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

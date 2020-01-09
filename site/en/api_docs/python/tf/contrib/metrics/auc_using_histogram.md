@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.metrics.auc_using_histogram
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/metrics/python/ops/histogram_ops.py#L39-L94">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 AUC computed by maintaining histograms.
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.metrics.auc_using_histogram(
 ```
 
 
-
-Defined in [`contrib/metrics/python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/histogram_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

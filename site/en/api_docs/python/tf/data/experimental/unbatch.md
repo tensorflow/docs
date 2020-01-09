@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.unbatch
 
-Splits elements of a dataset into multiple elements on the batch dimension.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/unbatch">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/batching.py#L202-L229">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Splits elements of a dataset into multiple elements on the batch dimension. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.unbatch`
-* `tf.compat.v2.data.experimental.unbatch`
-* `tf.data.experimental.unbatch`
+* <a href="/api_docs/python/tf/data/experimental/unbatch"><code>tf.compat.v1.data.experimental.unbatch</code></a>
+* <a href="/api_docs/python/tf/data/experimental/unbatch"><code>tf.compat.v2.data.experimental.unbatch</code></a>
+
 
 ``` python
 tf.data.experimental.unbatch()
@@ -19,9 +37,11 @@ tf.data.experimental.unbatch()
 
 
 
-Defined in [`python/data/experimental/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/batching.py).
-
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../../tf/data/Dataset#unbatch"><code>tf.data.Dataset.unbatch()</code></a>.
 
 For example, if elements of the dataset are shaped `[B, a0, a1, ...]`,
 where `B` may vary for each input element, then for each element in the

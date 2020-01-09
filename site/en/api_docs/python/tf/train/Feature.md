@@ -5,21 +5,35 @@ page_type: reference
 
 # tf.train.Feature
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/Feature">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/feature.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Feature`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.Feature`
-* Class `tf.compat.v2.train.Feature`
-* Class `tf.train.Feature`
+* Class <a href="/api_docs/python/tf/train/Feature"><code>tf.compat.v1.train.Feature</code></a>
+* Class <a href="/api_docs/python/tf/train/Feature"><code>tf.compat.v2.train.Feature</code></a>
 
-
-
-Defined in [`core/example/feature.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/example/feature.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,7 +53,3 @@ Defined in [`core/example/feature.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="int64_list"><code>int64_list</code></h3>
 
 `Int64List int64_list`
-
-
-
-

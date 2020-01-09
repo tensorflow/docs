@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.train.queue_runner.start_queue_runners
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L414-L480">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Starts all queue runners collected in the graph. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.queue_runner.start_queue_runners`
-* `tf.compat.v1.train.start_queue_runners`
-* `tf.train.queue_runner.start_queue_runners`
-* `tf.train.start_queue_runners`
+* <a href="/api_docs/python/tf/train/queue_runner/start_queue_runners"><code>tf.compat.v1.train.queue_runner.start_queue_runners</code></a>
+* <a href="/api_docs/python/tf/train/queue_runner/start_queue_runners"><code>tf.compat.v1.train.start_queue_runners</code></a>
+* <a href="/api_docs/python/tf/train/queue_runner/start_queue_runners"><code>tf.train.start_queue_runners</code></a>
+
 
 ``` python
 tf.train.queue_runner.start_queue_runners(
@@ -25,8 +37,6 @@ tf.train.queue_runner.start_queue_runners(
 ```
 
 
-
-Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -75,4 +85,3 @@ A list of threads.
 #### Eager Compatibility
 Not compatible with eager execution. To ingest data under eager execution,
 use the <a href="../../../tf/data"><code>tf.data</code></a> API instead.
-

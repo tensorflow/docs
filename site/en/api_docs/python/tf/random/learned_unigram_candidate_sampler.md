@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.random.learned_unigram_candidate_sampler
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/learned_unigram_candidate_sampler">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/candidate_sampling_ops.py#L154-L211">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Samples a set of classes from a distribution learned during training.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.learned_unigram_candidate_sampler`
-* `tf.compat.v1.random.learned_unigram_candidate_sampler`
-* `tf.compat.v2.nn.learned_unigram_candidate_sampler`
-* `tf.compat.v2.random.learned_unigram_candidate_sampler`
-* `tf.nn.learned_unigram_candidate_sampler`
-* `tf.random.learned_unigram_candidate_sampler`
+* <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>tf.compat.v1.nn.learned_unigram_candidate_sampler</code></a>
+* <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>tf.compat.v1.random.learned_unigram_candidate_sampler</code></a>
+* <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>tf.compat.v2.nn.learned_unigram_candidate_sampler</code></a>
+* <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>tf.compat.v2.random.learned_unigram_candidate_sampler</code></a>
+* <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>tf.nn.learned_unigram_candidate_sampler</code></a>
+
 
 ``` python
 tf.random.learned_unigram_candidate_sampler(
@@ -29,8 +47,6 @@ tf.random.learned_unigram_candidate_sampler(
 ```
 
 
-
-Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

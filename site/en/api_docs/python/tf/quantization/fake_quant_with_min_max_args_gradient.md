@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.quantization.fake_quant_with_min_max_args_gradient
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/quantization/fake_quant_with_min_max_args_gradient">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Compute gradients for a FakeQuantWithMinMaxArgs operation.
 
 ### Aliases:
 
-* `tf.compat.v1.fake_quant_with_min_max_args_gradient`
-* `tf.compat.v1.quantization.fake_quant_with_min_max_args_gradient`
-* `tf.compat.v2.quantization.fake_quant_with_min_max_args_gradient`
-* `tf.fake_quant_with_min_max_args_gradient`
-* `tf.quantization.fake_quant_with_min_max_args_gradient`
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_args_gradient"><code>tf.compat.v1.fake_quant_with_min_max_args_gradient</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_args_gradient"><code>tf.compat.v1.quantization.fake_quant_with_min_max_args_gradient</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_args_gradient"><code>tf.compat.v2.quantization.fake_quant_with_min_max_args_gradient</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_args_gradient"><code>tf.fake_quant_with_min_max_args_gradient</code></a>
+
 
 ``` python
 tf.quantization.fake_quant_with_min_max_args_gradient(
@@ -28,8 +42,6 @@ tf.quantization.fake_quant_with_min_max_args_gradient(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

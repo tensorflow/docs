@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.op_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6511-L6518">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 DEPRECATED. Same as name_scope above, just different argument order.
 
 ### Aliases:
 
-* `tf.compat.v1.op_scope`
-* `tf.op_scope`
+* <a href="/api_docs/python/tf/op_scope"><code>tf.compat.v1.op_scope</code></a>
+
 
 ``` python
 tf.op_scope(
@@ -21,7 +33,5 @@ tf.op_scope(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->

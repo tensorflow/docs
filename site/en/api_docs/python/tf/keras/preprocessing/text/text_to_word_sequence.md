@@ -6,13 +6,25 @@ page_type: reference
 
 # tf.keras.preprocessing.text.text_to_word_sequence
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text/text_to_word_sequence">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Converts a text to a sequence of words (or tokens).
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.text.text_to_word_sequence`
-* `tf.compat.v2.keras.preprocessing.text.text_to_word_sequence`
-* `tf.keras.preprocessing.text.text_to_word_sequence`
+* <a href="/api_docs/python/tf/keras/preprocessing/text/text_to_word_sequence"><code>tf.compat.v1.keras.preprocessing.text.text_to_word_sequence</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/text/text_to_word_sequence"><code>tf.compat.v2.keras.preprocessing.text.text_to_word_sequence</code></a>
+
 
 ``` python
 tf.keras.preprocessing.text.text_to_word_sequence(
@@ -22,6 +34,8 @@ tf.keras.preprocessing.text.text_to_word_sequence(
     split=' '
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

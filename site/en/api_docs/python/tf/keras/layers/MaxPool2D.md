@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.MaxPool2D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/MaxPool2D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L282-L328">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MaxPool2D`
 
 Max pooling operation for spatial data.
@@ -13,16 +31,12 @@ Max pooling operation for spatial data.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.MaxPool2D`
-* Class `tf.compat.v1.keras.layers.MaxPooling2D`
-* Class `tf.compat.v2.keras.layers.MaxPool2D`
-* Class `tf.compat.v2.keras.layers.MaxPooling2D`
-* Class `tf.keras.layers.MaxPool2D`
-* Class `tf.keras.layers.MaxPooling2D`
+* Class <a href="/api_docs/python/tf/keras/layers/MaxPool2D"><code>tf.compat.v1.keras.layers.MaxPool2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/MaxPool2D"><code>tf.compat.v1.keras.layers.MaxPooling2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/MaxPool2D"><code>tf.compat.v2.keras.layers.MaxPool2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/MaxPool2D"><code>tf.compat.v2.keras.layers.MaxPooling2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/MaxPool2D"><code>tf.keras.layers.MaxPooling2D</code></a>
 
-
-
-Defined in [`python/keras/layers/pooling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/pooling.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,6 +84,8 @@ Defined in [`python/keras/layers/pooling.py`](https://github.com/tensorflow/tens
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L319-L328">View source</a>
+
 ``` python
 __init__(
     pool_size=(2, 2),
@@ -79,9 +95,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

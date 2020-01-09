@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.MetaGraphDef.MetaInfoDef
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/meta_graph.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MetaInfoDef`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.MetaGraphDef.MetaInfoDef`
-* Class `tf.compat.v1.MetaGraphDef.MetaInfoDef`
+* Class <a href="/api_docs/python/tf/MetaGraphDef/MetaInfoDef"><code>tf.compat.v1.MetaGraphDef.MetaInfoDef</code></a>
 
-
-
-Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/meta_graph.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +66,3 @@ Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tens
 <h3 id="tensorflow_version"><code>tensorflow_version</code></h3>
 
 `string tensorflow_version`
-
-
-
-

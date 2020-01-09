@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.train.SaverDef
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/saver.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SaverDef`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.SaverDef`
-* Class `tf.train.SaverDef`
+* Class <a href="/api_docs/python/tf/train/SaverDef"><code>tf.compat.v1.train.SaverDef</code></a>
 
-
-
-Defined in [`core/protobuf/saver.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/saver.proto).
 
 <!-- Placeholder for "Used in" -->
 

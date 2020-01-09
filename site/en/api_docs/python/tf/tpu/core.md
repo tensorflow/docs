@@ -5,21 +5,31 @@ page_type: reference
 
 # tf.tpu.core
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L153-L163">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the device name for a core in a replicated TPU computation.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.core`
-* `tf.contrib.tpu.core`
-* `tf.tpu.core`
+* <a href="/api_docs/python/tf/tpu/core"><code>tf.compat.v1.tpu.core</code></a>
+* <a href="/api_docs/python/tf/tpu/core"><code>tf.contrib.tpu.core</code></a>
+
 
 ``` python
 tf.tpu.core(num)
 ```
 
 
-
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
 
 <!-- Placeholder for "Used in" -->
 

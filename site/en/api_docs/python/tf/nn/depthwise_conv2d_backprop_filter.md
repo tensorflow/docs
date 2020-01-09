@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.nn.depthwise_conv2d_backprop_filter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_filter">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes the gradients of depthwise convolution with respect to the filter.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.depthwise_conv2d_backprop_filter`
-* `tf.compat.v1.nn.depthwise_conv2d_native_backprop_filter`
-* `tf.compat.v2.nn.depthwise_conv2d_backprop_filter`
-* `tf.nn.depthwise_conv2d_backprop_filter`
-* `tf.nn.depthwise_conv2d_native_backprop_filter`
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_filter"><code>tf.compat.v1.nn.depthwise_conv2d_backprop_filter</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_filter"><code>tf.compat.v1.nn.depthwise_conv2d_native_backprop_filter</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_filter"><code>tf.compat.v2.nn.depthwise_conv2d_backprop_filter</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_filter"><code>tf.nn.depthwise_conv2d_native_backprop_filter</code></a>
+
 
 ``` python
 tf.nn.depthwise_conv2d_backprop_filter(
@@ -29,8 +43,6 @@ tf.nn.depthwise_conv2d_backprop_filter(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

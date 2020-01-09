@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.training.batch_sequences_with_states
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L1267-L1547">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates batches of segments of sequential input.
 
 ``` python
@@ -27,8 +39,6 @@ tf.contrib.training.batch_sequences_with_states(
 ```
 
 
-
-Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 <!-- Placeholder for "Used in" -->
 

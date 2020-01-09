@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.timeseries.ARModel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L183-L903">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ARModel`
 
 Auto-regressive model, both linear and non-linear.
 
 
-
-
-
-Defined in [`contrib/timeseries/python/timeseries/ar_model.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/ar_model.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,6 +72,8 @@ P12_T3, 0 # not in third time bucket
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L234-L305">View source</a>
+
 ``` python
 __init__(
     periodicities,
@@ -100,39 +110,40 @@ Constructs an auto-regressive model.
   See `FlatPredictionModel` for an example. Example usage:
 
 >     prediction_model_factory=functools.partial( FlatPredictionModel,
->     hidden_layer_sizes=[10, 10])) ```
->     
->     The default model computes predictions as a linear function of flattened
->     input and output windows.
->     <b>`num_time_buckets`</b>: Number of buckets into which to divide (time %
->     periodicity). This value multiplied by the number of periodicities is
->     the number of time features added to the model.
->     <b>`loss`</b>: Loss function to use for training. Currently supported values are
->     SQUARED_LOSS and NORMAL_LIKELIHOOD_LOSS. Note that for
->     NORMAL_LIKELIHOOD_LOSS, we train the covariance term as well. For
->     SQUARED_LOSS, the evaluation loss is reported based on un-scaled
->     observations and predictions, while the training loss is computed on
->     normalized data (if input statistics are available).
->     <b>`exogenous_feature_columns`</b>: A list of <a href="../../../tf/feature_column"><code>tf.feature_column</code></a>s (for example
->     <a href="../../../tf/feature_column/embedding_column"><code>tf.feature_column.embedding_column</code></a>) corresponding to
->     features which provide extra information to the model but are not part
->     of the series to be predicted.
->     
->     
->     
->      Properties
->     
->     3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
->     
->     f.feature_colum`s for features which are not predicted.
->     
->     
->     
->     
->      Methods
->     
->     3 id="define_loss"><code>define_loss</code></h3>
->     
+
+  The default model computes predictions as a linear function of flattened
+  input and output windows.
+* <b>`num_time_buckets`</b>: Number of buckets into which to divide (time %
+  periodicity). This value multiplied by the number of periodicities is
+  the number of time features added to the model.
+* <b>`loss`</b>: Loss function to use for training. Currently supported values are
+  SQUARED_LOSS and NORMAL_LIKELIHOOD_LOSS. Note that for
+  NORMAL_LIKELIHOOD_LOSS, we train the covariance term as well. For
+  SQUARED_LOSS, the evaluation loss is reported based on un-scaled
+  observations and predictions, while the training loss is computed on
+  normalized data (if input statistics are available).
+* <b>`exogenous_feature_columns`</b>: A list of <a href="../../../tf/feature_column"><code>tf.feature_column</code></a>s (for example
+  <a href="../../../tf/feature_column/embedding_column"><code>tf.feature_column.embedding_column</code></a>) corresponding to
+  features which provide extra information to the model but are not part
+  of the series to be predicted.
+
+
+
+## Properties
+
+<h3 id="exogenous_feature_columns"><code>exogenous_feature_columns</code></h3>
+
+`tf.feature_colum`s for features which are not predicted.
+
+
+
+
+## Methods
+
+<h3 id="define_loss"><code>define_loss</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/model.py#L172-L203">View source</a>
+
 ``` python
 define_loss(
     features,
@@ -173,6 +184,8 @@ A ModelOutputs object.
 
 <h3 id="generate"><code>generate</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L335-L337">View source</a>
+
 ``` python
 generate(
     number_of_series,
@@ -182,10 +195,36 @@ generate(
 )
 ```
 
+Sample synthetic data from model parameters, with optional substitutions.
 
+Returns `number_of_series` possible sequences of future values, sampled from
+the generative model with each conditioned on the previous. Samples are
+based on trained parameters, except for those parameters explicitly
+overridden in `model_parameters`.
+
+For distributions over future observations, see predict().
+
+#### Args:
+
+
+* <b>`number_of_series`</b>: Number of time series to create.
+* <b>`series_length`</b>: Length of each time series.
+* <b>`model_parameters`</b>: A dictionary mapping model parameters to values, which
+    replace trained parameters when generating data.
+* <b>`seed`</b>: If specified, return deterministic time series according to this
+    value.
+
+#### Returns:
+
+A dictionary with keys TrainEvalFeatures.TIMES (mapping to an array with
+shape [number_of_series, series_length]) and TrainEvalFeatures.VALUES
+(mapping to an array with shape [number_of_series, series_length,
+num_features]).
 
 
 <h3 id="get_batch_loss"><code>get_batch_loss</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L726-L882">View source</a>
 
 ``` python
 get_batch_loss(
@@ -233,23 +272,39 @@ is incorrect.
 
 <h3 id="get_start_state"><code>get_start_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L320-L329">View source</a>
+
 ``` python
 get_start_state()
 ```
 
+Returns a tuple of state for the start of the time series.
 
-
+For example, a mean and covariance. State should not have a batch
+dimension, and will often be TensorFlow Variables to be learned along with
+the rest of the model parameters.
 
 <h3 id="initialize_graph"><code>initialize_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L307-L318">View source</a>
 
 ``` python
 initialize_graph(input_statistics=None)
 ```
 
+Define ops for the model, not depending on any previously defined ops.
 
 
+#### Args:
+
+
+* <b>`input_statistics`</b>: A math_utils.InputStatistics object containing input
+    statistics. If None, data-independent defaults are used, which may
+    result in longer or unstable training.
 
 <h3 id="loss_op"><code>loss_op</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L458-L472">View source</a>
 
 ``` python
 loss_op(
@@ -262,6 +317,8 @@ Create loss_op.
 
 
 <h3 id="predict"><code>predict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L488-L664">View source</a>
 
 ``` python
 predict(features)
@@ -294,6 +351,8 @@ num_features] and correspond to the values passed in `TIMES`.
 
 <h3 id="prediction_ops"><code>prediction_ops</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L371-L446">View source</a>
+
 ``` python
 prediction_ops(
     times,
@@ -325,6 +384,8 @@ self.num_features].
 
 
 <h3 id="random_model_parameters"><code>random_model_parameters</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/ar_model.py#L332-L333">View source</a>
 
 ``` python
 random_model_parameters(seed=None)

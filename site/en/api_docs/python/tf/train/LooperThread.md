@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.LooperThread
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L412-L509">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LooperThread`
 
 A thread that runs code repeatedly, optionally on a timer.
@@ -13,12 +25,8 @@ A thread that runs code repeatedly, optionally on a timer.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.LooperThread`
-* Class `tf.train.LooperThread`
+* Class <a href="/api_docs/python/tf/train/LooperThread"><code>tf.compat.v1.train.LooperThread</code></a>
 
-
-
-Defined in [`python/training/coordinator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/coordinator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ the other threads it coordinates to stop.
 You typically pass looper threads to the supervisor `Join()` method.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L429-L457">View source</a>
 
 ``` python
 __init__(
@@ -173,6 +183,8 @@ exception.
 
 <h3 id="loop"><code>loop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L459-L481">View source</a>
+
 ``` python
 @staticmethod
 loop(
@@ -208,14 +220,22 @@ The started thread.
 
 <h3 id="run"><code>run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L483-L496">View source</a>
+
 ``` python
 run()
 ```
 
+Method representing the thread's activity.
 
-
+You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object's constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.
 
 <h3 id="run_loop"><code>run_loop</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L506-L509">View source</a>
 
 ``` python
 run_loop()
@@ -258,6 +278,8 @@ same thread object.
 
 <h3 id="start_loop"><code>start_loop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L498-L500">View source</a>
+
 ``` python
 start_loop()
 ```
@@ -267,12 +289,10 @@ Called when the thread starts.
 
 <h3 id="stop_loop"><code>stop_loop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L502-L504">View source</a>
+
 ``` python
 stop_loop()
 ```
 
 Called when the thread stops.
-
-
-
-

@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.train.queue_runner.add_queue_runner
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L394-L411">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a `QueueRunner` to a collection in the graph. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.add_queue_runner`
-* `tf.compat.v1.train.queue_runner.add_queue_runner`
-* `tf.train.add_queue_runner`
-* `tf.train.queue_runner.add_queue_runner`
+* <a href="/api_docs/python/tf/train/queue_runner/add_queue_runner"><code>tf.compat.v1.train.add_queue_runner</code></a>
+* <a href="/api_docs/python/tf/train/queue_runner/add_queue_runner"><code>tf.compat.v1.train.queue_runner.add_queue_runner</code></a>
+* <a href="/api_docs/python/tf/train/queue_runner/add_queue_runner"><code>tf.train.add_queue_runner</code></a>
+
 
 ``` python
 tf.train.queue_runner.add_queue_runner(
@@ -22,8 +34,6 @@ tf.train.queue_runner.add_queue_runner(
 ```
 
 
-
-Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

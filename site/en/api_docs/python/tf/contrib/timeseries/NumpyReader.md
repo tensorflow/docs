@@ -5,21 +5,31 @@ page_type: reference
 
 # tf.contrib.timeseries.NumpyReader
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L223-L286">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NumpyReader`
 
 A time series parser for feeding Numpy arrays to a `TimeSeriesInputFn`.
 
 
 
-
-
-Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 <!-- Placeholder for "Used in" -->
 
 Avoids embedding data in the graph as constants.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L229-L245">View source</a>
 
 ``` python
 __init__(
@@ -51,6 +61,8 @@ Numpy array input for a `TimeSeriesInputFn`.
 
 <h3 id="check_dataset_size"><code>check_dataset_size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L247-L255">View source</a>
+
 ``` python
 check_dataset_size(minimum_dataset_size)
 ```
@@ -59,6 +71,8 @@ Raise an error if the dataset is too small.
 
 
 <h3 id="read"><code>read</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L257-L272">View source</a>
 
 ``` python
 read()
@@ -69,12 +83,10 @@ Returns a large chunk of the Numpy arrays for later re-chunking.
 
 <h3 id="read_full"><code>read_full</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L274-L286">View source</a>
+
 ``` python
 read_full()
 ```
 
 Returns `Tensor` versions of the full Numpy arrays.
-
-
-
-

@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.sparse.slice
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/slice">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L960-L1007">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Slice a `SparseTensor` based on the `start` and `size.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.slice`
-* `tf.compat.v1.sparse_slice`
-* `tf.compat.v2.sparse.slice`
-* `tf.sparse.slice`
-* `tf.sparse_slice`
+* <a href="/api_docs/python/tf/sparse/slice"><code>tf.compat.v1.sparse.slice</code></a>
+* <a href="/api_docs/python/tf/sparse/slice"><code>tf.compat.v1.sparse_slice</code></a>
+* <a href="/api_docs/python/tf/sparse/slice"><code>tf.compat.v2.sparse.slice</code></a>
+* <a href="/api_docs/python/tf/sparse/slice"><code>tf.sparse_slice</code></a>
+
 
 ``` python
 tf.sparse.slice(
@@ -25,8 +43,6 @@ tf.sparse.slice(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

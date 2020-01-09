@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.rsqrt
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/rsqrt">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes reciprocal of square root of x element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.rsqrt`
-* `tf.compat.v1.rsqrt`
-* `tf.compat.v2.math.rsqrt`
-* `tf.math.rsqrt`
-* `tf.rsqrt`
+* <a href="/api_docs/python/tf/math/rsqrt"><code>tf.compat.v1.math.rsqrt</code></a>
+* <a href="/api_docs/python/tf/math/rsqrt"><code>tf.compat.v1.rsqrt</code></a>
+* <a href="/api_docs/python/tf/math/rsqrt"><code>tf.compat.v2.math.rsqrt</code></a>
+* <a href="/api_docs/python/tf/math/rsqrt"><code>tf.rsqrt</code></a>
+
 
 ``` python
 tf.math.rsqrt(
@@ -24,8 +38,6 @@ tf.math.rsqrt(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

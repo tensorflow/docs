@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.profiler.Profiler
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L126-L306">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Profiler`
 
 TensorFlow multi-step profiler.
@@ -13,12 +25,8 @@ TensorFlow multi-step profiler.
 
 ### Aliases:
 
-* Class `tf.compat.v1.profiler.Profiler`
-* Class `tf.profiler.Profiler`
+* Class <a href="/api_docs/python/tf/profiler/Profiler"><code>tf.compat.v1.profiler.Profiler</code></a>
 
-
-
-Defined in [`python/profiler/model_analyzer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/model_analyzer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -60,6 +68,8 @@ Typical use case:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L166-L184">View source</a>
+
 ``` python
 __init__(
     graph=None,
@@ -84,6 +94,8 @@ Constructor.
 
 <h3 id="add_step"><code>add_step</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L189-L205">View source</a>
+
 ``` python
 add_step(
     step,
@@ -104,6 +116,8 @@ Add statistics of a step.
 
 <h3 id="advise"><code>advise</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L279-L291">View source</a>
+
 ``` python
 advise(options)
 ```
@@ -122,6 +136,8 @@ A Advise proto that conains the reports from all checkers.
 
 
 <h3 id="profile_graph"><code>profile_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L262-L277">View source</a>
 
 ``` python
 profile_graph(options)
@@ -142,6 +158,8 @@ a GraphNodeProto that records the results.
 
 <h3 id="profile_name_scope"><code>profile_name_scope</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L245-L260">View source</a>
+
 ``` python
 profile_name_scope(options)
 ```
@@ -161,6 +179,8 @@ a GraphNodeProto that records the results.
 
 <h3 id="profile_operations"><code>profile_operations</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L228-L243">View source</a>
+
 ``` python
 profile_operations(options)
 ```
@@ -179,6 +199,8 @@ a MultiGraphNodeProto that records the results.
 
 
 <h3 id="profile_python"><code>profile_python</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L207-L226">View source</a>
 
 ``` python
 profile_python(options)
@@ -202,6 +224,8 @@ a MultiGraphNodeProto that records the results.
 
 <h3 id="serialize_to_string"><code>serialize_to_string</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/model_analyzer.py#L293-L302">View source</a>
+
 ``` python
 serialize_to_string()
 ```
@@ -214,7 +238,3 @@ Serialize the ProfileProto to a binary string.
 #### Returns:
 
 ProfileProto binary string.
-
-
-
-

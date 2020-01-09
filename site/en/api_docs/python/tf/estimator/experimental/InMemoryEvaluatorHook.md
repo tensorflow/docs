@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.experimental.InMemoryEvaluatorHook
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InMemoryEvaluatorHook`
 
 Hook to run evaluation in training without a checkpoint.
@@ -13,13 +31,9 @@ Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.experimental.InMemoryEvaluatorHook`
-* Class `tf.compat.v2.estimator.experimental.InMemoryEvaluatorHook`
-* Class `tf.estimator.experimental.InMemoryEvaluatorHook`
+* Class <a href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook"><code>tf.compat.v1.estimator.experimental.InMemoryEvaluatorHook</code></a>
+* Class <a href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook"><code>tf.compat.v2.estimator.experimental.InMemoryEvaluatorHook</code></a>
 
-
-
-Defined in [`python/estimator/hooks/hooks.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -54,6 +68,8 @@ Current limitations of this approach are:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">View source</a>
+
 ``` python
 __init__(
     estimator,
@@ -74,7 +90,7 @@ Initializes a `InMemoryEvaluatorHook`.
 * <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> instance to call evaluate.
 * <b>`input_fn`</b>:  Equivalent to the `input_fn` arg to `estimator.evaluate`. A
   function that constructs the input data for evaluation.
-  See [Createing input functions](
+  See [Creating input functions](
   https://tensorflow.org/guide/premade_estimators#create_input_functions)
   for more information. The function should construct and return one of
   the following:
@@ -113,6 +129,8 @@ Initializes a `InMemoryEvaluatorHook`.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">View source</a>
+
 ``` python
 after_create_session(
     session,
@@ -125,6 +143,8 @@ Does first run which shows the eval metrics before training.
 
 <h3 id="after_run"><code>after_run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">View source</a>
+
 ``` python
 after_run(
     run_context,
@@ -136,6 +156,8 @@ Runs evaluator.
 
 
 <h3 id="before_run"><code>before_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
 
 ``` python
 before_run(run_context)
@@ -168,6 +190,8 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">View source</a>
+
 ``` python
 begin()
 ```
@@ -177,12 +201,10 @@ Build eval graph and restoring op.
 
 <h3 id="end"><code>end</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">View source</a>
+
 ``` python
 end(session)
 ```
 
 Runs evaluator for final model.
-
-
-
-

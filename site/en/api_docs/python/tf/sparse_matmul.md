@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.sparse_matmul
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Multiply matrix "a" by matrix "b".
 
 ### Aliases:
 
-* `tf.compat.v1.sparse_matmul`
-* `tf.sparse_matmul`
+* <a href="/api_docs/python/tf/sparse_matmul"><code>tf.compat.v1.sparse_matmul</code></a>
+
 
 ``` python
 tf.sparse_matmul(
@@ -25,8 +33,6 @@ tf.sparse_matmul(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

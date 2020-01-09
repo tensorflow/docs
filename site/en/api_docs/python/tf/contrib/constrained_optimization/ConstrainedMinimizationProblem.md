@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.constrained_optimization.ConstrainedMinimizationProblem
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py#L31-L140">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ConstrainedMinimizationProblem`
 
 Abstract class representing a `ConstrainedMinimizationProblem`.
 
 
-
-
-
-Defined in [`contrib/constrained_optimization/python/constrained_minimization_problem.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/constrained_minimization_problem.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -104,7 +112,3 @@ approximation of `constraints`.
 #### Returns:
 
 A tensor of proxy constraint functions.
-
-
-
-

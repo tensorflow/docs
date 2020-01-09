@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.tpu.shard
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L1326-L1404">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Shards `computation` for parallel execution.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.shard`
-* `tf.contrib.tpu.shard`
-* `tf.tpu.shard`
+* <a href="/api_docs/python/tf/tpu/shard"><code>tf.compat.v1.tpu.shard</code></a>
+* <a href="/api_docs/python/tf/tpu/shard"><code>tf.contrib.tpu.shard</code></a>
+
 
 ``` python
 tf.tpu.shard(
@@ -28,8 +40,6 @@ tf.tpu.shard(
 ```
 
 
-
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
 
 <!-- Placeholder for "Used in" -->
 

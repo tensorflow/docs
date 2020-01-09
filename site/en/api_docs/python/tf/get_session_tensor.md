@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.get_session_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/session_ops.py#L182-L220">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get the tensor of type `dtype` by feeding a tensor handle.
 
 ### Aliases:
 
-* `tf.compat.v1.get_session_tensor`
-* `tf.get_session_tensor`
+* <a href="/api_docs/python/tf/get_session_tensor"><code>tf.compat.v1.get_session_tensor</code></a>
+
 
 ``` python
 tf.get_session_tensor(
@@ -21,8 +33,6 @@ tf.get_session_tensor(
 ```
 
 
-
-Defined in [`python/ops/session_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/session_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.compat.v2.estimator.export
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
 All public utility methods for exporting Estimator to SavedModel.
-
-
-
-Defined in [`python/estimator/api/_v2/estimator/export/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v2/estimator/export/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,4 +36,3 @@ This file includes functions and constants from core (model_utils) and export.py
 [`build_parsing_serving_input_receiver_fn(...)`](../../../../tf/estimator/export/build_parsing_serving_input_receiver_fn): Build a serving_input_receiver_fn expecting fed tf.Examples.
 
 [`build_raw_serving_input_receiver_fn(...)`](../../../../tf/estimator/export/build_raw_serving_input_receiver_fn): Build a serving_input_receiver_fn expecting feature Tensors.
-

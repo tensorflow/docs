@@ -5,27 +5,44 @@ page_type: reference
 
 # tf.roll
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/roll">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/manip_ops.py#L27-L30">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rolls the elements of a tensor along an axis.
 
 ### Aliases:
 
-* `tf.compat.v1.manip.roll`
-* `tf.compat.v1.roll`
-* `tf.compat.v2.roll`
-* `tf.manip.roll`
-* `tf.roll`
+* <a href="/api_docs/python/tf/roll"><code>tf.compat.v1.manip.roll</code></a>
+* <a href="/api_docs/python/tf/roll"><code>tf.compat.v1.roll</code></a>
+* <a href="/api_docs/python/tf/roll"><code>tf.compat.v2.roll</code></a>
+* <a href="/api_docs/python/tf/roll"><code>tf.manip.roll</code></a>
+
 
 ``` python
 tf.roll(
     input,
     shift,
-    axis
+    axis,
+    name=None
 )
 ```
 
 
-
-Defined in [`python/ops/manip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/manip_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

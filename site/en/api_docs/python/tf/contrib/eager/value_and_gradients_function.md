@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.value_and_gradients_function
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L406-L471">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a function that computes f and its derivative w.r.t. params.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.eager.value_and_gradients_function(
 ```
 
 
-
-Defined in [`python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/backprop.py).
 
 <!-- Placeholder for "Used in" -->
 

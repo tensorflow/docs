@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.make_batched_features_dataset
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/readers.py#L164-L274">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a `Dataset` of feature dictionaries from `Example` protos. (deprecated)
 
 ``` python
@@ -19,17 +31,15 @@ tf.contrib.data.make_batched_features_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=optimization.AUTOTUNE,
-    reader_num_threads=1,
-    parser_num_threads=2,
+    prefetch_buffer_size=None,
+    reader_num_threads=None,
+    parser_num_threads=None,
     sloppy_ordering=False,
     drop_final_batch=False
 )
 ```
 
 
-
-Defined in [`contrib/data/python/ops/readers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/readers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -111,9 +121,9 @@ And the expected output is:
   improve performance. Recommended value is the number of batches consumed
   per training step. Defaults to auto-tune.
 * <b>`reader_num_threads`</b>: Number of threads used to read `Example` records. If >1,
-  the results will be interleaved.
+  the results will be interleaved. Defaults to `1`.
 * <b>`parser_num_threads`</b>: Number of threads to use for parsing `Example` tensors
-  into a dictionary of `Feature` tensors.
+  into a dictionary of `Feature` tensors. Defaults to `2`.
 * <b>`sloppy_ordering`</b>: If `True`, reading performance will be improved at
   the cost of non-deterministic ordering. If `False`, the order of elements
   produced is deterministic prior to shuffling (elements are still

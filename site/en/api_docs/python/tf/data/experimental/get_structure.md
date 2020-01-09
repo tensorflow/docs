@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.get_structure
 
-Returns the <a href="../../../tf/data/experimental/Structure"><code>tf.data.experimental.Structure</code></a> of a `Dataset` or `Iterator`.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/get_structure">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2118-L2137">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Returns the type specification of an element of a `Dataset` or `Iterator`.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.get_structure`
-* `tf.compat.v2.data.experimental.get_structure`
-* `tf.data.experimental.get_structure`
+* <a href="/api_docs/python/tf/data/experimental/get_structure"><code>tf.compat.v1.data.experimental.get_structure</code></a>
+* <a href="/api_docs/python/tf/data/experimental/get_structure"><code>tf.compat.v2.data.experimental.get_structure</code></a>
+
 
 ``` python
 tf.data.experimental.get_structure(dataset_or_iterator)
@@ -19,26 +37,24 @@ tf.data.experimental.get_structure(dataset_or_iterator)
 
 
 
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 #### Args:
 
 
-* <b>`dataset_or_iterator`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>, <a href="../../../tf/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a>, or
-  `IteratorV2`.
+* <b>`dataset_or_iterator`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> or <a href="../../../tf/data/Iterator"><code>tf.data.Iterator</code></a>.
 
 
 #### Returns:
 
-A <a href="../../../tf/data/experimental/Structure"><code>tf.data.experimental.Structure</code></a> representing the structure of the
-elements of `dataset_or_iterator`.
+A nested structure of <a href="../../../tf/TypeSpec"><code>tf.TypeSpec</code></a> objects matching the structure of an
+element of `dataset_or_iterator` and spacifying the type of individal
+components.
 
 
 
 #### Raises:
 
 
-* <b>`TypeError`</b>: If `dataset_or_iterator` is not a dataset or iterator object.
+* <b>`TypeError`</b>: If `dataset_or_iterator` is not a `Dataset` or `Iterator` object.

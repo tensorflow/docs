@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.initializers.variance_scaling
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L451-L542">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `variance_scaling`
 
 Initializer capable of adapting its scale to the shape of weights tensors.
@@ -13,16 +25,12 @@ Inherits From: [`Initializer`](../../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.initializers.variance_scaling`
-* Class `tf.compat.v1.keras.initializers.VarianceScaling`
-* Class `tf.compat.v1.variance_scaling_initializer`
-* Class `tf.initializers.variance_scaling`
-* Class `tf.keras.initializers.VarianceScaling`
-* Class `tf.variance_scaling_initializer`
+* Class <a href="/api_docs/python/tf/initializers/variance_scaling"><code>tf.compat.v1.initializers.variance_scaling</code></a>
+* Class <a href="/api_docs/python/tf/initializers/variance_scaling"><code>tf.compat.v1.keras.initializers.VarianceScaling</code></a>
+* Class <a href="/api_docs/python/tf/initializers/variance_scaling"><code>tf.compat.v1.variance_scaling_initializer</code></a>
+* Class <a href="/api_docs/python/tf/initializers/variance_scaling"><code>tf.keras.initializers.VarianceScaling</code></a>
+* Class <a href="/api_docs/python/tf/initializers/variance_scaling"><code>tf.variance_scaling_initializer</code></a>
 
-
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,6 +66,8 @@ within [-limit, limit], with `limit = sqrt(3 * scale / n)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L480-L506">View source</a>
+
 ``` python
 __init__(
     scale=1.0,
@@ -84,6 +94,8 @@ Instructions for updating:
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L508-L533">View source</a>
+
 ``` python
 __call__(
     shape,
@@ -92,10 +104,21 @@ __call__(
 )
 ```
 
+Returns a tensor object initialized as specified by the initializer.
 
 
+#### Args:
+
+
+* <b>`shape`</b>: Shape of the tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
+  dtype.
+* <b>`partition_info`</b>: Optional information about the possible partitioning of a
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
 
 ``` python
 from_config(
@@ -131,12 +154,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L535-L542">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.compat.v2.autograph.to_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/impl/api.py#L549-L618">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts a Python entity into a TensorFlow graph.
 
 ### Aliases:
 
-* `tf.compat.v2.autograph.to_graph`
-* `tf.contrib.autograph.to_graph`
+* <a href="/api_docs/python/tf/compat/v2/autograph/to_graph"><code>tf.contrib.autograph.to_graph</code></a>
+
 
 ``` python
 tf.compat.v2.autograph.to_graph(
@@ -21,8 +33,6 @@ tf.compat.v2.autograph.to_graph(
 ```
 
 
-
-Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
 <!-- Placeholder for "Used in" -->
 

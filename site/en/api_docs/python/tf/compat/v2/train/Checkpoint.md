@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.train.Checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1679-L1976">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Checkpoint`
 
 Groups trackable objects, saving and restoring them.
 
 Inherits From: [`Checkpointable`](../../../../tf/contrib/checkpoint/Checkpointable)
-
-
-
-Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -42,7 +50,7 @@ status.assert_consumed()  # Optional sanity checks.
 checkpoint.save(file_prefix=checkpoint_prefix)
 ```
 
-`Checkpoint.save` and `Checkpoint.restore` write and read object-based
+<a href="/api_docs/python/tf/train/Checkpoint#save"><code>Checkpoint.save</code></a> and <a href="/api_docs/python/tf/train/Checkpoint#restore"><code>Checkpoint.restore</code></a> write and read object-based
 checkpoints, in contrast to TensorFlow 1.x's <a href="../../../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> which
 writes and
 reads `variable.name` based checkpoints. Object-based checkpointing saves a
@@ -101,6 +109,8 @@ training checkpoints.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1761-L1783">View source</a>
+
 ``` python
 __init__(**kwargs)
 ```
@@ -140,6 +150,8 @@ The save counter variable.
 ## Methods
 
 <h3 id="restore"><code>restore</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1897-L1976">View source</a>
 
 ``` python
 restore(save_path)
@@ -225,6 +237,8 @@ The returned status object has the following methods:
 
 <h3 id="save"><code>save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1842-L1895">View source</a>
+
 ``` python
 save(file_prefix)
 ```
@@ -232,7 +246,7 @@ save(file_prefix)
 Saves a training checkpoint and provides basic checkpoint management.
 
 The saved checkpoint includes variables created by this object and any
-trackable objects it depends on at the time `Checkpoint.save()` is
+trackable objects it depends on at the time <a href="/api_docs/python/tf/train/Checkpoint#save"><code>Checkpoint.save()</code></a> is
 called.
 
 `save` is a basic convenience wrapper around the `write` method,
@@ -247,7 +261,7 @@ provided by other utilities which also wrap `write`
 
 * <b>`file_prefix`</b>: A prefix to use for the checkpoint filenames
   (/path/to/directory/and_a_prefix). Names are generated based on this
-  prefix and `Checkpoint.save_counter`.
+  prefix and <a href="/api_docs/python/tf/train/Checkpoint#save_counter"><code>Checkpoint.save_counter</code></a>.
 
 
 #### Returns:
@@ -257,6 +271,8 @@ The full path to the checkpoint.
 
 <h3 id="write"><code>write</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L1800-L1828">View source</a>
+
 ``` python
 write(file_prefix)
 ```
@@ -264,7 +280,7 @@ write(file_prefix)
 Writes a training checkpoint.
 
 The checkpoint includes variables created by this object and any
-trackable objects it depends on at the time `Checkpoint.write()` is
+trackable objects it depends on at the time <a href="/api_docs/python/tf/train/Checkpoint#write"><code>Checkpoint.write()</code></a> is
 called.
 
 `write` does not number checkpoints, increment `save_counter`, or update the
@@ -282,7 +298,3 @@ basic implementation of these features.
 #### Returns:
 
 The full path to the checkpoint (i.e. `file_prefix`).
-
-
-
-

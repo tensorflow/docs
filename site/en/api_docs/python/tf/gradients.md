@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.gradients
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/gradients">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradients_impl.py#L43-L158">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
 
 ### Aliases:
 
-* `tf.compat.v1.gradients`
-* `tf.gradients`
+* <a href="/api_docs/python/tf/gradients"><code>tf.compat.v1.gradients</code></a>
+
 
 ``` python
 tf.gradients(
@@ -27,8 +45,6 @@ tf.gradients(
 ```
 
 
-
-Defined in [`python/ops/gradients_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradients_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

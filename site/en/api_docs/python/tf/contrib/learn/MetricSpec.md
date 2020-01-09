@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.MetricSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/metric_spec.py#L229-L442">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MetricSpec`
 
 MetricSpec connects a model to metric functions.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/metric_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/metric_spec.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -25,7 +33,7 @@ The MetricSpec class contains all information necessary to connect the
 output of a `model_fn` to the metrics (usually, streaming metrics) that are
 used in evaluation.
 
-It is passed in the `metrics` argument of `Estimator.evaluate`. The
+It is passed in the `metrics` argument of <a href="/api_docs/python/tf/estimator/Estimator#evaluate"><code>Estimator.evaluate</code></a>. The
 `Estimator` then knows which predictions, labels, and weight to use to call a
 given metric function.
 
@@ -83,6 +91,8 @@ _ = estimator.evaluate(
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/metric_spec.py#L297-L335">View source</a>
 
 ``` python
 __init__(
@@ -161,6 +171,8 @@ Function, see `metric_fn` constructor argument for more details.
 
 <h3 id="create_metric_ops"><code>create_metric_ops</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/metric_spec.py#L369-L442">View source</a>
+
 ``` python
 create_metric_ops(
     inputs,
@@ -213,6 +225,3 @@ The result of calling `metric_fn`.
   `self.label_key` is `None` but `labels` is a dict with more than one
   element, or if `self.prediction_key` is `None` but `predictions` is a
   dict with more than one element.
-
-
-

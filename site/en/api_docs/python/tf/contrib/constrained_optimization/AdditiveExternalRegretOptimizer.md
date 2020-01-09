@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.constrained_optimization.AdditiveExternalRegretOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py#L319-L393">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AdditiveExternalRegretOptimizer`
 
 A `ConstrainedOptimizer` based on external-regret minimization.
 
 
-
-
-
-Defined in [`contrib/constrained_optimization/python/external_regret_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ model parameters, and uses <a href="../../../tf/train/Optimizer"><code>tf.compat
 for the "inner" updates.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/external_regret_optimizer.py#L341-L369">View source</a>
 
 ``` python
 __init__(
@@ -91,6 +101,8 @@ Returns the <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optim
 ## Methods
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py#L201-L279">View source</a>
 
 ``` python
 minimize(
@@ -148,6 +160,8 @@ problem.
 
 <h3 id="minimize_constrained"><code>minimize_constrained</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py#L93-L145">View source</a>
+
 ``` python
 minimize_constrained(
     minimization_problem,
@@ -190,6 +204,8 @@ satisfying the `constraints` portion.
 
 <h3 id="minimize_unconstrained"><code>minimize_unconstrained</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/constrained_optimizer.py#L147-L199">View source</a>
+
 ``` python
 minimize_unconstrained(
     minimization_problem,
@@ -228,7 +244,3 @@ minimizes `objective`.
 #### Returns:
 
 `Operation`, the train_op.
-
-
-
-

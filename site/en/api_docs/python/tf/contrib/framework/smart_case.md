@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.smart_case
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/smart_cond.py#L93-L119">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Like tf.case, except attempts to statically evaluate predicates.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.framework.smart_case(
 ```
 
 
-
-Defined in [`python/framework/smart_cond.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/smart_cond.py).
 
 <!-- Placeholder for "Used in" -->
 

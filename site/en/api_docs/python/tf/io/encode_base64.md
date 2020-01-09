@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.io.encode_base64
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/encode_base64">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Encode strings into web-safe base64 format.
 
 ### Aliases:
 
-* `tf.compat.v1.encode_base64`
-* `tf.compat.v1.io.encode_base64`
-* `tf.compat.v2.io.encode_base64`
-* `tf.encode_base64`
-* `tf.io.encode_base64`
+* <a href="/api_docs/python/tf/io/encode_base64"><code>tf.compat.v1.encode_base64</code></a>
+* <a href="/api_docs/python/tf/io/encode_base64"><code>tf.compat.v1.io.encode_base64</code></a>
+* <a href="/api_docs/python/tf/io/encode_base64"><code>tf.compat.v2.io.encode_base64</code></a>
+* <a href="/api_docs/python/tf/io/encode_base64"><code>tf.encode_base64</code></a>
+
 
 ``` python
 tf.io.encode_base64(
@@ -24,8 +38,6 @@ tf.io.encode_base64(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

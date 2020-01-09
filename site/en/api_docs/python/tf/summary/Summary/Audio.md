@@ -5,22 +5,30 @@ page_type: reference
 
 # tf.summary.Summary.Audio
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/summary.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Audio`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.Summary.Audio`
-* Class `tf.compat.v1.Summary.Audio`
-* Class `tf.compat.v1.summary.Summary.Audio`
-* Class `tf.summary.Summary.Audio`
+* Class <a href="/api_docs/python/tf/summary/Summary/Audio"><code>tf.Summary.Audio</code></a>
+* Class <a href="/api_docs/python/tf/summary/Summary/Audio"><code>tf.compat.v1.Summary.Audio</code></a>
+* Class <a href="/api_docs/python/tf/summary/Summary/Audio"><code>tf.compat.v1.summary.Summary.Audio</code></a>
 
-
-
-Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/summary.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,7 +58,3 @@ Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensor
 <h3 id="sample_rate"><code>sample_rate</code></h3>
 
 `float sample_rate`
-
-
-
-

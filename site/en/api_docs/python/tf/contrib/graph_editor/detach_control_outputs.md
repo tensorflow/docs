@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.detach_control_outputs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/edit.py#L51-L67">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Detach all the external control outputs of the subgraph sgv.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.graph_editor.detach_control_outputs(
 ```
 
 
-
-Defined in [`contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/edit.py).
 
 <!-- Placeholder for "Used in" -->
 

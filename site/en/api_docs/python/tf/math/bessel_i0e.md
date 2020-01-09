@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.math.bessel_i0e
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/bessel_i0e">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the Bessel i0e function of `x` element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.bessel_i0e`
-* `tf.compat.v2.math.bessel_i0e`
-* `tf.math.bessel_i0e`
+* <a href="/api_docs/python/tf/math/bessel_i0e"><code>tf.compat.v1.math.bessel_i0e</code></a>
+* <a href="/api_docs/python/tf/math/bessel_i0e"><code>tf.compat.v2.math.bessel_i0e</code></a>
+
 
 ``` python
 tf.math.bessel_i0e(
@@ -21,8 +35,6 @@ tf.math.bessel_i0e(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

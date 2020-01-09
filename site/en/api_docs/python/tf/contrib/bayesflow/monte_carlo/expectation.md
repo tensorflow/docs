@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.contrib.bayesflow.monte_carlo.expectation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py#L192-L351">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the Monte-Carlo approximation of \\(E_p[f(X)]\\). (deprecated)
 
 ``` python
@@ -22,13 +34,11 @@ tf.contrib.bayesflow.monte_carlo.expectation(
 
 
 
-Defined in [`contrib/bayesflow/python/ops/monte_carlo_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/bayesflow/python/ops/monte_carlo_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
-The tf.contrib.bayesflow library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). Use `tfp.monte_carlo.expectation` instead.
+The tf.contrib.bayesflow library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). Use <a href="/probability/api_docs/python/tfp/monte_carlo/expectation"><code>tfp.monte_carlo.expectation</code></a> instead.
 
 This function computes the Monte-Carlo approximation of an expectation, i.e.,
 

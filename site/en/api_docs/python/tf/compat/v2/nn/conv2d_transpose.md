@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.conv2d_transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2207-L2275">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 The transpose of `conv2d`.
 
 ``` python
@@ -22,8 +34,6 @@ tf.compat.v2.nn.conv2d_transpose(
 
 
 
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 This operation is sometimes called "deconvolution" after [Deconvolutional
@@ -37,9 +47,9 @@ deconvolution.
 * <b>`input`</b>: A 4-D `Tensor` of type `float` and shape `[batch, height, width,
   in_channels]` for `NHWC` data format or `[batch, in_channels, height,
   width]` for `NCHW` data format.
-* <b>`filters`</b>: A 4-D `Tensor` with the same type as `value` and shape `[height,
+* <b>`filters`</b>: A 4-D `Tensor` with the same type as `input` and shape `[height,
   width, output_channels, in_channels]`.  `filter`'s `in_channels` dimension
-  must match that of `value`.
+  must match that of `input`.
 * <b>`output_shape`</b>: A 1-D `Tensor` representing the output shape of the
   deconvolution op.
 * <b>`strides`</b>: An int or list of `ints` that has length `1`, `2` or `4`.  The
@@ -63,7 +73,7 @@ deconvolution.
 
 #### Returns:
 
-A `Tensor` with the same type as `value`.
+A `Tensor` with the same type as `input`.
 
 
 

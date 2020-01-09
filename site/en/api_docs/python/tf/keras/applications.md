@@ -6,40 +6,54 @@ page_type: reference
 # Module: tf.keras.applications
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/applications">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Keras Applications are canned architectures with pre-trained weights.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.applications`
-* Module `tf.keras.applications`
+* Module <a href="/api_docs/python/tf/keras/applications"><code>tf.compat.v1.keras.applications</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/applications/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/applications/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`densenet`](../../tf/keras/applications/densenet) module
+[`densenet`](../../tf/keras/applications/densenet) module: DenseNet models for Keras.
 
-[`inception_resnet_v2`](../../tf/keras/applications/inception_resnet_v2) module
+[`imagenet_utils`](../../tf/keras/applications/imagenet_utils) module: Utilities for ImageNet data preprocessing & prediction decoding.
 
-[`inception_v3`](../../tf/keras/applications/inception_v3) module
+[`inception_resnet_v2`](../../tf/keras/applications/inception_resnet_v2) module: Inception-ResNet V2 model for Keras.
 
-[`mobilenet`](../../tf/keras/applications/mobilenet) module
+[`inception_v3`](../../tf/keras/applications/inception_v3) module: Inception V3 model for Keras.
 
-[`mobilenet_v2`](../../tf/keras/applications/mobilenet_v2) module
+[`mobilenet`](../../tf/keras/applications/mobilenet) module: MobileNet v1 models for Keras.
 
-[`nasnet`](../../tf/keras/applications/nasnet) module
+[`mobilenet_v2`](../../tf/keras/applications/mobilenet_v2) module: MobileNet v2 models for Keras.
 
-[`resnet50`](../../tf/keras/applications/resnet50) module
+[`nasnet`](../../tf/keras/applications/nasnet) module: NASNet-A models for Keras.
 
-[`vgg16`](../../tf/keras/applications/vgg16) module
+[`resnet`](../../tf/keras/applications/resnet) module: ResNet models for Keras.
 
-[`vgg19`](../../tf/keras/applications/vgg19) module
+[`resnet50`](../../tf/keras/applications/resnet50) module: Public API for tf.keras.applications.resnet50 namespace.
 
-[`xception`](../../tf/keras/applications/xception) module
+[`resnet_v2`](../../tf/keras/applications/resnet_v2) module: ResNet v2 models for Keras.
+
+[`vgg16`](../../tf/keras/applications/vgg16) module: VGG16 model for Keras.
+
+[`vgg19`](../../tf/keras/applications/vgg19) module: VGG19 model for Keras.
+
+[`xception`](../../tf/keras/applications/xception) module: Xception V1 model for Keras.
 
 ## Functions
 
@@ -61,11 +75,20 @@ Defined in [`python/keras/api/_v1/keras/applications/__init__.py`](https://githu
 
 [`NASNetMobile(...)`](../../tf/keras/applications/NASNetMobile)
 
+[`ResNet101(...)`](../../tf/keras/applications/ResNet101)
+
+[`ResNet101V2(...)`](../../tf/keras/applications/ResNet101V2)
+
+[`ResNet152(...)`](../../tf/keras/applications/ResNet152)
+
+[`ResNet152V2(...)`](../../tf/keras/applications/ResNet152V2)
+
 [`ResNet50(...)`](../../tf/keras/applications/ResNet50)
+
+[`ResNet50V2(...)`](../../tf/keras/applications/ResNet50V2)
 
 [`VGG16(...)`](../../tf/keras/applications/VGG16)
 
 [`VGG19(...)`](../../tf/keras/applications/VGG19)
 
 [`Xception(...)`](../../tf/keras/applications/Xception)
-

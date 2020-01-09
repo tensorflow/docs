@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Layer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/base.py#L158-L579">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Layer`
 
 Base layer class.
@@ -13,12 +25,8 @@ Inherits From: [`Layer`](../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Layer`
-* Class `tf.layers.Layer`
+* Class <a href="/api_docs/python/tf/layers/Layer"><code>tf.compat.v1.layers.Layer</code></a>
 
-
-
-Defined in [`python/layers/base.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/base.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,6 +66,8 @@ Read-only properties:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/base.py#L192-L235">View source</a>
+
 ``` python
 __init__(
     trainable=True,
@@ -83,9 +93,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

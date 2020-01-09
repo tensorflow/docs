@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.experimental.CosineDecayRestarts
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/experimental/CosineDecayRestarts">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L606-L726">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CosineDecayRestarts`
 
 A LearningRateSchedule that uses a cosine decay schedule with restarts.
@@ -13,18 +31,16 @@ Inherits From: [`LearningRateSchedule`](../../../tf/keras/optimizers/schedules/L
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.experimental.CosineDecayRestarts`
-* Class `tf.compat.v2.keras.experimental.CosineDecayRestarts`
-* Class `tf.keras.experimental.CosineDecayRestarts`
+* Class <a href="/api_docs/python/tf/keras/experimental/CosineDecayRestarts"><code>tf.compat.v1.keras.experimental.CosineDecayRestarts</code></a>
+* Class <a href="/api_docs/python/tf/keras/experimental/CosineDecayRestarts"><code>tf.compat.v2.keras.experimental.CosineDecayRestarts</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/learning_rate_schedule.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L609-L675">View source</a>
 
 ``` python
 __init__(
@@ -65,7 +81,6 @@ first_decay_steps = 1000
 lr_decayed_fn = (
   tf.keras.experimental.CosineDecayRestarts(
       initial_learning_rate,
-      global_step,
       first_decay_steps))
 ```
 
@@ -96,25 +111,24 @@ step and outputs the decayed learning rate, a scalar `Tensor` of the same
 type as `initial_learning_rate`.
 
 
-#### Raises:
-
-
-* <b>`ValueError`</b>: if `global_step` is not supplied.
-
 
 
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L677-L716">View source</a>
+
 ``` python
 __call__(step)
 ```
 
-
+Call self as a function.
 
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
 
 ``` python
 from_config(
@@ -139,12 +153,8 @@ A `LearningRateSchedule` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L718-L726">View source</a>
+
 ``` python
 get_config()
 ```
-
-
-
-
-
-

@@ -5,15 +5,27 @@ page_type: reference
 
 # tf.div
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1069-L1092">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Divides x / y elementwise (using Python 2 division operator semantics). (deprecated)
 
 ### Aliases:
 
-* `tf.RaggedTensor.__div__`
-* `tf.compat.v1.RaggedTensor.__div__`
-* `tf.compat.v1.div`
-* `tf.compat.v2.RaggedTensor.__div__`
-* `tf.div`
+* <a href="/api_docs/python/tf/RaggedTensor#__div__"><code>tf.RaggedTensor.__div__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__div__"><code>tf.compat.v1.RaggedTensor.__div__</code></a>
+* <a href="/api_docs/python/tf/div"><code>tf.compat.v1.div</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__div__"><code>tf.compat.v2.RaggedTensor.__div__</code></a>
+
 
 ``` python
 tf.div(
@@ -24,8 +36,6 @@ tf.div(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

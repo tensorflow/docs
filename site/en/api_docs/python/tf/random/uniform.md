@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.random.uniform
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/uniform">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L186-L252">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Outputs random values from a uniform distribution.
 
 ### Aliases:
 
-* `tf.compat.v1.random.uniform`
-* `tf.compat.v1.random_uniform`
-* `tf.compat.v2.random.uniform`
-* `tf.random.uniform`
-* `tf.random_uniform`
+* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v1.random.uniform</code></a>
+* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v1.random_uniform</code></a>
+* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v2.random.uniform</code></a>
+* <a href="/api_docs/python/tf/random/uniform"><code>tf.random_uniform</code></a>
+
 
 ``` python
 tf.random.uniform(
@@ -27,8 +45,6 @@ tf.random.uniform(
 ```
 
 
-
-Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

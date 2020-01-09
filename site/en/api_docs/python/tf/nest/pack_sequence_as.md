@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.nest.pack_sequence_as
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nest/pack_sequence_as">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L417-L472">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a given flattened sequence packed into a given structure.
 
 ### Aliases:
 
-* `tf.compat.v1.nest.pack_sequence_as`
-* `tf.compat.v2.nest.pack_sequence_as`
-* `tf.contrib.framework.nest.pack_sequence_as`
-* `tf.nest.pack_sequence_as`
+* <a href="/api_docs/python/tf/nest/pack_sequence_as"><code>tf.compat.v1.nest.pack_sequence_as</code></a>
+* <a href="/api_docs/python/tf/nest/pack_sequence_as"><code>tf.compat.v2.nest.pack_sequence_as</code></a>
+* <a href="/api_docs/python/tf/nest/pack_sequence_as"><code>tf.contrib.framework.nest.pack_sequence_as</code></a>
+
 
 ``` python
 tf.nest.pack_sequence_as(
@@ -23,8 +41,6 @@ tf.nest.pack_sequence_as(
 ```
 
 
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 

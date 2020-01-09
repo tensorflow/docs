@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Attention
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Attention">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/dense_attention.py#L187-L313">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Attention`
 
 Dot-product attention layer, a.k.a. Luong-style attention.
@@ -13,13 +31,9 @@ Dot-product attention layer, a.k.a. Luong-style attention.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Attention`
-* Class `tf.compat.v2.keras.layers.Attention`
-* Class `tf.keras.layers.Attention`
+* Class <a href="/api_docs/python/tf/keras/layers/Attention"><code>tf.compat.v1.keras.layers.Attention</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Attention"><code>tf.compat.v2.keras.layers.Attention</code></a>
 
-
-
-Defined in [`python/keras/layers/dense_attention.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/dense_attention.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -121,15 +135,11 @@ input_layer = tf.keras.layers.Concatenate()(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/dense_attention.py#L279-L281">View source</a>
+
 ``` python
 __init__(
     use_scale=False,
     **kwargs
 )
 ```
-
-
-
-
-
-

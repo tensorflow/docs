@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.RegisterGradient
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/RegisterGradient">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2445-L2487">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RegisterGradient`
 
 A decorator for registering the gradient function for an op type.
@@ -13,13 +31,9 @@ A decorator for registering the gradient function for an op type.
 
 ### Aliases:
 
-* Class `tf.RegisterGradient`
-* Class `tf.compat.v1.RegisterGradient`
-* Class `tf.compat.v2.RegisterGradient`
+* Class <a href="/api_docs/python/tf/RegisterGradient"><code>tf.compat.v1.RegisterGradient</code></a>
+* Class <a href="/api_docs/python/tf/RegisterGradient"><code>tf.compat.v2.RegisterGradient</code></a>
 
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,6 +60,8 @@ that defines the operation.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2470-L2482">View source</a>
+
 ``` python
 __init__(op_type)
 ```
@@ -60,17 +76,21 @@ Creates a new decorator with `op_type` as the Operation type.
   `OpDef.name` field for the proto that defines the operation.
 
 
+#### Raises:
+
+
+* <b>`TypeError`</b>: If `op_type` is not string.
+
+
 
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2484-L2487">View source</a>
 
 ``` python
 __call__(f)
 ```
 
 Registers the function `f` as gradient function for `op_type`.
-
-
-
-

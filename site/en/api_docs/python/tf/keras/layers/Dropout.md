@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Dropout
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Dropout">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L110-L179">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Dropout`
 
 Applies Dropout to the input.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Dropout`
-* Class `tf.compat.v2.keras.layers.Dropout`
-* Class `tf.keras.layers.Dropout`
+* Class <a href="/api_docs/python/tf/keras/layers/Dropout"><code>tf.compat.v1.keras.layers.Dropout</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Dropout"><code>tf.compat.v2.keras.layers.Dropout</code></a>
 
-
-
-Defined in [`python/keras/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,6 +63,8 @@ which helps prevent overfitting.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L133-L138">View source</a>
+
 ``` python
 __init__(
     rate,
@@ -57,9 +73,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

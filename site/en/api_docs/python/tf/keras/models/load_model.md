@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.models.load_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/models/load_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/save.py#L115-L151">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Loads a model saved via `save_model`.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.models.load_model`
-* `tf.compat.v2.keras.models.load_model`
-* `tf.keras.models.load_model`
+* <a href="/api_docs/python/tf/keras/models/load_model"><code>tf.compat.v1.keras.models.load_model</code></a>
+* <a href="/api_docs/python/tf/keras/models/load_model"><code>tf.compat.v2.keras.models.load_model</code></a>
+
 
 ``` python
 tf.keras.models.load_model(
@@ -22,8 +40,6 @@ tf.keras.models.load_model(
 ```
 
 
-
-Defined in [`python/keras/saving/save.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/saving/save.py).
 
 <!-- Placeholder for "Used in" -->
 

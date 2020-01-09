@@ -6,15 +6,33 @@ page_type: reference
 # tf.keras.applications.Xception
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/applications/Xception">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/applications/__init__.py#L43-L49">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ### Aliases:
 
-* `tf.compat.v1.keras.applications.Xception`
-* `tf.compat.v1.keras.applications.xception.Xception`
-* `tf.compat.v2.keras.applications.Xception`
-* `tf.compat.v2.keras.applications.xception.Xception`
-* `tf.keras.applications.Xception`
-* `tf.keras.applications.xception.Xception`
+* <a href="/api_docs/python/tf/keras/applications/Xception"><code>tf.compat.v1.keras.applications.Xception</code></a>
+* <a href="/api_docs/python/tf/keras/applications/Xception"><code>tf.compat.v1.keras.applications.xception.Xception</code></a>
+* <a href="/api_docs/python/tf/keras/applications/Xception"><code>tf.compat.v2.keras.applications.Xception</code></a>
+* <a href="/api_docs/python/tf/keras/applications/Xception"><code>tf.compat.v2.keras.applications.xception.Xception</code></a>
+* <a href="/api_docs/python/tf/keras/applications/Xception"><code>tf.keras.applications.xception.Xception</code></a>
+
 
 ``` python
 tf.keras.applications.Xception(
@@ -24,7 +42,5 @@ tf.keras.applications.Xception(
 ```
 
 
-
-Defined in [`python/keras/applications/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/applications/__init__.py).
 
 <!-- Placeholder for "Used in" -->

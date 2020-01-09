@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.initialize_local_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3265-L3270">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 See <a href="../tf/initializers/local_variables"><code>tf.compat.v1.local_variables_initializer</code></a>. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.initialize_local_variables`
-* `tf.initialize_local_variables`
+* <a href="/api_docs/python/tf/initialize_local_variables"><code>tf.compat.v1.initialize_local_variables</code></a>
+
 
 ``` python
 tf.initialize_local_variables()
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sparse.segment_sqrt_n
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/segment_sqrt_n">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3838-L3873">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the sum along sparse segments of a tensor divided by the sqrt(N).
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.segment_sqrt_n`
-* `tf.compat.v1.sparse_segment_sqrt_n`
-* `tf.sparse.segment_sqrt_n`
-* `tf.sparse_segment_sqrt_n`
+* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.compat.v1.sparse.segment_sqrt_n</code></a>
+* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.compat.v1.sparse_segment_sqrt_n</code></a>
+* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.sparse_segment_sqrt_n</code></a>
+
 
 ``` python
 tf.sparse.segment_sqrt_n(
@@ -25,8 +43,6 @@ tf.sparse.segment_sqrt_n(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

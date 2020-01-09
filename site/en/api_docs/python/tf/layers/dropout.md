@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.dropout
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L229-L271">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Applies Dropout to the input. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.dropout`
-* `tf.layers.dropout`
+* <a href="/api_docs/python/tf/layers/dropout"><code>tf.compat.v1.layers.dropout</code></a>
+
 
 ``` python
 tf.layers.dropout(
@@ -24,8 +36,6 @@ tf.layers.dropout(
 ```
 
 
-
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 

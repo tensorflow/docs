@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.checkpoint.dot_graph_from_checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/python/visualize.py#L25-L99">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Visualizes an object-based checkpoint (from <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>).
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.checkpoint.dot_graph_from_checkpoint(save_path)
 ```
 
 
-
-Defined in [`contrib/checkpoint/python/visualize.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/visualize.py).
 
 <!-- Placeholder for "Used in" -->
 

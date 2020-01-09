@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.histogram_fixed_width
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/histogram_fixed_width">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/histogram_ops.py#L103-L150">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return histogram of values.
 
 ### Aliases:
 
-* `tf.compat.v1.histogram_fixed_width`
-* `tf.compat.v2.histogram_fixed_width`
-* `tf.histogram_fixed_width`
+* <a href="/api_docs/python/tf/histogram_fixed_width"><code>tf.compat.v1.histogram_fixed_width</code></a>
+* <a href="/api_docs/python/tf/histogram_fixed_width"><code>tf.compat.v2.histogram_fixed_width</code></a>
+
 
 ``` python
 tf.histogram_fixed_width(
@@ -24,8 +42,6 @@ tf.histogram_fixed_width(
 ```
 
 
-
-Defined in [`python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/histogram_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,6 +65,14 @@ equal width and determined by the arguments `value_range` and `nbins`.
 
 A 1-D `Tensor` holding histogram of values.
 
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: If any unsupported dtype is provided.
+* <b><a href="/api_docs/python/tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a></b>: If value_range does not
+    satisfy value_range[0] < value_range[1].
 
 
 #### Examples:

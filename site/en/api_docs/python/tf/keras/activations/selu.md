@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.activations.selu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/activations/selu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/activations.py#L94-L149">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Scaled Exponential Linear Unit (SELU).
 
 ### Aliases:
 
-* `tf.compat.v1.keras.activations.selu`
-* `tf.compat.v2.keras.activations.selu`
-* `tf.keras.activations.selu`
+* <a href="/api_docs/python/tf/keras/activations/selu"><code>tf.compat.v1.keras.activations.selu</code></a>
+* <a href="/api_docs/python/tf/keras/activations/selu"><code>tf.compat.v2.keras.activations.selu</code></a>
+
 
 ``` python
 tf.keras.activations.selu(x)
 ```
 
 
-
-Defined in [`python/keras/activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/activations.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,8 +52,8 @@ for positive net inputs.
 The values of `alpha` and `scale` are
 chosen so that the mean and variance of the inputs are preserved
 between two consecutive layers as long as the weights are initialized
-correctly (see [`lecun_normal` initialization](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/lecun_normal)
-)
+correctly (see [`lecun_normal` initialization]
+(https://www.tensorflow.org/api_docs/python/tf/keras/initializers/lecun_normal))
 and the number of inputs is "large enough"
 (see references for more information).
 
@@ -49,7 +65,7 @@ https://towardsdatascience.com/selu-make-fnns-great-again-snn-8d61526802a9)
 
 
 ```python3
-n_classes = 10 #10-class problem
+n_classes = 10 #10_class problem
 model = models.Sequential()
 model.add(Dense(64, kernel_initializer='lecun_normal', activation='selu',
 input_shape=(28, 28, 1))))
@@ -77,4 +93,5 @@ The scaled exponential unit activation: `scale * elu(x, alpha)`.
 
 #### References:
 
-[Self-Normalizing Neural Networks (Klambauer et al, 2017)](https://arxiv.org/abs/1706.02515)
+[Self-Normalizing Neural Networks (Klambauer et al, 2017)]
+(https://arxiv.org/abs/1706.02515)

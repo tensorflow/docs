@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.distributions.kl_divergence
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/kullback_leibler.py#L55-L121">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get the KL-divergence KL(distribution_a || distribution_b). (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.distributions.kl_divergence`
-* `tf.contrib.distributions.kl_divergence`
-* `tf.distributions.kl_divergence`
+* <a href="/api_docs/python/tf/distributions/kl_divergence"><code>tf.compat.v1.distributions.kl_divergence</code></a>
+* <a href="/api_docs/python/tf/distributions/kl_divergence"><code>tf.contrib.distributions.kl_divergence</code></a>
+
 
 ``` python
 tf.distributions.kl_divergence(
@@ -24,13 +36,11 @@ tf.distributions.kl_divergence(
 
 
 
-Defined in [`python/ops/distributions/kullback_leibler.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/kullback_leibler.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-01-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
 
 If there is no KL method registered specifically for `type(distribution_a)`
 and `type(distribution_b)`, then the class hierarchies of these types are

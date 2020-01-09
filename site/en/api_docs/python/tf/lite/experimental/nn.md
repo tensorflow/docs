@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.lite.experimental.nn
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.lite.experimental.nn namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -19,4 +25,3 @@ page_type: reference
 ## Functions
 
 [`dynamic_rnn(...)`](../../../tf/lite/experimental/nn/dynamic_rnn): Creates a recurrent neural network specified by RNNCell `cell`.
-

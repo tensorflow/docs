@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.lite.OpHint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L93-L462">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OpHint`
 
 A class that helps build tflite function invocations.
@@ -13,12 +25,8 @@ A class that helps build tflite function invocations.
 
 ### Aliases:
 
-* Class `tf.compat.v1.lite.OpHint`
-* Class `tf.lite.OpHint`
+* Class <a href="/api_docs/python/tf/lite/OpHint"><code>tf.compat.v1.lite.OpHint</code></a>
 
-
-
-Defined in [`lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/op_hint.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,6 +42,8 @@ that make up the pseudo op. A similar process is done to any output that
 is to be exported from the current op.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L308-L346">View source</a>
 
 ``` python
 __init__(
@@ -71,6 +81,8 @@ Create a OpHint.
 
 <h3 id="add_input"><code>add_input</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L384-L404">View source</a>
+
 ``` python
 add_input(
     *args,
@@ -104,6 +116,8 @@ The wrapped input tensor.
 
 <h3 id="add_inputs"><code>add_inputs</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L428-L444">View source</a>
+
 ``` python
 add_inputs(
     *args,
@@ -127,6 +141,8 @@ are also are also tf.Tensor's.
 
 
 <h3 id="add_output"><code>add_output</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L406-L426">View source</a>
 
 ``` python
 add_output(
@@ -160,6 +176,8 @@ The wrapped output tensor.
 
 
 <h3 id="add_outputs"><code>add_outputs</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L446-L462">View source</a>
 
 ``` python
 add_outputs(

@@ -5,7 +5,19 @@ page_type: reference
 
 # tf.contrib.estimator.replicate_model_fn
 
-Replicate `Estimator.model_fn` over GPUs. (deprecated)
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Replicate <a href="/api_docs/python/tf/estimator/Estimator#model_fn"><code>Estimator.model_fn</code></a> over GPUs. (deprecated)
 
 ``` python
 tf.contrib.estimator.replicate_model_fn(
@@ -16,8 +28,6 @@ tf.contrib.estimator.replicate_model_fn(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/replicate_model_fn.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -65,8 +75,8 @@ Here is an example of how one might use their `model_fn` to run over GPUs:
 Please see `DNNClassifierIntegrationTest` for an example with a canned
 Estimator.
 
-On `EstimatorSpec.train_op`:
-`model_fn` returns `EstimatorSpec.train_op` for
+On <a href="/api_docs/python/tf/estimator/EstimatorSpec#train_op"><code>EstimatorSpec.train_op</code></a>:
+`model_fn` returns <a href="/api_docs/python/tf/estimator/EstimatorSpec#train_op"><code>EstimatorSpec.train_op</code></a> for
 `tf.estimator.GraphKeys.TRAIN`. It is typically derived using an optimizer.
 Towers are expected to populate it in the same way.  Gradients from all towers
 are reduced and applied in the last tower.  To achieve that in the case of
@@ -83,7 +93,7 @@ multiple towers:
   - Gradients from all towers are reduced according to `loss_reduction`
     for each trainable variable.
   - `eval_metrics_ops` are reduced per metric using `reduce_mean`.
-  - `EstimatorSpec.predictions` and `EstimatorSpec.export_outputs` are
+  - <a href="/api_docs/python/tf/estimator/EstimatorSpec#predictions"><code>EstimatorSpec.predictions</code></a> and <a href="/api_docs/python/tf/estimator/EstimatorSpec#export_outputs"><code>EstimatorSpec.export_outputs</code></a> are
     reduced using concatenation.
   - For all other fields of `EstimatorSpec` the values of the first tower
     are taken.
@@ -100,7 +110,7 @@ doesn't happen. Replication consists of placing `model_fn` onto the
 specified device.
 
 On current limitations:
-  - `predictions` are not supported for `ModeKeys.EVAL`.  They are required
+  - `predictions` are not supported for <a href="/api_docs/python/tf/estimator/ModeKeys#EVAL"><code>ModeKeys.EVAL</code></a>.  They are required
      for <a href="../../../tf/contrib/estimator/add_metrics"><code>tf.contrib.estimator.add_metrics</code></a>.
 
 #### Args:

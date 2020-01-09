@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.summary.FileWriter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L283-L431">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FileWriter`
 
 Writes `Summary` protocol buffers to event files.
@@ -13,12 +25,8 @@ Writes `Summary` protocol buffers to event files.
 
 ### Aliases:
 
-* Class `tf.compat.v1.summary.FileWriter`
-* Class `tf.summary.FileWriter`
+* Class <a href="/api_docs/python/tf/summary/FileWriter"><code>tf.compat.v1.summary.FileWriter</code></a>
 
-
-
-Defined in [`python/summary/writer/writer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/writer/writer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,6 +42,8 @@ instead forms a compatibility layer over new graph-based summaries
 pre-existing code that expects a `FileWriter` instance.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L298-L370">View source</a>
 
 ``` python
 __init__(
@@ -113,6 +123,8 @@ summaries under eager execution, use <a href="../../tf/contrib/summary"><code>tf
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L372-L374">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -121,6 +133,8 @@ Make usable with "with" statement.
 
 
 <h3 id="__exit__"><code>__exit__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L376-L378">View source</a>
 
 ``` python
 __exit__(
@@ -135,6 +149,8 @@ Make usable with "with" statement.
 
 <h3 id="add_event"><code>add_event</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L394-L401">View source</a>
+
 ``` python
 add_event(event)
 ```
@@ -148,6 +164,8 @@ Adds an event to the event file.
 * <b>`event`</b>: An `Event` protocol buffer.
 
 <h3 id="add_graph"><code>add_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L163-L214">View source</a>
 
 ``` python
 add_graph(
@@ -178,6 +196,8 @@ TensorBoard. Most users pass a graph in the constructor instead.
 
 <h3 id="add_meta_graph"><code>add_meta_graph</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L229-L249">View source</a>
+
 ``` python
 add_meta_graph(
     meta_graph_def,
@@ -206,6 +226,8 @@ The `MetaGraphDef` allows running the given graph via
 
 <h3 id="add_run_metadata"><code>add_run_metadata</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L251-L273">View source</a>
+
 ``` python
 add_run_metadata(
     run_metadata,
@@ -233,6 +255,8 @@ Adds a metadata information for a single session.run() call.
 
 <h3 id="add_session_log"><code>add_session_log</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L144-L156">View source</a>
+
 ``` python
 add_session_log(
     session_log,
@@ -253,6 +277,8 @@ and adds it to the event file.
   summary.
 
 <h3 id="add_summary"><code>add_summary</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L101-L142">View source</a>
 
 ``` python
 add_summary(
@@ -282,6 +308,8 @@ commonly done to report evaluation results in event files.
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L414-L420">View source</a>
+
 ``` python
 close()
 ```
@@ -291,6 +319,8 @@ Flushes the event file to disk and close the file.
 Call this method when you do not need the summary writer anymore.
 
 <h3 id="flush"><code>flush</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L403-L412">View source</a>
 
 ``` python
 flush()
@@ -303,6 +333,8 @@ disk.
 
 <h3 id="get_logdir"><code>get_logdir</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L380-L382">View source</a>
+
 ``` python
 get_logdir()
 ```
@@ -311,6 +343,8 @@ Returns the directory where event file will be written.
 
 
 <h3 id="reopen"><code>reopen</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer.py#L422-L431">View source</a>
 
 ``` python
 reopen()
@@ -322,6 +356,3 @@ Can be called after `close()` to add more events in the same directory.
 The events will go into a new events file.
 
 Does nothing if the EventFileWriter was not closed.
-
-
-

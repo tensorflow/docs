@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.sequence.skipgrams
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/sequence/skipgrams">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Generates skipgram word pairs.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.sequence.skipgrams`
-* `tf.compat.v2.keras.preprocessing.sequence.skipgrams`
-* `tf.keras.preprocessing.sequence.skipgrams`
+* <a href="/api_docs/python/tf/keras/preprocessing/sequence/skipgrams"><code>tf.compat.v1.keras.preprocessing.sequence.skipgrams</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/sequence/skipgrams"><code>tf.compat.v2.keras.preprocessing.sequence.skipgrams</code></a>
+
 
 ``` python
 tf.keras.preprocessing.sequence.skipgrams(
@@ -25,6 +37,8 @@ tf.keras.preprocessing.sequence.skipgrams(
     seed=None
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

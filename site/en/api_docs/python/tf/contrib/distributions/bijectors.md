@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.distributions.bijectors
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Bijector Ops.
-
-
-
-Defined in [`contrib/distributions/python/ops/bijectors/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -88,4 +96,3 @@ Use [tfp.bijectors](/probability/api_docs/python/tfp/bijectors) instead.
 [`masked_dense(...)`](../../../tf/contrib/distributions/bijectors/masked_dense): A autoregressively masked dense layer. (deprecated)
 
 [`real_nvp_default_template(...)`](../../../tf/contrib/distributions/bijectors/real_nvp_default_template): Build a scale-and-shift function using a multi-layer neural network. (deprecated)
-

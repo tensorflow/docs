@@ -6,13 +6,31 @@ page_type: reference
 
 # tf.estimator.train_and_evaluate
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/train_and_evaluate">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/training.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Train and evaluate the `estimator`.
 
 ### Aliases:
 
-* `tf.compat.v1.estimator.train_and_evaluate`
-* `tf.compat.v2.estimator.train_and_evaluate`
-* `tf.estimator.train_and_evaluate`
+* <a href="/api_docs/python/tf/estimator/train_and_evaluate"><code>tf.compat.v1.estimator.train_and_evaluate</code></a>
+* <a href="/api_docs/python/tf/estimator/train_and_evaluate"><code>tf.compat.v2.estimator.train_and_evaluate</code></a>
+
 
 ``` python
 tf.estimator.train_and_evaluate(
@@ -23,8 +41,6 @@ tf.estimator.train_and_evaluate(
 ```
 
 
-
-Defined in [`python/estimator/training.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/training.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 RNN Cells and additional RNN operations.
-
-
-
-Defined in [`contrib/rnn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,7 +55,7 @@ Defined in [`contrib/rnn/__init__.py`](https://github.com/tensorflow/tensorflow/
 
 [`class CoupledInputForgetGateLSTMCell`](../../tf/contrib/rnn/CoupledInputForgetGateLSTMCell): Long short-term memory unit (LSTM) recurrent network cell.
 
-[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper)
+[`class DeviceWrapper`](../../tf/nn/rnn_cell/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
 
 [`class DropoutWrapper`](../../tf/nn/rnn_cell/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
 
@@ -128,4 +136,3 @@ Defined in [`contrib/rnn/__init__.py`](https://github.com/tensorflow/tensorflow/
 [`static_state_saving_rnn(...)`](../../tf/nn/static_state_saving_rnn): RNN that accepts a state saver for time-truncated RNN calculation. (deprecated)
 
 [`transpose_batch_time(...)`](../../tf/contrib/rnn/transpose_batch_time): Transposes the batch and time dimensions of a Tensor.
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.variable_op_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2365-L2395">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Deprecated: context manager for defining an op that creates variables.
 
 ### Aliases:
 
-* `tf.compat.v1.variable_op_scope`
-* `tf.variable_op_scope`
+* <a href="/api_docs/python/tf/variable_op_scope"><code>tf.compat.v1.variable_op_scope</code></a>
+
 
 ``` python
 tf.variable_op_scope(
@@ -30,7 +42,5 @@ tf.variable_op_scope(
 ```
 
 
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->

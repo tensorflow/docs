@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.sufficient_statistics
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/sufficient_statistics">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1053-L1107">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Calculate the sufficient statistics for the mean and variance of `x`.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.sufficient_statistics`
-* `tf.nn.sufficient_statistics`
+* <a href="/api_docs/python/tf/nn/sufficient_statistics"><code>tf.compat.v1.nn.sufficient_statistics</code></a>
+
 
 ``` python
 tf.nn.sufficient_statistics(
@@ -24,8 +42,6 @@ tf.nn.sufficient_statistics(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

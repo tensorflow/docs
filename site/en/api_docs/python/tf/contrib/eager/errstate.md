@@ -5,6 +5,12 @@ page_type: reference
 
 # tf.contrib.eager.errstate
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
 Context manager setting error state.
 
 ``` python
@@ -13,6 +19,8 @@ tf.contrib.eager.errstate(
     **kwds
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

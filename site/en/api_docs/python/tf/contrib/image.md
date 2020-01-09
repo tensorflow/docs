@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.image
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/image/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for image manipulation.
-
-
-
-Defined in [`contrib/image/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -60,4 +68,3 @@ projective transforms (including rotation) are supported.
 [`translate(...)`](../../tf/contrib/image/translate): Translate image(s) by the passed vectors(s).
 
 [`translations_to_projective_transforms(...)`](../../tf/contrib/image/translations_to_projective_transforms): Returns projective transform(s) for the given translation(s).
-

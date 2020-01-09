@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.connect
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/edit.py#L172-L198">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Connect the outputs of sgv0 to the inputs of sgv1.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.graph_editor.connect(
 ```
 
 
-
-Defined in [`contrib/graph_editor/edit.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/edit.py).
 
 <!-- Placeholder for "Used in" -->
 

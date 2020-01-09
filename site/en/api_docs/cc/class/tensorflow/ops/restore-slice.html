@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::RestoreSlice Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,20 +12,20 @@
   <code>#include &lt;io_ops.h&gt;</code>
   <p>Restores a tensor from checkpoint files. </p>
   <h2>Summary</h2>
-  <p>This is like <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a></code> except that restored tensor can be listed as filling only a slice of a larger tensor. <code>shape_and_slice</code> specifies the shape of the larger tensor and the slice that the restored tensor covers.</p>
-  <p>The <code>shape_and_slice</code> input has the same format as the elements of the <code>shapes_and_slices</code> input of the <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/save-slices.html#classtensorflow_1_1ops_1_1_save_slices">SaveSlices</a></code> op.</p>
+  <p>This is like <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a></code> except that restored tensor can be listed as filling only a slice of a larger tensor. <code>shape_and_slice</code> specifies the shape of the larger tensor and the slice that the restored tensor covers.</p>
+  <p>The <code>shape_and_slice</code> input has the same format as the elements of the <code>shapes_and_slices</code> input of the <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/save-slices.html#classtensorflow_1_1ops_1_1_save_slices">SaveSlices</a></code> op.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>file_pattern: Must have a single element. The pattern of the files from which we read the tensor.</li>
       <li>tensor_name: Must have a single element. The name of the tensor to be restored.</li>
       <li>shape_and_slice: Scalar. The shapes and slice specifications to use when restoring a tensors.</li>
       <li>dt: The type of the tensor to be restored.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a></code>):<ul>
-      <li>preferred_shard: Index of file to open first if multiple files match <code>file_pattern</code>. See the documentation for <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a></code>.</li>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a></code>):<ul>
+      <li>preferred_shard: Index of file to open first if multiple files match <code>file_pattern</code>. See the documentation for <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/restore.html#classtensorflow_1_1ops_1_1_restore">Restore</a></code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The restored tensor. </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The restored tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +35,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_restore_slice_1a2d2ed9358de458c5ac241a0b49dd0389">RestoreSlice</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice, DataType dt)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_slice_1a2d2ed9358de458c5ac241a0b49dd0389">RestoreSlice</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice, DataType dt)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_restore_slice_1a901a12a32fed966841204972e978f1e2">RestoreSlice</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice, DataType dt, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">RestoreSlice::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_restore_slice_1a901a12a32fed966841204972e978f1e2">RestoreSlice</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice, DataType dt, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">RestoreSlice::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +58,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -68,7 +68,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -122,7 +122,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -135,32 +135,32 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs">tensorflow::<wbr/>ops::<wbr/>RestoreSlice::<wbr/>Attrs</a>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs">tensorflow::<wbr/>ops::<wbr/>RestoreSlice::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/restore-slice.html#classtensorflow_1_1ops_1_1_restore_slice">RestoreSlice</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/restore-slice.html#classtensorflow_1_1ops_1_1_restore_slice">RestoreSlice</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_slice_1a2e52156c6ad72a0c59d36634c5a00fc2">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_restore_slice_1a4edd358a8874c36fb6833d1ede49ea5b">
     <h3>tensor</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> tensor</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> tensor</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_slice_1a2d2ed9358de458c5ac241a0b49dd0389">
     <h3>RestoreSlice</h3>
     <pre class="prettyprint"> RestoreSlice(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice,
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice,
   DataType dt
 )</pre>
     <div />
@@ -168,12 +168,12 @@
   <div id="classtensorflow_1_1ops_1_1_restore_slice_1a901a12a32fed966841204972e978f1e2">
     <h3>RestoreSlice</h3>
     <pre class="prettyprint"> RestoreSlice(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice,
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> file_pattern,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor_name,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_and_slice,
   DataType dt,
-  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">RestoreSlice::Attrs</a> & attrs
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">RestoreSlice::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -195,7 +195,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_restore_slice_1ab8d2e2b14f8caab4f86d94957df53eef">
     <h3>PreferredShard</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a> PreferredShard(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/restore-slice/attrs.html#structtensorflow_1_1ops_1_1_restore_slice_1_1_attrs">Attrs</a> PreferredShard(
   int64 x
 )</pre>
     <div />

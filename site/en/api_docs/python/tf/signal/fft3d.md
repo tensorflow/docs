@@ -5,17 +5,31 @@ page_type: reference
 
 # tf.signal.fft3d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/fft3d">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_spectral_ops.py`
+
+
+
 3D fast Fourier transform.
 
 ### Aliases:
 
-* `tf.compat.v1.fft3d`
-* `tf.compat.v1.signal.fft3d`
-* `tf.compat.v1.spectral.fft3d`
-* `tf.compat.v2.signal.fft3d`
-* `tf.fft3d`
-* `tf.signal.fft3d`
-* `tf.spectral.fft3d`
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.compat.v1.fft3d</code></a>
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.compat.v1.signal.fft3d</code></a>
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.compat.v1.spectral.fft3d</code></a>
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.compat.v2.signal.fft3d</code></a>
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.fft3d</code></a>
+* <a href="/api_docs/python/tf/signal/fft3d"><code>tf.spectral.fft3d</code></a>
+
 
 ``` python
 tf.signal.fft3d(
@@ -25,8 +39,6 @@ tf.signal.fft3d(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_spectral_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.dtypes.DType
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/dtypes/DType">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L31-L296">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DType`
 
 Represents the type of the elements in a `Tensor`.
@@ -13,16 +31,12 @@ Represents the type of the elements in a `Tensor`.
 
 ### Aliases:
 
-* Class `tf.DType`
-* Class `tf.compat.v1.DType`
-* Class `tf.compat.v1.dtypes.DType`
-* Class `tf.compat.v2.DType`
-* Class `tf.compat.v2.dtypes.DType`
-* Class `tf.dtypes.DType`
+* Class <a href="/api_docs/python/tf/dtypes/DType"><code>tf.DType</code></a>
+* Class <a href="/api_docs/python/tf/dtypes/DType"><code>tf.compat.v1.DType</code></a>
+* Class <a href="/api_docs/python/tf/dtypes/DType"><code>tf.compat.v1.dtypes.DType</code></a>
+* Class <a href="/api_docs/python/tf/dtypes/DType"><code>tf.compat.v2.DType</code></a>
+* Class <a href="/api_docs/python/tf/dtypes/DType"><code>tf.compat.v2.dtypes.DType</code></a>
 
-
-
-Defined in [`python/framework/dtypes.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/dtypes.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,6 +70,8 @@ The <a href="../../tf/dtypes/as_dtype"><code>tf.as_dtype()</code></a> function c
 names to a `DType` object.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L64-L85">View source</a>
 
 ``` python
 __init__(type_enum)
@@ -191,6 +207,8 @@ Returns the dtype correspond to this dtype's real part.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L260-L268">View source</a>
+
 ``` python
 __eq__(other)
 ```
@@ -200,6 +218,8 @@ Returns True iff this DType refers to the same type as `other`.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L270-L272">View source</a>
+
 ``` python
 __ne__(other)
 ```
@@ -208,6 +228,8 @@ Returns True iff self != other.
 
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L240-L258">View source</a>
 
 ``` python
 is_compatible_with(other)
@@ -231,7 +253,3 @@ DType(T)       .is_compatible_with(DType(T))        == True
 
 True if a Tensor of the `other` `DType` will be implicitly converted to
 this `DType`.
-
-
-
-

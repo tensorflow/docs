@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.TensorArray
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/TensorArray">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L923-L1196">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TensorArray`
 
 Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
@@ -13,13 +31,9 @@ Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 
 ### Aliases:
 
-* Class `tf.TensorArray`
-* Class `tf.compat.v1.TensorArray`
-* Class `tf.compat.v2.TensorArray`
+* Class <a href="/api_docs/python/tf/TensorArray"><code>tf.compat.v1.TensorArray</code></a>
+* Class <a href="/api_docs/python/tf/TensorArray"><code>tf.compat.v2.TensorArray</code></a>
 
-
-
-Defined in [`python/ops/tensor_array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/tensor_array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +42,8 @@ This class is meant to be used with dynamic iteration primitives such as
 "flow" control flow dependencies.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L931-L1010">View source</a>
 
 ``` python
 __init__(
@@ -126,6 +142,8 @@ The reference to the TensorArray.
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1193-L1196">View source</a>
+
 ``` python
 close(name=None)
 ```
@@ -135,6 +153,8 @@ Close the current TensorArray.
 **NOTE** The output of this function should be used.  If it is not, a warning will be logged.  To mark the output as used, call its .mark_used() method.
 
 <h3 id="concat"><code>concat</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1117-L1129">View source</a>
 
 ``` python
 concat(name=None)
@@ -157,6 +177,8 @@ All the tensors in the TensorArray concatenated into one tensor.
 
 
 <h3 id="gather"><code>gather</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1100-L1115">View source</a>
 
 ``` python
 gather(
@@ -186,6 +208,8 @@ tensor.
 
 <h3 id="grad"><code>grad</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1054-L1055">View source</a>
+
 ``` python
 grad(
     source,
@@ -198,6 +222,8 @@ grad(
 
 
 <h3 id="identity"><code>identity</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1044-L1052">View source</a>
 
 ``` python
 identity()
@@ -214,6 +240,8 @@ Use this object all for subsequent operations.
 
 
 <h3 id="read"><code>read</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1057-L1067">View source</a>
 
 ``` python
 read(
@@ -238,6 +266,8 @@ The tensor at index `index`.
 
 
 <h3 id="scatter"><code>scatter</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1151-L1168">View source</a>
 
 ``` python
 scatter(
@@ -267,6 +297,8 @@ Scatter the values of a `Tensor` in specific indices of a `TensorArray`.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1189-L1191">View source</a>
+
 ``` python
 size(name=None)
 ```
@@ -275,6 +307,8 @@ Return the size of the TensorArray.
 
 
 <h3 id="split"><code>split</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1170-L1187">View source</a>
 
 ``` python
 split(
@@ -304,6 +338,8 @@ Split the values of a `Tensor` into the TensorArray.
 
 <h3 id="stack"><code>stack</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1086-L1098">View source</a>
+
 ``` python
 stack(name=None)
 ```
@@ -325,6 +361,8 @@ All the tensors in the TensorArray stacked into one tensor.
 
 
 <h3 id="unstack"><code>unstack</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1131-L1149">View source</a>
 
 ``` python
 unstack(
@@ -353,6 +391,8 @@ Unstack the values of a `Tensor` in the TensorArray.
 **NOTE** The output of this function should be used.  If it is not, a warning will be logged.  To mark the output as used, call its .mark_used() method.
 
 <h3 id="write"><code>write</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1069-L1084">View source</a>
 
 ``` python
 write(
@@ -384,6 +424,3 @@ Use this object all for subsequent operations.
 
 
 * <b>`ValueError`</b>: if there are more writers than specified.
-
-
-

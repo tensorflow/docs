@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sparse.segment_sum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/segment_sum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3611-L3682">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the sum along sparse segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.segment_sum`
-* `tf.compat.v1.sparse_segment_sum`
-* `tf.sparse.segment_sum`
-* `tf.sparse_segment_sum`
+* <a href="/api_docs/python/tf/sparse/segment_sum"><code>tf.compat.v1.sparse.segment_sum</code></a>
+* <a href="/api_docs/python/tf/sparse/segment_sum"><code>tf.compat.v1.sparse_segment_sum</code></a>
+* <a href="/api_docs/python/tf/sparse/segment_sum"><code>tf.sparse_segment_sum</code></a>
+
 
 ``` python
 tf.sparse.segment_sum(
@@ -26,16 +44,14 @@ tf.sparse.segment_sum(
 
 
 
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Read [the section on
-segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
+segmentation](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/math#about_segmentation)
 for an explanation of segments.
 
-Like `SegmentSum`, but `segment_ids` can have rank less than `data`'s first
-dimension, selecting a subset of dimension 0, specified by `indices`.
+Like <a href="../../tf/math/segment_sum"><code>tf.math.segment_sum</code></a>, but `segment_ids` can have rank less than `data`'s
+first dimension, selecting a subset of dimension 0, specified by `indices`.
 `segment_ids` is allowed to have missing ids, in which case the output will
 be zeros at those indices. In those cases `num_segments` is used to determine
 the size of the output.

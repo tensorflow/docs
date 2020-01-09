@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.ragged.row_splits_to_segment_ids
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/ragged/row_splits_to_segment_ids">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/segment_id_ops.py#L33-L73">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generates the segmentation corresponding to a RaggedTensor `row_splits`.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.row_splits_to_segment_ids`
-* `tf.compat.v2.ragged.row_splits_to_segment_ids`
-* `tf.ragged.row_splits_to_segment_ids`
+* <a href="/api_docs/python/tf/ragged/row_splits_to_segment_ids"><code>tf.compat.v1.ragged.row_splits_to_segment_ids</code></a>
+* <a href="/api_docs/python/tf/ragged/row_splits_to_segment_ids"><code>tf.compat.v2.ragged.row_splits_to_segment_ids</code></a>
+
 
 ``` python
 tf.ragged.row_splits_to_segment_ids(
@@ -23,17 +41,15 @@ tf.ragged.row_splits_to_segment_ids(
 
 
 
-Defined in [`python/ops/ragged/segment_id_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/segment_id_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Returns an integer vector `segment_ids`, where `segment_ids[i] == j` if
 `splits[j] <= i < splits[j+1]`.  Example:
 
-```python
->>> ragged.row_splits_to_segment_ids([0, 3, 3, 5, 6, 9]).eval()
-[ 0 0 0 2 2 3 4 4 4 ]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.row_splits_to_segment_ids([0, 3, 3, 5, 6, 9]).eval(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[ 0 0 0 2 2 3 4 4 4 ]{% endhtmlescape %}</code>
+</pre>
 
 #### Args:
 

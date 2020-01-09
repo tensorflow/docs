@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.data.experimental.make_saveable_from_iterator
 
-Returns a SaveableObject for saving/restore iterator state using Saver.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/make_saveable_from_iterator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L30-L72">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Returns a SaveableObject for saving/restoring iterator state using Saver.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.make_saveable_from_iterator`
-* `tf.compat.v2.data.experimental.make_saveable_from_iterator`
-* `tf.data.experimental.make_saveable_from_iterator`
+* <a href="/api_docs/python/tf/data/experimental/make_saveable_from_iterator"><code>tf.compat.v1.data.experimental.make_saveable_from_iterator</code></a>
+* <a href="/api_docs/python/tf/data/experimental/make_saveable_from_iterator"><code>tf.compat.v2.data.experimental.make_saveable_from_iterator</code></a>
+
 
 ``` python
 tf.data.experimental.make_saveable_from_iterator(iterator)
 ```
 
 
-
-Defined in [`python/data/experimental/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/iterator_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +44,18 @@ Defined in [`python/data/experimental/ops/iterator_ops.py`](https://github.com/t
 
 
 * <b>`iterator`</b>: Iterator.
+
+
+#### Returns:
+
+A SaveableObject for saving/restoring iterator state using Saver.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If iterator does not support checkpointing.
 
 
 #### For example:

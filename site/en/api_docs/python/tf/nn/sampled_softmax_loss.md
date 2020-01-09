@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.sampled_softmax_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/sampled_softmax_loss">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L2119-L2217">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes and returns the sampled softmax training loss.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.sampled_softmax_loss`
-* `tf.nn.sampled_softmax_loss`
+* <a href="/api_docs/python/tf/nn/sampled_softmax_loss"><code>tf.compat.v1.nn.sampled_softmax_loss</code></a>
+
 
 ``` python
 tf.nn.sampled_softmax_loss(
@@ -30,8 +48,6 @@ tf.nn.sampled_softmax_loss(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,7 +80,8 @@ elif mode == "eval":
       logits=logits)
 ```
 
-See our [Candidate Sampling Algorithms Reference](https://www.tensorflow.org/extras/candidate_sampling.pdf)
+See our [Candidate Sampling Algorithms Reference]
+(https://www.tensorflow.org/extras/candidate_sampling.pdf)
 
 Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 ([pdf](http://arxiv.org/pdf/1412.2007.pdf)) for the math.

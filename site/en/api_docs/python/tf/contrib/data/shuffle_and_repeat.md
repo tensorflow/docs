@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.shuffle_and_repeat
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/shuffle_ops.py#L24-L54">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Shuffles and repeats a Dataset returning a new permutation for each epoch. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.data.shuffle_and_repeat(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/shuffle_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/shuffle_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.profiler.write_op_log
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/tfprof_logger.py#L191-L218">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Log provided 'op_log', and add additional model information below.
 
 ### Aliases:
 
-* `tf.compat.v1.profiler.write_op_log`
-* `tf.profiler.write_op_log`
+* <a href="/api_docs/python/tf/profiler/write_op_log"><code>tf.compat.v1.profiler.write_op_log</code></a>
+
 
 ``` python
 tf.profiler.write_op_log(
@@ -23,8 +35,6 @@ tf.profiler.write_op_log(
 ```
 
 
-
-Defined in [`python/profiler/tfprof_logger.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/tfprof_logger.py).
 
 <!-- Placeholder for "Used in" -->
 

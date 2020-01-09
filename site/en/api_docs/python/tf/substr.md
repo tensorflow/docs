@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.substr
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/string_ops.py#L389-L392">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return substrings from `Tensor` of strings.
 
 ### Aliases:
 
-* `tf.compat.v1.substr`
-* `tf.substr`
+* <a href="/api_docs/python/tf/substr"><code>tf.compat.v1.substr</code></a>
+
 
 ``` python
 tf.substr(
@@ -23,8 +35,6 @@ tf.substr(
 ```
 
 
-
-Defined in [`python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

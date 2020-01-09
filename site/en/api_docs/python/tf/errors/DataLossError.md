@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.errors.DataLossError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/errors/DataLossError">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L475-L487">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DataLossError`
 
 Raised when unrecoverable data loss or corruption is encountered.
@@ -13,13 +31,9 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class `tf.compat.v1.errors.DataLossError`
-* Class `tf.compat.v2.errors.DataLossError`
-* Class `tf.errors.DataLossError`
+* Class <a href="/api_docs/python/tf/errors/DataLossError"><code>tf.compat.v1.errors.DataLossError</code></a>
+* Class <a href="/api_docs/python/tf/errors/DataLossError"><code>tf.compat.v2.errors.DataLossError</code></a>
 
-
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +43,8 @@ operation, if the file is truncated while it is being read.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L485-L487">View source</a>
 
 ``` python
 __init__(
@@ -74,7 +90,3 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-

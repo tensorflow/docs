@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.summary.create_file_writer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/summary_ops_v2.py#L333-L391">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a summary file writer for the given log directory.
 
 ``` python
@@ -18,8 +30,6 @@ tf.compat.v2.summary.create_file_writer(
 ```
 
 
-
-Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

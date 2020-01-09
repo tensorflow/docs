@@ -5,25 +5,78 @@ page_type: reference
 
 # tf.lookup.StaticVocabularyTable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lookup/StaticVocabularyTable">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1211-L1218">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StaticVocabularyTable`
 
-
+String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
 Inherits From: [`StaticVocabularyTable`](../../tf/compat/v2/lookup/StaticVocabularyTable)
 
 ### Aliases:
 
-* Class `tf.compat.v1.lookup.StaticVocabularyTable`
-* Class `tf.lookup.StaticVocabularyTable`
+* Class <a href="/api_docs/python/tf/lookup/StaticVocabularyTable"><code>tf.compat.v1.lookup.StaticVocabularyTable</code></a>
 
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
+For example, if an instance of `StaticVocabularyTable` is initialized with a
+string-to-id initializer that maps:
+
+* `emerson -> 0`
+* `lake -> 1`
+* `palmer -> 2`
+
+The `Vocabulary` object will performs the following mapping:
+
+* `emerson -> 0`
+* `lake -> 1`
+* `palmer -> 2`
+* `<other term> -> bucket_id`, where bucket_id will be between `3` and
+`3 + num_oov_buckets - 1`, calculated by:
+`hash(<term>) % num_oov_buckets + vocab_size`
+
+If input_tensor is `["emerson", "lake", "palmer", "king", "crimson"]`,
+the lookup result is `[0, 1, 2, 4, 7]`.
+
+If `initializer` is None, only out-of-vocabulary buckets are used.
+
+#### Example usage:
+
+
+
+```python
+num_oov_buckets = 3
+input_tensor = tf.constant(["emerson", "lake", "palmer", "king", "crimnson"])
+table = tf.lookup.StaticVocabularyTable(
+    tf.TextFileIdTableInitializer(filename), num_oov_buckets)
+out = table.lookup(input_tensor).
+table.init.run()
+print(out.eval())
+```
+
+The hash function used for generating out-of-vocabulary buckets ID is
+Fingerprint64.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1077-L1136">View source</a>
 
 ``` python
 __init__(
@@ -74,12 +127,12 @@ The table key dtype.
 
 <h3 id="name"><code>name</code></h3>
 
-
+The name of the table.
 
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
 
-
+Returns the resource handle associated with this Resource.
 
 
 <h3 id="value_dtype"><code>value_dtype</code></h3>
@@ -92,6 +145,8 @@ The table value dtype.
 ## Methods
 
 <h3 id="lookup"><code>lookup</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1168-L1207">View source</a>
 
 ``` python
 lookup(
@@ -124,12 +179,10 @@ A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1159-L1166">View source</a>
+
 ``` python
 size(name=None)
 ```
 
 Compute the number of elements in this table.
-
-
-
-

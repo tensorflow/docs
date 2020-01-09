@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.tpu.rewrite
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L1464-L1514">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rewrites `computation` for execution on a TPU system.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.rewrite`
-* `tf.contrib.tpu.rewrite`
-* `tf.tpu.rewrite`
+* <a href="/api_docs/python/tf/tpu/rewrite"><code>tf.compat.v1.tpu.rewrite</code></a>
+* <a href="/api_docs/python/tf/tpu/rewrite"><code>tf.contrib.tpu.rewrite</code></a>
+
 
 ``` python
 tf.tpu.rewrite(
@@ -24,8 +36,6 @@ tf.tpu.rewrite(
 ```
 
 
-
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
 
 <!-- Placeholder for "Used in" -->
 

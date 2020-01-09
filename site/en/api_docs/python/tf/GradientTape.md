@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.GradientTape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/GradientTape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L692-L1246">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GradientTape`
 
 Record operations for automatic differentiation.
@@ -13,14 +31,10 @@ Record operations for automatic differentiation.
 
 ### Aliases:
 
-* Class `tf.GradientTape`
-* Class `tf.compat.v1.GradientTape`
-* Class `tf.compat.v2.GradientTape`
-* Class `tf.contrib.eager.GradientTape`
+* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.compat.v1.GradientTape</code></a>
+* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.compat.v2.GradientTape</code></a>
+* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.contrib.eager.GradientTape</code></a>
 
-
-
-Defined in [`python/eager/backprop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/eager/backprop.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -108,6 +122,8 @@ Note that only tensors with real or complex dtypes are differentiable.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L778-L799">View source</a>
+
 ``` python
 __init__(
     persistent=False,
@@ -137,6 +153,8 @@ Creates a new GradientTape.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L801-L804">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -145,6 +163,8 @@ Enters a context inside which operations are recorded on this tape.
 
 
 <h3 id="__exit__"><code>__exit__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L806-L809">View source</a>
 
 ``` python
 __exit__(
@@ -159,6 +179,8 @@ Exits the recording context, no further operations are traced.
 
 <h3 id="batch_jacobian"><code>batch_jacobian</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L1127-L1246">View source</a>
+
 ``` python
 batch_jacobian(
     target,
@@ -171,15 +193,16 @@ batch_jacobian(
 
 Computes and stacks per-example jacobians.
 
-See http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant for the
-definition of a Jacobian.  This function is essentially an efficient
+See [wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant) for the
+definition of a Jacobian. This function is essentially an efficient
 implementation of the following:
+
 `tf.stack([self.jacobian(y[i], x[i]) for i in range(x.shape[0])])`.
 
 Note that compared to <a href="../tf/GradientTape#jacobian"><code>GradientTape.jacobian</code></a> which computes gradient of
 each output value w.r.t each input value, this function is useful when
-`target[i,...] is independent of `source[j,...]` for `j != i`. This
-independence assumption allows more efficient computation as compared to
+`target[i,...]` is independent of `source[j,...]` for `j != i`. This
+assumption allows more efficient computation as compared to
 <a href="../tf/GradientTape#jacobian"><code>GradientTape.jacobian</code></a>. The output, as well as intermediate activations,
 are lower dimensional and avoid a bunch of redundant zeros which would
 result in the jacobian computation given the independence assumption.
@@ -190,7 +213,7 @@ result in the jacobian computation given the independence assumption.
 
 ```python
 with tf.GradientTape() as g:
-  x = tf.constant([[1, 2], [3, 4]], dtype=tf.float32)
+  x = tf.constant([[1., 2.], [3., 4.]], dtype=tf.float32)
   g.watch(x)
   y = x * x
 batch_jacobian = g.batch_jacobian(y, x)
@@ -231,6 +254,8 @@ per-example jacobians.
 
 <h3 id="gradient"><code>gradient</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L935-L1021">View source</a>
+
 ``` python
 gradient(
     target,
@@ -246,7 +271,8 @@ Computes the gradient using operations recorded in context of this tape.
 #### Args:
 
 
-* <b>`target`</b>: Tensor (or list of tensors) to be differentiated.
+* <b>`target`</b>: a list or nested structure of Tensors or Variables to be
+  differentiated.
 * <b>`sources`</b>: a list or nested structure of Tensors or Variables. `target`
   will be differentiated against elements in `sources`.
 * <b>`output_gradients`</b>: a list of gradients, one for each element of
@@ -275,6 +301,8 @@ the structure of `sources`.
 
 <h3 id="jacobian"><code>jacobian</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L1023-L1125">View source</a>
+
 ``` python
 jacobian(
     target,
@@ -287,7 +315,7 @@ jacobian(
 
 Computes the jacobian using operations recorded in context of this tape.
 
-See http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant for the
+See [wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant) for the
 definition of a Jacobian.
 
 #### Example usage:
@@ -323,9 +351,12 @@ jacobian = g.jacobian(y, x)
 
 #### Returns:
 
-a list or nested structure of Tensors (or IndexedSlices, or None),
-one for each element in `sources`. Returned structure is the same as
-the structure of `sources`.
+A list or nested structure of Tensors (or None), one for each element in
+`sources`. Returned structure is the same as the structure of `sources`.
+Note if any gradient is sparse (IndexedSlices), jacobian function
+currently makes it dense and returns a Tensor instead. This may change in
+the future.
+
 
 
 
@@ -337,6 +368,8 @@ the structure of `sources`.
 * <b>`ValueError`</b>: If vectorization of jacobian computation fails.
 
 <h3 id="reset"><code>reset</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L895-L929">View source</a>
 
 ``` python
 reset()
@@ -375,6 +408,8 @@ with tf.GradientTape() as t:
 
 <h3 id="stop_recording"><code>stop_recording</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L863-L893">View source</a>
+
 ``` python
 stop_recording()
 ```
@@ -409,6 +444,8 @@ None
 
 <h3 id="watch"><code>watch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L837-L861">View source</a>
+
 ``` python
 watch(tensor)
 ```
@@ -421,14 +458,18 @@ Ensures that `tensor` is being traced by this tape.
 
 * <b>`tensor`</b>: a Tensor or list of Tensors.
 
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: if it encounters something that is not a tensor.
+
 <h3 id="watched_variables"><code>watched_variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L931-L933">View source</a>
 
 ``` python
 watched_variables()
 ```
 
 Returns variables watched by this tape in order of construction.
-
-
-
-

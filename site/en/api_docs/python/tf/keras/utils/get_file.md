@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.utils.get_file
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/utils/get_file">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L150-L270">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Downloads a file from a URL if it not already in the cache.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.utils.get_file`
-* `tf.compat.v2.keras.utils.get_file`
-* `tf.keras.utils.get_file`
+* <a href="/api_docs/python/tf/keras/utils/get_file"><code>tf.compat.v1.keras.utils.get_file</code></a>
+* <a href="/api_docs/python/tf/keras/utils/get_file"><code>tf.compat.v2.keras.utils.get_file</code></a>
+
 
 ``` python
 tf.keras.utils.get_file(
@@ -29,8 +47,6 @@ tf.keras.utils.get_file(
 ```
 
 
-
-Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,7 +85,7 @@ programs `shasum` and `sha256sum` can compute the hash.
     None or an empty list will return no matches found.
 * <b>`cache_dir`</b>: Location to store cached files, when None it
     defaults to the [Keras
-      Directory](/faq/#where-is-the-keras-configuration-filed-stored).
+      Directory](/faq/#where_is_the_keras_configuration_filed_stored).
 
 
 #### Returns:

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.training.bucket
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/bucket_ops.py#L63-L300">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Lazy bucketing of input tensors according to `which_bucket`.
 
 ``` python
@@ -26,8 +38,6 @@ tf.contrib.training.bucket(
 ```
 
 
-
-Defined in [`contrib/training/python/training/bucket_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/bucket_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

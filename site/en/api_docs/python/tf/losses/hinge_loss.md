@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.hinge_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L315-L362">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a hinge loss to the training procedure.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.hinge_loss`
-* `tf.losses.hinge_loss`
+* <a href="/api_docs/python/tf/losses/hinge_loss"><code>tf.compat.v1.losses.hinge_loss</code></a>
+
 
 ``` python
 tf.losses.hinge_loss(
@@ -24,8 +36,6 @@ tf.losses.hinge_loss(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -65,4 +75,3 @@ shape as `labels`; otherwise, it is scalar.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

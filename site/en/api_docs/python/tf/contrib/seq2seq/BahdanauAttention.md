@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.BahdanauAttention
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L912-L1028">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BahdanauAttention`
 
 Implements Bahdanau-style (additive) attention.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ To enable the second form, construct the object with parameter
 `normalize=True`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L934-L985">View source</a>
 
 ``` python
 __init__(
@@ -122,6 +132,8 @@ Construct the Attention mechanism.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L987-L1028">View source</a>
+
 ``` python
 __call__(
     query,
@@ -149,6 +161,8 @@ Score the query based on the keys and values.
   `max_time`).
 
 <h3 id="initial_alignments"><code>initial_alignments</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L191-L208">View source</a>
 
 ``` python
 initial_alignments(
@@ -179,6 +193,8 @@ A `dtype` tensor shaped `[batch_size, alignments_size]`
 
 <h3 id="initial_state"><code>initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L210-L225">View source</a>
+
 ``` python
 initial_state(
     batch_size,
@@ -203,7 +219,3 @@ The default behavior is to return the same output as initial_alignments.
 #### Returns:
 
 A structure of all-zero tensors with shapes as described by `state_size`.
-
-
-
-

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.keras.layers.BatchNormalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization_v2.py#L26-L65">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BatchNormalization`
 
 Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
 
 
-
-
-
-Defined in [`python/keras/layers/normalization_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/normalization_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,7 +43,7 @@ close to 0 and the activation standard deviation close to 1.
   If False, `beta` is ignored.
 * <b>`scale`</b>: If True, multiply by `gamma`.
   If False, `gamma` is not used.
-  When the next layer is linear (also e.g. `nn.relu`),
+  When the next layer is linear (also e.g. <a href="/api_docs/python/tf/nn/relu"><code>nn.relu</code></a>),
   this can be disabled since the scaling
   will be done by the next layer.
 * <b>`beta_initializer`</b>: Initializer for the beta weight.
@@ -120,6 +128,8 @@ Same shape as input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L138-L209">View source</a>
+
 ``` python
 __init__(
     axis=-1,
@@ -146,9 +156,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

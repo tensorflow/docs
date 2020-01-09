@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.train.checkpoints_iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/checkpoints_iterator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_utils.py#L137-L200">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Continuously yield new checkpoint files as they appear.
 
 ### Aliases:
 
-* `tf.compat.v1.train.checkpoints_iterator`
-* `tf.compat.v2.train.checkpoints_iterator`
-* `tf.train.checkpoints_iterator`
+* <a href="/api_docs/python/tf/train/checkpoints_iterator"><code>tf.compat.v1.train.checkpoints_iterator</code></a>
+* <a href="/api_docs/python/tf/train/checkpoints_iterator"><code>tf.compat.v2.train.checkpoints_iterator</code></a>
+
 
 ``` python
 tf.train.checkpoints_iterator(
@@ -23,8 +41,6 @@ tf.train.checkpoints_iterator(
 ```
 
 
-
-Defined in [`python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_utils.py).
 
 <!-- Placeholder for "Used in" -->
 

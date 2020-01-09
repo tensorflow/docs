@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.ensure_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/ensure_shape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L2105-L2150">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Updates the shape of a tensor and checks at runtime that the shape holds.
 
 ### Aliases:
 
-* `tf.compat.v1.ensure_shape`
-* `tf.compat.v2.ensure_shape`
-* `tf.ensure_shape`
+* <a href="/api_docs/python/tf/ensure_shape"><code>tf.compat.v1.ensure_shape</code></a>
+* <a href="/api_docs/python/tf/ensure_shape"><code>tf.compat.v2.ensure_shape</code></a>
+
 
 ``` python
 tf.ensure_shape(
@@ -22,8 +40,6 @@ tf.ensure_shape(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

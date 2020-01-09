@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.Graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/Graph">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2765-L5101">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Graph`
 
 A TensorFlow computation, represented as a dataflow graph.
@@ -13,13 +31,9 @@ A TensorFlow computation, represented as a dataflow graph.
 
 ### Aliases:
 
-* Class `tf.Graph`
-* Class `tf.compat.v1.Graph`
-* Class `tf.compat.v2.Graph`
+* Class <a href="/api_docs/python/tf/Graph"><code>tf.compat.v1.Graph</code></a>
+* Class <a href="/api_docs/python/tf/Graph"><code>tf.compat.v2.Graph</code></a>
 
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -66,6 +80,8 @@ all variables that are created during the construction of a graph. The caller
 may define additional collections by specifying a new name.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2811-L2923">View source</a>
 
 ``` python
 __init__()
@@ -128,6 +144,8 @@ An integer version that increases as ops are added to the graph.
 
 <h3 id="add_to_collection"><code>add_to_collection</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3876-L3892">View source</a>
+
 ``` python
 add_to_collection(
     name,
@@ -148,6 +166,8 @@ a collection several times.
 * <b>`value`</b>: The value to add to the collection.
 
 <h3 id="add_to_collections"><code>add_to_collections</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3894-L3913">View source</a>
 
 ``` python
 add_to_collections(
@@ -174,6 +194,8 @@ single collection name.
 * <b>`value`</b>: The value to add to the collections.
 
 <h3 id="as_default"><code>as_default</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3829-L3869">View source</a>
 
 ``` python
 as_default()
@@ -222,6 +244,8 @@ A context manager for using this graph as the default graph.
 
 <h3 id="as_graph_def"><code>as_graph_def</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3212-L3239">View source</a>
+
 ``` python
 as_graph_def(
     from_version=None,
@@ -262,6 +286,8 @@ protocol buffer.
 
 <h3 id="as_graph_element"><code>as_graph_element</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3573-L3607">View source</a>
+
 ``` python
 as_graph_element(
     obj,
@@ -286,7 +312,8 @@ This method may be called concurrently from multiple threads.
 
 * <b>`obj`</b>: A `Tensor`, an `Operation`, or the name of a tensor or operation. Can
   also be any object with an `_as_graph_element()` method that returns a
-  value of one of these types.
+  value of one of these types. Note: `_as_graph_element` will be called
+  inside the graph's lock and so may not modify the graph.
 * <b>`allow_tensor`</b>: If true, `obj` may refer to a `Tensor`.
 * <b>`allow_operation`</b>: If true, `obj` may refer to an `Operation`.
 
@@ -308,6 +335,8 @@ The `Tensor` or `Operation` in the Graph corresponding to `obj`.
 
 <h3 id="clear_collection"><code>clear_collection</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3981-L3991">View source</a>
+
 ``` python
 clear_collection(name)
 ```
@@ -322,6 +351,8 @@ Clears all values in a collection.
   standard names for collections.
 
 <h3 id="colocate_with"><code>colocate_with</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4227-L4298">View source</a>
 
 ``` python
 colocate_with(
@@ -375,6 +406,8 @@ newly created ops.
 
 
 <h3 id="container"><code>container</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4404-L4454">View source</a>
 
 ``` python
 container(container_name)
@@ -431,6 +464,8 @@ A context manager for defining resource containers for stateful ops,
 
 
 <h3 id="control_dependencies"><code>control_dependencies</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4585-L4696">View source</a>
 
 ``` python
 control_dependencies(control_inputs)
@@ -533,6 +568,8 @@ operations constructed within the context.
 
 <h3 id="create_op"><code>create_op</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3301-L3357">View source</a>
+
 ``` python
 create_op(
     op_type,
@@ -597,6 +634,8 @@ An `Operation` object.
 
 
 <h3 id="device"><code>device</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4307-L4376">View source</a>
 
 ``` python
 device(device_name_or_function)
@@ -672,6 +711,8 @@ created ops.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3081-L3089">View source</a>
+
 ``` python
 finalize()
 ```
@@ -685,6 +726,8 @@ when using a <a href="../tf/train/queue_runner/QueueRunner"><code>tf.compat.v1.t
 
 <h3 id="get_all_collection_keys"><code>get_all_collection_keys</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3976-L3979">View source</a>
+
 ``` python
 get_all_collection_keys()
 ```
@@ -693,6 +736,8 @@ Returns a list of collections used in this graph.
 
 
 <h3 id="get_collection"><code>get_collection</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3940-L3974">View source</a>
 
 ``` python
 get_collection(
@@ -729,6 +774,8 @@ collected.
 
 <h3 id="get_collection_ref"><code>get_collection_ref</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3915-L3938">View source</a>
+
 ``` python
 get_collection_ref(name)
 ```
@@ -757,6 +804,8 @@ list if no value has been added to that collection.
 
 <h3 id="get_name_scope"><code>get_name_scope</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4197-L4212">View source</a>
+
 ``` python
 get_name_scope()
 ```
@@ -781,6 +830,8 @@ A string representing the current name scope.
 
 
 <h3 id="get_operation_by_name"><code>get_operation_by_name</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3716-L3735">View source</a>
 
 ``` python
 get_operation_by_name(name)
@@ -810,6 +861,8 @@ The `Operation` with the given `name`.
 
 <h3 id="get_operations"><code>get_operations</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3698-L3714">View source</a>
+
 ``` python
 get_operations()
 ```
@@ -828,6 +881,8 @@ A list of Operations.
 
 
 <h3 id="get_tensor_by_name"><code>get_tensor_by_name</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L3764-L3783">View source</a>
 
 ``` python
 get_tensor_by_name(name)
@@ -856,6 +911,8 @@ The `Tensor` with the given `name`.
 * <b>`KeyError`</b>: If `name` does not correspond to a tensor in this graph.
 
 <h3 id="gradient_override_map"><code>gradient_override_map</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4828-L4887">View source</a>
 
 ``` python
 gradient_override_map(op_type_map)
@@ -905,6 +962,8 @@ or more ops created in that context.
 
 <h3 id="is_feedable"><code>is_feedable</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4895-L4897">View source</a>
+
 ``` python
 is_feedable(tensor)
 ```
@@ -914,6 +973,8 @@ Returns `True` if and only if `tensor` is feedable.
 
 <h3 id="is_fetchable"><code>is_fetchable</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4903-L4908">View source</a>
+
 ``` python
 is_fetchable(tensor_or_op)
 ```
@@ -922,6 +983,8 @@ Returns `True` if and only if `tensor_or_op` is fetchable.
 
 
 <h3 id="name_scope"><code>name_scope</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4030-L4141">View source</a>
 
 ``` python
 name_scope(name)
@@ -1022,6 +1085,8 @@ A context manager that installs `name` as a new name scope.
 
 <h3 id="prevent_feeding"><code>prevent_feeding</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4891-L4893">View source</a>
+
 ``` python
 prevent_feeding(tensor)
 ```
@@ -1031,6 +1096,8 @@ Marks the given `tensor` as unfeedable in this graph.
 
 <h3 id="prevent_fetching"><code>prevent_fetching</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4899-L4901">View source</a>
+
 ``` python
 prevent_fetching(op)
 ```
@@ -1039,6 +1106,8 @@ Marks the given `op` as unfetchable in this graph.
 
 
 <h3 id="switch_to_thread_local"><code>switch_to_thread_local</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4910-L4925">View source</a>
 
 ``` python
 switch_to_thread_local()
@@ -1058,6 +1127,8 @@ The initial value for every thread's stack is set to the current value
 of the stack when `switch_to_thread_local()` was first called.
 
 <h3 id="unique_name"><code>unique_name</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L4145-L4195">View source</a>
 
 ``` python
 unique_name(
@@ -1095,7 +1166,3 @@ to be created will be.
 
 A string to be passed to `create_op()` that will be used
 to name the operation being created.
-
-
-
-

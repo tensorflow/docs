@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.config.experimental.set_virtual_device_configuration
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L492-L556">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Set the virtual device configuration for a PhysicalDevice.
 
 ### Aliases:
 
-* `tf.compat.v1.config.experimental.set_virtual_device_configuration`
-* `tf.compat.v2.config.experimental.set_virtual_device_configuration`
-* `tf.config.experimental.set_virtual_device_configuration`
+* <a href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration"><code>tf.compat.v1.config.experimental.set_virtual_device_configuration</code></a>
+* <a href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration"><code>tf.compat.v2.config.experimental.set_virtual_device_configuration</code></a>
+
 
 ``` python
 tf.config.experimental.set_virtual_device_configuration(
@@ -21,8 +39,6 @@ tf.config.experimental.set_virtual_device_configuration(
 ```
 
 
-
-Defined in [`python/framework/config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/config.py).
 
 <!-- Placeholder for "Used in" -->
 

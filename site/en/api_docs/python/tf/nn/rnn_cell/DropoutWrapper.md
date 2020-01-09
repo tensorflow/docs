@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.nn.rnn_cell.DropoutWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1166-L1173">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DropoutWrapper`
 
 Operator adding dropout to inputs and outputs of the given cell.
@@ -13,18 +25,16 @@ Operator adding dropout to inputs and outputs of the given cell.
 
 ### Aliases:
 
-* Class `tf.compat.v1.nn.rnn_cell.DropoutWrapper`
-* Class `tf.contrib.rnn.DropoutWrapper`
-* Class `tf.nn.rnn_cell.DropoutWrapper`
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/DropoutWrapper"><code>tf.compat.v1.nn.rnn_cell.DropoutWrapper</code></a>
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/DropoutWrapper"><code>tf.contrib.rnn.DropoutWrapper</code></a>
 
-
-
-Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1170-L1171">View source</a>
 
 ``` python
 __init__(
@@ -85,6 +95,7 @@ above article.
     if isinstance(s, LSTMCellState): # Never perform dropout on the c
       state. return LSTMCellState(c=False, h=True)
     elif isinstance(s, TensorArray): return False return True ```
+* <b>`**kwargs`</b>: dict of keyword arguments for base layer.
 
 
 #### Raises:
@@ -132,6 +143,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -145,15 +158,11 @@ get_initial_state(
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_wrapper_impl.py#L197-L199">View source</a>
+
 ``` python
 zero_state(
     batch_size,
     dtype
 )
 ```
-
-
-
-
-
-

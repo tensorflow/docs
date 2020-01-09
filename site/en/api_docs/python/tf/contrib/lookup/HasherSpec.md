@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.lookup.HasherSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L782-L794">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HasherSpec`
 
 A structure for the spec of the hashing function to use for hash buckets.
 
 
-
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +36,21 @@ supported, currently only used by a strong hash.
 * <b>`hasher`</b>: The hasher name to use.
 * <b>`key`</b>: The key to be used by the hashing function, if required.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    hasher,
+    key
+)
+```
+
+Create new instance of HasherSpec(hasher, key)
+
+
+
+
 ## Properties
 
 <h3 id="hasher"><code>hasher</code></h3>
@@ -36,9 +59,3 @@ supported, currently only used by a strong hash.
 
 
 <h3 id="key"><code>key</code></h3>
-
-
-
-
-
-

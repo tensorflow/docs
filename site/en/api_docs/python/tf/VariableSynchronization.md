@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.VariableSynchronization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/VariableSynchronization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L71-L88">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `VariableSynchronization`
 
 Indicates when a distributed variable will be synced.
@@ -13,13 +31,9 @@ Indicates when a distributed variable will be synced.
 
 ### Aliases:
 
-* Class `tf.VariableSynchronization`
-* Class `tf.compat.v1.VariableSynchronization`
-* Class `tf.compat.v2.VariableSynchronization`
+* Class <a href="/api_docs/python/tf/VariableSynchronization"><code>tf.compat.v1.VariableSynchronization</code></a>
+* Class <a href="/api_docs/python/tf/VariableSynchronization"><code>tf.compat.v2.VariableSynchronization</code></a>
 
-
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

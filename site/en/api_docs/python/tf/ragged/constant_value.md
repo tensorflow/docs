@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.ragged.constant_value
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_factory_ops.py#L90-L147">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Constructs a RaggedTensorValue from a nested Python list.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.constant_value`
-* `tf.ragged.constant_value`
+* <a href="/api_docs/python/tf/ragged/constant_value"><code>tf.compat.v1.ragged.constant_value</code></a>
+
 
 ``` python
 tf.ragged.constant_value(
@@ -24,22 +36,18 @@ tf.ragged.constant_value(
 
 
 
-Defined in [`python/ops/ragged/ragged_factory_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_factory_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: This function returns a `RaggedTensorValue`, not a `RaggedTensor`.
 If you wish to construct a constant `RaggedTensor`, use
-[<a href="../../tf/ragged/constant.md"><code>ragged.constant(...)</code></a>](constant) instead.
+[`ragged.constant(...)`](constant) instead.
 
 #### Example:
 
-
-
-```python
->>> ragged.constant_value([[1, 2], [3], [4, 5, 6]])
-RaggedTensorValue(values=[1, 2, 3, 4, 5, 6], splits=[0, 2, 3, 6])
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.constant_value([[1, 2], [3], [4, 5, 6]]){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}RaggedTensorValue(values=[1, 2, 3, 4, 5, 6], splits=[0, 2, 3, 6]){% endhtmlescape %}</code>
+</pre>
 
 All scalar values in `pylist` must have the same nesting depth `K`, and the
 returned `RaggedTensorValue` will have rank `K`.  If `pylist` contains no

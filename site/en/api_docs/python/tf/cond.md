@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.cond
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/cond">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L1095-L1293">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return `true_fn()` if the predicate `pred` is true else `false_fn()`. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.cond`
-* `tf.cond`
+* <a href="/api_docs/python/tf/cond"><code>tf.compat.v1.cond</code></a>
+
 
 ``` python
 tf.cond(
@@ -25,8 +43,6 @@ tf.cond(
 ```
 
 
-
-Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

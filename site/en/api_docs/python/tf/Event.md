@@ -5,22 +5,30 @@ page_type: reference
 
 # tf.Event
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/util/event.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Event`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.Event`
-* Class `tf.compat.v1.Event`
-* Class `tf.compat.v1.summary.Event`
-* Class `tf.summary.Event`
+* Class <a href="/api_docs/python/tf/Event"><code>tf.compat.v1.Event</code></a>
+* Class <a href="/api_docs/python/tf/Event"><code>tf.compat.v1.summary.Event</code></a>
+* Class <a href="/api_docs/python/tf/Event"><code>tf.summary.Event</code></a>
 
-
-
-Defined in [`core/util/event.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/util/event.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,7 +78,3 @@ Defined in [`core/util/event.proto`](https://github.com/tensorflow/tensorflow/tr
 <h3 id="wall_time"><code>wall_time</code></h3>
 
 `double wall_time`
-
-
-
-

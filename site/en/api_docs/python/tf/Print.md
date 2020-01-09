@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.Print
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/logging_ops.py#L66-L112">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Prints a list of tensors. (deprecated)
 
 ### Aliases:
 
-* `tf.Print`
-* `tf.compat.v1.Print`
+* <a href="/api_docs/python/tf/Print"><code>tf.compat.v1.Print</code></a>
+
 
 ``` python
 tf.Print(
@@ -25,27 +37,11 @@ tf.Print(
 
 
 
-Defined in [`python/ops/logging_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/logging_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-08-20.
 Instructions for updating:
 Use tf.print instead of tf.Print. Note that tf.print returns a no-output operator that directly prints the output. Outside of defuns or eager mode, this operator will not be executed unless it is directly specified in session.run or used as a control dependency for other operators. This is only a concern in graph mode. Below is an example of how to ensure tf.print executes in graph mode:
-
-```python
-    sess = tf.compat.v1.Session()
-    with sess.as_default():
-        tensor = tf.range(10)
-        print_op = tf.print(tensor)
-        with tf.control_dependencies([print_op]):
-          out = tf.add(tensor, tensor)
-        sess.run(out)
-    ```
-Additionally, to use tf.print in python 2.7, users must make sure to import
-the following:
-
-  `from __future__ import print_function`
 
 
 This is an identity op (behaves like <a href="../tf/identity"><code>tf.identity</code></a>) with the side effect
@@ -71,3 +67,16 @@ Note: This op prints to the standard error. It is not currently compatible
 #### Returns:
 
 A `Tensor`. Has the same type and contents as `input_`.
+
+>     sess = tf.compat.v1.Session()
+>     with sess.as_default():
+>         tensor = tf.range(10)
+>         print_op = tf.print(tensor)
+>         with tf.control_dependencies([print_op]):
+>           out = tf.add(tensor, tensor)
+>         sess.run(out)
+    Additionally, to use tf.print in python 2.7, users must make sure to import
+    the following:
+
+
+`from __future__ import print_function`

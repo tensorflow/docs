@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.feature_column.categorical_column_with_vocabulary_file
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_file">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1474-L1562">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A `CategoricalColumn` with a vocabulary file.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.categorical_column_with_vocabulary_file`
-* `tf.feature_column.categorical_column_with_vocabulary_file`
+* <a href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_file"><code>tf.compat.v1.feature_column.categorical_column_with_vocabulary_file</code></a>
+
 
 ``` python
 tf.feature_column.categorical_column_with_vocabulary_file(
@@ -24,8 +42,6 @@ tf.feature_column.categorical_column_with_vocabulary_file(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

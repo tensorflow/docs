@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.ffmpeg.decode_audio
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/ffmpeg/ffmpeg_ops.py#L33-L71">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create an op that decodes the contents of an audio file. (deprecated)
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.ffmpeg.decode_audio(
 ```
 
 
-
-Defined in [`contrib/ffmpeg/ffmpeg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

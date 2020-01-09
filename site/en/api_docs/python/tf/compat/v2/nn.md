@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.nn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/nn">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Wrappers for primitive Neural Net (NN) Operations.
 
 <!-- Placeholder for "Used in" -->
@@ -43,6 +55,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 [`collapse_repeated(...)`](../../../tf/nn/collapse_repeated): Merge repeated labels into single labels.
 
 [`compute_accidental_hits(...)`](../../../tf/nn/compute_accidental_hits): Compute the position ids in `sampled_candidates` matching `true_classes`.
+
+[`compute_average_loss(...)`](../../../tf/nn/compute_average_loss): Scales per-example losses with sample_weights and computes their average.
 
 [`conv1d(...)`](../../../tf/compat/v2/nn/conv1d): Computes a 1-D convolution given 3-D input and filter tensors.
 
@@ -140,6 +154,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sampled_softmax_loss(...)`](../../../tf/compat/v2/nn/sampled_softmax_loss): Computes and returns the sampled softmax training loss.
 
+[`scale_regularization_loss(...)`](../../../tf/nn/scale_regularization_loss): Scales the sum of the given regularization losses by number of replicas.
+
 [`selu(...)`](../../../tf/nn/selu): Computes scaled exponential linear: `scale * alpha * (exp(features) - 1)`
 
 [`separable_conv2d(...)`](../../../tf/compat/v2/nn/separable_conv2d): 2-D convolution with separable filters.
@@ -164,6 +180,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sufficient_statistics(...)`](../../../tf/compat/v2/nn/sufficient_statistics): Calculate the sufficient statistics for the mean and variance of `x`.
 
+[`swish(...)`](../../../tf/nn/swish): Computes the Swish activation function: `x * sigmoid(x)`.
+
 [`tanh(...)`](../../../tf/math/tanh): Computes hyperbolic tangent of `x` element-wise.
 
 [`top_k(...)`](../../../tf/math/top_k): Finds values and indices of the `k` largest entries for the last dimension.
@@ -175,7 +193,3 @@ Wrappers for primitive Neural Net (NN) Operations.
 [`with_space_to_batch(...)`](../../../tf/nn/with_space_to_batch): Performs `op` on the space-to-batch representation of `input`.
 
 [`zero_fraction(...)`](../../../tf/math/zero_fraction): Returns the fraction of zeros in `value`.
-
-## Other Members
-
-* `swish` <a id="swish"></a>

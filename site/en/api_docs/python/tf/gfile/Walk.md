@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.gfile.Walk
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L648-L663">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Recursive directory tree generator for directories.
 
 ### Aliases:
 
-* `tf.compat.v1.gfile.Walk`
-* `tf.gfile.Walk`
+* <a href="/api_docs/python/tf/gfile/Walk"><code>tf.compat.v1.gfile.Walk</code></a>
+
 
 ``` python
 tf.gfile.Walk(
@@ -20,8 +32,6 @@ tf.gfile.Walk(
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 

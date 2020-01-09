@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.nn.sampled_sparse_softmax_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/nn/python/ops/sampling_ops.py#L247-L342">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes and returns the sampled sparse softmax training loss.
 
 ``` python
@@ -23,8 +35,6 @@ tf.contrib.nn.sampled_sparse_softmax_loss(
 ```
 
 
-
-Defined in [`contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/sampling_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,7 +66,8 @@ elif mode == "eval":
       logits=logits)
 ```
 
-See our [Candidate Sampling Algorithms Reference](https://www.tensorflow.org/extras/candidate_sampling.pdf)
+See our [Candidate Sampling Algorithms Reference]
+(https://www.tensorflow.org/extras/candidate_sampling.pdf)
 
 Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 ([pdf](http://arxiv.org/pdf/1412.2007.pdf)) for the math.
@@ -71,7 +82,7 @@ Also see Section 3 of [Jean et al., 2014](http://arxiv.org/abs/1412.2007)
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size, 1]`.
     The index of the single target class for each row of logits.  Note that
     this format differs from the `labels` argument of
-    `nn.sparse_softmax_cross_entropy_with_logits`.
+    <a href="/api_docs/python/tf/nn/sparse_softmax_cross_entropy_with_logits"><code>nn.sparse_softmax_cross_entropy_with_logits</code></a>.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`.  The forward
     activations of the input network.
 * <b>`num_sampled`</b>: An `int`.  The number of classes to randomly sample per batch.

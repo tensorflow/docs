@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.compat.forward_compatibility_horizon
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/forward_compatibility_horizon">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/compat/compat.py#L123-L166">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Context manager for testing forward compatibility of generated graphs.
 
 ### Aliases:
 
-* `tf.compat.forward_compatibility_horizon`
-* `tf.compat.v1.compat.forward_compatibility_horizon`
-* `tf.compat.v2.compat.forward_compatibility_horizon`
+* <a href="/api_docs/python/tf/compat/forward_compatibility_horizon"><code>tf.compat.v1.compat.forward_compatibility_horizon</code></a>
+* <a href="/api_docs/python/tf/compat/forward_compatibility_horizon"><code>tf.compat.v2.compat.forward_compatibility_horizon</code></a>
+
 
 ``` python
 tf.compat.forward_compatibility_horizon(
@@ -22,8 +40,6 @@ tf.compat.forward_compatibility_horizon(
 ```
 
 
-
-Defined in [`python/compat/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/compat/compat.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +74,7 @@ def testMyNewFeature(self):
 * <b>`year`</b>:  A year (e.g., 2018). Must be an `int`.
 * <b>`month`</b>: A month (1 <= month <= 12) in year. Must be an `int`.
 * <b>`day`</b>:   A day (1 <= day <= 31, or 30, or 29, or 28) in month. Must be an
-       `int`.
+  `int`.
 
 
 #### Yields:

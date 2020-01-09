@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.log1p
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/log1p">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes natural logarithm of (1 + x) element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.log1p`
-* `tf.compat.v1.math.log1p`
-* `tf.compat.v2.math.log1p`
-* `tf.log1p`
-* `tf.math.log1p`
+* <a href="/api_docs/python/tf/math/log1p"><code>tf.compat.v1.log1p</code></a>
+* <a href="/api_docs/python/tf/math/log1p"><code>tf.compat.v1.math.log1p</code></a>
+* <a href="/api_docs/python/tf/math/log1p"><code>tf.compat.v2.math.log1p</code></a>
+* <a href="/api_docs/python/tf/math/log1p"><code>tf.log1p</code></a>
+
 
 ``` python
 tf.math.log1p(
@@ -24,8 +38,6 @@ tf.math.log1p(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

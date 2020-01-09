@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.train.list_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/list_variables">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_utils.py#L87-L103">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns list of all variables in the checkpoint.
 
 ### Aliases:
 
-* `tf.compat.v1.train.list_variables`
-* `tf.compat.v2.train.list_variables`
-* `tf.train.list_variables`
+* <a href="/api_docs/python/tf/train/list_variables"><code>tf.compat.v1.train.list_variables</code></a>
+* <a href="/api_docs/python/tf/train/list_variables"><code>tf.compat.v2.train.list_variables</code></a>
+
 
 ``` python
 tf.train.list_variables(ckpt_dir_or_file)
 ```
 
 
-
-Defined in [`python/training/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_utils.py).
 
 <!-- Placeholder for "Used in" -->
 

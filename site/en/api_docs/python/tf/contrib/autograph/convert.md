@@ -5,18 +5,29 @@ page_type: reference
 
 # tf.contrib.autograph.convert
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/impl/api.py#L202-L251">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Decorator that compiles a function to use TensorFlow ops.
 
 ``` python
 tf.contrib.autograph.convert(
     recursive=False,
-    optional_features=None
+    optional_features=None,
+    user_requested=True
 )
 ```
 
 
-
-Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +44,8 @@ correctly processed.
 * <b>`optional_features`</b>: converted.Feature, allows toggling optional or
   experimental features. When set to None, only the core features are
   enabled.
+* <b>`user_requested`</b>: bool, whether to ignore the conversion whitelist. See
+  ConversionOptions.user_requested.
 
 
 #### Returns:

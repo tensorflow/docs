@@ -7,9 +7,73 @@ page_type: reference
 # Module: tf.math
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Math Operations.
 
 <!-- Placeholder for "Used in" -->
 
+Note: Functions taking `Tensor` arguments can also take anything accepted by
+<a href="../tf/convert_to_tensor"><code>tf.convert_to_tensor</code></a>.
+
+Note: Elementwise binary operations in TensorFlow follow [numpy-style
+broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html).
+
+TensorFlow provides a variety of math functions including:
+
+* Basic arithmetic operators and trigonometric functions.
+* Special math functions (like: <a href="../tf/math/igamma"><code>tf.math.igamma</code></a> and <a href="../tf/math/zeta"><code>tf.math.zeta</code></a>)
+* Complex number functions (like: <a href="../tf/math/imag"><code>tf.math.imag</code></a> and <a href="../tf/math/angle"><code>tf.math.angle</code></a>)
+* Reductions and scans (like: <a href="../tf/math/reduce_mean"><code>tf.math.reduce_mean</code></a> and <a href="../tf/math/cumsum"><code>tf.math.cumsum</code></a>)
+* Segment functions (like: <a href="../tf/math/segment_sum"><code>tf.math.segment_sum</code></a>)
+
+See: <a href="../tf/linalg"><code>tf.linalg</code></a> for matrix and tensor functions.
+
+<a id=Segmentation></a>
+
+## About Segmentation
+
+TensorFlow provides several operations that you can use to perform common
+math computations on tensor segments.
+Here a segmentation is a partitioning of a tensor along
+the first dimension, i.e. it  defines a mapping from the first dimension onto
+`segment_ids`. The `segment_ids` tensor should be the size of
+the first dimension, `d0`, with consecutive IDs in the range `0` to `k`,
+where `k<d0`.
+In particular, a segmentation of a matrix tensor is a mapping of rows to
+segments.
+
+#### For example:
+
+
+
+```python
+c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
+tf.math.segment_sum(c, tf.constant([0, 0, 1]))
+#  ==>  [[0 0 0 0]
+#        [5 6 7 8]]
+```
+
+The standard `segment_*` functions assert that the segment indices are sorted.
+If you have unsorted indices use the equivalent `unsorted_segment_` function.
+Thses functions take an additional argument `num_segments` so that the output
+tensor can be efficiently allocated.
+
+``` python
+c = tf.constant([[1,2,3,4], [-1,-2,-3,-4], [5,6,7,8]])
+tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
+# ==> [[ 6,  8, 10, 12],
+#       [-1, -2, -3, -4]]
+```
 
 ## Functions
 
@@ -69,6 +133,8 @@ page_type: reference
 
 [`cumsum(...)`](../tf/math/cumsum): Compute the cumulative sum of the tensor `x` along `axis`.
 
+[`cumulative_logsumexp(...)`](../tf/math/cumulative_logsumexp): Compute the cumulative log-sum-exp of the tensor `x` along `axis`.
+
 [`digamma(...)`](../tf/math/digamma): Computes Psi, the derivative of Lgamma (the log of the absolute value of
 
 [`divide(...)`](../tf/math/divide): Computes Python style division of `x` by `y`.
@@ -83,7 +149,7 @@ page_type: reference
 
 [`exp(...)`](../tf/math/exp): Computes exponential of x element-wise.  \\(y = e^x\\).
 
-[`expm1(...)`](../tf/math/expm1): Computes exponential of x - 1 element-wise.
+[`expm1(...)`](../tf/math/expm1): Computes `exp(x) - 1` element-wise.
 
 [`floor(...)`](../tf/math/floor): Returns element-wise largest integer not greater than x.
 
@@ -157,7 +223,7 @@ page_type: reference
 
 [`not_equal(...)`](../tf/math/not_equal): Returns the truth value of (x != y) element-wise.
 
-[`polygamma(...)`](../tf/math/polygamma): Compute the polygamma function \\(\psi^{(n)} (x)\\).
+[`polygamma(...)`](../tf/math/polygamma): Compute the polygamma function \\(\psi^{(n)}(x)\\).
 
 [`polyval(...)`](../tf/math/polyval): Computes the elementwise value of a polynomial.
 
@@ -166,6 +232,8 @@ page_type: reference
 [`real(...)`](../tf/math/real): Returns the real part of a complex (or real) tensor.
 
 [`reciprocal(...)`](../tf/math/reciprocal): Computes the reciprocal of x element-wise.
+
+[`reciprocal_no_nan(...)`](../tf/math/reciprocal_no_nan): Performs a safe reciprocal operation, element wise.
 
 [`reduce_all(...)`](../tf/math/reduce_all): Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
 
@@ -211,7 +279,7 @@ page_type: reference
 
 [`sign(...)`](../tf/math/sign): Returns an element-wise indication of the sign of a number.
 
-[`sin(...)`](../tf/math/sin): Computes sin of x element-wise.
+[`sin(...)`](../tf/math/sin): Computes sine of x element-wise.
 
 [`sinh(...)`](../tf/math/sinh): Computes hyperbolic sine of x element-wise.
 
@@ -256,4 +324,3 @@ page_type: reference
 [`zero_fraction(...)`](../tf/math/zero_fraction): Returns the fraction of zeros in `value`.
 
 [`zeta(...)`](../tf/math/zeta): Compute the Hurwitz zeta function \\(\zeta(x, q)\\).
-

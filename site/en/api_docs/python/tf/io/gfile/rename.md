@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.io.gfile.rename
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/gfile/rename">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L505-L519">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rename or move a file / directory.
 
 ### Aliases:
 
-* `tf.compat.v1.io.gfile.rename`
-* `tf.compat.v2.io.gfile.rename`
-* `tf.io.gfile.rename`
+* <a href="/api_docs/python/tf/io/gfile/rename"><code>tf.compat.v1.io.gfile.rename</code></a>
+* <a href="/api_docs/python/tf/io/gfile/rename"><code>tf.compat.v2.io.gfile.rename</code></a>
+
 
 ``` python
 tf.io.gfile.rename(
@@ -22,8 +40,6 @@ tf.io.gfile.rename(
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,4 +56,4 @@ Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow
 #### Raises:
 
 
-* <b>`errors.OpError`</b>: If the operation fails.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.

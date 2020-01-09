@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.DNNRegressorWithLayerAnnotations
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/dnn_with_layer_annotations.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A regressor for TensorFlow DNN models with layer annotations.
 
 ``` python
@@ -25,8 +37,6 @@ tf.contrib.estimator.DNNRegressorWithLayerAnnotations(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/dnn_with_layer_annotations.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/dnn_with_layer_annotations.py).
 
 <!-- Placeholder for "Used in" -->
 

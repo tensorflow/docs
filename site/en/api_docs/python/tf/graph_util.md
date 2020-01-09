@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.graph_util
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/graph_util">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Helpers to manipulate a tensor graph in python.
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,4 +35,3 @@ page_type: reference
 [`remove_training_nodes(...)`](../tf/graph_util/remove_training_nodes): Prunes out nodes that aren't needed for inference. (deprecated)
 
 [`tensor_shape_from_node_def_name(...)`](../tf/graph_util/tensor_shape_from_node_def_name): Convenience function to get a shape from a NodeDef's input string. (deprecated)
-

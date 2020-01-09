@@ -5,21 +5,31 @@ page_type: reference
 
 # tf.distribute.get_loss_reduction
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L172-L191">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 <a href="../../tf/distribute/ReduceOp"><code>tf.distribute.ReduceOp</code></a> corresponding to the last loss reduction.
 
 ### Aliases:
 
-* `tf.compat.v1.distribute.get_loss_reduction`
-* `tf.contrib.distribute.get_loss_reduction`
-* `tf.distribute.get_loss_reduction`
+* <a href="/api_docs/python/tf/distribute/get_loss_reduction"><code>tf.compat.v1.distribute.get_loss_reduction</code></a>
+* <a href="/api_docs/python/tf/distribute/get_loss_reduction"><code>tf.contrib.distribute.get_loss_reduction</code></a>
+
 
 ``` python
 tf.distribute.get_loss_reduction()
 ```
 
 
-
-Defined in [`python/distribute/distribute_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/distribute_lib.py).
 
 <!-- Placeholder for "Used in" -->
 

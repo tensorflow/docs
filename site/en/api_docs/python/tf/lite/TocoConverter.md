@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.lite.TocoConverter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L1038-L1088">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TocoConverter`
 
 Convert a TensorFlow model into `output_format` using TOCO.
@@ -13,12 +25,8 @@ Convert a TensorFlow model into `output_format` using TOCO.
 
 ### Aliases:
 
-* Class `tf.compat.v1.lite.TocoConverter`
-* Class `tf.lite.TocoConverter`
+* Class <a href="/api_docs/python/tf/lite/TocoConverter"><code>tf.compat.v1.lite.TocoConverter</code></a>
 
-
-
-Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/lite.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,6 +35,8 @@ This class has been deprecated. Please use <a href="../../tf/lite/TFLiteConverte
 ## Methods
 
 <h3 id="from_frozen_graph"><code>from_frozen_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L1051-L1061">View source</a>
 
 ``` python
 @classmethod
@@ -47,6 +57,8 @@ Use <a href="../../tf/lite/TFLiteConverter#from_frozen_graph"><code>lite.TFLiteC
 
 <h3 id="from_keras_model_file"><code>from_keras_model_file</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L1078-L1088">View source</a>
+
 ``` python
 @classmethod
 from_keras_model_file(
@@ -65,6 +77,8 @@ Instructions for updating:
 Use <a href="../../tf/lite/TFLiteConverter#from_keras_model_file"><code>lite.TFLiteConverter.from_keras_model_file</code></a> instead.
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L1063-L1076">View source</a>
 
 ``` python
 @classmethod
@@ -87,6 +101,8 @@ Use <a href="../../tf/lite/TFLiteConverter#from_saved_model"><code>lite.TFLiteCo
 
 <h3 id="from_session"><code>from_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L1044-L1049">View source</a>
+
 ``` python
 @classmethod
 from_session(
@@ -102,6 +118,3 @@ Creates a TocoConverter class from a TensorFlow Session. (deprecated)
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
 Use <a href="../../tf/lite/TFLiteConverter#from_session"><code>lite.TFLiteConverter.from_session</code></a> instead.
-
-
-

@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.all_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3081-L3085">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Use <a href="../tf/global_variables"><code>tf.compat.v1.global_variables</code></a> instead. (deprecated)
 
 ### Aliases:
 
-* `tf.all_variables`
-* `tf.compat.v1.all_variables`
+* <a href="/api_docs/python/tf/all_variables"><code>tf.compat.v1.all_variables</code></a>
+
 
 ``` python
 tf.all_variables()
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

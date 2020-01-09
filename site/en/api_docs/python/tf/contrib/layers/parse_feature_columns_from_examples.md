@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.parse_feature_columns_from_examples
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column_ops.py#L545-L606">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Parses tf.Examples to extract tensors for given feature_columns.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.layers.parse_feature_columns_from_examples(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

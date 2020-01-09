@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.sets.union
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sets/union">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sets_impl.py#L283-L357">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute set union of elements in last dimension of `a` and `b`.
 
 ### Aliases:
 
-* `tf.compat.v1.sets.set_union`
-* `tf.compat.v1.sets.union`
-* `tf.compat.v2.sets.union`
-* `tf.contrib.metrics.set_union`
-* `tf.sets.set_union`
-* `tf.sets.union`
+* <a href="/api_docs/python/tf/sets/union"><code>tf.compat.v1.sets.set_union</code></a>
+* <a href="/api_docs/python/tf/sets/union"><code>tf.compat.v1.sets.union</code></a>
+* <a href="/api_docs/python/tf/sets/union"><code>tf.compat.v2.sets.union</code></a>
+* <a href="/api_docs/python/tf/sets/union"><code>tf.contrib.metrics.set_union</code></a>
+* <a href="/api_docs/python/tf/sets/union"><code>tf.sets.set_union</code></a>
+
 
 ``` python
 tf.sets.union(
@@ -25,8 +43,6 @@ tf.sets.union(
 ```
 
 
-
-Defined in [`python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sets_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

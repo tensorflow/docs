@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.image.resize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1190-L1319">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Resize `images` to `size` using the specified `method`.
 
 ``` python
@@ -20,8 +32,6 @@ tf.compat.v2.image.resize(
 
 
 
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
 Resized images will be distorted if their original aspect ratio is not
@@ -29,7 +39,7 @@ the same as `size`.  To avoid distortions see
 `tf.image.resize_with_pad`.
 
 When 'antialias' is true, the sampling filter will anti-alias the input image
-as well as interpolate.   When downsampling an image with [anti-aliasing](
+as well as interpolate.  When downsampling an image with [anti-aliasing](
 https://en.wikipedia.org/wiki/Spatial_anti-aliasing) the sampling filter
 kernel is scaled in order to properly anti-alias the input image signal.
 'antialias' has no effect when upsampling an image.
@@ -67,7 +77,7 @@ included in the filter sum, and the output value will be appropriately
 normalized.
 
 The return value has the same type as `images` if `method` is
-`ResizeMethod.NEAREST_NEIGHBOR`. Otherwise, the return value has type
+<a href="/api_docs/python/tf/image/ResizeMethod#NEAREST_NEIGHBOR"><code>ResizeMethod.NEAREST_NEIGHBOR</code></a>. Otherwise, the return value has type
 `float32`.
 
 #### Args:

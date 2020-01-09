@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.math.nextafter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/nextafter">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns the next representable value of `x1` in the direction of `x2`, element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.nextafter`
-* `tf.compat.v2.math.nextafter`
-* `tf.math.nextafter`
+* <a href="/api_docs/python/tf/math/nextafter"><code>tf.compat.v1.math.nextafter</code></a>
+* <a href="/api_docs/python/tf/math/nextafter"><code>tf.compat.v2.math.nextafter</code></a>
+
 
 ``` python
 tf.math.nextafter(
@@ -22,8 +36,6 @@ tf.math.nextafter(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,4 +60,3 @@ A `Tensor`. Has the same type as `x1`.
 
 #### Cpp Compatibility
 Equivalent to C++ std::nextafter function.
-

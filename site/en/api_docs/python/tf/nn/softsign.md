@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.nn.softsign
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/softsign">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes softsign: `features / (abs(features) + 1)`.
 
 ### Aliases:
 
-* `tf.compat.v1.math.softsign`
-* `tf.compat.v1.nn.softsign`
-* `tf.compat.v2.math.softsign`
-* `tf.compat.v2.nn.softsign`
-* `tf.math.softsign`
-* `tf.nn.softsign`
+* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v1.math.softsign</code></a>
+* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v1.nn.softsign</code></a>
+* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v2.math.softsign</code></a>
+* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v2.nn.softsign</code></a>
+* <a href="/api_docs/python/tf/nn/softsign"><code>tf.math.softsign</code></a>
+
 
 ``` python
 tf.nn.softsign(
@@ -24,8 +38,6 @@ tf.nn.softsign(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

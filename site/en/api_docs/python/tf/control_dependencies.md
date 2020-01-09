@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.control_dependencies
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/control_dependencies">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5225-L5254">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Wrapper for <a href="../tf/Graph#control_dependencies"><code>Graph.control_dependencies()</code></a> using the default graph.
 
 ### Aliases:
 
-* `tf.compat.v1.control_dependencies`
-* `tf.compat.v2.control_dependencies`
-* `tf.control_dependencies`
+* <a href="/api_docs/python/tf/control_dependencies"><code>tf.compat.v1.control_dependencies</code></a>
+* <a href="/api_docs/python/tf/control_dependencies"><code>tf.compat.v2.control_dependencies</code></a>
+
 
 ``` python
 tf.control_dependencies(control_inputs)
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

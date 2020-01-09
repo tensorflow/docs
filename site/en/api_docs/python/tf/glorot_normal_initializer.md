@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.glorot_normal_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L1256-L1283">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `glorot_normal_initializer`
 
 The Glorot normal initializer, also called Xavier normal initializer.
@@ -13,16 +25,12 @@ Inherits From: [`variance_scaling`](../tf/initializers/variance_scaling)
 
 ### Aliases:
 
-* Class `tf.compat.v1.glorot_normal_initializer`
-* Class `tf.compat.v1.initializers.glorot_normal`
-* Class `tf.compat.v1.keras.initializers.glorot_normal`
-* Class `tf.glorot_normal_initializer`
-* Class `tf.initializers.glorot_normal`
-* Class `tf.keras.initializers.glorot_normal`
+* Class <a href="/api_docs/python/tf/glorot_normal_initializer"><code>tf.compat.v1.glorot_normal_initializer</code></a>
+* Class <a href="/api_docs/python/tf/glorot_normal_initializer"><code>tf.compat.v1.initializers.glorot_normal</code></a>
+* Class <a href="/api_docs/python/tf/glorot_normal_initializer"><code>tf.compat.v1.keras.initializers.glorot_normal</code></a>
+* Class <a href="/api_docs/python/tf/glorot_normal_initializer"><code>tf.initializers.glorot_normal</code></a>
+* Class <a href="/api_docs/python/tf/glorot_normal_initializer"><code>tf.keras.initializers.glorot_normal</code></a>
 
-
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,6 +56,8 @@ output units in the weight tensor.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L1275-L1280">View source</a>
+
 ``` python
 __init__(
     seed=None,
@@ -67,6 +77,8 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L508-L533">View source</a>
+
 ``` python
 __call__(
     shape,
@@ -75,10 +87,21 @@ __call__(
 )
 ```
 
+Returns a tensor object initialized as specified by the initializer.
 
 
+#### Args:
+
+
+* <b>`shape`</b>: Shape of the tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
+  dtype.
+* <b>`partition_info`</b>: Optional information about the possible partitioning of a
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
 
 ``` python
 from_config(
@@ -114,12 +137,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L1282-L1283">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

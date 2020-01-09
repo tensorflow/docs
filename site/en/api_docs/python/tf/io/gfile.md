@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.io.gfile
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/gfile">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.io.gfile namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,4 +51,3 @@ page_type: reference
 [`stat(...)`](../../tf/io/gfile/stat): Returns file statistics for a given path.
 
 [`walk(...)`](../../tf/io/gfile/walk): Recursive directory tree generator for directories.
-

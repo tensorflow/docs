@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.applications.nasnet
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/applications/nasnet">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+NASNet-A models for Keras.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.applications.nasnet`
-* Module `tf.keras.applications.nasnet`
+* Module <a href="/api_docs/python/tf/keras/applications/nasnet"><code>tf.compat.v1.keras.applications.nasnet</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/applications/nasnet/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/applications/nasnet/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,4 +36,3 @@ Defined in [`python/keras/api/_v1/keras/applications/nasnet/__init__.py`](https:
 [`decode_predictions(...)`](../../../tf/keras/applications/nasnet/decode_predictions)
 
 [`preprocess_input(...)`](../../../tf/keras/applications/nasnet/preprocess_input)
-

@@ -5,20 +5,36 @@ page_type: reference
 
 # tf.feature_column.make_parse_example_spec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/make_parse_example_spec">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column.py#L755-L814">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates parsing spec dictionary from input feature_columns.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.make_parse_example_spec`
-* `tf.feature_column.make_parse_example_spec`
+* <a href="/api_docs/python/tf/feature_column/make_parse_example_spec"><code>tf.compat.v1.feature_column.make_parse_example_spec</code></a>
+
 
 ``` python
 tf.feature_column.make_parse_example_spec(feature_columns)
 ```
 
 
-
-Defined in [`python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

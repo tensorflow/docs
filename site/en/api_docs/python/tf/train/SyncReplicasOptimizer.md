@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SyncReplicasOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L45-L463">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SyncReplicasOptimizer`
 
 Class to synchronize, aggregate gradients and pass them to the optimizer.
@@ -13,12 +25,8 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.SyncReplicasOptimizer`
-* Class `tf.train.SyncReplicasOptimizer`
+* Class <a href="/api_docs/python/tf/train/SyncReplicasOptimizer"><code>tf.compat.v1.train.SyncReplicasOptimizer</code></a>
 
-
-
-Defined in [`python/training/sync_replicas_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/sync_replicas_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -125,6 +133,8 @@ my_estimator.fit(..., hooks=[sync_replicas_hook])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L147-L206">View source</a>
+
 ``` python
 __init__(
     opt,
@@ -170,6 +180,8 @@ The `SyncReplicaOptimizer` class is deprecated. For synchrononous training, plea
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L226-L359">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -210,6 +222,8 @@ and start the next one. This is executed by each replica.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L208-L224">View source</a>
+
 ``` python
 compute_gradients(
     *args,
@@ -239,6 +253,8 @@ A list of (gradient, variable) pairs.
 
 <h3 id="get_chief_queue_runner"><code>get_chief_queue_runner</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L361-L379">View source</a>
+
 ``` python
 get_chief_queue_runner()
 ```
@@ -263,6 +279,8 @@ A `QueueRunner` for chief to execute.
 * <b>`ValueError`</b>: If this is called before apply_gradients().
 
 <h3 id="get_init_tokens_op"><code>get_init_tokens_op</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L420-L459">View source</a>
 
 ``` python
 get_init_tokens_op(num_tokens=-1)
@@ -297,6 +315,8 @@ An op for the chief/sync replica to fill the token queue.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -305,6 +325,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L381-L393">View source</a>
 
 ``` python
 get_slot(
@@ -331,6 +353,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L406-L418">View source</a>
+
 ``` python
 get_slot_names(
     *args,
@@ -356,6 +380,8 @@ A list of strings.
 
 <h3 id="make_session_run_hook"><code>make_session_run_hook</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L461-L463">View source</a>
+
 ``` python
 make_session_run_hook(
     is_chief,
@@ -367,6 +393,8 @@ Creates a hook to handle SyncReplicasHook ops such as initialization.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -433,6 +461,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/sync_replicas_optimizer.py#L395-L404">View source</a>
 
 ``` python
 variables()

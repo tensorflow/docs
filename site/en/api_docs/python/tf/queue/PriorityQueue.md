@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.queue.PriorityQueue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/queue/PriorityQueue">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L848-L911">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `PriorityQueue`
 
 A queue implementation that dequeues elements in prioritized order.
@@ -13,17 +31,13 @@ Inherits From: [`QueueBase`](../../tf/queue/QueueBase)
 
 ### Aliases:
 
-* Class `tf.PriorityQueue`
-* Class `tf.compat.v1.PriorityQueue`
-* Class `tf.compat.v1.io.PriorityQueue`
-* Class `tf.compat.v1.queue.PriorityQueue`
-* Class `tf.compat.v2.queue.PriorityQueue`
-* Class `tf.io.PriorityQueue`
-* Class `tf.queue.PriorityQueue`
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.PriorityQueue</code></a>
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.compat.v1.PriorityQueue</code></a>
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.compat.v1.io.PriorityQueue</code></a>
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.compat.v1.queue.PriorityQueue</code></a>
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.compat.v2.queue.PriorityQueue</code></a>
+* Class <a href="/api_docs/python/tf/queue/PriorityQueue"><code>tf.io.PriorityQueue</code></a>
 
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +45,8 @@ See <a href="../../tf/queue/QueueBase"><code>tf.queue.QueueBase</code></a> for a
 this class.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L855-L911">View source</a>
 
 ``` python
 __init__(
@@ -115,6 +131,8 @@ The list of shapes for each component of a queue element.
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L544-L577">View source</a>
+
 ``` python
 close(
     cancel_pending_enqueues=False,
@@ -150,6 +168,8 @@ The operation that closes the queue.
 
 <h3 id="dequeue"><code>dequeue</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L422-L458">View source</a>
+
 ``` python
 dequeue(name=None)
 ```
@@ -179,6 +199,8 @@ The tuple of tensors that was dequeued.
 
 
 <h3 id="dequeue_many"><code>dequeue_many</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L460-L501">View source</a>
 
 ``` python
 dequeue_many(
@@ -217,6 +239,8 @@ The list of concatenated tensors that was dequeued.
 
 
 <h3 id="dequeue_up_to"><code>dequeue_up_to</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L503-L542">View source</a>
 
 ``` python
 dequeue_up_to(
@@ -257,6 +281,8 @@ The tuple of concatenated tensors that was dequeued.
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L312-L349">View source</a>
+
 ``` python
 enqueue(
     vals,
@@ -292,6 +318,8 @@ The operation that enqueues a new tuple of tensors to the queue.
 
 
 <h3 id="enqueue_many"><code>enqueue_many</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L351-L397">View source</a>
 
 ``` python
 enqueue_many(
@@ -333,6 +361,8 @@ The operation that enqueues a batch of tuples of tensors to the queue.
 
 <h3 id="from_list"><code>from_list</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L185-L224">View source</a>
+
 ``` python
 from_list(
     index,
@@ -365,6 +395,8 @@ A `QueueBase` object.
 
 <h3 id="is_closed"><code>is_closed</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L579-L596">View source</a>
+
 ``` python
 is_closed(name=None)
 ```
@@ -387,6 +419,8 @@ True if the queue is closed and false if the queue is open.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L598-L612">View source</a>
+
 ``` python
 size(name=None)
 ```
@@ -403,7 +437,3 @@ Compute the number of elements in this queue.
 #### Returns:
 
 A scalar tensor containing the number of elements in this queue.
-
-
-
-

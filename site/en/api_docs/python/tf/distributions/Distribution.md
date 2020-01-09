@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.distributions.Distribution
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L280-L1323">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Distribution`
 
 A generic probability distribution base class.
@@ -13,13 +25,9 @@ A generic probability distribution base class.
 
 ### Aliases:
 
-* Class `tf.compat.v1.distributions.Distribution`
-* Class `tf.contrib.distributions.Distribution`
-* Class `tf.distributions.Distribution`
+* Class <a href="/api_docs/python/tf/distributions/Distribution"><code>tf.compat.v1.distributions.Distribution</code></a>
+* Class <a href="/api_docs/python/tf/distributions/Distribution"><code>tf.contrib.distributions.Distribution</code></a>
 
-
-
-Defined in [`python/ops/distributions/distribution.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/distribution.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -157,6 +165,8 @@ dist.mean().eval()
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L417-L477">View source</a>
+
 ``` python
 __init__(
     dtype,
@@ -173,7 +183,7 @@ Constructs the `Distribution`. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-01-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
 
 **This is a private method for subclass use.**
 
@@ -293,6 +303,8 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L637-L654">View source</a>
+
 ``` python
 batch_shape_tensor(name='batch_shape_tensor')
 ```
@@ -314,6 +326,8 @@ parameterizations of this distribution.
 * <b>`batch_shape`</b>: `Tensor`.
 
 <h3 id="cdf"><code>cdf</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L881-L898">View source</a>
 
 ``` python
 cdf(
@@ -345,6 +359,8 @@ cdf(x) := P[X <= x]
 
 <h3 id="copy"><code>copy</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L615-L631">View source</a>
+
 ``` python
 copy(**override_parameters_kwargs)
 ```
@@ -369,6 +385,8 @@ initialization arguments.
   `dict(self.parameters, **override_parameters_kwargs)`.
 
 <h3 id="covariance"><code>covariance</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1094-L1131">View source</a>
 
 ``` python
 covariance(name='covariance')
@@ -416,6 +434,8 @@ length-`k'` vector.
 
 <h3 id="cross_entropy"><code>cross_entropy</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1146-L1169">View source</a>
+
 ``` python
 cross_entropy(
     other,
@@ -439,7 +459,7 @@ where `F` denotes the support of the random variable `X ~ P`.
 #### Args:
 
 
-* <b>`other`</b>: `tfp.distributions.Distribution` instance.
+* <b>`other`</b>: <a href="/probability/api_docs/python/tfp/distributions/Distribution"><code>tfp.distributions.Distribution</code></a> instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -451,6 +471,8 @@ where `F` denotes the support of the random variable `X ~ P`.
 
 <h3 id="entropy"><code>entropy</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L982-L985">View source</a>
+
 ``` python
 entropy(name='entropy')
 ```
@@ -459,6 +481,8 @@ Shannon entropy in nats.
 
 
 <h3 id="event_shape_tensor"><code>event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L677-L691">View source</a>
 
 ``` python
 event_shape_tensor(name='event_shape_tensor')
@@ -480,6 +504,8 @@ Shape of a single sample from a single batch as a 1-D int32 `Tensor`.
 
 <h3 id="is_scalar_batch"><code>is_scalar_batch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L721-L733">View source</a>
+
 ``` python
 is_scalar_batch(name='is_scalar_batch')
 ```
@@ -500,6 +526,8 @@ Indicates that `batch_shape == []`.
 
 <h3 id="is_scalar_event"><code>is_scalar_event</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L707-L719">View source</a>
+
 ``` python
 is_scalar_event(name='is_scalar_event')
 ```
@@ -519,6 +547,8 @@ Indicates that `event_shape == []`.
 * <b>`is_scalar_event`</b>: `bool` scalar `Tensor`.
 
 <h3 id="kl_divergence"><code>kl_divergence</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1175-L1201">View source</a>
 
 ``` python
 kl_divergence(
@@ -545,7 +575,7 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
 #### Args:
 
 
-* <b>`other`</b>: `tfp.distributions.Distribution` instance.
+* <b>`other`</b>: <a href="/probability/api_docs/python/tfp/distributions/Distribution"><code>tfp.distributions.Distribution</code></a> instance.
 * <b>`name`</b>: Python `str` prepended to names of ops created by this function.
 
 
@@ -557,6 +587,8 @@ denotes (Shanon) cross entropy, and `H[.]` denotes (Shanon) entropy.
   divergence.
 
 <h3 id="log_cdf"><code>log_cdf</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L842-L863">View source</a>
 
 ``` python
 log_cdf(
@@ -592,6 +624,8 @@ a more accurate answer than simply taking the logarithm of the `cdf` when
 
 <h3 id="log_prob"><code>log_prob</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L784-L795">View source</a>
+
 ``` python
 log_prob(
     value,
@@ -616,6 +650,8 @@ Log probability density/mass function.
   values of type `self.dtype`.
 
 <h3 id="log_survival_function"><code>log_survival_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L917-L939">View source</a>
 
 ``` python
 log_survival_function(
@@ -652,6 +688,8 @@ survival function, which are more accurate than `1 - cdf(x)` when `x >> 1`.
 
 <h3 id="mean"><code>mean</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L991-L994">View source</a>
+
 ``` python
 mean(name='mean')
 ```
@@ -661,6 +699,8 @@ Mean.
 
 <h3 id="mode"><code>mode</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1137-L1140">View source</a>
+
 ``` python
 mode(name='mode')
 ```
@@ -669,6 +709,8 @@ Mode.
 
 
 <h3 id="param_shapes"><code>param_shapes</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L497-L516">View source</a>
 
 ``` python
 @classmethod
@@ -701,6 +743,8 @@ Subclasses should override class method `_param_shapes`.
 
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L518-L555">View source</a>
 
 ``` python
 @classmethod
@@ -740,6 +784,8 @@ constant-valued tensors when constant values are fed.
 
 <h3 id="prob"><code>prob</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L813-L824">View source</a>
+
 ``` python
 prob(
     value,
@@ -764,6 +810,8 @@ Probability density/mass function.
   values of type `self.dtype`.
 
 <h3 id="quantile"><code>quantile</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1006-L1023">View source</a>
 
 ``` python
 quantile(
@@ -795,6 +843,8 @@ quantile(p) := x such that P[X <= x] == p
 
 <h3 id="sample"><code>sample</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L752-L766">View source</a>
+
 ``` python
 sample(
     sample_shape=(),
@@ -822,6 +872,8 @@ sample.
 * <b>`samples`</b>: a `Tensor` with prepended dimensions `sample_shape`.
 
 <h3 id="stddev"><code>stddev</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1061-L1088">View source</a>
 
 ``` python
 stddev(name='stddev')
@@ -851,6 +903,8 @@ denotes expectation, and `stddev.shape = batch_shape + event_shape`.
   `batch_shape + event_shape`, i.e., the same shape as `self.mean()`.
 
 <h3 id="survival_function"><code>survival_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L957-L976">View source</a>
 
 ``` python
 survival_function(
@@ -884,6 +938,8 @@ survival_function(x) = P[X > x]
 
 <h3 id="variance"><code>variance</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L1029-L1055">View source</a>
+
 ``` python
 variance(name='variance')
 ```
@@ -910,6 +966,3 @@ denotes expectation, and `Var.shape = batch_shape + event_shape`.
 
 * <b>`variance`</b>: Floating-point `Tensor` with shape identical to
   `batch_shape + event_shape`, i.e., the same shape as `self.mean()`.
-
-
-

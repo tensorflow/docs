@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.bitwise
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/bitwise">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Operations for manipulating the binary representations of integers.
 
 <!-- Placeholder for "Used in" -->
 
@@ -18,9 +30,8 @@ page_type: reference
 
 [`bitwise_xor(...)`](../tf/bitwise/bitwise_xor): Elementwise computes the bitwise XOR of `x` and `y`.
 
-[`invert(...)`](../tf/bitwise/invert): Flips all bits elementwise.
+[`invert(...)`](../tf/bitwise/invert): Invert (flip) each bit of supported types; for example, type `uint8` value 01010101 becomes 10101010.
 
 [`left_shift(...)`](../tf/bitwise/left_shift): Elementwise computes the bitwise left-shift of `x` and `y`.
 
 [`right_shift(...)`](../tf/bitwise/right_shift): Elementwise computes the bitwise right-shift of `x` and `y`.
-

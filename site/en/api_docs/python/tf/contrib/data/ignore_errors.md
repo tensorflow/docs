@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.ignore_errors
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/error_ops.py#L24-L49">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a `Dataset` from another `Dataset` and silently ignores any errors. (deprecated)
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.data.ignore_errors()
 ```
 
 
-
-Defined in [`contrib/data/python/ops/error_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/error_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

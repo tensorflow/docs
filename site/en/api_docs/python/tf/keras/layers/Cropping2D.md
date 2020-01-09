@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Cropping2D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Cropping2D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2378-L2506">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Cropping2D`
 
 Cropping layer for 2D input (e.g. picture).
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Cropping2D`
-* Class `tf.compat.v2.keras.layers.Cropping2D`
-* Class `tf.keras.layers.Cropping2D`
+* Class <a href="/api_docs/python/tf/keras/layers/Cropping2D"><code>tf.compat.v1.keras.layers.Cropping2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Cropping2D"><code>tf.compat.v2.keras.layers.Cropping2D</code></a>
 
-
-
-Defined in [`python/keras/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -80,12 +94,14 @@ model = Sequential()
 model.add(Cropping2D(cropping=((2, 2), (4, 4)),
                      input_shape=(28, 28, 3)))
 # now model.output_shape == (None, 24, 20, 3)
-model.add(Conv2D(64, (3, 3), padding='same))
+model.add(Conv2D(64, (3, 3), padding='same'))
 model.add(Cropping2D(cropping=((2, 2), (2, 2))))
 # now model.output_shape == (None, 20, 16. 64)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2433-L2454">View source</a>
 
 ``` python
 __init__(
@@ -94,9 +110,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

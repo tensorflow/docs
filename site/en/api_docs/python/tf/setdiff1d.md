@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.setdiff1d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L335-L340">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the difference between two lists of numbers or strings.
 
 ### Aliases:
 
-* `tf.compat.v1.setdiff1d`
-* `tf.setdiff1d`
+* <a href="/api_docs/python/tf/setdiff1d"><code>tf.compat.v1.setdiff1d</code></a>
+
 
 ``` python
 tf.setdiff1d(
@@ -22,8 +34,6 @@ tf.setdiff1d(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -6,19 +6,25 @@ page_type: reference
 # Module: tf.profiler
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.profiler namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Classes
 
-[`class AdviceProto`](../tf/profiler/AdviceProto)
+[`class AdviceProto`](../tf/profiler/AdviceProto): A ProtocolMessage
 
-[`class GraphNodeProto`](../tf/profiler/GraphNodeProto)
+[`class GraphNodeProto`](../tf/profiler/GraphNodeProto): A ProtocolMessage
 
-[`class MultiGraphNodeProto`](../tf/profiler/MultiGraphNodeProto)
+[`class MultiGraphNodeProto`](../tf/profiler/MultiGraphNodeProto): A ProtocolMessage
 
-[`class OpLogProto`](../tf/profiler/OpLogProto)
+[`class OpLogProto`](../tf/profiler/OpLogProto): A ProtocolMessage
 
 [`class ProfileOptionBuilder`](../tf/profiler/ProfileOptionBuilder): Option Builder for Profiling API.
 
@@ -31,4 +37,3 @@ page_type: reference
 [`profile(...)`](../tf/profiler/profile): Profile model.
 
 [`write_op_log(...)`](../tf/profiler/write_op_log): Log provided 'op_log', and add additional model information below.
-

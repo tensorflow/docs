@@ -6,20 +6,36 @@ page_type: reference
 # tf.keras.metrics.serialize
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/metrics/serialize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2834-L2836">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ### Aliases:
 
-* `tf.compat.v1.keras.metrics.serialize`
-* `tf.compat.v2.keras.metrics.serialize`
-* `tf.compat.v2.metrics.serialize`
-* `tf.keras.metrics.serialize`
+* <a href="/api_docs/python/tf/keras/metrics/serialize"><code>tf.compat.v1.keras.metrics.serialize</code></a>
+* <a href="/api_docs/python/tf/keras/metrics/serialize"><code>tf.compat.v2.keras.metrics.serialize</code></a>
+* <a href="/api_docs/python/tf/keras/metrics/serialize"><code>tf.compat.v2.metrics.serialize</code></a>
+
 
 ``` python
 tf.keras.metrics.serialize(metric)
 ```
 
 
-
-Defined in [`python/keras/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/metrics.py).
 
 <!-- Placeholder for "Used in" -->

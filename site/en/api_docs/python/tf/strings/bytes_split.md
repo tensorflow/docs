@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.strings.bytes_split
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/bytes_split">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L34-L79">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Split string elements of `input` into bytes.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.bytes_split`
-* `tf.compat.v2.strings.bytes_split`
-* `tf.strings.bytes_split`
+* <a href="/api_docs/python/tf/strings/bytes_split"><code>tf.compat.v1.strings.bytes_split</code></a>
+* <a href="/api_docs/python/tf/strings/bytes_split"><code>tf.compat.v2.strings.bytes_split</code></a>
+
 
 ``` python
 tf.strings.bytes_split(
@@ -22,21 +40,17 @@ tf.strings.bytes_split(
 
 
 
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 #### Examples:
 
-
-
-```python
->>> tf.strings.to_bytes('hello')
-['h', 'e', 'l', 'l', 'o']
->>> tf.strings.to_bytes(['hello', '123'])
-<RaggedTensor [['h', 'e', 'l', 'l', 'o'], ['1', '2', '3']]>
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.bytes_split('hello'){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}['h', 'e', 'l', 'l', 'o']{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.bytes_split(['hello', '123']){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<RaggedTensor [['h', 'e', 'l', 'l', 'o'], ['1', '2', '3']]>{% endhtmlescape %}</code>
+</pre>
 
 Note that this op splits strings into bytes, not unicode characters.  To
 split strings into unicode characters, use <a href="../../tf/strings/unicode_split"><code>tf.strings.unicode_split</code></a>.
@@ -53,4 +67,4 @@ See also: <a href="../../tf/decode_raw"><code>tf.io.decode_raw</code></a>, <a hr
 
 #### Returns:
 
-A `RaggedTensor` of rank `N+1`: the bytes that make up the soruce strings.
+A `RaggedTensor` of rank `N+1`: the bytes that make up the source strings.

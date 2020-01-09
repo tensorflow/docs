@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.losses
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/losses/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for building neural network losses.
-
-
-
-Defined in [`contrib/losses/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,4 +56,3 @@ See [Contrib Losses](https://tensorflow.org/api_guides/python/contrib.losses).
 [`softmax_cross_entropy(...)`](../../tf/contrib/losses/softmax_cross_entropy): Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits. (deprecated)
 
 [`sparse_softmax_cross_entropy(...)`](../../tf/contrib/losses/sparse_softmax_cross_entropy): Cross-entropy loss using <a href="../../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>. (deprecated)
-

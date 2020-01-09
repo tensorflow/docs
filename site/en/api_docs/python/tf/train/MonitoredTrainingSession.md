@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.MonitoredTrainingSession
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L420-L584">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a `MonitoredSession` for training.
 
 ### Aliases:
 
-* `tf.compat.v1.train.MonitoredTrainingSession`
-* `tf.train.MonitoredTrainingSession`
+* <a href="/api_docs/python/tf/train/MonitoredTrainingSession"><code>tf.compat.v1.train.MonitoredTrainingSession</code></a>
+
 
 ``` python
 tf.train.MonitoredTrainingSession(
@@ -33,8 +45,6 @@ tf.train.MonitoredTrainingSession(
 ```
 
 
-
-Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
 <!-- Placeholder for "Used in" -->
 

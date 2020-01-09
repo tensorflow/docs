@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.image.crop_and_resize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3606-L3686">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Extracts crops from the input image tensor and resizes them.
 
 ``` python
@@ -20,8 +32,6 @@ tf.compat.v2.image.crop_and_resize(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -77,3 +87,27 @@ argument) with
 #### Returns:
 
 A 4-D tensor of shape `[num_boxes, crop_height, crop_width, depth]`.
+
+
+
+#### Example:
+
+
+
+```python
+import tensorflow as tf
+BATCH_SIZE = 1
+NUM_BOXES = 5
+IMAGE_HEIGHT = 256
+IMAGE_WIDTH = 256
+CHANNELS = 3
+CROP_SIZE = (24, 24)
+
+image = tf.random.normal(shape=(BATCH_SIZE, IMAGE_HEIGHT, IMAGE_WIDTH,
+CHANNELS) )
+boxes = tf.random.uniform(shape=(NUM_BOXES, 4))
+box_indices = tf.random.uniform(shape=(NUM_BOXES,), minval=0,
+maxval=BATCH_SIZE, dtype=tf.int32)
+output = tf.image.crop_and_resize(image, boxes, box_indices, CROP_SIZE)
+output.shape  #=> (5, 24, 24, 3)
+```

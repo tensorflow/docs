@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.tpu.CrossShardOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L34-L214">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CrossShardOptimizer`
 
 An optimizer that averages gradients across TPU shards.
@@ -13,18 +25,16 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.tpu.CrossShardOptimizer`
-* Class `tf.contrib.tpu.CrossShardOptimizer`
-* Class `tf.tpu.CrossShardOptimizer`
+* Class <a href="/api_docs/python/tf/tpu/CrossShardOptimizer"><code>tf.compat.v1.tpu.CrossShardOptimizer</code></a>
+* Class <a href="/api_docs/python/tf/tpu/CrossShardOptimizer"><code>tf.contrib.tpu.CrossShardOptimizer</code></a>
 
-
-
-Defined in [`python/tpu/tpu_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L37-L70">View source</a>
 
 ``` python
 __init__(
@@ -60,6 +70,8 @@ Construct a new cross-shard optimizer.
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L153-L182">View source</a>
 
 ``` python
 apply_gradients(
@@ -98,6 +110,8 @@ that operation also increments `global_step`.
 * <b>`ValueError`</b>: If the grads_and_vars is malformed.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L111-L151">View source</a>
 
 ``` python
 compute_gradients(
@@ -139,6 +153,8 @@ A list of (gradient, variable) pairs.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -147,6 +163,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L184-L196">View source</a>
 
 ``` python
 get_slot(
@@ -173,6 +191,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L198-L210">View source</a>
+
 ``` python
 get_slot_names(
     *args,
@@ -197,6 +217,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -263,6 +285,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_optimizer.py#L212-L214">View source</a>
 
 ``` python
 variables()

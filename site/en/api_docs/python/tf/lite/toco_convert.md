@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.lite.toco_convert
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/convert.py#L453-L480">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convert a model using TOCO. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.lite.toco_convert`
-* `tf.lite.toco_convert`
+* <a href="/api_docs/python/tf/lite/toco_convert"><code>tf.compat.v1.lite.toco_convert</code></a>
+
 
 ``` python
 tf.lite.toco_convert(
@@ -23,8 +35,6 @@ tf.lite.toco_convert(
 ```
 
 
-
-Defined in [`lite/python/convert.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/convert.py).
 
 <!-- Placeholder for "Used in" -->
 

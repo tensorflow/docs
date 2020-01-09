@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.VarianceScaling
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L353-L445">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `VarianceScaling`
 
 Initializer capable of adapting its scale to the shape of weights tensors.
@@ -13,12 +25,8 @@ Inherits From: [`Initializer`](../../../../../tf/compat/v2/keras/initializers/In
 
 ### Aliases:
 
-* Class `tf.compat.v2.initializers.VarianceScaling`
-* Class `tf.compat.v2.keras.initializers.VarianceScaling`
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/VarianceScaling"><code>tf.compat.v2.initializers.VarianceScaling</code></a>
 
-
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -54,6 +62,8 @@ within [-limit, limit], with `limit = sqrt(3 * scale / n)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L382-L402">View source</a>
+
 ``` python
 __init__(
     scale=1.0,
@@ -63,7 +73,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -71,6 +81,8 @@ __init__(
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L404-L437">View source</a>
 
 ``` python
 __call__(
@@ -96,6 +108,8 @@ Returns a tensor object initialized as specified by the initializer.
 * <b>`ValueError`</b>: If the dtype is not floating point
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -131,12 +145,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L439-L445">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.weighted_cross_entropy_with_logits
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L243-L318">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes a weighted cross entropy.
 
 ``` python
@@ -18,8 +30,6 @@ tf.compat.v2.nn.weighted_cross_entropy_with_logits(
 
 
 
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
 This is like `sigmoid_cross_entropy_with_logits()` except that `pos_weight`,
@@ -31,9 +41,9 @@ The usual cross-entropy cost is defined as:
     labels * -log(sigmoid(logits)) +
         (1 - labels) * -log(1 - sigmoid(logits))
 
-A value `pos_weights > 1` decreases the false negative count, hence increasing
+A value `pos_weight > 1` decreases the false negative count, hence increasing
 the recall.
-Conversely setting `pos_weights < 1` decreases the false positive count and
+Conversely setting `pos_weight < 1` decreases the false positive count and
 increases the precision.
 This can be seen from the fact that `pos_weight` is introduced as a
 multiplicative coefficient for the positive labels term

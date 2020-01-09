@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sort
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sort">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sort_ops.py#L36-L66">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Sorts a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.sort`
-* `tf.compat.v2.sort`
-* `tf.contrib.framework.sort`
-* `tf.sort`
+* <a href="/api_docs/python/tf/sort"><code>tf.compat.v1.sort</code></a>
+* <a href="/api_docs/python/tf/sort"><code>tf.compat.v2.sort</code></a>
+* <a href="/api_docs/python/tf/sort"><code>tf.contrib.framework.sort</code></a>
+
 
 ``` python
 tf.sort(
@@ -24,8 +42,6 @@ tf.sort(
 ```
 
 
-
-Defined in [`python/ops/sort_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sort_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

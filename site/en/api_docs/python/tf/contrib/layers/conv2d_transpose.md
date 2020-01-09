@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.contrib.layers.conv2d_transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L1317-L1430">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a convolution2d_transpose with an optional batch normalization layer.
 
 ### Aliases:
 
-* `tf.contrib.layers.conv2d_transpose`
-* `tf.contrib.layers.convolution2d_transpose`
+* <a href="/api_docs/python/tf/contrib/layers/conv2d_transpose"><code>tf.contrib.layers.convolution2d_transpose</code></a>
+
 
 ``` python
 tf.contrib.layers.conv2d_transpose(
@@ -36,8 +48,6 @@ tf.contrib.layers.conv2d_transpose(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 

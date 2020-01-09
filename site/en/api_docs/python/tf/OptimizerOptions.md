@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.OptimizerOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OptimizerOptions`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.OptimizerOptions`
-* Class `tf.compat.v1.OptimizerOptions`
+* Class <a href="/api_docs/python/tf/OptimizerOptions"><code>tf.compat.v1.OptimizerOptions</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 

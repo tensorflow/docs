@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.test.compute_gradient
 
-Computes and returns the theoretical and numerical Jacobian.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/test/compute_gradient">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradient_checker.py#L271-L335">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Computes and returns the theoretical and numerical Jacobian. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.test.compute_gradient`
-* `tf.test.compute_gradient`
+* <a href="/api_docs/python/tf/test/compute_gradient"><code>tf.compat.v1.test.compute_gradient</code></a>
+
 
 ``` python
 tf.test.compute_gradient(
@@ -27,9 +45,11 @@ tf.test.compute_gradient(
 
 
 
-Defined in [`python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradient_checker.py).
-
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use tf.test.compute_gradient in 2.0, which has better support for functions. Note that the two versions have different usage, so code change is needed.
 
 If `x` or `y` is complex, the Jacobian will still be real but the
 corresponding Jacobian dimension(s) will be twice as large.  This is required

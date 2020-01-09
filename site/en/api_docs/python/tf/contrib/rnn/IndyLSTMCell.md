@@ -6,15 +6,23 @@ page_type: reference
 
 # tf.contrib.rnn.IndyLSTMCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/rnn_cell.py#L3278-L3414">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `IndyLSTMCell`
 
 Basic IndyLSTM recurrent network cell.
 
 Inherits From: [`LayerRNNCell`](../../../tf/contrib/rnn/LayerRNNCell)
-
-
-
-Defined in [`contrib/rnn/python/ops/rnn_cell.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/rnn_cell.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,11 +31,11 @@ BasicLSTMCell, yet with the \\(U_f\\), \\(U_i\\), \\(U_o\\) and \\(U_c\\)
 matrices in the regular LSTM equations replaced by diagonal matrices, i.e. a
 Hadamard product with a single vector:
 
-<div>   $$f_t = \sigma_g\left(W_f x_t + u_f \circ h_{t-1} + b_f\right)$$ </div>
-<div>   $$i_t = \sigma_g\left(W_i x_t + u_i \circ h_{t-1} + b_i\right)$$ </div>
-<div>   $$o_t = \sigma_g\left(W_o x_t + u_o \circ h_{t-1} + b_o\right)$$ </div>
-<div>   $$c_t = f_t \circ c_{t-1} +
-          i_t \circ \sigma_c\left(W_c x_t + u_c \circ h_{t-1} + b_c\right)$$</div>
+  <div> $$f_t = \sigma_g\left(W_f x_t + u_f \circ h_{t-1} + b_f\right)$$ </div>
+  <div> $$i_t = \sigma_g\left(W_i x_t + u_i \circ h_{t-1} + b_i\right)$$ </div>
+  <div> $$o_t = \sigma_g\left(W_o x_t + u_o \circ h_{t-1} + b_o\right)$$ </div>
+  <div> $$c_t = f_t \circ c_{t-1} +
+          i_t \circ \sigma_c\left(W_c x_t + u_c \circ h_{t-1} + b_c\right)$$ </div>
 
 where \\(\circ\\) denotes the Hadamard operator. This means that each IndyLSTM
 node sees only its own state \\(h\\) and \\(c\\), as opposed to seeing all
@@ -42,6 +50,8 @@ use peep-hole connections: it is the basic baseline.
 For a detailed analysis of IndyLSTMs, see https://arxiv.org/abs/1903.08023.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/rnn_cell.py#L3305-L3343">View source</a>
 
 ``` python
 __init__(
@@ -93,7 +103,7 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-
+Integer or TensorShape: size of outputs produced by this cell.
 
 
 <h3 id="scope_name"><code>scope_name</code></h3>
@@ -103,14 +113,18 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="state_size"><code>state_size</code></h3>
 
+size(s) of state(s) used by this cell.
 
-
+It can be represented by an Integer, a TensorShape or a tuple of Integers
+or TensorShapes.
 
 
 
 ## Methods
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
 
 ``` python
 get_initial_state(
@@ -124,6 +138,8 @@ get_initial_state(
 
 
 <h3 id="zero_state"><code>zero_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L311-L340">View source</a>
 
 ``` python
 zero_state(
@@ -150,7 +166,3 @@ If `state_size` is an int or TensorShape, then the return value is a
 If `state_size` is a nested list or tuple, then the return value is
 a nested list or tuple (of the same structure) of `2-D` tensors with
 the shapes `[batch_size, s]` for each s in `state_size`.
-
-
-
-

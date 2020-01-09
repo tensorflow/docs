@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.deprecated
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/deprecated/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Non-core alias for the deprecated tf.X_summary ops.
-
-
-
-Defined in [`contrib/deprecated/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/deprecated/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -99,4 +107,3 @@ each summary via the summary API.
 [`merge_summary(...)`](../../tf/contrib/deprecated/merge_summary): Merges summaries. (deprecated)
 
 [`scalar_summary(...)`](../../tf/contrib/deprecated/scalar_summary): Outputs a `Summary` protocol buffer with scalar values. (deprecated)
-

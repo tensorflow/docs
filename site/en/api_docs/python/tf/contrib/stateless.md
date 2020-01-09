@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.stateless
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/stateless/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Stateless random ops which take seed as a tensor input.
-
-
-
-Defined in [`contrib/stateless/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/stateless/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,4 +43,3 @@ version of the code.
 [`stateless_random_uniform(...)`](../../tf/random/stateless_uniform): Outputs deterministic pseudorandom values from a uniform distribution.
 
 [`stateless_truncated_normal(...)`](../../tf/random/stateless_truncated_normal): Outputs deterministic pseudorandom values, truncated normally distributed.
-

@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.dynamic_partition
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/dynamic_partition">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_data_flow_ops.py`
+
+
+
 Partitions `data` into `num_partitions` tensors using indices from `partitions`.
 
 ### Aliases:
 
-* `tf.compat.v1.dynamic_partition`
-* `tf.compat.v2.dynamic_partition`
-* `tf.dynamic_partition`
+* <a href="/api_docs/python/tf/dynamic_partition"><code>tf.compat.v1.dynamic_partition</code></a>
+* <a href="/api_docs/python/tf/dynamic_partition"><code>tf.compat.v2.dynamic_partition</code></a>
+
 
 ``` python
 tf.dynamic_partition(
@@ -23,8 +37,6 @@ tf.dynamic_partition(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_data_flow_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.Options
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/Options">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2201-L2314">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Options`
 
 Represents options for tf.data.Dataset.
@@ -13,13 +31,9 @@ Represents options for tf.data.Dataset.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.Options`
-* Class `tf.compat.v2.data.Options`
-* Class `tf.data.Options`
+* Class <a href="/api_docs/python/tf/data/Options"><code>tf.compat.v1.data.Options</code></a>
+* Class <a href="/api_docs/python/tf/data/Options"><code>tf.compat.v2.data.Options</code></a>
 
-
-
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -30,11 +44,13 @@ tune the parallelism of operations such as <a href="../../tf/data/Dataset#map"><
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -48,7 +64,7 @@ Whether the outputs need to be produced in deterministic order. If None, default
 
 <h3 id="experimental_distribute"><code>experimental_distribute</code></h3>
 
-The distribution options associated with the dataset. See <a href="../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a> for more details.
+The distribution strategy options associated with the dataset. See <a href="../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a> for more details.
 
 
 <h3 id="experimental_optimization"><code>experimental_optimization</code></h3>
@@ -59,6 +75,11 @@ The optimization options associated with the dataset. See <a href="../../tf/data
 <h3 id="experimental_slack"><code>experimental_slack</code></h3>
 
 Whether to introduce 'slack' in the last `prefetch` of the input pipeline, if it exists. This may reduce CPU contention with accelerator host-side activity at the start of a step. The slack frequency is determined by the number of devices attached to this input pipeline. If None, defaults to False.
+
+
+<h3 id="experimental_stateful_whitelist"><code>experimental_stateful_whitelist</code></h3>
+
+By default, tf.data will refuse to serialize a dataset or checkpoint its iterator if the dataset contains a stateful op as the serialization / checkpointing won't be able to capture its state. Users can -- at their own risk -- override this restriction by explicitly whitelisting stateful ops by specifying them in this list.
 
 
 <h3 id="experimental_stats"><code>experimental_stats</code></h3>
@@ -77,23 +98,29 @@ The threading options associated with the dataset. See <a href="../../tf/data/ex
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
+Return self!=value.
 
 
 <h3 id="merge"><code>merge</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2298-L2314">View source</a>
 
 ``` python
 merge(options)
@@ -120,7 +147,3 @@ attribute that is set to different values in `self` and `options`.
 
 New <a href="../../tf/data/Options"><code>tf.data.Options()</code></a> object which is the result of merging self with
 the input <a href="../../tf/data/Options"><code>tf.data.Options</code></a>.
-
-
-
-

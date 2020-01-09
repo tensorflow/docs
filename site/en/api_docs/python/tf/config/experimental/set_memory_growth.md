@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.config.experimental.set_memory_growth
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/experimental/set_memory_growth">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L434-L454">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Set if memory growth should be enabled for a PhysicalDevice.
 
 ### Aliases:
 
-* `tf.compat.v1.config.experimental.set_memory_growth`
-* `tf.compat.v2.config.experimental.set_memory_growth`
-* `tf.config.experimental.set_memory_growth`
+* <a href="/api_docs/python/tf/config/experimental/set_memory_growth"><code>tf.compat.v1.config.experimental.set_memory_growth</code></a>
+* <a href="/api_docs/python/tf/config/experimental/set_memory_growth"><code>tf.compat.v2.config.experimental.set_memory_growth</code></a>
+
 
 ``` python
 tf.config.experimental.set_memory_growth(
@@ -21,8 +39,6 @@ tf.config.experimental.set_memory_growth(
 ```
 
 
-
-Defined in [`python/framework/config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/config.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,7 +51,7 @@ virtual devices configured.
 
 
 ```python
-physical_devices = config.experimental.list_physical_devices('GPU')
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
 assert len(physical_devices) > 0, "Not enough GPU hardware devices available"
 tf.config.experimental.set_memory_growth(physical_devices[0], True)
 ```

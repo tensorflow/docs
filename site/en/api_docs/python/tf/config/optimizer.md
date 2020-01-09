@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.config.optimizer
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/optimizer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.config.optimizer namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -19,4 +31,3 @@ page_type: reference
 [`set_experimental_options(...)`](../../tf/config/optimizer/set_experimental_options): Set experimental optimizer options.
 
 [`set_jit(...)`](../../tf/config/optimizer/set_jit): Set if JIT compilation is enabled.
-

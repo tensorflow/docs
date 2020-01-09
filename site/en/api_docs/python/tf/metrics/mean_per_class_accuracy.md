@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.mean_per_class_accuracy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L988-L1090">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Calculates the mean of the per-class accuracies.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.mean_per_class_accuracy`
-* `tf.metrics.mean_per_class_accuracy`
+* <a href="/api_docs/python/tf/metrics/mean_per_class_accuracy"><code>tf.compat.v1.metrics.mean_per_class_accuracy</code></a>
+
 
 ``` python
 tf.metrics.mean_per_class_accuracy(
@@ -25,8 +37,6 @@ tf.metrics.mean_per_class_accuracy(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

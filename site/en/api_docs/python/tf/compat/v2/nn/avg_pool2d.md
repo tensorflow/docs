@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.avg_pool2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L3586-L3622">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Performs the average pooling on the input.
 
 ``` python
@@ -19,8 +31,6 @@ tf.compat.v2.nn.avg_pool2d(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

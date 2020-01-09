@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.debugging.assert_greater
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_greater">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L962-L966">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert the condition `x > y` holds element-wise.
 
 ### Aliases:
 
-* `tf.assert_greater`
-* `tf.compat.v1.assert_greater`
-* `tf.compat.v1.debugging.assert_greater`
-* `tf.debugging.assert_greater`
+* <a href="/api_docs/python/tf/debugging/assert_greater"><code>tf.assert_greater</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_greater"><code>tf.compat.v1.assert_greater</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_greater"><code>tf.compat.v1.debugging.assert_greater</code></a>
+
 
 ``` python
 tf.debugging.assert_greater(
@@ -27,20 +45,19 @@ tf.debugging.assert_greater(
 
 
 
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+This condition holds if for every pair of (possibly broadcast) elements
+`x[i]`, `y[i]`, we have `x[i] > y[i]`.
+If both `x` and `y` are empty, this is trivially satisfied.
+
+When running in graph mode, you should add a dependency on this operation
+to ensure that it runs. Example of adding a dependency to an operation:
 
 ```python
 with tf.control_dependencies([tf.compat.v1.assert_greater(x, y)]):
   output = tf.reduce_sum(x)
 ```
-
-This condition holds if for every pair of (possibly broadcast) elements
-`x[i]`, `y[i]`, we have `x[i] > y[i]`.
-If both `x` and `y` are empty, this is trivially satisfied.
 
 #### Args:
 
@@ -57,3 +74,16 @@ If both `x` and `y` are empty, this is trivially satisfied.
 #### Returns:
 
 Op that raises `InvalidArgumentError` if `x > y` is False.
+
+
+
+
+#### Raises:
+
+
+* <b>`InvalidArgumentError`</b>: if the check can be performed immediately and
+  `x > y` is False. The check can be performed immediately during 
+  eager execution or if `x` and `y` are statically known.
+
+#### Eager Compatibility
+returns None

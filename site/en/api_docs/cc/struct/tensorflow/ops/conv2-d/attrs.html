@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Conv2D::Attrs Struct Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>Conv2D::<wbr/>Attrs</h1>
   <code>#include &lt;nn_ops.h&gt;</code>
-  <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/conv2-d.html#classtensorflow_1_1ops_1_1_conv2_d">Conv2D</a>. </p>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/conv2-d.html#classtensorflow_1_1ops_1_1_conv2_d">Conv2D</a>. </p>
   <h2>Summary</h2>
   <table class="properties responsive">
     <tr>
@@ -31,6 +31,16 @@
     <tr>
       <td>
         <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1a38cfe8f5a9fd31568b79caff3d5db53f">dilations_</a> = Default_dilations()</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1af6a0a48d47098676589b0c23d6615b73">explicit_paddings_</a> = {}</code>
       </td>
       <td>
         <div>
@@ -61,7 +71,7 @@
       </td>
       <td>
         <div>
-          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
         </div>
         <div>Specify the data format of the input and output data. </div>
       </td>
@@ -72,9 +82,20 @@
       </td>
       <td>
         <div>
-          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
         </div>
         <div>1-D tensor of length 4. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1a69865f8fd6ea1e16ccc3e4b794ed3b56">ExplicitPaddings</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>padding</code> is <code>"EXPLICIT"</code>, the list of explicit padding amounts. </div>
       </td>
     </tr>
     <tr>
@@ -83,7 +104,7 @@
       </td>
       <td>
         <div>
-          <code>TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a></code>
         </div>
         <div>Defaults to true. </div>
       </td>
@@ -100,6 +121,11 @@
     <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::Conv2D::Attrs::dilations_ = Default_dilations()</pre>
     <div />
   </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1af6a0a48d47098676589b0c23d6615b73">
+    <h3>explicit_paddings_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::Conv2D::Attrs::explicit_paddings_ = {}</pre>
+    <div />
+  </div>
   <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1ac0181cd1c99e758fff22f356f9c51f12">
     <h3>use_cudnn_on_gpu_</h3>
     <pre class="prettyprint">bool tensorflow::ops::Conv2D::Attrs::use_cudnn_on_gpu_ = true</pre>
@@ -108,7 +134,7 @@
   <h2>Public functions</h2>
   <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1abafbedb30c29ed091ff37895bd8b6c6a">
     <h3>DataFormat</h3>
-    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::DataFormat(
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::DataFormat(
   StringPiece x
 )</pre>
     <div>
@@ -119,7 +145,7 @@
   </div>
   <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1a16869b39ea0a373acb40566ed4235eb1">
     <h3>Dilations</h3>
-    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::Dilations(
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::Dilations(
   const gtl::ArraySlice< int > & x
 )</pre>
     <div>
@@ -128,9 +154,20 @@
       <p>Defaults to [1, 1, 1, 1] </p>
     </div>
   </div>
+  <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1a69865f8fd6ea1e16ccc3e4b794ed3b56">
+    <h3>ExplicitPaddings</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::ExplicitPaddings(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>If <code>padding</code> is <code>"EXPLICIT"</code>, the list of explicit padding amounts. </p>
+      <p>For the ith dimension, the amount of padding inserted before and after the dimension is <code>explicit_paddings[2 * i]</code> and <code>explicit_paddings[2 * i + 1]</code>, respectively. If <code>padding</code> is not <code>"EXPLICIT"</code>, <code>explicit_paddings</code> must be empty.</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
   <div id="structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs_1a6fb079456a188df93e329f61671ff674">
     <h3>UseCudnnOnGpu</h3>
-    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::UseCudnnOnGpu(
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv2-d/attrs.html#structtensorflow_1_1ops_1_1_conv2_d_1_1_attrs">Attrs</a> tensorflow::ops::Conv2D::Attrs::UseCudnnOnGpu(
   bool x
 )</pre>
     <div>

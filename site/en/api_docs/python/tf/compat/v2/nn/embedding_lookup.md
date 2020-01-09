@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.embedding_lookup
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/embedding_ops.py#L320-L364">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Looks up `ids` in a list of embedding tensors.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.nn.embedding_lookup(
 ```
 
 
-
-Defined in [`python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/embedding_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

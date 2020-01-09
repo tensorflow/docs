@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.sliding_window_batch
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/sliding.py#L66-L129">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A sliding window over a dataset. (deprecated) (deprecated arguments)
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.data.sliding_window_batch(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/sliding.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/sliding.py).
 
 <!-- Placeholder for "Used in" -->
 

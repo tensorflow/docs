@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.InputSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_spec.py#L34-L103">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InputSpec`
 
 Specifies the ndim, dtype and shape of every input to a layer.
@@ -13,15 +25,11 @@ Specifies the ndim, dtype and shape of every input to a layer.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.InputSpec`
-* Class `tf.compat.v1.layers.InputSpec`
-* Class `tf.compat.v2.keras.layers.InputSpec`
-* Class `tf.keras.layers.InputSpec`
-* Class `tf.layers.InputSpec`
+* Class <a href="/api_docs/python/tf/layers/InputSpec"><code>tf.compat.v1.keras.layers.InputSpec</code></a>
+* Class <a href="/api_docs/python/tf/layers/InputSpec"><code>tf.compat.v1.layers.InputSpec</code></a>
+* Class <a href="/api_docs/python/tf/layers/InputSpec"><code>tf.compat.v2.keras.layers.InputSpec</code></a>
+* Class <a href="/api_docs/python/tf/layers/InputSpec"><code>tf.keras.layers.InputSpec</code></a>
 
-
-
-Defined in [`python/keras/engine/input_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/engine/input_spec.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,6 +53,8 @@ a None shape is compatible with any shape.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_spec.py#L54-L81">View source</a>
+
 ``` python
 __init__(
     dtype=None,
@@ -56,8 +66,32 @@ __init__(
 )
 ```
 
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
 
+## Methods
 
+<h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_spec.py#L101-L103">View source</a>
+
+``` python
+@classmethod
+from_config(
+    cls,
+    config
+)
+```
+
+
+
+
+<h3 id="get_config"><code>get_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_spec.py#L92-L99">View source</a>
+
+``` python
+get_config()
+```

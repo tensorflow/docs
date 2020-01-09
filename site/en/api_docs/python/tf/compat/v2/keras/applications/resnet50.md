@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.applications.resnet50
 
-ResNet50 model for Keras.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/applications/resnet50">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
 
 
 
-Defined in [`python/keras/api/_v2/keras/applications/resnet50/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/applications/resnet50/__init__.py).
+Public API for tf.keras.applications.resnet50 namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -18,7 +26,6 @@ Defined in [`python/keras/api/_v2/keras/applications/resnet50/__init__.py`](http
 
 [`ResNet50(...)`](../../../../../tf/keras/applications/ResNet50)
 
-[`decode_predictions(...)`](../../../../../tf/keras/applications/resnet50/decode_predictions)
+[`decode_predictions(...)`](../../../../../tf/keras/applications/resnet/decode_predictions)
 
-[`preprocess_input(...)`](../../../../../tf/keras/applications/resnet50/preprocess_input)
-
+[`preprocess_input(...)`](../../../../../tf/keras/applications/resnet/preprocess_input)

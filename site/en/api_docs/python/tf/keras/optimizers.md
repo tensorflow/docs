@@ -6,22 +6,30 @@ page_type: reference
 # Module: tf.keras.optimizers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Built-in optimizer classes.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.optimizers`
-* Module `tf.keras.optimizers`
+* Module <a href="/api_docs/python/tf/keras/optimizers"><code>tf.compat.v1.keras.optimizers</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/optimizers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/optimizers/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`schedules`](../../tf/keras/optimizers/schedules) module
+[`schedules`](../../tf/keras/optimizers/schedules) module: Public API for tf.keras.optimizers.schedules namespace.
 
 ## Classes
 
@@ -50,4 +58,3 @@ Defined in [`python/keras/api/_v1/keras/optimizers/__init__.py`](https://github.
 [`get(...)`](../../tf/keras/optimizers/get): Retrieves a Keras Optimizer instance.
 
 [`serialize(...)`](../../tf/keras/optimizers/serialize)
-

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.errors.InvalidArgumentError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/errors/InvalidArgumentError">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L252-L269">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InvalidArgumentError`
 
 Raised when an operation receives an invalid argument.
@@ -13,13 +31,9 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class `tf.compat.v1.errors.InvalidArgumentError`
-* Class `tf.compat.v2.errors.InvalidArgumentError`
-* Class `tf.errors.InvalidArgumentError`
+* Class <a href="/api_docs/python/tf/errors/InvalidArgumentError"><code>tf.compat.v1.errors.InvalidArgumentError</code></a>
+* Class <a href="/api_docs/python/tf/errors/InvalidArgumentError"><code>tf.compat.v2.errors.InvalidArgumentError</code></a>
 
-
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +47,8 @@ tensor.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L266-L269">View source</a>
 
 ``` python
 __init__(
@@ -78,7 +94,3 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-

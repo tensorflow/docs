@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.RunMetadata.FunctionGraphs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FunctionGraphs`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.RunMetadata.FunctionGraphs`
-* Class `tf.compat.v1.RunMetadata.FunctionGraphs`
+* Class <a href="/api_docs/python/tf/RunMetadata/FunctionGraphs"><code>tf.compat.v1.RunMetadata.FunctionGraphs</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,7 +46,3 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="pre_optimization_graph"><code>pre_optimization_graph</code></h3>
 
 `GraphDef pre_optimization_graph`
-
-
-
-

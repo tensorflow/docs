@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.config
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/config">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.config namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -20,6 +32,8 @@ Public API for tf.config namespace.
 
 ## Functions
 
+[`experimental_connect_to_cluster(...)`](../../../tf/config/experimental_connect_to_cluster): Connects to the given cluster.
+
 [`experimental_connect_to_host(...)`](../../../tf/config/experimental_connect_to_host): Connects to a single machine to enable remote execution on it.
 
 [`experimental_list_devices(...)`](../../../tf/config/experimental_list_devices): List the names of the available devices.
@@ -29,4 +43,3 @@ Public API for tf.config namespace.
 [`get_soft_device_placement(...)`](../../../tf/config/get_soft_device_placement): Get if soft device placement is enabled.
 
 [`set_soft_device_placement(...)`](../../../tf/config/set_soft_device_placement): Set if soft device placement is enabled.
-

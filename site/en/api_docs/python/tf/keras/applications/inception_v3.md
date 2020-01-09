@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.applications.inception_v3
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/applications/inception_v3">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Inception V3 model for Keras.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.applications.inception_v3`
-* Module `tf.keras.applications.inception_v3`
+* Module <a href="/api_docs/python/tf/keras/applications/inception_v3"><code>tf.compat.v1.keras.applications.inception_v3</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/applications/inception_v3/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/applications/inception_v3/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,4 +34,3 @@ Defined in [`python/keras/api/_v1/keras/applications/inception_v3/__init__.py`](
 [`decode_predictions(...)`](../../../tf/keras/applications/inception_v3/decode_predictions)
 
 [`preprocess_input(...)`](../../../tf/keras/applications/inception_v3/preprocess_input)
-

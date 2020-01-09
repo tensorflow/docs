@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.image.sample_distorted_bounding_box
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/sample_distorted_bounding_box">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2490-L2601">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generate a single randomly distorted bounding box for an image. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.image.sample_distorted_bounding_box`
-* `tf.image.sample_distorted_bounding_box`
+* <a href="/api_docs/python/tf/image/sample_distorted_bounding_box"><code>tf.compat.v1.image.sample_distorted_bounding_box</code></a>
+
 
 ``` python
 tf.image.sample_distorted_bounding_box(
@@ -29,8 +47,6 @@ tf.image.sample_distorted_bounding_box(
 
 
 
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
@@ -48,8 +64,7 @@ The output of this Op is a single bounding box that may be used to crop the
 original image. The output is returned as 3 tensors: `begin`, `size` and
 `bboxes`. The first 2 tensors can be fed directly into <a href="../../tf/slice"><code>tf.slice</code></a> to crop the
 image. The latter may be supplied to <a href="../../tf/image/draw_bounding_boxes"><code>tf.image.draw_bounding_boxes</code></a> to
-visualize
-what the bounding box looks like.
+visualize what the bounding box looks like.
 
 Bounding boxes are supplied and returned as `[y_min, x_min, y_max, x_max]`.
 The
@@ -75,7 +90,7 @@ For example,
 ```
 
 Note that if no bounding box information is available, setting
-`use_image_if_no_bounding_boxes = true` will assume there is a single implicit
+`use_image_if_no_bounding_boxes = True` will assume there is a single implicit
 bounding box covering the whole image. If `use_image_if_no_bounding_boxes` is
 false and no bounding boxes are supplied, an error is raised.
 

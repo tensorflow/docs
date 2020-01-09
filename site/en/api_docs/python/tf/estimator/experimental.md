@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.estimator.experimental
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.estimator.experimental namespace.
 
 ### Aliases:
 
-* Module `tf.compat.v1.estimator.experimental`
-* Module `tf.estimator.experimental`
+* Module <a href="/api_docs/python/tf/estimator/experimental"><code>tf.compat.v1.estimator.experimental</code></a>
 
-
-
-Defined in [`python/estimator/api/_v1/estimator/experimental/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/experimental/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,4 +56,3 @@ Defined in [`python/estimator/api/_v1/estimator/experimental/__init__.py`](https
 [`stop_if_no_decrease_hook(...)`](../../tf/estimator/experimental/stop_if_no_decrease_hook): Creates hook to stop if metric does not decrease within given max steps.
 
 [`stop_if_no_increase_hook(...)`](../../tf/estimator/experimental/stop_if_no_increase_hook): Creates hook to stop if metric does not increase within given max steps.
-

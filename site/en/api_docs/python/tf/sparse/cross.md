@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.sparse.cross
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/cross">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L519-L548">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generates sparse cross from a list of sparse and dense tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.cross`
-* `tf.compat.v2.sparse.cross`
-* `tf.sparse.cross`
+* <a href="/api_docs/python/tf/sparse/cross"><code>tf.compat.v1.sparse.cross</code></a>
+* <a href="/api_docs/python/tf/sparse/cross"><code>tf.compat.v2.sparse.cross</code></a>
+
 
 ``` python
 tf.sparse.cross(
@@ -21,8 +39,6 @@ tf.sparse.cross(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

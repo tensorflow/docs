@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.data.experimental.map_and_batch_with_legacy_function
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/batching.py#L83-L136">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Fused implementation of `map` and `batch`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.map_and_batch_with_legacy_function`
-* `tf.data.experimental.map_and_batch_with_legacy_function`
+* <a href="/api_docs/python/tf/data/experimental/map_and_batch_with_legacy_function"><code>tf.compat.v1.data.experimental.map_and_batch_with_legacy_function</code></a>
+
 
 ``` python
 tf.data.experimental.map_and_batch_with_legacy_function(
@@ -23,8 +35,6 @@ tf.data.experimental.map_and_batch_with_legacy_function(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/batching.py).
 
 <!-- Placeholder for "Used in" -->
 

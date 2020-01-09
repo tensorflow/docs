@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.sparse.segment_mean
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3800-L3835">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the mean along sparse segments of a tensor.
 
 ``` python
@@ -19,16 +31,15 @@ tf.compat.v2.sparse.segment_mean(
 
 
 
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Read [the section on
-segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
+segmentation](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/math#about_segmentation)
 for an explanation of segments.
 
-Like `SegmentMean`, but `segment_ids` can have rank less than `data`'s first
-dimension, selecting a subset of dimension 0, specified by `indices`.
+Like <a href="../../../../tf/math/segment_mean"><code>tf.math.segment_mean</code></a>, but `segment_ids` can have rank less than
+`data`'s first dimension, selecting a subset of dimension 0, specified by
+`indices`.
 `segment_ids` is allowed to have missing ids, in which case the output will
 be zeros at those indices. In those cases `num_segments` is used to determine
 the size of the output.

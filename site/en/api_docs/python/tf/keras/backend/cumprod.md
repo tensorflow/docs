@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.cumprod
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/cumprod">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1932-L1943">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Cumulative product of the values in a tensor, alongside the specified axis.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.cumprod`
-* `tf.compat.v2.keras.backend.cumprod`
-* `tf.keras.backend.cumprod`
+* <a href="/api_docs/python/tf/keras/backend/cumprod"><code>tf.compat.v1.keras.backend.cumprod</code></a>
+* <a href="/api_docs/python/tf/keras/backend/cumprod"><code>tf.compat.v2.keras.backend.cumprod</code></a>
+
 
 ``` python
 tf.keras.backend.cumprod(
@@ -21,8 +39,6 @@ tf.keras.backend.cumprod(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.tpu.outfeed_enqueue_tuple
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_tpu_ops.py`
+
+
+
 Enqueue multiple Tensor values on the computation outfeed.
 
 ``` python
@@ -15,8 +23,6 @@ tf.contrib.tpu.outfeed_enqueue_tuple(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

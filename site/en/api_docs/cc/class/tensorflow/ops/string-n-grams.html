@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::StringNGrams Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>StringNGrams</h1>
+  <code>#include &lt;string_ops.h&gt;</code>
+  <p>Creates ngrams from ragged string data. </p>
+  <h2>Summary</h2>
+  <p>This op accepts a ragged tensor with 1 ragged dimension containing only strings and outputs a ragged tensor with 1 ragged dimension containing ngrams of that string, joined along the innermost axis.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>data: The values tensor of the ragged string tensor to make ngrams out of. Must be a 1D string tensor.</li>
+      <li>data_splits: The splits tensor of the ragged string tensor to make ngrams out of.</li>
+      <li>separator: The string to append between elements of the token. Use "" for no separator.</li>
+      <li>ngram_widths: The sizes of the ngrams to create.</li>
+      <li>left_pad: The string to use to pad the left side of the ngram sequence. Only used if pad_width != 0.</li>
+      <li>right_pad: The string to use to pad the right side of the ngram sequence. Only used if pad_width != 0.</li>
+      <li>pad_width: The number of padding elements to add to each side of each sequence. Note that padding will never be greater than 'ngram_widths'-1 regardless of this value. If <code>pad_width=-1</code>, then add <code>max(ngram_widths)-1</code> elements.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> ngrams: The values tensor of the output ngrams ragged tensor.</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> ngrams_splits: The splits tensor of the output ngrams ragged tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_string_n_grams_1a52a1f08705af6ba58d3607b809b3f835">StringNGrams</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data_splits, StringPiece separator, const gtl::ArraySlice< int > & ngram_widths, StringPiece left_pad, StringPiece right_pad, int64 pad_width, bool preserve_short_sequences)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_n_grams_1a447bd501492adc42e453473dd818baf0">ngrams</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_n_grams_1af326c6b4d4d0f53e7b7360546c807526">ngrams_splits</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_n_grams_1a96bbeebe04843441f8b36c587ed4f1c9">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_string_n_grams_1a447bd501492adc42e453473dd818baf0">
+    <h3>ngrams</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> ngrams</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_string_n_grams_1af326c6b4d4d0f53e7b7360546c807526">
+    <h3>ngrams_splits</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> ngrams_splits</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_string_n_grams_1a96bbeebe04843441f8b36c587ed4f1c9">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_string_n_grams_1a52a1f08705af6ba58d3607b809b3f835">
+    <h3>StringNGrams</h3>
+    <pre class="prettyprint"> StringNGrams(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data_splits,
+  StringPiece separator,
+  const gtl::ArraySlice< int > & ngram_widths,
+  StringPiece left_pad,
+  StringPiece right_pad,
+  int64 pad_width,
+  bool preserve_short_sequences
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

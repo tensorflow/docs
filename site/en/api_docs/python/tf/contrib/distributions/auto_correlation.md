@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.auto_correlation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/sample_stats.py#L43-L213">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Auto correlation along one axis.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.distributions.auto_correlation(
 ```
 
 
-
-Defined in [`contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
 <!-- Placeholder for "Used in" -->
 

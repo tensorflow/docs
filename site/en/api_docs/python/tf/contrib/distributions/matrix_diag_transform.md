@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.matrix_diag_transform
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L521-L580">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Transform diagonal of [batch-]matrix, leave rest of matrix unchanged.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.distributions.matrix_diag_transform(
 ```
 
 
-
-Defined in [`python/ops/distributions/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/util.py).
 
 <!-- Placeholder for "Used in" -->
 

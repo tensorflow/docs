@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.xla.experimental.compile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/xla/experimental/compile">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/compiler/xla/xla.py#L65-L110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Builds an operator that compiles and runs `computation` with XLA.
 
 ### Aliases:
 
-* `tf.compat.v1.xla.experimental.compile`
-* `tf.compat.v2.xla.experimental.compile`
-* `tf.xla.experimental.compile`
+* <a href="/api_docs/python/tf/xla/experimental/compile"><code>tf.compat.v1.xla.experimental.compile</code></a>
+* <a href="/api_docs/python/tf/xla/experimental/compile"><code>tf.compat.v2.xla.experimental.compile</code></a>
+
 
 ``` python
 tf.xla.experimental.compile(
@@ -21,8 +39,6 @@ tf.xla.experimental.compile(
 ```
 
 
-
-Defined in [`python/compiler/xla/xla.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/compiler/xla/xla.py).
 
 <!-- Placeholder for "Used in" -->
 

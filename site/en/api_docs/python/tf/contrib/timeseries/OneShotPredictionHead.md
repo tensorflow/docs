@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.timeseries.OneShotPredictionHead
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/head.py#L280-L367">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OneShotPredictionHead`
 
 A time series head which exports a single stateless serving signature.
 
 
-
-
-
-Defined in [`contrib/timeseries/python/timeseries/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/head.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +39,8 @@ Model state is neither accepted nor returned, so filtering must be performed
 each time predictions are requested when using this head.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/head.py#L54-L73">View source</a>
 
 ``` python
 __init__(
@@ -65,7 +75,12 @@ See `_Head`.
 
 <h3 id="name"><code>name</code></h3>
 
+The name of this head.
 
+
+#### Returns:
+
+A string.
 
 
 
@@ -73,6 +88,8 @@ See `_Head`.
 ## Methods
 
 <h3 id="create_estimator_spec"><code>create_estimator_spec</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/head.py#L232-L277">View source</a>
 
 ``` python
 create_estimator_spec(
@@ -87,6 +104,8 @@ Performs basic error checking and returns an EstimatorSpec.
 
 <h3 id="create_loss"><code>create_loss</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/head.py#L81-L88">View source</a>
+
 ``` python
 create_loss(
     features,
@@ -97,7 +116,3 @@ create_loss(
 ```
 
 See `_Head`.
-
-
-
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.mean_iou
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L1093-L1193">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Calculate per-step mean Intersection-Over-Union (mIOU).
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.mean_iou`
-* `tf.metrics.mean_iou`
+* <a href="/api_docs/python/tf/metrics/mean_iou"><code>tf.compat.v1.metrics.mean_iou</code></a>
+
 
 ``` python
 tf.metrics.mean_iou(
@@ -25,8 +37,6 @@ tf.metrics.mean_iou(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

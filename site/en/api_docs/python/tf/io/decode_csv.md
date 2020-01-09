@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.io.decode_csv
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_csv">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L1921-L1967">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convert CSV records to tensors. Each column maps to one tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.decode_csv`
-* `tf.compat.v1.io.decode_csv`
-* `tf.decode_csv`
-* `tf.io.decode_csv`
+* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.compat.v1.decode_csv</code></a>
+* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.compat.v1.io.decode_csv</code></a>
+* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.decode_csv</code></a>
+
 
 ``` python
 tf.io.decode_csv(
@@ -27,8 +45,6 @@ tf.io.decode_csv(
 ```
 
 
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

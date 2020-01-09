@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.enable_eager_execution
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5650-L5719">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Enables eager execution for the lifetime of this program.
 
 ### Aliases:
 
-* `tf.compat.v1.enable_eager_execution`
-* `tf.contrib.eager.enable_eager_execution`
-* `tf.enable_eager_execution`
+* <a href="/api_docs/python/tf/enable_eager_execution"><code>tf.compat.v1.enable_eager_execution</code></a>
+* <a href="/api_docs/python/tf/enable_eager_execution"><code>tf.contrib.eager.enable_eager_execution</code></a>
+
 
 ``` python
 tf.enable_eager_execution(
@@ -22,8 +34,6 @@ tf.enable_eager_execution(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

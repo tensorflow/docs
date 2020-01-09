@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.distribute.experimental.CollectiveCommunication
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/experimental/CollectiveCommunication">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L975-L986">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CollectiveCommunication`
 
 Communication choices for CollectiveOps.
@@ -13,13 +31,9 @@ Communication choices for CollectiveOps.
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.experimental.CollectiveCommunication`
-* Class `tf.compat.v2.distribute.experimental.CollectiveCommunication`
-* Class `tf.distribute.experimental.CollectiveCommunication`
+* Class <a href="/api_docs/python/tf/distribute/experimental/CollectiveCommunication"><code>tf.compat.v1.distribute.experimental.CollectiveCommunication</code></a>
+* Class <a href="/api_docs/python/tf/distribute/experimental/CollectiveCommunication"><code>tf.compat.v2.distribute.experimental.CollectiveCommunication</code></a>
 
-
-
-Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cross_device_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,7 +41,7 @@ Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorfl
 * `RING`: TensorFlow's ring algorithms for all-reduce and
   all-gather.
 * `NCCL`: Use ncclAllReduce for all-reduce, and ring algorithms for
-  all-gather.  TODO(ayushd): add ncclAllGather implementation.
+  all-gather.
 
 ## Class Members
 

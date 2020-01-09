@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.io.FixedLenSequenceFeature
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/FixedLenSequenceFeature">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L157-L187">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FixedLenSequenceFeature`
 
 Configuration for parsing a variable-length input feature into a `Tensor`.
@@ -13,15 +31,11 @@ Configuration for parsing a variable-length input feature into a `Tensor`.
 
 ### Aliases:
 
-* Class `tf.FixedLenSequenceFeature`
-* Class `tf.compat.v1.FixedLenSequenceFeature`
-* Class `tf.compat.v1.io.FixedLenSequenceFeature`
-* Class `tf.compat.v2.io.FixedLenSequenceFeature`
-* Class `tf.io.FixedLenSequenceFeature`
+* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.FixedLenSequenceFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v1.FixedLenSequenceFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v1.io.FixedLenSequenceFeature</code></a>
+* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v2.io.FixedLenSequenceFeature</code></a>
 
-
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,6 +63,26 @@ the parse functions will fail on any examples missing this feature.
   `SequenceExample`. Defaults to "" for dtype string and 0 otherwise
   (optional).
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L185-L187">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    shape,
+    dtype,
+    allow_missing=False,
+    default_value=None
+)
+```
+
+Create new instance of FixedLenSequenceFeature(shape, dtype, allow_missing, default_value)
+
+
+
+
 ## Properties
 
 <h3 id="shape"><code>shape</code></h3>
@@ -67,9 +101,3 @@ the parse functions will fail on any examples missing this feature.
 
 
 <h3 id="default_value"><code>default_value</code></h3>
-
-
-
-
-
-

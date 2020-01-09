@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.copy_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/copy_graph/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functions to copy elements between graphs.
-
-
-
-Defined in [`contrib/copy_graph/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/copy_graph/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,4 +29,3 @@ Defined in [`contrib/copy_graph/__init__.py`](https://github.com/tensorflow/tens
 [`copy_variable_to_graph(...)`](../../tf/contrib/copy_graph/copy_variable_to_graph): Given a `Variable` instance from one `Graph`, initializes and returns
 
 [`get_copied_op(...)`](../../tf/contrib/copy_graph/get_copied_op): Given an `Operation` instance from some `Graph`, returns
-

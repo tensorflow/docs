@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.bucket_by_sequence_length
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/bucket_by_sequence_length">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/grouping.py#L127-L244">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that buckets elements in a `Dataset` by length.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.bucket_by_sequence_length`
-* `tf.compat.v2.data.experimental.bucket_by_sequence_length`
-* `tf.data.experimental.bucket_by_sequence_length`
+* <a href="/api_docs/python/tf/data/experimental/bucket_by_sequence_length"><code>tf.compat.v1.data.experimental.bucket_by_sequence_length</code></a>
+* <a href="/api_docs/python/tf/data/experimental/bucket_by_sequence_length"><code>tf.compat.v2.data.experimental.bucket_by_sequence_length</code></a>
+
 
 ``` python
 tf.data.experimental.bucket_by_sequence_length(
@@ -27,8 +45,6 @@ tf.data.experimental.bucket_by_sequence_length(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/grouping.py).
 
 <!-- Placeholder for "Used in" -->
 

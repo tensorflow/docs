@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.config.optimizer.get_experimental_options
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/config/optimizer/get_experimental_options">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L101-L114">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get experimental optimizer options.
 
 ### Aliases:
 
-* `tf.compat.v1.config.optimizer.get_experimental_options`
-* `tf.compat.v2.config.optimizer.get_experimental_options`
-* `tf.config.optimizer.get_experimental_options`
+* <a href="/api_docs/python/tf/config/optimizer/get_experimental_options"><code>tf.compat.v1.config.optimizer.get_experimental_options</code></a>
+* <a href="/api_docs/python/tf/config/optimizer/get_experimental_options"><code>tf.compat.v2.config.optimizer.get_experimental_options</code></a>
+
 
 ``` python
 tf.config.optimizer.get_experimental_options()
 ```
 
 
-
-Defined in [`python/framework/config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/config.py).
 
 <!-- Placeholder for "Used in" -->
 

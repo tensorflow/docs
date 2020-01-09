@@ -6,15 +6,17 @@ page_type: reference
 # Module: tf.estimator.inputs
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Utility methods to create simple input_fns.
 
 ### Aliases:
 
-* Module `tf.compat.v1.estimator.inputs`
-* Module `tf.estimator.inputs`
+* Module <a href="/api_docs/python/tf/estimator/inputs"><code>tf.compat.v1.estimator.inputs</code></a>
 
-
-
-Defined in [`python/estimator/api/_v1/estimator/inputs/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/inputs/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -24,4 +26,3 @@ Defined in [`python/estimator/api/_v1/estimator/inputs/__init__.py`](https://git
 [`numpy_input_fn(...)`](../../tf/estimator/inputs/numpy_input_fn): Returns input function that would feed dict of numpy arrays into the model.
 
 [`pandas_input_fn(...)`](../../tf/estimator/inputs/pandas_input_fn): Returns input function that would feed Pandas DataFrame into the model.
-

@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.test.get_temp_dir
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/test.py#L67-L76">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a temporary directory for use during tests.
 
 ### Aliases:
 
-* `tf.compat.v1.test.get_temp_dir`
-* `tf.test.get_temp_dir`
+* <a href="/api_docs/python/tf/test/get_temp_dir"><code>tf.compat.v1.test.get_temp_dir</code></a>
+
 
 ``` python
 tf.test.get_temp_dir()
 ```
 
 
-
-Defined in [`python/platform/test.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/test.py).
 
 <!-- Placeholder for "Used in" -->
 

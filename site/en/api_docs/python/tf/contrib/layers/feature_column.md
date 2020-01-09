@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.layers.feature_column
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 This API defines FeatureColumn abstraction.
-
-
-
-Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -117,4 +125,3 @@ Example of building a non-`Estimator` model using FeatureColumns:
   second_layer = fully_connected(first_layer, ...)
 
 See feature_column_ops_test for more examples.
-

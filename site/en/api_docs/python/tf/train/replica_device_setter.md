@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.replica_device_setter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/device_setter.py#L135-L230">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return a `device function` to use when building a Graph for replicas.
 
 ### Aliases:
 
-* `tf.compat.v1.train.replica_device_setter`
-* `tf.train.replica_device_setter`
+* <a href="/api_docs/python/tf/train/replica_device_setter"><code>tf.compat.v1.train.replica_device_setter</code></a>
+
 
 ``` python
 tf.train.replica_device_setter(
@@ -25,8 +37,6 @@ tf.train.replica_device_setter(
 ```
 
 
-
-Defined in [`python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/device_setter.py).
 
 <!-- Placeholder for "Used in" -->
 

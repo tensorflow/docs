@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.AdagradDAOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/adagrad_da.py#L30-L172">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AdagradDAOptimizer`
 
 Adagrad Dual Averaging algorithm for sparse linear models.
@@ -13,12 +25,8 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.AdagradDAOptimizer`
-* Class `tf.train.AdagradDAOptimizer`
+* Class <a href="/api_docs/python/tf/train/AdagradDAOptimizer"><code>tf.compat.v1.train.AdagradDAOptimizer</code></a>
 
-
-
-Defined in [`python/training/adagrad_da.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/adagrad_da.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,6 +42,8 @@ careful when using AdagradDA for deep networks as it will require careful
 initialization of the gradient accumulators for it to train.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/adagrad_da.py#L45-L85">View source</a>
 
 ``` python
 __init__(
@@ -78,6 +88,8 @@ invalid.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L531-L638">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -117,6 +129,8 @@ was not None, that operation also increments `global_step`.
 * <b>`RuntimeError`</b>: If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 ``` python
 compute_gradients(
@@ -180,6 +194,8 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -188,6 +204,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -219,6 +237,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -233,6 +253,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -299,6 +321,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.data.experimental.make_csv_dataset
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/make_csv_dataset">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/readers.py#L560-L588">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reads CSV files into a dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.make_csv_dataset`
-* `tf.data.experimental.make_csv_dataset`
+* <a href="/api_docs/python/tf/data/experimental/make_csv_dataset"><code>tf.compat.v1.data.experimental.make_csv_dataset</code></a>
+
 
 ``` python
 tf.data.experimental.make_csv_dataset(
@@ -28,8 +46,8 @@ tf.data.experimental.make_csv_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=optimization.AUTOTUNE,
-    num_parallel_reads=1,
+    prefetch_buffer_size=None,
+    num_parallel_reads=None,
     sloppy=False,
     num_rows_for_inference=100,
     compression_type=None,
@@ -38,8 +56,6 @@ tf.data.experimental.make_csv_dataset(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/readers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/readers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -103,9 +119,8 @@ feature data, and labels is a `Tensor` containing the batch's label data.
 * <b>`prefetch_buffer_size`</b>: An int specifying the number of feature
   batches to prefetch for performance improvement. Recommended value is the
   number of batches consumed per training step. Defaults to auto-tune.
-
 * <b>`num_parallel_reads`</b>: Number of threads used to read CSV records from files.
-  If >1, the results will be interleaved.
+  If >1, the results will be interleaved. Defaults to `1`.
 * <b>`sloppy`</b>: If `True`, reading performance will be improved at
   the cost of non-deterministic ordering. If `False`, the order of elements
   produced is deterministic prior to shuffling (elements are still

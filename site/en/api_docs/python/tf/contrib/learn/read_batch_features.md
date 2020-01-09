@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.read_batch_features
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py#L757-L834">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds operations to read, queue, batch and parse `Example` protos. (deprecated)
 
 ``` python
@@ -26,8 +38,6 @@ tf.contrib.learn.read_batch_features(
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/learn_io/graph_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/graph_io.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.string_split
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L520-L580">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Split elements of `source` based on `delimiter`. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.string_split`
-* `tf.string_split`
+* <a href="/api_docs/python/tf/string_split"><code>tf.compat.v1.string_split</code></a>
+
 
 ``` python
 tf.string_split(
@@ -24,8 +36,6 @@ tf.string_split(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,16 +54,18 @@ treated as a set of delimiters with each considered a potential split point.
 
 #### Examples:
 
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.split(['hello world', 'a b c']){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tf.SparseTensor(indices=[[0, 0], [0, 1], [1, 0], [1, 1], [1, 2]],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                values=['hello', 'world', 'a', 'b', 'c']{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                dense_shape=[2, 3]){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.split(['hello world', 'a b c'], result_type="RaggedTensor"){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [['hello', 'world'], ['a', 'b', 'c']]>{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+</pre>
 
-
-```python
->>> tf.strings.split(['hello world', 'a b c'])
-tf.SparseTensor(indices=[[0, 0], [0, 1], [1, 0], [1, 1], [1, 2]],
-                values=['hello', 'world', 'a', 'b', 'c']
-                dense_shape=[2, 3])
-
->>> tf.strings.split(['hello world', 'a b c'], result_type="RaggedTensor")
-<tf.RaggedTensor [['hello', 'world'], ['a', 'b', 'c']]>
 ```
 
 #### Args:

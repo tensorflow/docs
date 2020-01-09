@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.LMDBReader
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L458-L481">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LMDBReader`
 
 A Reader that outputs the records from a LMDB file.
@@ -13,12 +25,8 @@ Inherits From: [`ReaderBase`](../tf/ReaderBase)
 
 ### Aliases:
 
-* Class `tf.LMDBReader`
-* Class `tf.compat.v1.LMDBReader`
+* Class <a href="/api_docs/python/tf/LMDBReader"><code>tf.compat.v1.LMDBReader</code></a>
 
-
-
-Defined in [`python/ops/io_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/io_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +41,8 @@ use <a href="../tf/data"><code>tf.data</code></a> to get data into your model.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L469-L481">View source</a>
 
 ``` python
 __init__(
@@ -73,6 +83,8 @@ Whether the Reader implementation can serialize its state.
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L211-L229">View source</a>
+
 ``` python
 num_records_produced(name=None)
 ```
@@ -95,6 +107,8 @@ An int64 Tensor.
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L231-L245">View source</a>
+
 ``` python
 num_work_units_completed(name=None)
 ```
@@ -114,6 +128,8 @@ An int64 Tensor.
 
 
 <h3 id="read"><code>read</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L144-L171">View source</a>
 
 ``` python
 read(
@@ -144,6 +160,8 @@ A tuple of Tensors (key, value).
 * <b>`value`</b>: A string scalar Tensor.
 
 <h3 id="read_up_to"><code>read_up_to</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L173-L209">View source</a>
 
 ``` python
 read_up_to(
@@ -178,6 +196,8 @@ A tuple of Tensors (keys, values).
 
 <h3 id="reset"><code>reset</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L289-L301">View source</a>
+
 ``` python
 reset(name=None)
 ```
@@ -197,6 +217,8 @@ The created Operation.
 
 
 <h3 id="restore_state"><code>restore_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L264-L282">View source</a>
 
 ``` python
 restore_state(
@@ -225,6 +247,8 @@ The created Operation.
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/io_ops.py#L247-L262">View source</a>
+
 ``` python
 serialize_state(name=None)
 ```
@@ -243,7 +267,3 @@ Unimplemented error.
 #### Returns:
 
 A string Tensor.
-
-
-
-

@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.contrib.layers.legacy_fully_connected
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L3187-L3317">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds the parameters for a fully connected layer and returns the output.
 
 ``` python
@@ -26,8 +38,6 @@ tf.contrib.layers.legacy_fully_connected(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -86,7 +96,7 @@ collection.
 * <b>`bias_collections`</b>: List of graph collections to which biases are added.
 * <b>`output_collections`</b>: List of graph collections to which outputs are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`weight_regularizer`</b>: A regularizer like the result of `l1_regularizer` or
   `l2_regularizer`. Used for weights.
 * <b>`bias_regularizer`</b>: A regularizer like the result of `l1_regularizer` or

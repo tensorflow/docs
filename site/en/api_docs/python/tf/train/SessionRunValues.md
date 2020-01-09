@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SessionRunValues
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L267-L287">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SessionRunValues`
 
 Contains the results of <a href="../../tf/InteractiveSession#run"><code>Session.run()</code></a>.
@@ -13,15 +25,11 @@ Contains the results of <a href="../../tf/InteractiveSession#run"><code>Session.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.SessionRunValues`
-* Class `tf.compat.v1.train.SessionRunValues`
-* Class `tf.compat.v2.estimator.SessionRunValues`
-* Class `tf.estimator.SessionRunValues`
-* Class `tf.train.SessionRunValues`
+* Class <a href="/api_docs/python/tf/train/SessionRunValues"><code>tf.compat.v1.estimator.SessionRunValues</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunValues"><code>tf.compat.v1.train.SessionRunValues</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunValues"><code>tf.compat.v2.estimator.SessionRunValues</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunValues"><code>tf.estimator.SessionRunValues</code></a>
 
-
-
-Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_run_hook.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,6 +51,22 @@ run without changing the Hook API.
 * <b>`options`</b>: `RunOptions` from the <a href="../../tf/InteractiveSession#run"><code>Session.run()</code></a> call.
 * <b>`run_metadata`</b>: `RunMetadata` from the <a href="../../tf/InteractiveSession#run"><code>Session.run()</code></a> call.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    results,
+    options,
+    run_metadata
+)
+```
+
+Create new instance of SessionRunValues(results, options, run_metadata)
+
+
+
+
 ## Properties
 
 <h3 id="results"><code>results</code></h3>
@@ -56,9 +80,3 @@ run without changing the Hook API.
 
 
 <h3 id="run_metadata"><code>run_metadata</code></h3>
-
-
-
-
-
-

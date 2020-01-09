@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.lookup.IdTableWithHashBuckets
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L829-L1033">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `IdTableWithHashBuckets`
 
 String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
 Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
-
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,6 +66,8 @@ The hash function used for generating out-of-vocabulary buckets ID is handled
 by `hasher_spec`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L871-L932">View source</a>
 
 ``` python
 __init__(
@@ -115,12 +125,12 @@ The table key dtype.
 
 <h3 id="name"><code>name</code></h3>
 
-
+The name of the table.
 
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
 
-
+Returns the resource handle associated with this Resource.
 
 
 <h3 id="value_dtype"><code>value_dtype</code></h3>
@@ -133,6 +143,8 @@ The table value dtype.
 ## Methods
 
 <h3 id="lookup"><code>lookup</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L989-L1033">View source</a>
 
 ``` python
 lookup(
@@ -165,12 +177,10 @@ A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L967-L974">View source</a>
+
 ``` python
 size(name=None)
 ```
 
 Compute the number of elements in this table.
-
-
-
-

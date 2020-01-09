@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.weighted_sum_from_feature_columns
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column_ops.py#L431-L542">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A tf.contrib.layers style linear prediction builder based on FeatureColumn.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.layers.weighted_sum_from_feature_columns(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -61,7 +71,7 @@ loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=labels,
 * <b>`num_outputs`</b>: An integer specifying number of outputs. Default value is 1.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 

@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.summary.TaggedRunMetadata
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/util/event.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TaggedRunMetadata`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.summary.TaggedRunMetadata`
-* Class `tf.summary.TaggedRunMetadata`
+* Class <a href="/api_docs/python/tf/summary/TaggedRunMetadata"><code>tf.compat.v1.summary.TaggedRunMetadata</code></a>
 
-
-
-Defined in [`core/util/event.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/util/event.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,7 +41,3 @@ Defined in [`core/util/event.proto`](https://github.com/tensorflow/tensorflow/tr
 <h3 id="tag"><code>tag</code></h3>
 
 `string tag`
-
-
-
-

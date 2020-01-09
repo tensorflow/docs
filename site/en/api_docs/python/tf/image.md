@@ -6,9 +6,22 @@ page_type: reference
 # Module: tf.image
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Image processing and decoding ops.
 
 <!-- Placeholder for "Used in" -->
 
+See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 ## Classes
 
@@ -62,7 +75,7 @@ page_type: reference
 
 [`extract_jpeg_shape(...)`](../tf/io/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
 
-[`extract_patches(...)`](../tf/image/extract_patches): Extract `patches` from `images` and put them in the \"depth\" output dimension.
+[`extract_patches(...)`](../tf/image/extract_patches): Extract `patches` from `images`.
 
 [`flip_left_right(...)`](../tf/image/flip_left_right): Flip an image horizontally (left to right).
 
@@ -82,9 +95,11 @@ page_type: reference
 
 [`non_max_suppression_padded(...)`](../tf/image/non_max_suppression_padded): Greedily selects a subset of bounding boxes in descending order of score.
 
+[`non_max_suppression_with_scores(...)`](../tf/image/non_max_suppression_with_scores): Greedily selects a subset of bounding boxes in descending order of score.
+
 [`pad_to_bounding_box(...)`](../tf/image/pad_to_bounding_box): Pad `image` with zeros to the specified `height` and `width`.
 
-[`per_image_standardization(...)`](../tf/image/per_image_standardization): Linearly scales `image` to have zero mean and unit variance.
+[`per_image_standardization(...)`](../tf/image/per_image_standardization): Linearly scales each image in `image` to have mean 0 and variance 1.
 
 [`psnr(...)`](../tf/image/psnr): Returns the Peak Signal-to-Noise Ratio between a and b.
 
@@ -149,4 +164,3 @@ page_type: reference
 [`yiq_to_rgb(...)`](../tf/image/yiq_to_rgb): Converts one or more images from YIQ to RGB.
 
 [`yuv_to_rgb(...)`](../tf/image/yuv_to_rgb): Converts one or more images from YUV to RGB.
-

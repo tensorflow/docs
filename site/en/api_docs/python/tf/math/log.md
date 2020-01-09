@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.log
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/log">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes natural logarithm of x element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.log`
-* `tf.compat.v1.math.log`
-* `tf.compat.v2.math.log`
-* `tf.log`
-* `tf.math.log`
+* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v1.log</code></a>
+* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v1.math.log</code></a>
+* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v2.math.log</code></a>
+* <a href="/api_docs/python/tf/math/log"><code>tf.log</code></a>
+
 
 ``` python
 tf.math.log(
@@ -24,8 +38,6 @@ tf.math.log(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

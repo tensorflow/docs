@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.nn.rank_sampled_softmax_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/nn/python/ops/sampling_ops.py#L110-L244">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes softmax loss using rank-based adaptive resampling.
 
 ``` python
@@ -26,8 +38,6 @@ tf.contrib.nn.rank_sampled_softmax_loss(
 ```
 
 
-
-Defined in [`contrib/nn/python/ops/sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/nn/python/ops/sampling_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -90,7 +100,7 @@ elif mode == "eval":
     The (possibly-sharded) class biases.
 * <b>`labels`</b>: A `Tensor` of type `int64` and shape `[batch_size,
     num_true]`. The target classes. Note that this format differs from
-    the `labels` argument of `nn.softmax_cross_entropy_with_logits`.
+    the `labels` argument of <a href="/api_docs/python/tf/nn/softmax_cross_entropy_with_logits"><code>nn.softmax_cross_entropy_with_logits</code></a>.
 * <b>`inputs`</b>: A `Tensor` of shape `[batch_size, dim]`. The forward
     activations of the input network.
 * <b>`num_sampled`</b>: An `int`. The number of classes to randomly sample per batch.
@@ -101,7 +111,7 @@ elif mode == "eval":
 * <b>`num_true`</b>: An `int`.  The number of target classes per training example.
 * <b>`sampled_values`</b>: A tuple of (`sampled_candidates`, `true_expected_count`,
     `sampled_expected_count`) returned by a `*_candidate_sampler` function.
-    If None, default to `nn.learned_unigram_candidate_sampler`.
+    If None, default to <a href="/api_docs/python/tf/random/learned_unigram_candidate_sampler"><code>nn.learned_unigram_candidate_sampler</code></a>.
 * <b>`resampling_temperature`</b>: A scalar `Tensor` with the temperature parameter
     for the adaptive resampling algorithm.
 * <b>`remove_accidental_hits`</b>: A `bool`. Whether to remove "accidental hits"

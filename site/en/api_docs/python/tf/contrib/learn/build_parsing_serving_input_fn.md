@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.build_parsing_serving_input_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py#L67-L94">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Build an input_fn appropriate for serving, expecting fed tf.Examples. (deprecated)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.learn.build_parsing_serving_input_fn(
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/utils/input_fn_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/utils/input_fn_utils.py).
 
 <!-- Placeholder for "Used in" -->
 

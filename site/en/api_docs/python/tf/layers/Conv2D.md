@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Conv2D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L222-L314">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Conv2D`
 
 2D convolution layer (e.g. spatial convolution over images).
@@ -13,12 +25,8 @@ Inherits From: [`Conv2D`](../../tf/keras/layers/Conv2D), [`Layer`](../../tf/laye
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Conv2D`
-* Class `tf.layers.Conv2D`
+* Class <a href="/api_docs/python/tf/layers/Conv2D"><code>tf.compat.v1.layers.Conv2D</code></a>
 
-
-
-Defined in [`python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -79,6 +87,8 @@ a bias vector is created and added to the outputs. Finally, if
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L279-L314">View source</a>
+
 ``` python
 __init__(
     filters,
@@ -118,9 +128,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

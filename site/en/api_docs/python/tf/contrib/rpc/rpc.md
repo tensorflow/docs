@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.rpc.rpc
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `contrib/rpc/python/ops/gen_rpc_op.py`
+
+
+
 TODO: add doc.
 
 ``` python
@@ -20,8 +28,6 @@ tf.contrib.rpc.rpc(
 ```
 
 
-
-Defined in generated file: `contrib/rpc/python/ops/gen_rpc_op.py`.
 
 <!-- Placeholder for "Used in" -->
 

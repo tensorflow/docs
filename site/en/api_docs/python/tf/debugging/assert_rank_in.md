@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.debugging.assert_rank_in
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_rank_in">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1355-L1415">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert `x` has rank in `ranks`.
 
 ### Aliases:
 
-* `tf.assert_rank_in`
-* `tf.compat.v1.assert_rank_in`
-* `tf.compat.v1.debugging.assert_rank_in`
-* `tf.debugging.assert_rank_in`
+* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.assert_rank_in</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.compat.v1.assert_rank_in</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.compat.v1.debugging.assert_rank_in</code></a>
+
 
 ``` python
 tf.debugging.assert_rank_in(
@@ -26,8 +44,6 @@ tf.debugging.assert_rank_in(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -6,22 +6,30 @@ page_type: reference
 
 # tf.contrib.factorization.WALSModel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L50-L1017">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `WALSModel`
 
 A model for Weighted Alternating Least Squares matrix factorization.
 
 
 
-
-
-Defined in [`contrib/factorization/python/ops/factorization_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/factorization_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 It minimizes the following loss function over U, V:
 <div> $$
  \|\sqrt W \odot (A - U V^T)\|_F^2 + \lambda (\|U\|_F^2 + \|V\|_F^2)
-$$</div>
+$$ </div>
   where,
   A: input matrix,
   W: weight matrix. Note that the (element-wise) square root of the weights
@@ -53,10 +61,10 @@ normalized as follows:
 if sp_input contains the rows \\({A_i, i \in I}\\), and the input matrix A
 has n total rows, then the minibatch loss = unregularized_loss +
 regularization is
-<div>  $$
+ <div> $$
  (\|\sqrt W_I \odot (A_I - U_I V^T)\|_F^2 + \lambda \|U_I\|_F^2) * n / |I| +
  \lambda \|V\|_F^2
- $$</div>
+ $$ </div>
 The sum_weights tensor contains the normalized sum of weights
 \\(sum(W_I) * n / |I|\\).
 
@@ -152,6 +160,8 @@ A typical usage example (pseudocode):
           col_update_op.run(session=sess)
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L187-L296">View source</a>
 
 ``` python
 __init__(
@@ -298,6 +308,8 @@ the correct values.
 
 <h3 id="project_col_factors"><code>project_col_factors</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L775-L806">View source</a>
+
 ``` python
 project_col_factors(
     sp_input=None,
@@ -333,6 +345,8 @@ Projected column factors.
 
 
 <h3 id="project_row_factors"><code>project_row_factors</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L742-L773">View source</a>
 
 ``` python
 project_row_factors(
@@ -370,6 +384,8 @@ Projected row factors.
 
 <h3 id="scatter_update"><code>scatter_update</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L651-L674">View source</a>
+
 ``` python
 @classmethod
 scatter_update(
@@ -386,6 +402,8 @@ Helper function for doing sharded scatter update.
 
 
 <h3 id="update_col_factors"><code>update_col_factors</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L709-L740">View source</a>
 
 ``` python
 update_col_factors(
@@ -431,6 +449,8 @@ A tuple consisting of the following elements:
 
 <h3 id="update_row_factors"><code>update_row_factors</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/factorization_ops.py#L676-L707">View source</a>
+
 ``` python
 update_row_factors(
     sp_input=None,
@@ -472,6 +492,3 @@ A tuple consisting of the following elements:
 * <b>`sum_weights`</b>: The sum of the weights W_I corresponding to sp_input,
   normalized by a factor of \\(n / |I|\\). The root weighted squared
   error is: \sqrt(unregularized_loss / sum_weights).
-
-
-

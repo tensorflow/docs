@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.tensor_scatter_nd_sub
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/tensor_scatter_nd_sub">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Subtracts sparse `updates` from an existing tensor according to `indices`.
 
 ### Aliases:
 
-* `tf.compat.v1.tensor_scatter_nd_sub`
-* `tf.compat.v1.tensor_scatter_sub`
-* `tf.compat.v2.tensor_scatter_nd_sub`
-* `tf.tensor_scatter_nd_sub`
-* `tf.tensor_scatter_sub`
+* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v1.tensor_scatter_nd_sub</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v1.tensor_scatter_sub</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v2.tensor_scatter_nd_sub</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.tensor_scatter_sub</code></a>
+
 
 ``` python
 tf.tensor_scatter_nd_sub(
@@ -25,8 +39,6 @@ tf.tensor_scatter_nd_sub(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

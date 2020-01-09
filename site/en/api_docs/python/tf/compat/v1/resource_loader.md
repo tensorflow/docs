@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.resource_loader
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/resource_loader">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Resource management library.
 
 <!-- Placeholder for "Used in" -->
@@ -21,4 +33,3 @@ Resource management library.
 [`load_resource(...)`](../../../tf/resource_loader/load_resource): Load the resource at given path, where path is relative to tensorflow/.
 
 [`readahead_file_path(...)`](../../../tf/resource_loader/readahead_file_path): Readahead files not implemented; simply returns given path.
-

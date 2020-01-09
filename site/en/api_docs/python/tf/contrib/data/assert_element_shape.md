@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.assert_element_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/batching.py#L180-L231">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert the shape of this `Dataset`.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.data.assert_element_shape(expected_shapes)
 ```
 
 
-
-Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
 <!-- Placeholder for "Used in" -->
 

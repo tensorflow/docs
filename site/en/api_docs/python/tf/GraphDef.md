@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.GraphDef
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/graph.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GraphDef`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.GraphDef`
-* Class `tf.compat.v1.GraphDef`
+* Class <a href="/api_docs/python/tf/GraphDef"><code>tf.compat.v1.GraphDef</code></a>
 
-
-
-Defined in [`core/framework/graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/graph.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,7 +51,3 @@ Defined in [`core/framework/graph.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="versions"><code>versions</code></h3>
 
 `VersionDef versions`
-
-
-
-

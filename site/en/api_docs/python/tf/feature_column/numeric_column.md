@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.feature_column.numeric_column
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/numeric_column">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1253-L1327">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Represents real valued or numerical features.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.numeric_column`
-* `tf.compat.v2.feature_column.numeric_column`
-* `tf.feature_column.numeric_column`
+* <a href="/api_docs/python/tf/feature_column/numeric_column"><code>tf.compat.v1.feature_column.numeric_column</code></a>
+* <a href="/api_docs/python/tf/feature_column/numeric_column"><code>tf.compat.v2.feature_column.numeric_column</code></a>
+
 
 ``` python
 tf.feature_column.numeric_column(
@@ -24,8 +42,6 @@ tf.feature_column.numeric_column(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

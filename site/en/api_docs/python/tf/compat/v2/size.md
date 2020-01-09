@@ -6,6 +6,18 @@ page_type: reference
 # tf.compat.v2.size
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L497-L501">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ``` python
 tf.compat.v2.size(
@@ -16,7 +28,5 @@ tf.compat.v2.size(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->

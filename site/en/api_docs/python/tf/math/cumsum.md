@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.math.cumsum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/cumsum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3253-L3302">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute the cumulative sum of the tensor `x` along `axis`.
 
 ### Aliases:
 
-* `tf.compat.v1.cumsum`
-* `tf.compat.v1.math.cumsum`
-* `tf.compat.v2.cumsum`
-* `tf.compat.v2.math.cumsum`
-* `tf.cumsum`
-* `tf.math.cumsum`
+* <a href="/api_docs/python/tf/math/cumsum"><code>tf.compat.v1.cumsum</code></a>
+* <a href="/api_docs/python/tf/math/cumsum"><code>tf.compat.v1.math.cumsum</code></a>
+* <a href="/api_docs/python/tf/math/cumsum"><code>tf.compat.v2.cumsum</code></a>
+* <a href="/api_docs/python/tf/math/cumsum"><code>tf.compat.v2.math.cumsum</code></a>
+* <a href="/api_docs/python/tf/math/cumsum"><code>tf.cumsum</code></a>
+
 
 ``` python
 tf.math.cumsum(
@@ -27,8 +45,6 @@ tf.math.cumsum(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.Mapping
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L585-L653">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Mapping`
 
 An append-only trackable mapping data structure with string keys.
 
 
-
-
-
-Defined in [`python/training/tracking/data_structures.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/data_structures.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -24,6 +32,8 @@ Note that once a key has been added, it may not be deleted or replaced. If
 names may not be unique, see <a href="../../../tf/contrib/checkpoint/UniqueNameTracker"><code>tf.contrib.checkpoint.UniqueNameTracker</code></a>.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L595-L602">View source</a>
 
 ``` python
 __init__(
@@ -104,14 +114,18 @@ __contains__(key)
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L247-L250">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L643-L644">View source</a>
 
 ``` python
 __getitem__(key)
@@ -122,6 +136,8 @@ __getitem__(key)
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L652-L653">View source</a>
+
 ``` python
 __iter__()
 ```
@@ -130,6 +146,8 @@ __iter__()
 
 
 <h3 id="__len__"><code>__len__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L646-L647">View source</a>
 
 ``` python
 __len__()
@@ -170,6 +188,8 @@ D.keys() -> a set-like object providing a view on D's keys
 
 <h3 id="update"><code>update</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L639-L641">View source</a>
+
 ``` python
 update(
     *args,
@@ -187,7 +207,3 @@ values()
 ```
 
 D.values() -> an object providing a view on D's values
-
-
-
-

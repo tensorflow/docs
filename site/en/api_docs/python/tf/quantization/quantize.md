@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.quantization.quantize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/quantization/quantize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4403-L4419">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
 
 ### Aliases:
 
-* `tf.compat.v1.quantization.quantize`
-* `tf.compat.v1.quantize`
-* `tf.compat.v2.quantization.quantize`
-* `tf.quantization.quantize`
-* `tf.quantize`
+* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v1.quantization.quantize</code></a>
+* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v1.quantize</code></a>
+* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v2.quantization.quantize</code></a>
+* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.quantize</code></a>
+
 
 ``` python
 tf.quantization.quantize(
@@ -28,8 +46,6 @@ tf.quantization.quantize(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -90,7 +106,7 @@ choosing to elide the lowest possible value for symmetry (e.g., output range is
 We first find the range of values in our tensor. The
 range we use is always centered on 0, so we find m such that
 
-```
+```c++
   m = max(abs(input_min), abs(input_max))
 ```
 
@@ -113,13 +129,13 @@ Otherwise, if T is unsigned, the fixed-point range is
 
 From this we compute our scaling factor, s:
 
-```
+```c++
   s = (max_fixed - min_fixed) / (2 * m)
 ```
 
 Now we can quantize the elements of our tensor:
 
-```
+```c++
 result = round(input * s)
 ```
 

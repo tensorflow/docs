@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.estimator.tpu.TPUConfig
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TPUConfig`
 
 TPU related configuration required by `TPUEstimator`.
@@ -13,13 +25,9 @@ TPU related configuration required by `TPUEstimator`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.tpu.TPUConfig`
-* Class `tf.contrib.tpu.TPUConfig`
-* Class `tf.estimator.tpu.TPUConfig`
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUConfig"><code>tf.compat.v1.estimator.tpu.TPUConfig</code></a>
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUConfig"><code>tf.contrib.tpu.TPUConfig</code></a>
 
-
-
-Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,9 +56,13 @@ Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/
   is required by model-parallelism which enables partitioning
   the model to multiple cores. Currently num_cores_per_replica must be
   1, 2, 4, or 8.
-* <b>`per_host_input_for_training`</b>: If `True`, `PER_HOST_V1`, or `PER_HOST_V2`,
-  `input_fn` is invoked once on each host. With the per-core input pipeline
-  configuration, it is invoked once for each core.
+* <b>`per_host_input_for_training`</b>: If `True`, for `PER_HOST_V1`, the `input_fn` is
+  invoked once on each host, and the number of hosts must be smaller or
+  equal to the number of replicas. For PER_HOST_V2, the `input_fn` is
+  invoked once for each host (if the number of hosts is less than the number
+  of replicas) or replica (if the number of replicas is less than the number
+  of hosts. With the per-core input pipeline configuration, it is invoked
+  once for each core.
   With a global batch size `train_batch_size` in `TPUEstimator` constructor,
   the batch size for each shard is `train_batch_size` // #hosts in the
   `True` or `PER_HOST_V1` mode. In `PER_HOST_V2` mode, it is
@@ -83,12 +95,41 @@ Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/
   replicas. Unlike per_host_input_for_training=BROADCAST, each replica will
   only get a slice of the data instead of a whole copy. If `PER_HOST_V1`,
   the behaviour is determined by per_host_input_for_training.
+* <b>`experimental_host_call_every_n_steps`</b>: Within a training loop, this argument
+  sets how often host calls are performed during training. Host calls will
+  be evaluated every n steps within a training loop where n is the value of
+  this argument.
 
 
 #### Raises:
 
 
-* <b>`ValueError`</b>: If `num_cores_per_replica` is not 1, 2, 4, 8 or 16.
+* <b>`ValueError`</b>: If `num_cores_per_replica` is not 1, 2, 4, 8, ..., 128.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    iterations_per_loop=2,
+    num_shards=None,
+    num_cores_per_replica=None,
+    per_host_input_for_training=True,
+    tpu_job_name=None,
+    initial_infeed_sleep_secs=None,
+    input_partition_dims=None,
+    eval_training_input_configuration=InputPipelineConfig.PER_HOST_V1,
+    experimental_host_call_every_n_steps=1
+)
+```
+
+Create new instance of TPUConfig(iterations_per_loop, num_shards, num_cores_per_replica, per_host_input_for_training, tpu_job_name, initial_infeed_sleep_secs, input_partition_dims, eval_training_input_configuration, experimental_host_call_every_n_steps)
+
+
+
 
 ## Properties
 
@@ -132,5 +173,4 @@ Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/
 
 
 
-
-
+<h3 id="experimental_host_call_every_n_steps"><code>experimental_host_call_every_n_steps</code></h3>

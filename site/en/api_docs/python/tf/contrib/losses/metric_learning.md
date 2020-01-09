@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.losses.metric_learning
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/losses/python/metric_learning/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for building neural network losses.
-
-
-
-Defined in [`contrib/losses/python/metric_learning/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,4 +36,3 @@ See [Contrib Losses](https://tensorflow.org/api_guides/python/contrib.losses).
 [`npairs_loss_multilabel(...)`](../../../tf/contrib/losses/metric_learning/npairs_loss_multilabel): Computes the npairs loss with multilabel data.
 
 [`triplet_semihard_loss(...)`](../../../tf/contrib/losses/metric_learning/triplet_semihard_loss): Computes the triplet loss with semi-hard negative mining.
-

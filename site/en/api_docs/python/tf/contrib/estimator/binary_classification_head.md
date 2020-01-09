@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.binary_classification_head
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a `_Head` for single label binary classification.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.estimator.binary_classification_head(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/head.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/head.py).
 
 <!-- Placeholder for "Used in" -->
 

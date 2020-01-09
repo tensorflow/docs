@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.conv1d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/conv1d">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L4671-L4718">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 1D convolution.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.conv1d`
-* `tf.compat.v2.keras.backend.conv1d`
-* `tf.keras.backend.conv1d`
+* <a href="/api_docs/python/tf/keras/backend/conv1d"><code>tf.compat.v1.keras.backend.conv1d</code></a>
+* <a href="/api_docs/python/tf/keras/backend/conv1d"><code>tf.compat.v2.keras.backend.conv1d</code></a>
+
 
 ``` python
 tf.keras.backend.conv1d(
@@ -25,8 +43,6 @@ tf.keras.backend.conv1d(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

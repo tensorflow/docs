@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.compute_accidental_hits
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/compute_accidental_hits">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/candidate_sampling_ops.py#L343-L389">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute the position ids in `sampled_candidates` matching `true_classes`.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.compute_accidental_hits`
-* `tf.compat.v2.nn.compute_accidental_hits`
-* `tf.nn.compute_accidental_hits`
+* <a href="/api_docs/python/tf/nn/compute_accidental_hits"><code>tf.compat.v1.nn.compute_accidental_hits</code></a>
+* <a href="/api_docs/python/tf/nn/compute_accidental_hits"><code>tf.compat.v2.nn.compute_accidental_hits</code></a>
+
 
 ``` python
 tf.nn.compute_accidental_hits(
@@ -24,8 +42,6 @@ tf.nn.compute_accidental_hits(
 ```
 
 
-
-Defined in [`python/ops/candidate_sampling_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/candidate_sampling_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

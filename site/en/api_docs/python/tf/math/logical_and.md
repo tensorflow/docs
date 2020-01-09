@@ -5,19 +5,33 @@ page_type: reference
 
 # tf.math.logical_and
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/logical_and">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns the truth value of x AND y element-wise.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__and__`
-* `tf.compat.v1.RaggedTensor.__and__`
-* `tf.compat.v1.logical_and`
-* `tf.compat.v1.math.logical_and`
-* `tf.compat.v2.RaggedTensor.__and__`
-* `tf.compat.v2.logical_and`
-* `tf.compat.v2.math.logical_and`
-* `tf.logical_and`
-* `tf.math.logical_and`
+* <a href="/api_docs/python/tf/RaggedTensor#__and__"><code>tf.RaggedTensor.__and__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__and__"><code>tf.compat.v1.RaggedTensor.__and__</code></a>
+* <a href="/api_docs/python/tf/math/logical_and"><code>tf.compat.v1.logical_and</code></a>
+* <a href="/api_docs/python/tf/math/logical_and"><code>tf.compat.v1.math.logical_and</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__and__"><code>tf.compat.v2.RaggedTensor.__and__</code></a>
+* <a href="/api_docs/python/tf/math/logical_and"><code>tf.compat.v2.logical_and</code></a>
+* <a href="/api_docs/python/tf/math/logical_and"><code>tf.compat.v2.math.logical_and</code></a>
+* <a href="/api_docs/python/tf/math/logical_and"><code>tf.logical_and</code></a>
+
 
 ``` python
 tf.math.logical_and(
@@ -28,8 +42,6 @@ tf.math.logical_and(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

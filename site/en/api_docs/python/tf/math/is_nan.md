@@ -5,17 +5,31 @@ page_type: reference
 
 # tf.math.is_nan
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/is_nan">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns which elements of x are NaN.
 
 ### Aliases:
 
-* `tf.compat.v1.debugging.is_nan`
-* `tf.compat.v1.is_nan`
-* `tf.compat.v1.math.is_nan`
-* `tf.compat.v2.math.is_nan`
-* `tf.debugging.is_nan`
-* `tf.is_nan`
-* `tf.math.is_nan`
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.debugging.is_nan</code></a>
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.is_nan</code></a>
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.math.is_nan</code></a>
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v2.math.is_nan</code></a>
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.debugging.is_nan</code></a>
+* <a href="/api_docs/python/tf/math/is_nan"><code>tf.is_nan</code></a>
+
 
 ``` python
 tf.math.is_nan(
@@ -25,8 +39,6 @@ tf.math.is_nan(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,4 +58,3 @@ A `Tensor` of type `bool`.
 
 #### Numpy Compatibility
 Equivalent to np.isnan
-

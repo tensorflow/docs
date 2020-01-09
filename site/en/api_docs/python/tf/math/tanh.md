@@ -5,19 +5,33 @@ page_type: reference
 
 # tf.math.tanh
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/tanh">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes hyperbolic tangent of `x` element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.tanh`
-* `tf.compat.v1.nn.tanh`
-* `tf.compat.v1.tanh`
-* `tf.compat.v2.math.tanh`
-* `tf.compat.v2.nn.tanh`
-* `tf.compat.v2.tanh`
-* `tf.math.tanh`
-* `tf.nn.tanh`
-* `tf.tanh`
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.math.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.nn.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.math.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.nn.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.nn.tanh</code></a>
+* <a href="/api_docs/python/tf/math/tanh"><code>tf.tanh</code></a>
+
 
 ``` python
 tf.math.tanh(
@@ -28,10 +42,14 @@ tf.math.tanh(
 
 
 
-Defined in generated file: `python/ops/gen_math_ops.py`.
-
 <!-- Placeholder for "Used in" -->
 
+  Given an input tensor, this function computes hyperbolic tangent of every
+  element in the tensor. Input range is `[-inf, inf]` and
+  output range is `[-1,1]`.
+
+>     x = tf.constant([-float("inf"), -5, -0.5, 1, 1.2, 2, 3, float("inf")])
+>     tf.math.tanh(x) ==> [-1. -0.99990916 -0.46211717 0.7615942 0.8336547 0.9640276 0.9950547 1.]
 
 #### Args:
 

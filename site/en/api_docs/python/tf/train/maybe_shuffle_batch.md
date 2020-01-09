@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.maybe_shuffle_batch
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/input.py#L1350-L1411">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates batches by randomly shuffling conditionally-enqueued tensors. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.maybe_shuffle_batch`
-* `tf.train.maybe_shuffle_batch`
+* <a href="/api_docs/python/tf/train/maybe_shuffle_batch"><code>tf.compat.v1.train.maybe_shuffle_batch</code></a>
+
 
 ``` python
 tf.train.maybe_shuffle_batch(
@@ -30,8 +42,6 @@ tf.train.maybe_shuffle_batch(
 ```
 
 
-
-Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -84,4 +94,3 @@ A list or dictionary of tensors with the types as `tensors`.
 #### Eager Compatibility
 Input pipelines based on Queues are not supported when eager execution is
 enabled. Please use the <a href="../../tf/data"><code>tf.data</code></a> API to ingest data under eager execution.
-

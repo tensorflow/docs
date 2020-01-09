@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.contrib.layers.xavier_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/initializers.py#L31-L57">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an initializer performing "Xavier" initialization for weights.
 
 ### Aliases:
 
-* `tf.contrib.layers.xavier_initializer`
-* `tf.contrib.layers.xavier_initializer_conv2d`
+* <a href="/api_docs/python/tf/contrib/layers/xavier_initializer"><code>tf.contrib.layers.xavier_initializer_conv2d</code></a>
+
 
 ``` python
 tf.contrib.layers.xavier_initializer(
@@ -21,8 +33,6 @@ tf.contrib.layers.xavier_initializer(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/initializers.py).
 
 <!-- Placeholder for "Used in" -->
 

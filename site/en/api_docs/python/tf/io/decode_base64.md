@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.io.decode_base64
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_base64">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Decode web-safe base64-encoded strings.
 
 ### Aliases:
 
-* `tf.compat.v1.decode_base64`
-* `tf.compat.v1.io.decode_base64`
-* `tf.compat.v2.io.decode_base64`
-* `tf.decode_base64`
-* `tf.io.decode_base64`
+* <a href="/api_docs/python/tf/io/decode_base64"><code>tf.compat.v1.decode_base64</code></a>
+* <a href="/api_docs/python/tf/io/decode_base64"><code>tf.compat.v1.io.decode_base64</code></a>
+* <a href="/api_docs/python/tf/io/decode_base64"><code>tf.compat.v2.io.decode_base64</code></a>
+* <a href="/api_docs/python/tf/io/decode_base64"><code>tf.decode_base64</code></a>
+
 
 ``` python
 tf.io.decode_base64(
@@ -23,8 +37,6 @@ tf.io.decode_base64(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

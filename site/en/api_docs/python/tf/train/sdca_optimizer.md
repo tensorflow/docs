@@ -6,12 +6,20 @@ page_type: reference
 
 # tf.train.sdca_optimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_sdca_ops.py`
+
+
+
 Distributed version of Stochastic Dual Coordinate Ascent (SDCA) optimizer for
 
 ### Aliases:
 
-* `tf.compat.v1.train.sdca_optimizer`
-* `tf.train.sdca_optimizer`
+* <a href="/api_docs/python/tf/train/sdca_optimizer"><code>tf.compat.v1.train.sdca_optimizer</code></a>
+
 
 ``` python
 tf.train.sdca_optimizer(
@@ -36,8 +44,6 @@ tf.train.sdca_optimizer(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_sdca_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

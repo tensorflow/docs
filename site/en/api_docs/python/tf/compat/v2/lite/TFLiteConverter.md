@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.lite.TFLiteConverter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L262-L452">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TFLiteConverter`
 
 Converts a TensorFlow model into TensorFlow Lite model.
 
 
-
-
-
-Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/lite.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +41,8 @@ Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree
 * <b>`representative_dataset`</b>: A representative dataset that can be used to
   generate input and output samples for the model. The converter can use the
   dataset to evaluate different optimizations.
+* <b>`experimental_enable_mlir_converter`</b>: Experimental flag, subject to change.
+  Enables the MLIR converter instead of the TOCO converter.
 
 
 #### Example usage:
@@ -54,6 +64,8 @@ tflite_model = converter.convert()
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L298-L312">View source</a>
 
 ``` python
 __init__(
@@ -82,6 +94,8 @@ Constructor for TFLiteConverter.
 
 <h3 id="convert"><code>convert</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L386-L452">View source</a>
+
 ``` python
 convert()
 ```
@@ -103,6 +117,8 @@ The converted data in serialized format.
   Invalid quantization parameters.
 
 <h3 id="from_concrete_functions"><code>from_concrete_functions</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L314-L335">View source</a>
 
 ``` python
 @classmethod
@@ -135,6 +151,8 @@ Invalid input type.
 
 <h3 id="from_keras_model"><code>from_keras_model</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L372-L384">View source</a>
+
 ``` python
 @classmethod
 from_keras_model(
@@ -158,6 +176,8 @@ TFLiteConverter object.
 
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L337-L370">View source</a>
 
 ``` python
 @classmethod
@@ -193,7 +213,3 @@ TFLiteConverter object.
 #### Raises:
 
 Invalid signature keys.
-
-
-
-

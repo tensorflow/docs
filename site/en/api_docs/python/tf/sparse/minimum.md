@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.sparse.minimum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/minimum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L2502-L2537">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the element-wise min of two SparseTensors.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.minimum`
-* `tf.compat.v1.sparse_minimum`
-* `tf.compat.v2.sparse.minimum`
-* `tf.sparse.minimum`
-* `tf.sparse_minimum`
+* <a href="/api_docs/python/tf/sparse/minimum"><code>tf.compat.v1.sparse.minimum</code></a>
+* <a href="/api_docs/python/tf/sparse/minimum"><code>tf.compat.v1.sparse_minimum</code></a>
+* <a href="/api_docs/python/tf/sparse/minimum"><code>tf.compat.v2.sparse.minimum</code></a>
+* <a href="/api_docs/python/tf/sparse/minimum"><code>tf.sparse_minimum</code></a>
+
 
 ``` python
 tf.sparse.minimum(
@@ -24,8 +42,6 @@ tf.sparse.minimum(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.py_func
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/script_ops.py#L498-L513">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Wraps a python function and uses it as a TensorFlow op.
 
 ### Aliases:
 
-* `tf.compat.v1.py_func`
-* `tf.py_func`
+* <a href="/api_docs/python/tf/py_func"><code>tf.compat.v1.py_func</code></a>
+
 
 ``` python
 tf.py_func(
@@ -23,8 +35,6 @@ tf.py_func(
 ```
 
 
-
-Defined in [`python/ops/script_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/script_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

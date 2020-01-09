@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.io.parse_single_example
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L1025-L1072">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Parses a single `Example` proto.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.io.parse_single_example(
 ```
 
 
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

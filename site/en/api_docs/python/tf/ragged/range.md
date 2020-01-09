@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.ragged.range
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/ragged/range">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_math_ops.py#L41-L110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a `RaggedTensor` containing the specified sequences of numbers.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.range`
-* `tf.compat.v2.ragged.range`
-* `tf.ragged.range`
+* <a href="/api_docs/python/tf/ragged/range"><code>tf.compat.v1.ragged.range</code></a>
+* <a href="/api_docs/python/tf/ragged/range"><code>tf.compat.v2.ragged.range</code></a>
+
 
 ``` python
 tf.ragged.range(
@@ -25,8 +43,6 @@ tf.ragged.range(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,16 +61,14 @@ an error for these cases.
 
 #### Examples:
 
-
-
-```python
->>> ragged.range([3, 5, 2]).eval().tolist()
-[[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
->>> ragged.range([0, 5, 8], [3, 3, 12]).eval().tolist()
-[[0, 1, 2], [], [8, 9, 10, 11]]
->>> ragged.range([0, 5, 8], [3, 3, 12], 2).eval().tolist()
-[[0, 2], [], [8, 10]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.range([3, 5, 2]).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.range([0, 5, 8], [3, 3, 12]).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[0, 1, 2], [], [8, 9, 10, 11]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.range([0, 5, 8], [3, 3, 12], 2).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[0, 2], [], [8, 10]]{% endhtmlescape %}</code>
+</pre>
 
 The input tensors `starts`, `limits`, and `deltas` may be scalars or vectors.
 The vector inputs must all have the same size.  Scalar inputs are broadcast

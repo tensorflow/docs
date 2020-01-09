@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.atrous_conv2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/atrous_conv2d">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L1412-L1546">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Atrous convolution (a.k.a. convolution with holes or dilated convolution).
 
 ### Aliases:
 
-* `tf.compat.v1.nn.atrous_conv2d`
-* `tf.compat.v2.nn.atrous_conv2d`
-* `tf.nn.atrous_conv2d`
+* <a href="/api_docs/python/tf/nn/atrous_conv2d"><code>tf.compat.v1.nn.atrous_conv2d</code></a>
+* <a href="/api_docs/python/tf/nn/atrous_conv2d"><code>tf.compat.v2.nn.atrous_conv2d</code></a>
+
 
 ``` python
 tf.nn.atrous_conv2d(
@@ -24,8 +42,6 @@ tf.nn.atrous_conv2d(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

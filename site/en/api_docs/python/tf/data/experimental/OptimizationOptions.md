@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.experimental.OptimizationOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/OptimizationOptions">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/optimization_options.py#L57-L224">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OptimizationOptions`
 
 Represents options for dataset optimizations.
@@ -13,13 +31,9 @@ Represents options for dataset optimizations.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.OptimizationOptions`
-* Class `tf.compat.v2.data.experimental.OptimizationOptions`
-* Class `tf.data.experimental.OptimizationOptions`
+* Class <a href="/api_docs/python/tf/data/experimental/OptimizationOptions"><code>tf.compat.v1.data.experimental.OptimizationOptions</code></a>
+* Class <a href="/api_docs/python/tf/data/experimental/OptimizationOptions"><code>tf.compat.v2.data.experimental.OptimizationOptions</code></a>
 
-
-
-Defined in [`python/data/experimental/ops/optimization_options.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/optimization_options.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,11 +51,13 @@ dataset = dataset.with_options(options)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -56,6 +72,16 @@ Whether to apply default static optimizations. If False, only static optimizatio
 <h3 id="autotune"><code>autotune</code></h3>
 
 Whether to automatically tune performance knobs. If None, defaults to True.
+
+
+<h3 id="autotune_algorithm"><code>autotune_algorithm</code></h3>
+
+When autotuning is enabled (through `autotune`), identifies the algorithm to use for the autotuning optimization.
+
+
+<h3 id="autotune_buffers"><code>autotune_buffers</code></h3>
+
+When autotuning is enabled (through `autotune`), determines whether to also autotune buffer sizes for datasets with parallelism. If None, defaults to False.
 
 
 <h3 id="autotune_cpu_budget"><code>autotune_cpu_budget</code></h3>
@@ -124,21 +150,21 @@ Whether to fuse shuffle and repeat transformations. If None, defaults to True.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
-
-
-
-
+Return self!=value.

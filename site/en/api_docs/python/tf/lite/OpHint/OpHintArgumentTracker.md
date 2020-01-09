@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.lite.OpHint.OpHintArgumentTracker
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L158-L306">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `OpHintArgumentTracker`
 
 Conceptually tracks indices of arguments of "OpHint functions".
@@ -13,12 +25,8 @@ Conceptually tracks indices of arguments of "OpHint functions".
 
 ### Aliases:
 
-* Class `tf.compat.v1.lite.OpHint.OpHintArgumentTracker`
-* Class `tf.lite.OpHint.OpHintArgumentTracker`
+* Class <a href="/api_docs/python/tf/lite/OpHint/OpHintArgumentTracker"><code>tf.compat.v1.lite.OpHint.OpHintArgumentTracker</code></a>
 
-
-
-Defined in [`lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/op_hint.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,6 +34,8 @@ The inputs and arguments of these functions both use an instance
 of the class so they can have independent numbering.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L165-L198">View source</a>
 
 ``` python
 __init__(
@@ -57,6 +67,8 @@ Initialize ophint argument.
 ## Methods
 
 <h3 id="add"><code>add</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L225-L306">View source</a>
 
 ``` python
 add(
@@ -97,6 +109,3 @@ A tensor representing the wrapped argument.
 
 
 * <b>`ValueError`</b>: When indices are not consistent.
-
-
-

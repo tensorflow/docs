@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.Evaluable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/evaluable.py#L32-L119">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Evaluable`
 
 Interface for objects that are evaluatable by, e.g., `Experiment`.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/evaluable.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/evaluable.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +41,8 @@ Returns a path in which the eval process will look for checkpoints.
 ## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/evaluable.py#L45-L119">View source</a>
 
 ``` python
 evaluate(
@@ -114,7 +124,3 @@ for which this evaluation was performed.
 #### Returns:
 
 Returns `dict` with evaluation results.
-
-
-
-

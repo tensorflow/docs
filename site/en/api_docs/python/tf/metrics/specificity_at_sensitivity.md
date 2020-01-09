@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.specificity_at_sensitivity
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L3622-L3741">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the specificity at a given sensitivity.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.specificity_at_sensitivity`
-* `tf.metrics.specificity_at_sensitivity`
+* <a href="/api_docs/python/tf/metrics/specificity_at_sensitivity"><code>tf.compat.v1.metrics.specificity_at_sensitivity</code></a>
+
 
 ``` python
 tf.metrics.specificity_at_sensitivity(
@@ -26,8 +38,6 @@ tf.metrics.specificity_at_sensitivity(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.experimental.DistributeOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/DistributeOptions">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/distribute_options.py#L25-L63">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DistributeOptions`
 
 Represents options for distributed data processing.
@@ -13,13 +31,9 @@ Represents options for distributed data processing.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.DistributeOptions`
-* Class `tf.compat.v2.data.experimental.DistributeOptions`
-* Class `tf.data.experimental.DistributeOptions`
+* Class <a href="/api_docs/python/tf/data/experimental/DistributeOptions"><code>tf.compat.v1.data.experimental.DistributeOptions</code></a>
+* Class <a href="/api_docs/python/tf/data/experimental/DistributeOptions"><code>tf.compat.v2.data.experimental.DistributeOptions</code></a>
 
-
-
-Defined in [`python/data/experimental/ops/distribute_options.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/distribute_options.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,11 +49,13 @@ dataset = dataset.with_options(options)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -62,21 +78,21 @@ The number of devices attached to this input pipeline. This will be automaticall
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
-
-
-
-
+Return self!=value.

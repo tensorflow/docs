@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.legacy_seq2seq
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/legacy_seq2seq/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Deprecated library for creating sequence-to-sequence models in TensorFlow.
-
-
-
-Defined in [`contrib/legacy_seq2seq/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/legacy_seq2seq/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,4 +49,3 @@ Defined in [`contrib/legacy_seq2seq/__init__.py`](https://github.com/tensorflow/
 [`sequence_loss_by_example(...)`](../../tf/contrib/legacy_seq2seq/sequence_loss_by_example): Weighted cross-entropy loss for a sequence of logits (per example).
 
 [`tied_rnn_seq2seq(...)`](../../tf/contrib/legacy_seq2seq/tied_rnn_seq2seq): RNN sequence-to-sequence model with tied encoder and decoder parameters.
-

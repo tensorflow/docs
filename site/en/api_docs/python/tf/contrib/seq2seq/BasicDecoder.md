@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.seq2seq.BasicDecoder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py#L44-L147">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BasicDecoder`
 
 Basic sampling decoder.
 
 Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
 
-
-
-Defined in [`contrib/seq2seq/python/ops/basic_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py#L47-L72">View source</a>
 
 ``` python
 __init__(
@@ -55,17 +65,17 @@ Initialize BasicDecoder.
 
 <h3 id="batch_size"><code>batch_size</code></h3>
 
-
+The batch size of input values.
 
 
 <h3 id="output_dtype"><code>output_dtype</code></h3>
 
-
+A (possibly nested tuple of...) dtype[s].
 
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-
+A (possibly nested tuple of...) integer[s] or `TensorShape` object[s].
 
 
 <h3 id="tracks_own_finished"><code>tracks_own_finished</code></h3>
@@ -94,6 +104,8 @@ Python bool.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/decoder.py#L115-L130">View source</a>
+
 ``` python
 finalize(
     outputs,
@@ -102,10 +114,29 @@ finalize(
 )
 ```
 
+Called after decoding iterations complete.
 
+
+#### Args:
+
+
+* <b>`outputs`</b>: RNNCell outputs (possibly nested tuple of) tensor[s] for all time
+  steps.
+* <b>`final_state`</b>: RNNCell final state (possibly nested tuple of) tensor[s] for
+  last time step.
+* <b>`sequence_lengths`</b>: 1-D `int32` tensor containing lengths of each sequence.
+
+
+#### Returns:
+
+`(final_outputs, final_state)`: `final_outputs` is an object containing
+the final decoder output, `final_state` is a (structure of) state tensors
+and TensorArrays.
 
 
 <h3 id="initialize"><code>initialize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py#L112-L121">View source</a>
 
 ``` python
 initialize(name=None)
@@ -126,6 +157,8 @@ Initialize the decoder.
 
 
 <h3 id="step"><code>step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py#L123-L147">View source</a>
 
 ``` python
 step(
@@ -151,7 +184,3 @@ Perform a decoding step.
 #### Returns:
 
 `(outputs, next_state, next_inputs, finished)`.
-
-
-
-

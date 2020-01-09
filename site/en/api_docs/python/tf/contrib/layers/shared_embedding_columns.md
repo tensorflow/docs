@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.shared_embedding_columns
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column.py#L1355-L1485">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a list of `_EmbeddingColumn` sharing the same embedding.
 
 ``` python
@@ -22,8 +34,6 @@ tf.contrib.layers.shared_embedding_columns(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

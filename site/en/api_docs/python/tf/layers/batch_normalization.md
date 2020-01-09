@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.batch_normalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/normalization.py#L170-L327">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface for the batch normalization layer. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.batch_normalization`
-* `tf.layers.batch_normalization`
+* <a href="/api_docs/python/tf/layers/batch_normalization"><code>tf.compat.v1.layers.batch_normalization</code></a>
+
 
 ``` python
 tf.layers.batch_normalization(
@@ -42,8 +54,6 @@ tf.layers.batch_normalization(
 ```
 
 
-
-Defined in [`python/layers/normalization.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/normalization.py).
 
 <!-- Placeholder for "Used in" -->
 

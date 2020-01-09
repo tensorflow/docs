@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.train.summary_iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary_iterator.py#L27-L69">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 An iterator for reading `Event` protocol buffers from an event file.
 
 ### Aliases:
 
-* `tf.compat.v1.train.summary_iterator`
-* `tf.train.summary_iterator`
+* <a href="/api_docs/python/tf/train/summary_iterator"><code>tf.compat.v1.train.summary_iterator</code></a>
+
 
 ``` python
 tf.train.summary_iterator(path)
 ```
 
 
-
-Defined in [`python/summary/summary_iterator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary_iterator.py).
 
 <!-- Placeholder for "Used in" -->
 

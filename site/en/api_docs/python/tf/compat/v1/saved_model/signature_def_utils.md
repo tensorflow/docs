@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.saved_model.signature_def_utils
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/saved_model/signature_def_utils">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 SignatureDef utility functions.
 
 <!-- Placeholder for "Used in" -->
@@ -22,4 +34,3 @@ Utility functions for building and inspecting SignatureDef protos.
 [`predict_signature_def(...)`](../../../../tf/saved_model/predict_signature_def): Creates prediction signature from given inputs and outputs.
 
 [`regression_signature_def(...)`](../../../../tf/saved_model/regression_signature_def): Creates regression signature from given examples and predictions.
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.variable_creator_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2643-L2708">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Scope which defines a variable creation function to be used by variable().
 
 ``` python
@@ -12,8 +24,6 @@ tf.compat.v2.variable_creator_scope(variable_creator)
 ```
 
 
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,8 +72,7 @@ The valid keyword arguments in kwds are:
       aggregated. Accepted values are constants defined in the class
       <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
       `AUTO` and the current `DistributionStrategy` chooses
-      when to synchronize. If `synchronization` is set to `ON_READ`,
-      `trainable` must not be set to `True`.
+      when to synchronize.
     aggregation: Indicates how a distributed variable will be aggregated.
       Accepted values are constants defined in the class
       <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.

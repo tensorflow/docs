@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.unsorted_segment_prod
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/unsorted_segment_prod">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the product along segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.unsorted_segment_prod`
-* `tf.compat.v1.unsorted_segment_prod`
-* `tf.compat.v2.math.unsorted_segment_prod`
-* `tf.math.unsorted_segment_prod`
-* `tf.unsorted_segment_prod`
+* <a href="/api_docs/python/tf/math/unsorted_segment_prod"><code>tf.compat.v1.math.unsorted_segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_prod"><code>tf.compat.v1.unsorted_segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_prod"><code>tf.compat.v2.math.unsorted_segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/unsorted_segment_prod"><code>tf.unsorted_segment_prod</code></a>
+
 
 ``` python
 tf.math.unsorted_segment_prod(
@@ -26,8 +40,6 @@ tf.math.unsorted_segment_prod(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

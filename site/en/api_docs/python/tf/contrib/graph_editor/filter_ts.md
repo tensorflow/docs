@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.filter_ts
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/select.py#L119-L136">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get all the tensors which are input or output of an op in ops.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.graph_editor.filter_ts(
 ```
 
 
-
-Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
 
 <!-- Placeholder for "Used in" -->
 

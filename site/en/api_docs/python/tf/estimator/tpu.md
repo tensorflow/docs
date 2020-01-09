@@ -6,18 +6,24 @@ page_type: reference
 # Module: tf.estimator.tpu
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.estimator.tpu namespace.
 
 ### Aliases:
 
-* Module `tf.compat.v1.estimator.tpu`
-* Module `tf.estimator.tpu`
+* Module <a href="/api_docs/python/tf/estimator/tpu"><code>tf.compat.v1.estimator.tpu</code></a>
 
-
-
-Defined in [`python/estimator/api/_v1/estimator/tpu/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/tpu/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
+
+## Modules
+
+[`experimental`](../../tf/estimator/tpu/experimental) module: Public API for tf.estimator.tpu.experimental namespace.
 
 ## Classes
 
@@ -30,4 +36,3 @@ Defined in [`python/estimator/api/_v1/estimator/tpu/__init__.py`](https://github
 [`class TPUEstimator`](../../tf/estimator/tpu/TPUEstimator): Estimator with TPU support.
 
 [`class TPUEstimatorSpec`](../../tf/estimator/tpu/TPUEstimatorSpec): Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
-

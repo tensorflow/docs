@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.relu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/relu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L4209-L4259">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rectified linear unit.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.relu`
-* `tf.compat.v2.keras.backend.relu`
-* `tf.keras.backend.relu`
+* <a href="/api_docs/python/tf/keras/backend/relu"><code>tf.compat.v1.keras.backend.relu</code></a>
+* <a href="/api_docs/python/tf/keras/backend/relu"><code>tf.compat.v2.keras.backend.relu</code></a>
+
 
 ``` python
 tf.keras.backend.relu(
@@ -23,8 +41,6 @@ tf.keras.backend.relu(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

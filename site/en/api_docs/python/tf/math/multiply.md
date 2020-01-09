@@ -5,19 +5,37 @@ page_type: reference
 
 # tf.math.multiply
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/multiply">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L328-L331">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns x * y element-wise.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__mul__`
-* `tf.compat.v1.RaggedTensor.__mul__`
-* `tf.compat.v1.math.multiply`
-* `tf.compat.v1.multiply`
-* `tf.compat.v2.RaggedTensor.__mul__`
-* `tf.compat.v2.math.multiply`
-* `tf.compat.v2.multiply`
-* `tf.math.multiply`
-* `tf.multiply`
+* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.RaggedTensor.__mul__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.compat.v1.RaggedTensor.__mul__</code></a>
+* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v1.math.multiply</code></a>
+* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v1.multiply</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.compat.v2.RaggedTensor.__mul__</code></a>
+* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v2.math.multiply</code></a>
+* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v2.multiply</code></a>
+* <a href="/api_docs/python/tf/math/multiply"><code>tf.multiply</code></a>
+
 
 ``` python
 tf.math.multiply(
@@ -29,11 +47,9 @@ tf.math.multiply(
 
 
 
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
-*NOTE*: `<a href="../../tf/math/multiply"><code>tf.multiply</code></a>` supports broadcasting. More about broadcasting
+*NOTE*: <a href="../../tf/math/multiply"><code>tf.multiply</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:

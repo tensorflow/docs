@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.metrics
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/metrics">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Evaluation-related metrics.
 
 <!-- Placeholder for "Used in" -->
@@ -77,4 +89,3 @@ Evaluation-related metrics.
 [`true_positives(...)`](../../../tf/metrics/true_positives): Sum the weights of true_positives.
 
 [`true_positives_at_thresholds(...)`](../../../tf/metrics/true_positives_at_thresholds): Computes true positives at provided threshold values.
-

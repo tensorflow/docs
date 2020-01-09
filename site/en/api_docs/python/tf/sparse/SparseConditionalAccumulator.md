@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.sparse.SparseConditionalAccumulator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1363-L1554">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SparseConditionalAccumulator`
 
 A conditional accumulator for aggregating sparse gradients.
@@ -13,14 +25,10 @@ Inherits From: [`ConditionalAccumulatorBase`](../../tf/ConditionalAccumulatorBas
 
 ### Aliases:
 
-* Class `tf.SparseConditionalAccumulator`
-* Class `tf.compat.v1.SparseConditionalAccumulator`
-* Class `tf.compat.v1.sparse.SparseConditionalAccumulator`
-* Class `tf.sparse.SparseConditionalAccumulator`
+* Class <a href="/api_docs/python/tf/sparse/SparseConditionalAccumulator"><code>tf.SparseConditionalAccumulator</code></a>
+* Class <a href="/api_docs/python/tf/sparse/SparseConditionalAccumulator"><code>tf.compat.v1.SparseConditionalAccumulator</code></a>
+* Class <a href="/api_docs/python/tf/sparse/SparseConditionalAccumulator"><code>tf.compat.v1.sparse.SparseConditionalAccumulator</code></a>
 
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,6 +52,8 @@ gradients has been accumulated.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1383-L1396">View source</a>
+
 ``` python
 __init__(
     dtype,
@@ -54,8 +64,16 @@ __init__(
 )
 ```
 
+Creates a new ConditionalAccumulator.
 
 
+#### Args:
+
+
+* <b>`dtype`</b>: Datatype of the accumulated gradients.
+* <b>`shape`</b>: Shape of the accumulated gradients.
+* <b>`accumulator_ref`</b>: A handle to the conditional accumulator, created by sub-
+  classes
 
 
 
@@ -81,6 +99,8 @@ The name of the underlying accumulator.
 ## Methods
 
 <h3 id="apply_grad"><code>apply_grad</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1422-L1468">View source</a>
 
 ``` python
 apply_grad(
@@ -136,6 +156,8 @@ The operation that (conditionally) applies a gradient to the accumulator.
 
 <h3 id="apply_indexed_slices_grad"><code>apply_indexed_slices_grad</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1398-L1420">View source</a>
+
 ``` python
 apply_indexed_slices_grad(
     grad,
@@ -170,6 +192,8 @@ The operation that (conditionally) applies a gradient to the accumulator.
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1523-L1536">View source</a>
+
 ``` python
 num_accumulated(name=None)
 ```
@@ -189,6 +213,8 @@ Number of accumulated gradients currently in accumulator.
 
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1538-L1554">View source</a>
 
 ``` python
 set_global_step(
@@ -215,6 +241,8 @@ Operation that sets the accumulator's time step.
 
 
 <h3 id="take_grad"><code>take_grad</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1470-L1492">View source</a>
 
 ``` python
 take_grad(
@@ -253,6 +281,8 @@ A tuple of indices, values, and shape representing the average gradient.
 
 <h3 id="take_indexed_slices_grad"><code>take_indexed_slices_grad</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1494-L1520">View source</a>
+
 ``` python
 take_indexed_slices_grad(
     num_required,
@@ -287,6 +317,3 @@ An `IndexedSlices` holding the value of the average gradient.
 
 
 * <b>`InvalidArgumentError`</b>: If `num_required` < 1
-
-
-

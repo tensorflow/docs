@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.framework
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Framework utilities.
-
-
-
-Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,7 +58,7 @@ Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tenso
 
 [`add_arg_scope(...)`](../../tf/contrib/framework/add_arg_scope): Decorates a function with args so it can be used within an arg_scope.
 
-[`add_model_variable(...)`](../../tf/contrib/framework/add_model_variable): Adds a variable to the `GraphKeys.MODEL_VARIABLES` collection.
+[`add_model_variable(...)`](../../tf/contrib/framework/add_model_variable): Adds a variable to the <a href="/api_docs/python/tf/GraphKeys#MODEL_VARIABLES"><code>GraphKeys.MODEL_VARIABLES</code></a> collection.
 
 [`arg_scope(...)`](../../tf/contrib/framework/arg_scope): Stores the default arguments for the given set of list_ops.
 
@@ -120,7 +128,7 @@ Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tenso
 
 [`get_variables_to_restore(...)`](../../tf/contrib/framework/get_variables_to_restore): Gets the list of the variables to restore.
 
-[`global_variable(...)`](../../tf/contrib/framework/global_variable): Create a variable with a value and add it to `GraphKeys.GLOBAL_VARIABLES`.
+[`global_variable(...)`](../../tf/contrib/framework/global_variable): Create a variable with a value and add it to <a href="/api_docs/python/tf/GraphKeys#GLOBAL_VARIABLES"><code>GraphKeys.GLOBAL_VARIABLES</code></a>.
 
 [`has_arg_scope(...)`](../../tf/contrib/framework/has_arg_scope): Checks whether a func has been decorated with @add_arg_scope or not.
 
@@ -142,7 +150,7 @@ Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tenso
 
 [`load_variable_slot_initializer(...)`](../../tf/contrib/framework/load_variable_slot_initializer): Loads pre-trained multi-class slots for linear models from checkpoint.
 
-[`local_variable(...)`](../../tf/contrib/framework/local_variable): Create a variable with a value and add it to `GraphKeys.LOCAL_VARIABLES`.
+[`local_variable(...)`](../../tf/contrib/framework/local_variable): Create a variable with a value and add it to <a href="/api_docs/python/tf/GraphKeys#LOCAL_VARIABLES"><code>GraphKeys.LOCAL_VARIABLES</code></a>.
 
 [`model_variable(...)`](../../tf/contrib/framework/model_variable): Gets an existing model variable with these parameters or creates a new one.
 
@@ -171,4 +179,3 @@ Defined in [`contrib/framework/__init__.py`](https://github.com/tensorflow/tenso
 [`with_shape(...)`](../../tf/contrib/framework/with_shape): Asserts tensor has expected shape.
 
 [`zero_initializer(...)`](../../tf/contrib/framework/zero_initializer): Initialize 'ref' with all zeros, ref tensor should be uninitialized.
-

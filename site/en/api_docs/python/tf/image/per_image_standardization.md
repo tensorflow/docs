@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.per_image_standardization
 
-Linearly scales `image` to have zero mean and unit variance.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/per_image_standardization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1477-L1519">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Linearly scales each image in `image` to have mean 0 and variance 1.
 
 ### Aliases:
 
-* `tf.compat.v1.image.per_image_standardization`
-* `tf.compat.v2.image.per_image_standardization`
-* `tf.image.per_image_standardization`
+* <a href="/api_docs/python/tf/image/per_image_standardization"><code>tf.compat.v1.image.per_image_standardization</code></a>
+* <a href="/api_docs/python/tf/image/per_image_standardization"><code>tf.compat.v2.image.per_image_standardization</code></a>
+
 
 ``` python
 tf.image.per_image_standardization(image)
@@ -19,27 +37,27 @@ tf.image.per_image_standardization(image)
 
 
 
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
-This op computes `(x - mean) / adjusted_stddev`, where `mean` is the average
-of all values in image, and
-`adjusted_stddev = max(stddev, 1.0/sqrt(image.NumElements()))`.
+For each 3-D image `x` in `image`, computes `(x - mean) / adjusted_stddev`,
+where
 
-`stddev` is the standard deviation of all values in `image`. It is capped
-away from zero to protect against division by 0 when handling uniform images.
+- `mean` is the average of all values in `x`
+- `adjusted_stddev = max(stddev, 1.0/sqrt(N))` is capped away from 0 to
+  protect against division by 0 when handling uniform images
+  - `N` is the number of elements in `x`
+  - `stddev` is the standard deviation of all values in `x`
 
 #### Args:
 
 
-* <b>`image`</b>: An n-D Tensor where the last 3 dimensions are `[height, width,
-  channels]`.
+* <b>`image`</b>: An n-D Tensor with at least 3 dimensions, the last 3 of which are the
+  dimensions of each image.
 
 
 #### Returns:
 
-The standardized image with same shape as `image`.
+A `Tensor` with same shape and dtype as `image`.
 
 
 

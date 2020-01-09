@@ -5,21 +5,35 @@ page_type: reference
 
 # tf.train.ServerDef
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/ServerDef">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/tensorflow_server.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ServerDef`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.ServerDef`
-* Class `tf.compat.v2.train.ServerDef`
-* Class `tf.train.ServerDef`
+* Class <a href="/api_docs/python/tf/train/ServerDef"><code>tf.compat.v1.train.ServerDef</code></a>
+* Class <a href="/api_docs/python/tf/train/ServerDef"><code>tf.compat.v2.train.ServerDef</code></a>
 
-
-
-Defined in [`core/protobuf/tensorflow_server.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/tensorflow_server.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,7 +63,3 @@ Defined in [`core/protobuf/tensorflow_server.proto`](https://github.com/tensorfl
 <h3 id="task_index"><code>task_index</code></h3>
 
 `int32 task_index`
-
-
-
-

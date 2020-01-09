@@ -6,15 +6,33 @@ page_type: reference
 
 # tf.math.lbeta
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/lbeta">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/special_math_ops.py#L40-L86">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
 
 ### Aliases:
 
-* `tf.compat.v1.lbeta`
-* `tf.compat.v1.math.lbeta`
-* `tf.compat.v2.math.lbeta`
-* `tf.lbeta`
-* `tf.math.lbeta`
+* <a href="/api_docs/python/tf/math/lbeta"><code>tf.compat.v1.lbeta</code></a>
+* <a href="/api_docs/python/tf/math/lbeta"><code>tf.compat.v1.math.lbeta</code></a>
+* <a href="/api_docs/python/tf/math/lbeta"><code>tf.compat.v2.math.lbeta</code></a>
+* <a href="/api_docs/python/tf/math/lbeta"><code>tf.lbeta</code></a>
+
 
 ``` python
 tf.math.lbeta(
@@ -25,8 +43,6 @@ tf.math.lbeta(
 
 
 
-Defined in [`python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/special_math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Given one-dimensional `z = [z_0,...,z_{K-1}]`, we define
@@ -34,7 +50,7 @@ Given one-dimensional `z = [z_0,...,z_{K-1}]`, we define
 <div> $$Beta(z) = \prod_j Gamma(z_j) / Gamma(\sum_j z_j)$$ </div>
 
 And for `n + 1` dimensional `x` with shape `[N1, ..., Nn, K]`, we define
-<div> $$lbeta(x)[i1, ..., in] = Log(|Beta(x[i1, ..., in, :])|)$$. </div>
+<div> $$lbeta(x)[i1, ..., in] = Log(|Beta(x[i1, ..., in, :])|)$$ </div>.
 
 In other words, the last dimension is treated as the `z` vector.
 

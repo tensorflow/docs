@@ -5,19 +5,29 @@ page_type: reference
 
 # tf.no_regularizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1003-L1006">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Use this function to prevent regularization of variables.
 
 ### Aliases:
 
-* `tf.compat.v1.no_regularizer`
-* `tf.no_regularizer`
+* <a href="/api_docs/python/tf/no_regularizer"><code>tf.compat.v1.no_regularizer</code></a>
+
 
 ``` python
 tf.no_regularizer(_)
 ```
 
 
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->

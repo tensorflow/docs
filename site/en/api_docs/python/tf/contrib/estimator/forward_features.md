@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.forward_features
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/extenders.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Forward features to predictions dictionary.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.estimator.forward_features(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/extenders.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/extenders.py).
 
 <!-- Placeholder for "Used in" -->
 

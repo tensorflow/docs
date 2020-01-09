@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.strings.upper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/upper">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 TODO: add doc.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.upper`
-* `tf.compat.v2.strings.upper`
-* `tf.strings.upper`
+* <a href="/api_docs/python/tf/strings/upper"><code>tf.compat.v1.strings.upper</code></a>
+* <a href="/api_docs/python/tf/strings/upper"><code>tf.compat.v2.strings.upper</code></a>
+
 
 ``` python
 tf.strings.upper(
@@ -22,8 +36,6 @@ tf.strings.upper(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

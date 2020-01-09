@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.graph_editor.TransformerInfo
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L194-L316">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TransformerInfo`
 
 "Contains information about the result of a transform operation.
 
 
 
-
-
-Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L197-L209">View source</a>
 
 ``` python
 __init__(info)
@@ -38,6 +48,8 @@ Constructor.
 ## Methods
 
 <h3 id="original"><code>original</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L281-L297">View source</a>
 
 ``` python
 original(
@@ -67,6 +79,8 @@ the original tensor/operation (or None if no match is found).
 
 <h3 id="transformed"><code>transformed</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L263-L279">View source</a>
+
 ``` python
 transformed(
     original,
@@ -91,7 +105,3 @@ it will return an operation or a tensor.
 #### Returns:
 
 the transformed tensor/operation (or None if no match is found).
-
-
-
-

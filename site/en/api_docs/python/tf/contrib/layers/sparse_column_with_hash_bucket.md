@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.sparse_column_with_hash_bucket
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column.py#L596-L638">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a _SparseColumn with hashed bucket configuration.
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.layers.sparse_column_with_hash_bucket(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,7 +56,7 @@ pair in the `hash_keys`. This is useful to reduce the collision of hashed ids.
 * <b>`dtype`</b>: The type of features. Only string and integer types are supported.
 * <b>`hash_keys`</b>: The hash keys to use. It is a list of lists of two uint64s. If
   None, simple and fast hashing algorithm is used. Otherwise, multiple
-  strong hash ids would be produced with each two unit64s in this argument.
+  strong hash ids would be produced with each two uint64s in this argument.
 
 
 #### Returns:

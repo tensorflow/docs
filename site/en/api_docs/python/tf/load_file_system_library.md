@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.load_file_system_library
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/load_library.py#L89-L109">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Loads a TensorFlow plugin, containing file system implementation. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.load_file_system_library`
-* `tf.load_file_system_library`
+* <a href="/api_docs/python/tf/load_file_system_library"><code>tf.compat.v1.load_file_system_library</code></a>
+
 
 ``` python
 tf.load_file_system_library(library_filename)
 ```
 
 
-
-Defined in [`python/framework/load_library.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/load_library.py).
 
 <!-- Placeholder for "Used in" -->
 

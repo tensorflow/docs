@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.FinalBeamSearchDecoderOutput
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L65-L77">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FinalBeamSearchDecoderOutput`
 
 Final outputs returned by the beam search after all decoding is finished.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,6 +35,21 @@ Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.
 * <b>`beam_search_decoder_output`</b>: An instance of `BeamSearchDecoderOutput` that
   describes the state of the beam search.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    predicted_ids,
+    beam_search_decoder_output
+)
+```
+
+Create new instance of FinalBeamDecoderOutput(predicted_ids, beam_search_decoder_output)
+
+
+
+
 ## Properties
 
 <h3 id="predicted_ids"><code>predicted_ids</code></h3>
@@ -35,9 +58,3 @@ Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.
 
 
 <h3 id="beam_search_decoder_output"><code>beam_search_decoder_output</code></h3>
-
-
-
-
-
-

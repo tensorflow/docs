@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.segment_prod
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/segment_prod">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the product along segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.segment_prod`
-* `tf.compat.v1.segment_prod`
-* `tf.compat.v2.math.segment_prod`
-* `tf.math.segment_prod`
-* `tf.segment_prod`
+* <a href="/api_docs/python/tf/math/segment_prod"><code>tf.compat.v1.math.segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/segment_prod"><code>tf.compat.v1.segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/segment_prod"><code>tf.compat.v2.math.segment_prod</code></a>
+* <a href="/api_docs/python/tf/math/segment_prod"><code>tf.segment_prod</code></a>
+
 
 ``` python
 tf.math.segment_prod(
@@ -25,8 +39,6 @@ tf.math.segment_prod(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

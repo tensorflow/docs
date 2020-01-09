@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.tpu.infeed_enqueue_tuple
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_tpu_ops.py`
+
+
+
 Feeds multiple Tensor values into the computation as an XLA tuple.
 
 ``` python
@@ -18,8 +26,6 @@ tf.contrib.tpu.infeed_enqueue_tuple(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

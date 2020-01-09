@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.initializers.variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3195-L3218">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an Op that initializes a list of variables.
 
 ### Aliases:
 
-* `tf.compat.v1.initializers.variables`
-* `tf.compat.v1.variables_initializer`
-* `tf.initializers.variables`
-* `tf.variables_initializer`
+* <a href="/api_docs/python/tf/initializers/variables"><code>tf.compat.v1.initializers.variables</code></a>
+* <a href="/api_docs/python/tf/initializers/variables"><code>tf.compat.v1.variables_initializer</code></a>
+* <a href="/api_docs/python/tf/initializers/variables"><code>tf.variables_initializer</code></a>
+
 
 ``` python
 tf.initializers.variables(
@@ -22,8 +34,6 @@ tf.initializers.variables(
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

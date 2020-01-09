@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.estimator.tpu.TPUEstimatorSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TPUEstimatorSpec`
 
 Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
@@ -13,13 +25,9 @@ Ops and objects returned from a `model_fn` and passed to `TPUEstimator`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.tpu.TPUEstimatorSpec`
-* Class `tf.contrib.tpu.TPUEstimatorSpec`
-* Class `tf.estimator.tpu.TPUEstimatorSpec`
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUEstimatorSpec"><code>tf.compat.v1.estimator.tpu.TPUEstimatorSpec</code></a>
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUEstimatorSpec"><code>tf.contrib.tpu.TPUEstimatorSpec</code></a>
 
-
-
-Defined in [`python/estimator/tpu/tpu_estimator.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -54,6 +62,33 @@ sending tensors from TPU to CPU. To reduce the overhead, try reducing the
 size of the tensors. The `tensors` are concatenated along their major (batch)
 dimension, and so must be >= rank 1. The `host_call` is useful for writing
 summaries with <a href="../../../tf/contrib/summary/create_file_writer"><code>tf.contrib.summary.create_file_writer</code></a>.
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    mode,
+    predictions=None,
+    loss=None,
+    train_op=None,
+    eval_metrics=None,
+    export_outputs=None,
+    scaffold_fn=None,
+    host_call=None,
+    training_hooks=None,
+    evaluation_hooks=None,
+    prediction_hooks=None
+)
+```
+
+Creates a validated `TPUEstimatorSpec` instance.
+
+
+
 
 ## Properties
 
@@ -118,12 +153,10 @@ summaries with <a href="../../../tf/contrib/summary/create_file_writer"><code>tf
 
 <h3 id="as_estimator_spec"><code>as_estimator_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
+
 ``` python
 as_estimator_spec()
 ```
 
 Creates an equivalent `EstimatorSpec` used by CPU train/eval.
-
-
-
-

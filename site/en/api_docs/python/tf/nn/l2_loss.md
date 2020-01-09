@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.nn.l2_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/l2_loss">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 L2 Loss.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.l2_loss`
-* `tf.compat.v2.nn.l2_loss`
-* `tf.nn.l2_loss`
+* <a href="/api_docs/python/tf/nn/l2_loss"><code>tf.compat.v1.nn.l2_loss</code></a>
+* <a href="/api_docs/python/tf/nn/l2_loss"><code>tf.compat.v2.nn.l2_loss</code></a>
+
 
 ``` python
 tf.nn.l2_loss(
@@ -21,8 +35,6 @@ tf.nn.l2_loss(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

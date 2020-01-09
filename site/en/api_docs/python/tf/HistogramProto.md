@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.HistogramProto
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/summary.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HistogramProto`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.HistogramProto`
-* Class `tf.compat.v1.HistogramProto`
+* Class <a href="/api_docs/python/tf/HistogramProto"><code>tf.compat.v1.HistogramProto</code></a>
 
-
-
-Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/summary.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +66,3 @@ Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensor
 <h3 id="sum_squares"><code>sum_squares</code></h3>
 
 `double sum_squares`
-
-
-
-

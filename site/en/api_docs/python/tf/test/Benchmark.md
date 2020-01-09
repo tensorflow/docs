@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.test.Benchmark
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/test/Benchmark">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L231-L349">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Benchmark`
 
 Abstract class that provides helpers for TensorFlow benchmarks.
@@ -13,24 +31,22 @@ Abstract class that provides helpers for TensorFlow benchmarks.
 
 ### Aliases:
 
-* Class `tf.compat.v1.test.Benchmark`
-* Class `tf.compat.v2.test.Benchmark`
-* Class `tf.test.Benchmark`
+* Class <a href="/api_docs/python/tf/test/Benchmark"><code>tf.compat.v1.test.Benchmark</code></a>
+* Class <a href="/api_docs/python/tf/test/Benchmark"><code>tf.compat.v2.test.Benchmark</code></a>
 
-
-
-Defined in [`python/platform/benchmark.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/benchmark.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L234-L238">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -38,6 +54,8 @@ __init__()
 ## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L339-L349">View source</a>
 
 ``` python
 evaluate(tensors)
@@ -59,6 +77,8 @@ tensors numpy values.
 
 <h3 id="is_abstract"><code>is_abstract</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L240-L244">View source</a>
+
 ``` python
 @classmethod
 is_abstract(cls)
@@ -68,6 +88,8 @@ is_abstract(cls)
 
 
 <h3 id="report_benchmark"><code>report_benchmark</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L185-L214">View source</a>
 
 ``` python
 report_benchmark(
@@ -102,6 +124,8 @@ Report a benchmark.
   max_value (optional), double, maximum acceptable metric value
 
 <h3 id="run_op_benchmark"><code>run_op_benchmark</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L246-L337">View source</a>
 
 ``` python
 run_op_benchmark(
@@ -151,7 +175,3 @@ A `dict` containing the key-value pairs that were passed to
 `report_benchmark`. If `store_trace` option is used, then
 `full_chrome_trace_format` will be included in return dictionary even
 though it is not passed to `report_benchmark` with `extras`.
-
-
-
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.do_quantize_training_on_graphdef
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/pywrap_tensorflow_internal.py#L2456-L2474">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A general quantization scheme is being developed in <a href="../../tf/contrib/quantize"><code>tf.contrib.quantize</code></a>. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.do_quantize_training_on_graphdef`
-* `tf.train.do_quantize_training_on_graphdef`
+* <a href="/api_docs/python/tf/train/do_quantize_training_on_graphdef"><code>tf.compat.v1.train.do_quantize_training_on_graphdef</code></a>
+
 
 ``` python
 tf.train.do_quantize_training_on_graphdef(
@@ -20,8 +32,6 @@ tf.train.do_quantize_training_on_graphdef(
 ```
 
 
-
-Defined in [`python/pywrap_tensorflow_internal.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/pywrap_tensorflow_internal.py).
 
 <!-- Placeholder for "Used in" -->
 

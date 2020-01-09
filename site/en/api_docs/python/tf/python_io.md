@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.python_io
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Python functions for directly manipulating TFRecord-formatted files.
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,4 +27,3 @@ page_type: reference
 ## Functions
 
 [`tf_record_iterator(...)`](../tf/io/tf_record_iterator): An iterator that read the records from a TFRecords file. (deprecated)
-

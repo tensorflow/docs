@@ -5,7 +5,19 @@ page_type: reference
 
 # tf.contrib.graph_editor.get_backward_walk_ops
 
-Do a backward graph walk and return all the visited ops.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/select.py#L459-L496">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Do a backward graph walk and return all the visited ops. (deprecated)
 
 ``` python
 tf.contrib.graph_editor.get_backward_walk_ops(
@@ -20,10 +32,11 @@ tf.contrib.graph_editor.get_backward_walk_ops(
 
 
 
-Defined in [`contrib/graph_editor/select.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/select.py).
-
 <!-- Placeholder for "Used in" -->
 
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-06-06.
+Instructions for updating:
+Please use tensorflow.python.ops.op_selector.get_backward_walk_ops.
 
 #### Args:
 

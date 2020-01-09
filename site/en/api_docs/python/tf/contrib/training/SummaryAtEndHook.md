@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.training.SummaryAtEndHook
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/evaluation.py#L267-L315">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SummaryAtEndHook`
 
 A run hook that saves a summary with the results of evaluation.
 
 Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
 
-
-
-Defined in [`contrib/training/python/training/evaluation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/evaluation.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/evaluation.py#L270-L296">View source</a>
 
 ``` python
 __init__(
@@ -56,6 +66,8 @@ Constructs the Summary Hook.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/evaluation.py#L304-L306">View source</a>
+
 ``` python
 after_create_session(
     session,
@@ -63,10 +75,25 @@ after_create_session(
 )
 ```
 
+Called when new TensorFlow session is created.
+
+This is called to signal the hooks that a new session has been created. This
+has two essential differences with the situation in which `begin` is called:
+
+* When this is called, the graph is finalized and ops can no longer be added
+    to the graph.
+* This method will also be called as a result of recovering a wrapped
+    session, not only at the beginning of the overall session.
+
+#### Args:
 
 
+* <b>`session`</b>: A TensorFlow Session that has been created.
+* <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L152-L169">View source</a>
 
 ``` python
 after_run(
@@ -92,6 +119,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 * <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
 
 ``` python
 before_run(run_context)
@@ -124,21 +153,40 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/evaluation.py#L298-L302">View source</a>
+
 ``` python
 begin()
 ```
 
+Called once before using the session.
 
-
+When called, the default graph is the one that will be launched in the
+session.  The hook can modify the graph by adding new operations to it.
+After the `begin()` call the graph will be finalized and the other callbacks
+can not modify the graph anymore. Second call of `begin()` on the same
+graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/evaluation.py#L308-L315">View source</a>
 
 ``` python
 end(session)
 ```
 
+Called at the end of session.
+
+The `session` argument can be used in case the hook wants to run final ops,
+such as saving a last checkpoint.
+
+If `session.run()` raises exception other than OutOfRangeError or
+StopIteration then `end()` is not called.
+Note the difference between `end()` and `after_run()` behavior when
+`session.run()` raises OutOfRangeError or StopIteration. In that case
+`end()` is called but `after_run()` is not called.
+
+#### Args:
 
 
-
-
-
+* <b>`session`</b>: A TensorFlow Session that will be soon closed.

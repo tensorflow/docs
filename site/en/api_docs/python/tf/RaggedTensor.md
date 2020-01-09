@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.RaggedTensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/RaggedTensor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L55-L1868">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RaggedTensor`
 
 Represents a ragged tensor.
@@ -14,13 +32,9 @@ Represents a ragged tensor.
 
 ### Aliases:
 
-* Class `tf.RaggedTensor`
-* Class `tf.compat.v1.RaggedTensor`
-* Class `tf.compat.v2.RaggedTensor`
+* Class <a href="/api_docs/python/tf/RaggedTensor"><code>tf.compat.v1.RaggedTensor</code></a>
+* Class <a href="/api_docs/python/tf/RaggedTensor"><code>tf.compat.v2.RaggedTensor</code></a>
 
-
-
-Defined in [`python/ops/ragged/ragged_tensor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_tensor.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -71,14 +85,12 @@ consists of:
 
 #### Example:
 
-
-
-```python
->>> print(tf.RaggedTensor.from_row_splits(
-...     values=[3, 1, 4, 1, 5, 9, 2, 6],
-...     row_splits=[0, 4, 4, 7, 8, 8]))
-<tf.RaggedTensor [[3, 1, 4, 1], [], [5, 9, 2], [6], []]>
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print(tf.RaggedTensor.from_row_splits({% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}values=[3, 1, 4, 1, 5, 9, 2, 6],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}row_splits=[0, 4, 4, 7, 8, 8])){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [[3, 1, 4, 1], [], [5, 9, 2], [6], []]>{% endhtmlescape %}</code>
+</pre>
 
 ### Alternative Row-Partitioning Schemes
 
@@ -104,15 +116,15 @@ row-partitioning schemes:
 Example: The following ragged tensors are equivalent, and all represent the
 nested list `[[3, 1, 4, 1], [], [5, 9, 2], [6], []]`.
 
-```python
->>> values = [3, 1, 4, 1, 5, 9, 2, 6]
->>> rt1 = RaggedTensor.from_row_splits(values, row_splits=[0, 4, 4, 7, 8, 8])
->>> rt2 = RaggedTensor.from_row_lengths(values, row_lengths=[4, 0, 3, 1, 0])
->>> rt3 = RaggedTensor.from_value_rowids(
-...     values, value_rowids=[0, 0, 0, 0, 2, 2, 2, 3], nrows=5)
->>> rt4 = RaggedTensor.from_row_starts(values, row_starts=[0, 4, 4, 7, 8])
->>> rt5 = RaggedTensor.from_row_limits(values, row_limits=[4, 4, 7, 8, 8])
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}values = [3, 1, 4, 1, 5, 9, 2, 6]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt1 = RaggedTensor.from_row_splits(values, row_splits=[0, 4, 4, 7, 8, 8]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt2 = RaggedTensor.from_row_lengths(values, row_lengths=[4, 0, 3, 1, 0]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt3 = RaggedTensor.from_value_rowids({% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}values, value_rowids=[0, 0, 0, 0, 2, 2, 2, 3], nrows=5){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt4 = RaggedTensor.from_row_starts(values, row_starts=[0, 4, 4, 7, 8]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt5 = RaggedTensor.from_row_limits(values, row_limits=[4, 4, 7, 8, 8]){% endhtmlescape %}</code>
+</pre>
 
 ### Multiple Ragged Dimensions
 
@@ -120,42 +132,42 @@ nested list `[[3, 1, 4, 1], [], [5, 9, 2], [6], []]`.
 a nested `RaggedTensor` for the `values` tensor.  Each nested `RaggedTensor`
 adds a single ragged dimension.
 
-```python
->>> inner_rt = RaggedTensor.from_row_splits(  # =rt1 from above
-...     values=[3, 1, 4, 1, 5, 9, 2, 6], row_splits=[0, 4, 4, 7, 8, 8])
->>> outer_rt = RaggedTensor.from_row_splits(
-...     values=inner_rt, row_splits=[0, 3, 3, 5])
->>> print outer_rt.to_list()
-[[[3, 1, 4, 1], [], [5, 9, 2]], [], [[6], []]]
->>> print outer_rt.ragged_rank
-2
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}inner_rt = RaggedTensor.from_row_splits(  # =rt1 from above{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}values=[3, 1, 4, 1, 5, 9, 2, 6], row_splits=[0, 4, 4, 7, 8, 8]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}outer_rt = RaggedTensor.from_row_splits({% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}values=inner_rt, row_splits=[0, 3, 3, 5]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print outer_rt.to_list(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[[3, 1, 4, 1], [], [5, 9, 2]], [], [[6], []]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print outer_rt.ragged_rank{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}2{% endhtmlescape %}</code>
+</pre>
 
 The factory function <a href="../tf/RaggedTensor#from_nested_row_splits"><code>RaggedTensor.from_nested_row_splits</code></a> may be used to
 construct a `RaggedTensor` with multiple ragged dimensions directly, by
 providing a list of `row_splits` tensors:
 
-```python
->>> RaggedTensor.from_nested_row_splits(
-...     flat_values=[3, 1, 4, 1, 5, 9, 2, 6],
-...     nested_row_splits=([0, 3, 3, 5], [0, 4, 4, 7, 8, 8])).to_list()
-[[[3, 1, 4, 1], [], [5, 9, 2]], [], [[6], []]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}RaggedTensor.from_nested_row_splits({% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}flat_values=[3, 1, 4, 1, 5, 9, 2, 6],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}nested_row_splits=([0, 3, 3, 5], [0, 4, 4, 7, 8, 8])).to_list(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[[3, 1, 4, 1], [], [5, 9, 2]], [], [[6], []]]{% endhtmlescape %}</code>
+</pre>
 
 ### Uniform Inner Dimensions
 
 `RaggedTensor`s with uniform inner dimensions can be defined
 by using a multidimensional `Tensor` for `values`.
 
-```python
->>> rt = RaggedTensor.from_row_splits(values=tf.ones([5, 3]),
-..                                    row_splits=[0, 2, 5])
->>> print rt.to_list()
-[[[1, 1, 1], [1, 1, 1]],
- [[1, 1, 1], [1, 1, 1], [1, 1, 1]]]
- >>> print rt.shape
- (2, ?, 3)
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = RaggedTensor.from_row_splits(values=tf.ones([5, 3]),{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}..                                    row_splits=[0, 2, 5]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print rt.to_list(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[[1, 1, 1], [1, 1, 1]],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [[1, 1, 1], [1, 1, 1], [1, 1, 1]]]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} >>> print rt.shape{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} (2, ?, 3){% endhtmlescape %}</code>
+</pre>
 
 ### RaggedTensor Shape Restrictions
 
@@ -171,6 +183,8 @@ replaces the uniform outermost dimension of its `values` with a uniform
 dimension followed by a ragged dimension.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L206-L279">View source</a>
 
 ``` python
 __init__(
@@ -324,14 +338,13 @@ tensor.  Ragged dimensions have a size of `None`.
 
 #### Examples:
 
-
-```python
->>> ragged.constant([[0], [1, 2]]).shape
-TensorShape([Dimension(2), Dimension(None)])
-
->>> ragged.constant([[[0, 1]], [[1, 2], [3, 4]]], ragged_rank=1).shape
-TensorShape([Dimension(2), Dimension(None), Dimension(2)
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.constant([[0], [1, 2]]).shape{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}TensorShape([Dimension(2), Dimension(None)]){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.constant([[[0, 1]], [[1, 2], [3, 4]]], ragged_rank=1).shape{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}TensorShape([Dimension(2), Dimension(None), Dimension(2){% endhtmlescape %}</code>
+</pre>
 
 
 <h3 id="values"><code>values</code></h3>
@@ -362,6 +375,8 @@ A potentially ragged tensor.
 ## Methods
 
 <h3 id="__abs__"><code>__abs__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
 
 ``` python
 __abs__(
@@ -407,6 +422,8 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__add__"><code>__add__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __add__(
     x,
@@ -434,6 +451,8 @@ A `Tensor`. Has the same type as `x`.
 
 
 <h3 id="__and__"><code>__and__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __and__(
@@ -463,6 +482,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_operators.py#L72-L74">View source</a>
+
 ``` python
 __bool__(_)
 ```
@@ -471,6 +492,8 @@ Dummy method to prevent a RaggedTensor from being used as a Python bool.
 
 
 <h3 id="__div__"><code>__div__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1069-L1092">View source</a>
 
 ``` python
 __div__(
@@ -508,6 +531,8 @@ with `//` is always an integer.
 
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1152-L1180">View source</a>
 
 ``` python
 __floordiv__(
@@ -550,6 +575,8 @@ as well.
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __ge__(
     x,
@@ -577,6 +604,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_getitem.py#L31-L104">View source</a>
 
 ``` python
 __getitem__(key)
@@ -632,34 +661,35 @@ expressions that return `Tensor`s vs `RaggedTensor`s.
 
 #### Examples:
 
-
-```python
->>> # A 2-D ragged tensor with 1 ragged dimension.
->>> rt = ragged.constant([['a', 'b', 'c'], ['d', 'e'], ['f'], ['g']])
->>> rt[0].eval().tolist()       # First row (1-D `Tensor`)
-['a', 'b', 'c']
->>> rt[:3].eval().tolist()      # First three rows (2-D RaggedTensor)
-[['a', 'b', 'c'], ['d', 'e'], '[f'], [g']]
->>> rt[3, 0].eval().tolist()    # 1st element of 4th row (scalar)
-'g'
-
->>> # A 3-D ragged tensor with 2 ragged dimensions.
->>> rt = ragged.constant([[[1, 2, 3], [4]],
-...                    [[5], [], [6]],
-...                    [[7]],
-...                    [[8, 9], [10]]])
->>> rt[1].eval().tolist()       # Second row (2-D RaggedTensor)
-[[5], [], [6]]
->>> rt[3, 0].eval().tolist()    # First element of fourth row (1-D Tensor)
-[8, 9]
->>> rt[:, 1:3].eval().tolist()  # Items 1-3 of each row (3-D RaggedTensor)
-[[[4]], [[], [6]], [], [[10]]]
->>> rt[:, -1:].eval().tolist()  # Last item of each row (3-D RaggedTensor)
-[[[4]], [[6]], [[7]], [[10]]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}# A 2-D ragged tensor with 1 ragged dimension.{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = ragged.constant([['a', 'b', 'c'], ['d', 'e'], ['f'], ['g']]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[0].eval().tolist()       # First row (1-D `Tensor`){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}['a', 'b', 'c']{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[:3].eval().tolist()      # First three rows (2-D RaggedTensor){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[['a', 'b', 'c'], ['d', 'e'], '[f'], [g']]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[3, 0].eval().tolist()    # 1st element of 4th row (scalar){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}'g'{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}# A 3-D ragged tensor with 2 ragged dimensions.{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = ragged.constant([[[1, 2, 3], [4]],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}[[5], [], [6]],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}[[7]],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}[[8, 9], [10]]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[1].eval().tolist()       # Second row (2-D RaggedTensor){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[5], [], [6]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[3, 0].eval().tolist()    # First element of fourth row (1-D Tensor){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[8, 9]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[:, 1:3].eval().tolist()  # Items 1-3 of each row (3-D RaggedTensor){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[[4]], [[], [6]], [], [[10]]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt[:, -1:].eval().tolist()  # Last item of each row (3-D RaggedTensor){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[[4]], [[6]], [[7]], [[10]]]{% endhtmlescape %}</code>
+</pre>
 
 
 <h3 id="__gt__"><code>__gt__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __gt__(
@@ -689,6 +719,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __invert__(
     x,
@@ -712,6 +744,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__le__"><code>__le__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __le__(
@@ -741,6 +775,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__lt__"><code>__lt__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __lt__(
     x,
@@ -768,6 +804,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__mod__"><code>__mod__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __mod__(
@@ -800,6 +838,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L328-L331">View source</a>
+
 ``` python
 __mul__(
     x,
@@ -810,7 +850,7 @@ __mul__(
 
 Returns x * y element-wise.
 
-*NOTE*: `<a href="../tf/math/multiply"><code>tf.multiply</code></a>` supports broadcasting. More about broadcasting
+*NOTE*: <a href="../tf/math/multiply"><code>tf.multiply</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -827,6 +867,8 @@ A `Tensor`. Has the same type as `x`.
 
 
 <h3 id="__neg__"><code>__neg__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __neg__(
@@ -856,6 +898,8 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_operators.py#L72-L74">View source</a>
+
 ``` python
 __nonzero__(_)
 ```
@@ -864,6 +908,8 @@ Dummy method to prevent a RaggedTensor from being used as a Python bool.
 
 
 <h3 id="__or__"><code>__or__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __or__(
@@ -892,6 +938,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__pow__"><code>__pow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L434-L459">View source</a>
 
 ``` python
 __pow__(
@@ -929,6 +977,8 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __radd__(
     x,
@@ -957,6 +1007,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __rand__(
     x,
@@ -984,6 +1036,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1069-L1092">View source</a>
 
 ``` python
 __rdiv__(
@@ -1021,6 +1075,8 @@ with `//` is always an integer.
 
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1152-L1180">View source</a>
 
 ``` python
 __rfloordiv__(
@@ -1063,6 +1119,8 @@ as well.
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __rmod__(
     x,
@@ -1094,6 +1152,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L328-L331">View source</a>
+
 ``` python
 __rmul__(
     x,
@@ -1104,7 +1164,7 @@ __rmul__(
 
 Returns x * y element-wise.
 
-*NOTE*: `<a href="../tf/math/multiply"><code>tf.multiply</code></a>` supports broadcasting. More about broadcasting
+*NOTE*: <a href="../tf/math/multiply"><code>tf.multiply</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1121,6 +1181,8 @@ A `Tensor`. Has the same type as `x`.
 
 
 <h3 id="__ror__"><code>__ror__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __ror__(
@@ -1149,6 +1211,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L434-L459">View source</a>
 
 ``` python
 __rpow__(
@@ -1186,6 +1250,8 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L349-L352">View source</a>
+
 ``` python
 __rsub__(
     x,
@@ -1213,6 +1279,8 @@ A `Tensor`. Has the same type as `x`.
 
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1036-L1066">View source</a>
 
 ``` python
 __rtruediv__(
@@ -1259,6 +1327,8 @@ and `int64` (matching the behavior of Numpy).
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1234-L1265">View source</a>
+
 ``` python
 __rxor__(
     x,
@@ -1299,6 +1369,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L349-L352">View source</a>
+
 ``` python
 __sub__(
     x,
@@ -1326,6 +1398,8 @@ A `Tensor`. Has the same type as `x`.
 
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1036-L1066">View source</a>
 
 ``` python
 __truediv__(
@@ -1372,6 +1446,8 @@ and `int64` (matching the behavior of Numpy).
 
 <h3 id="__xor__"><code>__xor__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1234-L1265">View source</a>
+
 ``` python
 __xor__(
     x,
@@ -1412,6 +1488,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="bounding_shape"><code>bounding_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1169-L1219">View source</a>
+
 ``` python
 bounding_shape(
     axis=None,
@@ -1451,6 +1529,8 @@ where `output[i]` is the bounding size for dimension `axis[i]`.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1867-L1868">View source</a>
+
 ``` python
 consumers()
 ```
@@ -1459,6 +1539,8 @@ consumers()
 
 
 <h3 id="from_nested_row_lengths"><code>from_nested_row_lengths</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L718-L754">View source</a>
 
 ``` python
 @classmethod
@@ -1502,6 +1584,8 @@ A `RaggedTensor` (or `flat_values` if `nested_row_lengths` is empty).
 
 <h3 id="from_nested_row_splits"><code>from_nested_row_splits</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L680-L716">View source</a>
+
 ``` python
 @classmethod
 from_nested_row_splits(
@@ -1543,6 +1627,8 @@ A `RaggedTensor` (or `flat_values` if `nested_row_splits` is empty).
 
 
 <h3 id="from_nested_value_rowids"><code>from_nested_value_rowids</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L624-L678">View source</a>
 
 ``` python
 @classmethod
@@ -1595,6 +1681,8 @@ A `RaggedTensor` (or `flat_values` if `nested_value_rowids` is empty).
 
 <h3 id="from_row_lengths"><code>from_row_lengths</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L465-L522">View source</a>
+
 ``` python
 @classmethod
 from_row_lengths(
@@ -1641,6 +1729,8 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_row_limits"><code>from_row_limits</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L574-L622">View source</a>
+
 ``` python
 @classmethod
 from_row_limits(
@@ -1681,6 +1771,8 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 >     <tf.RaggedTensor [[3, 1, 4, 1], [], [5, 9, 2], [6], []]>
 
 <h3 id="from_row_splits"><code>from_row_splits</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L403-L463">View source</a>
 
 ``` python
 @classmethod
@@ -1735,6 +1827,8 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_row_starts"><code>from_row_starts</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L524-L572">View source</a>
+
 ``` python
 @classmethod
 from_row_starts(
@@ -1777,6 +1871,8 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_sparse"><code>from_sparse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1591-L1653">View source</a>
+
 ``` python
 @classmethod
 from_sparse(
@@ -1795,15 +1891,13 @@ it is not ragged-right, then an error will be generated.
 
 #### Example:
 
-
-
-```python
->>> st = SparseTensor(indices=[[0, 1], [0, 2], [0, 3], [1, 0], [3, 0]],
-...                   values=[1, 2, 3, 4, 5],
-...                   dense_shape=[4, 3])
->>> rt.RaggedTensor.from_sparse(st).eval().tolist()
-[[1, 2, 3], [4], [], [5]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}st = SparseTensor(indices=[[0, 1], [0, 2], [0, 3], [1, 0], [3, 0]],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}values=[1, 2, 3, 4, 5],{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="...">{% htmlescape %}dense_shape=[4, 3]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt.RaggedTensor.from_sparse(st).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[1, 2, 3], [4], [], [5]]{% endhtmlescape %}</code>
+</pre>
 
 Currently, only two-dimensional `SparseTensors` are supported.
 
@@ -1831,6 +1925,8 @@ A `RaggedTensor` with the same values as `st_input`.
 
 <h3 id="from_tensor"><code>from_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1320-L1503">View source</a>
+
 ``` python
 @classmethod
 from_tensor(
@@ -1857,23 +1953,28 @@ returned `RaggedTensor` will have no absent/default values.
 
 #### Examples:
 
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}dt = tf.constant([[5, 7, 0], [0, 3, 0], [6, 0, 0]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.RaggedTensor.from_tensor(dt){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [[5, 7, 0], [0, 3, 0], [6, 0, 0]]>{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.RaggedTensor.from_tensor(dt, lengths=[1, 0, 3]){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [[5], [], [6, 0, 0]]>{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.RaggedTensor.from_tensor(dt, padding=0){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [[5, 7], [0, 3], [6]]>{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+</pre>
 
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}dt = tf.constant([[[5, 0], [7, 0], [0, 0]],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                      [[0, 0], [3, 0], [0, 0]],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                      [[6, 0], [0, 0], [0, 0]]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.RaggedTensor.from_tensor(dt, lengths=([2, 0, 3], [1, 1, 2, 0, 1])){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [[[5], [7]], [], [[6, 0], [], [0]]]>{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+</pre>
 
-```python
->>> dt = tf.constant([[5, 7, 0], [0, 3, 0], [6, 0, 0]])
->>> tf.RaggedTensor.from_tensor(dt)
-<tf.RaggedTensor [[5, 7, 0], [0, 3, 0], [6, 0, 0]]>
->>> tf.RaggedTensor.from_tensor(dt, lengths=[1, 0, 3])
-<tf.RaggedTensor [[5], [], [6, 0, 0]]>
-
->>> tf.RaggedTensor.from_tensor(dt, padding=0)
-<tf.RaggedTensor [[5, 7], [0, 3], [6]]>
-
->>> dt = tf.constant([[[5, 0], [7, 0], [0, 0]],
-                      [[0, 0], [3, 0], [0, 0]],
-                      [[6, 0], [0, 0], [0, 0]]])
->>> tf.RaggedTensor.from_tensor(dt, lengths=([2, 0, 3], [1, 1, 2, 0, 1]))
-<tf.RaggedTensor [[[5], [7]], [], [[6, 0], [], [0]]]>
 ```
 
 #### Args:
@@ -1911,6 +2012,8 @@ returned ragged tensor is compatible with the shape of `tensor`.
 * <b>`ValueError`</b>: If both `lengths` and `padding` are specified.
 
 <h3 id="from_value_rowids"><code>from_value_rowids</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L285-L401">View source</a>
 
 ``` python
 @classmethod
@@ -1971,14 +2074,16 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="nested_row_lengths"><code>nested_row_lengths</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1148-L1167">View source</a>
+
 ``` python
 nested_row_lengths(name=None)
 ```
 
 Returns a tuple containing the row_lengths for all ragged dimensions.
 
-`rtnested_row_lengths()` is a tuple containing the `row_lengths` tensors for
-all ragged dimensions in `rt`, ordered from outermost to innermost.
+`rt.nested_row_lengths()` is a tuple containing the `row_lengths` tensors
+for all ragged dimensions in `rt`, ordered from outermost to innermost.
 
 #### Args:
 
@@ -1992,7 +2097,48 @@ A `tuple` of 1-D integer `Tensors`.  The length of the tuple is equal to
 `self.ragged_rank`.
 
 
+<h3 id="nested_value_rowids"><code>nested_value_rowids</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L987-L1023">View source</a>
+
+``` python
+nested_value_rowids(name=None)
+```
+
+Returns a tuple containing the value_rowids for all ragged dimensions.
+
+`rt.nested_value_rowids` is a tuple containing the `value_rowids` tensors
+for
+all ragged dimensions in `rt`, ordered from outermost to innermost.  In
+particular, `rt.nested_value_rowids = (rt.value_rowids(),) + value_ids`
+where:
+
+    * `value_ids = ()` if `rt.values` is a `Tensor`.
+    * `value_ids = rt.values.nested_value_rowids` otherwise.
+
+#### Args:
+
+
+* <b>`name`</b>: A name prefix for the returned tensors (optional).
+
+
+#### Returns:
+
+A `tuple` of 1-D integer `Tensor`s.
+
+
+#### Example:
+
+>     >>> rt = ragged.constant([[[[3, 1, 4, 1], [], [5, 9, 2]], [], [[6], []]]])
+>     >>> for i, ids in enumerate(rt.nested_value_rowids()):
+>     ...   print('row ids for dimension %d: %s' % (i+1, ids))
+>     row ids for dimension 1: [0]
+>     row ids for dimension 2: [0, 0, 0, 2, 2]
+>     row ids for dimension 3: [0, 0, 0, 0, 2, 2, 2, 3]
+
 <h3 id="nrows"><code>nrows</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1025-L1052">View source</a>
 
 ``` python
 nrows(
@@ -2025,6 +2171,8 @@ A scalar `Tensor` with dtype `out_type`.
 >     5
 
 <h3 id="row_lengths"><code>row_lengths</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1104-L1146">View source</a>
 
 ``` python
 row_lengths(
@@ -2067,6 +2215,8 @@ A potentially ragged integer Tensor with shape `self.shape[:axis]`.
 
 <h3 id="row_limits"><code>row_limits</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1079-L1102">View source</a>
+
 ``` python
 row_limits(name=None)
 ```
@@ -2097,6 +2247,8 @@ The returned tensor is nonnegative, and is sorted in ascending order.
 >     tf.Tensor([4, 4, 7, 8, 8])
 
 <h3 id="row_starts"><code>row_starts</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1054-L1077">View source</a>
 
 ``` python
 row_starts(name=None)
@@ -2129,6 +2281,8 @@ The returned tensor is nonnegative, and is sorted in ascending order.
 
 <h3 id="to_list"><code>to_list</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1794-L1807">View source</a>
+
 ``` python
 to_list()
 ```
@@ -2144,6 +2298,8 @@ A nested Python `list`.
 
 <h3 id="to_sparse"><code>to_sparse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1655-L1679">View source</a>
+
 ``` python
 to_sparse(name=None)
 ```
@@ -2153,15 +2309,13 @@ Converts this `RaggedTensor` into a <a href="../tf/sparse/SparseTensor"><code>tf
 
 #### Example:
 
-
-
-```python
->>> rt = ragged.constant([[1, 2, 3], [4], [], [5, 6]])
->>> rt.to_sparse().eval()
-SparseTensorValue(indices=[[0, 0], [0, 1], [0, 2], [1, 0], [3, 0], [3, 1]],
-                  values=[1, 2, 3, 4, 5, 6],
-                  dense_shape=[4, 3])
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = ragged.constant([[1, 2, 3], [4], [], [5, 6]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt.to_sparse().eval(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}SparseTensorValue(indices=[[0, 0], [0, 1], [0, 2], [1, 0], [3, 0], [3, 1]],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                  values=[1, 2, 3, 4, 5, 6],{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}                  dense_shape=[4, 3]){% endhtmlescape %}</code>
+</pre>
 
 #### Args:
 
@@ -2176,6 +2330,8 @@ A SparseTensor with the same values as `self`.
 
 <h3 id="to_tensor"><code>to_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1505-L1589">View source</a>
+
 ``` python
 to_tensor(
     default_value=None,
@@ -2188,16 +2344,14 @@ Converts this `RaggedTensor` into a <a href="../tf/Tensor"><code>tf.Tensor</code
 
 #### Example:
 
-
-
-```python
->>> rt = ragged.constant([[9, 8, 7], [], [6, 5], [4]])
->>> print rt.to_tensor()
-[[9 8 7]
- [0 0 0]
- [6 5 0]
- [4 0 0]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = ragged.constant([[9, 8, 7], [], [6, 5], [4]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print rt.to_tensor(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[9 8 7]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [0 0 0]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [6 5 0]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [4 0 0]]{% endhtmlescape %}</code>
+</pre>
 
 #### Args:
 
@@ -2216,6 +2370,8 @@ assigned `default_value`.
 
 
 <h3 id="value_rowids"><code>value_rowids</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L957-L985">View source</a>
 
 ``` python
 value_rowids(name=None)
@@ -2250,6 +2406,8 @@ The returned tensor is nonnegative, and is sorted in ascending order.
 
 <h3 id="with_flat_values"><code>with_flat_values</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1258-L1277">View source</a>
+
 ``` python
 with_flat_values(new_values)
 ```
@@ -2276,6 +2434,8 @@ A `RaggedTensor`.
 
 <h3 id="with_row_splits_dtype"><code>with_row_splits_dtype</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1279-L1314">View source</a>
+
 ``` python
 with_row_splits_dtype(dtype)
 ```
@@ -2299,6 +2459,8 @@ type.
 
 <h3 id="with_values"><code>with_values</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1225-L1256">View source</a>
+
 ``` python
 with_values(new_values)
 ```
@@ -2320,7 +2482,3 @@ Preserves cached row-partitioning tensors such as `self.cached_nrows` and
 
 A `RaggedTensor`.  `result.rank = 1 + new_values.rank`.
 `result.ragged_rank = 1 + new_values.ragged_rank`
-
-
-
-

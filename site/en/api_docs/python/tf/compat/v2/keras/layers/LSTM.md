@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.keras.layers.LSTM
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent_v2.py#L755-L1000">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LSTM`
 
 Long Short-Term Memory layer - Hochreiter 1997.
 
 Inherits From: [`LSTM`](../../../../../tf/keras/layers/LSTM)
-
-
-
-Defined in [`python/keras/layers/recurrent_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/recurrent_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -93,15 +101,18 @@ The requirements to use the cuDNN implementation are:
 
 * <b>`inputs`</b>: A 3D tensor.
 * <b>`mask`</b>: Binary tensor of shape `(samples, timesteps)` indicating whether
-  a given timestep should be masked.
+  a given timestep should be masked (optional, defaults to `None`).
 * <b>`training`</b>: Python boolean indicating whether the layer should behave in
   training mode or in inference mode. This argument is passed to the cell
   when calling it. This is only relevant if `dropout` or
-  `recurrent_dropout` is used.
+  `recurrent_dropout` is used (optional, defaults to `None`).
 * <b>`initial_state`</b>: List of initial state tensors to be passed to the first
-  call of the cell.
+  call of the cell (optional, defaults to `None` which causes creation
+  of zero-filled initial state tensors).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent_v2.py#L839-L902">View source</a>
 
 ``` python
 __init__(
@@ -236,6 +247,8 @@ __init__(
 
 <h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1033-L1067">View source</a>
+
 ``` python
 get_dropout_mask_for_cell(
     inputs,
@@ -266,6 +279,8 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L593-L614">View source</a>
+
 ``` python
 get_initial_state(inputs)
 ```
@@ -274,6 +289,8 @@ get_initial_state(inputs)
 
 
 <h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1069-L1105">View source</a>
 
 ``` python
 get_recurrent_dropout_mask_for_cell(
@@ -305,6 +322,8 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1009-L1019">View source</a>
+
 ``` python
 reset_dropout_mask()
 ```
@@ -318,6 +337,8 @@ be cached between batches. Otherwise it will introduce unreasonable bias
 against certain index of data within the batch.
 
 <h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1021-L1031">View source</a>
 
 ``` python
 reset_recurrent_dropout_mask()
@@ -333,12 +354,8 @@ against certain index of data within the batch.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L806-L858">View source</a>
+
 ``` python
 reset_states(states=None)
 ```
-
-
-
-
-
-

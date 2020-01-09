@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.band_part
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/band_part">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Copy a tensor setting everything outside a central band in each innermost matrix
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.band_part`
-* `tf.compat.v1.matrix_band_part`
-* `tf.compat.v2.linalg.band_part`
-* `tf.linalg.band_part`
-* `tf.matrix_band_part`
+* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v1.linalg.band_part</code></a>
+* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v1.matrix_band_part</code></a>
+* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v2.linalg.band_part</code></a>
+* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.matrix_band_part</code></a>
+
 
 ``` python
 tf.linalg.band_part(
@@ -25,8 +39,6 @@ tf.linalg.band_part(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

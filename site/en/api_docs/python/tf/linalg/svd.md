@@ -6,15 +6,33 @@ page_type: reference
 
 # tf.linalg.svd
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/svd">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L355-L422">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the singular value decompositions of one or more matrices.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.svd`
-* `tf.compat.v1.svd`
-* `tf.compat.v2.linalg.svd`
-* `tf.linalg.svd`
-* `tf.svd`
+* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v1.linalg.svd</code></a>
+* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v1.svd</code></a>
+* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v2.linalg.svd</code></a>
+* <a href="/api_docs/python/tf/linalg/svd"><code>tf.svd</code></a>
+
 
 ``` python
 tf.linalg.svd(
@@ -26,8 +44,6 @@ tf.linalg.svd(
 ```
 
 
-
-Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -94,4 +110,3 @@ u, s, v_adj = np.linalg.svd(a, full_matrices=False)
 np_a_approx = np.dot(u, np.dot(np.diag(s), v_adj))
 # tf_a_approx and np_a_approx should be numerically close.
 ```
-

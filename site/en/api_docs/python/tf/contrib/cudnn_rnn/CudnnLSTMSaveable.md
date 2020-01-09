@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.cudnn_rnn.CudnnLSTMSaveable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py#L910-L942">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CudnnLSTMSaveable`
 
 SaveableObject implementation handling Cudnn LSTM opaque params.
 
 
 
-
-
-Defined in [`contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py#L727-L819">View source</a>
 
 ``` python
 __init__(
@@ -105,6 +115,8 @@ A hint to restore assertions that this object is optional.
 
 <h3 id="restore"><code>restore</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/ops/cudnn_rnn_ops.py#L832-L836">View source</a>
+
 ``` python
 restore(
     restored_tensors,
@@ -112,8 +124,25 @@ restore(
 )
 ```
 
+Restores this object from 'restored_tensors'.
+
+
+#### Args:
+
+
+* <b>`restored_tensors`</b>: the tensors that were loaded from a checkpoint
+* <b>`restored_shapes`</b>: the shapes this object should conform to after
+  restore, or None.
+
+
+#### Returns:
+
+An operation that restores the state of the object.
 
 
 
+#### Raises:
 
 
+* <b>`ValueError`</b>: If the object cannot be restored using the provided
+  parameters.

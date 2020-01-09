@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.training.SequenceQueueingStateSaver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L617-L1264">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SequenceQueueingStateSaver`
 
 SequenceQueueingStateSaver provides access to stateful values from input.
 
 
-
-
-
-Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -127,6 +135,8 @@ while True:
     progressively smaller mini-batches with the remaining examples.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L728-L885">View source</a>
 
 ``` python
 __init__(
@@ -272,6 +282,8 @@ An `Operation` that performs prefetching.
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L953-L976">View source</a>
+
 ``` python
 close(
     cancel_pending_enqueues=False,
@@ -299,7 +311,3 @@ immediately.
 #### Returns:
 
 The operation that closes the barrier and the FIFOQueue.
-
-
-
-

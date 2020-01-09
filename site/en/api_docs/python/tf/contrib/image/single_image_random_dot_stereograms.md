@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.image.single_image_random_dot_stereograms
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py#L30-L128">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Output a RandomDotStereogram Tensor for export via encode_PNG/JPG OP.
 
 ``` python
@@ -27,8 +39,6 @@ tf.contrib.image.single_image_random_dot_stereograms(
 
 
 
-Defined in [`contrib/image/python/ops/single_image_random_dot_stereograms.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/image/python/ops/single_image_random_dot_stereograms.py).
-
 <!-- Placeholder for "Used in" -->
 
 Given the 2-D tensor 'depth_values' with encoded Z values, this operation
@@ -37,7 +47,7 @@ for the encode_PNG/JPG ops.  Be careful with image compression as this may
 corrupt the encode 3-D data within the image.
 
 Based upon [this
-paper](http://www.learningace.com/doc/4331582/b6ab058d1e206d68ab60e4e1ead2fe6e/sirds-paper).
+paper](https://www.cs.waikato.ac.nz/~ihw/papers/94-HWT-SI-IHW-SIRDS-paper.pdf).
 
 This outputs a SIRDS image as picture_out.png:
 

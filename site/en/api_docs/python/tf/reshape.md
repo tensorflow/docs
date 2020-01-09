@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.reshape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/reshape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L59-L133">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reshapes a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.manip.reshape`
-* `tf.compat.v1.reshape`
-* `tf.compat.v2.reshape`
-* `tf.manip.reshape`
-* `tf.reshape`
+* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v1.manip.reshape</code></a>
+* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v1.reshape</code></a>
+* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v2.reshape</code></a>
+* <a href="/api_docs/python/tf/reshape"><code>tf.manip.reshape</code></a>
+
 
 ``` python
 tf.reshape(
@@ -25,20 +43,20 @@ tf.reshape(
 
 
 
-Defined in generated file: `python/ops/gen_array_ops.py`.
-
 <!-- Placeholder for "Used in" -->
 
 Given `tensor`, this operation returns a tensor that has the same values
 as `tensor` with shape `shape`.
 
-If one component of `shape` is the special value -1, the size of that dimension
-is computed so that the total size remains constant.  In particular, a `shape`
-of `[-1]` flattens into 1-D.  At most one component of `shape` can be -1.
+If one component of `shape` is the special value -1, the size of that
+dimension is computed so that the total size remains constant.  In particular,
+a `shape` of `[-1]` flattens into 1-D.  At most one component of `shape` can
+be -1.
 
 If `shape` is 1-D or higher, then the operation returns a tensor with shape
-`shape` filled with the values of `tensor`. In this case, the number of elements
-implied by `shape` must be the same as the number of elements in `tensor`.
+`shape` filled with the values of `tensor`. In this case, the number of
+elements implied by `shape` must be the same as the number of elements in
+`tensor`.
 
 #### For example:
 

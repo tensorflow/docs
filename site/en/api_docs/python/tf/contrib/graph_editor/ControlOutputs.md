@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.graph_editor.ControlOutputs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L338-L390">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ControlOutputs`
 
 The control outputs topology.
 
 
 
-
-
-Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L341-L358">View source</a>
 
 ``` python
 __init__(graph)
@@ -59,6 +69,8 @@ A dictionary where a key is a <a href="../../../tf/Operation"><code>tf.Operation
 
 <h3 id="get"><code>get</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L381-L386">View source</a>
+
 ``` python
 get(op)
 ```
@@ -67,6 +79,8 @@ return the control outputs of op.
 
 
 <h3 id="get_all"><code>get_all</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L378-L379">View source</a>
 
 ``` python
 get_all()
@@ -77,12 +91,10 @@ get_all()
 
 <h3 id="update"><code>update</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L360-L364">View source</a>
+
 ``` python
 update()
 ```
 
 Update the control outputs if the graph has changed.
-
-
-
-

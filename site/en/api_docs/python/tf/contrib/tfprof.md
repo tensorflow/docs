@@ -5,13 +5,18 @@ page_type: reference
 
 # Module: tf.contrib.tfprof
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/tfprof/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 tfprof is a tool that profile various aspect of TensorFlow model.
 
-
-
-Defined in [`contrib/tfprof/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tfprof/__init__.py).
-
 <!-- Placeholder for "Used in" -->
-
-
-

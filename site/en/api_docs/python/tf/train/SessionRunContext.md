@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SessionRunContext
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L215-L263">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SessionRunContext`
 
 Provides information about the `session.run()` call being made.
@@ -13,15 +25,11 @@ Provides information about the `session.run()` call being made.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.SessionRunContext`
-* Class `tf.compat.v1.train.SessionRunContext`
-* Class `tf.compat.v2.estimator.SessionRunContext`
-* Class `tf.estimator.SessionRunContext`
-* Class `tf.train.SessionRunContext`
+* Class <a href="/api_docs/python/tf/train/SessionRunContext"><code>tf.compat.v1.estimator.SessionRunContext</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunContext"><code>tf.compat.v1.train.SessionRunContext</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunContext"><code>tf.compat.v2.estimator.SessionRunContext</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunContext"><code>tf.estimator.SessionRunContext</code></a>
 
-
-
-Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_run_hook.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +39,8 @@ SessionRunHook objects can stop the loop by calling `request_stop()` of
 about run without changing the Hook API.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L224-L228">View source</a>
 
 ``` python
 __init__(
@@ -77,6 +87,8 @@ Returns:
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L257-L263">View source</a>
+
 ``` python
 request_stop()
 ```
@@ -85,6 +97,3 @@ Sets stop requested field.
 
 Hooks can use this function to request stop of iterations.
 `MonitoredSession` checks whether this is called or not.
-
-
-

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.experimental.StatsAggregator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/StatsAggregator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_aggregator.py#L82-L140">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StatsAggregator`
 
 A stateful resource that aggregates statistics from one or more iterators.
@@ -13,12 +31,8 @@ A stateful resource that aggregates statistics from one or more iterators.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.StatsAggregator`
-* Class `tf.data.experimental.StatsAggregator`
+* Class <a href="/api_docs/python/tf/data/experimental/StatsAggregator"><code>tf.compat.v1.data.experimental.StatsAggregator</code></a>
 
-
-
-Defined in [`python/data/experimental/ops/stats_aggregator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_aggregator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,6 +78,8 @@ different ways of exporting statistics, and add more types of statistics.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_aggregator.py#L126-L128">View source</a>
+
 ``` python
 __init__()
 ```
@@ -76,6 +92,8 @@ Creates a `StatsAggregator`.
 ## Methods
 
 <h3 id="get_summary"><code>get_summary</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_aggregator.py#L130-L140">View source</a>
 
 ``` python
 get_summary()
@@ -90,7 +108,3 @@ buffer, which can be used with the standard TensorBoard logging facilities.
 #### Returns:
 
 A scalar string <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> that summarizes the aggregated statistics.
-
-
-
-

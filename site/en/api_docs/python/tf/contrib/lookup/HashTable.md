@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.lookup.HashTable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/lookup/lookup_ops.py#L294-L372">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HashTable`
 
 A generic hash table implementation.
 
 
-
-
-
-Defined in [`contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +39,8 @@ print(out.eval())
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/lookup/lookup_ops.py#L308-L333">View source</a>
 
 ``` python
 __init__(
@@ -90,7 +100,7 @@ The table key dtype.
 
 <h3 id="name"><code>name</code></h3>
 
-
+The name of the table.
 
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
@@ -108,6 +118,8 @@ The table value dtype.
 ## Methods
 
 <h3 id="export"><code>export</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/lookup/lookup_ops.py#L355-L372">View source</a>
 
 ``` python
 export(name=None)
@@ -129,6 +141,8 @@ A pair of tensors with the first tensor containing all keys and the
 
 
 <h3 id="lookup"><code>lookup</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L201-L236">View source</a>
 
 ``` python
 lookup(
@@ -162,6 +176,8 @@ A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L189-L199">View source</a>
+
 ``` python
 size(name=None)
 ```
@@ -178,7 +194,3 @@ Compute the number of elements in this table.
 #### Returns:
 
 A scalar tensor containing the number of elements in this table.
-
-
-
-

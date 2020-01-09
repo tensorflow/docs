@@ -6,13 +6,19 @@ page_type: reference
 # Module: tf.layers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.layers namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`experimental`](../tf/layers/experimental) module
+[`experimental`](../tf/layers/experimental) module: Public API for tf.layers.experimental namespace.
 
 ## Classes
 
@@ -89,4 +95,3 @@ page_type: reference
 [`separable_conv1d(...)`](../tf/layers/separable_conv1d): Functional interface for the depthwise separable 1D convolution layer. (deprecated)
 
 [`separable_conv2d(...)`](../tf/layers/separable_conv2d): Functional interface for the depthwise separable 2D convolution layer. (deprecated)
-

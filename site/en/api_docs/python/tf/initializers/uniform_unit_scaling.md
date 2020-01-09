@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.initializers.uniform_unit_scaling
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L385-L445">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `uniform_unit_scaling`
 
 Initializer that generates tensors without scaling variance.
@@ -13,14 +25,10 @@ Inherits From: [`Initializer`](../../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.initializers.uniform_unit_scaling`
-* Class `tf.compat.v1.uniform_unit_scaling_initializer`
-* Class `tf.initializers.uniform_unit_scaling`
-* Class `tf.uniform_unit_scaling_initializer`
+* Class <a href="/api_docs/python/tf/initializers/uniform_unit_scaling"><code>tf.compat.v1.initializers.uniform_unit_scaling</code></a>
+* Class <a href="/api_docs/python/tf/initializers/uniform_unit_scaling"><code>tf.compat.v1.uniform_unit_scaling_initializer</code></a>
+* Class <a href="/api_docs/python/tf/initializers/uniform_unit_scaling"><code>tf.uniform_unit_scaling_initializer</code></a>
 
-
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,6 +64,8 @@ numerically computed: for a linear layer it's 1.0, relu: ~1.43, tanh: ~1.15.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L414-L423">View source</a>
+
 ``` python
 __init__(
     factor=1.0,
@@ -80,6 +90,8 @@ Use tf.initializers.variance_scaling instead with distribution=uniform to get eq
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L425-L442">View source</a>
+
 ``` python
 __call__(
     shape,
@@ -88,10 +100,21 @@ __call__(
 )
 ```
 
+Returns a tensor object initialized as specified by the initializer.
 
 
+#### Args:
+
+
+* <b>`shape`</b>: Shape of the tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
+  dtype.
+* <b>`partition_info`</b>: Optional information about the possible partitioning of a
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
 
 ``` python
 from_config(
@@ -127,12 +150,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L444-L445">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.strings.split
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L457-L517">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Split elements of `input` based on `sep` into a `RaggedTensor`.
 
 ``` python
@@ -18,8 +30,6 @@ tf.compat.v2.strings.split(
 
 
 
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 Let N be the size of `input` (typically N will be the batch size). Split each
@@ -28,14 +38,12 @@ element of `input` based on `sep` and return a `SparseTensor` or
 
 #### Example:
 
-
-
-```python
->>> tf.strings.split('hello world')
-<Tensor ['hello', 'world']>
->>> tf.strings.split(['hello world', 'a b c'])
-<tf.RaggedTensor [['hello', 'world'], ['a', 'b', 'c']]>
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.split('hello world'){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<Tensor ['hello', 'world']>{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.strings.split(['hello world', 'a b c']){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.RaggedTensor [['hello', 'world'], ['a', 'b', 'c']]>{% endhtmlescape %}</code>
+</pre>
 
 If `sep` is given, consecutive delimiters are not grouped together and are
 deemed to delimit empty strings. For example, `input` of `"1<>2<><>3"` and

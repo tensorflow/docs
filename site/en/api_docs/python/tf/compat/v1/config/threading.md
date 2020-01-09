@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.config.threading
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/config/threading">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.config.threading namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -19,4 +31,3 @@ Public API for tf.config.threading namespace.
 [`set_inter_op_parallelism_threads(...)`](../../../../tf/config/threading/set_inter_op_parallelism_threads): Set number of threads used for parallelism between independent operations.
 
 [`set_intra_op_parallelism_threads(...)`](../../../../tf/config/threading/set_intra_op_parallelism_threads): Set number of threads used within an individual op for parallelism.
-

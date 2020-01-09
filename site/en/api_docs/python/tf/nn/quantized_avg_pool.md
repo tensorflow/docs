@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.nn.quantized_avg_pool
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Produces the average pool of the input tensor for quantized types.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.quantized_avg_pool`
-* `tf.nn.quantized_avg_pool`
+* <a href="/api_docs/python/tf/nn/quantized_avg_pool"><code>tf.compat.v1.nn.quantized_avg_pool</code></a>
+
 
 ``` python
 tf.nn.quantized_avg_pool(
@@ -25,8 +33,6 @@ tf.nn.quantized_avg_pool(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

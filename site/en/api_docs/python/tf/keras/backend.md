@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.backend
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Keras backend API.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.backend`
-* Module `tf.keras.backend`
+* Module <a href="/api_docs/python/tf/keras/backend"><code>tf.compat.v1.keras.backend</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/backend/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/backend/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -310,4 +318,3 @@ Defined in [`python/keras/api/_v1/keras/backend/__init__.py`](https://github.com
 [`zeros(...)`](../../tf/keras/backend/zeros): Instantiates an all-zeros variable and returns it.
 
 [`zeros_like(...)`](../../tf/keras/backend/zeros_like): Instantiates an all-zeros variable of the same shape as another tensor.
-

@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.random_hue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/random_hue">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1880-L1910">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adjust the hue of RGB images by a random factor.
 
 ### Aliases:
 
-* `tf.compat.v1.image.random_hue`
-* `tf.compat.v2.image.random_hue`
-* `tf.image.random_hue`
+* <a href="/api_docs/python/tf/image/random_hue"><code>tf.compat.v1.image.random_hue</code></a>
+* <a href="/api_docs/python/tf/image/random_hue"><code>tf.compat.v2.image.random_hue</code></a>
+
 
 ``` python
 tf.image.random_hue(
@@ -22,8 +40,6 @@ tf.image.random_hue(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

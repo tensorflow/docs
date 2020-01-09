@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.nn.ctc_loss_v2
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ctc_ops.py#L599-L689">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes CTC (Connectionist Temporal Classification) loss.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.ctc_loss_v2`
-* `tf.compat.v2.nn.ctc_loss`
-* `tf.nn.ctc_loss_v2`
+* <a href="/api_docs/python/tf/nn/ctc_loss_v2"><code>tf.compat.v1.nn.ctc_loss_v2</code></a>
+* <a href="/api_docs/python/tf/nn/ctc_loss_v2"><code>tf.compat.v2.nn.ctc_loss</code></a>
+
 
 ``` python
 tf.nn.ctc_loss_v2(
@@ -28,8 +40,6 @@ tf.nn.ctc_loss_v2(
 
 
 
-Defined in [`python/ops/ctc_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ctc_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 This op implements the CTC loss as presented in the article:
@@ -41,20 +51,17 @@ pp. 369-376.](http://www.cs.toronto.edu/~graves/icml_2006.pdf)
 
 #### Notes:
 
+
+
 - Same as the "Classic CTC" in TensorFlow 1.x's tf.compat.v1.nn.ctc_loss
-setting of
-  preprocess_collapse_repeated=False, ctc_merge_repeated=True
+  setting of preprocess_collapse_repeated=False, ctc_merge_repeated=True
 - Labels may be supplied as either a dense, zero-padded tensor with a
   vector of label sequence lengths OR as a SparseTensor.
-- On TPU and GPU:
-    - Only dense padded labels are supported.
-- On CPU:
-    - Caller may use SparseTensor or dense padded labels but calling with
-      a SparseTensor will be significantly faster.
+- On TPU and GPU: Only dense padded labels are supported.
+- On CPU: Caller may use SparseTensor or dense padded labels but calling with
+  a SparseTensor will be significantly faster.
 - Default blank label is 0 rather num_classes - 1, unless overridden by
   blank_index.
-
-
 
 #### Args:
 

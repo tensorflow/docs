@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.NoDependency
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L41-L63">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NoDependency`
 
 Allows attribute assignment to `Trackable` objects with no dependency.
 
 
-
-
-
-Defined in [`python/training/tracking/data_structures.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/data_structures.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -34,17 +42,15 @@ attributes contain un-wrapped `Variable` objects.
 `NoDependency` also works with <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>, but only for checkpoint
 dependencies: wrapping a `Layer` in `NoDependency` will assign the (unwrapped)
 `Layer` to the attribute without a checkpoint dependency, but the `Model` will
-still track the `Layer` (so it will appear in `Model.layers`, and its
-variables will appear in `Model.variables`).
+still track the `Layer` (so it will appear in <a href="/api_docs/python/tf/keras/Model#layers"><code>Model.layers</code></a>, and its
+variables will appear in <a href="/api_docs/python/tf/keras/layers/Layer#variables"><code>Model.variables</code></a>).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L62-L63">View source</a>
 
 ``` python
 __init__(value)
 ```
 
-
-
-
-
-
+Initialize self.  See help(type(self)) for accurate signature.

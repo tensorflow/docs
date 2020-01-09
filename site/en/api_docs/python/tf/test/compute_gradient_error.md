@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.test.compute_gradient_error
 
-Computes the gradient error.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradient_checker.py#L348-L395">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Computes the gradient error. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.test.compute_gradient_error`
-* `tf.test.compute_gradient_error`
+* <a href="/api_docs/python/tf/test/compute_gradient_error"><code>tf.compat.v1.test.compute_gradient_error</code></a>
+
 
 ``` python
 tf.test.compute_gradient_error(
@@ -27,9 +39,11 @@ tf.test.compute_gradient_error(
 
 
 
-Defined in [`python/ops/gradient_checker.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradient_checker.py).
-
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use tf.test.compute_gradient in 2.0, which has better support for functions. Note that the two versions have different usage, so code change is needed.
 
 Computes the maximum error for dy/dx between the computed Jacobian and the
 numerically estimated Jacobian.

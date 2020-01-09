@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.copy_with_input_replacements
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L626-L672">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Copy a subgraph, replacing some of its inputs.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.graph_editor.copy_with_input_replacements(
 ```
 
 
-
-Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -6,24 +6,31 @@ page_type: reference
 # Module: tf.keras.preprocessing
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Keras data preprocessing utils.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.preprocessing`
-* Module `tf.keras.preprocessing`
+* Module <a href="/api_docs/python/tf/keras/preprocessing"><code>tf.compat.v1.keras.preprocessing</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/preprocessing/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/preprocessing/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`image`](../../tf/keras/preprocessing/image) module
+[`image`](../../tf/keras/preprocessing/image) module: Set of tools for real-time data augmentation on image data.
 
-[`sequence`](../../tf/keras/preprocessing/sequence) module
+[`sequence`](../../tf/keras/preprocessing/sequence) module: Utilities for preprocessing sequence data.
 
-[`text`](../../tf/keras/preprocessing/text) module
-
+[`text`](../../tf/keras/preprocessing/text) module: Utilities for text input preprocessing.

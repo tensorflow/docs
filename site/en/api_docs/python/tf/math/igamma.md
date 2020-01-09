@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.igamma
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/igamma">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Compute the lower regularized incomplete Gamma function `P(a, x)`.
 
 ### Aliases:
 
-* `tf.compat.v1.igamma`
-* `tf.compat.v1.math.igamma`
-* `tf.compat.v2.math.igamma`
-* `tf.igamma`
-* `tf.math.igamma`
+* <a href="/api_docs/python/tf/math/igamma"><code>tf.compat.v1.igamma</code></a>
+* <a href="/api_docs/python/tf/math/igamma"><code>tf.compat.v1.math.igamma</code></a>
+* <a href="/api_docs/python/tf/math/igamma"><code>tf.compat.v2.math.igamma</code></a>
+* <a href="/api_docs/python/tf/math/igamma"><code>tf.igamma</code></a>
+
 
 ``` python
 tf.math.igamma(
@@ -25,8 +39,6 @@ tf.math.igamma(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.truncatemod
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/truncatemod">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns element-wise remainder of division. This emulates C semantics in that
 
 ### Aliases:
 
-* `tf.compat.v1.truncatemod`
-* `tf.compat.v2.truncatemod`
-* `tf.truncatemod`
+* <a href="/api_docs/python/tf/truncatemod"><code>tf.compat.v1.truncatemod</code></a>
+* <a href="/api_docs/python/tf/truncatemod"><code>tf.compat.v2.truncatemod</code></a>
+
 
 ``` python
 tf.truncatemod(
@@ -22,8 +36,6 @@ tf.truncatemod(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

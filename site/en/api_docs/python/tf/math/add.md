@@ -5,19 +5,33 @@ page_type: reference
 
 # tf.math.add
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/add">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns x + y element-wise.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__add__`
-* `tf.add`
-* `tf.compat.v1.RaggedTensor.__add__`
-* `tf.compat.v1.add`
-* `tf.compat.v1.math.add`
-* `tf.compat.v2.RaggedTensor.__add__`
-* `tf.compat.v2.add`
-* `tf.compat.v2.math.add`
-* `tf.math.add`
+* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.RaggedTensor.__add__</code></a>
+* <a href="/api_docs/python/tf/math/add"><code>tf.add</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.compat.v1.RaggedTensor.__add__</code></a>
+* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v1.add</code></a>
+* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v1.math.add</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.compat.v2.RaggedTensor.__add__</code></a>
+* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v2.add</code></a>
+* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v2.math.add</code></a>
+
 
 ``` python
 tf.math.add(
@@ -28,8 +42,6 @@ tf.math.add(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

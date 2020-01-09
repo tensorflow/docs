@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.disable_v2_tensorshape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L87-L95">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Disables the V2 TensorShape behavior and reverts to V1 behavior.
 
 ### Aliases:
 
-* `tf.compat.v1.disable_v2_tensorshape`
-* `tf.disable_v2_tensorshape`
+* <a href="/api_docs/python/tf/disable_v2_tensorshape"><code>tf.compat.v1.disable_v2_tensorshape</code></a>
+
 
 ``` python
 tf.disable_v2_tensorshape()
 ```
 
 
-
-Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
 
 <!-- Placeholder for "Used in" -->
 

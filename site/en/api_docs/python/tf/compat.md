@@ -6,9 +6,32 @@ page_type: reference
 # Module: tf.compat
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Functions for Python 2 vs. 3 compatibility.
 
 <!-- Placeholder for "Used in" -->
 
+## Conversion routines
+In addition to the functions below, `as_str` converts an object to a `str`.
+
+
+## Types
+The compatibility module also provides the following types:
+
+* `bytes_or_text_types`
+* `complex_types`
+* `integral_types`
+* `real_types`
 
 ## Modules
 

@@ -6,14 +6,32 @@ page_type: reference
 
 # tf.gather_nd
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/gather_nd">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4117-L4281">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Gather slices from `params` into a Tensor with shape specified by `indices`.
 
 ### Aliases:
 
-* `tf.compat.v1.gather_nd`
-* `tf.compat.v1.manip.gather_nd`
-* `tf.gather_nd`
-* `tf.manip.gather_nd`
+* <a href="/api_docs/python/tf/gather_nd"><code>tf.compat.v1.gather_nd</code></a>
+* <a href="/api_docs/python/tf/gather_nd"><code>tf.compat.v1.manip.gather_nd</code></a>
+* <a href="/api_docs/python/tf/gather_nd"><code>tf.manip.gather_nd</code></a>
+
 
 ``` python
 tf.gather_nd(
@@ -25,8 +43,6 @@ tf.gather_nd(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.infer_real_valued_columns_from_input_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L147-L165">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates `FeatureColumn` objects for inputs defined by `input_fn`. (deprecated)
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.learn.infer_real_valued_columns_from_input_fn(input_fn)
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 <!-- Placeholder for "Used in" -->
 

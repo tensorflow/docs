@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.backend.backend
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/backend">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L138-L147">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Publicly accessible method for determining the current backend.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.backend`
-* `tf.compat.v2.keras.backend.backend`
-* `tf.keras.backend.backend`
+* <a href="/api_docs/python/tf/keras/backend/backend"><code>tf.compat.v1.keras.backend.backend</code></a>
+* <a href="/api_docs/python/tf/keras/backend/backend"><code>tf.compat.v2.keras.backend.backend</code></a>
+
 
 ``` python
 tf.keras.backend.backend()
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

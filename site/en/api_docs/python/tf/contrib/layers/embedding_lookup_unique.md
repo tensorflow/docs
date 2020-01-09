@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.embedding_lookup_unique
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/embedding_ops.py#L476-L514">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Version of embedding_lookup that avoids duplicate lookups.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.layers.embedding_lookup_unique(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/embedding_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/embedding_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

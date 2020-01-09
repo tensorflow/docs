@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.mean_absolute_error
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L853-L911">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the mean absolute error between the labels and predictions.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.mean_absolute_error`
-* `tf.metrics.mean_absolute_error`
+* <a href="/api_docs/python/tf/metrics/mean_absolute_error"><code>tf.compat.v1.metrics.mean_absolute_error</code></a>
+
 
 ``` python
 tf.metrics.mean_absolute_error(
@@ -24,8 +36,6 @@ tf.metrics.mean_absolute_error(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

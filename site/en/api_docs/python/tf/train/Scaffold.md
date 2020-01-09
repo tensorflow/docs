@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.Scaffold
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L59-L308">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Scaffold`
 
 Structure to create or gather pieces commonly needed to train a model.
@@ -13,12 +25,8 @@ Structure to create or gather pieces commonly needed to train a model.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.Scaffold`
-* Class `tf.train.Scaffold`
+* Class <a href="/api_docs/python/tf/train/Scaffold"><code>tf.compat.v1.train.Scaffold</code></a>
 
-
-
-Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -66,6 +74,8 @@ You can also pass the following additional pieces to the constructor:
   `init_fn(scaffold, session)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L107-L182">View source</a>
 
 ``` python
 __init__(
@@ -167,6 +177,8 @@ Create a scaffold.
 
 <h3 id="default_local_init_op"><code>default_local_init_op</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L292-L308">View source</a>
+
 ``` python
 @staticmethod
 default_local_init_op()
@@ -187,6 +199,8 @@ The default Scaffold local init op.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L184-L241">View source</a>
+
 ``` python
 finalize()
 ```
@@ -195,6 +209,8 @@ Creates operations if needed and finalizes the graph.
 
 
 <h3 id="get_or_default"><code>get_or_default</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L275-L290">View source</a>
 
 ``` python
 @staticmethod
@@ -206,7 +222,3 @@ get_or_default(
 ```
 
 Get from cache or create a default operation.
-
-
-
-

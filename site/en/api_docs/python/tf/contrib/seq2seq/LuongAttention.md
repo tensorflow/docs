@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.LuongAttention
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L655-L750">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LuongAttention`
 
 Implements Luong-style (multiplicative) attention scoring.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +39,8 @@ To enable the second form, construct the object with parameter
 `scale=True`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L672-L723">View source</a>
 
 ``` python
 __init__(
@@ -116,6 +126,8 @@ Construct the AttentionMechanism mechanism.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L725-L750">View source</a>
+
 ``` python
 __call__(
     query,
@@ -143,6 +155,8 @@ Score the query based on the keys and values.
   `max_time`).
 
 <h3 id="initial_alignments"><code>initial_alignments</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L191-L208">View source</a>
 
 ``` python
 initial_alignments(
@@ -173,6 +187,8 @@ A `dtype` tensor shaped `[batch_size, alignments_size]`
 
 <h3 id="initial_state"><code>initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L210-L225">View source</a>
+
 ``` python
 initial_state(
     batch_size,
@@ -197,7 +213,3 @@ The default behavior is to return the same output as initial_alignments.
 #### Returns:
 
 A structure of all-zero tensors with shapes as described by `state_size`.
-
-
-
-

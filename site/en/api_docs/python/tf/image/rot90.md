@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.rot90
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/rot90">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L484-L521">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Rotate image(s) counter-clockwise by 90 degrees.
 
 ### Aliases:
 
-* `tf.compat.v1.image.rot90`
-* `tf.compat.v2.image.rot90`
-* `tf.image.rot90`
+* <a href="/api_docs/python/tf/image/rot90"><code>tf.compat.v1.image.rot90</code></a>
+* <a href="/api_docs/python/tf/image/rot90"><code>tf.compat.v2.image.rot90</code></a>
+
 
 ``` python
 tf.image.rot90(
@@ -23,19 +41,23 @@ tf.image.rot90(
 
 
 
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
-
 <!-- Placeholder for "Used in" -->
 
 
-#### Args:
+#### For example:
 
 
-* <b>`image`</b>: 4-D Tensor of shape `[batch, height, width, channels]` or 3-D Tensor
-  of shape `[height, width, channels]`.
-* <b>`k`</b>: A scalar integer. The number of times the image is rotated by 90 degrees.
-* <b>`name`</b>: A name for this operation (optional).
-
+```python
+a=tf.constant([[[1],[2]],[[3],[4]]])
+# rotating `a` counter clockwise by 90 degrees
+a_rot=tf.image.rot90(a,k=1) #rotated `a`
+print(a_rot) # [[[2],[4]],[[1],[3]]]
+```
+Args:
+  image: 4-D Tensor of shape `[batch, height, width, channels]` or 3-D Tensor
+    of shape `[height, width, channels]`.
+  k: A scalar integer. The number of times the image is rotated by 90 degrees.
+  name: A name for this operation (optional).
 
 #### Returns:
 

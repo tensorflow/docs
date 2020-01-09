@@ -6,29 +6,41 @@ page_type: reference
 # Module: tf.saved_model
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/saved_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.saved_model namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`builder`](../tf/saved_model/builder) module
+[`builder`](../tf/saved_model/builder) module: SavedModel builder.
 
-[`constants`](../tf/saved_model/constants) module
+[`constants`](../tf/saved_model/constants) module: Constants for SavedModel save and restore operations.
 
-[`experimental`](../tf/saved_model/experimental) module
+[`experimental`](../tf/saved_model/experimental) module: Public API for tf.saved_model.experimental namespace.
 
-[`loader`](../tf/saved_model/loader) module
+[`loader`](../tf/saved_model/loader) module: Loader functionality for SavedModel with hermetic, language-neutral exports.
 
-[`main_op`](../tf/saved_model/main_op) module
+[`main_op`](../tf/saved_model/main_op) module: SavedModel main op.
 
-[`signature_constants`](../tf/saved_model/signature_constants) module
+[`signature_constants`](../tf/saved_model/signature_constants) module: Signature constants for SavedModel save and restore operations.
 
-[`signature_def_utils`](../tf/saved_model/signature_def_utils) module
+[`signature_def_utils`](../tf/saved_model/signature_def_utils) module: SignatureDef utility functions.
 
-[`tag_constants`](../tf/saved_model/tag_constants) module
+[`tag_constants`](../tf/saved_model/tag_constants) module: Common tags used for graphs in SavedModel.
 
-[`utils`](../tf/saved_model/utils) module
+[`utils`](../tf/saved_model/utils) module: SavedModel utility functions.
 
 ## Classes
 
@@ -44,7 +56,7 @@ page_type: reference
 
 [`contains_saved_model(...)`](../tf/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
 
-[`get_tensor_from_tensor_info(...)`](../tf/saved_model/get_tensor_from_tensor_info): Returns the Tensor or SparseTensor described by a TensorInfo proto. (deprecated)
+[`get_tensor_from_tensor_info(...)`](../tf/saved_model/get_tensor_from_tensor_info): Returns the Tensor or CompositeTensor described by a TensorInfo proto. (deprecated)
 
 [`is_valid_signature(...)`](../tf/saved_model/is_valid_signature): Determine whether a SignatureDef can be served by TensorFlow Serving.
 

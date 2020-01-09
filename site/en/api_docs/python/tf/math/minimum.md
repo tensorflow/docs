@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.math.minimum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/minimum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns the min of x and y (i.e. x < y ? x : y) element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.minimum`
-* `tf.compat.v1.minimum`
-* `tf.compat.v2.math.minimum`
-* `tf.compat.v2.minimum`
-* `tf.math.minimum`
-* `tf.minimum`
+* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v1.math.minimum</code></a>
+* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v1.minimum</code></a>
+* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v2.math.minimum</code></a>
+* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v2.minimum</code></a>
+* <a href="/api_docs/python/tf/math/minimum"><code>tf.minimum</code></a>
+
 
 ``` python
 tf.math.minimum(
@@ -25,8 +39,6 @@ tf.math.minimum(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

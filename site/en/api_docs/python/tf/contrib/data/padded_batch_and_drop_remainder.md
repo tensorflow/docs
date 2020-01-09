@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.padded_batch_and_drop_remainder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/batching.py#L142-L175">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A batching and padding transformation that omits the final small batch. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.data.padded_batch_and_drop_remainder(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.compat.v2.DeviceSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L48-L375">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DeviceSpec`
 
 Represents a (possibly partial) specification for a TensorFlow device.
 
 
-
-
-
-Defined in [`python/framework/device_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/device_spec.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -57,6 +65,8 @@ which is optionally specified:
 * Device index: The device index.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L92-L112">View source</a>
 
 ``` python
 __init__(
@@ -116,6 +126,8 @@ Create a new `DeviceSpec` object.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L358-L372">View source</a>
+
 ``` python
 __eq__(other)
 ```
@@ -138,6 +150,8 @@ Return `False` otherwise.
 
 
 <h3 id="from_string"><code>from_string</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L123-L138">View source</a>
 
 ``` python
 @classmethod
@@ -167,6 +181,8 @@ A DeviceSpec.
 
 
 <h3 id="make_merged_spec"><code>make_merged_spec</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L193-L215">View source</a>
 
 ``` python
 make_merged_spec(dev)
@@ -202,6 +218,8 @@ A new `DeviceSpec` which combines `self` and `dev`
 
 <h3 id="parse_from_string"><code>parse_from_string</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L140-L191">View source</a>
+
 ``` python
 parse_from_string(spec)
 ```
@@ -215,34 +233,28 @@ Parse a `DeviceSpec` name into its components.
 
   Recommended:
 
-    ```
-    # my_spec and my_updated_spec are unrelated.
-    my_spec = tf.DeviceSpec.from_string("/CPU:0")
-    my_updated_spec = tf.DeviceSpec.from_string("/GPU:0")
-    with tf.device(my_updated_spec):
-      ...
-    ```
+>     # my_spec and my_updated_spec are unrelated.
+>     my_spec = tf.DeviceSpec.from_string("/CPU:0")
+>     my_updated_spec = tf.DeviceSpec.from_string("/GPU:0")
+>     with tf.device(my_updated_spec):
+>       ...
 
   Will work in 1.x and 2.x (though deprecated in 2.x):
 
-    ```
-    my_spec = tf.DeviceSpec.from_string("/CPU:0")
-    my_updated_spec = my_spec.parse_from_string("/GPU:0")
-    with tf.device(my_updated_spec):
-      ...
-    ```
+>     my_spec = tf.DeviceSpec.from_string("/CPU:0")
+>     my_updated_spec = my_spec.parse_from_string("/GPU:0")
+>     with tf.device(my_updated_spec):
+>       ...
 
   Will NOT work in 2.x:
 
-    ```
-    my_spec = tf.DeviceSpec.from_string("/CPU:0")
-    my_spec.parse_from_string("/GPU:0")  # <== Will not update my_spec
-    with tf.device(my_spec):
-      ...
-    ```
+>     my_spec = tf.DeviceSpec.from_string("/CPU:0")
+>     my_spec.parse_from_string("/GPU:0")  # <== Will not update my_spec
+>     with tf.device(my_spec):
+>       ...
 
-  In general, `DeviceSpec.from_string` should completely replace
-  `DeviceSpec.parse_from_string`, and `DeviceSpec.replace` should
+  In general, <a href="/api_docs/python/tf/DeviceSpec#from_string"><code>DeviceSpec.from_string</code></a> should completely replace
+  <a href="/api_docs/python/tf/DeviceSpec#parse_from_string"><code>DeviceSpec.parse_from_string</code></a>, and <a href="/api_docs/python/tf/compat/v2/DeviceSpec#replace"><code>DeviceSpec.replace</code></a> should
   completely replace setting attributes directly.
 
 #### Args:
@@ -268,6 +280,8 @@ The `DeviceSpec`.
 * <b>`ValueError`</b>: if the spec was not valid.
 
 <h3 id="replace"><code>replace</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L217-L239">View source</a>
 
 ``` python
 replace(**kwargs)
@@ -298,6 +312,8 @@ A DeviceSpec with the fields specified in kwargs overridden.
 
 <h3 id="to_string"><code>to_string</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L114-L121">View source</a>
+
 ``` python
 to_string()
 ```
@@ -309,7 +325,3 @@ Return a string representation of this `DeviceSpec`.
 
 a string of the form
 /job:<name>/replica:<id>/task:<id>/device:<device_type>:<id>.
-
-
-
-

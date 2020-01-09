@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.add_check_numerics_ops
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/numerics.py#L72-L122">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Connect a <a href="../tf/debugging/check_numerics"><code>tf.debugging.check_numerics</code></a> to every floating point tensor.
 
 ### Aliases:
 
-* `tf.add_check_numerics_ops`
-* `tf.compat.v1.add_check_numerics_ops`
+* <a href="/api_docs/python/tf/add_check_numerics_ops"><code>tf.compat.v1.add_check_numerics_ops</code></a>
+
 
 ``` python
 tf.add_check_numerics_ops()
 ```
 
 
-
-Defined in [`python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/numerics.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,4 +60,3 @@ A `group` op depending on all `check_numerics` ops added.
 Not compatible with eager execution. To check for `Inf`s and `NaN`s under
 eager execution, call `tfe.seterr(inf_or_nan='raise')` once before executing
 the checked operations.
-

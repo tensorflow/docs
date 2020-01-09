@@ -5,24 +5,32 @@ page_type: reference
 
 # tf.contrib.opt.AdamWOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L356-L412">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AdamWOptimizer`
 
 Optimizer that implements the Adam algorithm with weight decay.
 
 Inherits From: [`DecoupledWeightDecayExtension`](../../../tf/contrib/opt/DecoupledWeightDecayExtension), [`AdamOptimizer`](../../../tf/train/AdamOptimizer)
 
-
-
-Defined in [`contrib/opt/python/training/weight_decay_optimizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py).
-
 <!-- Placeholder for "Used in" -->
 
-This is an implementation of the AdamW optimizer described in "Fixing
-Weight Decay Regularization in Adam" by Loshchilov & Hutter
+This is an implementation of the AdamW optimizer described in ["Fixing
+Weight Decay Regularization in Adam" by Loshchilov & Hutter]
 (https://arxiv.org/abs/1711.05101)
-([pdf])(https://arxiv.org/pdf/1711.05101.pdf).
+([pdf](https://arxiv.org/pdf/1711.05101.pdf)).
 
-It computes the update step of `train.AdamOptimizer` and additionally decays
+It computes the update step of <a href="/api_docs/python/tf/train/AdamOptimizer"><code>train.AdamOptimizer</code></a> and additionally decays
 the variable. Note that this is different from adding L2 regularization on
 the variables to the loss: it regularizes variables with large
 gradients more than L2 regularization would, which was shown to yield better
@@ -38,6 +46,8 @@ weight_decay=weight_decay)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L379-L412">View source</a>
 
 ``` python
 __init__(
@@ -77,6 +87,8 @@ For further information see the documentation of the Adam Optimizer.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L146-L175">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -115,6 +127,8 @@ was not None, that operation also increments `global_step`.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
+
 ``` python
 compute_gradients(
     loss,
@@ -142,7 +156,7 @@ given variable.
   is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
   `loss`.  Defaults to the list of variables collected in the graph
-  under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -177,6 +191,8 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -185,6 +201,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -216,6 +234,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -230,6 +250,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L95-L144">View source</a>
 
 ``` python
 minimize(
@@ -261,7 +283,7 @@ For more information see the documentation of Optimizer.minimize.
   have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in the
-  graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -280,6 +302,8 @@ was not `None`, that operation also increments `global_step`.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

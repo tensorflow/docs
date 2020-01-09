@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.rnn.LayerRNNCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L347-L386">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LayerRNNCell`
 
 Subclass of RNNCells that act like proper `tf.Layer` objects.
 
 Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
-
-
-
-Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ Here we provide a subclass for `RNNCell` objects that act exactly as
 `call` methods do not access Variables <a href="../../../tf/get_variable"><code>tf.compat.v1.get_variable</code></a>.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L205-L212">View source</a>
 
 ``` python
 __init__(
@@ -77,6 +87,8 @@ or TensorShapes.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -89,6 +101,8 @@ get_initial_state(
 
 
 <h3 id="zero_state"><code>zero_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L311-L340">View source</a>
 
 ``` python
 zero_state(
@@ -115,7 +129,3 @@ If `state_size` is an int or TensorShape, then the return value is a
 If `state_size` is a nested list or tuple, then the return value is
 a nested list or tuple (of the same structure) of `2-D` tensors with
 the shapes `[batch_size, s]` for each s in `state_size`.
-
-
-
-

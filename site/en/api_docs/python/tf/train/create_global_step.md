@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.train.create_global_step
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/training_util.py#L106-L144">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create global step tensor in graph.
 
 ### Aliases:
 
-* `tf.compat.v1.train.create_global_step`
-* `tf.train.create_global_step`
+* <a href="/api_docs/python/tf/train/create_global_step"><code>tf.compat.v1.train.create_global_step</code></a>
+
 
 ``` python
 tf.train.create_global_step(graph=None)
 ```
 
 
-
-Defined in [`python/training/training_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/training_util.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.cudnn_rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for fused Cudnn RNN models.
-
-
-
-Defined in [`contrib/cudnn_rnn/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cudnn_rnn/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,9 +46,8 @@ Defined in [`contrib/cudnn_rnn/__init__.py`](https://github.com/tensorflow/tenso
 
 [`class CudnnRNNRelu`](../../tf/contrib/cudnn_rnn/CudnnRNNRelu): Cudnn implementation of the RNN-relu layer.
 
-[`class CudnnRNNReluSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNReluSaveable)
+[`class CudnnRNNReluSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNReluSaveable): SaveableObject implementation handling Cudnn LSTM opaque params.
 
 [`class CudnnRNNTanh`](../../tf/contrib/cudnn_rnn/CudnnRNNTanh): Cudnn implementation of the RNN-tanh layer.
 
-[`class CudnnRNNTanhSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNTanhSaveable)
-
+[`class CudnnRNNTanhSaveable`](../../tf/contrib/cudnn_rnn/CudnnRNNTanhSaveable): SaveableObject implementation handling Cudnn LSTM opaque params.

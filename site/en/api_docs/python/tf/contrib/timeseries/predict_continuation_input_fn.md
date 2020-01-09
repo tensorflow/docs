@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.timeseries.predict_continuation_input_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L101-L156">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 An Estimator input_fn for running predict() after evaluate().
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.timeseries.predict_continuation_input_fn(
 
 
 
-Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 <!-- Placeholder for "Used in" -->
 
 If the call to evaluate() we are making predictions based on had a batch_size
@@ -29,7 +39,7 @@ greater than one, predictions will start after each of these windows
 #### Args:
 
 
-* <b>`evaluation`</b>: The dictionary returned by `Estimator.evaluate`, with keys
+* <b>`evaluation`</b>: The dictionary returned by <a href="/api_docs/python/tf/estimator/Estimator#evaluate"><code>Estimator.evaluate</code></a>, with keys
   FilteringResults.STATE_TUPLE and FilteringResults.TIMES.
 * <b>`steps`</b>: The number of steps to predict (scalar), starting after the
   evaluation. If `times` is specified, `steps` must not be; one is required.

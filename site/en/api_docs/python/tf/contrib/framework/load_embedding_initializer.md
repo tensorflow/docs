@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.load_embedding_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_ops.py#L419-L486">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a variable initializer for loading pre-trained embeddings.
 
 ``` python
@@ -23,8 +35,6 @@ tf.contrib.framework.load_embedding_initializer(
 ```
 
 
-
-Defined in [`python/training/checkpoint_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

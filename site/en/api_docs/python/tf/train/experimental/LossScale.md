@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.train.experimental.LossScale
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/experimental/LossScale">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L40-L182">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LossScale`
 
 Loss scale base class.
@@ -13,13 +31,9 @@ Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/Checkpointa
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.experimental.LossScale`
-* Class `tf.compat.v2.train.experimental.LossScale`
-* Class `tf.train.experimental.LossScale`
+* Class <a href="/api_docs/python/tf/train/experimental/LossScale"><code>tf.compat.v1.train.experimental.LossScale</code></a>
+* Class <a href="/api_docs/python/tf/train/experimental/LossScale"><code>tf.compat.v2.train.experimental.LossScale</code></a>
 
-
-
-Defined in [`python/training/experimental/loss_scale.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/experimental/loss_scale.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,6 +60,8 @@ Optimizers use instances of this class to scale loss and gradients.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L65-L67">View source</a>
+
 ``` python
 __init__()
 ```
@@ -59,6 +75,8 @@ Initializes the loss scale class.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L69-L72">View source</a>
+
 ``` python
 __call__()
 ```
@@ -67,6 +85,8 @@ Returns the current loss scale as a scalar `float32` tensor.
 
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L179-L182">View source</a>
 
 ``` python
 @classmethod
@@ -81,6 +101,8 @@ Creates the LossScale from its config.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L174-L177">View source</a>
+
 ``` python
 get_config()
 ```
@@ -89,6 +111,8 @@ Returns the config of this loss scale.
 
 
 <h3 id="update"><code>update</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L74-L109">View source</a>
 
 ``` python
 update(grads)
@@ -117,10 +141,10 @@ cross-replica context.
 #### Args:
 
 
-* <b>`grads`</b>: A list of unscaled gradients, each which is the gradient of the
-  loss with respect to a weight. The gradients should have already been
-  divided by the loss scale being before passed to this function. 'None'
-  gradients are accepted, and are ignored.
+* <b>`grads`</b>: A nested structure of unscaled gradients, each which is the
+  gradient of the loss with respect to a weight. The gradients should have
+  already been divided by the loss scale being before passed to this
+  function. 'None' gradients are accepted, and are ignored.
 
 
 #### Returns:
@@ -131,6 +155,3 @@ cross-replica context.
 * <b>`should_apply_gradients`</b>: Either a bool or a scalar boolean tensor. If
   False, the caller should skip applying `grads` to the variables this
   step.
-
-
-

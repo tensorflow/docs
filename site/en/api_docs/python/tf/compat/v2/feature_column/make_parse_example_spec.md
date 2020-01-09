@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.feature_column.make_parse_example_spec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L748-L806">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates parsing spec dictionary from input feature_columns.
 
 ``` python
@@ -12,8 +24,6 @@ tf.compat.v2.feature_column.make_parse_example_spec(feature_columns)
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

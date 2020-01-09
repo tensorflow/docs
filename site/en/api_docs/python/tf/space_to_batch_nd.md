@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.space_to_batch_nd
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/space_to_batch_nd">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 SpaceToBatch for N-D tensors of type T.
 
 ### Aliases:
 
-* `tf.compat.v1.manip.space_to_batch_nd`
-* `tf.compat.v1.space_to_batch_nd`
-* `tf.compat.v2.space_to_batch_nd`
-* `tf.manip.space_to_batch_nd`
-* `tf.space_to_batch_nd`
+* <a href="/api_docs/python/tf/space_to_batch_nd"><code>tf.compat.v1.manip.space_to_batch_nd</code></a>
+* <a href="/api_docs/python/tf/space_to_batch_nd"><code>tf.compat.v1.space_to_batch_nd</code></a>
+* <a href="/api_docs/python/tf/space_to_batch_nd"><code>tf.compat.v2.space_to_batch_nd</code></a>
+* <a href="/api_docs/python/tf/space_to_batch_nd"><code>tf.manip.space_to_batch_nd</code></a>
+
 
 ``` python
 tf.space_to_batch_nd(
@@ -25,8 +39,6 @@ tf.space_to_batch_nd(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

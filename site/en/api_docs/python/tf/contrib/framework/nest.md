@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.framework.nest
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Functions for working with arbitrarily nested sequences of elements.
-
-
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,7 +55,7 @@ Example structures: `((3, 4), 5, (6, 7, (9, 10), 8))`, `(np.array(0),
 
 [`get_traverse_shallow_structure(...)`](../../../tf/contrib/framework/nest/get_traverse_shallow_structure): Generates a shallow structure from a `traverse_fn` and `structure`.
 
-[`is_nested(...)`](../../../tf/nest/is_nested): Returns true if its input is a collections.Sequence (except strings).
+[`is_nested(...)`](../../../tf/nest/is_nested): Returns true if its input is a collections.abc.Sequence (except strings).
 
 [`is_sequence(...)`](../../../tf/contrib/framework/nest/is_sequence): Returns true if its input is a collections.Sequence (except strings).
 
@@ -66,4 +74,3 @@ Example structures: `((3, 4), 5, (6, 7, (9, 10), 8))`, `(np.array(0),
 [`pack_sequence_as(...)`](../../../tf/nest/pack_sequence_as): Returns a given flattened sequence packed into a given structure.
 
 [`yield_flat_paths(...)`](../../../tf/contrib/framework/nest/yield_flat_paths): Yields paths for some nested structure.
-

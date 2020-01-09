@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.estimator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/estimator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Estimator: High level tools for working with models.
-
-
-
-Defined in [`python/estimator/api/_v2/estimator/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v2/estimator/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ Defined in [`python/estimator/api/_v2/estimator/__init__.py`](https://github.com
 [`class BaselineRegressor`](../../../tf/compat/v2/estimator/BaselineRegressor): A regressor that can establish a simple baseline.
 
 [`class BestExporter`](../../../tf/estimator/BestExporter): This class exports the serving graph and checkpoints of the best models.
+
+[`class BinaryClassHead`](../../../tf/estimator/BinaryClassHead): Creates a `Head` for single label binary classification.
 
 [`class BoostedTreesClassifier`](../../../tf/estimator/BoostedTreesClassifier): A Classifier for Tensorflow Boosted Trees models.
 
@@ -68,6 +78,8 @@ Defined in [`python/estimator/api/_v2/estimator/__init__.py`](https://github.com
 
 [`class GlobalStepWaiterHook`](../../../tf/train/GlobalStepWaiterHook): Delays execution until global step reaches `wait_until_step`.
 
+[`class Head`](../../../tf/estimator/Head): Interface for the head/top of a model.
+
 [`class LatestExporter`](../../../tf/estimator/LatestExporter): This class regularly exports the serving graph and checkpoints.
 
 [`class LinearClassifier`](../../../tf/compat/v2/estimator/LinearClassifier): Linear classifier model.
@@ -78,25 +90,37 @@ Defined in [`python/estimator/api/_v2/estimator/__init__.py`](https://github.com
 
 [`class LoggingTensorHook`](../../../tf/train/LoggingTensorHook): Prints the given tensors every N local steps, every N seconds, or at end.
 
+[`class LogisticRegressionHead`](../../../tf/estimator/LogisticRegressionHead): Creates a `Head` for logistic regression.
+
 [`class ModeKeys`](../../../tf/estimator/ModeKeys): Standard names for Estimator model modes.
 
-[`class NanLossDuringTrainingError`](../../../tf/train/NanLossDuringTrainingError)
+[`class MultiClassHead`](../../../tf/estimator/MultiClassHead): Creates a `Head` for multi class classification.
+
+[`class MultiHead`](../../../tf/estimator/MultiHead): Creates a `Head` for multi-objective learning.
+
+[`class MultiLabelHead`](../../../tf/estimator/MultiLabelHead): Creates a `Head` for multi-label classification.
+
+[`class NanLossDuringTrainingError`](../../../tf/train/NanLossDuringTrainingError): Unspecified run-time error.
 
 [`class NanTensorHook`](../../../tf/train/NanTensorHook): Monitors the loss tensor and stops training if loss is NaN.
 
+[`class PoissonRegressionHead`](../../../tf/estimator/PoissonRegressionHead): Creates a `Head` for poisson regression using <a href="../../../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
+
 [`class ProfilerHook`](../../../tf/train/ProfilerHook): Captures CPU/GPU profiling information every N steps or seconds.
+
+[`class RegressionHead`](../../../tf/estimator/RegressionHead): Creates a `Head` for regression using the `mean_squared_error` loss.
 
 [`class RunConfig`](../../../tf/estimator/RunConfig): This class specifies the configurations for an `Estimator` run.
 
 [`class SecondOrStepTimer`](../../../tf/train/SecondOrStepTimer): Timer that triggers at most once every N seconds or once every N steps.
 
-[`class SessionRunArgs`](../../../tf/train/SessionRunArgs): Represents arguments to be added to a `Session.run()` call.
+[`class SessionRunArgs`](../../../tf/train/SessionRunArgs): Represents arguments to be added to a <a href="/api_docs/python/tf/InteractiveSession#run"><code>Session.run()</code></a> call.
 
 [`class SessionRunContext`](../../../tf/train/SessionRunContext): Provides information about the `session.run()` call being made.
 
 [`class SessionRunHook`](../../../tf/train/SessionRunHook): Hook to extend calls to MonitoredSession.run().
 
-[`class SessionRunValues`](../../../tf/train/SessionRunValues): Contains the results of `Session.run()`.
+[`class SessionRunValues`](../../../tf/train/SessionRunValues): Contains the results of <a href="/api_docs/python/tf/InteractiveSession#run"><code>Session.run()</code></a>.
 
 [`class StepCounterHook`](../../../tf/train/StepCounterHook): Hook that counts steps per second.
 
@@ -114,9 +138,8 @@ Defined in [`python/estimator/api/_v2/estimator/__init__.py`](https://github.com
 
 [`add_metrics(...)`](../../../tf/estimator/add_metrics): Creates a new <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
 
-[`classifier_parse_example_spec(...)`](../../../tf/estimator/classifier_parse_example_spec): Generates parsing spec for tf.parse_example to be used with classifiers.
+[`classifier_parse_example_spec(...)`](../../../tf/compat/v2/estimator/classifier_parse_example_spec): Generates parsing spec for tf.parse_example to be used with classifiers.
 
-[`regressor_parse_example_spec(...)`](../../../tf/estimator/regressor_parse_example_spec): Generates parsing spec for tf.parse_example to be used with regressors.
+[`regressor_parse_example_spec(...)`](../../../tf/compat/v2/estimator/regressor_parse_example_spec): Generates parsing spec for tf.parse_example to be used with regressors.
 
 [`train_and_evaluate(...)`](../../../tf/estimator/train_and_evaluate): Train and evaluate the `estimator`.
-

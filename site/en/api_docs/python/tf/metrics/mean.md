@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.mean
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L315-L393">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the (weighted) mean of the given values.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.mean`
-* `tf.metrics.mean`
+* <a href="/api_docs/python/tf/metrics/mean"><code>tf.compat.v1.metrics.mean</code></a>
+
 
 ``` python
 tf.metrics.mean(
@@ -23,8 +35,6 @@ tf.metrics.mean(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

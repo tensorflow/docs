@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.staging.StagingArea
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1770-L1993">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StagingArea`
 
 Class for staging inputs. No ordering guarantees.
 
 
-
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,6 +55,8 @@ All get() and peek() commands block if the requested data
 is not present in the Staging Area.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1804-L1846">View source</a>
 
 ``` python
 __init__(
@@ -137,6 +147,8 @@ The list of shapes for each component of a staging area element.
 
 <h3 id="clear"><code>clear</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1976-L1993">View source</a>
+
 ``` python
 clear(name=None)
 ```
@@ -156,6 +168,8 @@ The created op
 
 
 <h3 id="get"><code>get</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1893-L1925">View source</a>
 
 ``` python
 get(name=None)
@@ -189,6 +203,8 @@ The tuple of tensors that was gotten.
 
 <h3 id="peek"><code>peek</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1927-L1955">View source</a>
+
 ``` python
 peek(
     index,
@@ -219,6 +235,8 @@ The tuple of tensors that was gotten.
 
 
 <h3 id="put"><code>put</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1848-L1884">View source</a>
 
 ``` python
 put(
@@ -254,6 +272,8 @@ The created op.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1957-L1974">View source</a>
+
 ``` python
 size(name=None)
 ```
@@ -270,7 +290,3 @@ Returns the number of elements in the staging area.
 #### Returns:
 
 The created op
-
-
-
-

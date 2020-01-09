@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.ConditionalAccumulator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1253-L1358">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ConditionalAccumulator`
 
 A conditional accumulator for aggregating gradients.
@@ -13,12 +25,8 @@ Inherits From: [`ConditionalAccumulatorBase`](../tf/ConditionalAccumulatorBase)
 
 ### Aliases:
 
-* Class `tf.ConditionalAccumulator`
-* Class `tf.compat.v1.ConditionalAccumulator`
+* Class <a href="/api_docs/python/tf/ConditionalAccumulator"><code>tf.compat.v1.ConditionalAccumulator</code></a>
 
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ Extraction of the average gradient is blocked until the required number of
 gradients has been accumulated.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1263-L1297">View source</a>
 
 ``` python
 __init__(
@@ -78,6 +88,8 @@ The name of the underlying accumulator.
 
 <h3 id="apply_grad"><code>apply_grad</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1299-L1327">View source</a>
+
 ``` python
 apply_grad(
     grad,
@@ -112,6 +124,8 @@ The operation that (conditionally) applies a gradient to the accumulator.
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1208-L1225">View source</a>
+
 ``` python
 num_accumulated(name=None)
 ```
@@ -131,6 +145,8 @@ Number of accumulated gradients currently in accumulator.
 
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1227-L1249">View source</a>
 
 ``` python
 set_global_step(
@@ -157,6 +173,8 @@ Operation that sets the accumulator's time step.
 
 
 <h3 id="take_grad"><code>take_grad</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L1329-L1358">View source</a>
 
 ``` python
 take_grad(
@@ -193,6 +211,3 @@ A tensor holding the value of the average gradient.
 
 
 * <b>`InvalidArgumentError`</b>: If num_required < 1
-
-
-

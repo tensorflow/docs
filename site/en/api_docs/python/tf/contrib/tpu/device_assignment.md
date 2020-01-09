@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.tpu.device_assignment
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L215-L386">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes a device_assignment of a computation across a TPU topology.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.tpu.device_assignment(
 ```
 
 
-
-Defined in [`python/tpu/device_assignment.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/device_assignment.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,7 +45,7 @@ optimal packing.
 
 * <b>`topology`</b>: A `Topology` object that describes the TPU cluster topology.
   To obtain a TPU topology, evaluate the `Tensor` returned by
-  `initialize_system` using `Session.run`. Either a serialized
+  `initialize_system` using <a href="/api_docs/python/tf/InteractiveSession#run"><code>Session.run</code></a>. Either a serialized
   `TopologyProto` or a `Topology` object may be passed. Note: you must
   evaluate the `Tensor` first; you cannot pass an unevaluated `Tensor` here.
 * <b>`computation_shape`</b>: A rank 1 int32 numpy array with size equal to the

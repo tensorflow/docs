@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.det
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/det">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_linalg_ops.py`
+
+
+
 Computes the determinant of one or more square matrices.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.det`
-* `tf.compat.v1.matrix_determinant`
-* `tf.compat.v2.linalg.det`
-* `tf.linalg.det`
-* `tf.matrix_determinant`
+* <a href="/api_docs/python/tf/linalg/det"><code>tf.compat.v1.linalg.det</code></a>
+* <a href="/api_docs/python/tf/linalg/det"><code>tf.compat.v1.matrix_determinant</code></a>
+* <a href="/api_docs/python/tf/linalg/det"><code>tf.compat.v2.linalg.det</code></a>
+* <a href="/api_docs/python/tf/linalg/det"><code>tf.matrix_determinant</code></a>
+
 
 ``` python
 tf.linalg.det(
@@ -23,8 +37,6 @@ tf.linalg.det(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

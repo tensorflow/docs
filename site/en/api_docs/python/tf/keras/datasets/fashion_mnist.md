@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.datasets.fashion_mnist
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/datasets/fashion_mnist">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Fashion-MNIST dataset.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.datasets.fashion_mnist`
-* Module `tf.keras.datasets.fashion_mnist`
+* Module <a href="/api_docs/python/tf/keras/datasets/fashion_mnist"><code>tf.compat.v1.keras.datasets.fashion_mnist</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/datasets/fashion_mnist/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/datasets/fashion_mnist/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,4 +30,3 @@ Defined in [`python/keras/api/_v1/keras/datasets/fashion_mnist/__init__.py`](htt
 ## Functions
 
 [`load_data(...)`](../../../tf/keras/datasets/fashion_mnist/load_data): Loads the Fashion-MNIST dataset.
-

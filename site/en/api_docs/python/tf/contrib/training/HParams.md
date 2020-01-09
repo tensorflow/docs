@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.training.HParams
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L310-L739">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HParams`
 
 Class to hold a set of hyperparameters as name-value pairs.
 
 
-
-
-
-Defined in [`contrib/training/python/training/hparam.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/hparam.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -87,6 +95,8 @@ def my_program():
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L382-L436">View source</a>
+
 ``` python
 __init__(
     hparam_def=None,
@@ -145,6 +155,8 @@ names.  If you use one of the reserved name the constructor raises a
 
 <h3 id="__contains__"><code>__contains__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L662-L663">View source</a>
+
 ``` python
 __contains__(key)
 ```
@@ -153,6 +165,8 @@ __contains__(key)
 
 
 <h3 id="add_hparam"><code>add_hparam</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L473-L496">View source</a>
 
 ``` python
 add_hparam(
@@ -179,6 +193,8 @@ Adds {name, value} pair to hyperparameters.
 
 <h3 id="del_hparam"><code>del_hparam</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L525-L535">View source</a>
+
 ``` python
 del_hparam(name)
 ```
@@ -194,6 +210,8 @@ Does nothing if it isn't present.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L737-L739">View source</a>
+
 ``` python
 @staticmethod
 from_proto(
@@ -207,6 +225,8 @@ from_proto(
 
 <h3 id="get"><code>get</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L635-L660">View source</a>
+
 ``` python
 get(
     key,
@@ -219,6 +239,8 @@ Returns the value of `key` if it exists, else `default`.
 
 <h3 id="get_model_structure"><code>get_model_structure</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L586-L587">View source</a>
+
 ``` python
 get_model_structure()
 ```
@@ -227,6 +249,8 @@ get_model_structure()
 
 
 <h3 id="override_from_dict"><code>override_from_dict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L561-L576">View source</a>
 
 ``` python
 override_from_dict(values_dict)
@@ -254,6 +278,8 @@ The `HParams` instance.
 * <b>`ValueError`</b>: If `values_dict` cannot be parsed.
 
 <h3 id="parse"><code>parse</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L537-L559">View source</a>
 
 ``` python
 parse(values)
@@ -284,6 +310,8 @@ doesn't exist.
 
 <h3 id="parse_json"><code>parse_json</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L610-L624">View source</a>
+
 ``` python
 parse_json(values_json)
 ```
@@ -311,6 +339,8 @@ The `HParams` instance.
 
 <h3 id="set_from_map"><code>set_from_map</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L578-L581">View source</a>
+
 ``` python
 set_from_map(values_map)
 ```
@@ -322,6 +352,8 @@ Instructions for updating:
 Use `override_from_dict`.
 
 <h3 id="set_hparam"><code>set_hparam</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L498-L523">View source</a>
 
 ``` python
 set_hparam(
@@ -350,6 +382,8 @@ existing hyperparameter.
 
 <h3 id="set_model_structure"><code>set_model_structure</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L583-L584">View source</a>
+
 ``` python
 set_model_structure(model_structure)
 ```
@@ -358,6 +392,8 @@ set_model_structure(model_structure)
 
 
 <h3 id="to_json"><code>to_json</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L589-L608">View source</a>
 
 ``` python
 to_json(
@@ -389,6 +425,8 @@ A JSON string.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L708-L735">View source</a>
+
 ``` python
 to_proto(export_scope=None)
 ```
@@ -409,6 +447,8 @@ A `HParamDef` protocol buffer.
 
 <h3 id="values"><code>values</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/hparam.py#L626-L633">View source</a>
+
 ``` python
 values()
 ```
@@ -420,7 +460,3 @@ Return the hyperparameter values as a Python dictionary.
 
 A dictionary with hyperparameter names as keys.  The values are the
 hyperparameter values.
-
-
-
-

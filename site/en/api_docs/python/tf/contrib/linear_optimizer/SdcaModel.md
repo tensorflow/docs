@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.linear_optimizer.SdcaModel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L56-L724">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SdcaModel`
 
 Stochastic dual coordinate ascent solver for linear models.
 
 
-
-
-
-Defined in [`contrib/linear_optimizer/python/ops/sdca_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -75,6 +83,8 @@ Loss functions supported:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L120-L172">View source</a>
+
 ``` python
 __init__(
     examples,
@@ -95,6 +105,8 @@ This class is deprecated. To UPDATE or USE linear optimizers, please check its l
 
 <h3 id="approximate_duality_gap"><code>approximate_duality_gap</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L608-L637">View source</a>
+
 ``` python
 approximate_duality_gap()
 ```
@@ -109,6 +121,8 @@ examples.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L384-L569">View source</a>
 
 ``` python
 minimize(
@@ -134,6 +148,8 @@ An Operation that updates the variables passed in the constructor.
 
 
 <h3 id="predictions"><code>predictions</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L331-L360">View source</a>
 
 ``` python
 predictions(examples)
@@ -164,6 +180,8 @@ An Operation that computes the predictions for examples.
 
 <h3 id="regularized_loss"><code>regularized_loss</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L699-L724">View source</a>
+
 ``` python
 regularized_loss(examples)
 ```
@@ -189,6 +207,8 @@ examples.
 * <b>`ValueError`</b>: if examples are not well defined.
 
 <h3 id="unregularized_loss"><code>unregularized_loss</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L639-L697">View source</a>
 
 ``` python
 unregularized_loss(examples)
@@ -217,6 +237,8 @@ examples.
 
 <h3 id="update_weights"><code>update_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sdca_ops.py#L571-L606">View source</a>
+
 ``` python
 update_weights(train_op)
 ```
@@ -236,7 +258,3 @@ speed up training.
 #### Returns:
 
 An Operation that updates the model weights.
-
-
-
-

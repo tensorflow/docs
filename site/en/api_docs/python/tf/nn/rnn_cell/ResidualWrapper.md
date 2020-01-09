@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.nn.rnn_cell.ResidualWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1177-L1184">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ResidualWrapper`
 
 RNNCell wrapper that ensures cell inputs are added to the outputs.
@@ -13,18 +25,16 @@ RNNCell wrapper that ensures cell inputs are added to the outputs.
 
 ### Aliases:
 
-* Class `tf.compat.v1.nn.rnn_cell.ResidualWrapper`
-* Class `tf.contrib.rnn.ResidualWrapper`
-* Class `tf.nn.rnn_cell.ResidualWrapper`
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/ResidualWrapper"><code>tf.compat.v1.nn.rnn_cell.ResidualWrapper</code></a>
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/ResidualWrapper"><code>tf.contrib.rnn.ResidualWrapper</code></a>
 
-
-
-Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L1181-L1182">View source</a>
 
 ``` python
 __init__(
@@ -44,6 +54,7 @@ Constructs a `ResidualWrapper` for `cell`.
   outputs to the actual cell outputs of the residual network.
   Defaults to calling nest.map_structure on (lambda i, o: i + o), inputs
     and outputs.
+* <b>`**kwargs`</b>: dict of keyword arguments for base layer.
 
 
 
@@ -78,6 +89,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -91,15 +104,11 @@ get_initial_state(
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_wrapper_impl.py#L344-L346">View source</a>
+
 ``` python
 zero_state(
     batch_size,
     dtype
 )
 ```
-
-
-
-
-
-

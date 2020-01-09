@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.data.make_initializable_iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2084-L2115">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a <a href="../../tf/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a> for enumerating the elements of a dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.data.make_initializable_iterator`
-* `tf.data.make_initializable_iterator`
+* <a href="/api_docs/python/tf/data/make_initializable_iterator"><code>tf.compat.v1.data.make_initializable_iterator</code></a>
+
 
 ``` python
 tf.data.make_initializable_iterator(
@@ -20,8 +32,6 @@ tf.data.make_initializable_iterator(
 ```
 
 
-
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

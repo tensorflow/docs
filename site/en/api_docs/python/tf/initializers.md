@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.initializers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/initializers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.initializers namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -53,4 +65,3 @@ page_type: reference
 [`tables_initializer(...)`](../tf/initializers/tables_initializer): Returns an Op that initializes all tables of the default graph.
 
 [`variables(...)`](../tf/initializers/variables): Returns an Op that initializes a list of variables.
-

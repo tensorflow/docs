@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.estimator.tpu.RunConfig
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RunConfig`
 
 RunConfig with TPU support.
@@ -13,18 +25,16 @@ Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.tpu.RunConfig`
-* Class `tf.contrib.tpu.RunConfig`
-* Class `tf.estimator.tpu.RunConfig`
+* Class <a href="/api_docs/python/tf/estimator/tpu/RunConfig"><code>tf.compat.v1.estimator.tpu.RunConfig</code></a>
+* Class <a href="/api_docs/python/tf/estimator/tpu/RunConfig"><code>tf.contrib.tpu.RunConfig</code></a>
 
-
-
-Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">View source</a>
 
 ``` python
 __init__(
@@ -204,6 +214,11 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+<h3 id="session_creation_timeout_secs"><code>session_creation_timeout_secs</code></h3>
+
+
+
+
 <h3 id="task_id"><code>task_id</code></h3>
 
 
@@ -235,12 +250,49 @@ Optional <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy<
 
 <h3 id="replace"><code>replace</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">View source</a>
+
 ``` python
 replace(**kwargs)
 ```
 
+Returns a new instance of `RunConfig` replacing specified properties.
+
+Only the properties in the following list are allowed to be replaced:
+
+  - `model_dir`,
+  - `tf_random_seed`,
+  - `save_summary_steps`,
+  - `save_checkpoints_steps`,
+  - `save_checkpoints_secs`,
+  - `session_config`,
+  - `keep_checkpoint_max`,
+  - `keep_checkpoint_every_n_hours`,
+  - `log_step_count_steps`,
+  - `train_distribute`,
+  - `device_fn`,
+  - `protocol`.
+  - `eval_distribute`,
+  - `experimental_distribute`,
+  - `experimental_max_worker_delay_secs`,
+
+In addition, either `save_checkpoints_steps` or `save_checkpoints_secs`
+can be set (should not be both).
+
+#### Args:
 
 
+* <b>`**kwargs`</b>: keyword named properties with new values.
 
 
+#### Raises:
 
+
+* <b>`ValueError`</b>: If any property name in `kwargs` does not exist or is not
+  allowed to be replaced, or both `save_checkpoints_steps` and
+  `save_checkpoints_secs` are set.
+
+
+#### Returns:
+
+a new instance of `RunConfig`.

@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.nest.flatten
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nest/flatten">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L232-L263">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a flat list from a given nested structure.
 
 ### Aliases:
 
-* `tf.compat.v1.nest.flatten`
-* `tf.compat.v2.nest.flatten`
-* `tf.contrib.framework.nest.flatten`
-* `tf.nest.flatten`
+* <a href="/api_docs/python/tf/nest/flatten"><code>tf.compat.v1.nest.flatten</code></a>
+* <a href="/api_docs/python/tf/nest/flatten"><code>tf.compat.v2.nest.flatten</code></a>
+* <a href="/api_docs/python/tf/nest/flatten"><code>tf.contrib.framework.nest.flatten</code></a>
+
 
 ``` python
 tf.nest.flatten(
@@ -22,8 +40,6 @@ tf.nest.flatten(
 ```
 
 
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 

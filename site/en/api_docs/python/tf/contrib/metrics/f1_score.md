@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.metrics.f1_score
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/metrics/python/metrics/classification.py#L70-L185">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the approximately best F1-score across different thresholds.
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.metrics.f1_score(
 ```
 
 
-
-Defined in [`contrib/metrics/python/metrics/classification.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/metrics/classification.py).
 
 <!-- Placeholder for "Used in" -->
 

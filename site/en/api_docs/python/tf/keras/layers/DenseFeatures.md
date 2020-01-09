@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.DenseFeatures
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/DenseFeatures">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/dense_features.py#L30-L138">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DenseFeatures`
 
 A layer that produces a dense `Tensor` based on given `feature_columns`.
@@ -13,13 +31,8 @@ A layer that produces a dense `Tensor` based on given `feature_columns`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.DenseFeatures`
-* Class `tf.compat.v2.keras.layers.DenseFeatures`
-* Class `tf.keras.layers.DenseFeatures`
+* Class <a href="/api_docs/python/tf/keras/layers/DenseFeatures"><code>tf.compat.v1.keras.layers.DenseFeatures</code></a>
 
-
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +41,12 @@ At the first layer of the model, this column oriented data should be converted
 to a single `Tensor`.
 
 This layer can be called multiple times with different features.
+
+This is the V1 version of this layer that uses variable_scope's to create
+variables which works well with PartitionedVariables. Variable scopes are
+deprecated in V2, so the V2 version uses name_scopes instead. But currently
+that lacks support for partitioned variables. Use this if you need
+partitioned variables.
 
 #### Example:
 
@@ -43,11 +62,14 @@ feature_layer = DenseFeatures(columns)
 features = tf.io.parse_example(..., features=make_parse_example_spec(columns))
 dense_tensor = feature_layer(features)
 for units in [128, 64, 32]:
-  dense_tensor = tf.compat.v1.layers.dense(dense_tensor, units, tf.nn.relu)
-prediction = tf.compat.v1.layers.dense(dense_tensor, 1).
+  dense_tensor = tf.compat.v1.keras.layers.Dense(
+                     units, activation='relu')(dense_tensor)
+prediction = tf.compat.v1.keras.layers.Dense(1)(dense_tensor)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/dense_features.py#L63-L86">View source</a>
 
 ``` python
 __init__(
@@ -58,7 +80,7 @@ __init__(
 )
 ```
 
-Constructs a DenseFeatures.
+Constructs a DenseFeatures layer.
 
 
 #### Args:
@@ -80,6 +102,3 @@ Constructs a DenseFeatures.
 
 
 * <b>`ValueError`</b>: if an item in `feature_columns` is not a `DenseColumn`.
-
-
-

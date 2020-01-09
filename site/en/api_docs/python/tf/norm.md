@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/norm">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L497-L643">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.norm`
-* `tf.compat.v1.norm`
-* `tf.linalg.norm`
-* `tf.norm`
+* <a href="/api_docs/python/tf/norm"><code>tf.compat.v1.linalg.norm</code></a>
+* <a href="/api_docs/python/tf/norm"><code>tf.compat.v1.norm</code></a>
+* <a href="/api_docs/python/tf/norm"><code>tf.linalg.norm</code></a>
+
 
 ``` python
 tf.norm(
@@ -26,8 +44,6 @@ tf.norm(
 ```
 
 
-
-Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -99,4 +115,3 @@ Other differences:
    regardless of rank.
   b) Explicitly supports 'euclidean' norm as the default, including for
    higher order tensors.
-

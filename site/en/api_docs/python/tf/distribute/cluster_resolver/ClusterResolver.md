@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.distribute.cluster_resolver.ClusterResolver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L67-L178">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ClusterResolver`
 
 Abstract class for all implementations of ClusterResolvers.
@@ -13,15 +31,10 @@ Abstract class for all implementations of ClusterResolvers.
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.cluster_resolver.ClusterResolver`
-* Class `tf.compat.v2.distribute.cluster_resolver.ClusterResolver`
-* Class `tf.contrib.cluster_resolver.ClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.ClusterResolver`
-* Class `tf.distribute.cluster_resolver.ClusterResolver`
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.ClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.ClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.contrib.cluster_resolver.ClusterResolver</code></a>
 
-
-
-Defined in [`python/distribute/cluster_resolver/cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,11 +82,13 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L91-L105">View source</a>
+
 ``` python
 cluster_spec()
 ```
 
-Retrieve the current state of the cluster and returns a ClusterSpec.
+Retrieve the current state of the cluster and return a ClusterSpec.
 
 
 #### Returns:
@@ -89,6 +104,8 @@ management system every time this function is invoked and reconstructing
 a cluster_spec, rather than attempting to cache anything.
 
 <h3 id="master"><code>master</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L107-L123">View source</a>
 
 ``` python
 master(
@@ -119,6 +136,8 @@ returned is up-to-date at the time to calling this function. This usually
 means retrieving the master every time this function is invoked.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
 
 ``` python
 num_accelerators(
@@ -152,7 +171,3 @@ where the number of accelerators cores per host is different.
 #### Returns:
 
 A map of accelerator types to number of cores.
-
-
-
-

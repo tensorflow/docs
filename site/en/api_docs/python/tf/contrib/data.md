@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.data
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Experimental API for building input pipelines.
-
-
-
-Defined in [`contrib/data/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -32,7 +40,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class LMDBDataset`](../../tf/contrib/data/LMDBDataset): A LMDB Dataset that reads the lmdb file.
 
-[`class Optional`](../../tf/data/experimental/Optional): Wraps a nested structure of tensors that may/may not be present at runtime.
+[`class Optional`](../../tf/data/experimental/Optional): Wraps a value that may/may not be present at runtime.
 
 [`class RandomDataset`](../../tf/contrib/data/RandomDataset): A `Dataset` of pseudorandom values.
 
@@ -80,7 +88,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`padded_batch_and_drop_remainder(...)`](../../tf/contrib/data/padded_batch_and_drop_remainder): A batching and padding transformation that omits the final small batch. (deprecated)
 
-[`parallel_interleave(...)`](../../tf/contrib/data/parallel_interleave): A parallel version of the `Dataset.interleave()` transformation. (deprecated)
+[`parallel_interleave(...)`](../../tf/contrib/data/parallel_interleave): A parallel version of the <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 [`parse_example_dataset(...)`](../../tf/contrib/data/parse_example_dataset): A transformation that parses `Example` protos into a `dict` of tensors. (deprecated)
 
@@ -100,7 +108,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`sliding_window_batch(...)`](../../tf/contrib/data/sliding_window_batch): A sliding window over a dataset. (deprecated) (deprecated arguments)
 
-[`sloppy_interleave(...)`](../../tf/contrib/data/sloppy_interleave): A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
+[`sloppy_interleave(...)`](../../tf/contrib/data/sloppy_interleave): A non-deterministic version of the <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 [`unbatch(...)`](../../tf/contrib/data/unbatch): Splits elements of a dataset into multiple elements on the batch dimension. (deprecated)
 

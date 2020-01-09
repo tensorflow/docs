@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.assign_renamed_collections_handler
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/transform.py#L85-L105">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Add the transformed elem to the (renamed) collections of elem.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.graph_editor.assign_renamed_collections_handler(
 ```
 
 
-
-Defined in [`contrib/graph_editor/transform.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/transform.py).
 
 <!-- Placeholder for "Used in" -->
 

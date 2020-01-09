@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.EagerVariableStore
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1387-L1461">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `EagerVariableStore`
 
 Wrapper allowing functional layers to be used with eager execution.
 
 
-
-
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,11 +43,13 @@ eager-friendly. For example, to create a dense layer, use:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1407-L1416">View source</a>
+
 ``` python
 __init__(store=None)
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -47,6 +57,8 @@ __init__(store=None)
 ## Methods
 
 <h3 id="as_default"><code>as_default</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1418-L1419">View source</a>
 
 ``` python
 as_default()
@@ -56,6 +68,8 @@ as_default()
 
 
 <h3 id="copy"><code>copy</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1436-L1461">View source</a>
 
 ``` python
 copy()
@@ -74,6 +88,8 @@ A new EagerVariableStore instance containing copied variables.
 
 <h3 id="non_trainable_variables"><code>non_trainable_variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1430-L1433">View source</a>
+
 ``` python
 non_trainable_variables()
 ```
@@ -82,6 +98,8 @@ non_trainable_variables()
 
 
 <h3 id="trainable_variables"><code>trainable_variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1424-L1427">View source</a>
 
 ``` python
 trainable_variables()
@@ -92,12 +110,8 @@ trainable_variables()
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1421-L1422">View source</a>
+
 ``` python
 variables()
 ```
-
-
-
-
-
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.saved_model.tag_constants
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/saved_model/tag_constants">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Common tags used for graphs in SavedModel.
 
 <!-- Placeholder for "Used in" -->

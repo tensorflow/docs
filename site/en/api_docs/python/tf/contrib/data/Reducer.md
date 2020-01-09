@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.data.Reducer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/grouping.py#L146-L157">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Reducer`
 
 A reducer is used for reducing a set of elements.
 
 Inherits From: [`Reducer`](../../../tf/data/experimental/Reducer)
-
-
-
-Defined in [`contrib/data/python/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/grouping.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,6 +31,8 @@ A reducer is represented as a tuple of the three functions:
   3) finalization function: state => result
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/grouping.py#L155-L157">View source</a>
 
 ``` python
 __init__(
@@ -53,9 +63,3 @@ Use <a href="../../../tf/data/experimental/Reducer"><code>tf.data.experimental.R
 
 
 <h3 id="reduce_func"><code>reduce_func</code></h3>
-
-
-
-
-
-

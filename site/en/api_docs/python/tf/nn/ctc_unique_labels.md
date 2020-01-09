@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.ctc_unique_labels
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/ctc_unique_labels">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ctc_ops.py#L910-L942">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get unique labels and indices for batched labels for <a href="../../tf/nn/ctc_loss"><code>tf.nn.ctc_loss</code></a>.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.ctc_unique_labels`
-* `tf.compat.v2.nn.ctc_unique_labels`
-* `tf.nn.ctc_unique_labels`
+* <a href="/api_docs/python/tf/nn/ctc_unique_labels"><code>tf.compat.v1.nn.ctc_unique_labels</code></a>
+* <a href="/api_docs/python/tf/nn/ctc_unique_labels"><code>tf.compat.v2.nn.ctc_unique_labels</code></a>
+
 
 ``` python
 tf.nn.ctc_unique_labels(
@@ -21,8 +39,6 @@ tf.nn.ctc_unique_labels(
 ```
 
 
-
-Defined in [`python/ops/ctc_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ctc_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

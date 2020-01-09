@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.dtypes
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/dtypes">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.dtypes namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -18,7 +30,7 @@ Public API for tf.dtypes namespace.
 
 [`as_dtype(...)`](../../../tf/dtypes/as_dtype): Converts the given `type_value` to a `DType`.
 
-[`cast(...)`](../../../tf/dtypes/cast): Casts a tensor to a new type.
+[`cast(...)`](../../../tf/cast): Casts a tensor to a new type.
 
 [`complex(...)`](../../../tf/dtypes/complex): Converts two real numbers to a complex number.
 

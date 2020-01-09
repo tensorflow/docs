@@ -5,22 +5,38 @@ page_type: reference
 
 # tf.make_ndarray
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/make_ndarray">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_util.py#L562-L629">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create a numpy ndarray from a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.make_ndarray`
-* `tf.compat.v2.make_ndarray`
-* `tf.contrib.util.make_ndarray`
-* `tf.make_ndarray`
+* <a href="/api_docs/python/tf/make_ndarray"><code>tf.compat.v1.make_ndarray</code></a>
+* <a href="/api_docs/python/tf/make_ndarray"><code>tf.compat.v2.make_ndarray</code></a>
+* <a href="/api_docs/python/tf/make_ndarray"><code>tf.contrib.util.make_ndarray</code></a>
+
 
 ``` python
 tf.make_ndarray(tensor)
 ```
 
 
-
-Defined in [`python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_util.py).
 
 <!-- Placeholder for "Used in" -->
 

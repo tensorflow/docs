@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.tpu.experimental.DeviceAssignment
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/tpu/experimental/DeviceAssignment">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L59-L175">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DeviceAssignment`
 
 Mapping from logical cores in a computation to the physical TPU topology.
@@ -13,14 +31,10 @@ Mapping from logical cores in a computation to the physical TPU topology.
 
 ### Aliases:
 
-* Class `tf.compat.v1.tpu.experimental.DeviceAssignment`
-* Class `tf.compat.v2.tpu.experimental.DeviceAssignment`
-* Class `tf.contrib.tpu.DeviceAssignment`
-* Class `tf.tpu.experimental.DeviceAssignment`
+* Class <a href="/api_docs/python/tf/tpu/experimental/DeviceAssignment"><code>tf.compat.v1.tpu.experimental.DeviceAssignment</code></a>
+* Class <a href="/api_docs/python/tf/tpu/experimental/DeviceAssignment"><code>tf.compat.v2.tpu.experimental.DeviceAssignment</code></a>
+* Class <a href="/api_docs/python/tf/tpu/experimental/DeviceAssignment"><code>tf.contrib.tpu.DeviceAssignment</code></a>
 
-
-
-Defined in [`python/tpu/device_assignment.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/device_assignment.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +43,8 @@ Prefer to use the <a href="../../../tf/tpu/experimental/DeviceAssignment#build">
 `DeviceAssignment` directly.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L67-L102">View source</a>
 
 ``` python
 __init__(
@@ -92,6 +108,8 @@ A `Topology` that describes the TPU topology.
 
 <h3 id="build"><code>build</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L169-L175">View source</a>
+
 ``` python
 @staticmethod
 build(
@@ -107,6 +125,8 @@ build(
 
 <h3 id="coordinates"><code>coordinates</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L130-L132">View source</a>
+
 ``` python
 coordinates(
     replica,
@@ -118,6 +138,8 @@ Returns the physical topology coordinates of a logical core.
 
 
 <h3 id="host_device"><code>host_device</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L159-L162">View source</a>
 
 ``` python
 host_device(
@@ -131,6 +153,8 @@ Returns the CPU device attached to a logical core.
 
 
 <h3 id="lookup_replicas"><code>lookup_replicas</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L134-L152">View source</a>
 
 ``` python
 lookup_replicas(
@@ -162,6 +186,8 @@ core.
 
 <h3 id="tpu_device"><code>tpu_device</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L164-L167">View source</a>
+
 ``` python
 tpu_device(
     replica=0,
@@ -175,6 +201,8 @@ Returns the name of the TPU device assigned to a logical core.
 
 <h3 id="tpu_ordinal"><code>tpu_ordinal</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/device_assignment.py#L154-L157">View source</a>
+
 ``` python
 tpu_ordinal(
     replica=0,
@@ -183,7 +211,3 @@ tpu_ordinal(
 ```
 
 Returns the ordinal of the TPU device assigned to a logical core.
-
-
-
-

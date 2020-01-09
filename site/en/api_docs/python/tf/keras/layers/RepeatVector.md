@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.RepeatVector
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/RepeatVector">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L608-L648">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RepeatVector`
 
 Repeats the input n times.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.RepeatVector`
-* Class `tf.compat.v2.keras.layers.RepeatVector`
-* Class `tf.keras.layers.RepeatVector`
+* Class <a href="/api_docs/python/tf/keras/layers/RepeatVector"><code>tf.compat.v1.keras.layers.RepeatVector</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/RepeatVector"><code>tf.compat.v2.keras.layers.RepeatVector</code></a>
 
-
-
-Defined in [`python/keras/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -57,15 +71,11 @@ model.add(RepeatVector(3))
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L633-L636">View source</a>
+
 ``` python
 __init__(
     n,
     **kwargs
 )
 ```
-
-
-
-
-
-

@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.layers.RevBlock
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/rev_block_lib.py#L176-L380">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RevBlock`
 
 Block of reversible layers. See rev_block.
 
 Inherits From: [`Layer`](../../../tf/layers/Layer)
 
-
-
-Defined in [`contrib/layers/python/layers/rev_block_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/rev_block_lib.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/rev_block_lib.py#L179-L210">View source</a>
 
 ``` python
 __init__(
@@ -59,6 +69,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="backward"><code>backward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/rev_block_lib.py#L237-L238">View source</a>
+
 ``` python
 backward(
     y1,
@@ -71,15 +83,11 @@ backward(
 
 <h3 id="forward"><code>forward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/rev_block_lib.py#L234-L235">View source</a>
+
 ``` python
 forward(
     x1,
     x2
 )
 ```
-
-
-
-
-
-

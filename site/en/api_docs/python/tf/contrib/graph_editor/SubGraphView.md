@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.graph_editor.SubGraphView
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L73-L601">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SubGraphView`
 
 A subgraph view on an existing <a href="../../../tf/Graph"><code>tf.Graph</code></a>.
 
 
-
-
-
-Defined in [`contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/subgraph.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -120,6 +128,8 @@ swapped.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L176-L214">View source</a>
+
 ``` python
 __init__(
     inside_ops=(),
@@ -192,6 +202,8 @@ The passthrough tensors, going straight from input to output.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L518-L520">View source</a>
+
 ``` python
 __bool__()
 ```
@@ -200,6 +212,8 @@ Allows for implicit boolean conversion.
 
 
 <h3 id="__enter__"><code>__enter__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L533-L548">View source</a>
 
 ``` python
 __enter__()
@@ -223,6 +237,8 @@ Itself.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L550-L551">View source</a>
+
 ``` python
 __exit__(
     exc_type,
@@ -236,6 +252,8 @@ __exit__(
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L518-L520">View source</a>
+
 ``` python
 __nonzero__()
 ```
@@ -244,6 +262,8 @@ Allows for implicit boolean conversion.
 
 
 <h3 id="consumers"><code>consumers</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L587-L601">View source</a>
 
 ``` python
 consumers()
@@ -261,6 +281,8 @@ A list of <a href="../../../tf/Operation"><code>tf.Operation</code></a> which ar
 
 <h3 id="copy"><code>copy</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L254-L263">View source</a>
+
 ``` python
 copy()
 ```
@@ -276,6 +298,8 @@ A new instance identical to the original one.
 
 
 <h3 id="find_op_by_name"><code>find_op_by_name</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L437-L453">View source</a>
 
 ``` python
 find_op_by_name(op_name)
@@ -302,6 +326,8 @@ The op named op_name.
 
 <h3 id="input_index"><code>input_index</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L553-L568">View source</a>
+
 ``` python
 input_index(t)
 ```
@@ -326,6 +352,8 @@ The index in the self.inputs list.
 
 <h3 id="is_passthrough"><code>is_passthrough</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L529-L531">View source</a>
+
 ``` python
 is_passthrough(t)
 ```
@@ -335,6 +363,8 @@ Check whether a tensor is passthrough.
 
 <h3 id="op"><code>op</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L525-L527">View source</a>
+
 ``` python
 op(op_id)
 ```
@@ -343,6 +373,8 @@ Get an op by its index.
 
 
 <h3 id="output_index"><code>output_index</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L570-L585">View source</a>
 
 ``` python
 output_index(t)
@@ -367,6 +399,8 @@ The index in the self.outputs list.
 * <b>`Error`</b>: if t in not an output tensor.
 
 <h3 id="remap"><code>remap</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L409-L435">View source</a>
 
 ``` python
 remap(
@@ -402,6 +436,8 @@ A new modified instance of the original subgraph view with remapped
 
 <h3 id="remap_default"><code>remap_default</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L282-L294">View source</a>
+
 ``` python
 remap_default(
     remove_input_map=True,
@@ -425,6 +461,8 @@ A new modified instance of the original subgraph view with its
 
 
 <h3 id="remap_inputs"><code>remap_inputs</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L363-L384">View source</a>
 
 ``` python
 remap_inputs(new_input_indices)
@@ -455,6 +493,8 @@ A new modified instance of the original subgraph view with remapped
 
 <h3 id="remap_outputs"><code>remap_outputs</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L386-L407">View source</a>
+
 ``` python
 remap_outputs(new_output_indices)
 ```
@@ -484,6 +524,8 @@ A new modified instance of the original subgraph view with remapped
 
 <h3 id="remap_outputs_make_unique"><code>remap_outputs_make_unique</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L324-L328">View source</a>
+
 ``` python
 remap_outputs_make_unique()
 ```
@@ -493,6 +535,8 @@ Remap the outputs so that all the tensors appears only once.
 
 <h3 id="remap_outputs_to_consumers"><code>remap_outputs_to_consumers</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L330-L334">View source</a>
+
 ``` python
 remap_outputs_to_consumers()
 ```
@@ -501,6 +545,8 @@ Remap the outputs to match the number of consumers.
 
 
 <h3 id="remove_unused_ops"><code>remove_unused_ops</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py#L351-L361">View source</a>
 
 ``` python
 remove_unused_ops(control_inputs=True)
@@ -517,7 +563,3 @@ Remove unused ops.
 #### Returns:
 
 A new subgraph view which only contains used operations.
-
-
-
-

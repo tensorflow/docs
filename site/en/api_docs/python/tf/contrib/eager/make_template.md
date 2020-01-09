@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.make_template
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/template.py#L164-L231">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Make a template, optionally compiling func_ into a graph function.
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.eager.make_template(
 ```
 
 
-
-Defined in [`python/ops/template.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/template.py).
 
 <!-- Placeholder for "Used in" -->
 

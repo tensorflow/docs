@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.estimator.tpu.TPUEstimator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TPUEstimator`
 
 Estimator with TPU support.
@@ -13,13 +25,9 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.tpu.TPUEstimator`
-* Class `tf.contrib.tpu.TPUEstimator`
-* Class `tf.estimator.tpu.TPUEstimator`
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUEstimator"><code>tf.compat.v1.estimator.tpu.TPUEstimator</code></a>
+* Class <a href="/api_docs/python/tf/estimator/tpu/TPUEstimator"><code>tf.contrib.tpu.TPUEstimator</code></a>
 
-
-
-Defined in [`python/estimator/tpu/tpu_estimator.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -265,6 +273,8 @@ TIP: V2 is recommended as it is more flexible (eg: batching, etc).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
+
 ``` python
 __init__(
     model_fn=None,
@@ -280,7 +290,6 @@ __init__(
     export_to_tpu=True,
     export_to_cpu=True,
     warm_start_from=None,
-    experimental_export_device_assignment=False,
     embedding_config_spec=None,
     export_saved_model_api_version=ExportSavedModelApiVersion.V1
 )
@@ -308,7 +317,7 @@ Constructs an `TPUEstimator` instance.
   including 'batch_size'.
 * <b>`use_tpu`</b>: A bool indicating whether TPU support is enabled. Currently, -
   TPU training and evaluation respect this bit, but eval_on_tpu can
-  override execution of eval. See below. - Predict still happens on CPU.
+  override execution of eval. See below.
 * <b>`train_batch_size`</b>: An int representing the global training batch size.
   TPUEstimator transforms this global batch size to a per-shard batch
   size, as params['batch_size'], when calling `input_fn` and `model_fn`.
@@ -341,10 +350,6 @@ Constructs an `TPUEstimator` instance.
   configure warm-starting.  If the string filepath is provided instead of
   a `WarmStartSettings`, then all variables are warm-started, and it is
   assumed that vocabularies and Tensor names are unchanged.
-* <b>`experimental_export_device_assignment`</b>: Whether to include the device
-  assignment in the exported model. Doing so is useful in case of model
-  parallel inference but will tie the exported model to the TPU topology
-  used to export the model.
 * <b>`embedding_config_spec`</b>: Optional EmbeddingConfigSpec instance
   to support using TPU embedding.
 * <b>`export_saved_model_api_version`</b>: ExportSavedModelApiVersion, V1 or V2.
@@ -397,6 +402,8 @@ The `model_fn` with following signature:
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 eval_dir(name=None)
 ```
@@ -420,6 +427,8 @@ A string which is the path of directory contains evaluation metrics.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
+
 ``` python
 evaluate(
     input_fn,
@@ -430,10 +439,64 @@ evaluate(
 )
 ```
 
+Evaluates the model given evaluation data `input_fn`.
+
+For each step, calls `input_fn`, which returns one batch of data.
+Evaluates until:
+- `steps` batches are processed, or
+- `input_fn` raises an end-of-input exception (<a href="../../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a>
+or
+`StopIteration`).
+
+#### Args:
 
 
+* <b>`input_fn`</b>: A function that constructs the input data for evaluation. See
+  [Premade Estimators](
+  https://tensorflow.org/guide/premade_estimators#create_input_functions)
+  for more information. The
+  function should construct and return one of the following:  * A
+  <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be a tuple
+  `(features, labels)` with same constraints as below. * A tuple
+  `(features, labels)`: Where `features` is a <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or a dictionary
+  of string feature name to `Tensor` and `labels` is a `Tensor` or a
+  dictionary of string label name to `Tensor`. Both `features` and
+  `labels` are consumed by `model_fn`. They should satisfy the expectation
+  of `model_fn` from inputs.
+* <b>`steps`</b>: Number of steps for which to evaluate model. If `None`, evaluates
+  until `input_fn` raises an end-of-input exception.
+* <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+  callbacks inside the evaluation call.
+* <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
+  latest checkpoint in `model_dir` is used.  If there are no checkpoints
+  in `model_dir`, evaluation is run with newly initialized `Variables`
+  instead of ones restored from checkpoint.
+* <b>`name`</b>: Name of the evaluation if user needs to run multiple evaluations on
+  different data sets, such as on training data vs test data. Metrics for
+  different evaluations are saved in separate folders, and appear
+  separately in tensorboard.
+
+
+#### Returns:
+
+A dict containing the evaluation metrics specified in `model_fn` keyed by
+name, as well as an entry `global_step` which contains the value of the
+global step for which this evaluation was performed. For canned
+estimators, the dict contains the `loss` (mean loss per mini-batch) and
+the `average_loss` (mean loss per sample). Canned classifiers also return
+the `accuracy`. Canned regressors also return the `label/mean` and the
+`prediction/mean`.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If `steps <= 0`.
 
 <h3 id="experimental_export_all_saved_models"><code>experimental_export_all_saved_models</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 experimental_export_all_saved_models(
@@ -519,6 +582,8 @@ The string path to the exported directory.
 
 <h3 id="export_saved_model"><code>export_saved_model</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 export_saved_model(
     export_dir_base,
@@ -598,6 +663,8 @@ The string path to the exported directory.
 `export_outputs` are provided, or no checkpoint can be found.
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 export_savedmodel(
@@ -681,6 +748,8 @@ The string path to the exported directory.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 get_variable_names()
 ```
@@ -700,6 +769,8 @@ List of names.
 * <b>`ValueError`</b>: If the `Estimator` has not produced a checkpoint yet.
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 get_variable_value(name)
@@ -727,6 +798,8 @@ Numpy array - value of the tensor.
 
 <h3 id="latest_checkpoint"><code>latest_checkpoint</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 latest_checkpoint()
 ```
@@ -742,6 +815,8 @@ found.
 
 <h3 id="predict"><code>predict</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
+
 ``` python
 predict(
     input_fn,
@@ -752,10 +827,64 @@ predict(
 )
 ```
 
+Yields predictions for given features.
+
+Please note that interleaving two predict outputs does not work. See:
+[issue/20506](
+https://github.com/tensorflow/tensorflow/issues/20506#issuecomment-422208517)
+
+#### Args:
 
 
+* <b>`input_fn`</b>: A function that constructs the features. Prediction continues
+  until `input_fn` raises an end-of-input exception
+  (<a href="../../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> or `StopIteration`).
+  See [Premade Estimators](
+  https://tensorflow.org/guide/premade_estimators#create_input_functions)
+  for more information. The function should construct and return one of
+  the following:
+
+    * A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must have
+      same constraints as below.
+    * features: A <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or a dictionary of string feature name to
+      `Tensor`. features are consumed by `model_fn`. They should satisfy
+      the expectation of `model_fn` from inputs.
+    * A tuple, in which case the first item is extracted as features.
+
+* <b>`predict_keys`</b>: list of `str`, name of the keys to predict. It is used if
+  the <a href="../../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is a `dict`. If
+  `predict_keys` is used then rest of the predictions will be filtered
+  from the dictionary. If `None`, returns all.
+* <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+  callbacks inside the prediction call.
+* <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
+  latest checkpoint in `model_dir` is used.  If there are no checkpoints
+  in `model_dir`, prediction is run with newly initialized `Variables`
+  instead of ones restored from checkpoint.
+* <b>`yield_single_examples`</b>: If `False`, yields the whole batch as returned by
+  the `model_fn` instead of decomposing the batch into individual
+  elements. This is useful if `model_fn` returns some tensors whose first
+  dimension is not equal to the batch size.
+
+
+#### Yields:
+
+Evaluated values of `predictions` tensors.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If batch length of predictions is not the same and
+  `yield_single_examples` is `True`.
+* <b>`ValueError`</b>: If there is a conflict between `predict_keys` and
+  `predictions`. For example if `predict_keys` is not `None` but
+  <a href="../../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is not a `dict`.
 
 <h3 id="train"><code>train</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">View source</a>
 
 ``` python
 train(
@@ -767,8 +896,53 @@ train(
 )
 ```
 
+Trains a model given training data `input_fn`.
+
+
+#### Args:
+
+
+* <b>`input_fn`</b>: A function that provides input data for training as minibatches.
+  See [Premade Estimators](
+  https://tensorflow.org/guide/premade_estimators#create_input_functions)
+  for more information. The function should construct and return one of
+  the following:
+    * A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be
+      a tuple `(features, labels)` with same constraints as below.
+    * A tuple `(features, labels)`: Where `features` is a <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or
+      a dictionary of string feature name to `Tensor` and `labels` is a
+      `Tensor` or a dictionary of string label name to `Tensor`. Both
+      `features` and `labels` are consumed by `model_fn`. They should
+      satisfy the expectation of `model_fn` from inputs.
+* <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+  callbacks inside the training loop.
+* <b>`steps`</b>: Number of steps for which to train the model. If `None`, train
+  forever or train until `input_fn` generates the `tf.errors.OutOfRange`
+  error or `StopIteration` exception. `steps` works incrementally. If you
+  call two times `train(steps=10)` then training occurs in total 20 steps.
+  If `OutOfRange` or `StopIteration` occurs in the middle, training stops
+  before 20 steps. If you don't want to have incremental behavior please
+  set `max_steps` instead. If set, `max_steps` must be `None`.
+* <b>`max_steps`</b>: Number of total steps for which to train model. If `None`,
+  train forever or train until `input_fn` generates the
+  `tf.errors.OutOfRange` error or `StopIteration` exception. If set,
+  `steps` must be `None`. If `OutOfRange` or `StopIteration` occurs in the
+  middle, training stops before `max_steps` steps. Two calls to
+  `train(steps=100)` means 200 training iterations. On the other hand, two
+  calls to `train(max_steps=100)` means that the second call will not do
+  any iteration since first call did all 100 steps.
+* <b>`saving_listeners`</b>: list of `CheckpointSaverListener` objects. Used for
+  callbacks that run immediately before or after checkpoint savings.
+
+
+#### Returns:
+
+`self`, for chaining.
 
 
 
+#### Raises:
 
 
+* <b>`ValueError`</b>: If both `steps` and `max_steps` are not `None`.
+* <b>`ValueError`</b>: If either `steps` or `max_steps <= 0`.

@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.tpu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/tpu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Ops related to Tensor Processing Units.
 
 <!-- Placeholder for "Used in" -->
@@ -39,4 +51,3 @@ Ops related to Tensor Processing Units.
 [`shard(...)`](../../../tf/tpu/shard): Shards `computation` for parallel execution.
 
 [`shutdown_system(...)`](../../../tf/tpu/shutdown_system): Shuts down a running a distributed TPU system.
-

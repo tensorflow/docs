@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.deprecated
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/deprecation.py#L274-L329">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Decorator for marking functions or methods deprecated.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.framework.deprecated(
 ```
 
 
-
-Defined in [`python/util/deprecation.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/deprecation.py).
 
 <!-- Placeholder for "Used in" -->
 

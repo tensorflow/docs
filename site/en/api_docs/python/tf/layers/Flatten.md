@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Flatten
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L275-L297">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Flatten`
 
 Flattens an input tensor while preserving the batch axis (axis 0).
@@ -13,12 +25,8 @@ Inherits From: [`Flatten`](../../tf/keras/layers/Flatten), [`Layer`](../../tf/la
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Flatten`
-* Class `tf.layers.Flatten`
+* Class <a href="/api_docs/python/tf/layers/Flatten"><code>tf.compat.v1.layers.Flatten</code></a>
 
-
-
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,6 +57,8 @@ Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tr
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L569-L572">View source</a>
+
 ``` python
 __init__(
     data_format=None,
@@ -72,9 +82,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

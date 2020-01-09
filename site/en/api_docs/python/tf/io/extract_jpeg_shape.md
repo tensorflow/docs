@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.io.extract_jpeg_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/extract_jpeg_shape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_image_ops.py`
+
+
+
 Extract the shape information of a JPEG-encoded image.
 
 ### Aliases:
 
-* `tf.compat.v1.image.extract_jpeg_shape`
-* `tf.compat.v1.io.extract_jpeg_shape`
-* `tf.compat.v2.image.extract_jpeg_shape`
-* `tf.compat.v2.io.extract_jpeg_shape`
-* `tf.image.extract_jpeg_shape`
-* `tf.io.extract_jpeg_shape`
+* <a href="/api_docs/python/tf/io/extract_jpeg_shape"><code>tf.compat.v1.image.extract_jpeg_shape</code></a>
+* <a href="/api_docs/python/tf/io/extract_jpeg_shape"><code>tf.compat.v1.io.extract_jpeg_shape</code></a>
+* <a href="/api_docs/python/tf/io/extract_jpeg_shape"><code>tf.compat.v2.image.extract_jpeg_shape</code></a>
+* <a href="/api_docs/python/tf/io/extract_jpeg_shape"><code>tf.compat.v2.io.extract_jpeg_shape</code></a>
+* <a href="/api_docs/python/tf/io/extract_jpeg_shape"><code>tf.image.extract_jpeg_shape</code></a>
+
 
 ``` python
 tf.io.extract_jpeg_shape(
@@ -25,8 +39,6 @@ tf.io.extract_jpeg_shape(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_image_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

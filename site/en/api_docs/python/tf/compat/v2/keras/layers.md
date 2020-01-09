@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.layers
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/layers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Keras layers API.
-
-
-
-Defined in [`python/keras/api/_v2/keras/layers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/layers/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -80,7 +88,7 @@ Defined in [`python/keras/api/_v2/keras/layers/__init__.py`](https://github.com/
 
 [`class Dense`](../../../../tf/keras/layers/Dense): Just your regular densely-connected NN layer.
 
-[`class DenseFeatures`](../../../../tf/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
+[`class DenseFeatures`](../../../../tf/compat/v2/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
 
 [`class DepthwiseConv2D`](../../../../tf/keras/layers/DepthwiseConv2D): Depthwise separable 2D convolution.
 
@@ -234,7 +242,7 @@ Defined in [`python/keras/api/_v2/keras/layers/__init__.py`](https://github.com/
 
 [`dot(...)`](../../../../tf/keras/layers/dot): Functional interface to the `Dot` layer.
 
-[`maximum(...)`](../../../../tf/keras/layers/maximum): Functional interface to the `Maximum` layer.
+[`maximum(...)`](../../../../tf/keras/layers/maximum): Functional interface to the `Maximum` layer that computes
 
 [`minimum(...)`](../../../../tf/keras/layers/minimum): Functional interface to the `Minimum` layer.
 
@@ -243,4 +251,3 @@ Defined in [`python/keras/api/_v2/keras/layers/__init__.py`](https://github.com/
 [`serialize(...)`](../../../../tf/keras/layers/serialize)
 
 [`subtract(...)`](../../../../tf/keras/layers/subtract): Functional interface to the `Subtract` layer.
-

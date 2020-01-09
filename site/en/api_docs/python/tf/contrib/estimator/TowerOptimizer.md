@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.estimator.TowerOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TowerOptimizer`
 
 Gathers gradients from all towers and reduces them in the last one.
 
 Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
-
-
-Defined in [`contrib/estimator/python/estimator/replicate_model_fn.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
 
 ``` python
 __init__(optimizer_or_optimizer_fn)
@@ -56,6 +66,8 @@ wrapped with TowerOptimizer.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -68,6 +80,8 @@ Collect gradients updates to apply them with the last tower.
 
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
 
 ``` python
 compute_gradients(
@@ -82,6 +96,8 @@ Compute gradients, but first, if needed, scale the loss.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
+
 ``` python
 get_name(
     *args,
@@ -94,6 +110,8 @@ get_name(
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
+
 ``` python
 get_slot(
     *args,
@@ -101,10 +119,30 @@ get_slot(
 )
 ```
 
+Return a slot named `name` created for `var` by the Optimizer.
 
+Some `Optimizer` subclasses use additional variables.  For example
+`Momentum` and `Adagrad` use variables to accumulate updates.  This method
+gives access to these `Variable` objects if for some reason you need them.
+
+Use `get_slot_names()` to get the list of slot names created by the
+`Optimizer`.
+
+#### Args:
+
+
+* <b>`var`</b>: A variable passed to `minimize()` or `apply_gradients()`.
+* <b>`name`</b>: A string.
+
+
+#### Returns:
+
+The `Variable` for the slot if it was created, `None` otherwise.
 
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
 
 ``` python
 get_slot_names(
@@ -113,10 +151,18 @@ get_slot_names(
 )
 ```
 
+Return a list of the names of slots created by the `Optimizer`.
 
+See `get_slot()`.
+
+#### Returns:
+
+A list of strings.
 
 
 <h3 id="has_been_used"><code>has_been_used</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
 
 ``` python
 @staticmethod
@@ -127,6 +173,8 @@ has_been_used()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -156,7 +204,7 @@ of using this function.
   variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in
-  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  the graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -194,6 +242,8 @@ execution is enabled.
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/replicate_model_fn.py">View source</a>
+
 ``` python
 variables(
     *args,
@@ -201,7 +251,14 @@ variables(
 )
 ```
 
+A list of variables which encode the current state of `Optimizer`.
 
+Includes slot variables and additional global variables created by the
+optimizer in the current default graph.
+
+#### Returns:
+
+A list of variables.
 
 
 

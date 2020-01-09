@@ -6,15 +6,27 @@ page_type: reference
 # Module: tf.lite
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lite">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.lite namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`constants`](../tf/lite/constants) module
+[`constants`](../tf/lite/constants) module: Public API for tf.lite.constants namespace.
 
-[`experimental`](../tf/lite/experimental) module
+[`experimental`](../tf/lite/experimental) module: Public API for tf.lite.experimental namespace.
 
 ## Classes
 
@@ -37,4 +49,3 @@ page_type: reference
 ## Functions
 
 [`toco_convert(...)`](../tf/lite/toco_convert): Convert a model using TOCO. (deprecated)
-

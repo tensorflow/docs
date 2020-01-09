@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.foldr
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/foldr">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/functional_ops.py#L162-L277">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 foldr on the list of tensors unpacked from `elems` on dimension 0.
 
 ### Aliases:
 
-* `tf.compat.v1.foldr`
-* `tf.compat.v2.foldr`
-* `tf.foldr`
+* <a href="/api_docs/python/tf/foldr"><code>tf.compat.v1.foldr</code></a>
+* <a href="/api_docs/python/tf/foldr"><code>tf.compat.v2.foldr</code></a>
+
 
 ``` python
 tf.foldr(
@@ -27,16 +45,15 @@ tf.foldr(
 
 
 
-Defined in [`python/ops/functional_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/functional_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 This foldr operator repeatedly applies the callable `fn` to a sequence
 of elements from last to first. The elements are made of the tensors
 unpacked from `elems`. The callable fn takes two tensors as arguments.
 The first argument is the accumulated value computed from the preceding
-invocation of fn. If `initializer` is None, `elems` must contain at least
-one element, and its first element is used as the initializer.
+invocation of fn, and the second is the value at the current position of
+`elems`. If `initializer` is None, `elems` must contain at least one element,
+and its first element is used as the initializer.
 
 Suppose that `elems` is unpacked into `values`, a list of tensors. The shape
 of the result tensor is `fn(initializer, values[0]).shape`.

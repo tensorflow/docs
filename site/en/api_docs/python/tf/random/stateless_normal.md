@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.random.stateless_normal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/stateless_normal">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateless_random_ops.py#L105-L141">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Outputs deterministic pseudorandom values from a normal distribution.
 
 ### Aliases:
 
-* `tf.compat.v1.random.stateless_normal`
-* `tf.compat.v2.random.stateless_normal`
-* `tf.contrib.stateless.stateless_random_normal`
-* `tf.random.stateless_normal`
+* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.compat.v1.random.stateless_normal</code></a>
+* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.compat.v2.random.stateless_normal</code></a>
+* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.contrib.stateless.stateless_random_normal</code></a>
+
 
 ``` python
 tf.random.stateless_normal(
@@ -26,8 +44,6 @@ tf.random.stateless_normal(
 ```
 
 
-
-Defined in [`python/ops/stateless_random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/stateless_random_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

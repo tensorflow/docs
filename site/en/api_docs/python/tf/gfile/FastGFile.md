@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.gfile.FastGFile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/gfile.py#L56-L68">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FastGFile`
 
 File I/O wrappers without thread locking.
@@ -13,12 +25,8 @@ File I/O wrappers without thread locking.
 
 ### Aliases:
 
-* Class `tf.compat.v1.gfile.FastGFile`
-* Class `tf.gfile.FastGFile`
+* Class <a href="/api_docs/python/tf/gfile/FastGFile"><code>tf.compat.v1.gfile.FastGFile</code></a>
 
-
-
-Defined in [`python/platform/gfile.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/gfile.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ not  be opened  until the  first  write call  (to minimize  RPC
 invocations in network filesystems).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/gfile.py#L66-L68">View source</a>
 
 ``` python
 __init__(
@@ -63,6 +73,8 @@ Returns the file name.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L202-L204">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -71,6 +83,8 @@ Make usable with "with" statement.
 
 
 <h3 id="__exit__"><code>__exit__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L206-L208">View source</a>
 
 ``` python
 __exit__(
@@ -85,6 +99,8 @@ Make usable with "with" statement.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L210-L211">View source</a>
+
 ``` python
 __iter__()
 ```
@@ -94,6 +110,8 @@ __iter__()
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L234-L241">View source</a>
+
 ``` python
 close()
 ```
@@ -102,6 +120,8 @@ Closes FileIO. Should be called for the WritableFile to be flushed.
 
 
 <h3 id="flush"><code>flush</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L222-L232">View source</a>
 
 ``` python
 flush()
@@ -115,6 +135,8 @@ data would survive an application crash but not necessarily an OS crash.
 
 <h3 id="next"><code>next</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L213-L217">View source</a>
+
 ``` python
 next()
 ```
@@ -123,6 +145,8 @@ next()
 
 
 <h3 id="read"><code>read</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L110-L128">View source</a>
 
 ``` python
 read(n=-1)
@@ -146,6 +170,8 @@ string if in string (regular) mode.
 
 <h3 id="readline"><code>readline</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L176-L179">View source</a>
+
 ``` python
 readline()
 ```
@@ -155,6 +181,8 @@ Reads the next line from the file. Leaves the '\n' at the end.
 
 <h3 id="readlines"><code>readlines</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L181-L190">View source</a>
+
 ``` python
 readlines()
 ```
@@ -163,6 +191,8 @@ Returns all lines from the file in a list.
 
 
 <h3 id="seek"><code>seek</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L130-L174">View source</a>
 
 ``` python
 seek(
@@ -189,6 +219,8 @@ position is deprecated in favor of the offset argument.
 
 <h3 id="seekable"><code>seekable</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L243-L245">View source</a>
+
 ``` python
 seekable()
 ```
@@ -197,6 +229,8 @@ Returns True as FileIO supports random access ops of seek()/tell()
 
 
 <h3 id="size"><code>size</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L100-L102">View source</a>
 
 ``` python
 size()
@@ -207,6 +241,8 @@ Returns the size of the file.
 
 <h3 id="tell"><code>tell</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L192-L200">View source</a>
+
 ``` python
 tell()
 ```
@@ -216,12 +252,10 @@ Returns the current position in the file.
 
 <h3 id="write"><code>write</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L104-L108">View source</a>
+
 ``` python
 write(file_content)
 ```
 
 Writes file_content to the file. Appends to the end of the file.
-
-
-
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.MaxPooling2D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L242-L271">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MaxPooling2D`
 
 Max pooling layer for 2D inputs (e.g. images).
@@ -13,12 +25,8 @@ Inherits From: [`MaxPool2D`](../../tf/keras/layers/MaxPool2D), [`Layer`](../../t
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.MaxPooling2D`
-* Class `tf.layers.MaxPooling2D`
+* Class <a href="/api_docs/python/tf/layers/MaxPooling2D"><code>tf.compat.v1.layers.MaxPooling2D</code></a>
 
-
-
-Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/pooling.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,6 +52,8 @@ Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow
 * <b>`name`</b>: A string, the name of the layer.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L264-L271">View source</a>
 
 ``` python
 __init__(
@@ -72,9 +82,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

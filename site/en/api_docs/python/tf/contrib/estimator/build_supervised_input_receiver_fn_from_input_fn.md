@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.build_supervised_input_receiver_fn_from_input_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get a function that returns a SupervisedInputReceiver matching an input_fn.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.estimator.build_supervised_input_receiver_fn_from_input_fn(
 ```
 
 
-
-Defined in [`python/estimator/export/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py).
 
 <!-- Placeholder for "Used in" -->
 

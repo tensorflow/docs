@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Dense
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L33-L110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Dense`
 
 Densely-connected layer class.
@@ -13,12 +25,8 @@ Inherits From: [`Dense`](../../tf/keras/layers/Dense), [`Layer`](../../tf/layers
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Dense`
-* Class `tf.layers.Dense`
+* Class <a href="/api_docs/python/tf/layers/Dense"><code>tf.compat.v1.layers.Dense</code></a>
 
-
-
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -77,6 +85,8 @@ and `bias` is a bias vector created by the layer
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L85-L110">View source</a>
+
 ``` python
 __init__(
     units,
@@ -111,9 +121,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

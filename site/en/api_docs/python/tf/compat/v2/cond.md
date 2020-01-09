@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.cond
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L1318-L1389">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return `true_fn()` if the predicate `pred` is true else `false_fn()`.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.cond(
 ```
 
 
-
-Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,7 +53,7 @@ branch of the `cond`, the <a href="../../../tf/math/multiply"><code>tf.multiply<
 unconditionally.
 
 Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the
-call to `cond`, and not at all during `Session.run()`). `cond`
+call to `cond`, and not at all during <a href="/api_docs/python/tf/InteractiveSession#run"><code>Session.run()</code></a>). `cond`
 stitches together the graph fragments created during the `true_fn` and
 `false_fn` calls with some additional graph nodes to ensure that the right
 branch gets executed depending on the value of `pred`.
@@ -53,6 +63,12 @@ branch gets executed depending on the value of `pred`.
 same (possibly nested) value structure of lists, tuples, and/or named tuples.
 Singleton lists and tuples form the only exceptions to this: when returned by
 `true_fn` and/or `false_fn`, they are implicitly unpacked to single values.
+
+Note: It is illegal to "directly" use tensors created inside a cond branch
+outside it, e.g. by storing a reference to a branch tensor in the python
+state. If you need to use a tensor created in a branch function you should
+return it as an output of the branch function and use the output from
+<a href="../../../tf/cond"><code>tf.cond</code></a> instead.
 
 #### Args:
 

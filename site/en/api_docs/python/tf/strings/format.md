@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.strings.format
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/format">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/string_ops.py#L114-L192">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Formats a string template using a list of tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.format`
-* `tf.compat.v2.strings.format`
-* `tf.strings.format`
+* <a href="/api_docs/python/tf/strings/format"><code>tf.compat.v1.strings.format</code></a>
+* <a href="/api_docs/python/tf/strings/format"><code>tf.compat.v2.strings.format</code></a>
+
 
 ``` python
 tf.strings.format(
@@ -24,8 +42,6 @@ tf.strings.format(
 ```
 
 
-
-Defined in [`python/ops/string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

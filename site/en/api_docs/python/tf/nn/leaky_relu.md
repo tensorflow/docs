@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.leaky_relu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/leaky_relu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2800-L2822">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute the Leaky ReLU activation function.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.leaky_relu`
-* `tf.compat.v2.nn.leaky_relu`
-* `tf.nn.leaky_relu`
+* <a href="/api_docs/python/tf/nn/leaky_relu"><code>tf.compat.v1.nn.leaky_relu</code></a>
+* <a href="/api_docs/python/tf/nn/leaky_relu"><code>tf.compat.v2.nn.leaky_relu</code></a>
+
 
 ``` python
 tf.nn.leaky_relu(
@@ -23,11 +41,9 @@ tf.nn.leaky_relu(
 
 
 
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
-Source: [Rectifier Nonlinearities Improve Neural Network Acoustic Models. 
+Source: [Rectifier Nonlinearities Improve Neural Network Acoustic Models.
 AL Maas, AY Hannun, AY Ng - Proc. ICML, 2013](https://ai.stanford.edu/~amaas/papers/relu_hybrid_icml2013_final.pdf).
 
 #### Args:

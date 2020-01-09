@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.TimeDistributed
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/TimeDistributed">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L90-L335">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TimeDistributed`
 
 This wrapper allows to apply a layer to every temporal slice of an input.
@@ -13,13 +31,9 @@ Inherits From: [`Wrapper`](../../../tf/keras/layers/Wrapper)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.TimeDistributed`
-* Class `tf.compat.v2.keras.layers.TimeDistributed`
-* Class `tf.keras.layers.TimeDistributed`
+* Class <a href="/api_docs/python/tf/keras/layers/TimeDistributed"><code>tf.compat.v1.keras.layers.TimeDistributed</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/TimeDistributed"><code>tf.compat.v2.keras.layers.TimeDistributed</code></a>
 
-
-
-Defined in [`python/keras/layers/wrappers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/wrappers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -86,15 +100,11 @@ model.add(TimeDistributed(Conv2D(64, (3, 3)),
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L147-L159">View source</a>
+
 ``` python
 __init__(
     layer,
     **kwargs
 )
 ```
-
-
-
-
-
-

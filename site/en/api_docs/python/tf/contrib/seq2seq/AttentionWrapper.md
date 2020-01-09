@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.seq2seq.AttentionWrapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L2137-L2538">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AttentionWrapper`
 
 Wraps another `RNNCell` with attention.
 
 Inherits From: [`RNNCell`](../../../tf/nn/rnn_cell/RNNCell)
 
-
-
-Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L2140-L2335">View source</a>
 
 ``` python
 __init__(
@@ -31,7 +41,8 @@ __init__(
     initial_cell_state=None,
     name=None,
     attention_layer=None,
-    attention_fn=None
+    attention_fn=None,
+    dtype=None
 )
 ```
 
@@ -115,6 +126,7 @@ decoder_initial_state = decoder_initial_state.clone(
   (attention_mechanism, cell_output, attention_state, attention_layer) and
   outputs (attention, alignments, next_attention_state). If provided, the
   attention_layer_size should be the size of the outputs of attention_fn.
+* <b>`dtype`</b>: The cell dtype
 
 
 #### Raises:
@@ -140,7 +152,7 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="output_size"><code>output_size</code></h3>
 
-
+Integer or TensorShape: size of outputs produced by this cell.
 
 
 <h3 id="scope_name"><code>scope_name</code></h3>
@@ -164,6 +176,8 @@ An `AttentionWrapperState` tuple containing shapes used by this object.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -176,6 +190,8 @@ get_initial_state(
 
 
 <h3 id="zero_state"><code>zero_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L2389-L2447">View source</a>
 
 ``` python
 zero_state(
@@ -210,6 +226,3 @@ possibly, empty `TensorArray` objects.
 * <b>`ValueError`</b>: (or, possibly at runtime, InvalidArgument), if
   `batch_size` does not match the output size of the encoder passed
   to the wrapper object at initialization time.
-
-
-

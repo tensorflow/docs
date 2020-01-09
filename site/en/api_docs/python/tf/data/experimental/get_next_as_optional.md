@@ -5,22 +5,38 @@ page_type: reference
 
 # tf.data.experimental.get_next_as_optional
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/get_next_as_optional">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L800-L820">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an `Optional` that contains the next value from the iterator.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.get_next_as_optional`
-* `tf.compat.v2.data.experimental.get_next_as_optional`
-* `tf.contrib.data.get_next_as_optional`
-* `tf.data.experimental.get_next_as_optional`
+* <a href="/api_docs/python/tf/data/experimental/get_next_as_optional"><code>tf.compat.v1.data.experimental.get_next_as_optional</code></a>
+* <a href="/api_docs/python/tf/data/experimental/get_next_as_optional"><code>tf.compat.v2.data.experimental.get_next_as_optional</code></a>
+* <a href="/api_docs/python/tf/data/experimental/get_next_as_optional"><code>tf.contrib.data.get_next_as_optional</code></a>
+
 
 ``` python
 tf.data.experimental.get_next_as_optional(iterator)
 ```
 
 
-
-Defined in [`python/data/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/iterator_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

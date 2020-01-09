@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.sets
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sets">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Tensorflow set operations.
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,4 +39,3 @@ page_type: reference
 [`size(...)`](../tf/sets/size): Compute number of unique elements along last dimension of `a`.
 
 [`union(...)`](../tf/sets/union): Compute set union of elements in last dimension of `a` and `b`.
-

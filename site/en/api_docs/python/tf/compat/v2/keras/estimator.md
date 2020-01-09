@@ -5,16 +5,23 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.estimator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/estimator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Keras estimator API.
-
-
-
-Defined in [`python/keras/api/_v2/keras/estimator/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/estimator/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Functions
 
-[`model_to_estimator(...)`](../../../../tf/keras/estimator/model_to_estimator): Constructs an `Estimator` instance from given keras model.
-
+[`model_to_estimator(...)`](../../../../tf/compat/v2/keras/estimator/model_to_estimator): Constructs an `Estimator` instance from given keras model.
