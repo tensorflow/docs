@@ -42,7 +42,7 @@ omit the `--user` argument):
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
-Note: A `pip` version >19.0 is required to install the TensorFlow 2.0 `.whl`
+Note: A `pip` version >19.0 is required to install the TensorFlow 2 `.whl`
 package. Additional required dependencies are listed in the
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
 file under `REQUIRED_PACKAGES`.
@@ -451,6 +451,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.1.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.6</td><td>10.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
