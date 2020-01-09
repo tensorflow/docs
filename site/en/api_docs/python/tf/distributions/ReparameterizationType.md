@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.distributions.ReparameterizationType
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L216-L259">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ReparameterizationType`
 
 Instances of this class represent how sampling is reparameterized.
@@ -13,13 +25,9 @@ Instances of this class represent how sampling is reparameterized.
 
 ### Aliases:
 
-* Class `tf.compat.v1.distributions.ReparameterizationType`
-* Class `tf.contrib.distributions.ReparameterizationType`
-* Class `tf.distributions.ReparameterizationType`
+* Class <a href="/api_docs/python/tf/distributions/ReparameterizationType"><code>tf.compat.v1.distributions.ReparameterizationType</code></a>
+* Class <a href="/api_docs/python/tf/distributions/ReparameterizationType"><code>tf.contrib.distributions.ReparameterizationType</code></a>
 
-
-
-Defined in [`python/ops/distributions/distribution.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/distributions/distribution.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,6 +46,8 @@ one of two possible properties for samples from a distribution:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L233-L242">View source</a>
+
 ``` python
 __init__(rep_type)
 ```
@@ -46,13 +56,15 @@ DEPRECATED FUNCTION
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2019-01-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../tf/distributions"><code>tf.distributions</code></a>.
 
 
 
 ## Methods
 
 <h3 id="__eq__"><code>__eq__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/distribution.py#L247-L259">View source</a>
 
 ``` python
 __eq__(other)
@@ -72,7 +84,3 @@ instances, equality checks if two instances' id() values are equal.
 #### Returns:
 
 `self is other`.
-
-
-
-

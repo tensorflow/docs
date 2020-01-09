@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.tensor_diag
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/tensor_diag">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Returns a diagonal tensor with a given diagonal values.
 
 ### Aliases:
 
-* `tf.compat.v1.diag`
-* `tf.compat.v1.linalg.tensor_diag`
-* `tf.compat.v2.linalg.tensor_diag`
-* `tf.diag`
-* `tf.linalg.tensor_diag`
+* <a href="/api_docs/python/tf/linalg/tensor_diag"><code>tf.compat.v1.diag</code></a>
+* <a href="/api_docs/python/tf/linalg/tensor_diag"><code>tf.compat.v1.linalg.tensor_diag</code></a>
+* <a href="/api_docs/python/tf/linalg/tensor_diag"><code>tf.compat.v2.linalg.tensor_diag</code></a>
+* <a href="/api_docs/python/tf/linalg/tensor_diag"><code>tf.diag</code></a>
+
 
 ``` python
 tf.linalg.tensor_diag(
@@ -23,8 +37,6 @@ tf.linalg.tensor_diag(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

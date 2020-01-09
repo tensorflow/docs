@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.preprocessing.sequence
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/preprocessing/sequence">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Utilities for preprocessing sequence data.
-
-
-
-Defined in [`python/keras/api/_v2/keras/preprocessing/sequence/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/preprocessing/sequence/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -25,4 +33,3 @@ Defined in [`python/keras/api/_v2/keras/preprocessing/sequence/__init__.py`](htt
 [`pad_sequences(...)`](../../../../../tf/keras/preprocessing/sequence/pad_sequences): Pads sequences to the same length.
 
 [`skipgrams(...)`](../../../../../tf/keras/preprocessing/sequence/skipgrams): Generates skipgram word pairs.
-

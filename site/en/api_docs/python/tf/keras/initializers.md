@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.initializers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/initializers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Keras initializer serialization / deserialization.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.initializers`
-* Module `tf.keras.initializers`
+* Module <a href="/api_docs/python/tf/keras/initializers"><code>tf.compat.v1.keras.initializers</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/initializers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/initializers/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -80,4 +88,3 @@ Defined in [`python/keras/api/_v1/keras/initializers/__init__.py`](https://githu
 [`lecun_uniform(...)`](../../tf/initializers/lecun_uniform): LeCun uniform initializer.
 
 [`serialize(...)`](../../tf/keras/initializers/serialize)
-

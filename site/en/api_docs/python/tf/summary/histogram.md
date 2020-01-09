@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.summary.histogram
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/summary/histogram">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L143-L181">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Outputs a `Summary` protocol buffer with a histogram.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.histogram`
-* `tf.summary.histogram`
+* <a href="/api_docs/python/tf/summary/histogram"><code>tf.compat.v1.summary.histogram</code></a>
+
 
 ``` python
 tf.summary.histogram(
@@ -22,8 +40,6 @@ tf.summary.histogram(
 ```
 
 
-
-Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 

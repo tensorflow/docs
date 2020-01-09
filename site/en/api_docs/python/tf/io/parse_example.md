@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.io.parse_example
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/parse_example">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L367-L581">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Parses `Example` protos into a `dict` of tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.io.parse_example`
-* `tf.compat.v1.parse_example`
-* `tf.io.parse_example`
-* `tf.parse_example`
+* <a href="/api_docs/python/tf/io/parse_example"><code>tf.compat.v1.io.parse_example</code></a>
+* <a href="/api_docs/python/tf/io/parse_example"><code>tf.compat.v1.parse_example</code></a>
+* <a href="/api_docs/python/tf/io/parse_example"><code>tf.parse_example</code></a>
+
 
 ``` python
 tf.io.parse_example(
@@ -24,8 +42,6 @@ tf.io.parse_example(
 ```
 
 
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

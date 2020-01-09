@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.sparse.to_indicator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/to_indicator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1501-L1563">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts a `SparseTensor` of ids into a dense bool indicator tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.to_indicator`
-* `tf.compat.v1.sparse_to_indicator`
-* `tf.compat.v2.sparse.to_indicator`
-* `tf.sparse.to_indicator`
-* `tf.sparse_to_indicator`
+* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v1.sparse.to_indicator</code></a>
+* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v1.sparse_to_indicator</code></a>
+* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v2.sparse.to_indicator</code></a>
+* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.sparse_to_indicator</code></a>
+
 
 ``` python
 tf.sparse.to_indicator(
@@ -24,8 +42,6 @@ tf.sparse.to_indicator(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -42,9 +58,9 @@ For example, if `sp_input.dense_shape = [2, 3, 4]` with non-empty values:
     [0, 0, 0]: 0
     [0, 1, 0]: 10
     [1, 0, 3]: 103
-    [1, 1, 2]: 150
-    [1, 1, 3]: 149
-    [1, 1, 4]: 150
+    [1, 1, 1]: 150
+    [1, 1, 2]: 149
+    [1, 1, 3]: 150
     [1, 2, 1]: 121
 
 and `vocab_size = 200`, then the output will be a `[2, 3, 200]` dense bool

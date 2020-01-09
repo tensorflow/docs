@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.BatchNormalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/normalization.py#L31-L167">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BatchNormalization`
 
 Batch Normalization layer from http://arxiv.org/abs/1502.03167.
@@ -13,12 +25,8 @@ Inherits From: [`BatchNormalization`](../../tf/keras/layers/BatchNormalization),
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.BatchNormalization`
-* Class `tf.layers.BatchNormalization`
+* Class <a href="/api_docs/python/tf/layers/BatchNormalization"><code>tf.compat.v1.layers.BatchNormalization</code></a>
 
-
-
-Defined in [`python/layers/normalization.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/normalization.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,7 +41,7 @@ custom training loop is used with an instance of `Model`, these updates need
 to be explicitly included.  Here's a simple example of how it can be done:
 
 ```python
-  #`model` is an instance of `Model` with `tf.keras.layers.BatchNormalization`
+  # model is an instance of Model that contains BatchNormalization layer.
   update_ops = model.get_updates_for(None) + model.get_updates_for(features)
   train_op = optimizer.minimize(loss)
   train_op = tf.group([train_op, update_ops])
@@ -110,6 +118,8 @@ to be explicitly included.  Here's a simple example of how it can be done:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/normalization.py#L119-L164">View source</a>
+
 ``` python
 __init__(
     axis=-1,
@@ -153,9 +163,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

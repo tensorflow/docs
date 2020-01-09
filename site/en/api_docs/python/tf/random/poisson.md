@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.random.poisson
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/poisson">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L499-L536">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Draws `shape` samples from each of the given Poisson distribution(s).
 
 ### Aliases:
 
-* `tf.compat.v1.random.poisson`
-* `tf.compat.v1.random_poisson`
-* `tf.random.poisson`
-* `tf.random_poisson`
+* <a href="/api_docs/python/tf/random/poisson"><code>tf.compat.v1.random.poisson</code></a>
+* <a href="/api_docs/python/tf/random/poisson"><code>tf.compat.v1.random_poisson</code></a>
+* <a href="/api_docs/python/tf/random/poisson"><code>tf.random_poisson</code></a>
+
 
 ``` python
 tf.random.poisson(
@@ -25,8 +43,6 @@ tf.random.poisson(
 ```
 
 
-
-Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

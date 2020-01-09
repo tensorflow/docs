@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.create_global_step
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/variables.py#L128-L144">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create global step tensor in graph. (deprecated)
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.create_global_step(graph=None)
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

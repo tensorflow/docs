@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.min_max_variable_partitioner
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/partitioned_variables.py#L157-L218">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Partitioner to allocate minimum size per slice.
 
 ### Aliases:
 
-* `tf.compat.v1.min_max_variable_partitioner`
-* `tf.min_max_variable_partitioner`
+* <a href="/api_docs/python/tf/min_max_variable_partitioner"><code>tf.compat.v1.min_max_variable_partitioner</code></a>
+
 
 ``` python
 tf.min_max_variable_partitioner(
@@ -22,8 +34,6 @@ tf.min_max_variable_partitioner(
 ```
 
 
-
-Defined in [`python/ops/partitioned_variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/partitioned_variables.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,17 +5,22 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 TensorFlow Graph Editor.
-
-
-
-Defined in [`contrib/graph_editor/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
-See the
-[Graph Editor](https://tensorflow.org/api_guides/python/contrib.graph_editor)
-guide.
 
 ## Modules
 
@@ -81,7 +86,7 @@ guide.
 
 [`filter_ts_from_regex(...)`](../../tf/contrib/graph_editor/filter_ts_from_regex): Get all the tensors linked to ops that match the given regex.
 
-[`get_backward_walk_ops(...)`](../../tf/contrib/graph_editor/get_backward_walk_ops): Do a backward graph walk and return all the visited ops.
+[`get_backward_walk_ops(...)`](../../tf/contrib/graph_editor/get_backward_walk_ops): Do a backward graph walk and return all the visited ops. (deprecated)
 
 [`get_consuming_ops(...)`](../../tf/contrib/graph_editor/get_consuming_ops): Return all the consuming ops of the tensors in ts.
 
@@ -154,4 +159,3 @@ guide.
 [`swap_ts(...)`](../../tf/contrib/graph_editor/swap_ts): For each tensor's pair, swap the end of (t0,t1).
 
 [`transform_op_if_inside_handler(...)`](../../tf/contrib/graph_editor/transform_op_if_inside_handler): Transform an optional op only if it is inside the subgraph.
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.inverse_time_decay
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/learning_rate_decay.py#L371-L451">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Applies inverse time decay to the initial learning rate.
 
 ### Aliases:
 
-* `tf.compat.v1.train.inverse_time_decay`
-* `tf.train.inverse_time_decay`
+* <a href="/api_docs/python/tf/train/inverse_time_decay"><code>tf.compat.v1.train.inverse_time_decay</code></a>
+
 
 ``` python
 tf.train.inverse_time_decay(
@@ -24,8 +36,6 @@ tf.train.inverse_time_decay(
 ```
 
 
-
-Defined in [`python/training/learning_rate_decay.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/learning_rate_decay.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -101,4 +111,3 @@ learning rate.
 When eager execution is enabled, this function returns a function which in
 turn returns the decayed learning rate Tensor. This can be useful for changing
 the learning rate value across different invocations of optimizer functions.
-

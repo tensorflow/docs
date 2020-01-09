@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.strings.unicode_script
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/unicode_script">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Determine the script codes of a given tensor of Unicode integer code points.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.unicode_script`
-* `tf.compat.v2.strings.unicode_script`
-* `tf.strings.unicode_script`
+* <a href="/api_docs/python/tf/strings/unicode_script"><code>tf.compat.v1.strings.unicode_script</code></a>
+* <a href="/api_docs/python/tf/strings/unicode_script"><code>tf.compat.v2.strings.unicode_script</code></a>
+
 
 ``` python
 tf.strings.unicode_script(
@@ -21,8 +35,6 @@ tf.strings.unicode_script(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

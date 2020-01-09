@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.bitcast
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/bitcast">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Bitcasts a tensor from one type to another without copying data.
 
 ### Aliases:
 
-* `tf.bitcast`
-* `tf.compat.v1.bitcast`
-* `tf.compat.v2.bitcast`
+* <a href="/api_docs/python/tf/bitcast"><code>tf.compat.v1.bitcast</code></a>
+* <a href="/api_docs/python/tf/bitcast"><code>tf.compat.v2.bitcast</code></a>
+
 
 ``` python
 tf.bitcast(
@@ -22,8 +36,6 @@ tf.bitcast(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,39 +56,38 @@ For example,
 
 #### Example 1:
 
-
-```python
->>> a = [1., 2., 3.]
->>> equality_bitcast = tf.bitcast(a,tf.complex128)
-tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot bitcast from float to complex128: shape [3] [Op:Bitcast]
->>> equality_cast = tf.cast(a,tf.complex128)
->>> print(equality_cast)
-tf.Tensor([1.+0.j 2.+0.j 3.+0.j], shape=(3,), dtype=complex128)
-```
-Example 2:
-
-```python
->>> tf.bitcast(tf.constant(0xffffffff, dtype=tf.uint32), tf.uint8)
-<tf.Tensor: ... shape=(4,), dtype=uint8, numpy=array([255, 255, 255, 255], dtype=uint8)>
-```
-Example 3:
-
-```python
->>> x = [1., 2., 3.]
->>> y = [0., 2., 3.]
->>> equality= tf.equal(x,y)
->>> equality_cast = tf.cast(equality,tf.float32)
->>> equality_bitcast = tf.bitcast(equality_cast,tf.uint8)
->>> print(equality)
-tf.Tensor([False True True], shape=(3,), dtype=bool)
->>> print(equality_cast)
-tf.Tensor([0. 1. 1.], shape=(3,), dtype=float32)
->>> print(equality_bitcast)
-tf.Tensor(
-[[ 0 0 0 0]
- [ 0 0 128 63]
- [ 0 0 128 63]], shape=(3, 4), dtype=uint8)
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}a = [1., 2., 3.]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}equality_bitcast = tf.bitcast(a,tf.complex128){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot bitcast from float to complex128: shape [3] [Op:Bitcast]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}equality_cast = tf.cast(a,tf.complex128){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print(equality_cast){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tf.Tensor([1.+0.j 2.+0.j 3.+0.j], shape=(3,), dtype=complex128){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}Example 2:{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```python{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.bitcast(tf.constant(0xffffffff, dtype=tf.uint32), tf.uint8){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}<tf.Tensor: ... shape=(4,), dtype=uint8, numpy=array([255, 255, 255, 255], dtype=uint8)>{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}Example 3:{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}```python{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}x = [1., 2., 3.]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}y = [0., 2., 3.]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}equality= tf.equal(x,y){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}equality_cast = tf.cast(equality,tf.float32){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}equality_bitcast = tf.bitcast(equality_cast,tf.uint8){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print(equality){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tf.Tensor([False True True], shape=(3,), dtype=bool){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print(equality_cast){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tf.Tensor([0. 1. 1.], shape=(3,), dtype=float32){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}print(equality_bitcast){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}tf.Tensor({% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[ 0 0 0 0]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [ 0 0 128 63]{% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %} [ 0 0 128 63]], shape=(3, 4), dtype=uint8){% endhtmlescape %}</code>
+</pre>
 
 *NOTE*: Bitcast is implemented as a low-level cast, so machines with different
 endian orderings will give different results.

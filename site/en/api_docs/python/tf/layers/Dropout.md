@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Dropout
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L191-L226">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Dropout`
 
 Applies Dropout to the input.
@@ -13,12 +25,8 @@ Inherits From: [`Dropout`](../../tf/keras/layers/Dropout), [`Layer`](../../tf/la
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Dropout`
-* Class `tf.layers.Dropout`
+* Class <a href="/api_docs/python/tf/layers/Dropout"><code>tf.compat.v1.layers.Dropout</code></a>
 
-
-
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,6 +52,8 @@ sum is unchanged at training time and inference time.
 * <b>`name`</b>: The name of the layer (string).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L214-L223">View source</a>
 
 ``` python
 __init__(
@@ -71,9 +81,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

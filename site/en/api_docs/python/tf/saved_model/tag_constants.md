@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.saved_model.tag_constants
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Common tags used for graphs in SavedModel.
 
 <!-- Placeholder for "Used in" -->
 

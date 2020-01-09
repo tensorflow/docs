@@ -6,15 +6,33 @@ page_type: reference
 
 # tf.linalg.lstsq
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/lstsq">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L172-L306">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Solves one or more linear least-squares problems.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.lstsq`
-* `tf.compat.v1.matrix_solve_ls`
-* `tf.compat.v2.linalg.lstsq`
-* `tf.linalg.lstsq`
-* `tf.matrix_solve_ls`
+* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v1.linalg.lstsq</code></a>
+* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v1.matrix_solve_ls</code></a>
+* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v2.linalg.lstsq</code></a>
+* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.matrix_solve_ls</code></a>
+
 
 ``` python
 tf.linalg.lstsq(
@@ -27,8 +45,6 @@ tf.linalg.lstsq(
 ```
 
 
-
-Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +74,7 @@ the minimum-norm solution to the under-determined linear system, i.e.
 \\(X = \mathrm{argmin}_{Z \in \Re^{n \times k}} ||Z||_F^2 \\), subject to
 \\(A Z = B\\). Notice that the fast path is only numerically stable when
 \\(A\\) is numerically full rank and has a condition number
-\\(\mathrm{cond} (A) \lt \frac{1}{\sqrt{\epsilon_{mach}}}\\) or\\(\lambda\\)
+\\(\mathrm{cond}(A) \lt \frac{1}{\sqrt{\epsilon_{mach}}}\\) or\\(\lambda\\)
 is sufficiently large.
 
 If `fast` is `False` an algorithm based on the numerically robust complete

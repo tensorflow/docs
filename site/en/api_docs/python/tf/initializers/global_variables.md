@@ -5,22 +5,32 @@ page_type: reference
 
 # tf.initializers.global_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3229-L3240">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an Op that initializes global variables.
 
 ### Aliases:
 
-* `tf.compat.v1.global_variables_initializer`
-* `tf.compat.v1.initializers.global_variables`
-* `tf.global_variables_initializer`
-* `tf.initializers.global_variables`
+* <a href="/api_docs/python/tf/initializers/global_variables"><code>tf.compat.v1.global_variables_initializer</code></a>
+* <a href="/api_docs/python/tf/initializers/global_variables"><code>tf.compat.v1.initializers.global_variables</code></a>
+* <a href="/api_docs/python/tf/initializers/global_variables"><code>tf.global_variables_initializer</code></a>
+
 
 ``` python
 tf.initializers.global_variables()
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

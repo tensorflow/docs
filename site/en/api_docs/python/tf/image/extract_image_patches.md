@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.image.extract_image_patches
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4651-L4665">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Extract `patches` from `images` and put them in the "depth" output dimension.
 
 ### Aliases:
 
-* `tf.compat.v1.extract_image_patches`
-* `tf.compat.v1.image.extract_image_patches`
-* `tf.extract_image_patches`
-* `tf.image.extract_image_patches`
+* <a href="/api_docs/python/tf/image/extract_image_patches"><code>tf.compat.v1.extract_image_patches</code></a>
+* <a href="/api_docs/python/tf/image/extract_image_patches"><code>tf.compat.v1.image.extract_image_patches</code></a>
+* <a href="/api_docs/python/tf/image/extract_image_patches"><code>tf.extract_image_patches</code></a>
+
 
 ``` python
 tf.image.extract_image_patches(
@@ -28,8 +40,6 @@ tf.image.extract_image_patches(
 
 
 
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -41,10 +51,10 @@ Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/
 * <b>`ksizes`</b>: A list of `ints` that has length `>= 4`.
   The size of the sliding window for each dimension of `images`.
 * <b>`strides`</b>: A list of `ints` that has length `>= 4`.
-  1-D of length 4. How far the centers of two consecutive patches are in
+  How far the centers of two consecutive patches are in
   the images. Must be: `[1, stride_rows, stride_cols, 1]`.
 * <b>`rates`</b>: A list of `ints` that has length `>= 4`.
-  1-D of length 4. Must be: `[1, rate_rows, rate_cols, 1]`. This is the
+  Must be: `[1, rate_rows, rate_cols, 1]`. This is the
   input stride, specifying how far two consecutive patch samples are in the
   input. Equivalent to extracting patches with
   `patch_sizes_eff = patch_sizes + (patch_sizes - 1) * (rates - 1)`, followed by
@@ -52,12 +62,6 @@ Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/
   `rate` in dilated (a.k.a. Atrous) convolutions.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
   The type of padding algorithm to use.
-
-  We specify the size-related attributes as:
-
->           ksizes = [1, ksize_rows, ksize_cols, 1]
->           strides = [1, strides_rows, strides_cols, 1]
->           rates = [1, rates_rows, rates_cols, 1]
 * <b>`name`</b>: A name for the operation (optional).
 
 

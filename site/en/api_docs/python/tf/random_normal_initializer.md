@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.random_normal_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random_normal_initializer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L296-L331">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `random_normal_initializer`
 
 Initializer that generates tensors with a normal distribution.
@@ -13,14 +31,10 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.initializers.random_normal`
-* Class `tf.compat.v1.random_normal_initializer`
-* Class `tf.initializers.random_normal`
-* Class `tf.random_normal_initializer`
+* Class <a href="/api_docs/python/tf/random_normal_initializer"><code>tf.compat.v1.initializers.random_normal</code></a>
+* Class <a href="/api_docs/python/tf/random_normal_initializer"><code>tf.compat.v1.random_normal_initializer</code></a>
+* Class <a href="/api_docs/python/tf/random_normal_initializer"><code>tf.initializers.random_normal</code></a>
 
-
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,6 +52,8 @@ Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/t
   calling the initializer. Only floating point types are supported.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L310-L317">View source</a>
 
 ``` python
 __init__(
@@ -60,6 +76,8 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L319-L323">View source</a>
+
 ``` python
 __call__(
     shape,
@@ -68,10 +86,21 @@ __call__(
 )
 ```
 
+Returns a tensor object initialized as specified by the initializer.
 
 
+#### Args:
+
+
+* <b>`shape`</b>: Shape of the tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
+  dtype.
+* <b>`partition_info`</b>: Optional information about the possible partitioning of a
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
 
 ``` python
 from_config(
@@ -107,12 +136,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L325-L331">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

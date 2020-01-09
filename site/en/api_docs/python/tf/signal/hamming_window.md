@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.signal.hamming_window
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/hamming_window">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/window_ops.py#L58-L81">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generate a [Hamming][hamming] window.
 
 ### Aliases:
 
-* `tf.compat.v1.signal.hamming_window`
-* `tf.compat.v2.signal.hamming_window`
-* `tf.contrib.signal.hamming_window`
-* `tf.signal.hamming_window`
+* <a href="/api_docs/python/tf/signal/hamming_window"><code>tf.compat.v1.signal.hamming_window</code></a>
+* <a href="/api_docs/python/tf/signal/hamming_window"><code>tf.compat.v2.signal.hamming_window</code></a>
+* <a href="/api_docs/python/tf/signal/hamming_window"><code>tf.contrib.signal.hamming_window</code></a>
+
 
 ``` python
 tf.signal.hamming_window(
@@ -24,8 +42,6 @@ tf.signal.hamming_window(
 ```
 
 
-
-Defined in [`python/ops/signal/window_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/window_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

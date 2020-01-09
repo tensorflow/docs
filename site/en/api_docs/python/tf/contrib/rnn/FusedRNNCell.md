@@ -5,22 +5,30 @@ page_type: reference
 
 # tf.contrib.rnn.FusedRNNCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py#L30-L79">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FusedRNNCell`
 
 Abstract object representing a fused RNN cell.
 
 
 
-
-
-Defined in [`contrib/rnn/python/ops/fused_rnn_cell.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py).
-
 <!-- Placeholder for "Used in" -->
 
 A fused RNN cell represents the entire RNN expanded over the time
 dimension. In effect, this represents an entire recurrent network.
 
-Unlike RNN cells which are subclasses of `rnn_cell.RNNCell`, a `FusedRNNCell`
+Unlike RNN cells which are subclasses of <a href="/api_docs/python/tf/nn/rnn_cell/RNNCell"><code>rnn_cell.RNNCell</code></a>, a `FusedRNNCell`
 operates on the entire time sequence at once, by putting the loop over time
 inside the cell. This usually leads to much more efficient, but more complex
 and less flexible implementations.
@@ -30,6 +38,8 @@ Every `FusedRNNCell` must implement `__call__` with the following signature.
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/fused_rnn_cell.py#L44-L79">View source</a>
 
 ``` python
 __call__(
@@ -73,7 +83,3 @@ A pair containing:
   to match the type of the `inputs`.
 - Final state: Either a single `2-D` tensor, or a tuple of tensors
   matching the arity and shapes of `initial_state`.
-
-
-
-

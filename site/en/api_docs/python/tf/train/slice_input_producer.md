@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.slice_input_producer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/input.py#L322-L376">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Produces a slice of each `Tensor` in `tensor_list`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.slice_input_producer`
-* `tf.train.slice_input_producer`
+* <a href="/api_docs/python/tf/train/slice_input_producer"><code>tf.compat.v1.train.slice_input_producer</code></a>
+
 
 ``` python
 tf.train.slice_input_producer(
@@ -25,8 +37,6 @@ tf.train.slice_input_producer(
 ```
 
 
-
-Defined in [`python/training/input.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/input.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -73,4 +83,3 @@ tensor will have shape `[a, b, ..., z]`.
 #### Eager Compatibility
 Input pipelines based on Queues are not supported when eager execution is
 enabled. Please use the <a href="../../tf/data"><code>tf.data</code></a> API to ingest data under eager execution.
-

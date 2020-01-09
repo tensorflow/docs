@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.broadcast_dynamic_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/broadcast_dynamic_shape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L346-L368">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the shape of a broadcast given symbolic shapes.
 
 ### Aliases:
 
-* `tf.broadcast_dynamic_shape`
-* `tf.compat.v1.broadcast_dynamic_shape`
-* `tf.compat.v2.broadcast_dynamic_shape`
+* <a href="/api_docs/python/tf/broadcast_dynamic_shape"><code>tf.compat.v1.broadcast_dynamic_shape</code></a>
+* <a href="/api_docs/python/tf/broadcast_dynamic_shape"><code>tf.compat.v2.broadcast_dynamic_shape</code></a>
+
 
 ``` python
 tf.broadcast_dynamic_shape(
@@ -21,8 +39,6 @@ tf.broadcast_dynamic_shape(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

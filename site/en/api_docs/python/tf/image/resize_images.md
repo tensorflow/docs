@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.image.resize_images
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1106-L1187">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Resize `images` to `size` using the specified `method`.
 
 ### Aliases:
 
-* `tf.compat.v1.image.resize`
-* `tf.compat.v1.image.resize_images`
-* `tf.image.resize`
-* `tf.image.resize_images`
+* <a href="/api_docs/python/tf/image/resize_images"><code>tf.compat.v1.image.resize</code></a>
+* <a href="/api_docs/python/tf/image/resize_images"><code>tf.compat.v1.image.resize_images</code></a>
+* <a href="/api_docs/python/tf/image/resize_images"><code>tf.image.resize</code></a>
+
 
 ``` python
 tf.image.resize_images(
@@ -26,8 +38,6 @@ tf.image.resize_images(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

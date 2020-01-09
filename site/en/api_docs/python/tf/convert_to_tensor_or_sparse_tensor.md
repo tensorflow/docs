@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.convert_to_tensor_or_sparse_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L388-L414">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts value to a `SparseTensor` or `Tensor`.
 
 ### Aliases:
 
-* `tf.compat.v1.convert_to_tensor_or_sparse_tensor`
-* `tf.contrib.framework.convert_to_tensor_or_sparse_tensor`
-* `tf.convert_to_tensor_or_sparse_tensor`
+* <a href="/api_docs/python/tf/convert_to_tensor_or_sparse_tensor"><code>tf.compat.v1.convert_to_tensor_or_sparse_tensor</code></a>
+* <a href="/api_docs/python/tf/convert_to_tensor_or_sparse_tensor"><code>tf.contrib.framework.convert_to_tensor_or_sparse_tensor</code></a>
+
 
 ``` python
 tf.convert_to_tensor_or_sparse_tensor(
@@ -22,8 +34,6 @@ tf.convert_to_tensor_or_sparse_tensor(
 ```
 
 
-
-Defined in [`python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/sparse_tensor.py).
 
 <!-- Placeholder for "Used in" -->
 

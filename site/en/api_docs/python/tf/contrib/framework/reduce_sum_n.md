@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.reduce_sum_n
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/framework/tensor_util.py#L56-L79">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reduce tensors to a scalar sum.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.framework.reduce_sum_n(
 ```
 
 
-
-Defined in [`contrib/framework/python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/tensor_util.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,18 @@ page_type: reference
 
 # Module: tf.contrib.graph_editor.subgraph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/subgraph.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 SubGraphView: a subgraph view on an existing tf.Graph.
 
-
-
-Defined in [`contrib/graph_editor/subgraph.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/subgraph.py).
-
 <!-- Placeholder for "Used in" -->
-
-

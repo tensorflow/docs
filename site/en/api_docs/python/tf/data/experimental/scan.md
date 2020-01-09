@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.scan
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/scan">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/scan_ops.py#L143-L167">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that scans a function across an input dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.scan`
-* `tf.compat.v2.data.experimental.scan`
-* `tf.data.experimental.scan`
+* <a href="/api_docs/python/tf/data/experimental/scan"><code>tf.compat.v1.data.experimental.scan</code></a>
+* <a href="/api_docs/python/tf/data/experimental/scan"><code>tf.compat.v2.data.experimental.scan</code></a>
+
 
 ``` python
 tf.data.experimental.scan(
@@ -21,8 +39,6 @@ tf.data.experimental.scan(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/scan_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/scan_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

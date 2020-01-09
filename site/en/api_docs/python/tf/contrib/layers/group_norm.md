@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.group_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/normalization.py#L172-L391">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface for the group normalization layer.
 
 ``` python
@@ -28,8 +40,6 @@ tf.contrib.layers.group_norm(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/normalization.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/normalization.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,7 +74,7 @@ Reference: https://arxiv.org/abs/1803.08494.
 * <b>`center`</b>: If True, add offset of `beta` to normalized tensor. If False, `beta`
   is ignored.
 * <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is
-  not used. When the next layer is linear (also e.g. `nn.relu`), this can be
+  not used. When the next layer is linear (also e.g. <a href="/api_docs/python/tf/nn/relu"><code>nn.relu</code></a>), this can be
   disabled since the scaling can be done by the next layer.
 * <b>`epsilon`</b>: Small float added to variance to avoid dividing by zero.
 * <b>`activation_fn`</b>: Activation function, default set to None to skip it and
@@ -76,13 +86,13 @@ Reference: https://arxiv.org/abs/1803.08494.
 * <b>`variables_collections`</b>: Optional collections for the variables.
 * <b>`outputs_collections`</b>: Collections to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`scope`</b>: Optional scope for `variable_scope`.
 * <b>`mean_close_to_zero`</b>: The mean of `input` before ReLU will be close to zero
   when batch size >= 4k for Resnet-50 on TPU. If `True`, use
-  `nn.sufficient_statistics` and `nn.normalize_moments` to calculate the
+  <a href="/api_docs/python/tf/nn/sufficient_statistics"><code>nn.sufficient_statistics</code></a> and <a href="/api_docs/python/tf/nn/normalize_moments"><code>nn.normalize_moments</code></a> to calculate the
   variance. This is the same behavior as `fused` equals `True` in batch
-  normalization. If `False`, use `nn.moments` to calculate the variance.
+  normalization. If `False`, use <a href="/api_docs/python/tf/nn/moments"><code>nn.moments</code></a> to calculate the variance.
   When `mean` is close to zero, like 1e-4, use `mean` to calculate the
   variance may have poor result due to repeated roundoff error and
   denormalization in `mean`.  When `mean` is large, like 1e2,

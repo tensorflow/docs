@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.adjust_contrast
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/adjust_contrast">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1624-L1671">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adjust contrast of RGB or grayscale images.
 
 ### Aliases:
 
-* `tf.compat.v1.image.adjust_contrast`
-* `tf.compat.v2.image.adjust_contrast`
-* `tf.image.adjust_contrast`
+* <a href="/api_docs/python/tf/image/adjust_contrast"><code>tf.compat.v1.image.adjust_contrast</code></a>
+* <a href="/api_docs/python/tf/image/adjust_contrast"><code>tf.compat.v2.image.adjust_contrast</code></a>
+
 
 ``` python
 tf.image.adjust_contrast(
@@ -21,8 +39,6 @@ tf.image.adjust_contrast(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -51,3 +67,13 @@ channel and then adjusts each component `x` of each pixel to
 #### Returns:
 
 The contrast-adjusted image or images.
+
+
+
+#### Usage Example:
+
+```python
+import tensorflow as tf
+x = tf.random.normal(shape=(256, 256, 3))
+tf.image.adjust_contrast(x,2)
+```

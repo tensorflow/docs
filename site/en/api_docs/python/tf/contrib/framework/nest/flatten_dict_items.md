@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.nest.flatten_dict_items
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L329-L382">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a dictionary with flattened keys and values.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.nest.flatten_dict_items(dictionary)
 ```
 
 
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 

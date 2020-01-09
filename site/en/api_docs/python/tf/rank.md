@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.rank
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/rank">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L575-L606">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the rank of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.rank`
-* `tf.compat.v2.rank`
-* `tf.rank`
+* <a href="/api_docs/python/tf/rank"><code>tf.compat.v1.rank</code></a>
+* <a href="/api_docs/python/tf/rank"><code>tf.compat.v2.rank</code></a>
+
 
 ``` python
 tf.rank(
@@ -21,8 +39,6 @@ tf.rank(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,4 +74,3 @@ A `Tensor` of type `int32`.
 
 #### Numpy Compatibility
 Equivalent to np.ndim
-

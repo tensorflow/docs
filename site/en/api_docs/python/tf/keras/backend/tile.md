@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.tile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/tile">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2886-L2900">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a tensor by tiling `x` by `n`.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.tile`
-* `tf.compat.v2.keras.backend.tile`
-* `tf.keras.backend.tile`
+* <a href="/api_docs/python/tf/keras/backend/tile"><code>tf.compat.v1.keras.backend.tile</code></a>
+* <a href="/api_docs/python/tf/keras/backend/tile"><code>tf.compat.v2.keras.backend.tile</code></a>
+
 
 ``` python
 tf.keras.backend.tile(
@@ -21,8 +39,6 @@ tf.keras.backend.tile(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

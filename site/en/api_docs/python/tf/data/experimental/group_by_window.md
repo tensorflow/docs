@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.group_by_window
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/group_by_window">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/grouping.py#L67-L124">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that groups windows of elements by key and reduces them.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.group_by_window`
-* `tf.compat.v2.data.experimental.group_by_window`
-* `tf.data.experimental.group_by_window`
+* <a href="/api_docs/python/tf/data/experimental/group_by_window"><code>tf.compat.v1.data.experimental.group_by_window</code></a>
+* <a href="/api_docs/python/tf/data/experimental/group_by_window"><code>tf.compat.v2.data.experimental.group_by_window</code></a>
+
 
 ``` python
 tf.data.experimental.group_by_window(
@@ -23,8 +41,6 @@ tf.data.experimental.group_by_window(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/grouping.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/grouping.py).
 
 <!-- Placeholder for "Used in" -->
 

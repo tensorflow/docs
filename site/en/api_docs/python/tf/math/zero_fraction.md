@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.math.zero_fraction
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/zero_fraction">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L669-L707">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the fraction of zeros in `value`.
 
 ### Aliases:
 
-* `tf.compat.v1.math.zero_fraction`
-* `tf.compat.v1.nn.zero_fraction`
-* `tf.compat.v2.math.zero_fraction`
-* `tf.compat.v2.nn.zero_fraction`
-* `tf.math.zero_fraction`
-* `tf.nn.zero_fraction`
+* <a href="/api_docs/python/tf/math/zero_fraction"><code>tf.compat.v1.math.zero_fraction</code></a>
+* <a href="/api_docs/python/tf/math/zero_fraction"><code>tf.compat.v1.nn.zero_fraction</code></a>
+* <a href="/api_docs/python/tf/math/zero_fraction"><code>tf.compat.v2.math.zero_fraction</code></a>
+* <a href="/api_docs/python/tf/math/zero_fraction"><code>tf.compat.v2.nn.zero_fraction</code></a>
+* <a href="/api_docs/python/tf/math/zero_fraction"><code>tf.nn.zero_fraction</code></a>
+
 
 ``` python
 tf.math.zero_fraction(
@@ -24,8 +42,6 @@ tf.math.zero_fraction(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.Conv2DTranspose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L1100-L1181">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Conv2DTranspose`
 
 Transposed 2D convolution layer (sometimes called 2D Deconvolution).
@@ -13,12 +25,8 @@ Inherits From: [`Conv2DTranspose`](../../tf/keras/layers/Conv2DTranspose), [`Lay
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.Conv2DTranspose`
-* Class `tf.layers.Conv2DTranspose`
+* Class <a href="/api_docs/python/tf/layers/Conv2DTranspose"><code>tf.compat.v1.layers.Conv2DTranspose</code></a>
 
-
-
-Defined in [`python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,6 +77,8 @@ said convolution.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L1147-L1181">View source</a>
+
 ``` python
 __init__(
     filters,
@@ -107,9 +117,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

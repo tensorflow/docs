@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.utils.custom_object_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/utils/custom_object_scope">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L76-L104">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Provides a scope that changes to `_GLOBAL_CUSTOM_OBJECTS` cannot escape.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.utils.custom_object_scope`
-* `tf.compat.v2.keras.utils.custom_object_scope`
-* `tf.keras.utils.custom_object_scope`
+* <a href="/api_docs/python/tf/keras/utils/custom_object_scope"><code>tf.compat.v1.keras.utils.custom_object_scope</code></a>
+* <a href="/api_docs/python/tf/keras/utils/custom_object_scope"><code>tf.compat.v2.keras.utils.custom_object_scope</code></a>
+
 
 ``` python
 tf.keras.utils.custom_object_scope(*args)
 ```
 
 
-
-Defined in [`python/keras/utils/generic_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/generic_utils.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Dense
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Dense">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L917-L1081">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Dense`
 
 Just your regular densely-connected NN layer.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Dense`
-* Class `tf.compat.v2.keras.layers.Dense`
-* Class `tf.keras.layers.Dense`
+* Class <a href="/api_docs/python/tf/keras/layers/Dense"><code>tf.compat.v1.keras.layers.Dense</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Dense"><code>tf.compat.v2.keras.layers.Dense</code></a>
 
-
-
-Defined in [`python/keras/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -86,6 +100,8 @@ the output would have shape `(batch_size, units)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L972-L1000">View source</a>
+
 ``` python
 __init__(
     units,
@@ -101,9 +117,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

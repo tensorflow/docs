@@ -5,7 +5,19 @@ page_type: reference
 
 # tf.contrib.data.sloppy_interleave
 
-A non-deterministic version of the `Dataset.interleave()` transformation. (deprecated)
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/interleave_ops.py#L80-L132">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+A non-deterministic version of the <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 ``` python
 tf.contrib.data.sloppy_interleave(
@@ -16,8 +28,6 @@ tf.contrib.data.sloppy_interleave(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,7 +66,7 @@ dataset = filenames.apply(
 ```
 
 WARNING: The order of elements in the resulting dataset is not
-deterministic. Use `Dataset.interleave()` if you want the elements to have a
+deterministic. Use <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> if you want the elements to have a
 deterministic order.
 
 #### Args:

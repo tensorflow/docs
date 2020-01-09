@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.constraints
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/constraints">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Constraints: functions that impose constraints on weight values.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.constraints`
-* Module `tf.keras.constraints`
+* Module <a href="/api_docs/python/tf/keras/constraints"><code>tf.compat.v1.keras.constraints</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/constraints/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/constraints/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ Defined in [`python/keras/api/_v1/keras/constraints/__init__.py`](https://github
 
 [`class NonNeg`](../../tf/keras/constraints/NonNeg): Constrains the weights to be non-negative.
 
+[`class RadialConstraint`](../../tf/keras/constraints/RadialConstraint): Constrains `Conv2D` kernel weights to be the same for each radius.
+
 [`class UnitNorm`](../../tf/keras/constraints/UnitNorm): Constrains the weights incident to each hidden unit to have unit norm.
 
 [`class max_norm`](../../tf/keras/constraints/MaxNorm): MaxNorm weight constraint.
@@ -36,6 +46,8 @@ Defined in [`python/keras/api/_v1/keras/constraints/__init__.py`](https://github
 [`class min_max_norm`](../../tf/keras/constraints/MinMaxNorm): MinMaxNorm weight constraint.
 
 [`class non_neg`](../../tf/keras/constraints/NonNeg): Constrains the weights to be non-negative.
+
+[`class radial_constraint`](../../tf/keras/constraints/RadialConstraint): Constrains `Conv2D` kernel weights to be the same for each radius.
 
 [`class unit_norm`](../../tf/keras/constraints/UnitNorm): Constrains the weights incident to each hidden unit to have unit norm.
 
@@ -46,4 +58,3 @@ Defined in [`python/keras/api/_v1/keras/constraints/__init__.py`](https://github
 [`get(...)`](../../tf/keras/constraints/get)
 
 [`serialize(...)`](../../tf/keras/constraints/serialize)
-

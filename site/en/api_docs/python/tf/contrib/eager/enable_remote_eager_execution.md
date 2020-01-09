@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.enable_remote_eager_execution
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5737-L5807">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Enables eager execution for the lifetime of this program.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.eager.enable_remote_eager_execution(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

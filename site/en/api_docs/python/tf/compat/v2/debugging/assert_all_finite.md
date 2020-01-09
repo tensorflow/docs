@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.debugging.assert_all_finite
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/numerics.py#L52-L69">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert that the tensor does not contain any NaN's or Inf's.
 
 ``` python
@@ -16,8 +28,6 @@ tf.compat.v2.debugging.assert_all_finite(
 ```
 
 
-
-Defined in [`python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/numerics.py).
 
 <!-- Placeholder for "Used in" -->
 

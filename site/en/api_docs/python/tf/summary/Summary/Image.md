@@ -5,22 +5,30 @@ page_type: reference
 
 # tf.summary.Summary.Image
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/summary.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Image`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.Summary.Image`
-* Class `tf.compat.v1.Summary.Image`
-* Class `tf.compat.v1.summary.Summary.Image`
-* Class `tf.summary.Summary.Image`
+* Class <a href="/api_docs/python/tf/summary/Summary/Image"><code>tf.Summary.Image</code></a>
+* Class <a href="/api_docs/python/tf/summary/Summary/Image"><code>tf.compat.v1.Summary.Image</code></a>
+* Class <a href="/api_docs/python/tf/summary/Summary/Image"><code>tf.compat.v1.summary.Summary.Image</code></a>
 
-
-
-Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/summary.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,7 +53,3 @@ Defined in [`core/framework/summary.proto`](https://github.com/tensorflow/tensor
 <h3 id="width"><code>width</code></h3>
 
 `int32 width`
-
-
-
-

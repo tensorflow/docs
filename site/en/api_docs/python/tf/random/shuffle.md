@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.random.shuffle
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/shuffle">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L258-L287">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Randomly shuffles a tensor along its first dimension.
 
 ### Aliases:
 
-* `tf.compat.v1.random.shuffle`
-* `tf.compat.v1.random_shuffle`
-* `tf.compat.v2.random.shuffle`
-* `tf.random.shuffle`
-* `tf.random_shuffle`
+* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v1.random.shuffle</code></a>
+* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v1.random_shuffle</code></a>
+* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v2.random.shuffle</code></a>
+* <a href="/api_docs/python/tf/random/shuffle"><code>tf.random_shuffle</code></a>
+
 
 ``` python
 tf.random.shuffle(
@@ -24,8 +42,6 @@ tf.random.shuffle(
 ```
 
 
-
-Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

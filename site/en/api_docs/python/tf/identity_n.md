@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.identity_n
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/identity_n">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Returns a list of tensors with the same shapes and contents as the input
 
 ### Aliases:
 
-* `tf.compat.v1.identity_n`
-* `tf.compat.v2.identity_n`
-* `tf.identity_n`
+* <a href="/api_docs/python/tf/identity_n"><code>tf.compat.v1.identity_n</code></a>
+* <a href="/api_docs/python/tf/identity_n"><code>tf.compat.v2.identity_n</code></a>
+
 
 ``` python
 tf.identity_n(
@@ -21,8 +35,6 @@ tf.identity_n(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

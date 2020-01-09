@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.make_list_of_t
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L275-L302">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convert ts to a list of <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.graph_editor.make_list_of_t(
 ```
 
 
-
-Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
 
 <!-- Placeholder for "Used in" -->
 

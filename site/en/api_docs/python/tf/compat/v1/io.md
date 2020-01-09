@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.io
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/io">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.io namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -103,4 +115,3 @@ Public API for tf.io namespace.
 [`write_file(...)`](../../../tf/io/write_file): Writes contents to the file at input filename. Creates file and recursively
 
 [`write_graph(...)`](../../../tf/io/write_graph): Writes a graph proto to a file.
-

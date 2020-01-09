@@ -5,6 +5,12 @@ page_type: reference
 
 # tf.contrib.eager.restore_variables_on_create
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
 ContextManager that restores variables on creation.
 
 ``` python
@@ -13,6 +19,8 @@ tf.contrib.eager.restore_variables_on_create(
     **kwds
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

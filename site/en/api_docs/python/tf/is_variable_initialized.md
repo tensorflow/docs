@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.is_variable_initialized
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3273-L3285">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Tests if a variable has been initialized.
 
 ### Aliases:
 
-* `tf.compat.v1.is_variable_initialized`
-* `tf.is_variable_initialized`
+* <a href="/api_docs/python/tf/is_variable_initialized"><code>tf.compat.v1.is_variable_initialized</code></a>
+
 
 ``` python
 tf.is_variable_initialized(variable)
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

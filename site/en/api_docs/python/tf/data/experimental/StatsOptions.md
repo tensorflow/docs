@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.experimental.StatsOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/StatsOptions">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_options.py#L28-L70">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StatsOptions`
 
 Represents options for collecting dataset stats using `StatsAggregator`.
@@ -13,13 +31,9 @@ Represents options for collecting dataset stats using `StatsAggregator`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.StatsOptions`
-* Class `tf.compat.v2.data.experimental.StatsOptions`
-* Class `tf.data.experimental.StatsOptions`
+* Class <a href="/api_docs/python/tf/data/experimental/StatsOptions"><code>tf.compat.v1.data.experimental.StatsOptions</code></a>
+* Class <a href="/api_docs/python/tf/data/experimental/StatsOptions"><code>tf.compat.v2.data.experimental.StatsOptions</code></a>
 
-
-
-Defined in [`python/data/experimental/ops/stats_options.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_options.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,11 +53,13 @@ dataset = dataset.with_options(options)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -76,21 +92,21 @@ Prefix to prepend all statistics recorded for the input `dataset` with.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
-
-
-
-
+Return self!=value.

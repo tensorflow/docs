@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.initialize_all_tables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L51-L63">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an Op that initializes all tables of the default graph. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.initialize_all_tables`
-* `tf.initialize_all_tables`
+* <a href="/api_docs/python/tf/initialize_all_tables"><code>tf.compat.v1.initialize_all_tables</code></a>
+
 
 ``` python
 tf.initialize_all_tables(name='init_all_tables')
 ```
 
 
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Embedding
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Embedding">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/embeddings.py#L35-L202">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Embedding`
 
 Turns positive integers (indexes) into dense vectors of fixed size.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Embedding`
-* Class `tf.compat.v2.keras.layers.Embedding`
-* Class `tf.keras.layers.Embedding`
+* Class <a href="/api_docs/python/tf/keras/layers/Embedding"><code>tf.compat.v1.keras.layers.Embedding</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Embedding"><code>tf.compat.v2.keras.layers.Embedding</code></a>
 
-
-
-Defined in [`python/keras/layers/embeddings.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/embeddings.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -87,6 +101,8 @@ assert output_array.shape == (32, 10, 64)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/embeddings.py#L91-L122">View source</a>
+
 ``` python
 __init__(
     input_dim,
@@ -100,9 +116,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

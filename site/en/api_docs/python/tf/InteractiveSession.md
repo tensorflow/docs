@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.InteractiveSession
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L1678-L1783">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InteractiveSession`
 
 A TensorFlow `Session` for use in interactive contexts, such as a shell.
@@ -13,12 +25,8 @@ A TensorFlow `Session` for use in interactive contexts, such as a shell.
 
 ### Aliases:
 
-* Class `tf.InteractiveSession`
-* Class `tf.compat.v1.InteractiveSession`
+* Class <a href="/api_docs/python/tf/InteractiveSession"><code>tf.compat.v1.InteractiveSession</code></a>
 
-
-
-Defined in [`python/client/session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/client/session.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -61,6 +69,8 @@ with tf.compat.v1.Session():
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L1720-L1768">View source</a>
+
 ``` python
 __init__(
     target='',
@@ -82,8 +92,8 @@ the session constructor.
 #### Args:
 
 
-* <b>`target`</b>: (Optional.) The execution engine to connect to.
-  Defaults to using an in-process engine.
+* <b>`target`</b>: (Optional.) The execution engine to connect to. Defaults to using
+  an in-process engine.
 * <b>`graph`</b>: (Optional.) The `Graph` to be launched (described above).
 * <b>`config`</b>: (Optional) `ConfigProto` proto used to configure the session.
 
@@ -109,7 +119,7 @@ the underlying TensorFlow graph.
 
 <h3 id="sess_str"><code>sess_str</code></h3>
 
-
+The TensorFlow process to which this session will connect.
 
 
 
@@ -117,6 +127,8 @@ the underlying TensorFlow graph.
 ## Methods
 
 <h3 id="as_default"><code>as_default</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L791-L844">View source</a>
 
 ``` python
 as_default()
@@ -178,6 +190,8 @@ A context manager using this session as the default session.
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L1770-L1783">View source</a>
+
 ``` python
 close()
 ```
@@ -186,6 +200,8 @@ Closes an `InteractiveSession`.
 
 
 <h3 id="list_devices"><code>list_devices</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L704-L740">View source</a>
 
 ``` python
 list_devices()
@@ -214,7 +230,7 @@ Each element in the list has the following properties
 #### Raises:
 
 
-* <b>`tf.errors.OpError`</b>: If it encounters an error (e.g. session is in an
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: If it encounters an error (e.g. session is in an
 invalid state, or network errors occur).
 
 
@@ -224,6 +240,8 @@ A list of devices in the session.
 
 
 <h3 id="make_callable"><code>make_callable</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L1185-L1309">View source</a>
 
 ``` python
 make_callable(
@@ -250,16 +268,16 @@ it will return `None`.
 #### Args:
 
 
-* <b>`fetches`</b>: A value or list of values to fetch. See <a href="../tf/Session#run"><code>tf.Session.run</code></a>
-  for details of the allowable fetch types.
-* <b>`feed_list`</b>: (Optional.) A list of `feed_dict` keys. See
-  <a href="../tf/Session#run"><code>tf.Session.run</code></a> for details of the allowable feed key types.
+* <b>`fetches`</b>: A value or list of values to fetch. See <a href="../tf/Session#run"><code>tf.Session.run</code></a> for
+  details of the allowable fetch types.
+* <b>`feed_list`</b>: (Optional.) A list of `feed_dict` keys. See <a href="../tf/Session#run"><code>tf.Session.run</code></a>
+  for details of the allowable feed key types.
 * <b>`accept_options`</b>: (Optional.) If `True`, the returned `Callable` will be
   able to accept <a href="../tf/RunOptions"><code>tf.compat.v1.RunOptions</code></a> and <a href="../tf/RunMetadata"><code>tf.compat.v1.RunMetadata</code></a>
   as optional keyword arguments `options` and `run_metadata`,
   respectively, with the same syntax and semantics as <a href="../tf/Session#run"><code>tf.Session.run</code></a>,
-  which is useful for certain use cases (profiling and debugging) but
-  will result in measurable slowdown of the `Callable`'s
+  which is useful for certain use cases (profiling and debugging) but will
+  result in measurable slowdown of the `Callable`'s
   performance. Default: `False`.
 
 
@@ -277,6 +295,8 @@ A function that when called will execute the step defined by
   as arguments to <a href="../tf/Session#run"><code>tf.Session.run</code></a>.
 
 <h3 id="partial_run"><code>partial_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L967-L1012">View source</a>
 
 ``` python
 partial_run(
@@ -316,11 +336,11 @@ res = sess.partial_run(h, r2, feed_dict={c: res})
 
 
 * <b>`handle`</b>: A handle for a sequence of partial runs.
-* <b>`fetches`</b>: A single graph element, a list of graph elements,
-  or a dictionary whose values are graph elements or lists of graph
-  elements (see documentation for `run`).
-* <b>`feed_dict`</b>: A dictionary that maps graph elements to values
-  (described above).
+* <b>`fetches`</b>: A single graph element, a list of graph elements, or a dictionary
+  whose values are graph elements or lists of graph elements (see
+  documentation for `run`).
+* <b>`feed_dict`</b>: A dictionary that maps graph elements to values (described
+  above).
 
 
 #### Returns:
@@ -335,9 +355,11 @@ same keys as `fetches` if that is a dictionary
 #### Raises:
 
 
-* <b>`tf.errors.OpError`</b>: Or one of its subclasses on error.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: Or one of its subclasses on error.
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L1014-L1089">View source</a>
 
 ``` python
 partial_run_setup(
@@ -372,9 +394,11 @@ A handle for partial run.
 * <b>`RuntimeError`</b>: If this `Session` is in an invalid state (e.g. has been
   closed).
 * <b>`TypeError`</b>: If `fetches` or `feed_dict` keys are of an inappropriate type.
-* <b>`tf.errors.OpError`</b>: Or one of its subclasses if a TensorFlow error happens.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: Or one of its subclasses if a TensorFlow error happens.
 
 <h3 id="run"><code>run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py#L846-L965">View source</a>
 
 ``` python
 run(
@@ -470,11 +494,11 @@ collected into this argument and passed back.
 #### Args:
 
 
-* <b>`fetches`</b>: A single graph element, a list of graph elements,
-  or a dictionary whose values are graph elements or lists of graph
-  elements (described above).
-* <b>`feed_dict`</b>: A dictionary that maps graph elements to values
-  (described above).
+* <b>`fetches`</b>: A single graph element, a list of graph elements, or a dictionary
+  whose values are graph elements or lists of graph elements (described
+  above).
+* <b>`feed_dict`</b>: A dictionary that maps graph elements to values (described
+  above).
 * <b>`options`</b>: A [`RunOptions`] protocol buffer
 * <b>`run_metadata`</b>: A [`RunMetadata`] protocol buffer
 
@@ -497,6 +521,3 @@ is undefined.
 * <b>`TypeError`</b>: If `fetches` or `feed_dict` keys are of an inappropriate type.
 * <b>`ValueError`</b>: If `fetches` or `feed_dict` keys are invalid or refer to a
   `Tensor` that doesn't exist.
-
-
-

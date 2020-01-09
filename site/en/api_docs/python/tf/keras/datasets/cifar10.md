@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.datasets.cifar10
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/datasets/cifar10">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+CIFAR10 small images classification dataset.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.datasets.cifar10`
-* Module `tf.keras.datasets.cifar10`
+* Module <a href="/api_docs/python/tf/keras/datasets/cifar10"><code>tf.compat.v1.keras.datasets.cifar10</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/datasets/cifar10/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/datasets/cifar10/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,4 +30,3 @@ Defined in [`python/keras/api/_v1/keras/datasets/cifar10/__init__.py`](https://g
 ## Functions
 
 [`load_data(...)`](../../../tf/keras/datasets/cifar10/load_data): Loads CIFAR10 dataset.
-

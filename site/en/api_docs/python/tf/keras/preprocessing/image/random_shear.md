@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.image.random_shear
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/random_shear">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Performs a random spatial shear of a Numpy image tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.image.random_shear`
-* `tf.compat.v2.keras.preprocessing.image.random_shear`
-* `tf.keras.preprocessing.image.random_shear`
+* <a href="/api_docs/python/tf/keras/preprocessing/image/random_shear"><code>tf.compat.v1.keras.preprocessing.image.random_shear</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/image/random_shear"><code>tf.compat.v2.keras.preprocessing.image.random_shear</code></a>
+
 
 ``` python
 tf.keras.preprocessing.image.random_shear(
@@ -25,6 +37,8 @@ tf.keras.preprocessing.image.random_shear(
     interpolation_order=1
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

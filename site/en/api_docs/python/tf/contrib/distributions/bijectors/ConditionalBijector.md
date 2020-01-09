@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.ConditionalBijector
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py#L28-L59">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ConditionalBijector`
 
 Conditional Bijector is a Bijector that allows intrinsic conditioning.
 
 Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
 
-
-
-Defined in [`contrib/distributions/python/ops/bijectors/conditional_bijector.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/conditional_bijector.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L493-L588">View source</a>
 
 ``` python
 __init__(
@@ -129,6 +139,8 @@ Returns True if Tensor arguments will be validated.
 
 <h3 id="forward"><code>forward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L31-L35">View source</a>
+
 ``` python
 forward(
     *args,
@@ -141,6 +153,8 @@ forward(
 *  `**condition_kwargs`: Named arguments forwarded to subclass implementation.
 
 <h3 id="forward_event_shape"><code>forward_event_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L677-L690">View source</a>
 
 ``` python
 forward_event_shape(input_shape)
@@ -164,6 +178,8 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
   after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L653-L670">View source</a>
 
 ``` python
 forward_event_shape_tensor(
@@ -191,6 +207,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L52-L59">View source</a>
+
 ``` python
 forward_log_det_jacobian(
     *args,
@@ -204,6 +222,8 @@ forward_log_det_jacobian(
 
 <h3 id="inverse"><code>inverse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L37-L41">View source</a>
+
 ``` python
 inverse(
     *args,
@@ -216,6 +236,8 @@ inverse(
 *  `**condition_kwargs`: Named arguments forwarded to subclass implementation.
 
 <h3 id="inverse_event_shape"><code>inverse_event_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L721-L734">View source</a>
 
 ``` python
 inverse_event_shape(output_shape)
@@ -239,6 +261,8 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
   after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L697-L714">View source</a>
 
 ``` python
 inverse_event_shape_tensor(
@@ -266,6 +290,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/util.py#L43-L50">View source</a>
+
 ``` python
 inverse_log_det_jacobian(
     *args,
@@ -276,6 +302,3 @@ inverse_log_det_jacobian(
 ##### `kwargs`:
 
 *  `**condition_kwargs`: Named arguments forwarded to subclass implementation.
-
-
-

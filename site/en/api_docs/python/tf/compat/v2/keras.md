@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Implementation of the Keras API meant to be a high-level API for TensorFlow.
-
-
-
-Defined in [`python/keras/api/_v2/keras/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -65,4 +73,3 @@ Detailed documentation and user guides are available at
 ## Functions
 
 [`Input(...)`](../../../tf/keras/Input): `Input()` is used to instantiate a Keras tensor.
-

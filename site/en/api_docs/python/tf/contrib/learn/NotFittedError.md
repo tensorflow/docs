@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.NotFittedError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L133-L153">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NotFittedError`
 
 Exception class to raise if estimator is used before fitting.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/_sklearn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,5 +57,12 @@ __init__(
 
 
 
+<h2 id="__new__"><code>__new__</code></h2>
 
-
+``` python
+__new__(
+    type,
+    *args,
+    **kwargs
+)
+```

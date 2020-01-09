@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.nn.local_response_normalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/local_response_normalization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Local Response Normalization.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.local_response_normalization`
-* `tf.compat.v1.nn.lrn`
-* `tf.compat.v2.nn.local_response_normalization`
-* `tf.compat.v2.nn.lrn`
-* `tf.nn.local_response_normalization`
-* `tf.nn.lrn`
+* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v1.nn.local_response_normalization</code></a>
+* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v1.nn.lrn</code></a>
+* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v2.nn.local_response_normalization</code></a>
+* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v2.nn.lrn</code></a>
+* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.nn.lrn</code></a>
+
 
 ``` python
 tf.nn.local_response_normalization(
@@ -28,8 +42,6 @@ tf.nn.local_response_normalization(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

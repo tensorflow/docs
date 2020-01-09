@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.gfile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/gfile">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Import router for file_io.
 
 <!-- Placeholder for "Used in" -->
@@ -43,4 +55,3 @@ Import router for file_io.
 [`Stat(...)`](../../../tf/gfile/Stat): Returns file statistics for a given path.
 
 [`Walk(...)`](../../../tf/gfile/Walk): Recursive directory tree generator for directories.
-

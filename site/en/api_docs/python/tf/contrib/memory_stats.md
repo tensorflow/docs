@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.memory_stats
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/memory_stats/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for memory statistics.
-
-
-
-Defined in [`contrib/memory_stats/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/memory_stats/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,4 +29,3 @@ Defined in [`contrib/memory_stats/__init__.py`](https://github.com/tensorflow/te
 [`BytesLimit(...)`](../../tf/contrib/memory_stats/BytesLimit): Generates an op that measures the total memory (in bytes) of a device.
 
 [`MaxBytesInUse(...)`](../../tf/contrib/memory_stats/MaxBytesInUse): Generates an op that computes the peak memory of a device.
-

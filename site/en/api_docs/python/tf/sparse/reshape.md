@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.sparse.reshape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/reshape">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L732-L830">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reshapes a `SparseTensor` to represent values in a new dense shape.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.reshape`
-* `tf.compat.v1.sparse_reshape`
-* `tf.compat.v2.sparse.reshape`
-* `tf.sparse.reshape`
-* `tf.sparse_reshape`
+* <a href="/api_docs/python/tf/sparse/reshape"><code>tf.compat.v1.sparse.reshape</code></a>
+* <a href="/api_docs/python/tf/sparse/reshape"><code>tf.compat.v1.sparse_reshape</code></a>
+* <a href="/api_docs/python/tf/sparse/reshape"><code>tf.compat.v2.sparse.reshape</code></a>
+* <a href="/api_docs/python/tf/sparse/reshape"><code>tf.sparse_reshape</code></a>
+
 
 ``` python
 tf.sparse.reshape(
@@ -24,8 +42,6 @@ tf.sparse.reshape(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

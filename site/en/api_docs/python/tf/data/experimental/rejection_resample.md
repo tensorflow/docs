@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.rejection_resample
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/rejection_resample">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/resampling.py#L37-L101">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that resamples a dataset to achieve a target distribution.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.rejection_resample`
-* `tf.compat.v2.data.experimental.rejection_resample`
-* `tf.data.experimental.rejection_resample`
+* <a href="/api_docs/python/tf/data/experimental/rejection_resample"><code>tf.compat.v1.data.experimental.rejection_resample</code></a>
+* <a href="/api_docs/python/tf/data/experimental/rejection_resample"><code>tf.compat.v2.data.experimental.rejection_resample</code></a>
+
 
 ``` python
 tf.data.experimental.rejection_resample(
@@ -23,8 +41,6 @@ tf.data.experimental.rejection_resample(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/resampling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/resampling.py).
 
 <!-- Placeholder for "Used in" -->
 

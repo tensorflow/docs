@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.resource_loader.get_root_dir_with_all_resources
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/resource_loader.py#L60-L97">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get a root directory containing all the data attributes in the build rule.
 
 ### Aliases:
 
-* `tf.compat.v1.resource_loader.get_root_dir_with_all_resources`
-* `tf.resource_loader.get_root_dir_with_all_resources`
+* <a href="/api_docs/python/tf/resource_loader/get_root_dir_with_all_resources"><code>tf.compat.v1.resource_loader.get_root_dir_with_all_resources</code></a>
+
 
 ``` python
 tf.resource_loader.get_root_dir_with_all_resources()
 ```
 
 
-
-Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.data.experimental.bytes_produced_stats
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/bytes_produced_stats">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_ops.py#L51-L71">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Records the number of bytes produced by each element of the input dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.bytes_produced_stats`
-* `tf.compat.v2.data.experimental.bytes_produced_stats`
-* `tf.data.experimental.bytes_produced_stats`
+* <a href="/api_docs/python/tf/data/experimental/bytes_produced_stats"><code>tf.compat.v1.data.experimental.bytes_produced_stats</code></a>
+* <a href="/api_docs/python/tf/data/experimental/bytes_produced_stats"><code>tf.compat.v2.data.experimental.bytes_produced_stats</code></a>
+
 
 ``` python
 tf.data.experimental.bytes_produced_stats(tag)
 ```
 
 
-
-Defined in [`python/data/experimental/ops/stats_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/stats_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

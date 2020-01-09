@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.summary
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/summary/summary.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 TensorFlow Summary API v2.
-
-
-
-Defined in [`contrib/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -100,4 +108,3 @@ with tf.Session(...) as sess:
 [`should_record_summaries(...)`](../../tf/contrib/summary/should_record_summaries): Returns boolean Tensor which is true if summaries should be recorded.
 
 [`summary_writer_initializer_op(...)`](../../tf/contrib/summary/summary_writer_initializer_op): Graph-mode only. Returns the list of ops to create all summary writers.
-

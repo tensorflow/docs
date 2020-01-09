@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.convert_to_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/convert_to_tensor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1127-L1184">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts the given `value` to a `Tensor`.
 
 ### Aliases:
 
-* `tf.compat.v1.convert_to_tensor`
-* `tf.convert_to_tensor`
+* <a href="/api_docs/python/tf/convert_to_tensor"><code>tf.compat.v1.convert_to_tensor</code></a>
+
 
 ``` python
 tf.convert_to_tensor(
@@ -23,8 +41,6 @@ tf.convert_to_tensor(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

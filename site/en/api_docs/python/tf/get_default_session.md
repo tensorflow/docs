@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.get_default_session
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5352-L5367">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the default session for the current thread.
 
 ### Aliases:
 
-* `tf.compat.v1.get_default_session`
-* `tf.get_default_session`
+* <a href="/api_docs/python/tf/get_default_session"><code>tf.compat.v1.get_default_session</code></a>
+
 
 ``` python
 tf.get_default_session()
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

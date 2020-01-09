@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.compat.v2.assert_rank
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1063-L1093">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert that `x` has rank equal to `rank`.
 
 ### Aliases:
 
-* `tf.compat.v2.assert_rank`
-* `tf.compat.v2.debugging.assert_rank`
+* <a href="/api_docs/python/tf/compat/v2/assert_rank"><code>tf.compat.v2.debugging.assert_rank</code></a>
+
 
 ``` python
 tf.compat.v2.assert_rank(
@@ -22,8 +34,6 @@ tf.compat.v2.assert_rank(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -61,4 +71,3 @@ to block followup computation until the check has executed.
 
 #### Eager Compatibility
 returns None
-

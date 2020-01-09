@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.batch_dot
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/batch_dot">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1701-L1790">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Batchwise dot product.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.batch_dot`
-* `tf.compat.v2.keras.backend.batch_dot`
-* `tf.keras.backend.batch_dot`
+* <a href="/api_docs/python/tf/keras/backend/batch_dot"><code>tf.compat.v1.keras.backend.batch_dot</code></a>
+* <a href="/api_docs/python/tf/keras/backend/batch_dot"><code>tf.compat.v2.keras.backend.batch_dot</code></a>
+
 
 ``` python
 tf.keras.backend.batch_dot(
@@ -22,8 +40,6 @@ tf.keras.backend.batch_dot(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -76,9 +92,9 @@ If `axes` is (1, 2), to find the output shape of resultant tensor,
 
 
 ```python
-    >>> x_batch = K.ones(shape=(32, 20, 1))
-    >>> y_batch = K.ones(shape=(32, 30, 20))
-    >>> xy_batch_dot = K.batch_dot(x_batch, y_batch, axes=[1, 2])
-    >>> K.int_shape(xy_batch_dot)
-    (32, 1, 30)
+>>> x_batch = K.ones(shape=(32, 20, 1))
+>>> y_batch = K.ones(shape=(32, 30, 20))
+>>> xy_batch_dot = K.batch_dot(x_batch, y_batch, axes=[1, 2])
+>>> K.int_shape(xy_batch_dot)
+(32, 1, 30)
 ```

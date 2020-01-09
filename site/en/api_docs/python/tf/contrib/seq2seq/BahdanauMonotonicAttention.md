@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.BahdanauMonotonicAttention
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1396-L1520">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BahdanauMonotonicAttention`
 
 Monotonic attention mechanism with Bahadanau-style energy function.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,6 +39,8 @@ Colin Raffel, Minh-Thang Luong, Peter J. Liu, Ron J. Weiss, Douglas Eck,
 ICML 2017.  https://arxiv.org/abs/1704.00784
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1413-L1472">View source</a>
 
 ``` python
 __init__(
@@ -122,6 +132,8 @@ memory_sequence_length (optional): Sequence lengths for the batch entries
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1474-L1520">View source</a>
+
 ``` python
 __call__(
     query,
@@ -150,6 +162,8 @@ Score the query based on the keys and values.
 
 <h3 id="initial_alignments"><code>initial_alignments</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1346-L1364">View source</a>
+
 ``` python
 initial_alignments(
     batch_size,
@@ -177,6 +191,8 @@ A `dtype` tensor shaped `[batch_size, alignments_size]`
 
 <h3 id="initial_state"><code>initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L210-L225">View source</a>
+
 ``` python
 initial_state(
     batch_size,
@@ -201,7 +217,3 @@ The default behavior is to return the same output as initial_alignments.
 #### Returns:
 
 A structure of all-zero tensors with shapes as described by `state_size`.
-
-
-
-

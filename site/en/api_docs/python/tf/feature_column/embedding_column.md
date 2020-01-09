@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.feature_column.embedding_column
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/feature_column/embedding_column">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L809-L911">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 `DenseColumn` that converts from sparse, categorical input.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.embedding_column`
-* `tf.compat.v2.feature_column.embedding_column`
-* `tf.feature_column.embedding_column`
+* <a href="/api_docs/python/tf/feature_column/embedding_column"><code>tf.compat.v1.feature_column.embedding_column</code></a>
+* <a href="/api_docs/python/tf/feature_column/embedding_column"><code>tf.compat.v2.feature_column.embedding_column</code></a>
+
 
 ``` python
 tf.feature_column.embedding_column(
@@ -27,8 +45,6 @@ tf.feature_column.embedding_column(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -83,7 +99,7 @@ def model_fn(features, ...):
   `tf.embedding_lookup_sparse`.
 * <b>`initializer`</b>: A variable initializer function to be used in embedding
   variable initialization. If not specified, defaults to
-  <a href="../../tf/initializers/truncated_normal"><code>tf.compat.v1.truncated_normal_initializer</code></a> with mean `0.0` and
+  `truncated_normal_initializer` with mean `0.0` and
   standard deviation `1/sqrt(dimension)`.
 * <b>`ckpt_to_load_from`</b>: String representing checkpoint name/pattern from which to
   restore column weights. Required if `tensor_name_in_ckpt` is not `None`.

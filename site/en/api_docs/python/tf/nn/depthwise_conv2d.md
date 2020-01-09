@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.depthwise_conv2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/depthwise_conv2d">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L727-L819">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Depthwise 2-D convolution.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.depthwise_conv2d`
-* `tf.nn.depthwise_conv2d`
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d"><code>tf.compat.v1.nn.depthwise_conv2d</code></a>
+
 
 ``` python
 tf.nn.depthwise_conv2d(
@@ -26,8 +44,6 @@ tf.nn.depthwise_conv2d(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

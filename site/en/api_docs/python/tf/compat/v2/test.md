@@ -5,11 +5,23 @@ page_type: reference
 
 # Module: tf.compat.v2.test
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/test">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Testing.
 
 <!-- Placeholder for "Used in" -->
 
-See the [Testing](https://tensorflow.org/api_guides/python/test) guide.
+See the [Testing](https://tensorflow.org/api_docs/python/tf/test) guide.
 
 Note: `tf.compat.v1.test.mock` is an alias to the python `mock` or
 `unittest.mock` depending on the python version.
@@ -34,7 +46,10 @@ Note: `tf.compat.v1.test.mock` is an alias to the python `mock` or
 
 [`is_built_with_cuda(...)`](../../../tf/test/is_built_with_cuda): Returns whether TensorFlow was built with CUDA (GPU) support.
 
+[`is_built_with_gpu_support(...)`](../../../tf/test/is_built_with_gpu_support): Returns whether TensorFlow was built with GPU (i.e. CUDA or ROCm) support.
+
+[`is_built_with_rocm(...)`](../../../tf/test/is_built_with_rocm): Returns whether TensorFlow was built with ROCm (GPU) support.
+
 [`is_gpu_available(...)`](../../../tf/test/is_gpu_available): Returns whether TensorFlow can access a GPU.
 
 [`main(...)`](../../../tf/test/main): Runs all unit tests.
-

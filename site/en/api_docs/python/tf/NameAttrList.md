@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.NameAttrList
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/attr_value.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NameAttrList`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.NameAttrList`
-* Class `tf.compat.v1.NameAttrList`
+* Class <a href="/api_docs/python/tf/NameAttrList"><code>tf.compat.v1.NameAttrList</code></a>
 
-
-
-Defined in [`core/framework/attr_value.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/attr_value.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,7 +44,3 @@ Defined in [`core/framework/attr_value.proto`](https://github.com/tensorflow/ten
 <h3 id="name"><code>name</code></h3>
 
 `string name`
-
-
-
-

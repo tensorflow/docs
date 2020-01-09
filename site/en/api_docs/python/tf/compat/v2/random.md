@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.random
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/random">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.random namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -49,4 +61,3 @@ Public API for tf.random namespace.
 [`uniform(...)`](../../../tf/random/uniform): Outputs random values from a uniform distribution.
 
 [`uniform_candidate_sampler(...)`](../../../tf/random/uniform_candidate_sampler): Samples a set of classes using a uniform base distribution.
-

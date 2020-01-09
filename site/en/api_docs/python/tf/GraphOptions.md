@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.GraphOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GraphOptions`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.GraphOptions`
-* Class `tf.compat.v1.GraphOptions`
+* Class <a href="/api_docs/python/tf/GraphOptions"><code>tf.compat.v1.GraphOptions</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -68,7 +76,3 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="timeline_step"><code>timeline_step</code></h3>
 
 `int32 timeline_step`
-
-
-
-

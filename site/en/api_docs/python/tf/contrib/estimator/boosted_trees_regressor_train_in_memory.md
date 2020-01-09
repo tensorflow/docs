@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.boosted_trees_regressor_train_in_memory
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/boosted_trees.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Trains a boosted tree regressor with in memory dataset.
 
 ``` python
@@ -30,8 +42,6 @@ tf.contrib.estimator.boosted_trees_regressor_train_in_memory(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/boosted_trees.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/boosted_trees.py).
 
 <!-- Placeholder for "Used in" -->
 

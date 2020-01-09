@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.tpu.InfeedQueue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L125-L730">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InfeedQueue`
 
 A helper object to build a device infeed queue.
 
 
-
-
-
-Defined in [`python/tpu/tpu_feed.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu_feed.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,6 +30,8 @@ dequeue elements, respectively, and ensures that their types and
 shapes match.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L133-L198">View source</a>
 
 ``` python
 __init__(
@@ -116,6 +126,8 @@ Returns the types of the InfeedQueue tuple elements.
 
 <h3 id="freeze"><code>freeze</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L434-L458">View source</a>
+
 ``` python
 freeze()
 ```
@@ -133,6 +145,8 @@ until the types and shapes of the tuple elements have been set.
 set.
 
 <h3 id="generate_dequeue_op"><code>generate_dequeue_op</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L460-L497">View source</a>
 
 ``` python
 generate_dequeue_op(tpu_device=0)
@@ -168,6 +182,8 @@ into XLA, suitable for use within a replicated block.
 set; or if a dequeue op has already been generated.
 
 <h3 id="generate_enqueue_ops"><code>generate_enqueue_ops</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L552-L612">View source</a>
 
 ``` python
 generate_enqueue_ops(
@@ -227,6 +243,8 @@ will enqueue a full-size element of infeed.
 
 <h3 id="set_configuration_from_input_tensors"><code>set_configuration_from_input_tensors</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L364-L382">View source</a>
+
 ``` python
 set_configuration_from_input_tensors(input_tensors)
 ```
@@ -250,6 +268,8 @@ to set the queue configuration.
   self.number_of_tuple_elements
 
 <h3 id="set_configuration_from_sharded_input_tensors"><code>set_configuration_from_sharded_input_tensors</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L384-L432">View source</a>
 
 ``` python
 set_configuration_from_sharded_input_tensors(input_tensors)
@@ -281,6 +301,8 @@ depends on the shard dimension, and calling it freezes the shard policy.
 
 <h3 id="set_number_of_shards"><code>set_number_of_shards</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L349-L362">View source</a>
+
 ``` python
 set_number_of_shards(number_of_shards)
 ```
@@ -302,6 +324,8 @@ Sets the number of shards to use for the InfeedQueue.
   else.
 
 <h3 id="set_shard_dimensions"><code>set_shard_dimensions</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L314-L337">View source</a>
 
 ``` python
 set_shard_dimensions(shard_dimensions)
@@ -330,6 +354,8 @@ convertible to a Dimension compatible with self.tuple_shapes.
 
 <h3 id="set_tuple_shapes"><code>set_tuple_shapes</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L260-L295">View source</a>
+
 ``` python
 set_tuple_shapes(tuple_shapes)
 ```
@@ -356,6 +382,8 @@ convertible to a TensorShape.
 
 <h3 id="set_tuple_types"><code>set_tuple_types</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L221-L253">View source</a>
+
 ``` python
 set_tuple_types(tuple_types)
 ```
@@ -381,6 +409,8 @@ convertible to a dtype.
   dtype.
 
 <h3 id="split_inputs_and_generate_enqueue_ops"><code>split_inputs_and_generate_enqueue_ops</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_feed.py#L625-L730">View source</a>
 
 ``` python
 split_inputs_and_generate_enqueue_ops(
@@ -447,6 +477,3 @@ will enqueue a full-size element of infeed.
 * <b>`TypeError`</b>: if the queue configuration has previously been frozen and the
   types of the elements of inputs are not compatible with the frozen
   configuration.
-
-
-

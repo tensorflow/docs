@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.BatchNormalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/BatchNormalization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L857-L870">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BatchNormalization`
 
 Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
@@ -13,12 +31,8 @@ Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.BatchNormalization`
-* Class `tf.keras.layers.BatchNormalization`
+* Class <a href="/api_docs/python/tf/keras/layers/BatchNormalization"><code>tf.compat.v1.keras.layers.BatchNormalization</code></a>
 
-
-
-Defined in [`python/keras/layers/normalization.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/normalization.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -125,6 +139,8 @@ Same shape as input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L138-L209">View source</a>
+
 ``` python
 __init__(
     axis=-1,
@@ -151,9 +167,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

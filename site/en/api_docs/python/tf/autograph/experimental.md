@@ -6,15 +6,26 @@ page_type: reference
 # Module: tf.autograph.experimental
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/autograph/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.autograph.experimental namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Classes
 
-[`class Feature`](../../tf/autograph/experimental/Feature): Represents conversion options that can be toggled on or off.
+[`class Feature`](../../tf/autograph/experimental/Feature): This enumeration represents optional conversion options.
 
 ## Functions
 
-[`set_loop_options(...)`](../../tf/autograph/experimental/set_loop_options): Specifies additional arguments to be passed to the enclosing while_loop.
-
+[`do_not_convert(...)`](../../tf/autograph/experimental/do_not_convert): Decorator that suppresses the conversion of a function.

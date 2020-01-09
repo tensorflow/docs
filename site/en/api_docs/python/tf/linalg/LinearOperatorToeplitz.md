@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.linalg.LinearOperatorToeplitz
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/LinearOperatorToeplitz">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator_toeplitz.py#L36-L240">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LinearOperatorToeplitz`
 
 `LinearOperator` acting like a [batch] of toeplitz matrices.
@@ -13,13 +31,9 @@ Inherits From: [`LinearOperator`](../../tf/linalg/LinearOperator)
 
 ### Aliases:
 
-* Class `tf.compat.v1.linalg.LinearOperatorToeplitz`
-* Class `tf.compat.v2.linalg.LinearOperatorToeplitz`
-* Class `tf.linalg.LinearOperatorToeplitz`
+* Class <a href="/api_docs/python/tf/linalg/LinearOperatorToeplitz"><code>tf.compat.v1.linalg.LinearOperatorToeplitz</code></a>
+* Class <a href="/api_docs/python/tf/linalg/LinearOperatorToeplitz"><code>tf.compat.v2.linalg.LinearOperatorToeplitz</code></a>
 
-
-
-Defined in [`python/ops/linalg/linear_operator_toeplitz.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg/linear_operator_toeplitz.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -95,6 +109,8 @@ These have the following meaning:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator_toeplitz.py#L109-L166">View source</a>
+
 ``` python
 __init__(
     col,
@@ -160,7 +176,7 @@ Note that calling `self.adjoint()` and `self.H` are equivalent.
 
 If this operator acts like the batch matrix `A` with
 `A.shape = [B1,...,Bb, M, N]`, then this returns
-`TensorShape([B1,...,Bb])`, equivalent to `A.get_shape()[:-2]`
+`TensorShape([B1,...,Bb])`, equivalent to `A.shape[:-2]`
 
 #### Returns:
 
@@ -214,11 +230,6 @@ List of graph dependencies of this `LinearOperator`.
 Return `True/False` depending on if this operator is square.
 
 
-<h3 id="name"><code>name</code></h3>
-
-Name prepended to all ops created by this `LinearOperator`.
-
-
 <h3 id="range_dimension"><code>range_dimension</code></h3>
 
 Dimension (in the sense of vector spaces) of the range of this operator.
@@ -242,7 +253,7 @@ If this operator acts like the batch matrix `A` with
 
 If this operator acts like the batch matrix `A` with
 `A.shape = [B1,...,Bb, M, N]`, then this returns
-`TensorShape([B1,...,Bb, M, N])`, equivalent to `A.get_shape()`.
+`TensorShape([B1,...,Bb, M, N])`, equivalent to `A.shape`.
 
 #### Returns:
 
@@ -273,6 +284,8 @@ Python integer, or None if the tensor rank is undefined.
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L1014-L1027">View source</a>
+
 ``` python
 add_to_tensor(
     x,
@@ -297,6 +310,8 @@ A `Tensor` with broadcast shape and same `dtype` as `self`.
 
 <h3 id="adjoint"><code>adjoint</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L870-L885">View source</a>
+
 ``` python
 adjoint(name='adjoint')
 ```
@@ -318,6 +333,8 @@ Note that calling `self.adjoint()` and `self.H` are equivalent.
 
 
 <h3 id="assert_non_singular"><code>assert_non_singular</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L485-L503">View source</a>
 
 ``` python
 assert_non_singular(name='assert_non_singular')
@@ -346,6 +363,8 @@ An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
 
 <h3 id="assert_positive_definite"><code>assert_positive_definite</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L521-L536">View source</a>
+
 ``` python
 assert_positive_definite(name='assert_positive_definite')
 ```
@@ -370,6 +389,8 @@ An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
 
 <h3 id="assert_self_adjoint"><code>assert_self_adjoint</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L548-L562">View source</a>
+
 ``` python
 assert_self_adjoint(name='assert_self_adjoint')
 ```
@@ -393,6 +414,8 @@ An `Assert` `Op`, that, when run, will raise an `InvalidArgumentError` if
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L319-L339">View source</a>
+
 ``` python
 batch_shape_tensor(name='batch_shape_tensor')
 ```
@@ -415,6 +438,8 @@ If this operator acts like the batch matrix `A` with
 
 
 <h3 id="cholesky"><code>cholesky</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L915-L938">View source</a>
 
 ``` python
 cholesky(name='cholesky')
@@ -447,6 +472,8 @@ in the Cholesky decomposition.
 
 <h3 id="determinant"><code>determinant</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L678-L695">View source</a>
+
 ``` python
 determinant(name='det')
 ```
@@ -472,6 +499,8 @@ Determinant for every batch member.
 * <b>`NotImplementedError`</b>:  If `self.is_square` is `False`.
 
 <h3 id="diag_part"><code>diag_part</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L965-L991">View source</a>
 
 ``` python
 diag_part(name='diag_part')
@@ -508,6 +537,8 @@ tf.linalg.diag_part(my_operator.to_dense())
 
 <h3 id="domain_dimension_tensor"><code>domain_dimension_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L394-L415">View source</a>
+
 ``` python
 domain_dimension_tensor(name='domain_dimension_tensor')
 ```
@@ -531,6 +562,8 @@ If this operator acts like the batch matrix `A` with
 
 
 <h3 id="inverse"><code>inverse</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L890-L913">View source</a>
 
 ``` python
 inverse(name='inverse')
@@ -560,6 +593,8 @@ representing `A^-1`.
 
 <h3 id="log_abs_determinant"><code>log_abs_determinant</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L707-L724">View source</a>
+
 ``` python
 log_abs_determinant(name='log_abs_det')
 ```
@@ -585,6 +620,8 @@ Log absolute value of determinant for every batch member.
 * <b>`NotImplementedError`</b>:  If `self.is_square` is `False`.
 
 <h3 id="matmul"><code>matmul</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L575-L628">View source</a>
 
 ``` python
 matmul(
@@ -630,6 +667,8 @@ A `LinearOperator` or `Tensor` with shape `[..., M, R]` and same `dtype`
 
 <h3 id="matvec"><code>matvec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L635-L668">View source</a>
+
 ``` python
 matvec(
     x,
@@ -671,6 +710,8 @@ A `Tensor` with shape `[..., M]` and same `dtype` as `self`.
 
 <h3 id="range_dimension_tensor"><code>range_dimension_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L433-L454">View source</a>
+
 ``` python
 range_dimension_tensor(name='range_dimension_tensor')
 ```
@@ -695,6 +736,8 @@ If this operator acts like the batch matrix `A` with
 
 <h3 id="shape_tensor"><code>shape_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L285-L303">View source</a>
+
 ``` python
 shape_tensor(name='shape_tensor')
 ```
@@ -717,6 +760,8 @@ If this operator acts like the batch matrix `A` with
 
 
 <h3 id="solve"><code>solve</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L741-L814">View source</a>
 
 ``` python
 solve(
@@ -779,6 +824,8 @@ operator.matmul(X)
 
 <h3 id="solvevec"><code>solvevec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L822-L868">View source</a>
+
 ``` python
 solvevec(
     rhs,
@@ -837,6 +884,8 @@ operator.matvec(X)
 
 <h3 id="tensor_rank_tensor"><code>tensor_rank_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L358-L376">View source</a>
+
 ``` python
 tensor_rank_tensor(name='tensor_rank_tensor')
 ```
@@ -859,6 +908,8 @@ If this operator acts like the batch matrix `A` with
 
 <h3 id="to_dense"><code>to_dense</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L956-L959">View source</a>
+
 ``` python
 to_dense(name='to_dense')
 ```
@@ -867,6 +918,8 @@ Return a dense (batch) matrix representing this operator.
 
 
 <h3 id="trace"><code>trace</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linear_operator.py#L996-L1008">View source</a>
 
 ``` python
 trace(name='trace')
@@ -885,7 +938,3 @@ If the operator is square, this is also the sum of the eigenvalues.
 #### Returns:
 
 Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
-
-
-
-

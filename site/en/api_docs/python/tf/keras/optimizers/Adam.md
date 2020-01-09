@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.keras.optimizers.Adam
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Adam">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L32-L274">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Adam`
 
 Optimizer that implements the Adam algorithm.
@@ -14,14 +32,10 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.Adam`
-* Class `tf.compat.v2.keras.optimizers.Adam`
-* Class `tf.compat.v2.optimizers.Adam`
-* Class `tf.keras.optimizers.Adam`
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v1.keras.optimizers.Adam</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v2.keras.optimizers.Adam</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v2.optimizers.Adam</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/adam.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/adam.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,6 +52,8 @@ For AMSGrad see [On The Convergence Of Adam And Beyond.
 Reddi et al., 5-8](https://openreview.net/pdf?id=ryQu7f-RZ).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L48-L143">View source</a>
 
 ``` python
 __init__(
@@ -56,38 +72,38 @@ Construct a new Adam optimizer.
 If amsgrad = False:
   Initialization:
 
-<div>   $$m_0 := 0 \text{(Initialize initial 1st moment vector)}$$ </div>
-<div>   $$v_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
-<div>   $$t := 0 \text{(Initialize timestep)}$$ </div>
+  <div> $$m_0 := 0 \text{(Initialize initial 1st moment vector)}$$ </div>
+  <div> $$v_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
+  <div> $$t := 0 \text{(Initialize timestep)}$$ </div>
 
   The update rule for `variable` with gradient `g` uses an optimization
   described at the end of section 2 of the paper:
 
-<div>   $$t := t + 1$$ </div>
-<div>   $$lr_t := \text{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
+  <div> $$t := t + 1$$ </div>
+  <div> $$lr_t := \text{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
 
-<div>   $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
-<div>   $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
-<div>   $$variable := variable - lr_t * m_t / (\sqrt{v_t} + \epsilon)$$ </div>
+  <div> $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
+  <div> $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
+  <div> $$variable := variable - lr_t * m_t / (\sqrt{v_t} + \epsilon)$$ </div>
 
 If amsgrad = True:
   Initialization:
 
-<div>   $$m_0 := 0 \text{(Initialize initial 1st moment vector)}$$ </div>
-<div>   $$v_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
-<div>   $$v_hat_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
-<div>   $$t := 0 \text{(Initialize timestep)}$$ </div>
+  <div> $$m_0 := 0 \text{(Initialize initial 1st moment vector)}$$ </div>
+  <div> $$v_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
+  <div> $$v_hat_0 := 0 \text{(Initialize initial 2nd moment vector)}$$ </div>
+  <div> $$t := 0 \text{(Initialize timestep)}$$ </div>
 
   The update rule for `variable` with gradient `g` uses an optimization
   described at the end of section 2 of the paper:
 
-<div>   $$t := t + 1$$ </div>
-<div>   $$lr_t := \text{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
+  <div> $$t := t + 1$$ </div>
+  <div> $$lr_t := \text{learning\_rate} * \sqrt{1 - beta_2^t} / (1 - beta_1^t)$$ </div>
 
-<div>   $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
-<div>   $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
-<div>   $$v_hat_t := max(v_hat_{t-1}, v_t)
-  $$variable := variable - lr_t * m_t / (\sqrt{v_hat_t} + \epsilon)$$</div>
+  <div> $$m_t := beta_1 * m_{t-1} + (1 - beta_1) * g$$ </div>
+  <div> $$v_t := beta_2 * v_{t-1} + (1 - beta_2) * g * g$$ </div>
+  <div> $$v_hat_t := max(v_hat_{t-1}, v_t)$$ </div>
+  <div> $$variable := variable - lr_t * m_t / (\sqrt{v_hat_t} + \epsilon)$$ </div>
 
 The default value of 1e-7 for epsilon might not be a good default in
 general. For example, when training an Inception network on ImageNet a
@@ -119,16 +135,22 @@ unless a variable slice was actually used).
 * <b>`amsgrad`</b>: boolean. Whether to apply AMSGrad variant of this algorithm from
   the paper "On the Convergence of Adam and beyond".
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
-  Defaults to "Adam".  @compatibility(eager) When eager execution is
-  enabled, `learning_rate`, `beta_1`, `beta_2`, and `epsilon` can each be
-  a callable that takes no arguments and returns the actual value to use.
-  This can be useful for changing these values across different
-  invocations of optimizer functions. @end_compatibility
+  Defaults to "Adam".
 * <b>`**kwargs`</b>: keyword arguments. Allowed to be {`clipnorm`, `clipvalue`, `lr`,
   `decay`}. `clipnorm` is clip gradients by norm; `clipvalue` is clip
   gradients by value, `decay` is included for backward compatibility to
   allow time inverse decay of learning rate. `lr` is included for backward
   compatibility, recommended to use `learning_rate` instead.
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, `learning_rate`, `beta_1`, `beta_2`,
+and `epsilon` can each be a callable that takes no arguments and
+returns the actual value to use. This can be useful for changing these
+values across different invocations of optimizer functions.
+
+
 
 
 
@@ -150,6 +172,8 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+
 ``` python
 add_slot(
     var,
@@ -162,6 +186,8 @@ Add a new slot variable for `var`.
 
 
 <h3 id="add_weight"><code>add_weight</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
 
 ``` python
 add_weight(
@@ -179,6 +205,8 @@ add_weight(
 
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
 
 ``` python
 apply_gradients(
@@ -202,8 +230,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. The `iterations`
+  will be automatically increased by 1.
 
 
 
@@ -214,6 +242,8 @@ was not None, that operation also increments `global_step`.
 * <b>`ValueError`</b>: If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L696-L719">View source</a>
 
 ``` python
 from_config(
@@ -245,14 +275,27 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L264-L274">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the config of the optimimizer.
 
+An optimizer config is a Python dictionary (serializable)
+containing the configuration of an optimizer.
+The same optimizer can be reinstantiated later
+(without any saved state) from this configuration.
+
+#### Returns:
+
+Python dictionary.
 
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
 
 ``` python
 get_gradients(
@@ -285,6 +328,8 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+
 ``` python
 get_slot(
     var,
@@ -297,6 +342,8 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -305,6 +352,8 @@ A list of names for this optimizer's slots.
 
 
 <h3 id="get_updates"><code>get_updates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
 
 ``` python
 get_updates(
@@ -318,6 +367,8 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+
 ``` python
 get_weights()
 ```
@@ -326,6 +377,8 @@ get_weights()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
 
 ``` python
 minimize(
@@ -370,6 +423,8 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L177-L185">View source</a>
+
 ``` python
 set_weights(weights)
 ```
@@ -379,12 +434,10 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+
 ``` python
 variables()
 ```
 
 Returns variables of this Optimizer based on the order created.
-
-
-
-

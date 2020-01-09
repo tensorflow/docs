@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.absolute_difference
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L206-L256">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds an Absolute Difference loss to the training procedure.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.absolute_difference`
-* `tf.losses.absolute_difference`
+* <a href="/api_docs/python/tf/losses/absolute_difference"><code>tf.compat.v1.losses.absolute_difference</code></a>
+
 
 ``` python
 tf.losses.absolute_difference(
@@ -24,8 +36,6 @@ tf.losses.absolute_difference(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -69,4 +79,3 @@ shape as `labels`; otherwise, it is scalar.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

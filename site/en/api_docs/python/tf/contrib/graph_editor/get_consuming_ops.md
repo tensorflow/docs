@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.get_consuming_ops
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L319-L335">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return all the consuming ops of the tensors in ts.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.graph_editor.get_consuming_ops(ts)
 ```
 
 
-
-Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
 
 <!-- Placeholder for "Used in" -->
 

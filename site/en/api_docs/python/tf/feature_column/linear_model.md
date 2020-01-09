@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.feature_column.linear_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column.py#L369-L504">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a linear prediction `Tensor` based on given `feature_columns`.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.linear_model`
-* `tf.feature_column.linear_model`
+* <a href="/api_docs/python/tf/feature_column/linear_model"><code>tf.compat.v1.feature_column.linear_model</code></a>
+
 
 ``` python
 tf.feature_column.linear_model(
@@ -25,8 +37,6 @@ tf.feature_column.linear_model(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.keras.experimental.load_from_saved_model
 
-Loads a keras Model from a SavedModel created by `export_saved_model()`.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/experimental/load_from_saved_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/saved_model_experimental.py#L373-L428">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Loads a keras Model from a SavedModel created by `export_saved_model()`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.keras.experimental.load_from_saved_model`
-* `tf.compat.v2.keras.experimental.load_from_saved_model`
-* `tf.contrib.saved_model.load_keras_model`
-* `tf.keras.experimental.load_from_saved_model`
+* <a href="/api_docs/python/tf/keras/experimental/load_from_saved_model"><code>tf.compat.v1.keras.experimental.load_from_saved_model</code></a>
+* <a href="/api_docs/python/tf/keras/experimental/load_from_saved_model"><code>tf.compat.v2.keras.experimental.load_from_saved_model</code></a>
+* <a href="/api_docs/python/tf/keras/experimental/load_from_saved_model"><code>tf.contrib.saved_model.load_keras_model</code></a>
+
 
 ``` python
 tf.keras.experimental.load_from_saved_model(
@@ -23,9 +41,11 @@ tf.keras.experimental.load_from_saved_model(
 
 
 
-Defined in [`python/keras/saving/saved_model.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/saving/saved_model.py).
-
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+The experimental save and load functions have been  deprecated. Please switch to <a href="../../../tf/keras/models/load_model"><code>tf.keras.models.load_model</code></a>.
 
 This function reinstantiates model state by:
 1) loading model topology from json (this will eventually come

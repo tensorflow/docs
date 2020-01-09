@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.batch_and_drop_remainder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/batching.py#L102-L139">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A batching transformation that omits the final small batch (if present). (deprecated)
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.data.batch_and_drop_remainder(batch_size)
 ```
 
 
-
-Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,7 +37,7 @@ size does not evenly divide the input dataset size, this transformation will
 drop the final smaller element.
 
 The following example illustrates the difference between this
-transformation and `Dataset.batch()`:
+transformation and <a href="/api_docs/python/tf/data/Dataset#batch"><code>Dataset.batch()</code></a>:
 
 ```python
 dataset = tf.data.Dataset.range(200)

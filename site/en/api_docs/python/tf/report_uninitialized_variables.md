@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.report_uninitialized_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3331-L3376">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds ops to list the names of uninitialized variables.
 
 ### Aliases:
 
-* `tf.compat.v1.report_uninitialized_variables`
-* `tf.report_uninitialized_variables`
+* <a href="/api_docs/python/tf/report_uninitialized_variables"><code>tf.compat.v1.report_uninitialized_variables</code></a>
+
 
 ``` python
 tf.report_uninitialized_variables(
@@ -21,8 +33,6 @@ tf.report_uninitialized_variables(
 
 
 
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
-
 <!-- Placeholder for "Used in" -->
 
 When run, it returns a 1-D tensor containing the names of uninitialized
@@ -31,8 +41,8 @@ variables if there are any, or an empty array if there are none.
 #### Args:
 
 
-* <b>`var_list`</b>: List of `Variable` objects to check. Defaults to the
-  value of `global_variables() + local_variables()`
+* <b>`var_list`</b>: List of `Variable` objects to check. Defaults to the value of
+  `global_variables() + local_variables()`
 * <b>`name`</b>: Optional name of the `Operation`.
 
 

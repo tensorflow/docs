@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.softmax_cross_entropy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L713-L781">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.softmax_cross_entropy`
-* `tf.losses.softmax_cross_entropy`
+* <a href="/api_docs/python/tf/losses/softmax_cross_entropy"><code>tf.compat.v1.losses.softmax_cross_entropy</code></a>
+
 
 ``` python
 tf.losses.softmax_cross_entropy(
@@ -25,8 +37,6 @@ tf.losses.softmax_cross_entropy(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -76,4 +86,3 @@ Weighted loss `Tensor` of the same type as `logits`. If `reduction` is
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

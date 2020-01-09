@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.gfile
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Import router for file_io.
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,4 +49,3 @@ page_type: reference
 [`Stat(...)`](../tf/gfile/Stat): Returns file statistics for a given path.
 
 [`Walk(...)`](../tf/gfile/Walk): Recursive directory tree generator for directories.
-

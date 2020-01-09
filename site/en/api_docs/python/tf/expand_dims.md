@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.expand_dims
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/expand_dims">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L211-L265">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Inserts a dimension of 1 into a tensor's shape. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.expand_dims`
-* `tf.expand_dims`
+* <a href="/api_docs/python/tf/expand_dims"><code>tf.compat.v1.expand_dims</code></a>
+
 
 ``` python
 tf.expand_dims(
@@ -22,8 +40,6 @@ tf.expand_dims(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

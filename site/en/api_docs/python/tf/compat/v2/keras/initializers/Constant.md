@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.Constant
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L123-L215">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Constant`
 
 Initializer that generates tensors with constant values.
@@ -13,15 +25,11 @@ Inherits From: [`Initializer`](../../../../../tf/compat/v2/keras/initializers/In
 
 ### Aliases:
 
-* Class `tf.compat.v2.constant_initializer`
-* Class `tf.compat.v2.initializers.Constant`
-* Class `tf.compat.v2.initializers.constant`
-* Class `tf.compat.v2.keras.initializers.Constant`
-* Class `tf.compat.v2.keras.initializers.constant`
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Constant"><code>tf.compat.v2.constant_initializer</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Constant"><code>tf.compat.v2.initializers.Constant</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Constant"><code>tf.compat.v2.initializers.constant</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Constant"><code>tf.compat.v2.keras.initializers.constant</code></a>
 
-
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,51 +66,56 @@ The following example can be rewritten using a numpy.ndarray instead
 of the `value` list, even reshaped, as shown in the two commented lines
 below the `value` list initialization.
 
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}import numpy as np{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> import tensorflow as tf{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  ```{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> value = [0, 1, 2, 3, 4, 5, 6, 7]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> # value = np.array(value){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> # value = value.reshape([2, 4]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> init = tf.compat.v1.constant_initializer(value){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> print('fitting shape:'){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> with tf.compat.v1.Session():{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   x = tf.compat.v1.get_variable('x', shape=[2, 4], initializer=init){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   x.initializer.run(){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   print(x.eval()){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     fitting shape:{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     [[ 0.  1.  2.  3.]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>      [ 4.  5.  6.  7.]]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> print('larger shape:'){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> with tf.compat.v1.Session():{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   x = tf.compat.v1.get_variable('x', shape=[3, 4], initializer=init){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   x.initializer.run(){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   print(x.eval()){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     larger shape:{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     [[ 0.  1.  2.  3.]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>      [ 4.  5.  6.  7.]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>      [ 7.  7.  7.  7.]]{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> print('smaller shape:'){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> with tf.compat.v1.Session():{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>>   x = tf.compat.v1.get_variable('x', shape=[2, 3], initializer=init){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>     {% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}>       ValueError: Too many elements provided. Needed at most 6, but received 8{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}<h2 id="__init__"><code>__init__</code></h2>{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L190-L195">View source</a>{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}``` python{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}__init__(value=0){% endhtmlescape %}</code>
+  </pre>
 
-```python
-  >>> import numpy as np
-  >>> import tensorflow as tf
-
-  >>> value = [0, 1, 2, 3, 4, 5, 6, 7]
-  >>> # value = np.array(value)
-  >>> # value = value.reshape([2, 4])
-  >>> init = tf.compat.v1.constant_initializer(value)
-
-  >>> print('fitting shape:')
-  >>> with tf.compat.v1.Session():
-  >>>   x = tf.compat.v1.get_variable('x', shape=[2, 4], initializer=init)
-  >>>   x.initializer.run()
-  >>>   print(x.eval())
-
-  fitting shape:
-  [[ 0.  1.  2.  3.]
-   [ 4.  5.  6.  7.]]
-
-  >>> print('larger shape:')
-  >>> with tf.compat.v1.Session():
-  >>>   x = tf.compat.v1.get_variable('x', shape=[3, 4], initializer=init)
-  >>>   x.initializer.run()
-  >>>   print(x.eval())
-
-  larger shape:
-  [[ 0.  1.  2.  3.]
-   [ 4.  5.  6.  7.]
-   [ 7.  7.  7.  7.]]
-
-  >>> print('smaller shape:')
-  >>> with tf.compat.v1.Session():
-  >>>   x = tf.compat.v1.get_variable('x', shape=[2, 3], initializer=init)
-
-  ValueError: Too many elements provided. Needed at most 6, but received 8
-```
-
-<h2 id="__init__"><code>__init__</code></h2>
-
-``` python
-__init__(value=0)
-```
-
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -110,6 +123,8 @@ __init__(value=0)
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L197-L212">View source</a>
 
 ``` python
 __call__(
@@ -136,6 +151,8 @@ Returns a tensor object initialized as specified by the initializer.
  dtype.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -171,12 +188,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L214-L215">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

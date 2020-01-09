@@ -5,29 +5,27 @@ page_type: reference
 
 # tf.data.experimental.TensorArrayStructure
 
-## Class `TensorArrayStructure`
 
-Represents structural information about a <a href="../../../tf/TensorArray"><code>tf.TensorArray</code></a>.
+<table class="tfo-notebook-buttons tfo-api" align="left">
 
-Inherits From: [`Structure`](../../../tf/data/experimental/Structure)
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/structure.py#L52-L56">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+DEPRECATED FUNCTION
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.TensorArrayStructure`
-* Class `tf.compat.v2.data.experimental.TensorArrayStructure`
-* Class `tf.data.experimental.TensorArrayStructure`
+* <a href="/api_docs/python/tf/data/experimental/TensorArrayStructure"><code>tf.compat.v1.data.experimental.TensorArrayStructure</code></a>
 
-
-
-Defined in [`python/data/util/structure.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/util/structure.py).
-
-<!-- Placeholder for "Used in" -->
-
-
-<h2 id="__init__"><code>__init__</code></h2>
 
 ``` python
-__init__(
+tf.data.experimental.TensorArrayStructure(
     dtype,
     element_shape,
     dynamic_size,
@@ -37,47 +35,8 @@ __init__(
 
 
 
+<!-- Placeholder for "Used in" -->
 
-
-
-## Methods
-
-<h3 id="__eq__"><code>__eq__</code></h3>
-
-``` python
-__eq__(other)
-```
-
-
-
-
-<h3 id="__ne__"><code>__ne__</code></h3>
-
-``` python
-__ne__(other)
-```
-
-
-
-
-<h3 id="from_value"><code>from_value</code></h3>
-
-``` python
-@staticmethod
-from_value(value)
-```
-
-
-
-
-<h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
-
-``` python
-is_compatible_with(other)
-```
-
-
-
-
-
-
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Use <a href="../../../tf/TensorArraySpec"><code>tf.TensorArraySpec</code></a> instead.

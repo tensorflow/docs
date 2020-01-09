@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.experimental.ThreadingOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/ThreadingOptions">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/threading_options.py#L26-L50">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ThreadingOptions`
 
 Represents options for dataset threading.
@@ -13,13 +31,9 @@ Represents options for dataset threading.
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.experimental.ThreadingOptions`
-* Class `tf.compat.v2.data.experimental.ThreadingOptions`
-* Class `tf.data.experimental.ThreadingOptions`
+* Class <a href="/api_docs/python/tf/data/experimental/ThreadingOptions"><code>tf.compat.v1.data.experimental.ThreadingOptions</code></a>
+* Class <a href="/api_docs/python/tf/data/experimental/ThreadingOptions"><code>tf.compat.v2.data.experimental.ThreadingOptions</code></a>
 
-
-
-Defined in [`python/data/experimental/ops/threading_options.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/threading_options.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,11 +49,13 @@ dataset = dataset.with_options(options)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -62,21 +78,21 @@ If set, the dataset will use a private threadpool of the given size.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
-
-
-
-
+Return self!=value.

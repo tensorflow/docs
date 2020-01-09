@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.train.get_checkpoint_mtimes
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L396-L439">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the mtimes (modification timestamps) of the checkpoints. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.get_checkpoint_mtimes`
-* `tf.train.get_checkpoint_mtimes`
+* <a href="/api_docs/python/tf/train/get_checkpoint_mtimes"><code>tf.compat.v1.train.get_checkpoint_mtimes</code></a>
+
 
 ``` python
 tf.train.get_checkpoint_mtimes(checkpoint_prefixes)
 ```
 
 
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 

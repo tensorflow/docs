@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.metrics.AUC
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/metrics/AUC">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1589-L1869">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AUC`
 
 Computes the approximate AUC (Area under the curve) via a Riemann sum.
@@ -13,14 +31,10 @@ Inherits From: [`Metric`](../../../tf/keras/metrics/Metric)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.metrics.AUC`
-* Class `tf.compat.v2.keras.metrics.AUC`
-* Class `tf.compat.v2.metrics.AUC`
-* Class `tf.keras.metrics.AUC`
+* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v1.keras.metrics.AUC</code></a>
+* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v2.keras.metrics.AUC</code></a>
+* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v2.metrics.AUC</code></a>
 
-
-
-Defined in [`python/keras/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/metrics.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -74,6 +88,8 @@ model.compile('sgd', loss='mse', metrics=[tf.keras.metrics.AUC()])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1639-L1728">View source</a>
+
 ``` python
 __init__(
     num_thresholds=200,
@@ -111,11 +127,28 @@ Creates an `AUC` instance.
   be automatically included with these to correctly handle predictions
   equal to exactly 0 or 1.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+
+``` python
+__new__(
+    cls,
+    *args,
+    **kwargs
+)
+```
+
+Create and return a new object.  See help(type) for accurate signature.
+
+
 
 
 ## Methods
 
 <h3 id="interpolate_pr_auc"><code>interpolate_pr_auc</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1750-L1817">View source</a>
 
 ``` python
 interpolate_pr_auc()
@@ -168,23 +201,33 @@ first bucket having >0 true positives.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1854-L1856">View source</a>
+
 ``` python
 reset_states()
 ```
 
+Resets all of the metric state variables.
 
-
+This function is called between epochs/steps,
+when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1819-L1852">View source</a>
 
 ``` python
 result()
 ```
 
+Computes and returns the metric value tensor.
 
-
+Result computation is an idempotent operation that simply calculates the
+metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1730-L1748">View source</a>
 
 ``` python
 update_state(
@@ -210,7 +253,3 @@ Accumulates confusion matrix statistics.
 #### Returns:
 
 Update op.
-
-
-
-

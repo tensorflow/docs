@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.BaseEstimator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L396-L1096">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BaseEstimator`
 
 Abstract BaseEstimator class to train and evaluate TensorFlow models.
 
 Inherits From: [`Evaluable`](../../../tf/contrib/learn/Evaluable), [`Trainable`](../../../tf/contrib/learn/Trainable)
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/estimator.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/estimator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -25,6 +33,8 @@ Users should not instantiate or subclass this class. Instead, use an
 `Estimator`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L413-L466">View source</a>
 
 ``` python
 __init__(
@@ -59,7 +69,7 @@ Please replace uses of any Estimator from tf.contrib.learn with an Estimator fro
 
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-
+Returns a path in which the eval process will look for checkpoints.
 
 
 <h3 id="model_fn"><code>model_fn</code></h3>
@@ -78,6 +88,8 @@ The model_fn with the following signature:
 ## Methods
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L580-L621">View source</a>
 
 ``` python
 evaluate(
@@ -113,6 +125,8 @@ Example conversion:
     Or if `metrics` is not `None` or `dict`.
 
 <h3 id="export"><code>export</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L695-L754">View source</a>
 
 ``` python
 export(
@@ -175,6 +189,8 @@ are not returning a value.
 
 <h3 id="fit"><code>fit</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L487-L526">View source</a>
+
 ``` python
 fit(
     x=None,
@@ -205,6 +221,8 @@ Example conversion:
 
 <h3 id="get_params"><code>get_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L41-L67">View source</a>
+
 ``` python
 get_params(deep=True)
 ```
@@ -229,6 +247,8 @@ Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L683-L689">View source</a>
+
 ``` python
 get_variable_names()
 ```
@@ -242,6 +262,8 @@ List of names.
 
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L672-L681">View source</a>
 
 ``` python
 get_variable_value(name)
@@ -262,6 +284,8 @@ Numpy array - value of the tensor.
 
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L528-L578">View source</a>
 
 ``` python
 partial_fit(
@@ -325,6 +349,8 @@ to converge, and you want to split up training into subparts.
 
 <h3 id="predict"><code>predict</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L623-L670">View source</a>
+
 ``` python
 predict(
     x=None,
@@ -382,6 +408,8 @@ predictions if as_iterable is True.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L69-L110">View source</a>
+
 ``` python
 set_params(**params)
 ```
@@ -409,6 +437,3 @@ self
 
 
 * <b>`ValueError`</b>: If params contain invalid names.
-
-
-

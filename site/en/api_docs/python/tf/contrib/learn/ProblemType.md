@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.ProblemType
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/constants.py#L27-L44">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ProblemType`
 
 Enum-like values for the type of problem that the model solves.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/constants.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/constants.py).
 
 <!-- Placeholder for "Used in" -->
 

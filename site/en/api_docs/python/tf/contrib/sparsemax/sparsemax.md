@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.contrib.sparsemax.sparsemax
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/sparsemax/python/ops/sparsemax.py#L30-L94">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes sparsemax activations [1].
 
 ``` python
@@ -17,12 +29,10 @@ tf.contrib.sparsemax.sparsemax(
 
 
 
-Defined in [`contrib/sparsemax/python/ops/sparsemax.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/sparsemax/python/ops/sparsemax.py).
-
 <!-- Placeholder for "Used in" -->
 
 For each batch `i` and class `j` we have
-<div>   $$sparsemax[i, j] = max(logits[i, j] - tau(logits[i, :]), 0)$$ </div>
+  <div> $$sparsemax[i, j] = max(logits[i, j] - tau(logits[i, :]), 0)$$ </div>
 
 [1]: https://arxiv.org/abs/1602.02068
 

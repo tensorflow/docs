@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.NumpyState
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/python/python_state.py#L34-L126">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NumpyState`
 
 A trackable object whose NumPy array attributes are saved/restored.
 
 Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
-
-
-
-Defined in [`contrib/checkpoint/python/python_state.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/python_state.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,4 +57,3 @@ eagerly). When restoring they skip the TensorFlow graph entirely, and so no
 restore ops need be run. This means that restoration always happens eagerly,
 rather than waiting for `checkpoint.restore(...).run_restore_ops()` like
 TensorFlow variables when graph building.
-

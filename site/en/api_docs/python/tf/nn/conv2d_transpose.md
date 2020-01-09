@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.conv2d_transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/conv2d_transpose">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2137-L2204">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 The transpose of `conv2d`.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.conv2d_transpose`
-* `tf.nn.conv2d_transpose`
+* <a href="/api_docs/python/tf/nn/conv2d_transpose"><code>tf.compat.v1.nn.conv2d_transpose</code></a>
+
 
 ``` python
 tf.nn.conv2d_transpose(
@@ -28,8 +46,6 @@ tf.nn.conv2d_transpose(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

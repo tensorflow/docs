@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.ragged.boolean_mask
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/ragged/boolean_mask">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_array_ops.py#L41-L202">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Applies a boolean mask to `data` without flattening the mask dimensions.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.boolean_mask`
-* `tf.compat.v2.ragged.boolean_mask`
-* `tf.ragged.boolean_mask`
+* <a href="/api_docs/python/tf/ragged/boolean_mask"><code>tf.compat.v1.ragged.boolean_mask</code></a>
+* <a href="/api_docs/python/tf/ragged/boolean_mask"><code>tf.compat.v2.ragged.boolean_mask</code></a>
+
 
 ``` python
 tf.ragged.boolean_mask(
@@ -22,8 +40,6 @@ tf.ragged.boolean_mask(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -63,18 +79,21 @@ A potentially ragged tensor that is formed by retaining the elements in
   not a prefix of `data.shape`.
 
 #### Examples:
+
 >     >>> # Aliases for True & False so data and mask line up.
 >     >>> T, F = (True, False)
 >     
->     >>> tf.ragged.boolean_mask(  # Mask a 2D Tensor.
->     ...     data=[[1, 2, 3], [4, 5, 6], [7, 8, 9]],
->     ...     mask=[[T, F, T], [F, F, F], [T, F, F]]).tolist()
->     [[1, 3], [], [7]]
+  >>> tf.ragged.boolean_mask(  # Mask a 2D Tensor.
+  ...     data=[[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+  ...     mask=[[T, F, T], [F, F, F], [T, F, F]]).tolist()
+  [[1, 3], [], [7]]
+
 >     
->     >>> tf.ragged.boolean_mask(  # Mask a 2D RaggedTensor.
->     ...     tf.ragged.constant([[1, 2, 3], [4], [5, 6]]),
->     ...     tf.ragged.constant([[F, F, T], [F], [T, T]])).tolist()
->     [[3], [], [5, 6]]
+  >>> tf.ragged.boolean_mask(  # Mask a 2D RaggedTensor.
+  ...     tf.ragged.constant([[1, 2, 3], [4], [5, 6]]),
+  ...     tf.ragged.constant([[F, F, T], [F], [T, T]])).tolist()
+  [[3], [], [5, 6]]
+
 >     
 >     >>> tf.ragged.boolean_mask(  # Mask rows of a 2D RaggedTensor.
 >     ...     tf.ragged.constant([[1, 2, 3], [4], [5, 6]]),

@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.nn.selu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/selu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes scaled exponential linear: `scale * alpha * (exp(features) - 1)`
 
 ### Aliases:
 
-* `tf.compat.v1.nn.selu`
-* `tf.compat.v2.nn.selu`
-* `tf.nn.selu`
+* <a href="/api_docs/python/tf/nn/selu"><code>tf.compat.v1.nn.selu</code></a>
+* <a href="/api_docs/python/tf/nn/selu"><code>tf.compat.v2.nn.selu</code></a>
+
 
 ``` python
 tf.nn.selu(
@@ -21,8 +35,6 @@ tf.nn.selu(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

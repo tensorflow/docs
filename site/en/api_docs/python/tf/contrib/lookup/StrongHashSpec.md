@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.lookup.StrongHashSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L800-L820">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StrongHashSpec`
 
 A structure to specify a key of the strong keyed hash spec.
 
 Inherits From: [`HasherSpec`](../../../tf/contrib/lookup/HasherSpec)
-
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,6 +34,23 @@ would be a fine choice.
 
 * <b>`key`</b>: The key to be used by the keyed hashing function.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L812-L820">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    key
+)
+```
+
+Create new instance of HasherSpec(hasher, key)
+
+
+
+
 ## Properties
 
 <h3 id="hasher"><code>hasher</code></h3>
@@ -34,9 +59,3 @@ would be a fine choice.
 
 
 <h3 id="key"><code>key</code></h3>
-
-
-
-
-
-

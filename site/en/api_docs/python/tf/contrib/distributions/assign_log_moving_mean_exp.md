@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.assign_log_moving_mean_exp
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/moving_stats.py#L107-L173">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute the log of the exponentially weighted moving mean of the exp.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.distributions.assign_log_moving_mean_exp(
 ```
 
 
-
-Defined in [`contrib/distributions/python/ops/moving_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/moving_stats.py).
 
 <!-- Placeholder for "Used in" -->
 

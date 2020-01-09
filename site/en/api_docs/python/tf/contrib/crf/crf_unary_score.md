@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.crf.crf_unary_score
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/crf/python/ops/crf.py#L265-L298">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the unary scores of tag sequences.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.crf.crf_unary_score(
 ```
 
 
-
-Defined in [`contrib/crf/python/ops/crf.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/crf/python/ops/crf.py).
 
 <!-- Placeholder for "Used in" -->
 

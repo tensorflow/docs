@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.nn.dilation2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L241-L305">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the grayscale dilation of 4-D `input` and 3-D `filters` tensors.
 
 ``` python
@@ -20,8 +32,6 @@ tf.compat.v2.nn.dilation2d(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -63,7 +73,7 @@ negation of the erosion of `-input` by the reflected `filters`.
   tensor. Must be: `[1, stride_height, stride_width, 1]`.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
   The type of padding algorithm to use.
-* <b>`data_format`</b>: A `string`, only `"NCHW"` is currently supported.
+* <b>`data_format`</b>: A `string`, only `"NHWC"` is currently supported.
 * <b>`dilations`</b>: A list of `ints` that has length `>= 4`.
   The input stride for atrous morphological dilation. Must be:
   `[1, rate_height, rate_width, 1]`.

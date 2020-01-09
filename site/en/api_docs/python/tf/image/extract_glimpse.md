@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.image.extract_glimpse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/extract_glimpse">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3711-L3787">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Extracts a glimpse from the input tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.image.extract_glimpse`
-* `tf.image.extract_glimpse`
+* <a href="/api_docs/python/tf/image/extract_glimpse"><code>tf.compat.v1.image.extract_glimpse</code></a>
+
 
 ``` python
 tf.image.extract_glimpse(
@@ -25,8 +43,6 @@ tf.image.extract_glimpse(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -78,3 +94,19 @@ The argument `normalized` and `centered` controls how the windows are built:
 #### Returns:
 
 A `Tensor` of type `float32`.
+
+
+
+#### Usage Example:
+
+```python
+BATCH_SIZE = 1
+IMAGE_HEIGHT = 3
+IMAGE_WIDTH = 3
+CHANNELS = 1
+GLIMPSE_SIZE = (2, 2)
+image = tf.reshape(tf.range(9, delta=1, dtype=tf.float32),
+  shape=(BATCH_SIZE, IMAGE_HEIGHT, IMAGE_WIDTH, CHANNELS))
+output = tf.image.extract_glimpse(image, size=GLIMPSE_SIZE,
+  offsets=[[1, 1]], centered=False, normalized=False)
+ ```

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.constrained_optimization.find_best_candidate_distribution
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/constrained_optimization/python/candidates.py#L138-L221">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Finds a distribution minimizing an objective subject to constraints.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.constrained_optimization.find_best_candidate_distribution(
 ```
 
 
-
-Defined in [`contrib/constrained_optimization/python/candidates.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/constrained_optimization/python/candidates.py).
 
 <!-- Placeholder for "Used in" -->
 

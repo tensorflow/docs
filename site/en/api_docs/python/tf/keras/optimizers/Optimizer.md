@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.optimizers.Optimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Optimizer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L78-L1005">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Optimizer`
 
 Updated base class for optimizers.
@@ -13,14 +31,10 @@ Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/Checkpointa
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.Optimizer`
-* Class `tf.compat.v2.keras.optimizers.Optimizer`
-* Class `tf.compat.v2.optimizers.Optimizer`
-* Class `tf.keras.optimizers.Optimizer`
+* Class <a href="/api_docs/python/tf/keras/optimizers/Optimizer"><code>tf.compat.v1.keras.optimizers.Optimizer</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Optimizer"><code>tf.compat.v2.keras.optimizers.Optimizer</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Optimizer"><code>tf.compat.v2.optimizers.Optimizer</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/optimizer_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/optimizer_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +72,7 @@ callable in these cases.
 opt = tf.keras.optimizers.SGD(learning_rate=0.1)
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Dense(num_hidden, activation='relu'))
-model.add(tf.keras.layers.Dense(num_classes, activation='sigmoid')
+model.add(tf.keras.layers.Dense(num_classes, activation='sigmoid'))
 loss_fn = lambda: tf.keras.losses.mse(model(input), output)
 var_list_fn = lambda: model.trainable_weights
 for input, output in data:
@@ -88,15 +102,13 @@ with tf.GradientTape() as tape:
   loss = <call_loss_function>
 vars = <list_of_variables>
 grads = tape.gradient(loss, vars)
+
+# Process the gradients, for example cap them, etc.
+# capped_grads = [MyCapper(g) for g in grads]
 processed_grads = [process_gradient(g) for g in grads]
-grads_and_vars = zip(processed_grads, var_list)
 
-# grads_and_vars is a list of tuples (gradient, variable).  Do whatever you
-# need to the 'gradient' part, for example cap them, etc.
-capped_grads_and_vars = [(MyCapper(gv[0]), gv[1]) for gv in grads_and_vars]
-
-# Ask the optimizer to apply the capped gradients.
-opt.apply_gradients(capped_grads_and_vars)
+# Ask the optimizer to apply the processed gradients.
+opt.apply_gradients(zip(processed_grads, var_list))
 ```
 
 ### Use with <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
@@ -178,6 +190,8 @@ this class and override the following methods:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L226-L286">View source</a>
+
 ``` python
 __init__(
     name,
@@ -234,6 +248,8 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+
 ``` python
 add_slot(
     var,
@@ -246,6 +262,8 @@ Add a new slot variable for `var`.
 
 
 <h3 id="add_weight"><code>add_weight</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
 
 ``` python
 add_weight(
@@ -263,6 +281,8 @@ add_weight(
 
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
 
 ``` python
 apply_gradients(
@@ -286,8 +306,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. The `iterations`
+  will be automatically increased by 1.
 
 
 
@@ -298,6 +318,8 @@ was not None, that operation also increments `global_step`.
 * <b>`ValueError`</b>: If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L696-L719">View source</a>
 
 ``` python
 @classmethod
@@ -330,6 +352,8 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L677-L694">View source</a>
+
 ``` python
 get_config()
 ```
@@ -347,6 +371,8 @@ Python dictionary.
 
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
 
 ``` python
 get_gradients(
@@ -379,6 +405,8 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+
 ``` python
 get_slot(
     var,
@@ -391,6 +419,8 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -399,6 +429,8 @@ A list of names for this optimizer's slots.
 
 
 <h3 id="get_updates"><code>get_updates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
 
 ``` python
 get_updates(
@@ -412,6 +444,8 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+
 ``` python
 get_weights()
 ```
@@ -420,6 +454,8 @@ get_weights()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
 
 ``` python
 minimize(
@@ -464,6 +500,8 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L746-L764">View source</a>
+
 ``` python
 set_weights(weights)
 ```
@@ -473,12 +511,10 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+
 ``` python
 variables()
 ```
 
 Returns variables of this Optimizer based on the order created.
-
-
-
-

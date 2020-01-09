@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.optimizers.schedules
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/schedules">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.keras.optimizers.schedules namespace.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.optimizers.schedules`
-* Module `tf.keras.optimizers.schedules`
+* Module <a href="/api_docs/python/tf/keras/optimizers/schedules"><code>tf.compat.v1.keras.optimizers.schedules</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/optimizers/schedules/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/optimizers/schedules/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,4 +44,3 @@ Defined in [`python/keras/api/_v1/keras/optimizers/schedules/__init__.py`](https
 [`deserialize(...)`](../../../tf/keras/optimizers/schedules/deserialize)
 
 [`serialize(...)`](../../../tf/keras/optimizers/schedules/serialize)
-

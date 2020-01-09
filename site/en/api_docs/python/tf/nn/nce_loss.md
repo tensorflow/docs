@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.nce_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/nce_loss">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1917-L2025">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes and returns the noise-contrastive estimation training loss.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.nce_loss`
-* `tf.nn.nce_loss`
+* <a href="/api_docs/python/tf/nn/nce_loss"><code>tf.compat.v1.nn.nce_loss</code></a>
+
 
 ``` python
 tf.nn.nce_loss(
@@ -29,8 +47,6 @@ tf.nn.nce_loss(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

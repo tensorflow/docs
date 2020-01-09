@@ -6,20 +6,27 @@ page_type: reference
 # Module: tf.keras.wrappers
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/wrappers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Wrappers for Keras models, providing compatibility with other frameworks.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.wrappers`
-* Module `tf.keras.wrappers`
+* Module <a href="/api_docs/python/tf/keras/wrappers"><code>tf.compat.v1.keras.wrappers</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/wrappers/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/wrappers/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`scikit_learn`](../../tf/keras/wrappers/scikit_learn) module
-
+[`scikit_learn`](../../tf/keras/wrappers/scikit_learn) module: Wrapper for using the Scikit-Learn API with Keras models.

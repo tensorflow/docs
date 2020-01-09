@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.legacy_seq2seq.embedding_rnn_decoder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py#L233-L298">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 RNN decoder with embedding and a pure-decoding option.
 
 ``` python
@@ -22,8 +34,6 @@ tf.contrib.legacy_seq2seq.embedding_rnn_decoder(
 ```
 
 
-
-Defined in [`contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.data.TFRecordWriter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/writers.py#L24-L30">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TFRecordWriter`
 
 Writes data to a TFRecord file.
 
 Inherits From: [`TFRecordWriter`](../../../tf/data/experimental/TFRecordWriter)
 
-
-
-Defined in [`contrib/data/python/ops/writers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/writers.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/writers.py#L27-L30">View source</a>
 
 ``` python
 __init__(
@@ -39,6 +49,8 @@ Use <a href="../../../tf/data/experimental/TFRecordWriter"><code>tf.data.experim
 
 <h3 id="write"><code>write</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/writers.py#L68-L87">View source</a>
+
 ``` python
 write(dataset)
 ```
@@ -55,7 +67,3 @@ Returns a <a href="../../../tf/Operation"><code>tf.Operation</code></a> to write
 #### Returns:
 
 A <a href="../../../tf/Operation"><code>tf.Operation</code></a> that, when run, writes contents of `dataset` to a file.
-
-
-
-

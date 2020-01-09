@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.user_ops
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.user_ops namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -13,4 +19,3 @@ page_type: reference
 ## Functions
 
 [`my_fact(...)`](../tf/user_ops/my_fact): Example of overriding the generated code for an Op.
-

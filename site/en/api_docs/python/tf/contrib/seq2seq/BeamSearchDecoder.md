@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.BeamSearchDecoder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L575-L736">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BeamSearchDecoder`
 
 BeamSearch sampling decoder.
 
 Inherits From: [`Decoder`](../../../tf/contrib/seq2seq/Decoder)
-
-
-
-Defined in [`contrib/seq2seq/python/ops/beam_search_decoder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -55,6 +63,8 @@ when computing scores (https://arxiv.org/pdf/1609.08144.pdf). It encourages
 the decoder to cover all inputs.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L617-L692">View source</a>
 
 ``` python
 __init__(
@@ -117,7 +127,7 @@ Initialize the BeamSearchDecoder.
 
 <h3 id="output_dtype"><code>output_dtype</code></h3>
 
-
+A (possibly nested tuple of...) dtype[s].
 
 
 <h3 id="output_size"><code>output_size</code></h3>
@@ -144,6 +154,8 @@ in `dynamic_decode`.
 ## Methods
 
 <h3 id="finalize"><code>finalize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L335-L368">View source</a>
 
 ``` python
 finalize(
@@ -177,6 +189,8 @@ Finalize and return the predicted_ids.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L694-L725">View source</a>
+
 ``` python
 initialize(name=None)
 ```
@@ -196,6 +210,8 @@ Initialize the decoder.
 
 
 <h3 id="step"><code>step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/beam_search_decoder.py#L522-L572">View source</a>
 
 ``` python
 step(
@@ -221,7 +237,3 @@ Perform a decoding step.
 #### Returns:
 
 `(outputs, next_state, next_inputs, finished)`.
-
-
-
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.lookup.index_table_from_file
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1221-L1339">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a lookup table that converts a string tensor into int64 IDs.
 
 ``` python
@@ -24,8 +36,6 @@ tf.contrib.lookup.index_table_from_file(
 
 
 
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 This operation constructs a lookup table to convert tensor of strings into
@@ -40,8 +50,8 @@ The bucket ID range is
 `[vocabulary size, vocabulary size + num_oov_buckets - 1]`.
 
 The underlying table must be initialized by calling
-`session.run(tf.compat.v1.tables_initializer)` or `session.run(table.init)`
-once.
+`session.run(tf.compat.v1.tables_initializer())` or
+`session.run(table.init())` once.
 
 To specify multi-column vocabulary files, use key_column_index and
 value_column_index and delimiter.

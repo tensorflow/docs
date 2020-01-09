@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.keras.optimizers.Ftrl
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Ftrl">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/ftrl.py#L29-L244">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Ftrl`
 
 Optimizer that implements the FTRL algorithm.
@@ -14,14 +32,10 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.Ftrl`
-* Class `tf.compat.v2.keras.optimizers.Ftrl`
-* Class `tf.compat.v2.optimizers.Ftrl`
-* Class `tf.keras.optimizers.Ftrl`
+* Class <a href="/api_docs/python/tf/keras/optimizers/Ftrl"><code>tf.compat.v1.keras.optimizers.Ftrl</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Ftrl"><code>tf.compat.v2.keras.optimizers.Ftrl</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Ftrl"><code>tf.compat.v2.optimizers.Ftrl</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/ftrl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/ftrl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,13 +53,13 @@ loss function).
 <div> $$\sigma_{0} = 0$$ </div>
 <div> $$z_{0} = 0$$ </div>
 
-<div> Update ($$i$$ is variable index): </div>
+Update (<div> $$i$$ </div> is variable index):
 <div> $$t = t + 1$$ </div>
 <div> $$n_{t,i} = n_{t-1,i} + g_{t,i}^{2}$$ </div>
 <div> $$\sigma_{t,i} = (\sqrt{n_{t,i}} - \sqrt{n_{t-1,i}}) / \alpha$$ </div>
 <div> $$z_{t,i} = z_{t-1,i} + g_{t,i} - \sigma_{t,i} * w_{t,i}$$ </div>
 <div> $$w_{t,i} = - ((\beta+\sqrt{n+{t}}) / \alpha + \lambda_{2})^{-1} * (z_{i} -
-             sgn(z_{i}) * \lambda_{1}) if \abs{z_{i}} > \lambda_{i} else 0$$</div>
+             sgn(z_{i}) * \lambda_{1}) if \abs{z_{i}} > \lambda_{i} else 0$$ </div>
 
 Check the documentation for the l2_shrinkage_regularization_strength
 parameter for more details when shrinkage is enabled, where gradient is
@@ -53,9 +67,11 @@ replaced with gradient_with_shrinkage.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/ftrl.py#L57-L136">View source</a>
+
 ``` python
 __init__(
-    learning_rate,
+    learning_rate=0.001,
     learning_rate_power=-0.5,
     initial_accumulator_value=0.1,
     l1_regularization_strength=0.0,
@@ -133,6 +149,8 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+
 ``` python
 add_slot(
     var,
@@ -145,6 +163,8 @@ Add a new slot variable for `var`.
 
 
 <h3 id="add_weight"><code>add_weight</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
 
 ``` python
 add_weight(
@@ -162,6 +182,8 @@ add_weight(
 
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
 
 ``` python
 apply_gradients(
@@ -185,8 +207,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. The `iterations`
+  will be automatically increased by 1.
 
 
 
@@ -197,6 +219,8 @@ was not None, that operation also increments `global_step`.
 * <b>`ValueError`</b>: If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L696-L719">View source</a>
 
 ``` python
 from_config(
@@ -228,14 +252,27 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/ftrl.py#L226-L244">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the config of the optimimizer.
 
+An optimizer config is a Python dictionary (serializable)
+containing the configuration of an optimizer.
+The same optimizer can be reinstantiated later
+(without any saved state) from this configuration.
+
+#### Returns:
+
+Python dictionary.
 
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
 
 ``` python
 get_gradients(
@@ -268,6 +305,8 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+
 ``` python
 get_slot(
     var,
@@ -280,6 +319,8 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -288,6 +329,8 @@ A list of names for this optimizer's slots.
 
 
 <h3 id="get_updates"><code>get_updates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
 
 ``` python
 get_updates(
@@ -301,6 +344,8 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+
 ``` python
 get_weights()
 ```
@@ -309,6 +354,8 @@ get_weights()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
 
 ``` python
 minimize(
@@ -353,6 +400,8 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L746-L764">View source</a>
+
 ``` python
 set_weights(weights)
 ```
@@ -362,12 +411,10 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+
 ``` python
 variables()
 ```
 
 Returns variables of this Optimizer based on the order created.
-
-
-
-

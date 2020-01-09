@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.summary.merge_all
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L376-L406">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Merges all summaries collected in the default graph.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.merge_all`
-* `tf.summary.merge_all`
+* <a href="/api_docs/python/tf/summary/merge_all"><code>tf.compat.v1.summary.merge_all</code></a>
+
 
 ``` python
 tf.summary.merge_all(
@@ -21,8 +33,6 @@ tf.summary.merge_all(
 ```
 
 
-
-Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -53,4 +63,3 @@ buffer resulting from the merging.
 #### Eager Compatibility
 Not compatible with eager execution. To write TensorBoard
 summaries under eager execution, use <a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a> instead.
-

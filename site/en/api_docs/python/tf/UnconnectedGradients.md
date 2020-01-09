@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.UnconnectedGradients
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/UnconnectedGradients">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/unconnected_gradients.py#L27-L43">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `UnconnectedGradients`
 
 Controls how gradient computation behaves when y does not depend on x.
@@ -13,13 +31,9 @@ Controls how gradient computation behaves when y does not depend on x.
 
 ### Aliases:
 
-* Class `tf.UnconnectedGradients`
-* Class `tf.compat.v1.UnconnectedGradients`
-* Class `tf.compat.v2.UnconnectedGradients`
+* Class <a href="/api_docs/python/tf/UnconnectedGradients"><code>tf.compat.v1.UnconnectedGradients</code></a>
+* Class <a href="/api_docs/python/tf/UnconnectedGradients"><code>tf.compat.v2.UnconnectedGradients</code></a>
 
-
-
-Defined in [`python/ops/unconnected_gradients.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/unconnected_gradients.py).
 
 <!-- Placeholder for "Used in" -->
 

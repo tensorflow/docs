@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.SeparableConv1D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L636-L739">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SeparableConv1D`
 
 Depthwise separable 1D convolution.
@@ -13,12 +25,8 @@ Inherits From: [`SeparableConv1D`](../../tf/keras/layers/SeparableConv1D), [`Lay
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.SeparableConv1D`
-* Class `tf.layers.SeparableConv1D`
+* Class <a href="/api_docs/python/tf/layers/SeparableConv1D"><code>tf.compat.v1.layers.SeparableConv1D</code></a>
 
-
-
-Defined in [`python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -81,6 +89,8 @@ It then optionally applies an activation function to produce the final output.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L695-L739">View source</a>
+
 ``` python
 __init__(
     filters,
@@ -124,9 +134,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

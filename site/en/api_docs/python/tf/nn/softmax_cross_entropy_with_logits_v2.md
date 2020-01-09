@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.nn.softmax_cross_entropy_with_logits_v2
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L3108-L3224">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes softmax cross entropy between `logits` and `labels`. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2`
-* `tf.nn.softmax_cross_entropy_with_logits_v2`
+* <a href="/api_docs/python/tf/nn/softmax_cross_entropy_with_logits_v2"><code>tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2</code></a>
+
 
 ``` python
 tf.nn.softmax_cross_entropy_with_logits_v2(
@@ -23,8 +35,6 @@ tf.nn.softmax_cross_entropy_with_logits_v2(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

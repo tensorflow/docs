@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.linalg.slogdet
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/slogdet">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_linalg_ops.py`
+
+
+
 Computes the sign and the log of the absolute value of the determinant of
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.slogdet`
-* `tf.compat.v2.linalg.slogdet`
-* `tf.linalg.slogdet`
+* <a href="/api_docs/python/tf/linalg/slogdet"><code>tf.compat.v1.linalg.slogdet</code></a>
+* <a href="/api_docs/python/tf/linalg/slogdet"><code>tf.compat.v2.linalg.slogdet</code></a>
+
 
 ``` python
 tf.linalg.slogdet(
@@ -21,8 +35,6 @@ tf.linalg.slogdet(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

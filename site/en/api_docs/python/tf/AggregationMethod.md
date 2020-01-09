@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.AggregationMethod
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/AggregationMethod">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradients_util.py#L881-L917">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AggregationMethod`
 
 A class listing aggregation methods used to combine gradients.
@@ -13,13 +31,9 @@ A class listing aggregation methods used to combine gradients.
 
 ### Aliases:
 
-* Class `tf.AggregationMethod`
-* Class `tf.compat.v1.AggregationMethod`
-* Class `tf.compat.v2.AggregationMethod`
+* Class <a href="/api_docs/python/tf/AggregationMethod"><code>tf.compat.v1.AggregationMethod</code></a>
+* Class <a href="/api_docs/python/tf/AggregationMethod"><code>tf.compat.v2.AggregationMethod</code></a>
 
-
-
-Defined in [`python/ops/gradients_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/gradients_util.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,23 +45,23 @@ The following aggregation methods are part of the stable API for
 aggregating gradients:
 
 *  `ADD_N`: All of the gradient terms are summed as part of one
-   operation using the "AddN" op (see <a href="../tf/math/add_n"><code>tf.add_n</code></a>). This 
-   method has the property that all gradients must be ready and 
+   operation using the "AddN" op (see <a href="../tf/math/add_n"><code>tf.add_n</code></a>). This
+   method has the property that all gradients must be ready and
    buffered separately in memory before any aggregation is performed.
 *  `DEFAULT`: The system-chosen default aggregation method.
 
-The following aggregation methods are experimental and may not 
+The following aggregation methods are experimental and may not
 be supported in future releases:
 
 * `EXPERIMENTAL_TREE`: Gradient terms are summed in pairs using
-  using the "AddN" op. This method of summing gradients may reduce 
-  performance, but it can improve memory utilization because the 
+  using the "AddN" op. This method of summing gradients may reduce
+  performance, but it can improve memory utilization because the
   gradients can be released earlier.
 
 * `EXPERIMENTAL_ACCUMULATE_N`: Gradient terms are summed using the
-  "AccumulateN" op (see <a href="../tf/math/accumulate_n"><code>tf.accumulate_n</code></a>), which accumulates the 
+  "AccumulateN" op (see <a href="../tf/math/accumulate_n"><code>tf.accumulate_n</code></a>), which accumulates the
   overall sum in a single buffer that is shared across threads.
-  This method of summing gradients can result in a lower memory footprint 
+  This method of summing gradients can result in a lower memory footprint
   and lower latency at the expense of higher CPU/GPU utilization.
   For gradients of types that "AccumulateN" does not support, this
   summation method falls back on the behavior of `EXPERIMENTAL_TREE`

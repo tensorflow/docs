@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.datasets.boston_housing
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/datasets/boston_housing">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Boston housing price regression dataset.
-
-
-
-Defined in [`python/keras/api/_v2/keras/datasets/boston_housing/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/datasets/boston_housing/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -17,4 +25,3 @@ Defined in [`python/keras/api/_v2/keras/datasets/boston_housing/__init__.py`](ht
 ## Functions
 
 [`load_data(...)`](../../../../../tf/keras/datasets/boston_housing/load_data): Loads the Boston Housing dataset.
-

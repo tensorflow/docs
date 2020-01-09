@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.assert_variables_initialized
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L3288-L3328">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an Op to check if variables are initialized.
 
 ### Aliases:
 
-* `tf.assert_variables_initialized`
-* `tf.compat.v1.assert_variables_initialized`
+* <a href="/api_docs/python/tf/assert_variables_initialized"><code>tf.compat.v1.assert_variables_initialized</code></a>
+
 
 ``` python
 tf.assert_variables_initialized(var_list=None)
 ```
 
 
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,8 +45,8 @@ logged by the C++ runtime. This is expected.
 #### Args:
 
 
-* <b>`var_list`</b>: List of `Variable` objects to check. Defaults to the
-  value of `global_variables().`
+* <b>`var_list`</b>: List of `Variable` objects to check. Defaults to the value of
+  `global_variables().`
 
 
 #### Returns:

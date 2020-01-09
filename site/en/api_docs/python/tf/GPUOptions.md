@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.GPUOptions
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GPUOptions`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.GPUOptions`
-* Class `tf.compat.v1.GPUOptions`
+* Class <a href="/api_docs/python/tf/GPUOptions"><code>tf.compat.v1.GPUOptions</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -71,7 +79,3 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="visible_device_list"><code>visible_device_list</code></h3>
 
 `string visible_device_list`
-
-
-
-

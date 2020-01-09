@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SessionRunArgs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L190-L211">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SessionRunArgs`
 
 Represents arguments to be added to a <a href="../../tf/InteractiveSession#run"><code>Session.run()</code></a> call.
@@ -13,15 +25,11 @@ Represents arguments to be added to a <a href="../../tf/InteractiveSession#run">
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.SessionRunArgs`
-* Class `tf.compat.v1.train.SessionRunArgs`
-* Class `tf.compat.v2.estimator.SessionRunArgs`
-* Class `tf.estimator.SessionRunArgs`
-* Class `tf.train.SessionRunArgs`
+* Class <a href="/api_docs/python/tf/train/SessionRunArgs"><code>tf.compat.v1.estimator.SessionRunArgs</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunArgs"><code>tf.compat.v1.train.SessionRunArgs</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunArgs"><code>tf.compat.v2.estimator.SessionRunArgs</code></a>
+* Class <a href="/api_docs/python/tf/train/SessionRunArgs"><code>tf.estimator.SessionRunArgs</code></a>
 
-
-
-Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_run_hook.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -42,6 +50,25 @@ Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow
 * <b>`options`</b>: Exactly like the `options` argument to <a href="../../tf/InteractiveSession#run"><code>Session.run()</code></a>, i.e., a
   config_pb2.RunOptions proto.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L210-L211">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    fetches,
+    feed_dict=None,
+    options=None
+)
+```
+
+Create new instance of SessionRunArgs(fetches, feed_dict, options)
+
+
+
+
 ## Properties
 
 <h3 id="fetches"><code>fetches</code></h3>
@@ -55,9 +82,3 @@ Defined in [`python/training/session_run_hook.py`](https://github.com/tensorflow
 
 
 <h3 id="options"><code>options</code></h3>
-
-
-
-
-
-

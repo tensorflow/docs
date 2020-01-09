@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ResizeNearestNeighbor Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,15 +13,15 @@
   <p>Resize <code>images</code> to <code>size</code> using nearest neighbor interpolation. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>images: 4-D with shape <code>[batch, height, width, channels]</code>.</li>
-      <li>size: = A 1-D int32 <a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
+      <li>size: = A 1-D int32 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a></code>):<ul>
       <li>align_corners: If true, the centers of the 4 corner pixels of the input and output tensors are aligned, preserving the values at the corner pixels. Defaults to false.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, new_height, new_width, channels]</code>. </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 4-D with shape <code>[batch, new_height, new_width, channels]</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,13 +31,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a761fcaa879c10aefeec7d336c1695dbe">ResizeNearestNeighbor</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a761fcaa879c10aefeec7d336c1695dbe">ResizeNearestNeighbor</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1ae32cb1a2efb9fc7d9ecd04c33c95396a">ResizeNearestNeighbor</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">ResizeNearestNeighbor::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1ae32cb1a2efb9fc7d9ecd04c33c95396a">ResizeNearestNeighbor</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">ResizeNearestNeighbor::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -54,7 +54,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -64,7 +64,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -118,7 +118,17 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a740fbf067e627cfad4d5d8eb1b17583a">HalfPixelCenters</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -131,41 +141,41 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs">tensorflow::<wbr/>ops::<wbr/>ResizeNearestNeighbor::<wbr/>Attrs</a>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs">tensorflow::<wbr/>ops::<wbr/>ResizeNearestNeighbor::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/resize-nearest-neighbor.html#classtensorflow_1_1ops_1_1_resize_nearest_neighbor">ResizeNearestNeighbor</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/resize-nearest-neighbor.html#classtensorflow_1_1ops_1_1_resize_nearest_neighbor">ResizeNearestNeighbor</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1afbdcb2a978bc8cddb8a0ae142c6122b7">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a712b5521f03955dd2c8dd9d4fc80a8e9">
     <h3>resized_images</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> resized_images</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> resized_images</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a761fcaa879c10aefeec7d336c1695dbe">
     <h3>ResizeNearestNeighbor</h3>
     <pre class="prettyprint"> ResizeNearestNeighbor(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1ae32cb1a2efb9fc7d9ecd04c33c95396a">
     <h3>ResizeNearestNeighbor</h3>
     <pre class="prettyprint"> ResizeNearestNeighbor(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
-  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">ResizeNearestNeighbor::Attrs</a> & attrs
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> images,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">ResizeNearestNeighbor::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -187,7 +197,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a48ad406e3999c115dcf8e8260c3861da">
     <h3>AlignCorners</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a> AlignCorners(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a> AlignCorners(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_resize_nearest_neighbor_1a740fbf067e627cfad4d5d8eb1b17583a">
+    <h3>HalfPixelCenters</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resize-nearest-neighbor/attrs.html#structtensorflow_1_1ops_1_1_resize_nearest_neighbor_1_1_attrs">Attrs</a> HalfPixelCenters(
   bool x
 )</pre>
     <div />

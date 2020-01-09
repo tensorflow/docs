@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.WarmStartSettings
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/WarmStartSettings">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `WarmStartSettings`
 
 Settings for warm-starting in `tf.estimator.Estimators`.
@@ -13,13 +31,9 @@ Settings for warm-starting in `tf.estimator.Estimators`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.WarmStartSettings`
-* Class `tf.compat.v2.estimator.WarmStartSettings`
-* Class `tf.estimator.WarmStartSettings`
+* Class <a href="/api_docs/python/tf/estimator/WarmStartSettings"><code>tf.compat.v1.estimator.WarmStartSettings</code></a>
+* Class <a href="/api_docs/python/tf/estimator/WarmStartSettings"><code>tf.compat.v2.estimator.WarmStartSettings</code></a>
 
-
-
-Defined in [`python/estimator/estimator.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -195,6 +209,26 @@ ws = WarmStartSettings(ckpt_to_initialize_from="/tmp",
   name mapping (use `vars_to_warm_start` for controlling what variables to
   warm-start).
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    ckpt_to_initialize_from,
+    vars_to_warm_start='.*',
+    var_name_to_vocab_info=None,
+    var_name_to_prev_var_name=None
+)
+```
+
+Create new instance of WarmStartSettings(ckpt_to_initialize_from, vars_to_warm_start, var_name_to_vocab_info, var_name_to_prev_var_name)
+
+
+
+
 ## Properties
 
 <h3 id="ckpt_to_initialize_from"><code>ckpt_to_initialize_from</code></h3>
@@ -213,9 +247,3 @@ ws = WarmStartSettings(ckpt_to_initialize_from="/tmp",
 
 
 <h3 id="var_name_to_prev_var_name"><code>var_name_to_prev_var_name</code></h3>
-
-
-
-
-
-

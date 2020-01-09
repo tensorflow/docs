@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.losses.Reduction
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L38-L72">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Reduction`
 
 Types of loss reduction.
@@ -13,12 +25,8 @@ Types of loss reduction.
 
 ### Aliases:
 
-* Class `tf.compat.v1.losses.Reduction`
-* Class `tf.losses.Reduction`
+* Class <a href="/api_docs/python/tf/losses/Reduction"><code>tf.compat.v1.losses.Reduction</code></a>
 
-
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ Contains the following values:
 
 <h3 id="all"><code>all</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L59-L67">View source</a>
+
 ``` python
 @classmethod
 all(cls)
@@ -45,6 +55,8 @@ all(cls)
 
 
 <h3 id="validate"><code>validate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L69-L72">View source</a>
 
 ``` python
 @classmethod

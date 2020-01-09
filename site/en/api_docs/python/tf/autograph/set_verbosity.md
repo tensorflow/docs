@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.autograph.set_verbosity
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/autograph/set_verbosity">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/utils/ag_logging.py#L40-L88">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Sets the AutoGraph verbosity level.
 
 ### Aliases:
 
-* `tf.autograph.set_verbosity`
-* `tf.compat.v1.autograph.set_verbosity`
-* `tf.compat.v2.autograph.set_verbosity`
+* <a href="/api_docs/python/tf/autograph/set_verbosity"><code>tf.compat.v1.autograph.set_verbosity</code></a>
+* <a href="/api_docs/python/tf/autograph/set_verbosity"><code>tf.compat.v2.autograph.set_verbosity</code></a>
+
 
 ``` python
 tf.autograph.set_verbosity(
@@ -22,8 +40,6 @@ tf.autograph.set_verbosity(
 
 
 
-Defined in [`python/autograph/utils/ag_logging.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/utils/ag_logging.py).
-
 <!-- Placeholder for "Used in" -->
 
 _Debug logging in AutoGraph_
@@ -31,7 +47,7 @@ _Debug logging in AutoGraph_
 More verbose logging is useful to enable when filing bug reports or doing
 more in-depth debugging.
 
-There are two controls that control the logging verbosity:
+There are two means to control the logging verbosity:
 
  * The `set_verbosity` function
 
@@ -57,7 +73,8 @@ os.environ['AUTOGRAPH_VERBOSITY'] = 1
 # No effect, because set_verbosity was already called.
 ```
 
-Logs entries are output to [absl](https://abseil.io)'s default output,
+Logs entries are output to [absl](https://abseil.io)'s 
+[default output](https://abseil.io/docs/python/guides/logging),
 with `INFO` level.
 Logs can be mirrored to stdout by using the `alsologtostdout` argument.
 Mirroring is enabled by default when Python runs in interactive mode.
@@ -67,5 +84,5 @@ Mirroring is enabled by default when Python runs in interactive mode.
 
 * <b>`level`</b>: int, the verbosity level; larger values specify increased verbosity;
   0 means no logging. When reporting bugs, it is recommended to set this
-  value to a larges number, like 10.
+  value to a larger number, like 10.
 * <b>`alsologtostdout`</b>: bool, whether to also output log messages to `sys.stdout`.

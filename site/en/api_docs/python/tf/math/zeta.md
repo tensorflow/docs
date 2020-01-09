@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.zeta
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/zeta">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Compute the Hurwitz zeta function \\(\zeta(x, q)\\).
 
 ### Aliases:
 
-* `tf.compat.v1.math.zeta`
-* `tf.compat.v1.zeta`
-* `tf.compat.v2.math.zeta`
-* `tf.math.zeta`
-* `tf.zeta`
+* <a href="/api_docs/python/tf/math/zeta"><code>tf.compat.v1.math.zeta</code></a>
+* <a href="/api_docs/python/tf/math/zeta"><code>tf.compat.v1.zeta</code></a>
+* <a href="/api_docs/python/tf/math/zeta"><code>tf.compat.v2.math.zeta</code></a>
+* <a href="/api_docs/python/tf/math/zeta"><code>tf.zeta</code></a>
+
 
 ``` python
 tf.math.zeta(
@@ -25,8 +39,6 @@ tf.math.zeta(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

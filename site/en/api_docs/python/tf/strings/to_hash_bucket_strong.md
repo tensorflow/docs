@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.strings.to_hash_bucket_strong
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/to_hash_bucket_strong">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Converts each string in the input Tensor to its hash mod by a number of buckets.
 
 ### Aliases:
 
-* `tf.compat.v1.string_to_hash_bucket_strong`
-* `tf.compat.v1.strings.to_hash_bucket_strong`
-* `tf.compat.v2.strings.to_hash_bucket_strong`
-* `tf.string_to_hash_bucket_strong`
-* `tf.strings.to_hash_bucket_strong`
+* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v1.string_to_hash_bucket_strong</code></a>
+* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v1.strings.to_hash_bucket_strong</code></a>
+* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v2.strings.to_hash_bucket_strong</code></a>
+* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.string_to_hash_bucket_strong</code></a>
+
 
 ``` python
 tf.strings.to_hash_bucket_strong(
@@ -25,8 +39,6 @@ tf.strings.to_hash_bucket_strong(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

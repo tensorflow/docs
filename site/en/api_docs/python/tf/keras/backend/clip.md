@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.backend.clip
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/clip">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2197-L2215">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Element-wise value clipping.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.clip`
-* `tf.compat.v2.keras.backend.clip`
-* `tf.keras.backend.clip`
+* <a href="/api_docs/python/tf/keras/backend/clip"><code>tf.compat.v1.keras.backend.clip</code></a>
+* <a href="/api_docs/python/tf/keras/backend/clip"><code>tf.compat.v2.keras.backend.clip</code></a>
+
 
 ``` python
 tf.keras.backend.clip(
@@ -22,8 +40,6 @@ tf.keras.backend.clip(
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

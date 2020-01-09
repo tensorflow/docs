@@ -5,22 +5,32 @@ page_type: reference
 
 # tf.initializers.lecun_normal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L1308-L1333">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 LeCun normal initializer.
 
 ### Aliases:
 
-* `tf.compat.v1.initializers.lecun_normal`
-* `tf.compat.v1.keras.initializers.lecun_normal`
-* `tf.initializers.lecun_normal`
-* `tf.keras.initializers.lecun_normal`
+* <a href="/api_docs/python/tf/initializers/lecun_normal"><code>tf.compat.v1.initializers.lecun_normal</code></a>
+* <a href="/api_docs/python/tf/initializers/lecun_normal"><code>tf.compat.v1.keras.initializers.lecun_normal</code></a>
+* <a href="/api_docs/python/tf/initializers/lecun_normal"><code>tf.keras.initializers.lecun_normal</code></a>
+
 
 ``` python
 tf.initializers.lecun_normal(seed=None)
 ```
 
 
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

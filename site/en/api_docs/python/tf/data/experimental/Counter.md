@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.data.experimental.Counter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/Counter">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/counter.py#L58-L60">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a `Dataset` that counts from `start` in steps of size `step`.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.Counter`
-* `tf.data.experimental.Counter`
+* <a href="/api_docs/python/tf/data/experimental/Counter"><code>tf.compat.v1.data.experimental.Counter</code></a>
+
 
 ``` python
 tf.data.experimental.Counter(
@@ -21,8 +39,6 @@ tf.data.experimental.Counter(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/counter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/counter.py).
 
 <!-- Placeholder for "Used in" -->
 

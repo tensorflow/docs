@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.Softplus
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py#L36-L150">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Softplus`
 
 Bijector which computes `Y = g(X) = Log[1 + exp(X)]`.
 
 Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
-
-
-
-Defined in [`contrib/distributions/python/ops/bijectors/softplus.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,35 +34,37 @@ The softplus `Bijector` has the following two useful properties:
 The optional nonzero `hinge_softness` parameter changes the transition at
 zero.  With `hinge_softness = c`, the bijector is:
 
->     
->     r large `x >> 1`, `c * Log[1 + exp(x / c)] approx c * Log[exp(x / c)] = x`,
->      the behavior for large `x` is the same as the standard softplus.
->     
->      `c > 0` approaches 0 from the right, `f_c(x)` becomes less and less soft,
->     proaching `max(0, x)`.
->     
->     `c = 1` is the default.
->     `c > 0` but small means `f(x) approx ReLu(x) = max(0, x)`.
->     `c < 0` flips sign and reflects around the `y-axis`: `f_{-c}(x) = -f_c(-x)`.
->     `c = 0` results in a non-bijective transformation and triggers an exception.
->     
->     Example Use:
->     
-  # Create the Y=g(X)=softplus(X) transform which works only on Tensors with 1
-  # batch ndim and 2 event ndims (i.e., vector of matrices).
-  softplus = Softplus()
-  x = [[[1., 2],
-        [3, 4]],
-       [[5, 6],
-        [7, 8]]]
-  log(1 + exp(x)) == softplus.forward(x)
-  log(exp(x) - 1) == softplus.inverse(x)
->     
->     Note: log(.) and exp(.) are applied element-wise but the Jacobian is a
->     reduction over the event space.
->     
->     2 id="__init__"><code>__init__</code></h2>
->     
+
+For large `x >> 1`, `c * Log[1 + exp(x / c)] approx c * Log[exp(x / c)] = x`,
+so the behavior for large `x` is the same as the standard softplus.
+
+As `c > 0` approaches 0 from the right, `f_c(x)` becomes less and less soft,
+approaching `max(0, x)`.
+
+* `c = 1` is the default.
+* `c > 0` but small means `f(x) approx ReLu(x) = max(0, x)`.
+* `c < 0` flips sign and reflects around the `y-axis`: `f_{-c}(x) = -f_c(-x)`.
+* `c = 0` results in a non-bijective transformation and triggers an exception.
+
+  Example Use:
+
+>     # Create the Y=g(X)=softplus(X) transform which works only on Tensors with 1
+>     # batch ndim and 2 event ndims (i.e., vector of matrices).
+>     softplus = Softplus()
+>     x = [[[1., 2],
+>           [3, 4]],
+>          [[5, 6],
+>           [7, 8]]]
+>     log(1 + exp(x)) == softplus.forward(x)
+>     log(exp(x) - 1) == softplus.inverse(x)
+
+  Note: log(.) and exp(.) are applied element-wise but the Jacobian is a
+  reduction over the event space.
+
+<h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/softplus.py#L79-L114">View source</a>
+
 ``` python
 __init__(
     hinge_softness=None,
@@ -131,6 +141,8 @@ Returns True if Tensor arguments will be validated.
 
 <h3 id="forward"><code>forward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L753-L768">View source</a>
+
 ``` python
 forward(
     x,
@@ -163,6 +175,8 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
 <h3 id="forward_event_shape"><code>forward_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L677-L690">View source</a>
+
 ``` python
 forward_event_shape(input_shape)
 ```
@@ -185,6 +199,8 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
   after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L653-L670">View source</a>
 
 ``` python
 forward_event_shape_tensor(
@@ -211,6 +227,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `forward`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L973-L997">View source</a>
 
 ``` python
 forward_log_det_jacobian(
@@ -253,6 +271,8 @@ Returns both the forward_log_det_jacobian.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L787-L804">View source</a>
+
 ``` python
 inverse(
     y,
@@ -287,6 +307,8 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
 <h3 id="inverse_event_shape"><code>inverse_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L721-L734">View source</a>
+
 ``` python
 inverse_event_shape(output_shape)
 ```
@@ -309,6 +331,8 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
   after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L697-L714">View source</a>
 
 ``` python
 inverse_event_shape_tensor(
@@ -335,6 +359,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `inverse`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L871-L900">View source</a>
 
 ``` python
 inverse_log_det_jacobian(
@@ -378,6 +404,3 @@ evaluated at `g^{-1}(y)`.
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
   `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_inverse_log_det_jacobian` is not implemented.
-
-
-

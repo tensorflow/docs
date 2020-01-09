@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.floor_div
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns x // y element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.floor_div`
-* `tf.floor_div`
+* <a href="/api_docs/python/tf/floor_div"><code>tf.compat.v1.floor_div</code></a>
+
 
 ``` python
 tf.floor_div(
@@ -21,8 +29,6 @@ tf.floor_div(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

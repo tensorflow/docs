@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.utils.HDF5Matrix
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/utils/HDF5Matrix">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/io_utils.py#L36-L166">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `HDF5Matrix`
 
 Representation of HDF5 dataset to be used instead of a Numpy array.
@@ -13,13 +31,9 @@ Representation of HDF5 dataset to be used instead of a Numpy array.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.utils.HDF5Matrix`
-* Class `tf.compat.v2.keras.utils.HDF5Matrix`
-* Class `tf.keras.utils.HDF5Matrix`
+* Class <a href="/api_docs/python/tf/keras/utils/HDF5Matrix"><code>tf.compat.v1.keras.utils.HDF5Matrix</code></a>
+* Class <a href="/api_docs/python/tf/keras/utils/HDF5Matrix"><code>tf.compat.v2.keras.utils.HDF5Matrix</code></a>
 
-
-
-Defined in [`python/keras/utils/io_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/io_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,6 +70,8 @@ An array-like HDF5 dataset.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/io_utils.py#L64-L80">View source</a>
+
 ``` python
 __init__(
     datapath,
@@ -66,7 +82,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -119,6 +135,8 @@ An integer denoting the number of elements in the dataset.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/io_utils.py#L85-L115">View source</a>
+
 ``` python
 __getitem__(key)
 ```
@@ -127,6 +145,8 @@ __getitem__(key)
 
 
 <h3 id="__len__"><code>__len__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/io_utils.py#L82-L83">View source</a>
 
 ``` python
 __len__()

@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.summary
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/summary/_tf/summary/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Operations for writing summary data, for use in analysis and visualization.
-
-
-
-Defined in [`summary/_tf/summary/__init__.py`](https://github.com/tensorflow/tensorboard/tree/master/tensorboard/summary/_tf/summary/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -100,4 +108,3 @@ with tf.compat.v1.Graph().as_default():
 [`trace_on(...)`](../../../tf/compat/v2/summary/trace_on): Starts a trace to record computation graphs and profiling information.
 
 [`write(...)`](../../../tf/compat/v2/summary/write): Writes a generic summary to the default SummaryWriter if one exists.
-

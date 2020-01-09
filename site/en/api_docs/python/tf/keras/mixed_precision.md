@@ -6,20 +6,27 @@ page_type: reference
 # Module: tf.keras.mixed_precision
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/mixed_precision">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.keras.mixed_precision namespace.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.mixed_precision`
-* Module `tf.keras.mixed_precision`
+* Module <a href="/api_docs/python/tf/keras/mixed_precision"><code>tf.compat.v1.keras.mixed_precision</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/mixed_precision/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/mixed_precision/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`experimental`](../../tf/keras/mixed_precision/experimental) module
-
+[`experimental`](../../tf/keras/mixed_precision/experimental) module: Mixed precision API.

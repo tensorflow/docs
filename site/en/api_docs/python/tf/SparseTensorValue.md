@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.SparseTensorValue
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SparseTensorValue`
 
 SparseTensorValue(indices, values, dense_shape)
@@ -13,14 +25,27 @@ SparseTensorValue(indices, values, dense_shape)
 
 ### Aliases:
 
-* Class `tf.SparseTensorValue`
-* Class `tf.compat.v1.SparseTensorValue`
+* Class <a href="/api_docs/python/tf/SparseTensorValue"><code>tf.compat.v1.SparseTensorValue</code></a>
 
-
-
-Defined in [`python/framework/sparse_tensor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/sparse_tensor.py).
 
 <!-- Placeholder for "Used in" -->
+
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+@staticmethod
+__new__(
+    _cls,
+    indices,
+    values,
+    dense_shape
+)
+```
+
+Create new instance of SparseTensorValue(indices, values, dense_shape)
+
+
 
 
 ## Properties
@@ -36,9 +61,3 @@ Defined in [`python/framework/sparse_tensor.py`](https://github.com/tensorflow/t
 
 
 <h3 id="dense_shape"><code>dense_shape</code></h3>
-
-
-
-
-
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.get_variable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1468-L1500">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Gets an existing variable with these parameters or create a new one.
 
 ### Aliases:
 
-* `tf.compat.v1.get_variable`
-* `tf.get_variable`
+* <a href="/api_docs/python/tf/get_variable"><code>tf.compat.v1.get_variable</code></a>
+
 
 ``` python
 tf.get_variable(
@@ -33,8 +45,6 @@ tf.get_variable(
 ```
 
 
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -124,8 +134,7 @@ Some useful partitioners are available.  See, e.g.,
   aggregated. Accepted values are constants defined in the class
   <a href="../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
   `AUTO` and the current `DistributionStrategy` chooses
-  when to synchronize. If `synchronization` is set to `ON_READ`,
-  `trainable` must not be set to `True`.
+  when to synchronize.
 * <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
   Accepted values are constants defined in the class
   <a href="../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.

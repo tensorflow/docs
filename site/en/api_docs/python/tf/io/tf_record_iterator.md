@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.io.tf_record_iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/tf_record.py#L153-L186">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 An iterator that read the records from a TFRecords file. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.io.tf_record_iterator`
-* `tf.compat.v1.python_io.tf_record_iterator`
-* `tf.io.tf_record_iterator`
-* `tf.python_io.tf_record_iterator`
+* <a href="/api_docs/python/tf/io/tf_record_iterator"><code>tf.compat.v1.io.tf_record_iterator</code></a>
+* <a href="/api_docs/python/tf/io/tf_record_iterator"><code>tf.compat.v1.python_io.tf_record_iterator</code></a>
+* <a href="/api_docs/python/tf/io/tf_record_iterator"><code>tf.python_io.tf_record_iterator</code></a>
+
 
 ``` python
 tf.io.tf_record_iterator(
@@ -22,8 +34,6 @@ tf.io.tf_record_iterator(
 ```
 
 
-
-Defined in [`python/lib/io/tf_record.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/tf_record.py).
 
 <!-- Placeholder for "Used in" -->
 

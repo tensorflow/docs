@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.compute_weighted_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L138-L203">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the weighted loss.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.compute_weighted_loss`
-* `tf.losses.compute_weighted_loss`
+* <a href="/api_docs/python/tf/losses/compute_weighted_loss"><code>tf.compat.v1.losses.compute_weighted_loss</code></a>
+
 
 ``` python
 tf.losses.compute_weighted_loss(
@@ -23,8 +35,6 @@ tf.losses.compute_weighted_loss(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,4 +80,3 @@ passing them to `compute_weighted_loss`.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

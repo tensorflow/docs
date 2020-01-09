@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.sparse.merge
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1566-L1661">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Combines a batch of feature ids and values into a single `SparseTensor`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.merge`
-* `tf.compat.v1.sparse_merge`
-* `tf.sparse.merge`
-* `tf.sparse_merge`
+* <a href="/api_docs/python/tf/sparse/merge"><code>tf.compat.v1.sparse.merge</code></a>
+* <a href="/api_docs/python/tf/sparse/merge"><code>tf.compat.v1.sparse_merge</code></a>
+* <a href="/api_docs/python/tf/sparse/merge"><code>tf.sparse_merge</code></a>
+
 
 ``` python
 tf.sparse.merge(
@@ -25,8 +37,6 @@ tf.sparse.merge(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

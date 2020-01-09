@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.feature_column.sequence_input_layer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py#L39-L134">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 "Builds input layer for sequence input.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.feature_column.sequence_input_layer(
 ```
 
 
-
-Defined in [`contrib/feature_column/python/feature_column/sequence_feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/feature_column/python/feature_column/sequence_feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,7 +74,7 @@ outputs, state = tf.compat.v1.nn.dynamic_rnn(
   added. Note that variables will also be added to collections
   <a href="../../../tf/GraphKeys#GLOBAL_VARIABLES"><code>tf.GraphKeys.GLOBAL_VARIABLES</code></a> and `ops.GraphKeys.MODEL_VARIABLES`.
 * <b>`trainable`</b>: If `True` also add the variable to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES`.
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 
 
 #### Returns:

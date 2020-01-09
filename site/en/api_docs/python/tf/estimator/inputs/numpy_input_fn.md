@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.estimator.inputs.numpy_input_fn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/inputs/numpy_io.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns input function that would feed dict of numpy arrays into the model.
 
 ### Aliases:
 
-* `tf.compat.v1.estimator.inputs.numpy_input_fn`
-* `tf.estimator.inputs.numpy_input_fn`
+* <a href="/api_docs/python/tf/estimator/inputs/numpy_input_fn"><code>tf.compat.v1.estimator.inputs.numpy_input_fn</code></a>
+
 
 ``` python
 tf.estimator.inputs.numpy_input_fn(
@@ -25,8 +37,6 @@ tf.estimator.inputs.numpy_input_fn(
 ```
 
 
-
-Defined in [`python/estimator/inputs/numpy_io.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/inputs/numpy_io.py).
 
 <!-- Placeholder for "Used in" -->
 

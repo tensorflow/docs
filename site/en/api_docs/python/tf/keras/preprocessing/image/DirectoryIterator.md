@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.preprocessing.image.DirectoryIterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/DirectoryIterator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L140-L227">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DirectoryIterator`
 
 Iterator capable of reading images from a directory on disk.
@@ -13,13 +31,9 @@ Inherits From: [`Iterator`](../../../../tf/keras/preprocessing/image/Iterator)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.preprocessing.image.DirectoryIterator`
-* Class `tf.compat.v2.keras.preprocessing.image.DirectoryIterator`
-* Class `tf.keras.preprocessing.image.DirectoryIterator`
+* Class <a href="/api_docs/python/tf/keras/preprocessing/image/DirectoryIterator"><code>tf.compat.v1.keras.preprocessing.image.DirectoryIterator</code></a>
+* Class <a href="/api_docs/python/tf/keras/preprocessing/image/DirectoryIterator"><code>tf.compat.v2.keras.preprocessing.image.DirectoryIterator</code></a>
 
-
-
-Defined in [`python/keras/preprocessing/image.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/preprocessing/image.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -71,6 +85,8 @@ Defined in [`python/keras/preprocessing/image.py`](https://github.com/tensorflow
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L187-L227">View source</a>
+
 ``` python
 __init__(
     directory,
@@ -93,7 +109,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -102,12 +118,12 @@ __init__(
 
 <h3 id="filepaths"><code>filepaths</code></h3>
 
-
+List of absolute paths to image files
 
 
 <h3 id="labels"><code>labels</code></h3>
 
-
+Class labels of every observation
 
 
 <h3 id="sample_weight"><code>sample_weight</code></h3>
@@ -125,7 +141,18 @@ __init__(
 __getitem__(idx)
 ```
 
+Gets batch at position `index`.
 
+
+#### Arguments:
+
+
+* <b>`index`</b>: position of the batch in the Sequence.
+
+
+#### Returns:
+
+A batch
 
 
 <h3 id="__iter__"><code>__iter__</code></h3>
@@ -134,7 +161,7 @@ __getitem__(idx)
 __iter__()
 ```
 
-
+Create a generator that iterate over the Sequence.
 
 
 <h3 id="__len__"><code>__len__</code></h3>
@@ -143,7 +170,12 @@ __iter__()
 __len__()
 ```
 
+Number of batch in the Sequence.
 
+
+#### Returns:
+
+The number of batches in the Sequence.
 
 
 <h3 id="next"><code>next</code></h3>
@@ -163,8 +195,8 @@ For python 2.x.
 on_epoch_end()
 ```
 
-
-
+Method called at the end of every epoch.
+    
 
 <h3 id="reset"><code>reset</code></h3>
 

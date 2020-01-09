@@ -6,16 +6,30 @@ page_type: reference
 
 # tf.io.decode_gif
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_gif">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_image_ops.py`
+
+
+
 Decode the frame(s) of a GIF-encoded image to a uint8 tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.image.decode_gif`
-* `tf.compat.v1.io.decode_gif`
-* `tf.compat.v2.image.decode_gif`
-* `tf.compat.v2.io.decode_gif`
-* `tf.image.decode_gif`
-* `tf.io.decode_gif`
+* <a href="/api_docs/python/tf/io/decode_gif"><code>tf.compat.v1.image.decode_gif</code></a>
+* <a href="/api_docs/python/tf/io/decode_gif"><code>tf.compat.v1.io.decode_gif</code></a>
+* <a href="/api_docs/python/tf/io/decode_gif"><code>tf.compat.v2.image.decode_gif</code></a>
+* <a href="/api_docs/python/tf/io/decode_gif"><code>tf.compat.v2.io.decode_gif</code></a>
+* <a href="/api_docs/python/tf/io/decode_gif"><code>tf.image.decode_gif</code></a>
+
 
 ``` python
 tf.io.decode_gif(
@@ -25,8 +39,6 @@ tf.io.decode_gif(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_image_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

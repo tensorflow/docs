@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.distribute.Monitor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distribute/python/monitor.py#L26-L65">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Monitor`
 
 Executes training steps, recovers and checkpoints.
 
 
-
-
-
-Defined in [`contrib/distribute/python/monitor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distribute/python/monitor.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,6 +29,8 @@ Note that this class is particularly preliminary, experimental, and
 expected to change.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distribute/python/monitor.py#L36-L56">View source</a>
 
 ``` python
 __init__(
@@ -51,12 +61,8 @@ Initialize the Monitor with components for executing training steps.
 
 <h3 id="run_steps"><code>run_steps</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distribute/python/monitor.py#L58-L65">View source</a>
+
 ``` python
 run_steps(num_steps=None)
 ```
-
-
-
-
-
-

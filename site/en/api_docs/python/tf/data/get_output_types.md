@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.data.get_output_types
 
-Returns the output shapes of a `Dataset` or `Iterator`.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2180-L2197">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Returns the output shapes of a `Dataset` or `Iterator` elements.
 
 ### Aliases:
 
-* `tf.compat.v1.data.get_output_types`
-* `tf.data.get_output_types`
+* <a href="/api_docs/python/tf/data/get_output_types"><code>tf.compat.v1.data.get_output_types</code></a>
+
 
 ``` python
 tf.data.get_output_types(dataset_or_iterator)
 ```
 
 
-
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,11 +38,11 @@ This utility method replaces the deprecated-in-V2
 #### Args:
 
 
-* <b>`dataset_or_iterator`</b>: A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a>, <a href="../../tf/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a>, or
-  `IteratorV2`.
+* <b>`dataset_or_iterator`</b>: A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> or <a href="../../tf/data/Iterator"><code>tf.data.Iterator</code></a>.
 
 
 #### Returns:
 
-A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects corresponding to each component
-of an element of this dataset.
+A nested structure of <a href="../../tf/dtypes/DType"><code>tf.DType</code></a> objects objects matching the structure of
+dataset / iterator elements and specifying the shape of the individual
+components.

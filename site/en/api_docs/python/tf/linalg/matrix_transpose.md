@@ -5,17 +5,35 @@ page_type: reference
 
 # tf.linalg.matrix_transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/matrix_transpose">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1864-L1941">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Transposes last two dimensions of tensor `a`.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.matrix_transpose`
-* `tf.compat.v1.linalg.transpose`
-* `tf.compat.v1.matrix_transpose`
-* `tf.compat.v2.linalg.matrix_transpose`
-* `tf.linalg.matrix_transpose`
-* `tf.linalg.transpose`
-* `tf.matrix_transpose`
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.linalg.matrix_transpose</code></a>
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.linalg.transpose</code></a>
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.matrix_transpose</code></a>
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v2.linalg.matrix_transpose</code></a>
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.linalg.transpose</code></a>
+* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.matrix_transpose</code></a>
+
 
 ``` python
 tf.linalg.matrix_transpose(
@@ -26,8 +44,6 @@ tf.linalg.matrix_transpose(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -92,4 +108,3 @@ simply return a new view of the same data with adjusted `strides`.
 
 TensorFlow does not support strides, <a href="../../tf/linalg/matrix_transpose"><code>linalg.matrix_transpose</code></a> returns a new
 tensor with the items permuted.
-

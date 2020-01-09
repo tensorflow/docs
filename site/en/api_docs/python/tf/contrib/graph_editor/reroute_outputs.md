@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.graph_editor.reroute_outputs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/reroute.py#L424-L441">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Re-route all the outputs of two operations.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.graph_editor.reroute_outputs(
 ```
 
 
-
-Defined in [`contrib/graph_editor/reroute.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/reroute.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.graph_util.remove_training_nodes
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/graph_util_impl.py#L398-L487">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Prunes out nodes that aren't needed for inference. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.graph_util.remove_training_nodes`
-* `tf.graph_util.remove_training_nodes`
+* <a href="/api_docs/python/tf/graph_util/remove_training_nodes"><code>tf.compat.v1.graph_util.remove_training_nodes</code></a>
+
 
 ``` python
 tf.graph_util.remove_training_nodes(
@@ -20,8 +32,6 @@ tf.graph_util.remove_training_nodes(
 ```
 
 
-
-Defined in [`python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_util_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,23 +5,34 @@ page_type: reference
 
 # tf.losses.get_total_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/util.py#L242-L271">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a tensor whose value represents the total loss.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.get_total_loss`
-* `tf.losses.get_total_loss`
+* <a href="/api_docs/python/tf/losses/get_total_loss"><code>tf.compat.v1.losses.get_total_loss</code></a>
+
 
 ``` python
 tf.losses.get_total_loss(
     add_regularization_losses=True,
-    name='total_loss'
+    name='total_loss',
+    scope=None
 )
 ```
 
 
-
-Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,6 +48,9 @@ on <a href="../../tf/layers"><code>tf.layers</code></a> methods will not functio
 * <b>`add_regularization_losses`</b>: A boolean indicating whether or not to use the
   regularization losses in the sum.
 * <b>`name`</b>: The name of the returned tensor.
+* <b>`scope`</b>: An optional scope name for filtering the losses to return. Note that
+  this filters the losses added with `tf.add_loss()` as well as the
+  regularization losses to that scope.
 
 
 #### Returns:

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.graph_util.tensor_shape_from_node_def_name
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/graph_util_impl.py#L213-L229">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convenience function to get a shape from a NodeDef's input string. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.graph_util.tensor_shape_from_node_def_name`
-* `tf.graph_util.tensor_shape_from_node_def_name`
+* <a href="/api_docs/python/tf/graph_util/tensor_shape_from_node_def_name"><code>tf.compat.v1.graph_util.tensor_shape_from_node_def_name</code></a>
+
 
 ``` python
 tf.graph_util.tensor_shape_from_node_def_name(
@@ -20,8 +32,6 @@ tf.graph_util.tensor_shape_from_node_def_name(
 ```
 
 
-
-Defined in [`python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_util_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

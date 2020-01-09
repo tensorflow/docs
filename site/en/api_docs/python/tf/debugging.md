@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.debugging
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.debugging namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,7 +48,7 @@ page_type: reference
 
 [`assert_non_positive(...)`](../tf/debugging/assert_non_positive): Assert the condition `x <= 0` holds element-wise.
 
-[`assert_none_equal(...)`](../tf/debugging/assert_none_equal): Assert the condition `x != y` holds for all elements.
+[`assert_none_equal(...)`](../tf/debugging/assert_none_equal): Assert the condition `x != y` holds element-wise.
 
 [`assert_positive(...)`](../tf/debugging/assert_positive): Assert the condition `x > 0` holds element-wise.
 
@@ -73,4 +85,3 @@ page_type: reference
 [`is_strictly_increasing(...)`](../tf/math/is_strictly_increasing): Returns `True` if `x` is strictly increasing.
 
 [`set_log_device_placement(...)`](../tf/debugging/set_log_device_placement): Set if device placements should be logged.
-

@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.math.l2_normalize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/l2_normalize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L591-L616">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.l2_normalize`
-* `tf.compat.v1.math.l2_normalize`
-* `tf.compat.v1.nn.l2_normalize`
-* `tf.linalg.l2_normalize`
-* `tf.math.l2_normalize`
-* `tf.nn.l2_normalize`
+* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.linalg.l2_normalize</code></a>
+* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.math.l2_normalize</code></a>
+* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.nn.l2_normalize</code></a>
+* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.linalg.l2_normalize</code></a>
+* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.nn.l2_normalize</code></a>
+
 
 ``` python
 tf.math.l2_normalize(
@@ -27,8 +45,6 @@ tf.math.l2_normalize(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

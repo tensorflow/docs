@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.instance_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/normalization.py#L42-L169">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface for the instance normalization layer.
 
 ``` python
@@ -26,8 +38,6 @@ tf.contrib.layers.instance_norm(
 
 
 
-Defined in [`contrib/layers/python/layers/normalization.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/normalization.py).
-
 <!-- Placeholder for "Used in" -->
 
 Reference: https://arxiv.org/abs/1607.08022.
@@ -45,7 +55,7 @@ Reference: https://arxiv.org/abs/1607.08022.
 * <b>`center`</b>: If True, add offset of `beta` to normalized tensor. If False, `beta`
   is ignored.
 * <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is
-  not used. When the next layer is linear (also e.g. `nn.relu`), this can be
+  not used. When the next layer is linear (also e.g. <a href="/api_docs/python/tf/nn/relu"><code>nn.relu</code></a>), this can be
   disabled since the scaling can be done by the next layer.
 * <b>`epsilon`</b>: Small float added to variance to avoid dividing by zero.
 * <b>`activation_fn`</b>: Activation function, default set to None to skip it and
@@ -57,7 +67,7 @@ Reference: https://arxiv.org/abs/1607.08022.
 * <b>`variables_collections`</b>: Optional collections for the variables.
 * <b>`outputs_collections`</b>: Collections to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`data_format`</b>: A string. `NHWC` (default) and `NCHW` are supported.
 * <b>`scope`</b>: Optional scope for `variable_scope`.
 

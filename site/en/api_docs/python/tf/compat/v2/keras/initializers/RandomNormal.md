@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.RandomNormal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L264-L303">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RandomNormal`
 
 Initializer that generates tensors with a normal distribution.
@@ -13,13 +25,9 @@ Inherits From: [`Initializer`](../../../../../tf/compat/v2/keras/initializers/In
 
 ### Aliases:
 
-* Class `tf.compat.v2.initializers.RandomNormal`
-* Class `tf.compat.v2.keras.initializers.RandomNormal`
-* Class `tf.compat.v2.random_normal_initializer`
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/RandomNormal"><code>tf.compat.v2.initializers.RandomNormal</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/RandomNormal"><code>tf.compat.v2.random_normal_initializer</code></a>
 
-
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,6 +45,8 @@ Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflo
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L277-L281">View source</a>
+
 ``` python
 __init__(
     mean=0.0,
@@ -45,7 +55,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -53,6 +63,8 @@ __init__(
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L283-L296">View source</a>
 
 ``` python
 __call__(
@@ -78,6 +90,8 @@ Returns a tensor object initialized as specified by the initializer.
 * <b>`ValueError`</b>: If the dtype is not floating point
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -113,12 +127,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L298-L303">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

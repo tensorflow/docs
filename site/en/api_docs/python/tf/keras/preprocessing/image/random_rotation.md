@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.image.random_rotation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/random_rotation">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Performs a random rotation of a Numpy image tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.image.random_rotation`
-* `tf.compat.v2.keras.preprocessing.image.random_rotation`
-* `tf.keras.preprocessing.image.random_rotation`
+* <a href="/api_docs/python/tf/keras/preprocessing/image/random_rotation"><code>tf.compat.v1.keras.preprocessing.image.random_rotation</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/image/random_rotation"><code>tf.compat.v2.keras.preprocessing.image.random_rotation</code></a>
+
 
 ``` python
 tf.keras.preprocessing.image.random_rotation(
@@ -25,6 +37,8 @@ tf.keras.preprocessing.image.random_rotation(
     interpolation_order=1
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

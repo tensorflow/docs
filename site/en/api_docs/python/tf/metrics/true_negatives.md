@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.true_negatives
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L1729-L1779">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Sum the weights of true_negatives.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.true_negatives`
-* `tf.metrics.true_negatives`
+* <a href="/api_docs/python/tf/metrics/true_negatives"><code>tf.compat.v1.metrics.true_negatives</code></a>
+
 
 ``` python
 tf.metrics.true_negatives(
@@ -24,8 +36,6 @@ tf.metrics.true_negatives(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

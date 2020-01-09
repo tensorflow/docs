@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.framework.RecordInput
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L2381-L2467">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RecordInput`
 
 RecordInput asynchronously reads and randomly yields TFRecords.
 
 
-
-
-
-Defined in [`python/ops/data_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/data_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +36,8 @@ The order the files are read will be shifted each epoch by `shift_amount` so
 that the data is presented in a different order every epoch.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L2395-L2440">View source</a>
 
 ``` python
 __init__(
@@ -78,6 +88,8 @@ Constructs a RecordInput Op.
 
 <h3 id="get_yield_op"><code>get_yield_op</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L2442-L2467">View source</a>
+
 ``` python
 get_yield_op()
 ```
@@ -85,6 +97,3 @@ get_yield_op()
 Adds a node that yields a group of records every time it is executed.
 If RecordInput `batches` parameter is not None, it yields a list of
 record batches with the specified `batch_size`.
-
-
-

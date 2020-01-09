@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1702-L1769">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Transposes `a`.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.transpose(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -92,4 +102,3 @@ simply return a new view of the same data with adjusted `strides`.
 
 TensorFlow does not support strides, so `transpose` returns a new tensor with
 the items permuted.
-

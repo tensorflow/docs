@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.Supervisor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L44-L1023">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Supervisor`
 
 A training helper that checkpoints models and computes summaries.
@@ -13,12 +25,8 @@ A training helper that checkpoints models and computes summaries.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.Supervisor`
-* Class `tf.train.Supervisor`
+* Class <a href="/api_docs/python/tf/train/Supervisor"><code>tf.compat.v1.train.Supervisor</code></a>
 
-
-
-Defined in [`python/training/supervisor.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/supervisor.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -177,6 +185,8 @@ supervisor.  You can also use the `SessionManager` directly to create a
 session and check if it could be initialized automatically.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L207-L357">View source</a>
 
 ``` python
 __init__(
@@ -443,6 +453,8 @@ A SummaryWriter.
 
 <h3 id="Loop"><code>Loop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
+
 ``` python
 Loop(
     timer_interval_secs,
@@ -476,6 +488,8 @@ The started thread.
 
 
 <h3 id="PrepareSession"><code>PrepareSession</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
 
 ``` python
 PrepareSession(
@@ -515,6 +529,8 @@ A Session object that can be used to drive the model.
 
 <h3 id="RequestStop"><code>RequestStop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
+
 ``` python
 RequestStop(ex=None)
 ```
@@ -532,6 +548,8 @@ See <a href="../../tf/train/Coordinator#request_stop"><code>Coordinator.request_
 
 <h3 id="ShouldStop"><code>ShouldStop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
+
 ``` python
 ShouldStop()
 ```
@@ -546,6 +564,8 @@ True if the coordinator was told to stop, False otherwise.
 
 
 <h3 id="StartQueueRunners"><code>StartQueueRunners</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
 
 ``` python
 StartQueueRunners(
@@ -591,6 +611,8 @@ execution is enabled, use the <a href="../../tf/data"><code>tf.data</code></a> A
 
 <h3 id="StartStandardServices"><code>StartStandardServices</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
+
 ``` python
 StartStandardServices(sess)
 ```
@@ -627,6 +649,8 @@ the Supervisor's Coordinator to join these threads with:
 
 <h3 id="Stop"><code>Stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
+
 ``` python
 Stop(
     threads=None,
@@ -656,6 +680,8 @@ This does not close the session.
 
 <h3 id="StopOnException"><code>StopOnException</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
+
 ``` python
 StopOnException()
 ```
@@ -670,6 +696,8 @@ A context handler.
 
 
 <h3 id="SummaryComputed"><code>SummaryComputed</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
 
 ``` python
 SummaryComputed(
@@ -699,6 +727,8 @@ Indicate that a summary was computed.
 
 <h3 id="WaitForStop"><code>WaitForStop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
+
 ``` python
 WaitForStop()
 ```
@@ -707,6 +737,8 @@ Block waiting for the coordinator to stop.
 
 
 <h3 id="loop"><code>loop</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
 
 ``` python
 loop(
@@ -814,6 +846,8 @@ session is closed when the `with` block exits.
 
 <h3 id="prepare_or_wait_for_session"><code>prepare_or_wait_for_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
+
 ``` python
 prepare_or_wait_for_session(
     master='',
@@ -852,6 +886,8 @@ A Session object that can be used to drive the model.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
+
 ``` python
 request_stop(ex=None)
 ```
@@ -869,6 +905,8 @@ See <a href="../../tf/train/Coordinator#request_stop"><code>Coordinator.request_
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
+
 ``` python
 should_stop()
 ```
@@ -883,6 +921,8 @@ True if the coordinator was told to stop, False otherwise.
 
 
 <h3 id="start_queue_runners"><code>start_queue_runners</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
 
 ``` python
 start_queue_runners(
@@ -928,6 +968,8 @@ execution is enabled, use the <a href="../../tf/data"><code>tf.data</code></a> A
 
 <h3 id="start_standard_services"><code>start_standard_services</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
+
 ``` python
 start_standard_services(sess)
 ```
@@ -964,6 +1006,8 @@ the Supervisor's Coordinator to join these threads with:
 
 <h3 id="stop"><code>stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
+
 ``` python
 stop(
     threads=None,
@@ -993,6 +1037,8 @@ This does not close the session.
 
 <h3 id="stop_on_exception"><code>stop_on_exception</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
+
 ``` python
 stop_on_exception()
 ```
@@ -1007,6 +1053,8 @@ A context handler.
 
 
 <h3 id="summary_computed"><code>summary_computed</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
 
 ``` python
 summary_computed(
@@ -1035,6 +1083,8 @@ Indicate that a summary was computed.
 * <b>`RuntimeError`</b>: if the Supervisor was created without a `logdir`.
 
 <h3 id="wait_for_stop"><code>wait_for_stop</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
 
 ``` python
 wait_for_stop()

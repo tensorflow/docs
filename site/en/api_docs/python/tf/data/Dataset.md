@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.data.Dataset
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/Dataset">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1612-L1999">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Dataset`
 
 Represents a potentially large set of elements.
@@ -13,31 +31,48 @@ Inherits From: [`Dataset`](../../tf/compat/v2/data/Dataset)
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.Dataset`
-* Class `tf.data.Dataset`
+* Class <a href="/api_docs/python/tf/data/Dataset"><code>tf.compat.v1.data.Dataset</code></a>
 
-
-
-Defined in [`python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/dataset_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
 A `Dataset` can be used to represent an input pipeline as a
-collection of elements (nested structures of tensors) and a "logical
-plan" of transformations that act on those elements.
+collection of elements and a "logical plan" of transformations that act on
+those elements.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1620-L1635">View source</a>
 
 ``` python
 __init__()
 ```
 
+Creates a DatasetV2 object.
+
+This is a difference between DatasetV1 and DatasetV2. DatasetV1 does not
+take anything in its constructor whereas in the DatasetV2, we expect
+subclasses to create a variant_tensor and pass it in to the super() call.
+
+#### Args:
 
 
+* <b>`variant_tensor`</b>: A DT_VARIANT tensor that represents the dataset.
 
 
 
 ## Properties
+
+<h3 id="element_spec"><code>element_spec</code></h3>
+
+The type specification of an element of this dataset.
+
+
+#### Returns:
+
+A nested structure of <a href="../../tf/TypeSpec"><code>tf.TypeSpec</code></a> objects matching the structure of an
+element of this dataset and specifying the type of individual components.
+
 
 <h3 id="output_classes"><code>output_classes</code></h3>
 
@@ -46,8 +81,6 @@ Returns the class of each component of an element of this dataset. (deprecated)
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
 Use <a href="../../tf/data/get_output_classes"><code>tf.compat.v1.data.get_output_classes(dataset)</code></a>.
-
-The expected values are <a href="../../tf/Tensor"><code>tf.Tensor</code></a> and <a href="../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 #### Returns:
 
@@ -89,6 +122,8 @@ of an element of this dataset.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L327-L344">View source</a>
+
 ``` python
 __iter__()
 ```
@@ -107,9 +142,11 @@ An `Iterator` over the elements of this dataset.
 #### Raises:
 
 
-* <b>`RuntimeError`</b>: If eager execution is not enabled.
+* <b>`RuntimeError`</b>: If not inside of tf.function and not executing eagerly.
 
 <h3 id="apply"><code>apply</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1355-L1384">View source</a>
 
 ``` python
 apply(transformation_func)
@@ -146,6 +183,8 @@ dataset = (dataset.map(lambda x: x ** 2)
 
 <h3 id="batch"><code>batch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1026-L1047">View source</a>
+
 ``` python
 batch(
     batch_size,
@@ -155,7 +194,7 @@ batch(
 
 Combines consecutive elements of this dataset into batches.
 
-The tensors in the resulting element will have an additional outer
+The components of the resulting element will have an additional outer
 dimension, which will be `batch_size` (or `N % batch_size` for the last
 element if `batch_size` does not divide the number of input elements `N`
 evenly and `drop_remainder` is `False`). If your program depends on the
@@ -180,6 +219,8 @@ argument to `True` to prevent the smaller batch from being produced.
 
 <h3 id="cache"><code>cache</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L932-L943">View source</a>
+
 ``` python
 cache(filename='')
 ```
@@ -191,7 +232,7 @@ Caches the elements in this dataset.
 
 
 * <b>`filename`</b>: A <a href="../../tf#string"><code>tf.string</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>, representing the name of a
-  directory on the filesystem to use for caching tensors in this Dataset.
+  directory on the filesystem to use for caching elements in this Dataset.
   If a filename is not provided, the dataset will be cached in memory.
 
 
@@ -202,17 +243,19 @@ Caches the elements in this dataset.
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L755-L777">View source</a>
+
 ``` python
 concatenate(dataset)
 ```
 
-Creates a `Dataset` by concatenating given dataset with this dataset.
+Creates a `Dataset` by concatenating the given dataset with this dataset.
 
 ```python
 a = Dataset.range(1, 4)  # ==> [ 1, 2, 3 ]
 b = Dataset.range(4, 8)  # ==> [ 4, 5, 6, 7 ]
 
-# Input dataset and dataset to be concatenated should have same
+# The input dataset and dataset to be concatenated should have the same
 # nested structures and output types.
 # c = Dataset.range(8, 14).batch(2)  # ==> [ [8, 9], [10, 11], [12, 13] ]
 # d = Dataset.from_tensor_slices([14.0, 15.0, 16.0])
@@ -233,6 +276,8 @@ a.concatenate(b)  # ==> [ 1, 2, 3, 4, 5, 6, 7 ]
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="enumerate"><code>enumerate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L873-L901">View source</a>
 
 ``` python
 enumerate(start=0)
@@ -272,6 +317,8 @@ b.enumerate() == { (0, (7, 8)), (1, (9, 10)) }
 
 <h3 id="filter"><code>filter</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1331-L1353">View source</a>
+
 ``` python
 filter(predicate)
 ```
@@ -293,9 +340,7 @@ d = d.filter(filter_fn)  # ==> [1]
 #### Args:
 
 
-* <b>`predicate`</b>: A function mapping a nested structure of tensors (having shapes
-  and types defined by `self.output_shapes` and `self.output_types`) to a
-  scalar <a href="../../tf#bool"><code>tf.bool</code></a> tensor.
+* <b>`predicate`</b>: A function mapping a dataset element to a boolean.
 
 
 #### Returns:
@@ -305,6 +350,8 @@ d = d.filter(filter_fn)  # ==> [1]
     `predicate` is `True`.
 
 <h3 id="filter_with_legacy_function"><code>filter_with_legacy_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1969-L1986">View source</a>
 
 ``` python
 filter_with_legacy_function(predicate)
@@ -336,6 +383,8 @@ should migrate to `filter` as this method will be removed in V2.
 
 <h3 id="flat_map"><code>flat_map</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1225-L1249">View source</a>
+
 ``` python
 flat_map(map_func)
 ```
@@ -360,9 +409,7 @@ a.flat_map(lambda x: Dataset.from_tensor_slices(x + 1)) # ==>
 #### Args:
 
 
-* <b>`map_func`</b>: A function mapping a nested structure of tensors (having shapes
-  and types defined by `self.output_shapes` and `self.output_types`) to a
-  `Dataset`.
+* <b>`map_func`</b>: A function mapping a dataset element to a dataset.
 
 
 #### Returns:
@@ -371,6 +418,8 @@ a.flat_map(lambda x: Dataset.from_tensor_slices(x + 1)) # ==>
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="from_generator"><code>from_generator</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L482-L685">View source</a>
 
 ``` python
 @staticmethod
@@ -385,7 +434,7 @@ from_generator(
 Creates a `Dataset` whose elements are generated by `generator`.
 
 The `generator` argument must be a callable object that returns
-an object that support the `iter()` protocol (e.g. a generator function).
+an object that supports the `iter()` protocol (e.g. a generator function).
 The elements generated by `generator` must be compatible with the given
 `output_types` and (optional) `output_shapes` arguments.
 
@@ -411,7 +460,7 @@ for value in ds.take(2):
 ```
 
 NOTE: The current implementation of <a href="../../tf/data/Dataset#from_generator"><code>Dataset.from_generator()</code></a> uses
-<a href="../../tf/py_func"><code>tf.compat.v1.py_func</code></a> and inherits the same constraints. In particular, it
+<a href="../../tf/numpy_function"><code>tf.numpy_function</code></a> and inherits the same constraints. In particular, it
 requires the `Dataset`- and `Iterator`-related operations to be placed
 on a device in the same process as the Python program that called
 <a href="../../tf/data/Dataset#from_generator"><code>Dataset.from_generator()</code></a>. The body of `generator` will not be
@@ -449,6 +498,8 @@ cache any external state in `generator` before calling
 
 <h3 id="from_sparse_tensor_slices"><code>from_sparse_tensor_slices</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1824-L1835">View source</a>
+
 ``` python
 @staticmethod
 from_sparse_tensor_slices(sparse_tensor)
@@ -473,6 +524,8 @@ Use <a href="../../tf/data/Dataset#from_tensor_slices"><code>tf.data.Dataset.fro
 
 <h3 id="from_tensor_slices"><code>from_tensor_slices</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L425-L444">View source</a>
+
 ``` python
 @staticmethod
 from_tensor_slices(tensors)
@@ -491,8 +544,8 @@ https://tensorflow.org/guide/datasets#consuming_numpy_arrays).
 #### Args:
 
 
-* <b>`tensors`</b>: A nested structure of tensors, each having the same size in the
-  0th dimension.
+* <b>`tensors`</b>: A dataset element, with each component having the same size in
+  the 0th dimension.
 
 
 #### Returns:
@@ -501,6 +554,8 @@ https://tensorflow.org/guide/datasets#consuming_numpy_arrays).
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="from_tensors"><code>from_tensors</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L405-L423">View source</a>
 
 ``` python
 @staticmethod
@@ -520,7 +575,7 @@ guide](https://tensorflow.org/guide/datasets#consuming_numpy_arrays).
 #### Args:
 
 
-* <b>`tensors`</b>: A nested structure of tensors.
+* <b>`tensors`</b>: A dataset element.
 
 
 #### Returns:
@@ -530,10 +585,12 @@ guide](https://tensorflow.org/guide/datasets#consuming_numpy_arrays).
 
 <h3 id="interleave"><code>interleave</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1251-L1329">View source</a>
+
 ``` python
 interleave(
     map_func,
-    cycle_length,
+    cycle_length=AUTOTUNE,
     block_length=1,
     num_parallel_calls=None
 )
@@ -594,13 +651,14 @@ that state is accessed is undefined.
 #### Args:
 
 
-* <b>`map_func`</b>: A function mapping a nested structure of tensors (having shapes
-  and types defined by `self.output_shapes` and `self.output_types`) to a
-  `Dataset`.
-* <b>`cycle_length`</b>: The number of elements from this dataset that will be
-  processed concurrently.
-* <b>`block_length`</b>: The number of consecutive elements to produce from each
-  input element before cycling to another input element.
+* <b>`map_func`</b>: A function mapping a dataset element to a dataset.
+* <b>`cycle_length`</b>: (Optional.) The number of input elements that will be
+  processed concurrently. If not specified, the value will be derived from
+  the number of available CPU cores. If the `num_parallel_calls` argument
+  is set to <a href="../../tf/data/experimental#AUTOTUNE"><code>tf.data.experimental.AUTOTUNE</code></a>, the `cycle_length` argument
+  also identifies the maximum degree of parallelism.
+* <b>`block_length`</b>: (Optional.) The number of consecutive elements to produce
+  from each input element before cycling to another input element.
 * <b>`num_parallel_calls`</b>: (Optional.) If specified, the implementation creates a
   threadpool, which is used to fetch inputs from cycle elements
   asynchronously and in parallel. The default behavior is to fetch inputs
@@ -615,6 +673,8 @@ that state is accessed is undefined.
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="list_files"><code>list_files</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L797-L855">View source</a>
 
 ``` python
 @staticmethod
@@ -664,6 +724,8 @@ would produce:
 
 <h3 id="make_initializable_iterator"><code>make_initializable_iterator</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1713-L1743">View source</a>
+
 ``` python
 make_initializable_iterator(shared_name=None)
 ```
@@ -705,6 +767,8 @@ An `Iterator` over the elements of this dataset.
 
 <h3 id="make_one_shot_iterator"><code>make_one_shot_iterator</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1646-L1660">View source</a>
+
 ``` python
 make_one_shot_iterator()
 ```
@@ -724,6 +788,8 @@ An `Iterator` over the elements of this dataset.
 
 
 <h3 id="map"><code>map</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1108-L1223">View source</a>
 
 ``` python
 map(
@@ -809,8 +875,7 @@ result.output_types == ({"a": tf.float32, "b": tf.int32}, tf.string)
 result.output_shapes == ({"a": [], "b": [2]}, [])
 ```
 
-In addition to <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects, `map_func` can accept as arguments and
-return <a href="../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a> objects.
+`map_func` can accept as arguments and return any type of dataset element.
 
 Note that irrespective of the context in which `map_func` is defined (eager
 vs. graph), tf.data traces the function and executes it as a graph. To use
@@ -821,14 +886,23 @@ computation. The downside of this approach is that AutoGraph can convert
 some but not all Python code.
 
 2) Use <a href="../../tf/py_function"><code>tf.py_function</code></a>, which allows you to write arbitrary Python code but
-will generally result in worse performance than 1).
+will generally result in worse performance than 1). For example:
+
+```python
+d = tf.data.Dataset.from_tensor_slices(['hello', 'world'])
+
+# transform a string tensor to upper case string using a Python function
+def upper_case_fn(t: tf.Tensor) -> str:
+    return t.numpy().decode('utf-8').upper()
+
+d.map(lambda x: tf.py_function(func=upper_case_fn,
+      inp=[x], Tout=tf.string))  # ==> [ "HELLO", "WORLD" ]
+```
 
 #### Args:
 
 
-* <b>`map_func`</b>: A function mapping a nested structure of tensors (having shapes
-  and types defined by `self.output_shapes` and `self.output_types`) to
-  another nested structure of tensors.
+* <b>`map_func`</b>: A function mapping a dataset element to another dataset element.
 * <b>`num_parallel_calls`</b>: (Optional.) A <a href="../../tf#int32"><code>tf.int32</code></a> scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a>,
   representing the number elements to process asynchronously in parallel.
   If not specified, elements will be processed sequentially. If the value
@@ -842,6 +916,8 @@ will generally result in worse performance than 1).
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="map_with_legacy_function"><code>map_with_legacy_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1915-L1950">View source</a>
 
 ``` python
 map_with_legacy_function(
@@ -880,6 +956,8 @@ should migrate to `map` as this method will be removed in V2.
 
 <h3 id="options"><code>options</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L264-L275">View source</a>
+
 ``` python
 options()
 ```
@@ -893,6 +971,8 @@ A <a href="../../tf/data/Options"><code>tf.data.Options</code></a> object repres
 
 
 <h3 id="padded_batch"><code>padded_batch</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1049-L1106">View source</a>
 
 ``` python
 padded_batch(
@@ -908,7 +988,7 @@ Combines consecutive elements of this dataset into padded batches.
 This transformation combines multiple consecutive elements of the input
 dataset into a single element.
 
-Like <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the tensors in the resulting element will
+Like <a href="../../tf/data/Dataset#batch"><code>tf.data.Dataset.batch</code></a>, the components of the resulting element will
 have an additional outer dimension, which will be `batch_size` (or
 `N % batch_size` for the last element if `batch_size` does not divide the
 number of input elements `N` evenly and `drop_remainder` is `False`). If
@@ -961,14 +1041,19 @@ elements that may have different shapes into a <a href="../../tf/sparse/SparseTe
 
 <h3 id="prefetch"><code>prefetch</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L779-L795">View source</a>
+
 ``` python
 prefetch(buffer_size)
 ```
 
 Creates a `Dataset` that prefetches elements from this dataset.
 
-Note that if the dataset was batched using <a href="../../tf/data/Dataset#batch"><code>Dataset.batch</code></a>, each element is
-a batch and this operation will prefetch `buffer_size` batches.
+Note: Like other `Dataset` methods, prefetch operates on the
+elements of the input dataset. It has no concept of examples vs. batches.
+`examples.prefetch(2)` will prefetch two elements (2 examples),
+while `examples.batch(20).prefetch(2)` will prefetch 2 elements
+(2 batches, of 20 examples each).
 
 #### Args:
 
@@ -983,6 +1068,8 @@ a batch and this operation will prefetch `buffer_size` batches.
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="range"><code>range</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L687-L714">View source</a>
 
 ``` python
 @staticmethod
@@ -1027,6 +1114,8 @@ Dataset.range(5, 1, -2) == [5, 3]
 
 <h3 id="reduce"><code>reduce</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1436-L1546">View source</a>
+
 ``` python
 reduce(
     initial_state,
@@ -1052,21 +1141,22 @@ state and the final state is returned as the result.
 #### Args:
 
 
-* <b>`initial_state`</b>: A nested structure of tensors, representing the initial
-  state of the transformation.
+* <b>`initial_state`</b>: An element representing the initial state of the
+  transformation.
 * <b>`reduce_func`</b>: A function that maps `(old_state, input_element)` to
-  `new_state`. It must take two arguments and return a nested structure of
-  tensors. The structure of `new_state` must match the structure of
+  `new_state`. It must take two arguments and return a new element
+  The structure of `new_state` must match the structure of
   `initial_state`.
 
 
 #### Returns:
 
-A nested structure of <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objects, corresponding to the final
-state of the transformation.
+A dataset element corresponding to the final state of the transformation.
 
 
 <h3 id="repeat"><code>repeat</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L857-L871">View source</a>
 
 ``` python
 repeat(count=None)
@@ -1091,6 +1181,8 @@ generator), then different repetitions may produce different elements.
 * <b>`Dataset`</b>: A `Dataset`.
 
 <h3 id="shard"><code>shard</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L973-L1024">View source</a>
 
 ``` python
 shard(
@@ -1161,6 +1253,8 @@ d = d.map(parser_fn, num_parallel_calls=num_map_threads)
 
 <h3 id="shuffle"><code>shuffle</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L903-L930">View source</a>
+
 ``` python
 shuffle(
     buffer_size,
@@ -1202,6 +1296,8 @@ maintaining the 1,000 element buffer.
 
 <h3 id="skip"><code>skip</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L959-L971">View source</a>
+
 ``` python
 skip(count)
 ```
@@ -1225,6 +1321,8 @@ Creates a `Dataset` that skips `count` elements from this dataset.
 
 <h3 id="take"><code>take</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L945-L957">View source</a>
+
 ``` python
 take(count)
 ```
@@ -1246,7 +1344,38 @@ Creates a `Dataset` with at most `count` elements from this dataset.
 
 * <b>`Dataset`</b>: A `Dataset`.
 
+<h3 id="unbatch"><code>unbatch</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1548-L1590">View source</a>
+
+``` python
+unbatch()
+```
+
+Splits elements of a dataset into multiple elements.
+
+For example, if elements of the dataset are shaped `[B, a0, a1, ...]`,
+where `B` may vary for each input element, then for each element in the
+dataset, the unbatched dataset will contain `B` consecutive elements
+of shape `[a0, a1, ...]`.
+
+```python
+# NOTE: The following example uses `{ ... }` to represent the contents
+# of a dataset.
+ds = { ['a', 'b', 'c'], ['a', 'b'], ['a', 'b', 'c', 'd'] }
+
+ds.unbatch() == {'a', 'b', 'c', 'a', 'b', 'a', 'b', 'c', 'd'}
+```
+
+#### Returns:
+
+A `Dataset` transformation function, which can be passed to
+<a href="../../tf/data/Dataset#apply"><code>tf.data.Dataset.apply</code></a>.
+
+
 <h3 id="window"><code>window</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1386-L1434">View source</a>
 
 ``` python
 window(
@@ -1282,7 +1411,7 @@ nested elements, it produces a dataset of nested windows.
 
 
 
-- `tf.data.Dataset.from_tensor_slices((range(4), range(4)).window(2)`
+- `tf.data.Dataset.from_tensor_slices((range(4), range(4))).window(2)`
   produces `{({0, 1}, {0, 1}), ({2, 3}, {2, 3})}`
 - `tf.data.Dataset.from_tensor_slices({"a": range(4)}).window(2)`
   produces `{ {"a": {0, 1}}, {"a": {2, 3}}}`
@@ -1309,6 +1438,8 @@ nested elements, it produces a dataset of nested windows.
   elements created from the (nests of) input elements.
 
 <h3 id="with_options"><code>with_options</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L1592-L1608">View source</a>
 
 ``` python
 with_options(options)
@@ -1338,6 +1469,8 @@ options do not use different non-default values.
 * <b>`ValueError`</b>: when an option is set more than once to a non-default value
 
 <h3 id="zip"><code>zip</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L716-L753">View source</a>
 
 ``` python
 @staticmethod
@@ -1383,6 +1516,3 @@ Dataset.zip((a, d))  # ==> [ (1, 13), (2, 14) ]
 
 
 * <b>`Dataset`</b>: A `Dataset`.
-
-
-

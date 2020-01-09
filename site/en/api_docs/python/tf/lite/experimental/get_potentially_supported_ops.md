@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.lite.experimental.get_potentially_supported_ops
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/experimental/tensorboard/ops_util.py#L34-L50">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns operations potentially supported by TensorFlow Lite.
 
 ### Aliases:
 
-* `tf.compat.v1.lite.experimental.get_potentially_supported_ops`
-* `tf.lite.experimental.get_potentially_supported_ops`
+* <a href="/api_docs/python/tf/lite/experimental/get_potentially_supported_ops"><code>tf.compat.v1.lite.experimental.get_potentially_supported_ops</code></a>
+
 
 ``` python
 tf.lite.experimental.get_potentially_supported_ops()
 ```
 
 
-
-Defined in [`lite/experimental/tensorboard/ops_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/experimental/tensorboard/ops_util.py).
 
 <!-- Placeholder for "Used in" -->
 

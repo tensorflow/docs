@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.compat.v2.linalg.l2_normalize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L619-L645">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Normalizes along dimension `axis` using an L2 norm.
 
 ### Aliases:
 
-* `tf.compat.v2.linalg.l2_normalize`
-* `tf.compat.v2.math.l2_normalize`
-* `tf.compat.v2.nn.l2_normalize`
+* <a href="/api_docs/python/tf/compat/v2/linalg/l2_normalize"><code>tf.compat.v2.math.l2_normalize</code></a>
+* <a href="/api_docs/python/tf/compat/v2/linalg/l2_normalize"><code>tf.compat.v2.nn.l2_normalize</code></a>
+
 
 ``` python
 tf.compat.v2.linalg.l2_normalize(
@@ -23,8 +35,6 @@ tf.compat.v2.linalg.l2_normalize(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

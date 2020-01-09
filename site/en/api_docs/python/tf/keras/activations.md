@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.activations
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/activations">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Built-in activation functions.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.activations`
-* Module `tf.keras.activations`
+* Module <a href="/api_docs/python/tf/keras/activations"><code>tf.compat.v1.keras.activations</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/activations/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/activations/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,5 +55,4 @@ Defined in [`python/keras/api/_v1/keras/activations/__init__.py`](https://github
 
 [`softsign(...)`](../../tf/keras/activations/softsign): Softsign activation function.
 
-[`tanh(...)`](../../tf/keras/activations/tanh): Hyperbolic Tangent activation function.
-
+[`tanh(...)`](../../tf/keras/activations/tanh): Hyperbolic Tangent (tanh) activation function.

@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.RunMetadata
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RunMetadata`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.RunMetadata`
-* Class `tf.compat.v1.RunMetadata`
+* Class <a href="/api_docs/python/tf/RunMetadata"><code>tf.compat.v1.RunMetadata</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,7 +54,3 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="step_stats"><code>step_stats</code></h3>
 
 `StepStats step_stats`
-
-
-
-

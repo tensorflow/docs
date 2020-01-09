@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.keras.optimizers.Adagrad
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Adagrad">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adagrad.py#L38-L205">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Adagrad`
 
 Optimizer that implements the Adagrad algorithm.
@@ -14,14 +32,10 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.Adagrad`
-* Class `tf.compat.v2.keras.optimizers.Adagrad`
-* Class `tf.compat.v2.optimizers.Adagrad`
-* Class `tf.keras.optimizers.Adagrad`
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adagrad"><code>tf.compat.v1.keras.optimizers.Adagrad</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adagrad"><code>tf.compat.v2.keras.optimizers.Adagrad</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Adagrad"><code>tf.compat.v2.optimizers.Adagrad</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/adagrad.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/adagrad.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -52,6 +66,8 @@ the smaller the updates.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adagrad.py#L61-L101">View source</a>
+
 ``` python
 __init__(
     learning_rate=0.001,
@@ -70,9 +86,8 @@ Construct a new Adagrad optimizer.
 
 * <b>`learning_rate`</b>: A `Tensor` or a floating point value.  The learning rate.
 * <b>`initial_accumulator_value`</b>: A floating point value.
-  Starting value for the accumulators, must be positive.
-* <b>`epsilon`</b>: A floating point value.
-  Starting value for the accumulators, must be positive.
+  Starting value for the accumulators, must be non-negative.
+* <b>`epsilon`</b>: A small floating point value to avoid zero denominator.
 * <b>`name`</b>: Optional name prefix for the operations created when applying
   gradients.  Defaults to "Adagrad".
 * <b>`**kwargs`</b>: keyword arguments. Allowed to be {`clipnorm`, `clipvalue`, `lr`,
@@ -117,6 +132,8 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+
 ``` python
 add_slot(
     var,
@@ -129,6 +146,8 @@ Add a new slot variable for `var`.
 
 
 <h3 id="add_weight"><code>add_weight</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
 
 ``` python
 add_weight(
@@ -146,6 +165,8 @@ add_weight(
 
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
 
 ``` python
 apply_gradients(
@@ -169,8 +190,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. The `iterations`
+  will be automatically increased by 1.
 
 
 
@@ -181,6 +202,8 @@ was not None, that operation also increments `global_step`.
 * <b>`ValueError`</b>: If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adagrad.py#L127-L148">View source</a>
 
 ``` python
 @classmethod
@@ -213,14 +236,27 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adagrad.py#L197-L205">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the config of the optimimizer.
 
+An optimizer config is a Python dictionary (serializable)
+containing the configuration of an optimizer.
+The same optimizer can be reinstantiated later
+(without any saved state) from this configuration.
+
+#### Returns:
+
+Python dictionary.
 
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
 
 ``` python
 get_gradients(
@@ -253,6 +289,8 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+
 ``` python
 get_slot(
     var,
@@ -265,6 +303,8 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -273,6 +313,8 @@ A list of names for this optimizer's slots.
 
 
 <h3 id="get_updates"><code>get_updates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
 
 ``` python
 get_updates(
@@ -286,6 +328,8 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+
 ``` python
 get_weights()
 ```
@@ -294,6 +338,8 @@ get_weights()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
 
 ``` python
 minimize(
@@ -338,6 +384,8 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adagrad.py#L118-L125">View source</a>
+
 ``` python
 set_weights(weights)
 ```
@@ -347,12 +395,10 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+
 ``` python
 variables()
 ```
 
 Returns variables of this Optimizer based on the order created.
-
-
-
-

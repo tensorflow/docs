@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.spectral
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Public API for tf.spectral namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -39,4 +45,3 @@ page_type: reference
 [`rfft2d(...)`](../tf/signal/rfft2d): 2D real-valued fast Fourier transform.
 
 [`rfft3d(...)`](../tf/signal/rfft3d): 3D real-valued fast Fourier transform.
-

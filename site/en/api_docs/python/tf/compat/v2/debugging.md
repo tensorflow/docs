@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.debugging
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/debugging">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.debugging namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -63,4 +75,3 @@ Public API for tf.debugging namespace.
 [`is_numeric_tensor(...)`](../../../tf/debugging/is_numeric_tensor): Returns `True` if the elements of `tensor` are numbers.
 
 [`set_log_device_placement(...)`](../../../tf/debugging/set_log_device_placement): Set if device placements should be logged.
-

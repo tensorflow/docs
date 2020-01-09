@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.lite.Optimize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lite/Optimize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L76-L108">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Optimize`
 
 Enum defining the optimizations to apply when generating tflite graphs.
@@ -13,13 +31,9 @@ Enum defining the optimizations to apply when generating tflite graphs.
 
 ### Aliases:
 
-* Class `tf.compat.v1.lite.Optimize`
-* Class `tf.compat.v2.lite.Optimize`
-* Class `tf.lite.Optimize`
+* Class <a href="/api_docs/python/tf/lite/Optimize"><code>tf.compat.v1.lite.Optimize</code></a>
+* Class <a href="/api_docs/python/tf/lite/Optimize"><code>tf.compat.v2.lite.Optimize</code></a>
 
-
-
-Defined in [`lite/python/lite.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/lite.py).
 
 <!-- Placeholder for "Used in" -->
 

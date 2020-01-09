@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.histogram_fixed_width_bins
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/histogram_fixed_width_bins">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/histogram_ops.py#L32-L100">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Bins the given values for use in a histogram.
 
 ### Aliases:
 
-* `tf.compat.v1.histogram_fixed_width_bins`
-* `tf.compat.v2.histogram_fixed_width_bins`
-* `tf.histogram_fixed_width_bins`
+* <a href="/api_docs/python/tf/histogram_fixed_width_bins"><code>tf.compat.v1.histogram_fixed_width_bins</code></a>
+* <a href="/api_docs/python/tf/histogram_fixed_width_bins"><code>tf.compat.v2.histogram_fixed_width_bins</code></a>
+
 
 ``` python
 tf.histogram_fixed_width_bins(
@@ -24,8 +42,6 @@ tf.histogram_fixed_width_bins(
 ```
 
 
-
-Defined in [`python/ops/histogram_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/histogram_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -53,6 +69,14 @@ A `Tensor` holding the indices of the binned values whose shape matches
 
 
 
+#### Raises:
+
+
+* <b>`TypeError`</b>: If any unsupported dtype is provided.
+* <b><a href="/api_docs/python/tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a></b>: If value_range does not
+    satisfy value_range[0] < value_range[1].
+
+
 #### Examples:
 
 
@@ -66,5 +90,5 @@ new_values = [-1.0, 0.0, 1.5, 2.0, 5.0, 15]
 with tf.compat.v1.get_default_session() as sess:
   indices = tf.histogram_fixed_width_bins(new_values, value_range, nbins=5)
   variables.global_variables_initializer().run()
-  sess.run(indices) => [0, 0, 1, 2, 4]
+  sess.run(indices) # [0, 0, 1, 2, 4, 4]
 ```

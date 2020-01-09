@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.placeholder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2577-L2619">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Inserts a placeholder for a tensor that will be always fed.
 
 ### Aliases:
 
-* `tf.compat.v1.placeholder`
-* `tf.placeholder`
+* <a href="/api_docs/python/tf/placeholder"><code>tf.compat.v1.placeholder</code></a>
+
 
 ``` python
 tf.placeholder(
@@ -21,8 +33,6 @@ tf.placeholder(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -70,4 +80,3 @@ evaluated directly.
 
 #### Eager Compatibility
 Placeholders are not compatible with eager execution.
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.python_io
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/python_io">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Python functions for directly manipulating TFRecord-formatted files.
 
 <!-- Placeholder for "Used in" -->
@@ -21,4 +33,3 @@ Python functions for directly manipulating TFRecord-formatted files.
 ## Functions
 
 [`tf_record_iterator(...)`](../../../tf/io/tf_record_iterator): An iterator that read the records from a TFRecords file. (deprecated)
-

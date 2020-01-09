@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.RegAdagradOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/reg_adagrad_optimizer.py#L26-L107">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RegAdagradOptimizer`
 
 RegAdagrad: Adagrad with updates that optionally skip updating the slots.
 
 Inherits From: [`AdagradOptimizer`](../../../tf/train/AdagradOptimizer)
-
-
-
-Defined in [`contrib/opt/python/training/reg_adagrad_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/reg_adagrad_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,6 +43,8 @@ entanglement. Example usage:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/reg_adagrad_optimizer.py#L46-L56">View source</a>
+
 ``` python
 __init__(
     learning_rate,
@@ -44,6 +54,32 @@ __init__(
 )
 ```
 
+Construct a new Adagrad optimizer.
+
+
+#### Args:
+
+
+* <b>`learning_rate`</b>: A `Tensor` or a floating point value.  The learning rate.
+* <b>`initial_accumulator_value`</b>: A floating point value.
+  Starting value for the accumulators, must be positive.
+* <b>`use_locking`</b>: If `True` use locks for update operations.
+* <b>`name`</b>: Optional name prefix for the operations created when applying
+  gradients.  Defaults to "Adagrad".
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If the `initial_accumulator_value` is invalid.
+
+
+
+#### Eager Compatibility
+When eager execution is enabled, `learning_rate` can be a callable that
+takes no arguments and returns the actual value to use. This can be useful
+for changing these values across different invocations of optimizer
+functions.
 
 
 
@@ -52,6 +88,8 @@ __init__(
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L531-L638">View source</a>
 
 ``` python
 apply_gradients(
@@ -93,6 +131,8 @@ was not None, that operation also increments `global_step`.
 
 <h3 id="avoid_updating_slots"><code>avoid_updating_slots</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/reg_adagrad_optimizer.py#L58-L65">View source</a>
+
 ``` python
 avoid_updating_slots()
 ```
@@ -101,6 +141,8 @@ avoid_updating_slots()
 
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 ``` python
 compute_gradients(
@@ -129,7 +171,7 @@ given variable.
   is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
   `loss`.  Defaults to the list of variables collected in the graph
-  under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -164,6 +206,8 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -172,6 +216,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -203,6 +249,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -217,6 +265,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -246,7 +296,7 @@ of using this function.
   variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in
-  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  the graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -283,6 +333,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

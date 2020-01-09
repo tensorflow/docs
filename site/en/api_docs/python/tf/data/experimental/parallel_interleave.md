@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.data.experimental.parallel_interleave
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/parallel_interleave">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/interleave_ops.py#L36-L96">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A parallel version of the <a href="../../../tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.parallel_interleave`
-* `tf.compat.v2.data.experimental.parallel_interleave`
-* `tf.data.experimental.parallel_interleave`
+* <a href="/api_docs/python/tf/data/experimental/parallel_interleave"><code>tf.compat.v1.data.experimental.parallel_interleave</code></a>
+* <a href="/api_docs/python/tf/data/experimental/parallel_interleave"><code>tf.compat.v2.data.experimental.parallel_interleave</code></a>
+
 
 ``` python
 tf.data.experimental.parallel_interleave(
@@ -25,8 +43,6 @@ tf.data.experimental.parallel_interleave(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/interleave_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

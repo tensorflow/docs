@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.model_pruning.get_pruning_hparams
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/model_pruning/python/pruning.py#L146-L229">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get a tf.HParams object with the default values for the hyperparameters.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.model_pruning.get_pruning_hparams()
 ```
 
 
-
-Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/model_pruning/python/pruning.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,10 +36,16 @@ Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensor
     the global step at which to terminate pruning. Defaults to -1 implying
     that pruning continues till the training stops
   weight_sparsity_map: list of strings
-     comma separed list of weight variable name:target sparsity pairs.
+     comma separed list of {weight_variable_name:target sparsity} or
+     {regex:target sparsity} pairs.
      For layers/weights not in this list, sparsity as specified by the
      target_sparsity hyperparameter is used.
      Eg. [conv1:0.9,conv2/kernel:0.8]
+  block_dims_map: list of strings
+     comma separated list of {weight variable name:block_height x block_width}
+     or {regex:block_height x block_width} pairs. For layers/weights not in
+     this list, block dims are specified by the block_height, block_width
+     hyperparameters are used Eg. [dense1:4x4,dense2:1x16,dense3:1x1]
   threshold_decay: float
     the decay factor to use for exponential decay of the thresholds
   pruning_frequency: integer
@@ -37,9 +53,11 @@ Defined in [`contrib/model_pruning/python/pruning.py`](https://github.com/tensor
   nbins: integer
     number of bins to use for histogram computation
   block_height: integer
-    number of rows in a block (defaults to 1)
+    number of rows in a block (defaults to 1), can be -1 in which
+    case it is set to the size of the corresponding weight tensor.
   block_width: integer
-    number of cols in a block (defaults to 1)
+    number of cols in a block (defaults to 1), can be -1 in which
+    case it is set to the size of the corresponding weight tensor.
   block_pooling_function: string
     Whether to perform average (AVG) or max (MAX) pooling in the block
     (default: AVG)

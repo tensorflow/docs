@@ -5,21 +5,33 @@ page_type: reference
 
 # tf.no_op
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/no_op">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_control_flow_ops.py`
+
+
+
 Does nothing. Only useful as a placeholder for control edges.
 
 ### Aliases:
 
-* `tf.compat.v1.no_op`
-* `tf.compat.v2.no_op`
-* `tf.no_op`
+* <a href="/api_docs/python/tf/no_op"><code>tf.compat.v1.no_op</code></a>
+* <a href="/api_docs/python/tf/no_op"><code>tf.compat.v2.no_op</code></a>
+
 
 ``` python
 tf.no_op(name=None)
 ```
 
 
-
-Defined in generated file: `python/ops/gen_control_flow_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

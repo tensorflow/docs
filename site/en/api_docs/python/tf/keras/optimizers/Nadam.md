@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.keras.optimizers.Nadam
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Nadam">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/nadam.py#L32-L236">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Nadam`
 
 Optimizer that implements the NAdam algorithm.
@@ -14,14 +32,10 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.optimizers.Nadam`
-* Class `tf.compat.v2.keras.optimizers.Nadam`
-* Class `tf.compat.v2.optimizers.Nadam`
-* Class `tf.keras.optimizers.Nadam`
+* Class <a href="/api_docs/python/tf/keras/optimizers/Nadam"><code>tf.compat.v1.keras.optimizers.Nadam</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Nadam"><code>tf.compat.v2.keras.optimizers.Nadam</code></a>
+* Class <a href="/api_docs/python/tf/keras/optimizers/Nadam"><code>tf.compat.v2.optimizers.Nadam</code></a>
 
-
-
-Defined in [`python/keras/optimizer_v2/nadam.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizer_v2/nadam.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -57,6 +71,8 @@ References
   See [Dozat, T., 2015](http://cs229.stanford.edu/proj2015/054_report.pdf).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/nadam.py#L63-L102">View source</a>
 
 ``` python
 __init__(
@@ -109,6 +125,8 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+
 ``` python
 add_slot(
     var,
@@ -121,6 +139,8 @@ Add a new slot variable for `var`.
 
 
 <h3 id="add_weight"><code>add_weight</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
 
 ``` python
 add_weight(
@@ -138,6 +158,8 @@ add_weight(
 
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
 
 ``` python
 apply_gradients(
@@ -161,8 +183,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. If `global_step`
-was not None, that operation also increments `global_step`.
+An `Operation` that applies the specified gradients. The `iterations`
+  will be automatically increased by 1.
 
 
 
@@ -173,6 +195,8 @@ was not None, that operation also increments `global_step`.
 * <b>`ValueError`</b>: If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L696-L719">View source</a>
 
 ``` python
 from_config(
@@ -204,14 +228,27 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/nadam.py#L227-L236">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the config of the optimimizer.
 
+An optimizer config is a Python dictionary (serializable)
+containing the configuration of an optimizer.
+The same optimizer can be reinstantiated later
+(without any saved state) from this configuration.
+
+#### Returns:
+
+Python dictionary.
 
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
 
 ``` python
 get_gradients(
@@ -244,6 +281,8 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+
 ``` python
 get_slot(
     var,
@@ -256,6 +295,8 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -264,6 +305,8 @@ A list of names for this optimizer's slots.
 
 
 <h3 id="get_updates"><code>get_updates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
 
 ``` python
 get_updates(
@@ -277,6 +320,8 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+
 ``` python
 get_weights()
 ```
@@ -285,6 +330,8 @@ get_weights()
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
 
 ``` python
 minimize(
@@ -329,6 +376,8 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L746-L764">View source</a>
+
 ``` python
 set_weights(weights)
 ```
@@ -338,12 +387,10 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+
 ``` python
 variables()
 ```
 
 Returns variables of this Optimizer based on the order created.
-
-
-
-

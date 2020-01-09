@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.factorization.gmm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm_ops.py#L462-L506">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates the graph for Gaussian mixture model (GMM) clustering.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.factorization.gmm(
 ```
 
 
-
-Defined in [`contrib/factorization/python/ops/gmm_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/gmm_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

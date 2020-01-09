@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ApplyAdagrad Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,17 +14,17 @@
   <h2>Summary</h2>
   <p>accum += grad * grad var -= lr * grad * (1 / sqrt(accum))</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>accum: Should be from a Variable().</li>
       <li>lr: Scaling factor. Must be a scalar.</li>
       <li>grad: The gradient.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Same as "var". </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -34,13 +34,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_adagrad_1a119cb4675749a5746ce8598f8793a671">ApplyAdagrad</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adagrad_1a119cb4675749a5746ce8598f8793a671">ApplyAdagrad</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_apply_adagrad_1a251be3569dad2f58e5820e423d32f28c">ApplyAdagrad</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">ApplyAdagrad::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_apply_adagrad_1a251be3569dad2f58e5820e423d32f28c">ApplyAdagrad</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">ApplyAdagrad::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -57,7 +57,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -67,7 +67,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -121,7 +121,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -131,7 +131,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -144,45 +144,45 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAdagrad::<wbr/>Attrs</a>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs">tensorflow::<wbr/>ops::<wbr/>ApplyAdagrad::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/apply-adagrad.html#classtensorflow_1_1ops_1_1_apply_adagrad">ApplyAdagrad</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/apply-adagrad.html#classtensorflow_1_1ops_1_1_apply_adagrad">ApplyAdagrad</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1a7e34dfd358db60a1c864ec24b278de1e">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1a3fe05f28ae9aa48b8351a53fc562e03d">
     <h3>out</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1a119cb4675749a5746ce8598f8793a671">
     <h3>ApplyAdagrad</h3>
     <pre class="prettyprint"> ApplyAdagrad(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1a251be3569dad2f58e5820e423d32f28c">
     <h3>ApplyAdagrad</h3>
     <pre class="prettyprint"> ApplyAdagrad(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">ApplyAdagrad::Attrs</a> & attrs
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">ApplyAdagrad::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -204,14 +204,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1aebe5e4875477a6e8f3634d4c5c33dba0">
     <h3>UpdateSlots</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a> UpdateSlots(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a> UpdateSlots(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_apply_adagrad_1a412d43f4d6cbb6c10d0e49edf9f256f2">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/apply-adagrad/attrs.html#structtensorflow_1_1ops_1_1_apply_adagrad_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

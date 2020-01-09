@@ -2,15 +2,15 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SparseSplit Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>SparseSplit</h1>
   <code>#include &lt;sparse_ops.h&gt;</code>
-  <p><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> a <code>SparseTensor</code> into <code>num_split</code> tensors along one dimension. </p>
+  <p>Split a <code>SparseTensor</code> into <code>num_split</code> tensors along one dimension. </p>
   <h2>Summary</h2>
   <p>If the <code>shape[split_dim]</code> is not an integer multiple of <code>num_split</code>. Slices <code>[0 : shape[split_dim] % num_split]</code> gets one extra dimension. For example, if <code>split_dim = 1</code> and <code>num_split = 2</code> and the input is <pre class="prettyprint">input_tensor = shape = [2, 7]
 [    a   d e  ]
@@ -25,7 +25,7 @@ output_tensor[1] = shape = [2, 3]
 [      ]
 </pre></p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>split_dim: 0-D. The dimension along which to split. Must be in the range <code>[0, rank(shape))</code>.</li>
       <li>indices: 2-D tensor represents the indices of the sparse tensor.</li>
       <li>values: 1-D tensor represents the values of the sparse tensor.</li>
@@ -45,7 +45,7 @@ output_tensor[1] = shape = [2, 3]
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_sparse_split_1a321e452a28531c13e1804a67073d0d86">SparseSplit</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> split_dim, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, int64 num_split)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_split_1a321e452a28531c13e1804a67073d0d86">SparseSplit</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> split_dim, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, int64 num_split)</code>
         <br />
       </td>
     </tr>
@@ -62,7 +62,7 @@ output_tensor[1] = shape = [2, 3]
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -72,7 +72,7 @@ output_tensor[1] = shape = [2, 3]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -82,7 +82,7 @@ output_tensor[1] = shape = [2, 3]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -92,7 +92,7 @@ output_tensor[1] = shape = [2, 3]
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a></code>
         </div>
       </td>
     </tr>
@@ -100,33 +100,33 @@ output_tensor[1] = shape = [2, 3]
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_split_1a2974c5fbf83913d7d9f9efaad3748136">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_split_1aa34695e1d3350589e31496300ce37439">
     <h3>output_indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_split_1aaadf678ffb2ceae9b4a3a71e743c04e4">
     <h3>output_shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_sparse_split_1a16af03b2decbe6d8c2b506f3e48dca4a">
     <h3>output_values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/group/core.html#group__core_1gab449e6a3abd500c2f4ea93f9e89ba96c">tensorflow::OutputList</a> output_values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_sparse_split_1a321e452a28531c13e1804a67073d0d86">
     <h3>SparseSplit</h3>
     <pre class="prettyprint"> SparseSplit(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> split_dim,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> split_dim,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
   int64 num_split
 )</pre>
     <div />

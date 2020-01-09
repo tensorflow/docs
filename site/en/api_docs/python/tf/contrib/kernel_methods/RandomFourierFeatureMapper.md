@@ -6,15 +6,23 @@ page_type: reference
 
 # tf.contrib.kernel_methods.RandomFourierFeatureMapper
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py#L33-L160">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RandomFourierFeatureMapper`
 
 Class that implements Random Fourier Feature Mapping (RFFM) in TensorFlow.
 
 
-
-
-
-Defined in [`contrib/kernel_methods/python/mappers/random_fourier_features.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,6 +49,8 @@ kernel of RFFM-mapped vectors approximates the Gaussian kernel of the initial
 vectors.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py#L60-L85">View source</a>
 
 ``` python
 __init__(
@@ -93,7 +103,7 @@ A name for the `RandomFourierFeatureMapper` instance.
 
 <h3 id="output_dim"><code>output_dim</code></h3>
 
-
+Returns the output dimension of the mapping.
 
 
 
@@ -101,6 +111,8 @@ A name for the `RandomFourierFeatureMapper` instance.
 ## Methods
 
 <h3 id="map"><code>map</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/kernel_methods/python/mappers/random_fourier_features.py#L107-L160">View source</a>
 
 ``` python
 map(input_tensor)
@@ -128,6 +140,3 @@ features.
 
 * <b>`InvalidShapeError`</b>: if the shape of the `input_tensor` is inconsistent with
   expected input dimension.
-
-
-

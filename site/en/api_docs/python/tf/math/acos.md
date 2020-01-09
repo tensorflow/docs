@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.math.acos
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/acos">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes acos of x element-wise.
 
 ### Aliases:
 
-* `tf.acos`
-* `tf.compat.v1.acos`
-* `tf.compat.v1.math.acos`
-* `tf.compat.v2.acos`
-* `tf.compat.v2.math.acos`
-* `tf.math.acos`
+* <a href="/api_docs/python/tf/math/acos"><code>tf.acos</code></a>
+* <a href="/api_docs/python/tf/math/acos"><code>tf.compat.v1.acos</code></a>
+* <a href="/api_docs/python/tf/math/acos"><code>tf.compat.v1.math.acos</code></a>
+* <a href="/api_docs/python/tf/math/acos"><code>tf.compat.v2.acos</code></a>
+* <a href="/api_docs/python/tf/math/acos"><code>tf.compat.v2.math.acos</code></a>
+
 
 ``` python
 tf.math.acos(
@@ -24,8 +38,6 @@ tf.math.acos(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

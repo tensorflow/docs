@@ -6,12 +6,24 @@ page_type: reference
 
 # tf.compat.v2.math.in_top_k
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L4846-L4848">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Says whether the targets are in the top `K` predictions.
 
 ### Aliases:
 
-* `tf.compat.v2.math.in_top_k`
-* `tf.compat.v2.nn.in_top_k`
+* <a href="/api_docs/python/tf/compat/v2/math/in_top_k"><code>tf.compat.v2.nn.in_top_k</code></a>
+
 
 ``` python
 tf.compat.v2.math.in_top_k(
@@ -23,8 +35,6 @@ tf.compat.v2.math.in_top_k(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

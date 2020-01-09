@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.metrics.Metric
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L40-L290">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Metric`
 
 A metric holds state for aggregating statistics over an evaluation run.
 
 Inherits From: [`CheckpointableBase`](../../../../tf/contrib/checkpoint/CheckpointableBase)
-
-
-
-Defined in [`contrib/eager/python/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -74,6 +82,8 @@ adds in the state from a list of metrics of the same type as `self`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L98-L132">View source</a>
+
 ``` python
 __init__(
     name=None,
@@ -81,7 +91,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -104,6 +114,8 @@ __init__(
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L135-L150">View source</a>
+
 ``` python
 __call__(
     *args,
@@ -123,6 +135,8 @@ Returns a graph-mode function if graph execution is enabled.
 
 <h3 id="add_variable"><code>add_variable</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L260-L290">View source</a>
+
 ``` python
 add_variable(
     name,
@@ -136,6 +150,8 @@ add_variable(
 
 
 <h3 id="aggregate"><code>aggregate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L237-L256">View source</a>
 
 ``` python
 aggregate(metrics)
@@ -158,6 +174,8 @@ Default implementation sums all the metric variables.
 
 <h3 id="build"><code>build</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L180-L191">View source</a>
+
 ``` python
 build(
     *args,
@@ -177,6 +195,8 @@ Called by `__call__()` before `call()` for the first time.
  when deciding how to create variables.
 
 <h3 id="call"><code>call</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L193-L211">View source</a>
 
 ``` python
 call(
@@ -205,6 +225,8 @@ eager execution.
 
 <h3 id="init_variables"><code>init_variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L160-L177">View source</a>
+
 ``` python
 init_variables()
 ```
@@ -225,6 +247,8 @@ initial values as a side effect and this function returns None.
 
 <h3 id="result"><code>result</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L213-L215">View source</a>
+
 ``` python
 result()
 ```
@@ -234,12 +258,10 @@ Computes and returns a final value for the metric.
 
 <h3 id="value"><code>value</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics_impl.py#L217-L222">View source</a>
+
 ``` python
 value()
 ```
 
 In graph mode returns the result Tensor while in eager the callable.
-
-
-
-

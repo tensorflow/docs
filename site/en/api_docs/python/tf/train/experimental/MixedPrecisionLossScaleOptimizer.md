@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.experimental.MixedPrecisionLossScaleOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale_optimizer.py#L30-L238">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MixedPrecisionLossScaleOptimizer`
 
 An optimizer that applies loss scaling.
@@ -13,12 +25,8 @@ Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.experimental.MixedPrecisionLossScaleOptimizer`
-* Class `tf.train.experimental.MixedPrecisionLossScaleOptimizer`
+* Class <a href="/api_docs/python/tf/train/experimental/MixedPrecisionLossScaleOptimizer"><code>tf.compat.v1.train.experimental.MixedPrecisionLossScaleOptimizer</code></a>
 
-
-
-Defined in [`python/training/experimental/loss_scale_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/experimental/loss_scale_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,6 +57,8 @@ computed, such as through `minimize()`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale_optimizer.py#L59-L71">View source</a>
+
 ``` python
 __init__(
     opt,
@@ -56,14 +66,31 @@ __init__(
 )
 ```
 
+Create a new Optimizer.
+
+This must be called by the constructors of subclasses.
+
+#### Args:
 
 
+* <b>`use_locking`</b>: Bool. If True apply use locks to prevent concurrent updates
+  to variables.
+* <b>`name`</b>: A non-empty string.  The name to use for accumulators created
+  for the optimizer.
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If name is malformed.
 
 
 
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale_optimizer.py#L145-L178">View source</a>
 
 ``` python
 apply_gradients(
@@ -103,6 +130,8 @@ An `Operation` that conditionally applies the specified gradients. If
 * <b>`RuntimeError`</b>: If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale_optimizer.py#L77-L123">View source</a>
 
 ``` python
 compute_gradients(
@@ -149,6 +178,8 @@ gradient can be `None`.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -157,6 +188,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -188,6 +221,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -202,6 +237,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -268,6 +305,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

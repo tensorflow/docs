@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.AddSignOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/addsign.py#L30-L168">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AddSignOptimizer`
 
 Optimizer that implements the AddSign update.
 
 Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
-
-
-
-Defined in [`contrib/opt/python/training/addsign.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/addsign.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,6 +29,8 @@ See [Bello et al., ICML2017],
 [Neural Optimizer Search with RL](https://arxiv.org/abs/1709.07417).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/addsign.py#L37-L90">View source</a>
 
 ``` python
 __init__(
@@ -83,6 +93,8 @@ opt = AddSignOptimizer(learning_rate=0.1, sign_decay_fn=linear_decay_fn)
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/addsign.py#L92-L97">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -91,10 +103,39 @@ apply_gradients(
 )
 ```
 
+Apply gradients to variables.
+
+This is the second part of `minimize()`. It returns an `Operation` that
+applies gradients.
+
+#### Args:
 
 
+* <b>`grads_and_vars`</b>: List of (gradient, variable) pairs as returned by
+  `compute_gradients()`.
+* <b>`global_step`</b>: Optional `Variable` to increment by one after the
+  variables have been updated.
+* <b>`name`</b>: Optional name for the returned operation.  Default to the
+  name passed to the `Optimizer` constructor.
+
+
+#### Returns:
+
+An `Operation` that applies the specified gradients. If `global_step`
+was not None, that operation also increments `global_step`.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: If `grads_and_vars` is malformed.
+* <b>`ValueError`</b>: If none of the variables have gradients.
+* <b>`RuntimeError`</b>: If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 ``` python
 compute_gradients(
@@ -123,7 +164,7 @@ given variable.
   is enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
   `loss`.  Defaults to the list of variables collected in the graph
-  under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -158,6 +199,8 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -166,6 +209,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -197,6 +242,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -211,6 +258,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -240,7 +289,7 @@ of using this function.
   variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in
-  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  the graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -277,6 +326,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

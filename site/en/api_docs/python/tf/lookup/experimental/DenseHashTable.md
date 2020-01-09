@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.lookup.experimental.DenseHashTable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lookup/experimental/DenseHashTable">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1831-L2123">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DenseHashTable`
 
 A generic mutable hash table implementation using tensors as backing store.
@@ -13,14 +31,10 @@ Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
 
 ### Aliases:
 
-* Class `tf.compat.v1.lookup.experimental.DenseHashTable`
-* Class `tf.compat.v2.lookup.experimental.DenseHashTable`
-* Class `tf.contrib.lookup.MutableDenseHashTable`
-* Class `tf.lookup.experimental.DenseHashTable`
+* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.compat.v1.lookup.experimental.DenseHashTable</code></a>
+* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.compat.v2.lookup.experimental.DenseHashTable</code></a>
+* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.contrib.lookup.MutableDenseHashTable</code></a>
 
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,6 +64,8 @@ print(out.eval())
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1860-L1922">View source</a>
 
 ``` python
 __init__(
@@ -109,7 +125,7 @@ The table key dtype.
 
 <h3 id="name"><code>name</code></h3>
 
-
+The name of the table.
 
 
 <h3 id="resource_handle"><code>resource_handle</code></h3>
@@ -127,6 +143,8 @@ The table value dtype.
 ## Methods
 
 <h3 id="erase"><code>erase</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2033-L2058">View source</a>
 
 ``` python
 erase(
@@ -160,6 +178,8 @@ The created Operation.
 
 <h3 id="export"><code>export</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2078-L2094">View source</a>
+
 ``` python
 export(name=None)
 ```
@@ -180,6 +200,8 @@ A pair of tensors with the first tensor containing all keys and the
 
 
 <h3 id="insert"><code>insert</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2014-L2031">View source</a>
 
 ``` python
 insert(
@@ -216,6 +238,8 @@ The created Operation.
 
 <h3 id="insert_or_assign"><code>insert_or_assign</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1987-L2012">View source</a>
+
 ``` python
 insert_or_assign(
     keys,
@@ -251,6 +275,8 @@ The created Operation.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1961-L1985">View source</a>
+
 ``` python
 lookup(
     keys,
@@ -284,6 +310,8 @@ A tensor containing the values in the same shape as `keys` using the
 
 <h3 id="remove"><code>remove</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2060-L2076">View source</a>
+
 ``` python
 remove(
     keys,
@@ -316,6 +344,8 @@ The created Operation.
 
 <h3 id="size"><code>size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1948-L1959">View source</a>
+
 ``` python
 size(name=None)
 ```
@@ -332,7 +362,3 @@ Compute the number of elements in this table.
 #### Returns:
 
 A scalar tensor containing the number of elements in this table.
-
-
-
-

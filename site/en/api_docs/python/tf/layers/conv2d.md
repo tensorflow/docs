@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.conv2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/convolutional.py#L317-L424">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Functional interface for the 2D convolution layer. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.conv2d`
-* `tf.layers.conv2d`
+* <a href="/api_docs/python/tf/layers/conv2d"><code>tf.compat.v1.layers.conv2d</code></a>
+
 
 ``` python
 tf.layers.conv2d(
@@ -37,8 +49,6 @@ tf.layers.conv2d(
 ```
 
 
-
-Defined in [`python/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 

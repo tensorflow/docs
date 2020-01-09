@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.RealNVP
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py#L35-L238">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RealNVP`
 
 RealNVP "affine coupling layer" for vector-valued events.
 
 Inherits From: [`Bijector`](../../../../tf/contrib/distributions/bijectors/Bijector)
-
-
-
-Defined in [`contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -110,6 +118,8 @@ For more examples, see [Jang (2018)][3].
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py#L130-L181">View source</a>
+
 ``` python
 __init__(
     num_masked,
@@ -124,7 +134,7 @@ Creates the Real NVP or NICE bijector. (deprecated)
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 #### Args:
 
@@ -208,6 +218,8 @@ Returns True if Tensor arguments will be validated.
 
 <h3 id="forward"><code>forward</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L753-L768">View source</a>
+
 ``` python
 forward(
     x,
@@ -240,6 +252,8 @@ Returns the forward `Bijector` evaluation, i.e., X = g(Y).
 
 <h3 id="forward_event_shape"><code>forward_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L677-L690">View source</a>
+
 ``` python
 forward_event_shape(input_shape)
 ```
@@ -262,6 +276,8 @@ Same meaning as `forward_event_shape_tensor`. May be only partially defined.
   after applying `forward`. Possibly unknown.
 
 <h3 id="forward_event_shape_tensor"><code>forward_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L653-L670">View source</a>
 
 ``` python
 forward_event_shape_tensor(
@@ -288,6 +304,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `forward`.
 
 <h3 id="forward_log_det_jacobian"><code>forward_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L973-L997">View source</a>
 
 ``` python
 forward_log_det_jacobian(
@@ -330,6 +348,8 @@ Returns both the forward_log_det_jacobian.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L787-L804">View source</a>
+
 ``` python
 inverse(
     y,
@@ -364,6 +384,8 @@ Returns the inverse `Bijector` evaluation, i.e., X = g^{-1}(Y).
 
 <h3 id="inverse_event_shape"><code>inverse_event_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L721-L734">View source</a>
+
 ``` python
 inverse_event_shape(output_shape)
 ```
@@ -386,6 +408,8 @@ Same meaning as `inverse_event_shape_tensor`. May be only partially defined.
   after applying `inverse`. Possibly unknown.
 
 <h3 id="inverse_event_shape_tensor"><code>inverse_event_shape_tensor</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L697-L714">View source</a>
 
 ``` python
 inverse_event_shape_tensor(
@@ -412,6 +436,8 @@ Shape of a single sample from a single batch as an `int32` 1D `Tensor`.
   event-portion shape after applying `inverse`.
 
 <h3 id="inverse_log_det_jacobian"><code>inverse_log_det_jacobian</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/distributions/bijector_impl.py#L871-L900">View source</a>
 
 ``` python
 inverse_log_det_jacobian(
@@ -455,6 +481,3 @@ evaluated at `g^{-1}(y)`.
 * <b>`TypeError`</b>: if `self.dtype` is specified and `y.dtype` is not
   `self.dtype`.
 * <b>`NotImplementedError`</b>: if `_inverse_log_det_jacobian` is not implemented.
-
-
-

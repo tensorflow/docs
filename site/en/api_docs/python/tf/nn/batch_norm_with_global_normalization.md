@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.batch_norm_with_global_normalization
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/batch_norm_with_global_normalization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1521-L1565">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Batch normalization.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.batch_norm_with_global_normalization`
-* `tf.nn.batch_norm_with_global_normalization`
+* <a href="/api_docs/python/tf/nn/batch_norm_with_global_normalization"><code>tf.compat.v1.nn.batch_norm_with_global_normalization</code></a>
+
 
 ``` python
 tf.nn.batch_norm_with_global_normalization(
@@ -29,8 +47,6 @@ tf.nn.batch_norm_with_global_normalization(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

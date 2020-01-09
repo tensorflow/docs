@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.nn.depthwise_conv2d_native
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes a 2-D depthwise convolution given 4-D `input` and `filter` tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.depthwise_conv2d_native`
-* `tf.nn.depthwise_conv2d_native`
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_native"><code>tf.compat.v1.nn.depthwise_conv2d_native</code></a>
+
 
 ``` python
 tf.nn.depthwise_conv2d_native(
@@ -25,8 +33,6 @@ tf.nn.depthwise_conv2d_native(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

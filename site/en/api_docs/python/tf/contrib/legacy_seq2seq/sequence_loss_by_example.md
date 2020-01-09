@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.legacy_seq2seq.sequence_loss_by_example
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py#L1052-L1100">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Weighted cross-entropy loss for a sequence of logits (per example).
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.legacy_seq2seq.sequence_loss_by_example(
 ```
 
 
-
-Defined in [`contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 <!-- Placeholder for "Used in" -->
 

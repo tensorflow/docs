@@ -5,17 +5,31 @@ page_type: reference
 
 # tf.reverse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/reverse">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Reverses specific dimensions of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.manip.reverse`
-* `tf.compat.v1.reverse`
-* `tf.compat.v1.reverse_v2`
-* `tf.compat.v2.reverse`
-* `tf.manip.reverse`
-* `tf.reverse`
-* `tf.reverse_v2`
+* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.manip.reverse</code></a>
+* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.reverse</code></a>
+* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.reverse_v2</code></a>
+* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v2.reverse</code></a>
+* <a href="/api_docs/python/tf/reverse"><code>tf.manip.reverse</code></a>
+* <a href="/api_docs/python/tf/reverse"><code>tf.reverse_v2</code></a>
+
 
 ``` python
 tf.reverse(
@@ -26,8 +40,6 @@ tf.reverse(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

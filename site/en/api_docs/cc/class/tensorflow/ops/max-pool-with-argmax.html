@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::MaxPoolWithArgmax Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,18 +12,21 @@
   <code>#include &lt;nn_ops.h&gt;</code>
   <p>Performs max pooling on the input and outputs both max values and indices. </p>
   <h2>Summary</h2>
-  <p>The indices in <code>argmax</code> are flattened, so that a maximum value at position <code>[b, y, x, c]</code> becomes flattened index <code>((b * height + y) * width + x) * channels + c</code>.</p>
+  <p>The indices in <code>argmax</code> are flattened, so that a maximum value at position <code>[b, y, x, c]</code> becomes flattened index: <code>(y * width + x) * channels + c</code> if <code>include_batch_in_index</code> is False; <code>((b * height + y) * width + x) * channels + c</code> if <code>include_batch_in_index</code> is True.</p>
   <p>The indices returned are always in <code>[0, height) x [0, width)</code> before flattening, even if padding is involved and the mathematically correct answer is outside (either negative or too large). This is a bug, but fixing it is difficult to do in a safe backwards compatible way, especially due to flattening.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>input: 4-D with shape <code>[batch, height, width, channels]</code>. <a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> to pool over.</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D with shape <code>[batch, height, width, channels]</code>. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> to pool over.</li>
       <li>ksize: The size of the window for each dimension of the input tensor.</li>
       <li>strides: The stride of the sliding window for each dimension of the input tensor.</li>
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a></code>):<ul>
+      <li>include_batch_in_index: Whether to include batch dimension in flattened index of <code>argmax</code>.</li>
+    </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: The max pooled output tensor.</li>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> argmax: 4-D. The flattened indices of the max values chosen for each output. </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> output: The max pooled output tensor.</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> argmax: 4-D. The flattened indices of the max values chosen for each output. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -33,13 +36,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1abb51fa41db084247e489859748d89eec">MaxPoolWithArgmax</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1abb51fa41db084247e489859748d89eec">MaxPoolWithArgmax</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a0c2a8005c65f80a0714ab13c31ac9b4a">MaxPoolWithArgmax</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">MaxPoolWithArgmax::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a0c2a8005c65f80a0714ab13c31ac9b4a">MaxPoolWithArgmax</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const gtl::ArraySlice< int > & ksize, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">MaxPoolWithArgmax::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -56,7 +59,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -66,7 +69,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -76,7 +79,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -89,11 +92,21 @@
     </tr>
     <tr>
       <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a4e5f3eabc676bb9818da7a13ed74280d">IncludeBatchInIndex</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code><a href="#classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a42ae4bbc217faf11615e6e2248886754">Targmax</a>(DataType x)</code>
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -106,35 +119,35 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs">tensorflow::<wbr/>ops::<wbr/>MaxPoolWithArgmax::<wbr/>Attrs</a>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs">tensorflow::<wbr/>ops::<wbr/>MaxPoolWithArgmax::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/max-pool-with-argmax.html#classtensorflow_1_1ops_1_1_max_pool_with_argmax">MaxPoolWithArgmax</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/max-pool-with-argmax.html#classtensorflow_1_1ops_1_1_max_pool_with_argmax">MaxPoolWithArgmax</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a3ee6b2270133581582b335bb54c206cd">
     <h3>argmax</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> argmax</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> argmax</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1ad70c7f4c8878ff933f05f49d914b32c5">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1ae10e4e4c026e2fb47004e52ccae14cd5">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1abb51fa41db084247e489859748d89eec">
     <h3>MaxPoolWithArgmax</h3>
     <pre class="prettyprint"> MaxPoolWithArgmax(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   const gtl::ArraySlice< int > & ksize,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding
@@ -144,19 +157,26 @@
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a0c2a8005c65f80a0714ab13c31ac9b4a">
     <h3>MaxPoolWithArgmax</h3>
     <pre class="prettyprint"> MaxPoolWithArgmax(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   const gtl::ArraySlice< int > & ksize,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding,
-  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">MaxPoolWithArgmax::Attrs</a> & attrs
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">MaxPoolWithArgmax::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a4e5f3eabc676bb9818da7a13ed74280d">
+    <h3>IncludeBatchInIndex</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a> IncludeBatchInIndex(
+  bool x
+)</pre>
+    <div />
+  </div>
   <div id="classtensorflow_1_1ops_1_1_max_pool_with_argmax_1a42ae4bbc217faf11615e6e2248886754">
     <h3>Targmax</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a> Targmax(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/max-pool-with-argmax/attrs.html#structtensorflow_1_1ops_1_1_max_pool_with_argmax_1_1_attrs">Attrs</a> Targmax(
   DataType x
 )</pre>
     <div />

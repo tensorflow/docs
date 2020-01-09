@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.CheckpointableObjectGraph.TrackableObject.ObjectReference
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/trackable_object_graph.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ObjectReference`
 
+A ProtocolMessage
 
 
-
-
-
-
-Defined in [`core/protobuf/trackable_object_graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/trackable_object_graph.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,7 +36,3 @@ Defined in [`core/protobuf/trackable_object_graph.proto`](https://github.com/ten
 <h3 id="node_id"><code>node_id</code></h3>
 
 `int32 node_id`
-
-
-
-

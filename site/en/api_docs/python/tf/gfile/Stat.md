@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.gfile.Stat
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L714-L727">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns file statistics for a given path.
 
 ### Aliases:
 
-* `tf.compat.v1.gfile.Stat`
-* `tf.gfile.Stat`
+* <a href="/api_docs/python/tf/gfile/Stat"><code>tf.compat.v1.gfile.Stat</code></a>
+
 
 ``` python
 tf.gfile.Stat(filename)
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,4 +48,4 @@ FileStatistics struct that contains information about the path
 #### Raises:
 
 
-* <b>`errors.OpError`</b>: If the operation fails.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.

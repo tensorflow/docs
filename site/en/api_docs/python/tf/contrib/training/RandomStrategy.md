@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.training.RandomStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L28-L53">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RandomStrategy`
 
 Returns a random PS task for op placement.
 
 
-
-
-
-Defined in [`contrib/training/python/training/device_setter.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/device_setter.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,6 +35,8 @@ This strategy uses a hash function on the name of each op for deterministic
 placement.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L41-L44">View source</a>
 
 ``` python
 __init__(
@@ -44,12 +54,10 @@ Creates a new `RandomStrategy`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/device_setter.py#L46-L53">View source</a>
+
 ``` python
 __call__(op)
 ```
 
 Chooses a ps task index for the given `Operation`.
-
-
-
-

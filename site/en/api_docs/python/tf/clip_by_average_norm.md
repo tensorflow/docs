@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.clip_by_average_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/clip_ops.py#L328-L372">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Clips tensor values to a maximum average L2-norm. (deprecated)
 
 ### Aliases:
 
-* `tf.clip_by_average_norm`
-* `tf.compat.v1.clip_by_average_norm`
+* <a href="/api_docs/python/tf/clip_by_average_norm"><code>tf.compat.v1.clip_by_average_norm</code></a>
+
 
 ``` python
 tf.clip_by_average_norm(
@@ -21,8 +33,6 @@ tf.clip_by_average_norm(
 ```
 
 
-
-Defined in [`python/ops/clip_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/clip_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

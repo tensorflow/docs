@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatrixDiagPartV2 Class Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatrixDiagPartV2</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns the batched diagonal part of a batched tensor. </p>
+  <h2>Summary</h2>
+  <p>Returns a tensor with the <code>k[0]</code>-th to <code>k[1]</code>-th diagonals of the batched <code>input</code>.</p>
+  <p>Assume <code>input</code> has <code>r</code> dimensions <code>[I, J, ..., L, M, N]</code>. Let <code>max_diag_len</code> be the maximum length among all diagonals to be extracted, <code>max_diag_len = min(M + min(k[1], 0), N + min(-k[0], 0))</code> Let <code>num_diags</code> be the number of diagonals to extract, <code>num_diags = k[1] - k[0] + 1</code>.</p>
+  <p>If <code>num_diags == 1</code>, the output tensor is of rank <code>r - 1</code> with shape <code>[I, J, ..., L, max_diag_len]</code> and values:</p>
+  <p><pre class="prettyprint">
+diagonal[i, j, ..., l, n]
+  = input[i, j, ..., l, n+y, n+x] ; when 0 <= n-y < M and 0 <= n-x < N,
+    0                             ; otherwise.
+</pre> where <code>y = max(-k[1], 0)</code>, <code>x = max(k[1], 0)</code>.</p>
+  <p>Otherwise, the output tensor has rank <code>r</code> with dimensions <code>[I, J, ..., L, num_diags, max_diag_len]</code> with values:</p>
+  <p><pre class="prettyprint">
+diagonal[i, j, ..., l, m, n]
+  = input[i, j, ..., l, n+y, n+x] ; when 0 <= n-y < M and 0 <= n-x < N,
+    0                             ; otherwise.
+</pre> where <code>d = k[1] - m</code>, <code>y = max(-d, 0)</code>, and <code>x = max(d, 0)</code>.</p>
+  <p>The input must be at least a matrix.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+input = np.array([[[1, 2, 3, 4],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 3, 4)
+                   [5, 6, 7, 8],
+                   [9, 8, 7, 6]],
+                  [[5, 4, 3, 2],
+                   [1, 2, 3, 4],
+                   [5, 6, 7, 8]]])</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; A main diagonal from each batch.
+tf.matrix_diag_part(input) ==> [[1, 6, 7],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3)
+                                [5, 2, 7]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; A superdiagonal from each batch.
+tf.matrix_diag_part(input, k = 1)
+  ==> [[2, 7, 6],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3)
+       [4, 3, 8]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; A tridiagonal band from each batch.
+tf.matrix_diag_part(input, k = (-1, 1))
+  ==> [[[2, 7, 6],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 3)
+        [1, 6, 7],
+        [5, 8, 0]],
+       [[4, 3, 8],
+        [5, 2, 7],
+        [1, 6, 0]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; Padding = 9
+tf.matrix_diag_part(input, k = (1, 3), padding = 9)
+  ==> [[[4, 9, 9],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 3)
+        [3, 8, 9],
+        [2, 7, 6]],
+       [[2, 9, 9],
+        [3, 4, 9],
+        [4, 3, 8]]]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: Rank <code>r</code> tensor where <code>r >= 2</code>.</li>
+      <li>k: Diagonal offset(s). Positive value means superdiagonal, 0 refers to the main diagonal, and negative value means subdiagonals. <code>k</code> can be a single integer (for a single diagonal) or a pair of integers specifying the low and high ends of a matrix band. <code>k[0]</code> must not be larger than <code>k[1]</code>.</li>
+      <li>padding_value: The value to fill the area outside the specified diagonal band with. Default is 0.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The extracted diagonal(s). </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1ad3de7ab4ab1196ff0eb0a0b9712563ef">MatrixDiagPartV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a7a8892ae88249cf5f89b97544d71a59c">diagonal</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1aefc836bb535eab5db669667a152eba42">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a0b20ceb05713921670ce29cf7671a152">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1acb91e8a485455813fcd8d9d3558c793b">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a18e6d0e922c930c2880112f18f2ac011">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a7a8892ae88249cf5f89b97544d71a59c">
+    <h3>diagonal</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> diagonal</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1aefc836bb535eab5db669667a152eba42">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1ad3de7ab4ab1196ff0eb0a0b9712563ef">
+    <h3>MatrixDiagPartV2</h3>
+    <pre class="prettyprint"> MatrixDiagPartV2(
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a0b20ceb05713921670ce29cf7671a152">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1acb91e8a485455813fcd8d9d3558c793b">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_diag_part_v2_1a18e6d0e922c930c2880112f18f2ac011">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

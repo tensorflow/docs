@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.smart_constant_value
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/smart_cond.py#L62-L90">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Return the bool value for `pred`, or None if `pred` had a dynamic value.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.framework.smart_constant_value(pred)
 ```
 
 
-
-Defined in [`python/framework/smart_cond.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/smart_cond.py).
 
 <!-- Placeholder for "Used in" -->
 

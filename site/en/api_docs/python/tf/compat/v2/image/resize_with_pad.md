@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.image.resize_with_pad
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1437-L1474">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Resizes and pads an image to a target width and height.
 
 ``` python
@@ -18,8 +30,6 @@ tf.compat.v2.image.resize_with_pad(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,7 +46,7 @@ dimensions.
   of shape `[height, width, channels]`.
 * <b>`target_height`</b>: Target height.
 * <b>`target_width`</b>: Target width.
-* <b>`method`</b>: Method to use for resizing image. See `image.resize()`
+* <b>`method`</b>: Method to use for resizing image. See <a href="/api_docs/python/tf/image/resize_images"><code>image.resize()</code></a>
 * <b>`antialias`</b>: Whether to use anti-aliasing when resizing. See 'image.resize()'.
 
 

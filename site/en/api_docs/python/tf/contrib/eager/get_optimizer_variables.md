@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.get_optimizer_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/saver.py#L175-L187">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a list of variables for the given <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a>.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.eager.get_optimizer_variables(optimizer)
 ```
 
 
-
-Defined in [`contrib/eager/python/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,7 +33,7 @@ Equivalent to `optimizer.variables()`.
 
 
 * <b>`optimizer`</b>: An instance of <a href="../../../tf/train/Optimizer"><code>tf.compat.v1.train.Optimizer</code></a> which has created
-  variables (typically after a call to `Optimizer.minimize`).
+  variables (typically after a call to <a href="/api_docs/python/tf/keras/optimizers/Optimizer#minimize"><code>Optimizer.minimize</code></a>).
 
 
 #### Returns:

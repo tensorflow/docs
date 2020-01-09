@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.cudnn_rnn.CudnnLSTM
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py#L548-L576">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CudnnLSTM`
 
 Cudnn implementation of LSTM layer.
 
 
 
-
-
-Defined in [`contrib/cudnn_rnn/python/layers/cudnn_rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py#L159-L219">View source</a>
 
 ``` python
 __init__(
@@ -161,6 +171,8 @@ Type of RNN cell used.
 
 <h3 id="state_shape"><code>state_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cudnn_rnn/python/layers/cudnn_rnn.py#L554-L566">View source</a>
+
 ``` python
 state_shape(batch_size)
 ```
@@ -175,7 +187,3 @@ Args:
 #### Returns:
 
 a tuple of python arrays.
-
-
-
-

@@ -5,22 +5,32 @@ page_type: reference
 
 # tf.initializers.tables_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L66-L84">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an Op that initializes all tables of the default graph.
 
 ### Aliases:
 
-* `tf.compat.v1.initializers.tables_initializer`
-* `tf.compat.v1.tables_initializer`
-* `tf.initializers.tables_initializer`
-* `tf.tables_initializer`
+* <a href="/api_docs/python/tf/initializers/tables_initializer"><code>tf.compat.v1.initializers.tables_initializer</code></a>
+* <a href="/api_docs/python/tf/initializers/tables_initializer"><code>tf.compat.v1.tables_initializer</code></a>
+* <a href="/api_docs/python/tf/initializers/tables_initializer"><code>tf.tables_initializer</code></a>
+
 
 ``` python
 tf.initializers.tables_initializer(name='init_all_tables')
 ```
 
 
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.ragged
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/ragged">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Ragged Tensors.
 
 <!-- Placeholder for "Used in" -->
@@ -30,12 +42,13 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../../../tf/bitwise/invert"><code>tf.bitwise.invert</code></a>(**x**, name=`None`)
 * <a href="../../../tf/bitwise/left_shift"><code>tf.bitwise.left_shift</code></a>(**x**, **y**, name=`None`)
 * <a href="../../../tf/bitwise/right_shift"><code>tf.bitwise.right_shift</code></a>(**x**, **y**, name=`None`)
+* <a href="../../../tf/cast"><code>tf.cast</code></a>(**x**, dtype, name=`None`)
 * <a href="../../../tf/clip_by_value"><code>tf.clip_by_value</code></a>(**t**, clip_value_min, clip_value_max, name=`None`)
 * <a href="../../../tf/concat"><code>tf.concat</code></a>(**values**, axis, name=`'concat'`)
 * <a href="../../../tf/debugging/check_numerics"><code>tf.debugging.check_numerics</code></a>(**tensor**, message, name=`None`)
-* <a href="../../../tf/dtypes/cast"><code>tf.dtypes.cast</code></a>(**x**, dtype, name=`None`)
 * <a href="../../../tf/dtypes/complex"><code>tf.dtypes.complex</code></a>(**real**, **imag**, name=`None`)
 * <a href="../../../tf/dtypes/saturate_cast"><code>tf.dtypes.saturate_cast</code></a>(**value**, dtype, name=`None`)
+* <a href="../../../tf/dynamic_partition"><code>tf.dynamic_partition</code></a>(**data**, **partitions**, num_partitions, name=`None`)
 * <a href="../../../tf/expand_dims"><code>tf.expand_dims</code></a>(**input**, axis=`None`, name=`None`, dim=`None`)
 * <a href="../../../tf/gather_nd"><code>tf.gather_nd</code></a>(**params**, **indices**, name=`None`, batch_dims=`0`)
 * <a href="../../../tf/gather"><code>tf.gather</code></a>(**params**, **indices**, validate_indices=`None`, name=`None`, axis=`None`, batch_dims=`0`)
@@ -117,6 +130,7 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../../../tf/math/unsorted_segment_prod"><code>tf.math.unsorted_segment_prod</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
 * <a href="../../../tf/math/unsorted_segment_sqrt_n"><code>tf.math.unsorted_segment_sqrt_n</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
 * <a href="../../../tf/math/unsorted_segment_sum"><code>tf.math.unsorted_segment_sum</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
+* <a href="../../../tf/one_hot"><code>tf.one_hot</code></a>(**indices**, depth, on_value=`None`, off_value=`None`, axis=`None`, dtype=`None`, name=`None`)
 * <a href="../../../tf/ones_like"><code>tf.ones_like</code></a>(**tensor**, dtype=`None`, name=`None`, optimize=`True`)
 * <a href="../../../tf/rank"><code>tf.rank</code></a>(**input**, name=`None`)
 * <a href="../../../tf/realdiv"><code>tf.realdiv</code></a>(**x**, **y**, name=`None`)
@@ -127,12 +141,16 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../../../tf/strings/as_string"><code>tf.strings.as_string</code></a>(**input**, precision=`-1`, scientific=`False`, shortest=`False`, width=`-1`, fill=`''`, name=`None`)
 * <a href="../../../tf/strings/join"><code>tf.strings.join</code></a>(**inputs**, separator=`''`, name=`None`)
 * <a href="../../../tf/strings/length"><code>tf.strings.length</code></a>(**input**, name=`None`, unit=`'BYTE'`)
+* <a href="../../../tf/strings/reduce_join"><code>tf.strings.reduce_join</code></a>(**inputs**, axis=`None`, keepdims=`False`, separator=`''`, name=`None`)
 * <a href="../../../tf/strings/regex_full_match"><code>tf.strings.regex_full_match</code></a>(**input**, pattern, name=`None`)
 * <a href="../../../tf/strings/regex_replace"><code>tf.strings.regex_replace</code></a>(**input**, pattern, rewrite, replace_global=`True`, name=`None`)
 * <a href="../../../tf/strings/strip"><code>tf.strings.strip</code></a>(**input**, name=`None`)
 * <a href="../../../tf/strings/substr"><code>tf.strings.substr</code></a>(**input**, pos, len, name=`None`, unit=`'BYTE'`)
 * <a href="../../../tf/strings/to_hash_bucket_fast"><code>tf.strings.to_hash_bucket_fast</code></a>(**input**, num_buckets, name=`None`)
 * <a href="../../../tf/strings/to_hash_bucket_strong"><code>tf.strings.to_hash_bucket_strong</code></a>(**input**, num_buckets, key, name=`None`)
+* <a href="../../../tf/strings/to_hash_bucket"><code>tf.strings.to_hash_bucket</code></a>(**input**, num_buckets, name=`None`)
+* <a href="../../../tf/strings/to_hash_bucket"><code>tf.strings.to_hash_bucket</code></a>(**input**, num_buckets, name=`None`)
+* <a href="../../../tf/strings/to_number"><code>tf.strings.to_number</code></a>(**input**, out_type=<a href="../../../tf#float32"><code>tf.float32</code></a>, name=`None`)
 * <a href="../../../tf/strings/unicode_script"><code>tf.strings.unicode_script</code></a>(**input**, name=`None`)
 * <a href="../../../tf/tile"><code>tf.tile</code></a>(**input**, multiples, name=`None`)
 * <a href="../../../tf/truncatediv"><code>tf.truncatediv</code></a>(**x**, **y**, name=`None`)
@@ -162,3 +180,6 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 
 [`segment_ids_to_row_splits(...)`](../../../tf/ragged/segment_ids_to_row_splits): Generates the RaggedTensor `row_splits` corresponding to a segmentation.
 
+[`stack(...)`](../../../tf/ragged/stack): Stacks a list of rank-`R` tensors into one rank-`(R+1)` `RaggedTensor`.
+
+[`stack_dynamic_partitions(...)`](../../../tf/ragged/stack_dynamic_partitions): Stacks dynamic partitions of a Tensor or RaggedTensor.

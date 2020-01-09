@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.ConfigProto.Experimental
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Experimental`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.ConfigProto.Experimental`
-* Class `tf.compat.v1.ConfigProto.Experimental`
+* Class <a href="/api_docs/python/tf/ConfigProto/Experimental"><code>tf.compat.v1.ConfigProto.Experimental</code></a>
 
-
-
-Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/config.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -50,9 +58,19 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 `string executor_type`
 
 
+<h3 id="optimize_for_static_graph"><code>optimize_for_static_graph</code></h3>
+
+`bool optimize_for_static_graph`
+
+
 <h3 id="recv_buf_max_chunk"><code>recv_buf_max_chunk</code></h3>
 
 `int32 recv_buf_max_chunk`
+
+
+<h3 id="session_metadata"><code>session_metadata</code></h3>
+
+`SessionMetadata session_metadata`
 
 
 <h3 id="share_cluster_devices_in_session"><code>share_cluster_devices_in_session</code></h3>
@@ -68,7 +86,3 @@ Defined in [`core/protobuf/config.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="use_numa_affinity"><code>use_numa_affinity</code></h3>
 
 `bool use_numa_affinity`
-
-
-
-

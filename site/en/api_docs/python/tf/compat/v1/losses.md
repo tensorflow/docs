@@ -5,11 +5,23 @@ page_type: reference
 
 # Module: tf.compat.v1.losses
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/losses">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Loss operations for use in neural networks.
 
 <!-- Placeholder for "Used in" -->
 
-Note: All the losses are added to the `GraphKeys.LOSSES` collection by default.
+Note: All the losses are added to the <a href="/api_docs/python/tf/GraphKeys#LOSSES"><code>GraphKeys.LOSSES</code></a> collection by default.
 
 ## Classes
 
@@ -48,4 +60,3 @@ Note: All the losses are added to the `GraphKeys.LOSSES` collection by default.
 [`softmax_cross_entropy(...)`](../../../tf/losses/softmax_cross_entropy): Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits_v2.
 
 [`sparse_softmax_cross_entropy(...)`](../../../tf/losses/sparse_softmax_cross_entropy): Cross-entropy loss using <a href="../../../tf/nn/sparse_softmax_cross_entropy_with_logits"><code>tf.nn.sparse_softmax_cross_entropy_with_logits</code></a>.
-

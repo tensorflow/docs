@@ -5,34 +5,49 @@ page_type: reference
 
 # tf.distribute.cluster_resolver.SlurmClusterResolver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/SlurmClusterResolver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L32-L226">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SlurmClusterResolver`
 
-Cluster Resolver for system with Slurm workload manager.
+ClusterResolver for system with Slurm workload manager.
 
 Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/ClusterResolver)
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.cluster_resolver.SlurmClusterResolver`
-* Class `tf.compat.v2.distribute.cluster_resolver.SlurmClusterResolver`
-* Class `tf.contrib.cluster_resolver.SlurmClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.SlurmClusterResolver`
-* Class `tf.distribute.cluster_resolver.SlurmClusterResolver`
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SlurmClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.SlurmClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SlurmClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.SlurmClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SlurmClusterResolver"><code>tf.contrib.cluster_resolver.SlurmClusterResolver</code></a>
 
-
-
-Defined in [`python/distribute/cluster_resolver/slurm_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py).
 
 <!-- Placeholder for "Used in" -->
 
 This is an implementation of cluster resolvers for Slurm clusters. This allows
 the specification of jobs and task counts, number of tasks per node, number of
-GPUs on each node and number of GPUs for each task, It retrieves system
+GPUs on each node and number of GPUs for each task. It retrieves system
 attributes by Slurm environment variables, resolves allocated computing node
-names, construct a cluster and return a Cluster Resolver object which an be
+names, constructs a cluster and returns a ClusterResolver object which can be
 use for distributed TensorFlow.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L53-L127">View source</a>
 
 ``` python
 __init__(
@@ -49,9 +64,9 @@ __init__(
 Creates a new SlurmClusterResolver object.
 
 This takes in parameters and creates a SlurmClusterResolver object. It uses
-those parameters to check which nodes will processes reside and resolves
+those parameters to check which nodes will processes reside on and resolves
 their hostnames. With the number of the GPUs on each node and number of GPUs
-for each task it offsets the port number for each processes and allocate
+for each task it offsets the port number for each process and allocates
 GPUs to tasks by setting environment variables. The resolver currently
 supports homogeneous tasks and default Slurm process allocation.
 
@@ -59,7 +74,7 @@ supports homogeneous tasks and default Slurm process allocation.
 
 
 * <b>`jobs`</b>: Dictionary with job names as key and number of tasks in the job as
-  value
+  value.
 * <b>`port_base`</b>: The first port number to start with for processes on a node.
 * <b>`gpus_per_node`</b>: Number of GPUs available on each node.
 * <b>`gpus_per_task`</b>: Number of GPUs to be used for each task.
@@ -110,6 +125,8 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L129-L182">View source</a>
+
 ``` python
 cluster_spec()
 ```
@@ -132,6 +149,8 @@ A ClusterSpec containing host information retrieved from Slurm's
 
 <h3 id="get_task_info"><code>get_task_info</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L184-L196">View source</a>
+
 ``` python
 get_task_info()
 ```
@@ -150,6 +169,8 @@ A string specifying job name the process belongs to and an integner
 
 
 <h3 id="master"><code>master</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L198-L218">View source</a>
 
 ``` python
 master(
@@ -178,6 +199,8 @@ A connection string for connecting to a TensorFlow master.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/slurm_cluster_resolver.py#L220-L226">View source</a>
+
 ``` python
 num_accelerators(
     task_type=None,
@@ -186,8 +209,27 @@ num_accelerators(
 )
 ```
 
+Returns the number of accelerator cores per worker.
+
+This returns the number of accelerator cores (such as GPUs and TPUs)
+available per worker.
+
+Optionally, we allow callers to specify the task_type, and task_id, for
+if they want to target a specific TensorFlow process to query
+the number of accelerators. This is to support heterogenous environments,
+where the number of accelerators cores per host is different.
+
+#### Args:
 
 
+* <b>`task_type`</b>: (Optional) The type of the TensorFlow task of the machine we
+  want to query.
+* <b>`task_id`</b>: (Optional) The index of the TensorFlow task of the machine we
+  want to query.
+* <b>`config_proto`</b>: (Optional) Configuration for starting a new session to
+  query how many accelerator cores it has.
 
 
+#### Returns:
 
+A map of accelerator types to number of cores.

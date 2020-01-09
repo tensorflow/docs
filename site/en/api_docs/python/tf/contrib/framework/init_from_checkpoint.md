@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.init_from_checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/framework/checkpoint_utils.py#L154-L302">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Using assignment map initializes current variables with loaded tensors.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.framework.init_from_checkpoint(
 ```
 
 
-
-Defined in [`contrib/framework/python/framework/checkpoint_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/checkpoint_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -88,5 +98,5 @@ Supports loading into partitioned variables, which are represented as
 #### Raises:
 
 
-* <b>`tf.errors.OpError`</b>: If missing checkpoints or tensors in checkpoints.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: If missing checkpoints or tensors in checkpoints.
 * <b>`ValueError`</b>: If missing variables in current graph.

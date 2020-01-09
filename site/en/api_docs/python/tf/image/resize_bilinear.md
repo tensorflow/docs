@@ -6,11 +6,23 @@ page_type: reference
 # tf.image.resize_bilinear
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3550-L3560">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ### Aliases:
 
-* `tf.compat.v1.image.resize_bilinear`
-* `tf.image.resize_bilinear`
+* <a href="/api_docs/python/tf/image/resize_bilinear"><code>tf.compat.v1.image.resize_bilinear</code></a>
+
 
 ``` python
 tf.image.resize_bilinear(
@@ -23,7 +35,5 @@ tf.image.resize_bilinear(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->

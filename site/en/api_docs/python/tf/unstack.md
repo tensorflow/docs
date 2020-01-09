@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.unstack
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/unstack">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1278-L1323">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Unpacks the given dimension of a rank-`R` tensor into rank-`(R-1)` tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.unstack`
-* `tf.compat.v2.unstack`
-* `tf.unstack`
+* <a href="/api_docs/python/tf/unstack"><code>tf.compat.v1.unstack</code></a>
+* <a href="/api_docs/python/tf/unstack"><code>tf.compat.v2.unstack</code></a>
+
 
 ``` python
 tf.unstack(
@@ -23,8 +41,6 @@ tf.unstack(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

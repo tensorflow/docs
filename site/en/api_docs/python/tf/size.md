@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.size
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/size">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L504-L533">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the size of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.size`
-* `tf.size`
+* <a href="/api_docs/python/tf/size"><code>tf.compat.v1.size</code></a>
+
 
 ``` python
 tf.size(
@@ -21,8 +39,6 @@ tf.size(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,4 +72,3 @@ A `Tensor` of type `out_type`. Defaults to <a href="../tf#int32"><code>tf.int32<
 
 #### Numpy Compatibility
 Equivalent to np.size()
-

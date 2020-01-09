@@ -5,20 +5,28 @@ page_type: reference
 
 # tf.NodeDef.AttrEntry
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/node_def.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AttrEntry`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.NodeDef.AttrEntry`
-* Class `tf.compat.v1.NodeDef.AttrEntry`
+* Class <a href="/api_docs/python/tf/NodeDef/AttrEntry"><code>tf.compat.v1.NodeDef.AttrEntry</code></a>
 
-
-
-Defined in [`core/framework/node_def.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/framework/node_def.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,7 +41,3 @@ Defined in [`core/framework/node_def.proto`](https://github.com/tensorflow/tenso
 <h3 id="value"><code>value</code></h3>
 
 `AttrValue value`
-
-
-
-

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.linear_optimizer.SDCAOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py#L31-L278">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SDCAOptimizer`
 
 Wrapper class for SDCA optimizer.
 
 
-
-
-
-Defined in [`contrib/linear_optimizer/python/sdca_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -57,6 +65,8 @@ weights during training (`div` partitioning strategy will be used).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py#L71-L85">View source</a>
+
 ``` python
 __init__(
     example_id_column,
@@ -69,7 +79,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -117,6 +127,8 @@ __init__(
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py#L87-L88">View source</a>
+
 ``` python
 get_name()
 ```
@@ -125,6 +137,8 @@ get_name()
 
 
 <h3 id="get_train_step"><code>get_train_step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/sdca_optimizer.py#L118-L278">View source</a>
 
 ``` python
 get_train_step(
@@ -138,7 +152,3 @@ get_train_step(
 ```
 
 Returns the training operation of an SdcaModel optimizer.
-
-
-
-

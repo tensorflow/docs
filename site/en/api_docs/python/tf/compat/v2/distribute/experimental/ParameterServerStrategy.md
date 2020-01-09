@@ -5,23 +5,31 @@ page_type: reference
 
 # tf.compat.v2.distribute.experimental.ParameterServerStrategy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/parameter_server_strategy.py#L50-L116">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ParameterServerStrategy`
 
-An asynchronous multi-worker parameter server DistributionStrategy.
+An asynchronous multi-worker parameter server tf.distribute strategy.
 
 Inherits From: [`Strategy`](../../../../../tf/compat/v2/distribute/Strategy)
 
-
-
-Defined in [`python/distribute/parameter_server_strategy.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/parameter_server_strategy.py).
-
 <!-- Placeholder for "Used in" -->
 
-This strategy requires two jobs: workers and parameter servers.  Variables and
+This strategy requires two jobs: workers and parameter servers. Variables and
 updates to those variables will be assigned to parameter servers and other
 operations are assigned to workers.
 
-When each worker has more than one GPU, operations will be replicated on these
+When each worker has more than one GPU, operations will be replicated on all
 GPUs. Even though operations may be replicated, variables are not and each
 worker shares a common view for which parameter server a variable is assigned
 to.
@@ -50,15 +58,32 @@ variables.
 2) It is also not recommended to open a colocation scope (i.e. calling
 <a href="../../../../../tf/colocate_with"><code>tf.compat.v1.colocate_with</code></a>) under the strategy's scope. For colocating
 variables, use `strategy.extended.colocate_vars_with` instead. Colocation of
-ops will possibly create conflicts of device assignment.
+ops will possibly create device assignment conflicts.
+
+Note: This strategy only works with the Estimator API. Pass an instance of
+this strategy to the `experimental_distribute` argument when you create the
+`RunConfig`. This instance of `RunConfig` should then be passed to the
+`Estimator` instance on which `train_and_evaluate` is called.
+
+#### For Example:
+
+
+```
+strategy = tf.distribute.experimental.ParameterServerStrategy()
+run_config = tf.estimator.RunConfig(
+    experimental_distribute.train_distribute=strategy)
+estimator = tf.estimator.Estimator(config=run_config)
+tf.estimator.train_and_evaluate(estimator,...)
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/parameter_server_strategy.py#L102-L116">View source</a>
 
 ``` python
 __init__(cluster_resolver=None)
 ```
 
-Initializes this strategy.
+Initializes this strategy with an optional `cluster_resolver`.
 
 
 #### Args:
@@ -88,11 +113,39 @@ Returns number of replicas over which gradients are aggregated.
 
 <h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L614-L678">View source</a>
+
 ``` python
 experimental_distribute_dataset(dataset)
 ```
 
 Distributes a tf.data.Dataset instance provided via `dataset`.
+
+The returned distributed dataset can be iterated over similar to how
+regular datasets can.
+NOTE: Currently, the user cannot add any more transformations to a
+distributed dataset.
+
+The following is an example:
+
+```python
+strategy = tf.distribute.MirroredStrategy()
+
+# Create a dataset
+dataset = dataset_ops.Dataset.TFRecordDataset([
+  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", "/a/4.tfr"])
+
+# Distribute that dataset
+dist_dataset = strategy.experimental_distribute_dataset(dataset)
+# Iterate over the distributed dataset
+for x in dist_dataset:
+  # process dataset elements
+  strategy.experimental_run_v2(train_step, args=(x,))
+```
+
+We will assume that the input dataset is batched by the
+global batch size. With this assumption, we will make a best effort to
+divide each batch across all the replicas (one or more workers).
 
 In a multi-worker setting, we will first attempt to distribute the dataset
 by attempting to detect whether the dataset is being created out of
@@ -107,31 +160,19 @@ Dataset.range), we will shard the dataset evenly at the end by appending a
 `.shard` operation to the end of the processing pipeline. This will cause
 the entire preprocessing pipeline for all the data to be run on every
 worker, and each worker will do redundant work. We will print a warning
-if this method of sharding is selected.
+if this method of sharding is selected. In this case, consider using
+`experimental_distribute_datasets_from_function` instead.
 
-You can disable dataset distribution using the `auto_shard` option in
-<a href="../../../../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a>.
+You can disable dataset sharding across workers using the `auto_shard`
+option in <a href="../../../../../tf/data/experimental/DistributeOptions"><code>tf.data.experimental.DistributeOptions</code></a>.
 
-Within each host, we will also split the data among all the worker devices
-(if more than one a present), and this will happen even if multi-worker
-sharding is disabled using the method above.
+Within each worker, we will also split the data among all the worker
+devices (if more than one a present), and this will happen even if
+multi-worker sharding is disabled using the method above.
 
-The following is an example:
-
-```python
-strategy = tf.distribute.MirroredStrategy()
-
-# Create a dataset
-dataset = dataset_ops.Dataset.TFRecordDataset([
-  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", /a/4.tfr"])
-
-# Distribute that dataset
-dist_dataset = strategy.experimental_distribute_dataset(dataset)
-# Iterate over the distributed dataset
-for x in dist_dataset:
-  # process dataset elements
-  strategy.experimental_run_v2(train_step, args=(x,))
-```
+If the above batch splitting and dataset sharding logic is undesirable,
+please use `experimental_distribute_datasets_from_function` instead, which
+does not do any automatic splitting or sharding.
 
 #### Args:
 
@@ -142,11 +183,72 @@ for x in dist_dataset:
 
 #### Returns:
 
-A `DistributedDataset` which returns inputs for each step of the
-computation.
+A "distributed `Dataset`", which acts like a <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> except
+it produces "per-replica" values.
+
+
+<h3 id="experimental_distribute_datasets_from_function"><code>experimental_distribute_datasets_from_function</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L680-L728">View source</a>
+
+``` python
+experimental_distribute_datasets_from_function(dataset_fn)
+```
+
+Distributes <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> instances created by calls to `dataset_fn`.
+
+`dataset_fn` will be called once for each worker in the strategy. Each
+replica on that worker will dequeue one batch of inputs from the local
+`Dataset` (i.e. if a worker has two replicas, two batches will be dequeued
+from the `Dataset` every step).
+
+This method can be used for several purposes. For example, where
+`experimental_distribute_dataset` is unable to shard the input files, this
+method might be used to manually shard the dataset (avoiding the slow
+fallback behavior in `experimental_distribute_dataset`). In cases where the
+dataset is infinite, this sharding can be done by creating dataset replicas
+that differ only in their random seed.
+`experimental_distribute_dataset` may also sometimes fail to split the
+batch across replicas on a worker. In that case, this method can be used
+where that limitation does not exist.
+
+The `dataset_fn` should take an <a href="../../../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> instance where
+information about batching and input replication can be accessed:
+
+```
+def dataset_fn(input_context):
+  batch_size = input_context.get_per_replica_batch_size(global_batch_size)
+  d = tf.data.Dataset.from_tensors([[1.]]).repeat().batch(batch_size)
+  return d.shard(
+      input_context.num_input_pipelines, input_context.input_pipeline_id)
+
+inputs = strategy.experimental_distribute_datasets_from_function(dataset_fn)
+
+for batch in inputs:
+  replica_results = strategy.experimental_run_v2(replica_fn, args=(batch,))
+```
+
+IMPORTANT: The <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returned by `dataset_fn` should have a
+per-replica batch size, unlike `experimental_distribute_dataset`, which uses
+the global batch size.  This may be computed using
+`input_context.get_per_replica_batch_size`.
+
+#### Args:
+
+
+* <b>`dataset_fn`</b>: A function taking a <a href="../../../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> instance and
+  returning a <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
+
+
+#### Returns:
+
+A "distributed `Dataset`", which acts like a <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> except
+it produces "per-replica" values.
 
 
 <h3 id="experimental_local_results"><code>experimental_local_results</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L887-L904">View source</a>
 
 ``` python
 experimental_local_results(value)
@@ -154,8 +256,8 @@ experimental_local_results(value)
 
 Returns the list of all local per-replica values contained in `value`.
 
-Note: This only returns values on the workers initiated by this client.
-When using a `Strategy` like
+Note: This only returns values on the worker initiated by this client.
+When using a <a href="../../../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> like
 <a href="../../../../../tf/distribute/experimental/MultiWorkerMirroredStrategy"><code>tf.distribute.experimental.MultiWorkerMirroredStrategy</code></a>, each worker
 will be its own client, and this function will only return values
 computed on that worker.
@@ -175,22 +277,36 @@ value, this returns `(value,).`
 
 <h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L579-L605">View source</a>
+
 ``` python
 experimental_make_numpy_dataset(numpy_input)
 ```
 
-Makes a dataset for input provided via a numpy array.
+Makes a <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> for input provided via a numpy array.
 
 This avoids adding `numpy_input` as a large constant in the graph,
 and copies the data to the machine or machines that will be processing
 the input.
 
+Note that you will likely need to use `experimental_distribute_dataset`
+with the returned dataset to further distribute it with the strategy.
+
+#### Example:
+
+
+```
+numpy_input = np.ones([10], dtype=np.float32)
+dataset = strategy.experimental_make_numpy_dataset(numpy_input)
+dist_dataset = strategy.experimental_distribute_dataset(dataset)
+```
+
 #### Args:
 
 
-* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be distributed evenly
-  across all replicas. Note that lists of Numpy arrays are stacked,
-  as that is normal <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
+* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be converted into a
+dataset. Note that lists of Numpy arrays are stacked, as that is normal
+<a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
 
 
 #### Returns:
@@ -200,6 +316,8 @@ A <a href="../../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> repr
 
 <h3 id="experimental_run_v2"><code>experimental_run_v2</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L730-L764">View source</a>
+
 ``` python
 experimental_run_v2(
     fn,
@@ -208,17 +326,22 @@ experimental_run_v2(
 )
 ```
 
-Runs ops in `fn` on each replica, with the given arguments.
+Run `fn` on each replica, with the given arguments.
 
-When eager execution is enabled, executes ops specified by `fn` on each
-replica. Otherwise, builds a graph to execute the ops on each replica.
+Executes ops specified by `fn` on each replica. If `args` or `kwargs` have
+"per-replica" values, such as those produced by a "distributed `Dataset`",
+when `fn` is executed on a particular replica, it will be executed with the
+component of those "per-replica" values that correspond to that replica.
 
 `fn` may call <a href="../../../../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context()</code></a> to access members such
-as `replica_id_in_sync_group`.
+as `all_reduce`.
 
-IMPORTANT: Depending on the <a href="../../../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> implementation being
-used, and whether eager execution is enabled, `fn` may be called one or more
-times (once for each replica).
+All arguments in `args` or `kwargs` should either be nest of tensors or
+per-replica objects containing tensors or composite tensors.
+
+IMPORTANT: Depending on the implementation of <a href="../../../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> and
+whether eager execution is enabled, `fn` may be called one or more times (
+once for each replica).
 
 #### Args:
 
@@ -232,12 +355,13 @@ times (once for each replica).
 
 Merged return value of `fn` across replicas. The structure of the return
 value is the same as the return value from `fn`. Each element in the
-structure can either be `PerReplica` (if the values are unsynchronized),
-`Mirrored` (if the values are kept in sync), or `Tensor` (if running on a
-single replica).
+structure can either be "per-replica" `Tensor` objects or `Tensor`s
+(for example, if running on a single replica).
 
 
 <h3 id="reduce"><code>reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L766-L863">View source</a>
 
 ``` python
 reduce(
@@ -291,6 +415,8 @@ A `Tensor`.
 
 <h3 id="scope"><code>scope</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L545-L555">View source</a>
+
 ``` python
 scope()
 ```
@@ -304,7 +430,3 @@ enter its "cross-replica context".
 #### Returns:
 
 A context manager.
-
-
-
-

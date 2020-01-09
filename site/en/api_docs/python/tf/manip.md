@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.manip
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Operators for manipulating tensors.
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,4 +33,3 @@ page_type: reference
 [`space_to_batch_nd(...)`](../tf/space_to_batch_nd): SpaceToBatch for N-D tensors of type T.
 
 [`tile(...)`](../tf/tile): Constructs a tensor by tiling a given tensor.
-

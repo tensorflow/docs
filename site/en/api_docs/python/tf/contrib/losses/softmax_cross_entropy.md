@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.losses.softmax_cross_entropy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/losses/python/losses/loss_ops.py#L325-L374">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a cross-entropy loss using tf.nn.softmax_cross_entropy_with_logits. (deprecated)
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.losses.softmax_cross_entropy(
 ```
 
 
-
-Defined in [`contrib/losses/python/losses/loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/losses/loss_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.graph_util.extract_sub_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/graph_util_impl.py#L172-L210">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Extract the subgraph that can reach any of the nodes in 'dest_nodes'. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.graph_util.extract_sub_graph`
-* `tf.graph_util.extract_sub_graph`
+* <a href="/api_docs/python/tf/graph_util/extract_sub_graph"><code>tf.compat.v1.graph_util.extract_sub_graph</code></a>
+
 
 ``` python
 tf.graph_util.extract_sub_graph(
@@ -20,8 +32,6 @@ tf.graph_util.extract_sub_graph(
 ```
 
 
-
-Defined in [`python/framework/graph_util_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_util_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

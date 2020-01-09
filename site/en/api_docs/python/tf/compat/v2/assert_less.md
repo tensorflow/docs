@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.compat.v2.assert_less
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L840-L872">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert the condition `x < y` holds element-wise.
 
 ### Aliases:
 
-* `tf.compat.v2.assert_less`
-* `tf.compat.v2.debugging.assert_less`
+* <a href="/api_docs/python/tf/compat/v2/assert_less"><code>tf.compat.v2.debugging.assert_less</code></a>
+
 
 ``` python
 tf.compat.v2.assert_less(
@@ -23,8 +35,6 @@ tf.compat.v2.assert_less(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,4 +74,3 @@ to block followup computation until the check has executed.
 
 #### Eager Compatibility
 returns None
-

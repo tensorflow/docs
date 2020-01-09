@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.distributions.SeedStream
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/seed_stream.py#L24-L206">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SeedStream`
 
 Local PRNG for amplifying seed entropy into seeds for base operations.
 
 
-
-
-
-Defined in [`contrib/distributions/python/ops/seed_stream.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/seed_stream.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -150,6 +158,8 @@ seed.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/seed_stream.py#L159-L174">View source</a>
+
 ``` python
 __init__(
     seed,
@@ -192,6 +202,8 @@ Initializes a `SeedStream`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/seed_stream.py#L176-L198">View source</a>
+
 ``` python
 __call__()
 ```
@@ -214,6 +226,3 @@ the given seed modulo `2**31 - 1` (see
 
 * <b>`seed`</b>: A fresh integer usable as a seed in downstream operations,
   or `None`.
-
-
-

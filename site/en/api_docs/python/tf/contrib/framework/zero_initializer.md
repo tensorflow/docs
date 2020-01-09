@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.zero_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/variables.py#L71-L91">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Initialize 'ref' with all zeros, ref tensor should be uninitialized.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.framework.zero_initializer(
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

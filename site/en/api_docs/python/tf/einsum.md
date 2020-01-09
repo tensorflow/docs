@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.einsum
 
-A generalized contraction between tensors of arbitrary dimension.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/einsum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/special_math_ops.py#L170-L308">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+Tensor contraction over specified indices and outer product.
 
 ### Aliases:
 
-* `tf.compat.v1.einsum`
-* `tf.compat.v1.linalg.einsum`
-* `tf.compat.v2.einsum`
-* `tf.compat.v2.linalg.einsum`
-* `tf.einsum`
-* `tf.linalg.einsum`
+* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v1.einsum</code></a>
+* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v1.linalg.einsum</code></a>
+* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v2.einsum</code></a>
+* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v2.linalg.einsum</code></a>
+* <a href="/api_docs/python/tf/einsum"><code>tf.linalg.einsum</code></a>
+
 
 ``` python
 tf.einsum(
@@ -25,8 +43,6 @@ tf.einsum(
 ```
 
 
-
-Defined in [`python/ops/special_math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/special_math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -77,9 +93,9 @@ Many common operations can be expressed in this way.  For example:
 To enable and control broadcasting, use an ellipsis.  For example, to do
 batch matrix multiplication, you could use:
 
-```python
->>> einsum('...ij,...jk->...ik', u, v)
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}einsum('...ij,...jk->...ik', u, v){% endhtmlescape %}</code>
+</pre>
 
 This function behaves like `numpy.einsum`, but does not support:
 

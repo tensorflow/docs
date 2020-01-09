@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.preprocessing.image.ImageDataGenerator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L295-L519">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ImageDataGenerator`
 
 Generate batches of tensor image data with real-time data augmentation.
@@ -13,13 +31,9 @@ Generate batches of tensor image data with real-time data augmentation.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.preprocessing.image.ImageDataGenerator`
-* Class `tf.compat.v2.keras.preprocessing.image.ImageDataGenerator`
-* Class `tf.keras.preprocessing.image.ImageDataGenerator`
+* Class <a href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator"><code>tf.compat.v1.keras.preprocessing.image.ImageDataGenerator</code></a>
+* Class <a href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator"><code>tf.compat.v2.keras.preprocessing.image.ImageDataGenerator</code></a>
 
-
-
-Defined in [`python/keras/preprocessing/image.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/preprocessing/image.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -197,6 +211,8 @@ model.fit_generator(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L466-L519">View source</a>
+
 ``` python
 __init__(
     featurewise_center=False,
@@ -224,7 +240,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -616,6 +632,3 @@ standarize(np.copy(x))
 
 # Returns
     The inputs, normalized.
-
-
-

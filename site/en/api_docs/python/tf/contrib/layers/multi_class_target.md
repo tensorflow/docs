@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.multi_class_target
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/target_column.py#L64-L97">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a _TargetColumn for multi class single label classification. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.layers.multi_class_target(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/target_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/target_column.py).
 
 <!-- Placeholder for "Used in" -->
 

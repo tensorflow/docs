@@ -5,36 +5,75 @@ page_type: reference
 
 # tf.linalg.diag_part
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/diag_part">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2081-L2186">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the batched diagonal part of a batched tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.diag_part`
-* `tf.compat.v1.matrix_diag_part`
-* `tf.compat.v2.linalg.diag_part`
-* `tf.linalg.diag_part`
-* `tf.matrix_diag_part`
+* <a href="/api_docs/python/tf/linalg/diag_part"><code>tf.compat.v1.linalg.diag_part</code></a>
+* <a href="/api_docs/python/tf/linalg/diag_part"><code>tf.compat.v1.matrix_diag_part</code></a>
+* <a href="/api_docs/python/tf/linalg/diag_part"><code>tf.compat.v2.linalg.diag_part</code></a>
+* <a href="/api_docs/python/tf/linalg/diag_part"><code>tf.matrix_diag_part</code></a>
+
 
 ``` python
 tf.linalg.diag_part(
     input,
-    name=None
+    name='diag_part',
+    k=0,
+    padding_value=0
 )
 ```
 
 
 
-Defined in generated file: `python/ops/gen_array_ops.py`.
-
 <!-- Placeholder for "Used in" -->
 
-This operation returns a tensor with the `diagonal` part
-of the batched `input`. The `diagonal` part is computed as follows:
+Returns a tensor with the `k[0]`-th to `k[1]`-th diagonals of the batched
+`input`.
 
-Assume `input` has `k` dimensions `[I, J, K, ..., M, N]`, then the output is a
-tensor of rank `k - 1` with dimensions `[I, J, K, ..., min(M, N)]` where:
+Assume `input` has `r` dimensions `[I, J, ..., L, M, N]`.
+Let `max_diag_len` be the maximum length among all diagonals to be extracted,
+`max_diag_len = min(M + min(k[1], 0), N + min(-k[0], 0))`
+Let `num_diags` be the number of diagonals to extract,
+`num_diags = k[1] - k[0] + 1`.
 
-`diagonal[i, j, k, ..., n] = input[i, j, k, ..., n, n]`.
+If `num_diags == 1`, the output tensor is of rank `r - 1` with shape
+`[I, J, ..., L, max_diag_len]` and values:
+
+```
+diagonal[i, j, ..., l, n]
+  = input[i, j, ..., l, n+y, n+x] ; when 0 <= n-y < M and 0 <= n-x < N,
+    0                             ; otherwise.
+```
+where `y = max(-k[1], 0)`, `x = max(k[1], 0)`.
+
+Otherwise, the output tensor has rank `r` with dimensions
+`[I, J, ..., L, num_diags, max_diag_len]` with values:
+
+```
+diagonal[i, j, ..., l, m, n]
+  = input[i, j, ..., l, n+y, n+x] ; when 0 <= n-y < M and 0 <= n-x < N,
+    0                             ; otherwise.
+```
+where `d = k[1] - m`, `y = max(-d, 0)`, and `x = max(d, 0)`.
 
 The input must be at least a matrix.
 
@@ -43,29 +82,54 @@ The input must be at least a matrix.
 
 
 ```
-# 'input' is [[[1, 0, 0, 0]
-               [0, 2, 0, 0]
-               [0, 0, 3, 0]
-               [0, 0, 0, 4]],
-              [[5, 0, 0, 0]
-               [0, 6, 0, 0]
-               [0, 0, 7, 0]
-               [0, 0, 0, 8]]]
+input = np.array([[[1, 2, 3, 4],  # Input shape: (2, 3, 4)
+                   [5, 6, 7, 8],
+                   [9, 8, 7, 6]],
+                  [[5, 4, 3, 2],
+                   [1, 2, 3, 4],
+                   [5, 6, 7, 8]]])
 
-and input.shape = (2, 4, 4)
+# A main diagonal from each batch.
+tf.matrix_diag_part(input) ==> [[1, 6, 7],  # Output shape: (2, 3)
+                                [5, 2, 7]]
 
-tf.matrix_diag_part(input) ==> [[1, 2, 3, 4], [5, 6, 7, 8]]
+# A superdiagonal from each batch.
+tf.matrix_diag_part(input, k = 1)
+  ==> [[2, 7, 6],  # Output shape: (2, 3)
+       [4, 3, 8]]
 
-which has shape (2, 4)
+# A tridiagonal band from each batch.
+tf.matrix_diag_part(input, k = (-1, 1))
+  ==> [[[2, 7, 6],  # Output shape: (2, 3, 3)
+        [1, 6, 7],
+        [5, 8, 0]],
+       [[4, 3, 8],
+        [5, 2, 7],
+        [1, 6, 0]]]
+
+# Padding = 9
+tf.matrix_diag_part(input, k = (1, 3), padding = 9)
+  ==> [[[4, 9, 9],  # Output shape: (2, 3, 3)
+        [3, 8, 9],
+        [2, 7, 6]],
+       [[2, 9, 9],
+        [3, 4, 9],
+        [4, 3, 8]]]
 ```
 
 #### Args:
 
 
-* <b>`input`</b>: A `Tensor`. Rank `k` tensor where `k >= 2`.
+* <b>`input`</b>: A `Tensor` with `rank k >= 2`.
 * <b>`name`</b>: A name for the operation (optional).
+* <b>`k`</b>: Diagonal offset(s). Positive value means superdiagonal, 0 refers to the
+  main diagonal, and negative value means subdiagonals. `k` can be a single
+  integer (for a single diagonal) or a pair of integers specifying the low
+  and high ends of a matrix band. `k[0]` must not be larger than `k[1]`.
+* <b>`padding_value`</b>: The value to fill the area outside the specified diagonal
+  band with. Default is 0.
 
 
 #### Returns:
 
-A `Tensor`. Has the same type as `input`.
+A Tensor containing diagonals of `input`. Has the same type as `input`.

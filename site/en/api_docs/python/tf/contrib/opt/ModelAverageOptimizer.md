@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.ModelAverageOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L103-L296">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ModelAverageOptimizer`
 
 Wrapper optimizer that implements the Model Average algorithm.
 
 Inherits From: [`Optimizer`](../../../tf/train/Optimizer)
-
-
-
-Defined in [`contrib/opt/python/training/model_average_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/model_average_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -25,6 +33,8 @@ workers will be averaged and assigned to global center variables. Then the
 local variables will be assigned by global center variables.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L114-L149">View source</a>
 
 ``` python
 __init__(
@@ -58,6 +68,8 @@ Construct a new model average optimizer.
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L186-L284">View source</a>
 
 ``` python
 apply_gradients(
@@ -100,6 +112,8 @@ just local variables
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L151-L163">View source</a>
+
 ``` python
 compute_gradients(
     *args,
@@ -125,6 +139,8 @@ A list of (gradient, variable) pairs.
 
 <h3 id="get_init_op"><code>get_init_op</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L286-L292">View source</a>
+
 ``` python
 get_init_op()
 ```
@@ -136,6 +152,8 @@ variables before the training begins.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -144,6 +162,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -175,6 +195,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -190,6 +212,8 @@ A list of strings.
 
 <h3 id="make_session_run_hook"><code>make_session_run_hook</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/model_average_optimizer.py#L294-L296">View source</a>
+
 ``` python
 make_session_run_hook()
 ```
@@ -198,6 +222,8 @@ Creates a hook to handle ModelAverage ops such as initialization.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -227,7 +253,7 @@ of using this function.
   variables have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in
-  the graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  the graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -264,6 +290,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

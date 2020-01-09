@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.math.top_k
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/top_k">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L4320-L4347">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Finds values and indices of the `k` largest entries for the last dimension.
 
 ### Aliases:
 
-* `tf.compat.v1.math.top_k`
-* `tf.compat.v1.nn.top_k`
-* `tf.compat.v2.math.top_k`
-* `tf.compat.v2.nn.top_k`
-* `tf.math.top_k`
-* `tf.nn.top_k`
+* <a href="/api_docs/python/tf/math/top_k"><code>tf.compat.v1.math.top_k</code></a>
+* <a href="/api_docs/python/tf/math/top_k"><code>tf.compat.v1.nn.top_k</code></a>
+* <a href="/api_docs/python/tf/math/top_k"><code>tf.compat.v2.math.top_k</code></a>
+* <a href="/api_docs/python/tf/math/top_k"><code>tf.compat.v2.nn.top_k</code></a>
+* <a href="/api_docs/python/tf/math/top_k"><code>tf.nn.top_k</code></a>
+
 
 ``` python
 tf.math.top_k(
@@ -26,8 +44,6 @@ tf.math.top_k(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

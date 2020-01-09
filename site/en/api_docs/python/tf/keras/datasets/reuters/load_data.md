@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.datasets.reuters.load_data
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/datasets/reuters/load_data">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/datasets/reuters.py#L31-L116">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Loads the Reuters newswire classification dataset.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.datasets.reuters.load_data`
-* `tf.compat.v2.keras.datasets.reuters.load_data`
-* `tf.keras.datasets.reuters.load_data`
+* <a href="/api_docs/python/tf/keras/datasets/reuters/load_data"><code>tf.compat.v1.keras.datasets.reuters.load_data</code></a>
+* <a href="/api_docs/python/tf/keras/datasets/reuters/load_data"><code>tf.compat.v2.keras.datasets.reuters.load_data</code></a>
+
 
 ``` python
 tf.keras.datasets.reuters.load_data(
@@ -29,8 +47,6 @@ tf.keras.datasets.reuters.load_data(
 ```
 
 
-
-Defined in [`python/keras/datasets/reuters.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/reuters.py).
 
 <!-- Placeholder for "Used in" -->
 

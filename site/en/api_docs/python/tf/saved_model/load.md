@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.saved_model.load
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/saved_model/load">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/loader_impl.py#L238-L269">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Loads the model from a SavedModel as specified by tags. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.saved_model.load`
-* `tf.compat.v1.saved_model.loader.load`
-* `tf.saved_model.load`
-* `tf.saved_model.loader.load`
+* <a href="/api_docs/python/tf/saved_model/load"><code>tf.compat.v1.saved_model.load</code></a>
+* <a href="/api_docs/python/tf/saved_model/load"><code>tf.compat.v1.saved_model.loader.load</code></a>
+* <a href="/api_docs/python/tf/saved_model/load"><code>tf.saved_model.loader.load</code></a>
+
 
 ``` python
 tf.saved_model.load(
@@ -25,8 +43,6 @@ tf.saved_model.load(
 ```
 
 
-
-Defined in [`python/saved_model/loader_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/loader_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

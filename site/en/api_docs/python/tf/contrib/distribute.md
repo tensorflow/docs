@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.distribute
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distribute/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A distributed computation library for TF.
-
-
-
-Defined in [`contrib/distribute/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distribute/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -67,11 +75,10 @@ for overview and examples.
 
 [`has_strategy(...)`](../../tf/distribute/has_strategy): Return if there is a current non-default <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
 
-[`in_cross_replica_context(...)`](../../tf/distribute/in_cross_replica_context): Returns True if in a cross-replica context.
+[`in_cross_replica_context(...)`](../../tf/distribute/in_cross_replica_context): Returns `True` if in a cross-replica context.
 
 [`initialize_tpu_system(...)`](../../tf/tpu/experimental/initialize_tpu_system): Initialize the TPU devices.
 
 [`require_replica_context(...)`](../../tf/contrib/distribute/require_replica_context): Verify in `replica_ctx` replica context.
 
 [`run_standard_tensorflow_server(...)`](../../tf/contrib/distribute/run_standard_tensorflow_server): Starts a standard TensorFlow server.
-

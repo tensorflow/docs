@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.convert_image_dtype
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/convert_image_dtype">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1728-L1818">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convert `image` to `dtype`, scaling its values if needed.
 
 ### Aliases:
 
-* `tf.compat.v1.image.convert_image_dtype`
-* `tf.compat.v2.image.convert_image_dtype`
-* `tf.image.convert_image_dtype`
+* <a href="/api_docs/python/tf/image/convert_image_dtype"><code>tf.compat.v1.image.convert_image_dtype</code></a>
+* <a href="/api_docs/python/tf/image/convert_image_dtype"><code>tf.compat.v2.image.convert_image_dtype</code></a>
+
 
 ``` python
 tf.image.convert_image_dtype(
@@ -23,8 +41,6 @@ tf.image.convert_image_dtype(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,3 +72,21 @@ effect on casts between floats, or on casts that increase the type's range).
 #### Returns:
 
 `image`, converted to `dtype`.
+
+
+
+#### Usage Example:
+
+```python
+>> import tensorflow as tf
+>> x = tf.random.normal(shape=(256, 256, 3), dtype=tf.float32)
+>> tf.image.convert_image_dtype(x, dtype=tf.float16, saturate=False)
+```
+
+
+
+#### Raises:
+
+
+* <b>`AttributeError`</b>: Raises an attribute error when dtype is neither
+float nor integer

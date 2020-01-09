@@ -6,13 +6,25 @@ page_type: reference
 # Module: tf.tpu
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/tpu">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Ops related to Tensor Processing Units.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`experimental`](../tf/tpu/experimental) module
+[`experimental`](../tf/tpu/experimental) module: Public API for tf.tpu.experimental namespace.
 
 ## Classes
 
@@ -39,4 +51,3 @@ page_type: reference
 [`shard(...)`](../tf/tpu/shard): Shards `computation` for parallel execution.
 
 [`shutdown_system(...)`](../tf/tpu/shutdown_system): Shuts down a running a distributed TPU system.
-

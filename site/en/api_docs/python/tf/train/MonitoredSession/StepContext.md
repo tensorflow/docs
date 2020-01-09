@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.MonitoredSession.StepContext
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L812-L847">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `StepContext`
 
 Control flow instrument for the `step_fn` from `run_step_fn()`.
@@ -13,14 +25,10 @@ Control flow instrument for the `step_fn` from `run_step_fn()`.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.MonitoredSession.StepContext`
-* Class `tf.compat.v1.train.SingularMonitoredSession.StepContext`
-* Class `tf.train.MonitoredSession.StepContext`
-* Class `tf.train.SingularMonitoredSession.StepContext`
+* Class <a href="/api_docs/python/tf/train/MonitoredSession/StepContext"><code>tf.compat.v1.train.MonitoredSession.StepContext</code></a>
+* Class <a href="/api_docs/python/tf/train/MonitoredSession/StepContext"><code>tf.compat.v1.train.SingularMonitoredSession.StepContext</code></a>
+* Class <a href="/api_docs/python/tf/train/MonitoredSession/StepContext"><code>tf.train.SingularMonitoredSession.StepContext</code></a>
 
-
-
-Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -30,6 +38,8 @@ using `run_with_hooks()`.  Computation flow can be interrupted using
 `request_stop()`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L821-L829">View source</a>
 
 ``` python
 __init__(
@@ -62,6 +72,8 @@ Initializes the `step_context` argument for a `step_fn` invocation.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L839-L847">View source</a>
+
 ``` python
 request_stop()
 ```
@@ -77,6 +89,8 @@ StopIteration
 
 <h3 id="run_with_hooks"><code>run_with_hooks</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L835-L837">View source</a>
+
 ``` python
 run_with_hooks(
     *args,
@@ -85,7 +99,3 @@ run_with_hooks(
 ```
 
 Same as <a href="../../../tf/train/MonitoredSession#run"><code>MonitoredSession.run</code></a>. Accepts the same arguments.
-
-
-
-

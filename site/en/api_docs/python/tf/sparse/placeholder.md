@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.sparse.placeholder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2649-L2713">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Inserts a placeholder for a sparse tensor that will be always fed.
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.placeholder`
-* `tf.compat.v1.sparse_placeholder`
-* `tf.sparse.placeholder`
-* `tf.sparse_placeholder`
+* <a href="/api_docs/python/tf/sparse/placeholder"><code>tf.compat.v1.sparse.placeholder</code></a>
+* <a href="/api_docs/python/tf/sparse/placeholder"><code>tf.compat.v1.sparse_placeholder</code></a>
+* <a href="/api_docs/python/tf/sparse/placeholder"><code>tf.sparse_placeholder</code></a>
+
 
 ``` python
 tf.sparse.placeholder(
@@ -23,8 +35,6 @@ tf.sparse.placeholder(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

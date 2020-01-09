@@ -2,8 +2,8 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::SegmentMin Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,20 +12,29 @@
   <code>#include &lt;math_ops.h&gt;</code>
   <p>Computes the minimum along segments of a tensor. </p>
   <h2>Summary</h2>
-  <p>Read <a href="https://tensorflow.org/api_guides/python/math_ops#Segmentation">the section on segmentation</a> for an explanation of segments.</p>
+  <p>Read <a href="https://tensorflow.org/api_docs/python/tf/math#Segmentation">the section on segmentation</a> for an explanation of segments.</p>
   <p>Computes a tensor such that \(output_i = (data_j)\) where <code>min</code> is over <code>j</code> such that <code>segment_ids[j] == i</code>.</p>
   <p>If the min is empty for a given segment ID <code>i</code>, <code>output[i] = 0</code>.</p>
   <p>
     <figure id="@name">
-      <img src="/versions/r1.14/api_docs/cc/images/SegmentMin.png" />
+      <img src="/versions/r1.15/api_docs/cc/images/SegmentMin.png" />
     </figure>
   </p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+c = tf.constant([[1,2,3,4], [4, 3, 2, 1], [5,6,7,8]])
+tf.segment_min(c, tf.constant([0, 0, 1]))
+&#35; ==> [[1, 2, 2, 1],
+&#35;      [5, 6, 7, 8]]
+</pre>
+  </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>segment_ids: A 1-D tensor whose size is equal to the size of <code>data</code>'s first dimension. Values should be sorted and can be repeated.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for dimension 0 which has size <code>k</code>, the number of segments. </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for dimension 0 which has size <code>k</code>, the number of segments. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,7 +44,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_segment_min_1a3012dce1d5e46fd538083a4543420a89">SegmentMin</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_segment_min_1a3012dce1d5e46fd538083a4543420a89">SegmentMin</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids)</code>
         <br />
       </td>
     </tr>
@@ -52,7 +61,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -62,7 +71,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -107,21 +116,21 @@
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_segment_min_1a1dd3ab9be4244f9e51ee31f1249735ff">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_segment_min_1aa79a959666dedb9e81ae623ed8ba28a8">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_segment_min_1a3012dce1d5e46fd538083a4543420a89">
     <h3>SegmentMin</h3>
     <pre class="prettyprint"> SegmentMin(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids
 )</pre>
     <div />
   </div>

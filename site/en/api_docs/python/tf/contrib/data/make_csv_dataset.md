@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.make_csv_dataset
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/readers.py#L31-L142">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reads CSV files into a dataset. (deprecated)
 
 ``` python
@@ -23,8 +35,8 @@ tf.contrib.data.make_csv_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=optimization.AUTOTUNE,
-    num_parallel_reads=1,
+    prefetch_buffer_size=None,
+    num_parallel_reads=None,
     sloppy=False,
     num_rows_for_inference=100,
     compression_type=None
@@ -32,8 +44,6 @@ tf.contrib.data.make_csv_dataset(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/readers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/readers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -102,7 +112,7 @@ feature data, and labels is a `Tensor` containing the batch's label data.
   batches to prefetch for performance improvement. Recommended value is the
   number of batches consumed per training step. Defaults to auto-tune.
 * <b>`num_parallel_reads`</b>: Number of threads used to read CSV records from files.
-  If >1, the results will be interleaved.
+  If >1, the results will be interleaved. Defaults to `1`.
 * <b>`sloppy`</b>: If `True`, reading performance will be improved at
   the cost of non-deterministic ordering. If `False`, the order of elements
   produced is deterministic prior to shuffling (elements are still

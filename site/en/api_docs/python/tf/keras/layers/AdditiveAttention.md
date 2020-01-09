@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.AdditiveAttention
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/AdditiveAttention">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/dense_attention.py#L317-L455">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AdditiveAttention`
 
 Additive attention layer, a.k.a. Bahdanau-style attention.
@@ -13,13 +31,9 @@ Additive attention layer, a.k.a. Bahdanau-style attention.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.AdditiveAttention`
-* Class `tf.compat.v2.keras.layers.AdditiveAttention`
-* Class `tf.keras.layers.AdditiveAttention`
+* Class <a href="/api_docs/python/tf/keras/layers/AdditiveAttention"><code>tf.compat.v1.keras.layers.AdditiveAttention</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/AdditiveAttention"><code>tf.compat.v2.keras.layers.AdditiveAttention</code></a>
 
-
-
-Defined in [`python/keras/layers/dense_attention.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/dense_attention.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -123,15 +137,11 @@ input_layer = tf.keras.layers.Concatenate()(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/dense_attention.py#L411-L413">View source</a>
+
 ``` python
 __init__(
     use_scale=True,
     **kwargs
 )
 ```
-
-
-
-
-
-

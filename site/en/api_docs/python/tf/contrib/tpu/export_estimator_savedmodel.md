@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.tpu.export_estimator_savedmodel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Export `Estimator` trained model for TPU inference.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.tpu.export_estimator_savedmodel(
 ```
 
 
-
-Defined in [`python/estimator/tpu/tpu_estimator.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_estimator.py).
 
 <!-- Placeholder for "Used in" -->
 

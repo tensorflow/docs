@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.contrib.estimator.linear_logit_fn_builder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Function builder for a linear logit_fn.
 
 ### Aliases:
 
-* `tf.compat.v1.estimator.experimental.linear_logit_fn_builder`
-* `tf.contrib.estimator.linear_logit_fn_builder`
-* `tf.estimator.experimental.linear_logit_fn_builder`
+* <a href="/api_docs/python/tf/contrib/estimator/linear_logit_fn_builder"><code>tf.compat.v1.estimator.experimental.linear_logit_fn_builder</code></a>
+* <a href="/api_docs/python/tf/contrib/estimator/linear_logit_fn_builder"><code>tf.estimator.experimental.linear_logit_fn_builder</code></a>
+
 
 ``` python
 tf.contrib.estimator.linear_logit_fn_builder(
@@ -22,8 +34,6 @@ tf.contrib.estimator.linear_logit_fn_builder(
 ```
 
 
-
-Defined in [`python/estimator/canned/linear.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py).
 
 <!-- Placeholder for "Used in" -->
 

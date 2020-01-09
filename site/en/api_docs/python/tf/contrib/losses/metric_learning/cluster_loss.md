@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.losses.metric_learning.cluster_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py#L953-L1038">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the clustering loss.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.losses.metric_learning.cluster_loss(
 ```
 
 
-
-Defined in [`contrib/losses/python/metric_learning/metric_loss_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/losses/python/metric_learning/metric_loss_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

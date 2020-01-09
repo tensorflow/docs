@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.preprocessing.text
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Utilities for text input preprocessing.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.preprocessing.text`
-* Module `tf.keras.preprocessing.text`
+* Module <a href="/api_docs/python/tf/keras/preprocessing/text"><code>tf.compat.v1.keras.preprocessing.text</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/preprocessing/text/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/preprocessing/text/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -30,4 +38,3 @@ Defined in [`python/keras/api/_v1/keras/preprocessing/text/__init__.py`](https:/
 [`one_hot(...)`](../../../tf/keras/preprocessing/text/one_hot): One-hot encodes a text into a list of word indexes of size n.
 
 [`text_to_word_sequence(...)`](../../../tf/keras/preprocessing/text/text_to_word_sequence): Converts a text to a sequence of words (or tokens).
-

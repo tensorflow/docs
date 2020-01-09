@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.test.TestCase
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/test/TestCase">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1754-L2944">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TestCase`
 
 Base class for tests that need to test TensorFlow.
@@ -14,25 +32,24 @@ Base class for tests that need to test TensorFlow.
 
 ### Aliases:
 
-* Class `tf.compat.v1.test.TestCase`
-* Class `tf.compat.v2.test.TestCase`
-* Class `tf.test.TestCase`
+* Class <a href="/api_docs/python/tf/test/TestCase"><code>tf.compat.v1.test.TestCase</code></a>
+* Class <a href="/api_docs/python/tf/test/TestCase"><code>tf.compat.v2.test.TestCase</code></a>
 
-
-
-Defined in [`python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/test_util.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1757-L1769">View source</a>
+
 ``` python
 __init__(methodName='runTest')
 ```
 
-
-
+Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.
 
 
 
@@ -50,7 +67,7 @@ __call__(
 )
 ```
 
-
+Call self as a function.
 
 
 <h3 id="__eq__"><code>__eq__</code></h3>
@@ -59,7 +76,7 @@ __call__(
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="addCleanup"><code>addCleanup</code></h3>
@@ -103,6 +120,8 @@ their own type equality functions to provide nicer error messages.
 
 <h3 id="assertAllClose"><code>assertAllClose</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2385-L2411">View source</a>
+
 ``` python
 assertAllClose(
     a,
@@ -142,6 +161,8 @@ structure can be a `dict`, `namedtuple`, `tuple` or `list`.
 
 <h3 id="assertAllCloseAccordingToType"><code>assertAllCloseAccordingToType</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2413-L2459">View source</a>
+
 ``` python
 assertAllCloseAccordingToType(
     a,
@@ -180,6 +201,8 @@ one of the arguments is of type float16.
 
 <h3 id="assertAllEqual"><code>assertAllEqual</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2480-L2523">View source</a>
+
 ``` python
 assertAllEqual(
     a,
@@ -200,6 +223,8 @@ Asserts that two numpy arrays or Tensors have the same values.
 
 <h3 id="assertAllGreater"><code>assertAllGreater</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2540-L2550">View source</a>
+
 ``` python
 assertAllGreater(
     a,
@@ -219,6 +244,8 @@ Assert element values are all greater than a target value.
 
 <h3 id="assertAllGreaterEqual"><code>assertAllGreaterEqual</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2564-L2574">View source</a>
+
 ``` python
 assertAllGreaterEqual(
     a,
@@ -237,6 +264,8 @@ Assert element values are all greater than or equal to a target value.
 * <b>`comparison_target`</b>: The target value of comparison.
 
 <h3 id="assertAllInRange"><code>assertAllInRange</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2619-L2676">View source</a>
 
 ``` python
 assertAllInRange(
@@ -274,6 +303,8 @@ Assert that elements in a Tensor are all in a given range.
 
 <h3 id="assertAllInSet"><code>assertAllInSet</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2678-L2698">View source</a>
+
 ``` python
 assertAllInSet(
     target,
@@ -300,6 +331,8 @@ Assert that elements of a Tensor are all in a given closed set.
 
 <h3 id="assertAllLess"><code>assertAllLess</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2552-L2562">View source</a>
+
 ``` python
 assertAllLess(
     a,
@@ -318,6 +351,8 @@ Assert element values are all less than a target value.
 * <b>`comparison_target`</b>: The target value of comparison.
 
 <h3 id="assertAllLessEqual"><code>assertAllLessEqual</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2576-L2586">View source</a>
 
 ``` python
 assertAllLessEqual(
@@ -372,6 +407,8 @@ assertAlmostEquals(
 
 
 <h3 id="assertArrayNear"><code>assertArrayNear</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2227-L2242">View source</a>
 
 ``` python
 assertArrayNear(
@@ -569,6 +606,8 @@ it verifies that the elements occur the same number of times.
 
 <h3 id="assertDTypeEqual"><code>assertDTypeEqual</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2700-L2713">View source</a>
+
 ``` python
 assertDTypeEqual(
     target,
@@ -587,6 +626,8 @@ Assert ndarray data type is equal to expected.
 * <b>`expected_dtype`</b>: Expected data type.
 
 <h3 id="assertDeviceEqual"><code>assertDeviceEqual</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2781-L2793">View source</a>
 
 ``` python
 assertDeviceEqual(
@@ -660,7 +701,7 @@ Asserts that an object has zero length.
 #### Args:
 
 
-* <b>`container`</b>: Anything that implements the collections.Sized interface.
+* <b>`container`</b>: Anything that implements the collections.abc.Sized interface.
 * <b>`msg`</b>: Optional message to report on failure.
 
 <h3 id="assertEndsWith"><code>assertEndsWith</code></h3>
@@ -861,8 +902,8 @@ using assertSameStructure.
 #### Args:
 
 
-* <b>`first`</b>: A string contining JSON to decode and compare to second.
-* <b>`second`</b>: A string contining JSON to decode and compare to first.
+* <b>`first`</b>: A string containing JSON to decode and compare to second.
+* <b>`second`</b>: A string containing JSON to decode and compare to first.
 * <b>`msg`</b>: Additional text to include in the failure message.
 
 <h3 id="assertLen"><code>assertLen</code></h3>
@@ -881,7 +922,7 @@ Asserts that an object has the expected length.
 #### Args:
 
 
-* <b>`container`</b>: Anything that implements the collections.Sized interface.
+* <b>`container`</b>: Anything that implements the collections.abc.Sized interface.
 * <b>`expected_len`</b>: The expected length of the container.
 * <b>`msg`</b>: Optional message to report on failure.
 
@@ -976,6 +1017,8 @@ Asserts that two multi-line strings are equal.
 
 <h3 id="assertNDArrayNear"><code>assertNDArrayNear</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2247-L2257">View source</a>
+
 ``` python
 assertNDArrayNear(
     ndarray1,
@@ -997,6 +1040,8 @@ Asserts that two numpy arrays have near values.
 * <b>`msg`</b>: Optional message to report on failure.
 
 <h3 id="assertNear"><code>assertNear</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2209-L2225">View source</a>
 
 ``` python
 assertNear(
@@ -1035,6 +1080,8 @@ Checks whether actual iterable and expected iterable are disjoint.
 
 <h3 id="assertNotAllClose"><code>assertNotAllClose</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2461-L2478">View source</a>
+
 ``` python
 assertNotAllClose(
     a,
@@ -1059,6 +1106,28 @@ Assert that two numpy arrays, or Tensors, do not have near values.
 
 
 * <b>`AssertionError`</b>: If `a` and `b` are unexpectedly close at all elements.
+
+<h3 id="assertNotAllEqual"><code>assertNotAllEqual</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2525-L2538">View source</a>
+
+``` python
+assertNotAllEqual(
+    a,
+    b,
+    msg=None
+)
+```
+
+Asserts that two numpy arrays or Tensors do not have the same values.
+
+
+#### Args:
+
+
+* <b>`a`</b>: the expected numpy ndarray or anything can be converted to one.
+* <b>`b`</b>: the actual numpy ndarray or anything can be converted to one.
+* <b>`msg`</b>: Optional message to report on failure.
 
 <h3 id="assertNotAlmostEqual"><code>assertNotAlmostEqual</code></h3>
 
@@ -1109,7 +1178,7 @@ Asserts that an object has non-zero length.
 #### Args:
 
 
-* <b>`container`</b>: Anything that implements the collections.Sized interface.
+* <b>`container`</b>: Anything that implements the collections.abc.Sized interface.
 * <b>`msg`</b>: Optional message to report on failure.
 
 <h3 id="assertNotEndsWith"><code>assertNotEndsWith</code></h3>
@@ -1196,6 +1265,18 @@ assertNotRegex(
 Fail the test if the text matches the regular expression.
 
 
+<h3 id="assertNotRegexpMatches"><code>assertNotRegexpMatches</code></h3>
+
+``` python
+assertNotRegexpMatches(
+    *args,
+    **kwargs
+)
+```
+
+
+
+
 <h3 id="assertNotStartsWith"><code>assertNotStartsWith</code></h3>
 
 ``` python
@@ -1217,6 +1298,8 @@ Asserts that actual.startswith(unexpected_start) is False.
 * <b>`msg`</b>: Optional message to report on failure.
 
 <h3 id="assertProtoEquals"><code>assertProtoEquals</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1882-L1906">View source</a>
 
 ``` python
 assertProtoEquals(
@@ -1240,6 +1323,8 @@ then compares them using self._AssertProtoEqual().
 
 <h3 id="assertProtoEqualsVersion"><code>assertProtoEqualsVersion</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1908-L1917">View source</a>
+
 ``` python
 assertProtoEqualsVersion(
     expected,
@@ -1257,21 +1342,20 @@ assertProtoEqualsVersion(
 
 ``` python
 assertRaises(
-    excClass,
-    callableObj=None,
+    expected_exception,
     *args,
     **kwargs
 )
 ```
 
-Fail unless an exception of class excClass is raised
-by callableObj when invoked with arguments args and keyword
-arguments kwargs. If a different type of exception is
+Fail unless an exception of class expected_exception is raised
+by the callable when invoked with specified positional and
+keyword arguments. If a different type of exception is
 raised, it will not be caught, and the test case will be
 deemed to have suffered an error, exactly as for an
 unexpected exception.
 
-If called with callableObj omitted or None, will return a
+If called with the callable and arguments omitted, will return a
 context object used like this::
 
      with self.assertRaises(SomeException):
@@ -1291,6 +1375,8 @@ exception after the assertion::
 
 <h3 id="assertRaisesOpError"><code>assertRaisesOpError</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2759-L2761">View source</a>
+
 ``` python
 assertRaisesOpError(expected_err_re_or_predicate)
 ```
@@ -1304,7 +1390,6 @@ assertRaisesOpError(expected_err_re_or_predicate)
 assertRaisesRegex(
     expected_exception,
     expected_regex,
-    callable_obj=None,
     *args,
     **kwargs
 )
@@ -1319,11 +1404,10 @@ Asserts that the message in a raised exception matches a regex.
 * <b>`expected_exception`</b>: Exception class expected to be raised.
 * <b>`expected_regex`</b>: Regex (re pattern object or string) expected
         to be found in error message.
-* <b>`callable_obj`</b>: Function to be called.
+* <b>`args`</b>: Function to be called and extra positional args.
+* <b>`kwargs`</b>: Extra kwargs.
 * <b>`msg`</b>: Optional message used in case of failure. Can only be used
         when assertRaisesRegex is used as a context manager.
-* <b>`args`</b>: Extra args.
-* <b>`kwargs`</b>: Extra kwargs.
 
 <h3 id="assertRaisesRegexp"><code>assertRaisesRegexp</code></h3>
 
@@ -1331,7 +1415,6 @@ Asserts that the message in a raised exception matches a regex.
 assertRaisesRegexp(
     expected_exception,
     expected_regex,
-    callable_obj=None,
     *args,
     **kwargs
 )
@@ -1346,11 +1429,10 @@ Asserts that the message in a raised exception matches a regex.
 * <b>`expected_exception`</b>: Exception class expected to be raised.
 * <b>`expected_regex`</b>: Regex (re pattern object or string) expected
         to be found in error message.
-* <b>`callable_obj`</b>: Function to be called.
+* <b>`args`</b>: Function to be called and extra positional args.
+* <b>`kwargs`</b>: Extra kwargs.
 * <b>`msg`</b>: Optional message used in case of failure. Can only be used
         when assertRaisesRegex is used as a context manager.
-* <b>`args`</b>: Extra args.
-* <b>`kwargs`</b>: Extra kwargs.
 
 <h3 id="assertRaisesWithLiteralMatch"><code>assertRaisesWithLiteralMatch</code></h3>
 
@@ -1577,7 +1659,7 @@ comparing to zero, or by comparing that the difference between each value
 in the two sequences is more than the given delta.
 
 Note that decimal places (from zero) are usually not the same as significant
-digits (measured from the most signficant digit).
+digits (measured from the most significant digit).
 
 If the two sequences compare equal then they will automatically compare
 almost equal.
@@ -1669,6 +1751,8 @@ difference method).
 
 <h3 id="assertShapeEqual"><code>assertShapeEqual</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2763-L2779">View source</a>
+
 ``` python
 assertShapeEqual(
     np_array,
@@ -1694,6 +1778,8 @@ Asserts that a Numpy ndarray and a TensorFlow tensor have the same shape.
 * <b>`TypeError`</b>: If the arguments have the wrong type.
 
 <h3 id="assertStartsWith"><code>assertStartsWith</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1919-L1930">View source</a>
 
 ``` python
 assertStartsWith(
@@ -1813,20 +1899,19 @@ Asserts that urls are equal, ignoring ordering of query params.
 ``` python
 assertWarns(
     expected_warning,
-    callable_obj=None,
     *args,
     **kwargs
 )
 ```
 
 Fail unless a warning of class warnClass is triggered
-by callable_obj when invoked with arguments args and keyword
-arguments kwargs.  If a different type of warning is
+by the callable when invoked with specified positional and
+keyword arguments.  If a different type of warning is
 triggered, it will not be handled: depending on the other
 warning filtering rules in effect, it might be silenced, printed
 out, or raised as an exception.
 
-If called with callable_obj omitted or None, will return a
+If called with the callable and arguments omitted, will return a
 context object used like this::
 
      with self.assertWarns(SomeWarning):
@@ -1852,7 +1937,6 @@ This allows you to inspect the warning after the assertion::
 assertWarnsRegex(
     expected_warning,
     expected_regex,
-    callable_obj=None,
     *args,
     **kwargs
 )
@@ -1869,11 +1953,10 @@ are considered successful matches.
 * <b>`expected_warning`</b>: Warning class expected to be triggered.
 * <b>`expected_regex`</b>: Regex (re pattern object or string) expected
         to be found in error message.
-* <b>`callable_obj`</b>: Function to be called.
+* <b>`args`</b>: Function to be called and extra positional args.
+* <b>`kwargs`</b>: Extra kwargs.
 * <b>`msg`</b>: Optional message used in case of failure. Can only be used
         when assertWarnsRegex is used as a context manager.
-* <b>`args`</b>: Extra args.
-* <b>`kwargs`</b>: Extra kwargs.
 
 <h3 id="assert_"><code>assert_</code></h3>
 
@@ -1990,6 +2073,8 @@ made during this context.
 
 <h3 id="checkedThread"><code>checkedThread</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2188-L2206">View source</a>
+
 ``` python
 checkedThread(
     target,
@@ -2086,8 +2171,10 @@ a test fails.
 
 NOTE: This will zero-out the file. This ensures there is no pre-existing
 state.
+NOTE: If the file already exists, it will be made writable and overwritten.
 
-See also: `create_tempdir()` for creating temporary directories.
+See also: `create_tempdir()` for creating temporary directories, and
+`_TempDir.create_file` for creating files within a temporary directory.
 
 #### Args:
 
@@ -2144,6 +2231,8 @@ Execute all cleanup functions. Normally called for you after
 tearDown.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1961-L1978">View source</a>
 
 ``` python
 evaluate(tensors)
@@ -2261,6 +2350,8 @@ failUnlessRaises(
 
 <h3 id="get_temp_dir"><code>get_temp_dir</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1803-L1819">View source</a>
+
 ``` python
 get_temp_dir()
 ```
@@ -2350,11 +2441,13 @@ the graph building and execution code in a test case.
 
 <h3 id="setUp"><code>setUp</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1771-L1790">View source</a>
+
 ``` python
 setUp()
 ```
 
-
+Hook method for setting up the test fixture before exercising it.
 
 
 <h3 id="setUpClass"><code>setUpClass</code></h3>
@@ -2411,11 +2504,13 @@ block, allowing further test code to be executed.
 
 <h3 id="tearDown"><code>tearDown</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1792-L1796">View source</a>
+
 ``` python
 tearDown()
 ```
 
-
+Hook method for deconstructing the test fixture after testing it.
 
 
 <h3 id="tearDownClass"><code>tearDownClass</code></h3>
@@ -2428,6 +2523,8 @@ Hook method for deconstructing the class fixture after running all tests in the 
 
 
 <h3 id="test_session"><code>test_session</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2076-L2098">View source</a>
 
 ``` python
 test_session(

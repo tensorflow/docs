@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.nn.static_bidirectional_rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn.py#L1541-L1635">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a bidirectional recurrent neural network. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.nn.static_bidirectional_rnn`
-* `tf.contrib.rnn.static_bidirectional_rnn`
-* `tf.nn.static_bidirectional_rnn`
+* <a href="/api_docs/python/tf/nn/static_bidirectional_rnn"><code>tf.compat.v1.nn.static_bidirectional_rnn</code></a>
+* <a href="/api_docs/python/tf/nn/static_bidirectional_rnn"><code>tf.contrib.rnn.static_bidirectional_rnn</code></a>
+
 
 ``` python
 tf.nn.static_bidirectional_rnn(
@@ -27,8 +39,6 @@ tf.nn.static_bidirectional_rnn(
 ```
 
 
-
-Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
 <!-- Placeholder for "Used in" -->
 

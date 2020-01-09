@@ -5,14 +5,28 @@ page_type: reference
 
 # Module: tf.contrib
 
-contrib module containing volatile or experimental code.
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
 
 
 
-Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/__init__.py).
+Contrib module containing volatile or experimental code.
 
 <!-- Placeholder for "Used in" -->
 
+Warning: The <a href="../tf/contrib"><code>tf.contrib</code></a> module will not be included in TensorFlow 2.0. Many
+of its submodules have been integrated into TensorFlow core, or spun-off into
+other projects like [`tensorflow_io`](https://github.com/tensorflow/io), or
+[`tensorflow_addons`](https://github.com/tensorflow/addons). For instructions
+on how to upgrade see the
+[Migration guide](https://www.tensorflow.org/beta/guide/migration_guide).
 
 ## Modules
 
@@ -21,8 +35,6 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 [`batching`](../tf/contrib/batching) module: Ops and modules related to batch.
 
 [`bayesflow`](../tf/contrib/bayesflow) module: Ops for representing Bayesian computation.
-
-[`bigtable`](../tf/contrib/bigtable) module: Cloud Bigtable Client for TensorFlow.
 
 [`checkpoint`](../tf/contrib/checkpoint) module: Tools for working with object-based checkpoints.
 
@@ -42,8 +54,6 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 
 [`data`](../tf/contrib/data) module: Experimental API for building input pipelines.
 
-[`decision_trees`](../tf/contrib/decision_trees) module: Shared representations for tree-based models in tensorflow.
-
 [`deprecated`](../tf/contrib/deprecated) module: Non-core alias for the deprecated tf.X_summary ops.
 
 [`distribute`](../tf/contrib/distribute) module: A distributed computation library for TF.
@@ -61,8 +71,6 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 [`ffmpeg`](../tf/contrib/ffmpeg) module: Working with audio using FFmpeg.
 
 [`framework`](../tf/contrib/framework) module: Framework utilities.
-
-[`gan`](../tf/contrib/gan) module: TF-GAN is a lightweight library for training and evaluating GANs.
 
 [`graph_editor`](../tf/contrib/graph_editor) module: TensorFlow Graph Editor.
 
@@ -93,8 +101,6 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 [`losses`](../tf/contrib/losses) module: Ops for building neural network losses.
 
 [`memory_stats`](../tf/contrib/memory_stats) module: Ops for memory statistics.
-
-[`meta_graph_transform`](../tf/contrib/meta_graph_transform) module: Utility for applying the Graph Transform tool to a MetaGraphDef.
 
 [`metrics`](../tf/contrib/metrics) module: Ops for evaluation metrics and summary statistics.
 
@@ -136,8 +142,6 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 
 [`seq2seq`](../tf/contrib/seq2seq) module: Ops for building neural network seq2seq decoders and losses.
 
-[`session_bundle`](../tf/contrib/session_bundle) module
-
 [`signal`](../tf/contrib/signal) module: Signal processing operations.
 
 [`slim`](../tf/contrib/slim) module: Slim is an interface to contrib functions, examples and models.
@@ -171,4 +175,3 @@ Defined in [`contrib/__init__.py`](https://github.com/tensorflow/tensorflow/tree
 [`training`](../tf/contrib/training) module: Training and input utilities.
 
 [`util`](../tf/contrib/util) module: Utilities for dealing with Tensors.
-

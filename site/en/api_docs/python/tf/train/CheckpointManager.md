@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.train.CheckpointManager
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/CheckpointManager">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L496-L737">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CheckpointManager`
 
 Deletes old checkpoints.
@@ -13,14 +31,10 @@ Deletes old checkpoints.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.CheckpointManager`
-* Class `tf.compat.v2.train.CheckpointManager`
-* Class `tf.contrib.checkpoint.CheckpointManager`
-* Class `tf.train.CheckpointManager`
+* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.compat.v1.train.CheckpointManager</code></a>
+* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.compat.v2.train.CheckpointManager</code></a>
+* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.contrib.checkpoint.CheckpointManager</code></a>
 
-
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,6 +59,8 @@ while True:
 particular directory at a time.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L517-L606">View source</a>
 
 ``` python
 __init__(
@@ -140,6 +156,8 @@ The checkpoint prefix. If there are no checkpoints, returns `None`.
 
 <h3 id="save"><code>save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L679-L737">View source</a>
+
 ``` python
 save(checkpoint_number=None)
 ```
@@ -162,7 +180,3 @@ Creates a new checkpoint and manages it.
 
 The path to the new checkpoint. It is also recorded in the `checkpoints`
 and `latest_checkpoint` properties.
-
-
-
-

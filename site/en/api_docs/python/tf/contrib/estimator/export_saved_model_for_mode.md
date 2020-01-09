@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.estimator.export_saved_model_for_mode
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/export.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Exports a single train/eval/predict graph as a SavedModel. (deprecated)
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.estimator.export_saved_model_for_mode(
 ```
 
 
-
-Defined in [`contrib/estimator/python/estimator/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/contrib/estimator/python/estimator/export.py).
 
 <!-- Placeholder for "Used in" -->
 

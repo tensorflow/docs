@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.lecun_normal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L631-L654">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 LeCun normal initializer.
 
 ### Aliases:
 
-* `tf.compat.v2.initializers.lecun_normal`
-* `tf.compat.v2.keras.initializers.lecun_normal`
+* <a href="/api_docs/python/tf/compat/v2/keras/initializers/lecun_normal"><code>tf.compat.v2.initializers.lecun_normal</code></a>
+
 
 ``` python
 tf.compat.v2.keras.initializers.lecun_normal(seed=None)
 ```
 
 
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,8 +51,9 @@ An initializer.
 #### References:
 
 - Self-Normalizing Neural Networks,
-[Klambauer et al., 2017](https://papers.nips.cc/paper/6698-self-normalizing-neural-networks)
-([pdf](https://papers.nips.cc/paper/6698-self-normalizing-neural-networks.pdf)
-)
+[Klambauer et al., 2017]
+(https://papers.nips.cc/paper/6698-self-normalizing-neural-networks)
+([pdf]
+(https://papers.nips.cc/paper/6698-self-normalizing-neural-networks.pdf))
 - Efficient Backprop,
 [Lecun et al., 1998](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf)

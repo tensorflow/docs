@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.seq2seq.AttentionWrapperState
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1934-L1995">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AttentionWrapperState`
 
 `namedtuple` storing the state of a `AttentionWrapper`.
 
 
-
-
-
-Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -33,6 +41,25 @@ Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.co
 - `attention_state`: A single or tuple of nested objects
    containing attention mechanism state for each attention mechanism.
    The objects may contain Tensors or TensorArrays.
+
+
+<h2 id="__new__"><code>__new__</code></h2>
+
+``` python
+__new__(
+    _cls,
+    cell_state,
+    attention,
+    time,
+    alignments,
+    alignment_history,
+    attention_state
+)
+```
+
+Create new instance of AttentionWrapperState(cell_state, attention, time, alignments, alignment_history, attention_state)
+
+
 
 
 ## Properties
@@ -73,6 +100,8 @@ Defined in [`contrib/seq2seq/python/ops/attention_wrapper.py`](https://github.co
 
 <h3 id="clone"><code>clone</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/python/ops/attention_wrapper.py#L1956-L1995">View source</a>
+
 ``` python
 clone(**kwargs)
 ```
@@ -103,7 +132,3 @@ initial_state = initial_state.clone(cell_state=encoder_state)
 
 A new `AttentionWrapperState` whose properties are the same as
 this one, except any overridden properties as provided in `kwargs`.
-
-
-
-

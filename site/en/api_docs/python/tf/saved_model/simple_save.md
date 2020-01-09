@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.saved_model.simple_save
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/simple_save.py#L30-L91">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Convenience function to build a SavedModel suitable for serving. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.saved_model.simple_save`
-* `tf.saved_model.simple_save`
+* <a href="/api_docs/python/tf/saved_model/simple_save"><code>tf.compat.v1.saved_model.simple_save</code></a>
+
 
 ``` python
 tf.saved_model.simple_save(
@@ -23,8 +35,6 @@ tf.saved_model.simple_save(
 ```
 
 
-
-Defined in [`python/saved_model/simple_save.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/simple_save.py).
 
 <!-- Placeholder for "Used in" -->
 

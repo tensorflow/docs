@@ -5,24 +5,41 @@ page_type: reference
 
 # tf.test.assert_equal_graph_def
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/test/assert_equal_graph_def">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L159-L181">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Asserts that two `GraphDef`s are (mostly) the same.
 
 ### Aliases:
 
-* `tf.compat.v1.test.assert_equal_graph_def`
-* `tf.test.assert_equal_graph_def`
+* <a href="/api_docs/python/tf/test/assert_equal_graph_def"><code>tf.compat.v1.test.assert_equal_graph_def</code></a>
+
 
 ``` python
 tf.test.assert_equal_graph_def(
     actual,
     expected,
-    checkpoint_v2=False
+    checkpoint_v2=False,
+    hash_table_shared_name=False
 )
 ```
 
 
-
-Defined in [`python/framework/test_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/test_util.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,6 +54,8 @@ between the graphs, so the naming of nodes must be consistent.
 * <b>`expected`</b>: The `GraphDef` we expected.
 * <b>`checkpoint_v2`</b>: boolean determining whether to ignore randomized attribute
   values that appear in V2 checkpoints.
+* <b>`hash_table_shared_name`</b>: boolean determining whether to ignore randomized
+  shared_names that appear in HashTableV2 op defs.
 
 
 #### Raises:

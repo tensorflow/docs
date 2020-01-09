@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.lite.experimental.convert_op_hints_to_stubs
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/op_hint.py#L1261-L1290">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts a graphdef with LiteOp hints into stub operations.
 
 ### Aliases:
 
-* `tf.compat.v1.lite.experimental.convert_op_hints_to_stubs`
-* `tf.lite.experimental.convert_op_hints_to_stubs`
+* <a href="/api_docs/python/tf/lite/experimental/convert_op_hints_to_stubs"><code>tf.compat.v1.lite.experimental.convert_op_hints_to_stubs</code></a>
+
 
 ``` python
 tf.lite.experimental.convert_op_hints_to_stubs(
@@ -21,8 +33,6 @@ tf.lite.experimental.convert_op_hints_to_stubs(
 ```
 
 
-
-Defined in [`lite/python/op_hint.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/lite/python/op_hint.py).
 
 <!-- Placeholder for "Used in" -->
 

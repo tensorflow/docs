@@ -5,13 +5,30 @@ page_type: reference
 
 # tf.case
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/case">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L3385-L3490">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create a case operation.
 
 ### Aliases:
 
-* `tf.case`
-* `tf.compat.v1.case`
-* `tf.compat.v2.case`
+* <a href="/api_docs/python/tf/case"><code>tf.compat.v1.case</code></a>
+
 
 ``` python
 tf.case(
@@ -24,8 +41,6 @@ tf.case(
 ```
 
 
-
-Defined in [`python/ops/control_flow_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/control_flow_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -135,4 +150,3 @@ those returned by `default` if none does.
 #### Eager Compatibility
 Unordered dictionaries are not supported in eager mode when `exclusive=False`.
 Use a list of tuples instead.
-

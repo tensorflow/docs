@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.image.resize_with_crop_or_pad
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/resize_with_crop_or_pad">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L889-L1005">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Crops and/or pads an image to a target width and height.
 
 ### Aliases:
 
-* `tf.compat.v1.image.resize_image_with_crop_or_pad`
-* `tf.compat.v1.image.resize_with_crop_or_pad`
-* `tf.compat.v2.image.resize_with_crop_or_pad`
-* `tf.image.resize_image_with_crop_or_pad`
-* `tf.image.resize_with_crop_or_pad`
+* <a href="/api_docs/python/tf/image/resize_with_crop_or_pad"><code>tf.compat.v1.image.resize_image_with_crop_or_pad</code></a>
+* <a href="/api_docs/python/tf/image/resize_with_crop_or_pad"><code>tf.compat.v1.image.resize_with_crop_or_pad</code></a>
+* <a href="/api_docs/python/tf/image/resize_with_crop_or_pad"><code>tf.compat.v2.image.resize_with_crop_or_pad</code></a>
+* <a href="/api_docs/python/tf/image/resize_with_crop_or_pad"><code>tf.image.resize_image_with_crop_or_pad</code></a>
+
 
 ``` python
 tf.image.resize_with_crop_or_pad(
@@ -24,8 +42,6 @@ tf.image.resize_with_crop_or_pad(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

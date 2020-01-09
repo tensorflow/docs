@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.bijectors.real_nvp_default_template
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py#L241-L308">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Build a scale-and-shift function using a multi-layer neural network. (deprecated)
 
 ``` python
@@ -20,13 +32,11 @@ tf.contrib.distributions.bijectors.real_nvp_default_template(
 
 
 
-Defined in [`contrib/distributions/python/ops/bijectors/real_nvp.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/bijectors/real_nvp.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 This will be wrapped in a make_template to ensure the variables are only
 created once. It takes the `d`-dimensional input x[0:d] and returns the `D-d`

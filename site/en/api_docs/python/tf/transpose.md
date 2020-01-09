@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.transpose
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/transpose">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1772-L1860">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Transposes `a`.
 
 ### Aliases:
 
-* `tf.compat.v1.transpose`
-* `tf.transpose`
+* <a href="/api_docs/python/tf/transpose"><code>tf.compat.v1.transpose</code></a>
+
 
 ``` python
 tf.transpose(
@@ -22,8 +40,6 @@ tf.transpose(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -97,4 +113,3 @@ simply return a new view of the same data with adjusted `strides`.
 
 TensorFlow does not support strides, so `transpose` returns a new tensor with
 the items permuted.
-

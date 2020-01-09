@@ -6,18 +6,28 @@ page_type: reference
 # tf.errors.error_code_from_exception_type
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L520-L526">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ### Aliases:
 
-* `tf.compat.v1.errors.error_code_from_exception_type`
-* `tf.errors.error_code_from_exception_type`
+* <a href="/api_docs/python/tf/errors/error_code_from_exception_type"><code>tf.compat.v1.errors.error_code_from_exception_type</code></a>
+
 
 ``` python
 tf.errors.error_code_from_exception_type(cls)
 ```
 
 
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->

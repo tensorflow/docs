@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.nn.depthwise_conv2d_backprop_input
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_input">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes the gradients of depthwise convolution with respect to the input.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.depthwise_conv2d_backprop_input`
-* `tf.compat.v1.nn.depthwise_conv2d_native_backprop_input`
-* `tf.compat.v2.nn.depthwise_conv2d_backprop_input`
-* `tf.nn.depthwise_conv2d_backprop_input`
-* `tf.nn.depthwise_conv2d_native_backprop_input`
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_input"><code>tf.compat.v1.nn.depthwise_conv2d_backprop_input</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_input"><code>tf.compat.v1.nn.depthwise_conv2d_native_backprop_input</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_input"><code>tf.compat.v2.nn.depthwise_conv2d_backprop_input</code></a>
+* <a href="/api_docs/python/tf/nn/depthwise_conv2d_backprop_input"><code>tf.nn.depthwise_conv2d_native_backprop_input</code></a>
+
 
 ``` python
 tf.nn.depthwise_conv2d_backprop_input(
@@ -29,8 +43,6 @@ tf.nn.depthwise_conv2d_backprop_input(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

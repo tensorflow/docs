@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.compat.path_to_str
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/path_to_str">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/compat.py#L128-L164">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts input which is a `PathLike` object to `str` type.
 
 ### Aliases:
 
-* `tf.compat.path_to_str`
-* `tf.compat.v1.compat.path_to_str`
-* `tf.compat.v2.compat.path_to_str`
+* <a href="/api_docs/python/tf/compat/path_to_str"><code>tf.compat.v1.compat.path_to_str</code></a>
+* <a href="/api_docs/python/tf/compat/path_to_str"><code>tf.compat.v2.compat.path_to_str</code></a>
+
 
 ``` python
 tf.compat.path_to_str(path)
 ```
 
 
-
-Defined in [`python/util/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/compat.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.basic_train_loop
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_loops.py#L24-L65">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Basic loop to train a model.
 
 ### Aliases:
 
-* `tf.compat.v1.train.basic_train_loop`
-* `tf.train.basic_train_loop`
+* <a href="/api_docs/python/tf/train/basic_train_loop"><code>tf.compat.v1.train.basic_train_loop</code></a>
+
 
 ``` python
 tf.train.basic_train_loop(
@@ -23,8 +35,6 @@ tf.train.basic_train_loop(
 ```
 
 
-
-Defined in [`python/training/basic_loops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_loops.py).
 
 <!-- Placeholder for "Used in" -->
 

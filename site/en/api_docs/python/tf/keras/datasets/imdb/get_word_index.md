@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.datasets.imdb.get_word_index
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/datasets/imdb/get_word_index">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/datasets/imdb.py#L135-L151">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Retrieves the dictionary mapping word indices back to words.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.datasets.imdb.get_word_index`
-* `tf.compat.v2.keras.datasets.imdb.get_word_index`
-* `tf.keras.datasets.imdb.get_word_index`
+* <a href="/api_docs/python/tf/keras/datasets/imdb/get_word_index"><code>tf.compat.v1.keras.datasets.imdb.get_word_index</code></a>
+* <a href="/api_docs/python/tf/keras/datasets/imdb/get_word_index"><code>tf.compat.v2.keras.datasets.imdb.get_word_index</code></a>
+
 
 ``` python
 tf.keras.datasets.imdb.get_word_index(path='imdb_word_index.json')
 ```
 
 
-
-Defined in [`python/keras/datasets/imdb.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/datasets/imdb.py).
 
 <!-- Placeholder for "Used in" -->
 

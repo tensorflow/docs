@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.debugging.assert_shapes
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1585-L1635">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert tensor shapes and dimension size relationships between tensors.
 
 ``` python
@@ -19,8 +31,6 @@ tf.compat.v2.debugging.assert_shapes(
 
 
 
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 This Op checks that a collection of tensors shape relationships
@@ -31,12 +41,12 @@ satisfies given constraints.
 
 
 ```python
-tf.assert_shapes({
-  x: ('N', 'Q'),
-  y: ('N', 'D'),
-  param: ('Q',),
-  scalar: ()
-})
+tf.assert_shapes([
+  (x: ('N', 'Q')),
+  (y: ('N', 'D')),
+  (param: ('Q',)),
+  (scalar: ()),
+])
 ```
 
 If `x`, `y`, `param` or `scalar` does not have a shape that satisfies

@@ -7,137 +7,145 @@ page_type: reference
 # Module: tf
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
 
 
 
-Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/__init__.py).
+TensorFlow root package
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`app`](./tf/app) module
+[`app`](./tf/app) module: Generic entry point script.
 
-[`audio`](./tf/audio) module
+[`audio`](./tf/audio) module: Public API for tf.audio namespace.
 
-[`autograph`](./tf/autograph) module
+[`autograph`](./tf/autograph) module: Conversion of plain Python into TensorFlow graph code.
 
-[`bitwise`](./tf/bitwise) module
+[`bitwise`](./tf/bitwise) module: Operations for manipulating the binary representations of integers.
 
-[`compat`](./tf/compat) module
+[`compat`](./tf/compat) module: Functions for Python 2 vs. 3 compatibility.
 
-[`config`](./tf/config) module
+[`config`](./tf/config) module: Public API for tf.config namespace.
 
-[`contrib`](./tf/contrib) module: contrib module containing volatile or experimental code.
+[`contrib`](./tf/contrib) module: Contrib module containing volatile or experimental code.
 
-[`data`](./tf/data) module
+[`data`](./tf/data) module: <a href="./tf/data/Dataset"><code>tf.data.Dataset</code></a> API for input pipelines.
 
-[`debugging`](./tf/debugging) module
+[`debugging`](./tf/debugging) module: Public API for tf.debugging namespace.
 
-[`distribute`](./tf/distribute) module
+[`distribute`](./tf/distribute) module: Library for running a computation across multiple devices.
 
-[`distributions`](./tf/distributions) module
+[`distributions`](./tf/distributions) module: Core module for TensorFlow distribution objects and helpers.
 
-[`dtypes`](./tf/dtypes) module
+[`dtypes`](./tf/dtypes) module: Public API for tf.dtypes namespace.
 
-[`errors`](./tf/errors) module
+[`errors`](./tf/errors) module: Exception types for TensorFlow errors.
 
-[`estimator`](./tf/estimator) module
+[`estimator`](./tf/estimator) module: Estimator: High level tools for working with models.
 
-[`experimental`](./tf/experimental) module
+[`experimental`](./tf/experimental) module: Public API for tf.experimental namespace.
 
-[`feature_column`](./tf/feature_column) module
+[`feature_column`](./tf/feature_column) module: Public API for tf.feature_column namespace.
 
-[`gfile`](./tf/gfile) module
+[`gfile`](./tf/gfile) module: Import router for file_io.
 
-[`graph_util`](./tf/graph_util) module
+[`graph_util`](./tf/graph_util) module: Helpers to manipulate a tensor graph in python.
 
-[`image`](./tf/image) module
+[`image`](./tf/image) module: Image processing and decoding ops.
 
-[`initializers`](./tf/initializers) module
+[`initializers`](./tf/initializers) module: Public API for tf.initializers namespace.
 
-[`io`](./tf/io) module
+[`io`](./tf/io) module: Public API for tf.io namespace.
 
-[`keras`](./tf/keras) module
+[`keras`](./tf/keras) module: Implementation of the Keras API meant to be a high-level API for TensorFlow.
 
-[`layers`](./tf/layers) module
+[`layers`](./tf/layers) module: Public API for tf.layers namespace.
 
-[`linalg`](./tf/linalg) module
+[`linalg`](./tf/linalg) module: Operations for linear algebra.
 
-[`lite`](./tf/lite) module
+[`lite`](./tf/lite) module: Public API for tf.lite namespace.
 
-[`logging`](./tf/logging) module
+[`logging`](./tf/logging) module: Logging and Summary Operations.
 
-[`lookup`](./tf/lookup) module
+[`lookup`](./tf/lookup) module: Public API for tf.lookup namespace.
 
-[`losses`](./tf/losses) module
+[`losses`](./tf/losses) module: Loss operations for use in neural networks.
 
-[`manip`](./tf/manip) module
+[`manip`](./tf/manip) module: Operators for manipulating tensors.
 
-[`math`](./tf/math) module
+[`math`](./tf/math) module: Math Operations.
 
-[`metrics`](./tf/metrics) module
+[`metrics`](./tf/metrics) module: Evaluation-related metrics.
 
-[`nest`](./tf/nest) module
+[`nest`](./tf/nest) module: Public API for tf.nest namespace.
 
-[`nn`](./tf/nn) module
+[`nn`](./tf/nn) module: Wrappers for primitive Neural Net (NN) Operations.
 
-[`profiler`](./tf/profiler) module
+[`profiler`](./tf/profiler) module: Public API for tf.profiler namespace.
 
-[`python_io`](./tf/python_io) module
+[`python_io`](./tf/python_io) module: Python functions for directly manipulating TFRecord-formatted files.
 
-[`quantization`](./tf/quantization) module
+[`quantization`](./tf/quantization) module: Public API for tf.quantization namespace.
 
-[`queue`](./tf/queue) module
+[`queue`](./tf/queue) module: Public API for tf.queue namespace.
 
-[`ragged`](./tf/ragged) module
+[`ragged`](./tf/ragged) module: Ragged Tensors.
 
-[`random`](./tf/random) module
+[`random`](./tf/random) module: Public API for tf.random namespace.
 
-[`raw_ops`](./tf/raw_ops) module
+[`raw_ops`](./tf/raw_ops) module: Note: <a href="./tf/raw_ops"><code>tf.raw_ops</code></a> provides direct/low level access to all TensorFlow ops. See   [the RFC](https://github.com/tensorflow/community/blob/master/rfcs/20181225-tf-raw-ops.md)
 
-[`resource_loader`](./tf/resource_loader) module
+[`resource_loader`](./tf/resource_loader) module: Resource management library.
 
-[`saved_model`](./tf/saved_model) module
+[`saved_model`](./tf/saved_model) module: Public API for tf.saved_model namespace.
 
-[`sets`](./tf/sets) module
+[`sets`](./tf/sets) module: Tensorflow set operations.
 
-[`signal`](./tf/signal) module
+[`signal`](./tf/signal) module: Signal processing operations.
 
-[`sparse`](./tf/sparse) module
+[`sparse`](./tf/sparse) module: Sparse Tensor Representation.
 
-[`spectral`](./tf/spectral) module
+[`spectral`](./tf/spectral) module: Public API for tf.spectral namespace.
 
-[`strings`](./tf/strings) module
+[`strings`](./tf/strings) module: Operations for working with string Tensors.
 
-[`summary`](./tf/summary) module
+[`summary`](./tf/summary) module: Operations for writing summary data, for use in analysis and visualization.
 
-[`sysconfig`](./tf/sysconfig) module
+[`sysconfig`](./tf/sysconfig) module: System configuration library.
 
-[`test`](./tf/test) module
+[`test`](./tf/test) module: Testing.
 
-[`tpu`](./tf/tpu) module
+[`tpu`](./tf/tpu) module: Ops related to Tensor Processing Units.
 
-[`train`](./tf/train) module
+[`train`](./tf/train) module: Support for training models.
 
-[`user_ops`](./tf/user_ops) module
+[`user_ops`](./tf/user_ops) module: Public API for tf.user_ops namespace.
 
-[`version`](./tf/version) module
+[`version`](./tf/version) module: Public API for tf.version namespace.
 
-[`xla`](./tf/xla) module
+[`xla`](./tf/xla) module: Public API for tf.xla namespace.
 
 ## Classes
 
 [`class AggregationMethod`](./tf/AggregationMethod): A class listing aggregation methods used to combine gradients.
 
-[`class AttrValue`](./tf/AttrValue)
+[`class AttrValue`](./tf/AttrValue): A ProtocolMessage
 
 [`class ConditionalAccumulator`](./tf/ConditionalAccumulator): A conditional accumulator for aggregating gradients.
 
 [`class ConditionalAccumulatorBase`](./tf/ConditionalAccumulatorBase): A conditional accumulator for aggregating gradients.
 
-[`class ConfigProto`](./tf/ConfigProto)
+[`class ConfigProto`](./tf/ConfigProto): A ProtocolMessage
 
 [`class CriticalSection`](./tf/CriticalSection): Critical section.
 
@@ -147,7 +155,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`class Dimension`](./tf/Dimension): Represents the value of one dimension in a TensorShape.
 
-[`class Event`](./tf/Event)
+[`class Event`](./tf/Event): A ProtocolMessage
 
 [`class FIFOQueue`](./tf/queue/FIFOQueue): A queue implementation that dequeues elements in first-in first-out order.
 
@@ -157,43 +165,47 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`class FixedLengthRecordReader`](./tf/FixedLengthRecordReader): A Reader that outputs fixed-length records from a file.
 
-[`class GPUOptions`](./tf/GPUOptions)
+[`class GPUOptions`](./tf/GPUOptions): A ProtocolMessage
 
 [`class GradientTape`](./tf/GradientTape): Record operations for automatic differentiation.
 
 [`class Graph`](./tf/Graph): A TensorFlow computation, represented as a dataflow graph.
 
-[`class GraphDef`](./tf/GraphDef)
+[`class GraphDef`](./tf/GraphDef): A ProtocolMessage
 
 [`class GraphKeys`](./tf/GraphKeys): Standard names to use for graph collections.
 
-[`class GraphOptions`](./tf/GraphOptions)
+[`class GraphOptions`](./tf/GraphOptions): A ProtocolMessage
 
-[`class HistogramProto`](./tf/HistogramProto)
+[`class HistogramProto`](./tf/HistogramProto): A ProtocolMessage
 
 [`class IdentityReader`](./tf/IdentityReader): A Reader that outputs the queued work as both the key and value.
 
 [`class IndexedSlices`](./tf/IndexedSlices): A sparse representation of a set of tensor slices at given indices.
 
+[`class IndexedSlicesSpec`](./tf/IndexedSlicesSpec): Type specification for a <a href="./tf/IndexedSlices"><code>tf.IndexedSlices</code></a>.
+
 [`class InteractiveSession`](./tf/InteractiveSession): A TensorFlow `Session` for use in interactive contexts, such as a shell.
 
 [`class LMDBReader`](./tf/LMDBReader): A Reader that outputs the records from a LMDB file.
 
-[`class LogMessage`](./tf/LogMessage)
+[`class LogMessage`](./tf/LogMessage): A ProtocolMessage
 
-[`class MetaGraphDef`](./tf/MetaGraphDef)
+[`class MetaGraphDef`](./tf/MetaGraphDef): A ProtocolMessage
 
 [`class Module`](./tf/Module): Base neural network module class.
 
-[`class NameAttrList`](./tf/NameAttrList)
+[`class NameAttrList`](./tf/NameAttrList): A ProtocolMessage
 
-[`class NodeDef`](./tf/NodeDef)
+[`class NodeDef`](./tf/NodeDef): A ProtocolMessage
 
 [`class OpError`](./tf/errors/OpError): A generic error that is raised when TensorFlow execution fails.
 
 [`class Operation`](./tf/Operation): Represents a graph node that performs computation on tensors.
 
-[`class OptimizerOptions`](./tf/OptimizerOptions)
+[`class OptimizerOptions`](./tf/OptimizerOptions): A ProtocolMessage
+
+[`class OptionalSpec`](./tf/OptionalSpec): Represents an optional potentially containing a structured value.
 
 [`class PaddingFIFOQueue`](./tf/queue/PaddingFIFOQueue): A FIFOQueue that supports batching variable-sized tensors by padding.
 
@@ -203,19 +215,21 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`class RaggedTensor`](./tf/RaggedTensor): Represents a ragged tensor.
 
+[`class RaggedTensorSpec`](./tf/RaggedTensorSpec): Type specification for a <a href="./tf/RaggedTensor"><code>tf.RaggedTensor</code></a>.
+
 [`class RandomShuffleQueue`](./tf/queue/RandomShuffleQueue): A queue implementation that dequeues elements in a random order.
 
 [`class ReaderBase`](./tf/ReaderBase): Base class for different Reader types, that produce a record every step.
 
 [`class RegisterGradient`](./tf/RegisterGradient): A decorator for registering the gradient function for an op type.
 
-[`class RunMetadata`](./tf/RunMetadata)
+[`class RunMetadata`](./tf/RunMetadata): A ProtocolMessage
 
-[`class RunOptions`](./tf/RunOptions)
+[`class RunOptions`](./tf/RunOptions): A ProtocolMessage
 
 [`class Session`](./tf/Session): A class for running TensorFlow operations.
 
-[`class SessionLog`](./tf/SessionLog)
+[`class SessionLog`](./tf/SessionLog): A ProtocolMessage
 
 [`class SparseConditionalAccumulator`](./tf/sparse/SparseConditionalAccumulator): A conditional accumulator for aggregating sparse gradients.
 
@@ -223,11 +237,13 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`class SparseTensor`](./tf/sparse/SparseTensor): Represents a sparse tensor.
 
+[`class SparseTensorSpec`](./tf/SparseTensorSpec): Type specification for a <a href="./tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
+
 [`class SparseTensorValue`](./tf/SparseTensorValue): SparseTensorValue(indices, values, dense_shape)
 
-[`class Summary`](./tf/Summary)
+[`class Summary`](./tf/Summary): A ProtocolMessage
 
-[`class SummaryMetadata`](./tf/SummaryMetadata)
+[`class SummaryMetadata`](./tf/SummaryMetadata): A ProtocolMessage
 
 [`class TFRecordReader`](./tf/TFRecordReader): A Reader that outputs the records from a TFRecords file.
 
@@ -235,13 +251,17 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`class TensorArray`](./tf/TensorArray): Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays.
 
-[`class TensorInfo`](./tf/TensorInfo)
+[`class TensorArraySpec`](./tf/TensorArraySpec): Type specification for a <a href="./tf/TensorArray"><code>tf.TensorArray</code></a>.
+
+[`class TensorInfo`](./tf/TensorInfo): A ProtocolMessage
 
 [`class TensorShape`](./tf/TensorShape): Represents the shape of a `Tensor`.
 
 [`class TensorSpec`](./tf/TensorSpec): Describes a tf.Tensor.
 
 [`class TextLineReader`](./tf/TextLineReader): A Reader that outputs the lines of a file delimited by newlines.
+
+[`class TypeSpec`](./tf/TypeSpec): Specifies a TensorFlow value type.
 
 [`class UnconnectedGradients`](./tf/UnconnectedGradients): Controls how gradient computation behaves when y does not depend on x.
 
@@ -315,9 +335,9 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`angle(...)`](./tf/math/angle): Returns the element-wise argument of a complex (or real) tensor.
 
-[`arg_max(...)`](./tf/arg_max): Returns the index with the largest value across dimensions of a tensor. (deprecated)
+[`arg_max(...)`](./tf/arg_max): Returns the index with the largest value across dimensions of a tensor.
 
-[`arg_min(...)`](./tf/arg_min): Returns the index with the smallest value across dimensions of a tensor. (deprecated)
+[`arg_min(...)`](./tf/arg_min): Returns the index with the smallest value across dimensions of a tensor.
 
 [`argmax(...)`](./tf/math/argmax): Returns the index with the largest value across axes of a tensor. (deprecated arguments)
 
@@ -327,7 +347,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`as_dtype(...)`](./tf/dtypes/as_dtype): Converts the given `type_value` to a `DType`.
 
-[`as_string(...)`](./tf/strings/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
+[`as_string(...)`](./tf/strings/as_string): Converts each entry in the given tensor to strings.
 
 [`asin(...)`](./tf/math/asin): Computes the trignometric inverse sine of x element-wise.
 
@@ -353,7 +373,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`assert_non_positive(...)`](./tf/debugging/assert_non_positive): Assert the condition `x <= 0` holds element-wise.
 
-[`assert_none_equal(...)`](./tf/debugging/assert_none_equal): Assert the condition `x != y` holds for all elements.
+[`assert_none_equal(...)`](./tf/debugging/assert_none_equal): Assert the condition `x != y` holds element-wise.
 
 [`assert_positive(...)`](./tf/debugging/assert_positive): Assert the condition `x > 0` holds element-wise.
 
@@ -409,7 +429,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`case(...)`](./tf/case): Create a case operation.
 
-[`cast(...)`](./tf/dtypes/cast): Casts a tensor to a new type.
+[`cast(...)`](./tf/cast): Casts a tensor to a new type.
 
 [`ceil(...)`](./tf/math/ceil): Returns element-wise smallest integer not less than x.
 
@@ -444,6 +464,8 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 [`container(...)`](./tf/container): Wrapper for <a href="./tf/Graph#container"><code>Graph.container()</code></a> using the default graph.
 
 [`control_dependencies(...)`](./tf/control_dependencies): Wrapper for <a href="./tf/Graph#control_dependencies"><code>Graph.control_dependencies()</code></a> using the default graph.
+
+[`control_flow_v2_enabled(...)`](./tf/control_flow_v2_enabled): Returns `True` if v2 control flow is enabled.
 
 [`convert_to_tensor(...)`](./tf/convert_to_tensor): Converts the given `value` to a `Tensor`.
 
@@ -499,9 +521,13 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`dimension_value(...)`](./tf/compat/dimension_value): Compatibility utility required to allow for both V1 and V2 behavior in TF.
 
+[`disable_control_flow_v2(...)`](./tf/disable_control_flow_v2): Opts out of control flow v2.
+
 [`disable_eager_execution(...)`](./tf/disable_eager_execution): Disables eager execution.
 
 [`disable_resource_variables(...)`](./tf/disable_resource_variables): Opts out of resource variables. (deprecated)
+
+[`disable_tensor_equality(...)`](./tf/disable_tensor_equality): Compare Tensors by their id and be hashable.
 
 [`disable_v2_behavior(...)`](./tf/disable_v2_behavior): Disables TensorFlow 2.x behaviors.
 
@@ -519,11 +545,15 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`edit_distance(...)`](./tf/edit_distance): Computes the Levenshtein distance between sequences.
 
-[`einsum(...)`](./tf/einsum): A generalized contraction between tensors of arbitrary dimension.
+[`einsum(...)`](./tf/einsum): Tensor contraction over specified indices and outer product.
+
+[`enable_control_flow_v2(...)`](./tf/enable_control_flow_v2): Use control flow v2.
 
 [`enable_eager_execution(...)`](./tf/enable_eager_execution): Enables eager execution for the lifetime of this program.
 
 [`enable_resource_variables(...)`](./tf/enable_resource_variables): Creates resource variables by default.
+
+[`enable_tensor_equality(...)`](./tf/enable_tensor_equality): Compare Tensors with element-wise comparison and thus be unhashable.
 
 [`enable_v2_behavior(...)`](./tf/enable_v2_behavior): Enables TensorFlow 2.x behaviors.
 
@@ -545,7 +575,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`expand_dims(...)`](./tf/expand_dims): Inserts a dimension of 1 into a tensor's shape. (deprecated arguments)
 
-[`expm1(...)`](./tf/math/expm1): Computes exponential of x - 1 element-wise.
+[`expm1(...)`](./tf/math/expm1): Computes `exp(x) - 1` element-wise.
 
 [`extract_image_patches(...)`](./tf/image/extract_image_patches): Extract `patches` from `images` and put them in the "depth" output dimension.
 
@@ -591,7 +621,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`function(...)`](./tf/function): Creates a callable TensorFlow graph from a Python function.
 
-[`gather(...)`](./tf/gather): Gather slices from `params` axis `axis` according to `indices`.
+[`gather(...)`](./tf/gather): Gather slices from params axis axis according to indices.
 
 [`gather_nd(...)`](./tf/gather_nd): Gather slices from `params` into a Tensor with shape specified by `indices`.
 
@@ -624,6 +654,8 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 [`global_variables(...)`](./tf/global_variables): Returns global variables.
 
 [`global_variables_initializer(...)`](./tf/initializers/global_variables): Returns an Op that initializes global variables.
+
+[`grad_pass_through(...)`](./tf/grad_pass_through): Creates a grad-pass-through op with the forward behavior provided in f.
 
 [`gradients(...)`](./tf/gradients): Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
 
@@ -739,7 +771,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`matrix_determinant(...)`](./tf/linalg/det): Computes the determinant of one or more square matrices.
 
-[`matrix_diag(...)`](./tf/linalg/diag): Returns a batched diagonal tensor with a given batched diagonal values.
+[`matrix_diag(...)`](./tf/linalg/diag): Returns a batched diagonal tensor with given batched diagonal values.
 
 [`matrix_diag_part(...)`](./tf/linalg/diag_part): Returns the batched diagonal part of a batched tensor.
 
@@ -815,7 +847,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`placeholder_with_default(...)`](./tf/placeholder_with_default): A placeholder op that passes through `input` when its output is not fed.
 
-[`polygamma(...)`](./tf/math/polygamma): Compute the polygamma function \\(\psi^{(n)} (x)\\).
+[`polygamma(...)`](./tf/math/polygamma): Compute the polygamma function \\(\psi^{(n)}(x)\\).
 
 [`pow(...)`](./tf/math/pow): Computes the power of one value to another.
 
@@ -857,6 +889,8 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`reciprocal(...)`](./tf/math/reciprocal): Computes the reciprocal of x element-wise.
 
+[`recompute_grad(...)`](./tf/recompute_grad): An eager-compatible version of recompute_grad.
+
 [`reduce_all(...)`](./tf/math/reduce_all): Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
 
 [`reduce_any(...)`](./tf/math/reduce_any): Computes the "logical or" of elements across dimensions of a tensor. (deprecated arguments)
@@ -878,6 +912,8 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 [`regex_replace(...)`](./tf/strings/regex_replace): Replace elements of `input` matching regex `pattern` with `rewrite`.
 
 [`register_tensor_conversion_function(...)`](./tf/register_tensor_conversion_function): Registers a function for converting objects of `base_type` to `Tensor`.
+
+[`repeat(...)`](./tf/repeat): Repeat elements of `input`
 
 [`report_uninitialized_variables(...)`](./tf/report_uninitialized_variables): Adds ops to list the names of uninitialized variables.
 
@@ -967,7 +1003,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`sign(...)`](./tf/math/sign): Returns an element-wise indication of the sign of a number.
 
-[`sin(...)`](./tf/math/sin): Computes sin of x element-wise.
+[`sin(...)`](./tf/math/sin): Computes sine of x element-wise.
 
 [`sinh(...)`](./tf/math/sinh): Computes hyperbolic sine of x element-wise.
 
@@ -1095,7 +1131,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`tensor_scatter_update(...)`](./tf/tensor_scatter_nd_update): Scatter `updates` into an existing tensor according to `indices`.
 
-[`tensordot(...)`](./tf/tensordot): Tensor contraction of a and b along specified axes.
+[`tensordot(...)`](./tf/tensordot): Tensor contraction of a and b along specified axes and outer product.
 
 [`tile(...)`](./tf/tile): Constructs a tensor by tiling a given tensor.
 
@@ -1135,7 +1171,7 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 
 [`unique_with_counts(...)`](./tf/unique_with_counts): Finds unique elements in a 1-D tensor.
 
-[`unravel_index(...)`](./tf/unravel_index): Converts a flat index or array of flat indices into a tuple of
+[`unravel_index(...)`](./tf/unravel_index): Converts an array of flat indices into a tuple of coordinate arrays.
 
 [`unsorted_segment_max(...)`](./tf/math/unsorted_segment_max): Computes the maximum along segments of a tensor.
 
@@ -1182,15 +1218,16 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 ## Other Members
 
 * `AUTO_REUSE` <a id="AUTO_REUSE"></a>
-* `COMPILER_VERSION = '4.8.5'` <a id="COMPILER_VERSION"></a>
+* `COMPILER_VERSION = '7.3.1 20180303'` <a id="COMPILER_VERSION"></a>
 * `CXX11_ABI_FLAG = 0` <a id="CXX11_ABI_FLAG"></a>
-* `GIT_VERSION = 'v1.14.0-rc1-22-gaf24dc91b5'` <a id="GIT_VERSION"></a>
-* `GRAPH_DEF_VERSION = 38` <a id="GRAPH_DEF_VERSION"></a>
+* `GIT_VERSION = 'v1.15.0-rc3-22-g590d6ee'` <a id="GIT_VERSION"></a>
+* `GRAPH_DEF_VERSION = 134` <a id="GRAPH_DEF_VERSION"></a>
 * `GRAPH_DEF_VERSION_MIN_CONSUMER = 0` <a id="GRAPH_DEF_VERSION_MIN_CONSUMER"></a>
 * `GRAPH_DEF_VERSION_MIN_PRODUCER = 0` <a id="GRAPH_DEF_VERSION_MIN_PRODUCER"></a>
 * `MONOLITHIC_BUILD = 0` <a id="MONOLITHIC_BUILD"></a>
 * `QUANTIZED_DTYPES` <a id="QUANTIZED_DTYPES"></a>
-* `VERSION = '1.14.0'` <a id="VERSION"></a>
+* `VERSION = '1.15.0'` <a id="VERSION"></a>
+* `__version__ = '1.15.0'` <a id="__version__"></a>
 * `bfloat16` <a id="bfloat16"></a>
 * `bool` <a id="bool"></a>
 * `complex128` <a id="complex128"></a>
@@ -1204,14 +1241,12 @@ Defined in [`__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/t
 * `int32` <a id="int32"></a>
 * `int64` <a id="int64"></a>
 * `int8` <a id="int8"></a>
-* `plugin_dir = '/home/kbuilder/.local/lib/python3.4/site-packages/tensorflow-plugins'` <a id="plugin_dir"></a>
 * `qint16` <a id="qint16"></a>
 * `qint32` <a id="qint32"></a>
 * `qint8` <a id="qint8"></a>
 * `quint16` <a id="quint16"></a>
 * `quint8` <a id="quint8"></a>
 * `resource` <a id="resource"></a>
-* `s = '/home/kbuilder/.local/lib/python3.4/site-packages'` <a id="s"></a>
 * `string` <a id="string"></a>
 * `uint16` <a id="uint16"></a>
 * `uint32` <a id="uint32"></a>

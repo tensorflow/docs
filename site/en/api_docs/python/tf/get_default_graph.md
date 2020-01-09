@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.get_default_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5858-L5874">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the default graph for the current thread.
 
 ### Aliases:
 
-* `tf.compat.v1.get_default_graph`
-* `tf.get_default_graph`
+* <a href="/api_docs/python/tf/get_default_graph"><code>tf.compat.v1.get_default_graph</code></a>
+
 
 ``` python
 tf.get_default_graph()
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

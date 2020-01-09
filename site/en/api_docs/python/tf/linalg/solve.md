@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.solve
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/solve">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_linalg_ops.py`
+
+
+
 Solves systems of linear equations.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.solve`
-* `tf.compat.v1.matrix_solve`
-* `tf.compat.v2.linalg.solve`
-* `tf.linalg.solve`
-* `tf.matrix_solve`
+* <a href="/api_docs/python/tf/linalg/solve"><code>tf.compat.v1.linalg.solve</code></a>
+* <a href="/api_docs/python/tf/linalg/solve"><code>tf.compat.v1.matrix_solve</code></a>
+* <a href="/api_docs/python/tf/linalg/solve"><code>tf.compat.v2.linalg.solve</code></a>
+* <a href="/api_docs/python/tf/linalg/solve"><code>tf.matrix_solve</code></a>
+
 
 ``` python
 tf.linalg.solve(
@@ -25,8 +39,6 @@ tf.linalg.solve(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

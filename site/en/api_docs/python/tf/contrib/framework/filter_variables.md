@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.framework.filter_variables
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/ops/variables.py#L819-L878">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Filter a list of variables using regular expressions.
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.framework.filter_variables(
 ```
 
 
-
-Defined in [`contrib/framework/python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 

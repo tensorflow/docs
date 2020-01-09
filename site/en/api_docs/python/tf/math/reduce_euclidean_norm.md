@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.math.reduce_euclidean_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/reduce_euclidean_norm">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1567-L1605">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the Euclidean norm of elements across dimensions of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.reduce_euclidean_norm`
-* `tf.compat.v2.math.reduce_euclidean_norm`
-* `tf.math.reduce_euclidean_norm`
+* <a href="/api_docs/python/tf/math/reduce_euclidean_norm"><code>tf.compat.v1.math.reduce_euclidean_norm</code></a>
+* <a href="/api_docs/python/tf/math/reduce_euclidean_norm"><code>tf.compat.v2.math.reduce_euclidean_norm</code></a>
+
 
 ``` python
 tf.math.reduce_euclidean_norm(
@@ -23,8 +41,6 @@ tf.math.reduce_euclidean_norm(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

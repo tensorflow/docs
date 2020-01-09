@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.lookup.string_to_index
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/lookup/lookup_ops.py#L146-L192">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Maps `tensor` of strings into `int64` indices based on `mapping`. (deprecated)
 
 ``` python
@@ -17,8 +29,6 @@ tf.contrib.lookup.string_to_index(
 ```
 
 
-
-Defined in [`contrib/lookup/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/lookup/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

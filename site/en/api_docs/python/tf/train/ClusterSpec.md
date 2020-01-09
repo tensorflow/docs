@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.train.ClusterSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/ClusterSpec">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L241-L490">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ClusterSpec`
 
 Represents a cluster as a set of "tasks", organized into "jobs".
@@ -13,13 +31,9 @@ Represents a cluster as a set of "tasks", organized into "jobs".
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.ClusterSpec`
-* Class `tf.compat.v2.train.ClusterSpec`
-* Class `tf.train.ClusterSpec`
+* Class <a href="/api_docs/python/tf/train/ClusterSpec"><code>tf.compat.v1.train.ClusterSpec</code></a>
+* Class <a href="/api_docs/python/tf/train/ClusterSpec"><code>tf.compat.v2.train.ClusterSpec</code></a>
 
-
-
-Defined in [`python/training/server_lib.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/server_lib.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -51,6 +65,8 @@ cluster = tf.train.ClusterSpec({"worker": {1: "worker1.example.com:2222"},
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L272-L314">View source</a>
 
 ``` python
 __init__(cluster)
@@ -93,6 +109,8 @@ A list of strings, corresponding to the names of jobs in this cluster.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L316-L317">View source</a>
+
 ``` python
 __bool__()
 ```
@@ -102,23 +120,29 @@ __bool__()
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L322-L323">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L325-L326">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
+Return self!=value.
 
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L316-L317">View source</a>
 
 ``` python
 __nonzero__()
@@ -129,6 +153,8 @@ __nonzero__()
 
 <h3 id="as_cluster_def"><code>as_cluster_def</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L362-L364">View source</a>
+
 ``` python
 as_cluster_def()
 ```
@@ -137,6 +163,8 @@ Returns a <a href="../../tf/train/ClusterDef"><code>tf.train.ClusterDef</code></
 
 
 <h3 id="as_dict"><code>as_dict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L335-L360">View source</a>
 
 ``` python
 as_dict()
@@ -156,6 +184,8 @@ describing the tasks in those jobs.
 
 
 <h3 id="job_tasks"><code>job_tasks</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L436-L463">View source</a>
 
 ``` python
 job_tasks(job_name)
@@ -190,6 +220,8 @@ corresponds to the task index of each task. The list may contain
 
 <h3 id="num_tasks"><code>num_tasks</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L375-L391">View source</a>
+
 ``` python
 num_tasks(job_name)
 ```
@@ -215,6 +247,8 @@ The number of tasks defined in the given job.
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster.
 
 <h3 id="task_address"><code>task_address</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L412-L434">View source</a>
 
 ``` python
 task_address(
@@ -247,6 +281,8 @@ or no task with index `task_index` is defined in that job.
 
 <h3 id="task_indices"><code>task_indices</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L393-L410">View source</a>
+
 ``` python
 task_indices(job_name)
 ```
@@ -271,6 +307,3 @@ A list of valid task indices in the given job.
 
 * <b>`ValueError`</b>: If `job_name` does not name a job in this cluster,
 or no task with index `task_index` is defined in that job.
-
-
-

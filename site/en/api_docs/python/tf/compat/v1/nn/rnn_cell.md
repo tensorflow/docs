@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.nn.rnn_cell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/nn/rnn_cell">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Module for constructing RNN Cells.
 
 <!-- Placeholder for "Used in" -->
@@ -16,7 +28,7 @@ Module for constructing RNN Cells.
 
 [`class BasicRNNCell`](../../../../tf/nn/rnn_cell/BasicRNNCell): The most basic RNN cell.
 
-[`class DeviceWrapper`](../../../../tf/nn/rnn_cell/DeviceWrapper)
+[`class DeviceWrapper`](../../../../tf/nn/rnn_cell/DeviceWrapper): Operator that ensures an RNNCell runs on a particular device.
 
 [`class DropoutWrapper`](../../../../tf/nn/rnn_cell/DropoutWrapper): Operator adding dropout to inputs and outputs of the given cell.
 
@@ -31,4 +43,3 @@ Module for constructing RNN Cells.
 [`class RNNCell`](../../../../tf/nn/rnn_cell/RNNCell): Abstract object representing an RNN cell.
 
 [`class ResidualWrapper`](../../../../tf/nn/rnn_cell/ResidualWrapper): RNNCell wrapper that ensures cell inputs are added to the outputs.
-

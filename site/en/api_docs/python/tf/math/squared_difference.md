@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.math.squared_difference
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/squared_difference">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns (x - y)(x - y) element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.squared_difference`
-* `tf.compat.v1.squared_difference`
-* `tf.compat.v2.math.squared_difference`
-* `tf.math.squared_difference`
-* `tf.squared_difference`
+* <a href="/api_docs/python/tf/math/squared_difference"><code>tf.compat.v1.math.squared_difference</code></a>
+* <a href="/api_docs/python/tf/math/squared_difference"><code>tf.compat.v1.squared_difference</code></a>
+* <a href="/api_docs/python/tf/math/squared_difference"><code>tf.compat.v2.math.squared_difference</code></a>
+* <a href="/api_docs/python/tf/math/squared_difference"><code>tf.squared_difference</code></a>
+
 
 ``` python
 tf.math.squared_difference(
@@ -24,8 +38,6 @@ tf.math.squared_difference(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

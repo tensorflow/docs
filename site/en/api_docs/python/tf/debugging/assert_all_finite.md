@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.debugging.assert_all_finite
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_all_finite">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/numerics.py#L31-L49">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert that the tensor does not contain any NaN's or Inf's.
 
 ### Aliases:
 
-* `tf.compat.v1.debugging.assert_all_finite`
-* `tf.compat.v1.verify_tensor_all_finite`
-* `tf.debugging.assert_all_finite`
-* `tf.verify_tensor_all_finite`
+* <a href="/api_docs/python/tf/debugging/assert_all_finite"><code>tf.compat.v1.debugging.assert_all_finite</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_all_finite"><code>tf.compat.v1.verify_tensor_all_finite</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_all_finite"><code>tf.verify_tensor_all_finite</code></a>
+
 
 ``` python
 tf.debugging.assert_all_finite(
@@ -25,8 +43,6 @@ tf.debugging.assert_all_finite(
 ```
 
 
-
-Defined in [`python/ops/numerics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/numerics.py).
 
 <!-- Placeholder for "Used in" -->
 

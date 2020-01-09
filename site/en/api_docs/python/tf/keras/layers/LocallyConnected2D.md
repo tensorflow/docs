@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.LocallyConnected2D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/LocallyConnected2D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L335-L655">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LocallyConnected2D`
 
 Locally-connected layer for 2D inputs.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.LocallyConnected2D`
-* Class `tf.compat.v2.keras.layers.LocallyConnected2D`
-* Class `tf.keras.layers.LocallyConnected2D`
+* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected2D"><code>tf.compat.v1.keras.layers.LocallyConnected2D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected2D"><code>tf.compat.v2.keras.layers.LocallyConnected2D</code></a>
 
-
-
-Defined in [`python/keras/layers/local.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/local.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -84,7 +98,7 @@ different patch of the input.
     the output of the layer (its "activation").
 * <b>`kernel_constraint`</b>: Constraint function applied to the kernel matrix.
 * <b>`bias_constraint`</b>: Constraint function applied to the bias vector.
-* <b>`implementation`</b>: implementation mode, either `1` or `2`.
+* <b>`implementation`</b>: implementation mode, either `1`, `2`, or `3`.
     `1` loops over input spatial locations to perform the forward pass.
     It is memory-efficient but performs a lot of (small) ops.
 
@@ -92,20 +106,30 @@ different patch of the input.
     and implements the forward pass as a single matrix-multiply. It uses
     a lot of RAM but performs few (large) ops.
 
-    Depending on the inputs, layer parameters, hardware, and
-    <a href="../../../tf/executing_eagerly"><code>tf.executing_eagerly()</code></a> one implementation can be dramatically faster
-    (e.g. 50X) than another.
+    `3` stores layer weights in a sparse tensor and implements the forward
+    pass as a single sparse matrix-multiply.
 
-    It is recommended to benchmark both in the setting of interest to pick
-    the most efficient one (in terms of speed and memory usage).
+    How to choose:
 
-    Following scenarios could benefit from setting `implementation=2`:
-        - eager execution;
-        - inference;
-        - running on CPU;
-        - large amount of RAM available;
-        - small models (few filters, small kernel);
-        - using `padding=same` (only possible with `implementation=2`).
+    `1`: large, dense models,
+    `2`: small models,
+    `3`: large, sparse models,
+
+    where "large" stands for large input/output activations
+    (i.e. many `filters`, `input_filters`, large `np.prod(input_size)`,
+    `np.prod(output_size)`), and "sparse" stands for few connections
+    between inputs and outputs, i.e. small ratio
+    `filters * input_filters * np.prod(kernel_size) / (np.prod(input_size)
+    * np.prod(strides))`, where inputs to and outputs of the layer are
+    assumed to have shapes `input_size + (input_filters,)`,
+    `output_size + (filters,)` respectively.
+
+    It is recommended to benchmark each in the setting of interest to pick
+    the most efficient one (in terms of speed and memory usage). Correct
+    choice of implementation can lead to dramatic speed improvements (e.g.
+    50X), potentially at the expense of RAM.
+
+    Also, only `padding="valid"` is supported by `implementation=1`.
 
 
 #### Input shape:
@@ -128,6 +152,8 @@ or 4D tensor with shape:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L442-L479">View source</a>
+
 ``` python
 __init__(
     filters,
@@ -148,9 +174,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

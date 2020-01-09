@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.max_pooling2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L274-L311">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Max pooling layer for 2D inputs (e.g. images). (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.max_pooling2d`
-* `tf.layers.max_pooling2d`
+* <a href="/api_docs/python/tf/layers/max_pooling2d"><code>tf.compat.v1.layers.max_pooling2d</code></a>
+
 
 ``` python
 tf.layers.max_pooling2d(
@@ -24,8 +36,6 @@ tf.layers.max_pooling2d(
 ```
 
 
-
-Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/pooling.py).
 
 <!-- Placeholder for "Used in" -->
 

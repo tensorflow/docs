@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.bias_add
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L840-L912">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a bias to the inputs.
 
 ``` python
@@ -23,8 +35,6 @@ tf.contrib.layers.bias_add(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -45,7 +55,7 @@ Can be used as a normalizer function for conv2d and fully_connected.
 * <b>`variables_collections`</b>: Optional collections for the variables.
 * <b>`outputs_collections`</b>: Collections to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`data_format`</b>: A string. 'NHWC' and 'NCHW' are supported.
 * <b>`scope`</b>: Optional scope for variable_scope.
 

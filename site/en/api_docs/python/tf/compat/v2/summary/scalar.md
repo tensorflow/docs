@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.summary.scalar
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/scalar/summary_v2.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Write a scalar summary.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.summary.scalar(
 ```
 
 
-
-Defined in [`plugins/scalar/summary_v2.py`](https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/scalar/summary_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

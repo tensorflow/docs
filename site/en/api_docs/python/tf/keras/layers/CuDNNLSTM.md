@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.keras.layers.CuDNNLSTM
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/cudnn_recurrent.py#L341-L540">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CuDNNLSTM`
 
 Fast LSTM implementation backed by cuDNN.
@@ -13,12 +25,8 @@ Fast LSTM implementation backed by cuDNN.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.CuDNNLSTM`
-* Class `tf.keras.layers.CuDNNLSTM`
+* Class <a href="/api_docs/python/tf/keras/layers/CuDNNLSTM"><code>tf.compat.v1.keras.layers.CuDNNLSTM</code></a>
 
-
-
-Defined in [`python/keras/layers/cudnn_recurrent.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/cudnn_recurrent.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,6 +70,8 @@ Can only be run on GPU.
   index i in the following batch.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/cudnn_recurrent.py#L382-L422">View source</a>
 
 ``` python
 __init__(
@@ -108,6 +118,8 @@ __init__(
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L593-L614">View source</a>
+
 ``` python
 get_initial_state(inputs)
 ```
@@ -117,12 +129,8 @@ get_initial_state(inputs)
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L806-L858">View source</a>
+
 ``` python
 reset_states(states=None)
 ```
-
-
-
-
-
-

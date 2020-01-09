@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SingularMonitoredSession
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L1018-L1108">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SingularMonitoredSession`
 
 Session-like object that handles initialization, restoring, and hooks.
@@ -13,12 +25,8 @@ Session-like object that handles initialization, restoring, and hooks.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.SingularMonitoredSession`
-* Class `tf.train.SingularMonitoredSession`
+* Class <a href="/api_docs/python/tf/train/SingularMonitoredSession"><code>tf.compat.v1.train.SingularMonitoredSession</code></a>
 
-
-
-Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -75,6 +83,8 @@ Exit: At the `close()`, the hooked session does following things in order:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L1071-L1104">View source</a>
+
 ``` python
 __init__(
     hooks=None,
@@ -123,6 +133,8 @@ The graph that was launched in this session.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L855-L856">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -131,6 +143,8 @@ __enter__()
 
 
 <h3 id="__exit__"><code>__exit__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L858-L863">View source</a>
 
 ``` python
 __exit__(
@@ -145,6 +159,8 @@ __exit__(
 
 <h3 id="close"><code>close</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L852-L853">View source</a>
+
 ``` python
 close()
 ```
@@ -154,6 +170,8 @@ close()
 
 <h3 id="raw_session"><code>raw_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L1106-L1108">View source</a>
+
 ``` python
 raw_session()
 ```
@@ -162,6 +180,8 @@ Returns underlying `TensorFlow.Session` object.
 
 
 <h3 id="run"><code>run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L736-L754">View source</a>
 
 ``` python
 run(
@@ -192,6 +212,8 @@ Same as <a href="../../tf/Session#run"><code>tf.Session.run()</code></a>.
 
 <h3 id="run_step_fn"><code>run_step_fn</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L756-L810">View source</a>
+
 ``` python
 run_step_fn(step_fn)
 ```
@@ -207,18 +229,23 @@ Run ops using a step function.
   computations with access to a raw session.  The returned value of the
   `step_fn` will be returned from `run_step_fn`, unless a stop is
   requested.  In that case, the next `should_stop` call will return True.
-  Example usage:  ```python
-     with tf.Graph().as_default(): c =
-       tf.compat.v1.placeholder(dtypes.float32) v = tf.add(c, 4.0) w =
-       tf.add(c, 0.5)
-       def step_fn(step_context):
-         a = step_context.session.run(fetches=v, feed_dict={c: 0.5})
-         if a <= 4.5: step_context.request_stop()
-         return step_context.run_with_hooks(fetches=w, feed_dict={c: 0.1})
-       with tf.MonitoredSession() as session:
-         while not session.should_stop(): a = session.run_step_fn(step_fn)
+  Example usage:
 
-           ```  Hooks interact with the `run_with_hooks()` call inside the
+>     with tf.Graph().as_default():
+>       c = tf.compat.v1.placeholder(dtypes.float32)
+>       v = tf.add(c, 4.0)
+>       w = tf.add(c, 0.5)
+>       def step_fn(step_context):
+>         a = step_context.session.run(fetches=v, feed_dict={c: 0.5})
+>         if a <= 4.5:
+>           step_context.request_stop()
+>           return step_context.run_with_hooks(fetches=w,
+>                                              feed_dict={c: 0.1})
+>     
+>       with tf.MonitoredSession() as session:
+>         while not session.should_stop():
+>           a = session.run_step_fn(step_fn)
+      Hooks interact with the `run_with_hooks()` call inside the
            `step_fn` as they do with a <a href="../../tf/train/MonitoredSession#run"><code>MonitoredSession.run</code></a> call.
 
 
@@ -239,12 +266,8 @@ Returns the returned value of `step_fn`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L849-L850">View source</a>
+
 ``` python
 should_stop()
 ```
-
-
-
-
-
-

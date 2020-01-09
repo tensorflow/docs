@@ -5,22 +5,32 @@ page_type: reference
 
 # tf.random.get_seed
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/random_seed.py#L37-L84">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the local seeds an operation should use given an op-specific seed.
 
 ### Aliases:
 
-* `tf.compat.v1.get_seed`
-* `tf.compat.v1.random.get_seed`
-* `tf.get_seed`
-* `tf.random.get_seed`
+* <a href="/api_docs/python/tf/random/get_seed"><code>tf.compat.v1.get_seed</code></a>
+* <a href="/api_docs/python/tf/random/get_seed"><code>tf.compat.v1.random.get_seed</code></a>
+* <a href="/api_docs/python/tf/random/get_seed"><code>tf.get_seed</code></a>
+
 
 ``` python
 tf.random.get_seed(op_seed)
 ```
 
 
-
-Defined in [`python/framework/random_seed.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/random_seed.py).
 
 <!-- Placeholder for "Used in" -->
 

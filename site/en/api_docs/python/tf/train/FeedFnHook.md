@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.FeedFnHook
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L971-L985">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FeedFnHook`
 
 Runs `feed_fn` and sets the `feed_dict` accordingly.
@@ -13,20 +25,18 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.FeedFnHook`
-* Class `tf.compat.v1.train.FeedFnHook`
-* Class `tf.compat.v2.estimator.FeedFnHook`
-* Class `tf.estimator.FeedFnHook`
-* Class `tf.train.FeedFnHook`
+* Class <a href="/api_docs/python/tf/train/FeedFnHook"><code>tf.compat.v1.estimator.FeedFnHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FeedFnHook"><code>tf.compat.v1.train.FeedFnHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FeedFnHook"><code>tf.compat.v2.estimator.FeedFnHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FeedFnHook"><code>tf.estimator.FeedFnHook</code></a>
 
-
-
-Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L974-L981">View source</a>
 
 ``` python
 __init__(feed_fn)
@@ -46,6 +56,8 @@ Initializes a `FeedFnHook`.
 ## Methods
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L112-L127">View source</a>
 
 ``` python
 after_create_session(
@@ -72,6 +84,8 @@ has two essential differences with the situation in which `begin` is called:
 
 <h3 id="after_run"><code>after_run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L152-L169">View source</a>
+
 ``` python
 after_run(
     run_context,
@@ -97,14 +111,40 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L983-L985">View source</a>
+
 ``` python
 before_run(run_context)
 ```
 
+Called before each call to run().
 
+You can return from this call a `SessionRunArgs` object indicating ops or
+tensors to add to the upcoming `run()` call.  These ops/tensors will be run
+together with the ops/tensors originally passed to the original run() call.
+The run args you return can also contain feeds to be added to the run()
+call.
+
+The `run_context` argument is a `SessionRunContext` that provides
+information about the upcoming `run()` call: the originally requested
+op/tensors, the TensorFlow Session.
+
+At this point graph is finalized and you can not add ops.
+
+#### Args:
+
+
+* <b>`run_context`</b>: A `SessionRunContext` object.
+
+
+#### Returns:
+
+None or a `SessionRunArgs` object.
 
 
 <h3 id="begin"><code>begin</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L101-L110">View source</a>
 
 ``` python
 begin()
@@ -119,6 +159,8 @@ can not modify the graph anymore. Second call of `begin()` on the same
 graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L171-L186">View source</a>
 
 ``` python
 end(session)
@@ -139,6 +181,3 @@ Note the difference between `end()` and `after_run()` behavior when
 
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
-
-
-

@@ -5,23 +5,39 @@ page_type: reference
 
 # tf.compat.dimension_value
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/dimension_value">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L98-L128">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compatibility utility required to allow for both V1 and V2 behavior in TF.
 
 ### Aliases:
 
-* `tf.compat.dimension_value`
-* `tf.compat.v1.compat.dimension_value`
-* `tf.compat.v1.dimension_value`
-* `tf.compat.v2.compat.dimension_value`
-* `tf.dimension_value`
+* <a href="/api_docs/python/tf/compat/dimension_value"><code>tf.compat.v1.compat.dimension_value</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_value"><code>tf.compat.v1.dimension_value</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_value"><code>tf.compat.v2.compat.dimension_value</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_value"><code>tf.dimension_value</code></a>
+
 
 ``` python
 tf.compat.dimension_value(dimension)
 ```
 
 
-
-Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
 
 <!-- Placeholder for "Used in" -->
 

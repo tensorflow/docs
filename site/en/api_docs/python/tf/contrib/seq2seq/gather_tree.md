@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.seq2seq.gather_tree
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `contrib/seq2seq/ops/gen_beam_search_ops.py`
+
+
+
 Calculates the full beams from the per-step ids and parent beam ids.
 
 ``` python
@@ -18,8 +26,6 @@ tf.contrib.seq2seq.gather_tree(
 ```
 
 
-
-Defined in generated file: `contrib/seq2seq/ops/gen_beam_search_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

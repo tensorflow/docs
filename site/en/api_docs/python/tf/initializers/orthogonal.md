@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.initializers.orthogonal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L548-L612">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `orthogonal`
 
 Initializer that generates an orthogonal matrix.
@@ -13,18 +25,14 @@ Inherits From: [`Initializer`](../../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.initializers.orthogonal`
-* Class `tf.compat.v1.keras.initializers.Orthogonal`
-* Class `tf.compat.v1.keras.initializers.orthogonal`
-* Class `tf.compat.v1.orthogonal_initializer`
-* Class `tf.initializers.orthogonal`
-* Class `tf.keras.initializers.Orthogonal`
-* Class `tf.keras.initializers.orthogonal`
-* Class `tf.orthogonal_initializer`
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.compat.v1.initializers.orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.compat.v1.keras.initializers.Orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.compat.v1.keras.initializers.orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.compat.v1.orthogonal_initializer</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.keras.initializers.Orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.keras.initializers.orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/initializers/orthogonal"><code>tf.orthogonal_initializer</code></a>
 
-
-
-Defined in [`python/ops/init_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -56,6 +64,8 @@ The matrix is subsequently reshaped to give a tensor of the desired shape.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L573-L579">View source</a>
+
 ``` python
 __init__(
     gain=1.0,
@@ -76,6 +86,8 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L581-L609">View source</a>
+
 ``` python
 __call__(
     shape,
@@ -84,10 +96,21 @@ __call__(
 )
 ```
 
+Returns a tensor object initialized as specified by the initializer.
 
 
+#### Args:
+
+
+* <b>`shape`</b>: Shape of the tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
+  dtype.
+* <b>`partition_info`</b>: Optional information about the possible partitioning of a
+  tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
 
 ``` python
 from_config(
@@ -123,12 +146,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L611-L612">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

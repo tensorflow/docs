@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.compat.dimension_at_index
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/dimension_at_index">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L131-L177">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compatibility utility required to allow for both V1 and V2 behavior in TF.
 
 ### Aliases:
 
-* `tf.compat.dimension_at_index`
-* `tf.compat.v1.compat.dimension_at_index`
-* `tf.compat.v1.dimension_at_index`
-* `tf.compat.v2.compat.dimension_at_index`
-* `tf.dimension_at_index`
+* <a href="/api_docs/python/tf/compat/dimension_at_index"><code>tf.compat.v1.compat.dimension_at_index</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_at_index"><code>tf.compat.v1.dimension_at_index</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_at_index"><code>tf.compat.v2.compat.dimension_at_index</code></a>
+* <a href="/api_docs/python/tf/compat/dimension_at_index"><code>tf.dimension_at_index</code></a>
+
 
 ``` python
 tf.compat.dimension_at_index(
@@ -23,8 +41,6 @@ tf.compat.dimension_at_index(
 ```
 
 
-
-Defined in [`python/framework/tensor_shape.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_shape.py).
 
 <!-- Placeholder for "Used in" -->
 

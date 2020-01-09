@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.summary.image
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/summary/image">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L87-L140">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Outputs a `Summary` protocol buffer with images.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.image`
-* `tf.summary.image`
+* <a href="/api_docs/python/tf/summary/image"><code>tf.compat.v1.summary.image</code></a>
+
 
 ``` python
 tf.summary.image(
@@ -23,8 +41,6 @@ tf.summary.image(
 ```
 
 
-
-Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 

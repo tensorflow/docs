@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.nn.log_softmax
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/log_softmax">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2988-L3015">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes log softmax activations. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.math.log_softmax`
-* `tf.compat.v1.nn.log_softmax`
-* `tf.math.log_softmax`
-* `tf.nn.log_softmax`
+* <a href="/api_docs/python/tf/nn/log_softmax"><code>tf.compat.v1.math.log_softmax</code></a>
+* <a href="/api_docs/python/tf/nn/log_softmax"><code>tf.compat.v1.nn.log_softmax</code></a>
+* <a href="/api_docs/python/tf/nn/log_softmax"><code>tf.math.log_softmax</code></a>
+
 
 ``` python
 tf.nn.log_softmax(
@@ -24,8 +42,6 @@ tf.nn.log_softmax(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

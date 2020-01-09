@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.io.deserialize_many_sparse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/deserialize_many_sparse">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L2115-L2185">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
 ### Aliases:
 
-* `tf.compat.v1.deserialize_many_sparse`
-* `tf.compat.v1.io.deserialize_many_sparse`
-* `tf.compat.v2.io.deserialize_many_sparse`
-* `tf.deserialize_many_sparse`
-* `tf.io.deserialize_many_sparse`
+* <a href="/api_docs/python/tf/io/deserialize_many_sparse"><code>tf.compat.v1.deserialize_many_sparse</code></a>
+* <a href="/api_docs/python/tf/io/deserialize_many_sparse"><code>tf.compat.v1.io.deserialize_many_sparse</code></a>
+* <a href="/api_docs/python/tf/io/deserialize_many_sparse"><code>tf.compat.v2.io.deserialize_many_sparse</code></a>
+* <a href="/api_docs/python/tf/io/deserialize_many_sparse"><code>tf.deserialize_many_sparse</code></a>
+
 
 ``` python
 tf.io.deserialize_many_sparse(
@@ -25,8 +43,6 @@ tf.io.deserialize_many_sparse(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

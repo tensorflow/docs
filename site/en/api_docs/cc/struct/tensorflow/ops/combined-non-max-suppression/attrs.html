@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::CombinedNonMaxSuppression::Attrs Struct Reference</title>
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>CombinedNonMaxSuppression::<wbr/>Attrs</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/combined-non-max-suppression.html#classtensorflow_1_1ops_1_1_combined_non_max_suppression">CombinedNonMaxSuppression</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1ad7e61b94fc93be4f425d60c6720079fa">clip_boxes_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1aee9d101891a954cc2a915bf34c833c30">pad_per_class_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1a56ed657f3c5601271e4af26c6b5aa640">ClipBoxes</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true, assume the box coordinates are between [0, 1] and clip the output boxes if they fall beyond [0, 1]. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1afd666c4521f060268a85ef59ec6aeb9c">PadPerClass</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If false, the output nmsed boxes, scores and classes are padded/clipped to <code>max_total_size</code>. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1ad7e61b94fc93be4f425d60c6720079fa">
+    <h3>clip_boxes_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::CombinedNonMaxSuppression::Attrs::clip_boxes_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1aee9d101891a954cc2a915bf34c833c30">
+    <h3>pad_per_class_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::CombinedNonMaxSuppression::Attrs::pad_per_class_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1a56ed657f3c5601271e4af26c6b5aa640">
+    <h3>ClipBoxes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> tensorflow::ops::CombinedNonMaxSuppression::Attrs::ClipBoxes(
+  bool x
+)</pre>
+    <div>
+      <p>If true, assume the box coordinates are between [0, 1] and clip the output boxes if they fall beyond [0, 1]. </p>
+      <p>If false, do not do clipping and output the box coordinates as it is.</p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs_1afd666c4521f060268a85ef59ec6aeb9c">
+    <h3>PadPerClass</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> tensorflow::ops::CombinedNonMaxSuppression::Attrs::PadPerClass(
+  bool x
+)</pre>
+    <div>
+      <p>If false, the output nmsed boxes, scores and classes are padded/clipped to <code>max_total_size</code>. </p>
+      <p>If true, the output nmsed boxes, scores and classes are padded to be of length <code>max_size_per_class</code>*<code>num_classes</code>, unless it exceeds <code>max_total_size</code> in which case it is clipped to <code>max_total_size</code>. Defaults to false.</p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

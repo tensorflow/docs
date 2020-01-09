@@ -5,11 +5,13 @@ page_type: reference
 
 # Module: tf.compat.v2.estimator.experimental
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
 Public API for tf.estimator.experimental namespace.
-
-
-
-Defined in [`python/estimator/api/_v2/estimator/experimental/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v2/estimator/experimental/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -19,6 +21,10 @@ Defined in [`python/estimator/api/_v2/estimator/experimental/__init__.py`](https
 [`class InMemoryEvaluatorHook`](../../../../tf/estimator/experimental/InMemoryEvaluatorHook): Hook to run evaluation in training without a checkpoint.
 
 [`class LinearSDCA`](../../../../tf/estimator/experimental/LinearSDCA): Stochastic Dual Coordinate Ascent helper for linear estimators.
+
+[`class RNNClassifier`](../../../../tf/compat/v2/estimator/experimental/RNNClassifier): A classifier for TensorFlow RNN models.
+
+[`class RNNEstimator`](../../../../tf/compat/v2/estimator/experimental/RNNEstimator): An Estimator for TensorFlow RNN models with user-specified head.
 
 ## Functions
 
@@ -37,4 +43,3 @@ Defined in [`python/estimator/api/_v2/estimator/experimental/__init__.py`](https
 [`stop_if_no_decrease_hook(...)`](../../../../tf/estimator/experimental/stop_if_no_decrease_hook): Creates hook to stop if metric does not decrease within given max steps.
 
 [`stop_if_no_increase_hook(...)`](../../../../tf/estimator/experimental/stop_if_no_increase_hook): Creates hook to stop if metric does not increase within given max steps.
-

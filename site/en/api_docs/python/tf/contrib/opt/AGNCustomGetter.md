@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.AGNCustomGetter
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/agn_optimizer.py#L33-L91">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AGNCustomGetter`
 
 Custom_getter class is used to do:
 
 
-
-
-
-Defined in [`contrib/opt/python/training/agn_optimizer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/agn_optimizer.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +36,8 @@ Defined in [`contrib/opt/python/training/agn_optimizer.py`](https://github.com/t
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/agn_optimizer.py#L46-L53">View source</a>
+
 ``` python
 __init__(worker_device)
 ```
@@ -41,6 +51,8 @@ Args:
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/agn_optimizer.py#L55-L91">View source</a>
+
 ``` python
 __call__(
     getter,
@@ -52,8 +64,4 @@ __call__(
 )
 ```
 
-
-
-
-
-
+Call self as a function.

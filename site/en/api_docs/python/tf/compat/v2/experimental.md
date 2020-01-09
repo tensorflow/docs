@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.experimental
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.experimental namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -13,4 +25,3 @@ Public API for tf.experimental namespace.
 ## Functions
 
 [`function_executor_type(...)`](../../../tf/experimental/function_executor_type): Context manager for setting the executor of eager defined functions.
-

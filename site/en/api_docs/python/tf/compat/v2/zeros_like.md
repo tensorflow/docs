@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.zeros_like
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2386-L2424">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a tensor with all elements set to zero.
 
 ``` python
@@ -16,8 +28,6 @@ tf.compat.v2.zeros_like(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,7 +41,16 @@ you can use `dtype` to specify a new type for the returned tensor.
 
 ```python
 tensor = tf.constant([[1, 2, 3], [4, 5, 6]])
-tf.zeros_like(tensor)  # [[0, 0, 0], [0, 0, 0]]
+tf.zeros_like(tensor)  # [[0, 0, 0], [0, 0, 0]] with dtype=int32
+
+If dtype of input `tensor` is `float32`, then the output is also of `float32`
+tensor = tf.constant([[1.0, 2.0, 3.0], [4, 5, 6]])
+tf.zeros_like(tensor)  # [[0., 0., 0.], [0., 0., 0.]] with dtype=floa32
+
+If you want to specify desired dtype of output `tensor`, then specify it in
+the op tensor = tf.constant([[1.0, 2.0, 3.0], [4, 5, 6]])
+tf.zeros_like(tensor,dtype=tf.int32)  # [[0, 0, 0], [0, 0, 0]] with
+dtype=int32
 ```
 
 #### Args:

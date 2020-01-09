@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.rnn.LSTMBlockFusedCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/lstm_ops.py#L540-L667">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LSTMBlockFusedCell`
 
 FusedRNNCell implementation of LSTM.
 
 Inherits From: [`LSTMBlockWrapper`](../../../tf/contrib/rnn/LSTMBlockWrapper)
-
-
-
-Defined in [`contrib/rnn/python/ops/lstm_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/rnn/python/ops/lstm_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -29,6 +37,8 @@ reduce the scale of forgetting in the beginning of the training.
 The variable naming is consistent with `rnn_cell_impl.LSTMCell`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/rnn/python/ops/lstm_ops.py#L555-L587">View source</a>
 
 ``` python
 __init__(
@@ -79,9 +89,3 @@ Number of units in this cell (output dimension).
 
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

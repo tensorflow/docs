@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.sets.intersection
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sets/intersection">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sets_impl.py#L136-L201">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute set intersection of elements in last dimension of `a` and `b`.
 
 ### Aliases:
 
-* `tf.compat.v1.sets.intersection`
-* `tf.compat.v1.sets.set_intersection`
-* `tf.compat.v2.sets.intersection`
-* `tf.contrib.metrics.set_intersection`
-* `tf.sets.intersection`
-* `tf.sets.set_intersection`
+* <a href="/api_docs/python/tf/sets/intersection"><code>tf.compat.v1.sets.intersection</code></a>
+* <a href="/api_docs/python/tf/sets/intersection"><code>tf.compat.v1.sets.set_intersection</code></a>
+* <a href="/api_docs/python/tf/sets/intersection"><code>tf.compat.v2.sets.intersection</code></a>
+* <a href="/api_docs/python/tf/sets/intersection"><code>tf.contrib.metrics.set_intersection</code></a>
+* <a href="/api_docs/python/tf/sets/intersection"><code>tf.sets.set_intersection</code></a>
+
 
 ``` python
 tf.sets.intersection(
@@ -25,8 +43,6 @@ tf.sets.intersection(
 ```
 
 
-
-Defined in [`python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sets_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

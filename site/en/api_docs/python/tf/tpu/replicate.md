@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.tpu.replicate
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L578-L639">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Builds a graph operator that runs a replicated TPU computation.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.replicate`
-* `tf.contrib.tpu.replicate`
-* `tf.tpu.replicate`
+* <a href="/api_docs/python/tf/tpu/replicate"><code>tf.compat.v1.tpu.replicate</code></a>
+* <a href="/api_docs/python/tf/tpu/replicate"><code>tf.contrib.tpu.replicate</code></a>
+
 
 ``` python
 tf.tpu.replicate(
@@ -26,8 +38,6 @@ tf.tpu.replicate(
 
 
 
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -39,7 +49,7 @@ Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r
   `[[]]`), indexed by `[replica_num][input_num]`. All replicas must
   have the same number of inputs. Each input can be a nested structure
   containing values that are convertible to tensors. Note that passing an
-  N-dimension list of compatible values will result in a N-dimention list of
+  N-dimension list of compatible values will result in a N-dimension list of
   scalar tensors rather than a single Rank-N tensors. If you need different
   behavior, convert part of inputs to tensors with <a href="../../tf/convert_to_tensor"><code>tf.convert_to_tensor</code></a>.
 * <b>`infeed_queue`</b>: If not `None`, the `InfeedQueue` from which to append a tuple
@@ -56,10 +66,8 @@ Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r
   should be padded. Any unknown dimensions (e.g.
   tf.compat.v1.Dimension(None) in a tf.TensorShape or -1 in a tensor-like
   object) will be padded to the maximum size of that dimension over all
-  replicas. Note that if the input dimension is already static, we won't do
-  padding on it and we require the maximum_shapes to have the same value or
-  None on that dimension. The structure of `maximum_shapes` needs to be the
-  same as `inputs[0]`.
+  replicas. The structure of `maximum_shapes` needs to be the same as
+  `inputs[0]`.
 
 #### Returns:
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.ffmpeg.encode_audio
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/ffmpeg/ffmpeg_ops.py#L77-L101">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates an op that encodes an audio file using sampled audio from a tensor. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.ffmpeg.encode_audio(
 ```
 
 
-
-Defined in [`contrib/ffmpeg/ffmpeg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/ffmpeg/ffmpeg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

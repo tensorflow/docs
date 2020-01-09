@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.compat.as_str_any
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/as_str_any">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/compat.py#L109-L125">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts input to `str` type.
 
 ### Aliases:
 
-* `tf.compat.as_str_any`
-* `tf.compat.v1.compat.as_str_any`
-* `tf.compat.v2.compat.as_str_any`
+* <a href="/api_docs/python/tf/compat/as_str_any"><code>tf.compat.v1.compat.as_str_any</code></a>
+* <a href="/api_docs/python/tf/compat/as_str_any"><code>tf.compat.v2.compat.as_str_any</code></a>
+
 
 ``` python
 tf.compat.as_str_any(value)
 ```
 
 
-
-Defined in [`python/util/compat.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/compat.py).
 
 <!-- Placeholder for "Used in" -->
 

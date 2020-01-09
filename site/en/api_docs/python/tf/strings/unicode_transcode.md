@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.strings.unicode_transcode
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/unicode_transcode">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Transcode the input text from a source encoding to a destination encoding.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.unicode_transcode`
-* `tf.compat.v2.strings.unicode_transcode`
-* `tf.strings.unicode_transcode`
+* <a href="/api_docs/python/tf/strings/unicode_transcode"><code>tf.compat.v1.strings.unicode_transcode</code></a>
+* <a href="/api_docs/python/tf/strings/unicode_transcode"><code>tf.compat.v2.strings.unicode_transcode</code></a>
+
 
 ``` python
 tf.strings.unicode_transcode(
@@ -26,8 +40,6 @@ tf.strings.unicode_transcode(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

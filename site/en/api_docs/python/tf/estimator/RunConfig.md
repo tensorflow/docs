@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.RunConfig
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/RunConfig">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RunConfig`
 
 This class specifies the configurations for an `Estimator` run.
@@ -13,18 +31,16 @@ This class specifies the configurations for an `Estimator` run.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.RunConfig`
-* Class `tf.compat.v2.estimator.RunConfig`
-* Class `tf.estimator.RunConfig`
+* Class <a href="/api_docs/python/tf/estimator/RunConfig"><code>tf.compat.v1.estimator.RunConfig</code></a>
+* Class <a href="/api_docs/python/tf/estimator/RunConfig"><code>tf.compat.v2.estimator.RunConfig</code></a>
 
-
-
-Defined in [`python/estimator/run_config.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py">View source</a>
 
 ``` python
 __init__(
@@ -42,7 +58,8 @@ __init__(
     protocol=None,
     eval_distribute=None,
     experimental_distribute=None,
-    experimental_max_worker_delay_secs=None
+    experimental_max_worker_delay_secs=None,
+    session_creation_timeout_secs=7200
 )
 ```
 
@@ -204,6 +221,11 @@ find the checkpoint due to race condition.
   the weights of a randomly initialized model. Users who warm-start their
   models and train them for short durations (a few minutes or less) should
   consider reducing this default to improve training times.
+* <b>`session_creation_timeout_secs`</b>: Max time workers should wait for a session
+  to become available (on initialization or when recovering a session)
+  with MonitoredTrainingSession. Defaults to 7200 seconds, but users may
+  want to set a lower value to detect problems with variable / session
+  (re)-initialization more quickly.
 
 
 #### Raises:
@@ -355,6 +377,11 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+<h3 id="session_creation_timeout_secs"><code>session_creation_timeout_secs</code></h3>
+
+
+
+
 <h3 id="task_id"><code>task_id</code></h3>
 
 
@@ -380,6 +407,8 @@ Optional <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</co
 ## Methods
 
 <h3 id="replace"><code>replace</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py">View source</a>
 
 ``` python
 replace(**kwargs)
@@ -425,7 +454,3 @@ can be set (should not be both).
 #### Returns:
 
 a new instance of `RunConfig`.
-
-
-
-

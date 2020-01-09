@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.eager.metrics
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/metrics.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Metrics namespace.
-
-
-
-Defined in [`contrib/eager/python/metrics.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/metrics.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,4 +35,3 @@ Defined in [`contrib/eager/python/metrics.py`](https://github.com/tensorflow/ten
 [`class Metric`](../../../tf/contrib/eager/metrics/Metric): A metric holds state for aggregating statistics over an evaluation run.
 
 [`class SparseAccuracy`](../../../tf/contrib/eager/metrics/SparseAccuracy): Calculates how often `predictions` matches `labels`.
-

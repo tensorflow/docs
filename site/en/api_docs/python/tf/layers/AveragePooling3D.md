@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.layers.AveragePooling3D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L315-L346">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `AveragePooling3D`
 
 Average pooling layer for 3D inputs (e.g. volumes).
@@ -13,12 +25,8 @@ Inherits From: [`AveragePooling3D`](../../tf/keras/layers/AveragePooling3D), [`L
 
 ### Aliases:
 
-* Class `tf.compat.v1.layers.AveragePooling3D`
-* Class `tf.layers.AveragePooling3D`
+* Class <a href="/api_docs/python/tf/layers/AveragePooling3D"><code>tf.compat.v1.layers.AveragePooling3D</code></a>
 
-
-
-Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/pooling.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,6 +55,8 @@ Defined in [`python/layers/pooling.py`](https://github.com/tensorflow/tensorflow
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/pooling.py#L339-L346">View source</a>
+
 ``` python
 __init__(
     pool_size,
@@ -74,9 +84,3 @@ Instructions for updating:
 Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="scope_name"><code>scope_name</code></h3>
-
-
-
-
-
-

@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.backend.batch_set_value
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/batch_set_value">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L3223-L3259">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Sets the values of many tensor variables at once.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.batch_set_value`
-* `tf.compat.v2.keras.backend.batch_set_value`
-* `tf.keras.backend.batch_set_value`
+* <a href="/api_docs/python/tf/keras/backend/batch_set_value"><code>tf.compat.v1.keras.backend.batch_set_value</code></a>
+* <a href="/api_docs/python/tf/keras/backend/batch_set_value"><code>tf.compat.v2.keras.backend.batch_set_value</code></a>
+
 
 ``` python
 tf.keras.backend.batch_set_value(tuples)
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 

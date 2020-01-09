@@ -5,22 +5,38 @@ page_type: reference
 
 # tf.is_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/is_tensor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_util.py#L934-L949">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Checks whether `x` is a tensor or "tensor-like".
 
 ### Aliases:
 
-* `tf.compat.v1.is_tensor`
-* `tf.compat.v2.is_tensor`
-* `tf.contrib.framework.is_tensor`
-* `tf.is_tensor`
+* <a href="/api_docs/python/tf/is_tensor"><code>tf.compat.v1.is_tensor</code></a>
+* <a href="/api_docs/python/tf/is_tensor"><code>tf.compat.v2.is_tensor</code></a>
+* <a href="/api_docs/python/tf/is_tensor"><code>tf.contrib.framework.is_tensor</code></a>
+
 
 ``` python
 tf.is_tensor(x)
 ```
 
 
-
-Defined in [`python/framework/tensor_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_util.py).
 
 <!-- Placeholder for "Used in" -->
 

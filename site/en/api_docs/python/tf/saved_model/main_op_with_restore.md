@@ -5,22 +5,32 @@ page_type: reference
 
 # tf.saved_model.main_op_with_restore
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/main_op_impl.py#L50-L72">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a main op to init variables, tables and restore the graph. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.saved_model.main_op.main_op_with_restore`
-* `tf.compat.v1.saved_model.main_op_with_restore`
-* `tf.saved_model.main_op.main_op_with_restore`
-* `tf.saved_model.main_op_with_restore`
+* <a href="/api_docs/python/tf/saved_model/main_op_with_restore"><code>tf.compat.v1.saved_model.main_op.main_op_with_restore</code></a>
+* <a href="/api_docs/python/tf/saved_model/main_op_with_restore"><code>tf.compat.v1.saved_model.main_op_with_restore</code></a>
+* <a href="/api_docs/python/tf/saved_model/main_op_with_restore"><code>tf.saved_model.main_op.main_op_with_restore</code></a>
+
 
 ``` python
 tf.saved_model.main_op_with_restore(restore_op_name)
 ```
 
 
-
-Defined in [`python/saved_model/main_op_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/main_op_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

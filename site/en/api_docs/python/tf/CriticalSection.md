@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.CriticalSection
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/CriticalSection">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L75-L376">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CriticalSection`
 
 Critical section.
@@ -13,13 +31,9 @@ Critical section.
 
 ### Aliases:
 
-* Class `tf.CriticalSection`
-* Class `tf.compat.v1.CriticalSection`
-* Class `tf.compat.v2.CriticalSection`
+* Class <a href="/api_docs/python/tf/CriticalSection"><code>tf.compat.v1.CriticalSection</code></a>
+* Class <a href="/api_docs/python/tf/CriticalSection"><code>tf.compat.v2.CriticalSection</code></a>
 
-
-
-Defined in [`python/ops/critical_section_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/critical_section_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -90,6 +104,8 @@ sess.run(bad_sum)  # May return 0.0
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L144-L154">View source</a>
+
 ``` python
 __init__(
     name=None,
@@ -116,6 +132,8 @@ Creates a critical section.
 ## Methods
 
 <h3 id="execute"><code>execute</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L189-L292">View source</a>
 
 ``` python
 execute(
@@ -161,6 +179,3 @@ The tensors returned from `fn()`.
   resources as `fn``.  Note, even if `exclusive_resource_access` is
   `True`, if another execution in another `CriticalSection` was created
   without `exclusive_resource_access=True`, a `ValueError` will be raised.
-
-
-

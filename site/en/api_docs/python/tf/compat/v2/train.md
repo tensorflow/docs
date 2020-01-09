@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v2.train
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/train">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Support for training models.
 
 <!-- Placeholder for "Used in" -->
@@ -17,39 +29,39 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 ## Classes
 
-[`class BytesList`](../../../tf/train/BytesList)
+[`class BytesList`](../../../tf/train/BytesList): A ProtocolMessage
 
 [`class Checkpoint`](../../../tf/compat/v2/train/Checkpoint): Groups trackable objects, saving and restoring them.
 
 [`class CheckpointManager`](../../../tf/train/CheckpointManager): Deletes old checkpoints.
 
-[`class ClusterDef`](../../../tf/train/ClusterDef)
+[`class ClusterDef`](../../../tf/train/ClusterDef): A ProtocolMessage
 
 [`class ClusterSpec`](../../../tf/train/ClusterSpec): Represents a cluster as a set of "tasks", organized into "jobs".
 
 [`class Coordinator`](../../../tf/train/Coordinator): A coordinator for threads.
 
-[`class Example`](../../../tf/train/Example)
+[`class Example`](../../../tf/train/Example): A ProtocolMessage
 
 [`class ExponentialMovingAverage`](../../../tf/train/ExponentialMovingAverage): Maintains moving averages of variables by employing an exponential decay.
 
-[`class Feature`](../../../tf/train/Feature)
+[`class Feature`](../../../tf/train/Feature): A ProtocolMessage
 
-[`class FeatureList`](../../../tf/train/FeatureList)
+[`class FeatureList`](../../../tf/train/FeatureList): A ProtocolMessage
 
-[`class FeatureLists`](../../../tf/train/FeatureLists)
+[`class FeatureLists`](../../../tf/train/FeatureLists): A ProtocolMessage
 
-[`class Features`](../../../tf/train/Features)
+[`class Features`](../../../tf/train/Features): A ProtocolMessage
 
-[`class FloatList`](../../../tf/train/FloatList)
+[`class FloatList`](../../../tf/train/FloatList): A ProtocolMessage
 
-[`class Int64List`](../../../tf/train/Int64List)
+[`class Int64List`](../../../tf/train/Int64List): A ProtocolMessage
 
-[`class JobDef`](../../../tf/train/JobDef)
+[`class JobDef`](../../../tf/train/JobDef): A ProtocolMessage
 
-[`class SequenceExample`](../../../tf/train/SequenceExample)
+[`class SequenceExample`](../../../tf/train/SequenceExample): A ProtocolMessage
 
-[`class ServerDef`](../../../tf/train/ServerDef)
+[`class ServerDef`](../../../tf/train/ServerDef): A ProtocolMessage
 
 ## Functions
 
@@ -64,4 +76,3 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 [`load_checkpoint(...)`](../../../tf/train/load_checkpoint): Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 
 [`load_variable(...)`](../../../tf/train/load_variable): Returns the tensor value of the given variable in the checkpoint.
-

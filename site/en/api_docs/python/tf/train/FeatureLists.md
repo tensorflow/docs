@@ -5,21 +5,35 @@ page_type: reference
 
 # tf.train.FeatureLists
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/FeatureLists">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/feature.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FeatureLists`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.FeatureLists`
-* Class `tf.compat.v2.train.FeatureLists`
-* Class `tf.train.FeatureLists`
+* Class <a href="/api_docs/python/tf/train/FeatureLists"><code>tf.compat.v1.train.FeatureLists</code></a>
+* Class <a href="/api_docs/python/tf/train/FeatureLists"><code>tf.compat.v2.train.FeatureLists</code></a>
 
-
-
-Defined in [`core/example/feature.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/example/feature.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -32,7 +46,3 @@ Defined in [`core/example/feature.proto`](https://github.com/tensorflow/tensorfl
 <h3 id="feature_list"><code>feature_list</code></h3>
 
 `repeated FeatureListEntry feature_list`
-
-
-
-

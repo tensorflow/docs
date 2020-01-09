@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.wrappers.scikit_learn.KerasRegressor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/wrappers/scikit_learn/KerasRegressor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L314-L355">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `KerasRegressor`
 
 Implementation of the scikit-learn regressor API for Keras.
@@ -13,18 +31,16 @@ Implementation of the scikit-learn regressor API for Keras.
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.wrappers.scikit_learn.KerasRegressor`
-* Class `tf.compat.v2.keras.wrappers.scikit_learn.KerasRegressor`
-* Class `tf.keras.wrappers.scikit_learn.KerasRegressor`
+* Class <a href="/api_docs/python/tf/keras/wrappers/scikit_learn/KerasRegressor"><code>tf.compat.v1.keras.wrappers.scikit_learn.KerasRegressor</code></a>
+* Class <a href="/api_docs/python/tf/keras/wrappers/scikit_learn/KerasRegressor"><code>tf.compat.v2.keras.wrappers.scikit_learn.KerasRegressor</code></a>
 
-
-
-Defined in [`python/keras/wrappers/scikit_learn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/wrappers/scikit_learn.py).
 
 <!-- Placeholder for "Used in" -->
   
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L74-L77">View source</a>
 
 ``` python
 __init__(
@@ -33,7 +49,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -41,6 +57,8 @@ __init__(
 ## Methods
 
 <h3 id="check_params"><code>check_params</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L79-L106">View source</a>
 
 ``` python
 check_params(params)
@@ -61,6 +79,8 @@ Checks for user typos in `params`.
 * <b>`ValueError`</b>: if any member of `params` is not a valid argument.
 
 <h3 id="filter_sk_params"><code>filter_sk_params</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L170-L187">View source</a>
 
 ``` python
 filter_sk_params(
@@ -86,6 +106,8 @@ Filters `sk_params` and returns those in `fn`'s arguments.
     in both `sk_params` and `fn`'s arguments.
 
 <h3 id="fit"><code>fit</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L134-L168">View source</a>
 
 ``` python
 fit(
@@ -118,6 +140,8 @@ Constructs a new model with `build_fn` & fit the model to `(x, y)`.
 
 <h3 id="get_params"><code>get_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L108-L119">View source</a>
+
 ``` python
 get_params(**params)
 ```
@@ -137,6 +161,8 @@ Dictionary of parameter names mapped to their values.
 
 
 <h3 id="predict"><code>predict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L318-L333">View source</a>
 
 ``` python
 predict(
@@ -165,6 +191,8 @@ Returns predictions for the given test data.
     Predictions.
 
 <h3 id="score"><code>score</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L335-L355">View source</a>
 
 ``` python
 score(
@@ -197,6 +225,8 @@ Returns the mean loss on the given test data and labels.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/wrappers/scikit_learn.py#L121-L132">View source</a>
+
 ``` python
 set_params(**params)
 ```
@@ -213,7 +243,3 @@ Sets the parameters of this estimator.
 #### Returns:
 
 self
-
-
-
-

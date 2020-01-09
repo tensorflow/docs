@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.queue_runner.QueueRunner
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L38-L391">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `QueueRunner`
 
 Holds a list of enqueue operations for a queue, each to be run in a thread.
@@ -13,14 +25,10 @@ Holds a list of enqueue operations for a queue, each to be run in a thread.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.QueueRunner`
-* Class `tf.compat.v1.train.queue_runner.QueueRunner`
-* Class `tf.train.QueueRunner`
-* Class `tf.train.queue_runner.QueueRunner`
+* Class <a href="/api_docs/python/tf/train/queue_runner/QueueRunner"><code>tf.compat.v1.train.QueueRunner</code></a>
+* Class <a href="/api_docs/python/tf/train/queue_runner/QueueRunner"><code>tf.compat.v1.train.queue_runner.QueueRunner</code></a>
+* Class <a href="/api_docs/python/tf/train/queue_runner/QueueRunner"><code>tf.train.QueueRunner</code></a>
 
-
-
-Defined in [`python/training/queue_runner_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/queue_runner_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,6 +54,8 @@ use <a href="../../../tf/data"><code>tf.data</code></a> to get data into your mo
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L60-L118">View source</a>
 
 ``` python
 __init__(
@@ -160,6 +170,8 @@ The string name of the underlying Queue.
 
 <h3 id="create_threads"><code>create_threads</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L301-L356">View source</a>
+
 ``` python
 create_threads(
     sess,
@@ -201,6 +213,8 @@ A list of threads.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L387-L391">View source</a>
+
 ``` python
 @staticmethod
 from_proto(
@@ -213,6 +227,8 @@ Returns a `QueueRunner` object created from `queue_runner_def`.
 
 
 <h3 id="to_proto"><code>to_proto</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/queue_runner_impl.py#L358-L385">View source</a>
 
 ``` python
 to_proto(export_scope=None)
@@ -231,7 +247,3 @@ Converts this `QueueRunner` to a `QueueRunnerDef` protocol buffer.
 
 A `QueueRunnerDef` protocol buffer, or `None` if the `Variable` is not in
 the specified name scope.
-
-
-
-

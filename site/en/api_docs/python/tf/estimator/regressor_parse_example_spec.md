@@ -5,13 +5,30 @@ page_type: reference
 
 # tf.estimator.regressor_parse_example_spec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/regressor_parse_example_spec">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/parsing_utils.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generates parsing spec for tf.parse_example to be used with regressors.
 
 ### Aliases:
 
-* `tf.compat.v1.estimator.regressor_parse_example_spec`
-* `tf.compat.v2.estimator.regressor_parse_example_spec`
-* `tf.estimator.regressor_parse_example_spec`
+* <a href="/api_docs/python/tf/estimator/regressor_parse_example_spec"><code>tf.compat.v1.estimator.regressor_parse_example_spec</code></a>
+
 
 ``` python
 tf.estimator.regressor_parse_example_spec(
@@ -25,8 +42,6 @@ tf.estimator.regressor_parse_example_spec(
 ```
 
 
-
-Defined in [`python/estimator/canned/parsing_utils.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/parsing_utils.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -110,12 +125,12 @@ estimator.train(input_fn=input_fn_train)
 * <b>`label_dimension`</b>: Number of regression targets per example. This is the
   size of the last dimension of the labels and logits `Tensor` objects
   (typically, these have shape `[batch_size, label_dimension]`).
-* <b>`weight_column`</b>: A string or a `_NumericColumn` created by
+* <b>`weight_column`</b>: A string or a `NumericColumn` created by
   <a href="../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
   weights. It is used to down weight or boost examples during training. It
   will be multiplied by the loss of the example. If it is a string, it is
   used as a key to fetch weight tensor from the `features`. If it is a
-  `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
+  `NumericColumn`, raw tensor is fetched by key `weight_column.key`,
   then weight_column.normalizer_fn is applied on it to get weight tensor.
 
 
@@ -133,5 +148,5 @@ value.
 * <b>`ValueError`</b>: If weight_column is used in `feature_columns`.
 * <b>`ValueError`</b>: If any of the given `feature_columns` is not a `_FeatureColumn`
   instance.
-* <b>`ValueError`</b>: If `weight_column` is not a `_NumericColumn` instance.
+* <b>`ValueError`</b>: If `weight_column` is not a `NumericColumn` instance.
 * <b>`ValueError`</b>: if label_key is None.

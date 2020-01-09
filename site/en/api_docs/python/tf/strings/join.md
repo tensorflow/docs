@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.strings.join
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/join">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_string_ops.py`
+
+
+
 Joins the strings in the given list of string tensors into one tensor;
 
 ### Aliases:
 
-* `tf.compat.v1.string_join`
-* `tf.compat.v1.strings.join`
-* `tf.compat.v2.strings.join`
-* `tf.string_join`
-* `tf.strings.join`
+* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v1.string_join</code></a>
+* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v1.strings.join</code></a>
+* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v2.strings.join</code></a>
+* <a href="/api_docs/python/tf/strings/join"><code>tf.string_join</code></a>
+
 
 ``` python
 tf.strings.join(
@@ -24,8 +38,6 @@ tf.strings.join(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_string_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

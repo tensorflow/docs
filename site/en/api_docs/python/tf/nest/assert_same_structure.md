@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.nest.assert_same_structure
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nest/assert_same_structure">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L282-L326">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Asserts that two structures are nested in the same way.
 
 ### Aliases:
 
-* `tf.compat.v1.nest.assert_same_structure`
-* `tf.compat.v2.nest.assert_same_structure`
-* `tf.contrib.framework.nest.assert_same_structure`
-* `tf.nest.assert_same_structure`
+* <a href="/api_docs/python/tf/nest/assert_same_structure"><code>tf.compat.v1.nest.assert_same_structure</code></a>
+* <a href="/api_docs/python/tf/nest/assert_same_structure"><code>tf.compat.v2.nest.assert_same_structure</code></a>
+* <a href="/api_docs/python/tf/nest/assert_same_structure"><code>tf.contrib.framework.nest.assert_same_structure</code></a>
+
 
 ``` python
 tf.nest.assert_same_structure(
@@ -24,8 +42,6 @@ tf.nest.assert_same_structure(
 ```
 
 
-
-Defined in [`python/util/nest.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/util/nest.py).
 
 <!-- Placeholder for "Used in" -->
 

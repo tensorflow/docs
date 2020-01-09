@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.contrib.graph_editor.make_placeholder_from_dtype_and_shape
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/graph_editor/util.py#L474-L494">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Create a tf.compat.v1.placeholder for the Graph Editor.
 
 ### Aliases:
 
-* `tf.contrib.graph_editor.make_placeholder_from_dtype_and_shape`
-* `tf.contrib.graph_editor.ph`
+* <a href="/api_docs/python/tf/contrib/graph_editor/make_placeholder_from_dtype_and_shape"><code>tf.contrib.graph_editor.ph</code></a>
+
 
 ``` python
 tf.contrib.graph_editor.make_placeholder_from_dtype_and_shape(
@@ -22,8 +34,6 @@ tf.contrib.graph_editor.make_placeholder_from_dtype_and_shape(
 ```
 
 
-
-Defined in [`contrib/graph_editor/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/graph_editor/util.py).
 
 <!-- Placeholder for "Used in" -->
 

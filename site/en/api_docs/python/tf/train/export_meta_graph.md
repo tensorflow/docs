@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.export_meta_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1508-L1590">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns `MetaGraphDef` proto.
 
 ### Aliases:
 
-* `tf.compat.v1.train.export_meta_graph`
-* `tf.train.export_meta_graph`
+* <a href="/api_docs/python/tf/train/export_meta_graph"><code>tf.compat.v1.train.export_meta_graph</code></a>
+
 
 ``` python
 tf.train.export_meta_graph(
@@ -31,8 +43,6 @@ tf.train.export_meta_graph(
 ```
 
 
-
-Defined in [`python/training/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -89,4 +99,3 @@ A `MetaGraphDef` proto.
 #### Eager Compatibility
 Exporting/importing meta graphs is not supported unless both `graph_def` and
 `graph` are provided. No graph exists when eager execution is enabled.
-

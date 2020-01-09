@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.data.experimental.sample_from_datasets
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/sample_from_datasets">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/interleave_ops.py#L227-L230">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Samples elements at random from the datasets in `datasets`.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.sample_from_datasets`
-* `tf.data.experimental.sample_from_datasets`
+* <a href="/api_docs/python/tf/data/experimental/sample_from_datasets"><code>tf.compat.v1.data.experimental.sample_from_datasets</code></a>
+
 
 ``` python
 tf.data.experimental.sample_from_datasets(
@@ -21,8 +39,6 @@ tf.data.experimental.sample_from_datasets(
 ```
 
 
-
-Defined in [`python/data/experimental/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/interleave_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

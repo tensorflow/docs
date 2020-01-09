@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.linalg.sqrtm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/sqrtm">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_linalg_ops.py`
+
+
+
 Computes the matrix square root of one or more square matrices:
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.sqrtm`
-* `tf.compat.v1.matrix_square_root`
-* `tf.compat.v2.linalg.sqrtm`
-* `tf.compat.v2.matrix_square_root`
-* `tf.linalg.sqrtm`
-* `tf.matrix_square_root`
+* <a href="/api_docs/python/tf/linalg/sqrtm"><code>tf.compat.v1.linalg.sqrtm</code></a>
+* <a href="/api_docs/python/tf/linalg/sqrtm"><code>tf.compat.v1.matrix_square_root</code></a>
+* <a href="/api_docs/python/tf/linalg/sqrtm"><code>tf.compat.v2.linalg.sqrtm</code></a>
+* <a href="/api_docs/python/tf/linalg/sqrtm"><code>tf.compat.v2.matrix_square_root</code></a>
+* <a href="/api_docs/python/tf/linalg/sqrtm"><code>tf.matrix_square_root</code></a>
+
 
 ``` python
 tf.linalg.sqrtm(
@@ -24,8 +38,6 @@ tf.linalg.sqrtm(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

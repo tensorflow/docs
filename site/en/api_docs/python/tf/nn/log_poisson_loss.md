@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.log_poisson_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/log_poisson_loss">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L46-L108">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes log Poisson loss given `log_input`.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.log_poisson_loss`
-* `tf.compat.v2.nn.log_poisson_loss`
-* `tf.nn.log_poisson_loss`
+* <a href="/api_docs/python/tf/nn/log_poisson_loss"><code>tf.compat.v1.nn.log_poisson_loss</code></a>
+* <a href="/api_docs/python/tf/nn/log_poisson_loss"><code>tf.compat.v2.nn.log_poisson_loss</code></a>
+
 
 ``` python
 tf.nn.log_poisson_loss(
@@ -23,8 +41,6 @@ tf.nn.log_poisson_loss(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

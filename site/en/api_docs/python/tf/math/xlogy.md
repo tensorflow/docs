@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.math.xlogy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/xlogy">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns 0 if x == 0, and x * log(y) otherwise, elementwise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.xlogy`
-* `tf.compat.v2.math.xlogy`
-* `tf.math.xlogy`
+* <a href="/api_docs/python/tf/math/xlogy"><code>tf.compat.v1.math.xlogy</code></a>
+* <a href="/api_docs/python/tf/math/xlogy"><code>tf.compat.v2.math.xlogy</code></a>
+
 
 ``` python
 tf.math.xlogy(
@@ -22,8 +36,6 @@ tf.math.xlogy(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

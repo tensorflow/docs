@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.polygamma
 
-Compute the polygamma function \\(\psi^{(n)} (x)\\).
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/polygamma">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
+Compute the polygamma function \\(\psi^{(n)}(x)\\).
 
 ### Aliases:
 
-* `tf.compat.v1.math.polygamma`
-* `tf.compat.v1.polygamma`
-* `tf.compat.v2.math.polygamma`
-* `tf.math.polygamma`
-* `tf.polygamma`
+* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v1.math.polygamma</code></a>
+* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v1.polygamma</code></a>
+* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v2.math.polygamma</code></a>
+* <a href="/api_docs/python/tf/math/polygamma"><code>tf.polygamma</code></a>
+
 
 ``` python
 tf.math.polygamma(
@@ -26,14 +40,12 @@ tf.math.polygamma(
 
 
 
-Defined in generated file: `python/ops/gen_math_ops.py`.
-
 <!-- Placeholder for "Used in" -->
 
 The polygamma function is defined as:
 
 
-\\(\psi^{(a)} (x) = \frac{d^a}{dx^a} \psi(x)\\)
+\\(\psi^{(a)}(x) = \frac{d^a}{dx^a} \psi(x)\\)
 
 where \\(\psi(x)\\) is the digamma function.
 The polygamma function is defined only for non-negative integer orders \\a\\.

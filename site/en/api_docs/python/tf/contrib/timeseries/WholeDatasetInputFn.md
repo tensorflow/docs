@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.timeseries.WholeDatasetInputFn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L578-L619">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `WholeDatasetInputFn`
 
 Supports passing a full time series to a model for evaluation/inference.
 
 
-
-
-
-Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,6 +34,8 @@ predictions. While this is useful for plotting and interactive use,
 evaluation.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L598-L605">View source</a>
 
 ``` python
 __init__(time_series_reader)
@@ -45,14 +55,18 @@ Initialize the `TimeSeriesInputFn`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L573-L575">View source</a>
+
 ``` python
 __call__()
 ```
 
-
+Call self as a function.
 
 
 <h3 id="create_batch"><code>create_batch</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L607-L619">View source</a>
 
 ``` python
 create_batch()
@@ -65,7 +79,3 @@ A suitable `input_fn` for an `Estimator`'s `evaluate()`.
 
 A dictionary mapping feature names to `Tensors`, each shape
 prefixed by [1, data set size] (i.e. a batch size of 1).
-
-
-
-

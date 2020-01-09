@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.export.TensorServingInputReceiver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TensorServingInputReceiver`
 
 A return type for a serving_input_receiver_fn.
@@ -13,13 +31,9 @@ A return type for a serving_input_receiver_fn.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.export.TensorServingInputReceiver`
-* Class `tf.compat.v2.estimator.export.TensorServingInputReceiver`
-* Class `tf.estimator.export.TensorServingInputReceiver`
+* Class <a href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver"><code>tf.compat.v1.estimator.export.TensorServingInputReceiver</code></a>
+* Class <a href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver"><code>tf.compat.v2.estimator.export.TensorServingInputReceiver</code></a>
 
-
-
-Defined in [`python/estimator/export/export.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -54,6 +68,25 @@ The expected return values are:
     feature `Tensor`s *downstream* of the tf.parse_example() op.
     Defaults to None.
 
+<h2 id="__new__"><code>__new__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py">View source</a>
+
+``` python
+@staticmethod
+__new__(
+    cls,
+    features,
+    receiver_tensors,
+    receiver_tensors_alternatives=None
+)
+```
+
+Create new instance of TensorServingInputReceiver(features, receiver_tensors, receiver_tensors_alternatives)
+
+
+
+
 ## Properties
 
 <h3 id="features"><code>features</code></h3>
@@ -67,9 +100,3 @@ The expected return values are:
 
 
 <h3 id="receiver_tensors_alternatives"><code>receiver_tensors_alternatives</code></h3>
-
-
-
-
-
-

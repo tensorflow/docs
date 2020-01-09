@@ -5,22 +5,36 @@ page_type: reference
 
 # tf.math.logical_not
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/logical_not">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Returns the truth value of NOT x element-wise.
 
 ### Aliases:
 
-* `tf.RaggedTensor.__invert__`
-* `tf.Tensor.__invert__`
-* `tf.compat.v1.RaggedTensor.__invert__`
-* `tf.compat.v1.Tensor.__invert__`
-* `tf.compat.v1.logical_not`
-* `tf.compat.v1.math.logical_not`
-* `tf.compat.v2.RaggedTensor.__invert__`
-* `tf.compat.v2.Tensor.__invert__`
-* `tf.compat.v2.logical_not`
-* `tf.compat.v2.math.logical_not`
-* `tf.logical_not`
-* `tf.math.logical_not`
+* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.RaggedTensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.Tensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.compat.v1.RaggedTensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.compat.v1.Tensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v1.logical_not</code></a>
+* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v1.math.logical_not</code></a>
+* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.compat.v2.RaggedTensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.compat.v2.Tensor.__invert__</code></a>
+* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v2.logical_not</code></a>
+* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v2.math.logical_not</code></a>
+* <a href="/api_docs/python/tf/math/logical_not"><code>tf.logical_not</code></a>
+
 
 ``` python
 tf.math.logical_not(
@@ -30,8 +44,6 @@ tf.math.logical_not(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

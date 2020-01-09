@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.arg_min
 
-Returns the index with the smallest value across dimensions of a tensor. (deprecated)
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
+Returns the index with the smallest value across dimensions of a tensor.
 
 ### Aliases:
 
-* `tf.arg_min`
-* `tf.compat.v1.arg_min`
+* <a href="/api_docs/python/tf/arg_min"><code>tf.compat.v1.arg_min</code></a>
+
 
 ``` python
 tf.arg_min(
@@ -23,13 +31,7 @@ tf.arg_min(
 
 
 
-Defined in generated file: `python/ops/gen_math_ops.py`.
-
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use <a href="../tf/math/argmin"><code>tf.math.argmin</code></a> instead
 
 Note that in case of ties the identity of the return value is not guaranteed.
 

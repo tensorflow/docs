@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.saved_model.save
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/saved_model/save">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/save.py#L673-L880">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Exports the Trackable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).
 
 ### Aliases:
 
-* `tf.compat.v1.saved_model.experimental.save`
-* `tf.compat.v1.saved_model.save`
-* `tf.compat.v2.saved_model.save`
-* `tf.saved_model.experimental.save`
-* `tf.saved_model.save`
+* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v1.saved_model.experimental.save</code></a>
+* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v1.saved_model.save</code></a>
+* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v2.saved_model.save</code></a>
+* <a href="/api_docs/python/tf/saved_model/save"><code>tf.saved_model.experimental.save</code></a>
+
 
 ``` python
 tf.saved_model.save(
@@ -25,8 +43,6 @@ tf.saved_model.save(
 
 
 
-Defined in [`python/saved_model/save.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/save.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -35,7 +51,7 @@ Defined in [`python/saved_model/save.py`](https://github.com/tensorflow/tensorfl
 
 
 ```python
-class Adder(tf.train.Checkpoint):
+class Adder(tf.Module):
 
   @tf.function(input_signature=[tf.TensorSpec(shape=None, dtype=tf.float32)])
   def add(self, x):
@@ -152,17 +168,6 @@ producer. There are however other sources of incompatibilities which are not
 handled automatically, such as when the exported model contains operations
 which the consumer does not have definitions for.
 
-The current implementation of <a href="../../tf/saved_model/save"><code>tf.saved_model.save</code></a> targets serving use-cases,
-but omits information which will be necessary for the planned future
-implementation of <a href="../../tf/saved_model/load"><code>tf.saved_model.load</code></a>. Exported models using the current
-`save` implementation, and other existing SavedModels, will not be compatible
-with <a href="../../tf/saved_model/load"><code>tf.saved_model.load</code></a> when it is implemented. Further, `save` will in the
-future attempt to export `@tf.function`-decorated methods which it does not
-currently inspect, so some objects which are exportable today will raise
-exceptions on export in the future (e.g. due to complex/non-serializable
-default arguments). Such backwards-incompatible API changes are expected only
-prior to the TensorFlow 2.0 release.
-
 #### Args:
 
 
@@ -193,4 +198,3 @@ tf.saved_model.save in a loop when graph building from TensorFlow 1.x will
 add new save operations to the default graph each iteration.
 
 May not be called from within a function body.
-

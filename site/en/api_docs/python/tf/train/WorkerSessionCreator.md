@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.WorkerSessionCreator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L651-L688">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `WorkerSessionCreator`
 
 Creates a tf.compat.v1.Session for a worker.
@@ -13,17 +25,15 @@ Inherits From: [`SessionCreator`](../../tf/train/SessionCreator)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.WorkerSessionCreator`
-* Class `tf.train.WorkerSessionCreator`
+* Class <a href="/api_docs/python/tf/train/WorkerSessionCreator"><code>tf.compat.v1.train.WorkerSessionCreator</code></a>
 
-
-
-Defined in [`python/training/monitored_session.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/monitored_session.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L654-L672">View source</a>
 
 ``` python
 __init__(
@@ -52,12 +62,8 @@ Initializes a worker session creator.
 
 <h3 id="create_session"><code>create_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/monitored_session.py#L685-L688">View source</a>
+
 ``` python
 create_session()
 ```
-
-
-
-
-
-

@@ -5,28 +5,43 @@ page_type: reference
 
 # tf.TensorInfo
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/meta_graph.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TensorInfo`
 
-
+A ProtocolMessage
 
 
 
 ### Aliases:
 
-* Class `tf.TensorInfo`
-* Class `tf.compat.v1.TensorInfo`
+* Class <a href="/api_docs/python/tf/TensorInfo"><code>tf.compat.v1.TensorInfo</code></a>
 
-
-
-Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/meta_graph.proto).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Child Classes
+[`class CompositeTensor`](../tf/TensorInfo/CompositeTensor)
+
 [`class CooSparse`](../tf/TensorInfo/CooSparse)
 
 ## Properties
+
+<h3 id="composite_tensor"><code>composite_tensor</code></h3>
+
+`CompositeTensor composite_tensor`
+
 
 <h3 id="coo_sparse"><code>coo_sparse</code></h3>
 
@@ -46,7 +61,3 @@ Defined in [`core/protobuf/meta_graph.proto`](https://github.com/tensorflow/tens
 <h3 id="tensor_shape"><code>tensor_shape</code></h3>
 
 `TensorShapeProto tensor_shape`
-
-
-
-

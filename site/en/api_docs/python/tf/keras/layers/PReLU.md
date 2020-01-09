@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.PReLU
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/PReLU">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/advanced_activations.py#L72-L158">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `PReLU`
 
 Parametric Rectified Linear Unit.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.PReLU`
-* Class `tf.compat.v2.keras.layers.PReLU`
-* Class `tf.keras.layers.PReLU`
+* Class <a href="/api_docs/python/tf/keras/layers/PReLU"><code>tf.compat.v1.keras.layers.PReLU</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/PReLU"><code>tf.compat.v2.keras.layers.PReLU</code></a>
 
-
-
-Defined in [`python/keras/layers/advanced_activations.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/advanced_activations.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,6 +76,8 @@ Same shape as the input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/advanced_activations.py#L102-L118">View source</a>
+
 ``` python
 __init__(
     alpha_initializer='zeros',
@@ -71,9 +87,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

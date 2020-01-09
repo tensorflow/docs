@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.layers.experimental.set_keras_style
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/base.py#L114-L149">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Use Keras-style variable management.
 
 ### Aliases:
 
-* `tf.compat.v1.layers.experimental.set_keras_style`
-* `tf.layers.experimental.set_keras_style`
+* <a href="/api_docs/python/tf/layers/experimental/set_keras_style"><code>tf.compat.v1.layers.experimental.set_keras_style</code></a>
+
 
 ``` python
 tf.layers.experimental.set_keras_style()
 ```
 
 
-
-Defined in [`python/layers/base.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/base.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -6,6 +6,24 @@ page_type: reference
 
 # tf.Tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/Tensor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L288-L851">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Tensor`
 
 Represents one of the outputs of an `Operation`.
@@ -14,13 +32,9 @@ Represents one of the outputs of an `Operation`.
 
 ### Aliases:
 
-* Class `tf.Tensor`
-* Class `tf.compat.v1.Tensor`
-* Class `tf.compat.v2.Tensor`
+* Class <a href="/api_docs/python/tf/Tensor"><code>tf.compat.v1.Tensor</code></a>
+* Class <a href="/api_docs/python/tf/Tensor"><code>tf.compat.v2.Tensor</code></a>
 
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -60,6 +74,8 @@ result = sess.run(e)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L370-L395">View source</a>
 
 ``` python
 __init__(
@@ -171,6 +187,8 @@ The index of this tensor in the outputs of its `Operation`.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
+
 ``` python
 __abs__(
     x,
@@ -215,6 +233,8 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__add__"><code>__add__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+
 ``` python
 __add__(
     x,
@@ -222,25 +242,12 @@ __add__(
 )
 ```
 
-Returns x + y element-wise.
-
-*NOTE*: <a href="../tf/math/add"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-#### Args:
-
-
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `int16`, `int32`, `int64`, `complex64`, `complex128`, `string`.
-* <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor`. Has the same type as `x`.
+Dispatches to add for strings and add_v2 for all other types.
 
 
 <h3 id="__and__"><code>__and__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __and__(
@@ -269,6 +276,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L747-L765">View source</a>
+
 ``` python
 __bool__()
 ```
@@ -276,8 +285,8 @@ __bool__()
 Dummy method to prevent a tensor from being used as a Python `bool`.
 
 This overload raises a `TypeError` when the user inadvertently
-treats a `Tensor` as a boolean (e.g. in an `if` statement). For
-example:
+treats a `Tensor` as a boolean (most commonly in an `if` or `while`
+statement), in code that was not converted by AutoGraph. For example:
 
 ```python
 if tf.constant(True):  # Will raise.
@@ -287,15 +296,14 @@ if tf.constant(5) < tf.constant(7):  # Will raise.
   # ...
 ```
 
-This disallows ambiguities between testing the Python value vs testing the
-dynamic condition of the `Tensor`.
-
 #### Raises:
 
 `TypeError`.
 
 
 <h3 id="__div__"><code>__div__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __div__(
@@ -323,14 +331,18 @@ Used for Tensor.__div__.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1328-L1339">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Compares two tensors element-wise for equality.
 
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __floordiv__(
@@ -372,6 +384,8 @@ as well.
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __ge__(
     x,
@@ -399,6 +413,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L658-L802">View source</a>
 
 ``` python
 __getitem__(
@@ -481,6 +497,8 @@ The appropriate slice of "tensor", based on "slice_spec".
 
 <h3 id="__gt__"><code>__gt__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __gt__(
     x,
@@ -509,6 +527,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
+Defined in generated file: `python/ops/gen_math_ops.py`
+
 ``` python
 __invert__(
     x,
@@ -533,6 +553,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L545-L558">View source</a>
+
 ``` python
 __iter__()
 ```
@@ -541,6 +563,8 @@ __iter__()
 
 
 <h3 id="__le__"><code>__le__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __le__(
@@ -568,7 +592,20 @@ Returns the truth value of (x <= y) element-wise.
 A `Tensor` of type `bool`.
 
 
+<h3 id="__len__"><code>__len__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L738-L741">View source</a>
+
+``` python
+__len__()
+```
+
+
+
+
 <h3 id="__lt__"><code>__lt__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __lt__(
@@ -597,6 +634,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __matmul__(
@@ -717,6 +756,8 @@ for all indices i, j.
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+
 ``` python
 __mod__(
     x,
@@ -747,6 +788,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+
 ``` python
 __mul__(
     x,
@@ -757,7 +800,20 @@ __mul__(
 Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 
+<h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1342-L1351">View source</a>
+
+``` python
+__ne__(other)
+```
+
+Compares two tensors element-wise for equality.
+
+
 <h3 id="__neg__"><code>__neg__</code></h3>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
 
 ``` python
 __neg__(
@@ -787,6 +843,8 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L767-L775">View source</a>
+
 ``` python
 __nonzero__()
 ```
@@ -801,6 +859,8 @@ This is the Python 2.x counterpart to `__bool__()` above.
 
 
 <h3 id="__or__"><code>__or__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __or__(
@@ -828,6 +888,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__pow__"><code>__pow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __pow__(
@@ -864,6 +926,8 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __radd__(
     y,
@@ -871,25 +935,12 @@ __radd__(
 )
 ```
 
-Returns x + y element-wise.
-
-*NOTE*: <a href="../tf/math/add"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-#### Args:
-
-
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `int16`, `int32`, `int64`, `complex64`, `complex128`, `string`.
-* <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor`. Has the same type as `x`.
+Dispatches to add for strings and add_v2 for all other types.
 
 
 <h3 id="__rand__"><code>__rand__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rand__(
@@ -918,6 +969,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __rdiv__(
     y,
@@ -943,6 +996,8 @@ Used for Tensor.__div__.
 
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rfloordiv__(
@@ -983,6 +1038,8 @@ as well.
 * <b>`TypeError`</b>: If the inputs are complex.
 
 <h3 id="__rmatmul__"><code>__rmatmul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rmatmul__(
@@ -1103,6 +1160,8 @@ for all indices i, j.
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __rmod__(
     y,
@@ -1133,6 +1192,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __rmul__(
     y,
@@ -1144,6 +1205,8 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 
 <h3 id="__ror__"><code>__ror__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __ror__(
@@ -1171,6 +1234,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rpow__(
@@ -1207,6 +1272,8 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __rsub__(
     y,
@@ -1234,6 +1301,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+
 ``` python
 __rtruediv__(
     y,
@@ -1245,6 +1314,8 @@ __rtruediv__(
 
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rxor__(
@@ -1285,6 +1356,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+
 ``` python
 __sub__(
     x,
@@ -1312,6 +1385,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+
 ``` python
 __truediv__(
     x,
@@ -1323,6 +1398,8 @@ __truediv__(
 
 
 <h3 id="__xor__"><code>__xor__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __xor__(
@@ -1363,6 +1440,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L652-L664">View source</a>
+
 ``` python
 consumers()
 ```
@@ -1376,6 +1455,8 @@ A list of `Operation`s.
 
 
 <h3 id="eval"><code>eval</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L777-L798">View source</a>
 
 ``` python
 eval(
@@ -1408,7 +1489,65 @@ available, or `session` must be specified explicitly.
 A numpy array corresponding to the value of this tensor.
 
 
+<h3 id="experimental_ref"><code>experimental_ref</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L800-L851">View source</a>
+
+``` python
+experimental_ref()
+```
+
+Returns a hashable reference object to this Tensor.
+
+Warning: Experimental API that could be changed or removed.
+
+The primary usecase for this API is to put tensors in a set/dictionary.
+We can't put tensors in a set/dictionary as `tensor.__hash__()` is no longer
+available starting Tensorflow 2.0.
+
+```python
+import tensorflow as tf
+
+x = tf.constant(5)
+y = tf.constant(10)
+z = tf.constant(10)
+
+# The followings will raise an exception starting 2.0
+# TypeError: Tensor is unhashable if Tensor equality is enabled.
+tensor_set = {x, y, z}
+tensor_dict = {x: 'five', y: 'ten', z: 'ten'}
+```
+
+Instead, we can use `tensor.experimental_ref()`.
+
+```python
+tensor_set = {x.experimental_ref(),
+              y.experimental_ref(),
+              z.experimental_ref()}
+
+print(x.experimental_ref() in tensor_set)
+==> True
+
+tensor_dict = {x.experimental_ref(): 'five',
+               y.experimental_ref(): 'ten',
+               z.experimental_ref(): 'ten'}
+
+print(tensor_dict[y.experimental_ref()])
+==> ten
+```
+
+Also, the reference object provides `.deref()` function that returns the
+original Tensor.
+
+```python
+x = tf.constant(5)
+print(x.experimental_ref().deref())
+==> tf.Tensor(5, shape=(), dtype=int32)
+```
+
 <h3 id="get_shape"><code>get_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L580-L582">View source</a>
 
 ``` python
 get_shape()
@@ -1418,6 +1557,8 @@ Alias of Tensor.shape.
 
 
 <h3 id="set_shape"><code>set_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L584-L645">View source</a>
 
 ``` python
 set_shape(shape)

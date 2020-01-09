@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.nn.relu_layer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L479-L499">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes Relu(x * weight + biases).
 
 ### Aliases:
 
-* `tf.compat.v1.nn.relu_layer`
-* `tf.nn.relu_layer`
+* <a href="/api_docs/python/tf/nn/relu_layer"><code>tf.compat.v1.nn.relu_layer</code></a>
+
 
 ``` python
 tf.nn.relu_layer(
@@ -22,8 +34,6 @@ tf.nn.relu_layer(
 ```
 
 
-
-Defined in [`python/ops/nn_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

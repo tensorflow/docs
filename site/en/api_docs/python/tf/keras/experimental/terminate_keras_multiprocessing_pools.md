@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.keras.experimental.terminate_keras_multiprocessing_pools
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/experimental/terminate_keras_multiprocessing_pools">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L450-L554">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Destroy Keras' multiprocessing pools to prevent deadlocks.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.experimental.terminate_keras_multiprocessing_pools`
-* `tf.compat.v2.keras.experimental.terminate_keras_multiprocessing_pools`
-* `tf.keras.experimental.terminate_keras_multiprocessing_pools`
+* <a href="/api_docs/python/tf/keras/experimental/terminate_keras_multiprocessing_pools"><code>tf.compat.v1.keras.experimental.terminate_keras_multiprocessing_pools</code></a>
+* <a href="/api_docs/python/tf/keras/experimental/terminate_keras_multiprocessing_pools"><code>tf.compat.v2.keras.experimental.terminate_keras_multiprocessing_pools</code></a>
+
 
 ``` python
 tf.keras.experimental.terminate_keras_multiprocessing_pools(
@@ -21,8 +39,6 @@ tf.keras.experimental.terminate_keras_multiprocessing_pools(
 ```
 
 
-
-Defined in [`python/keras/utils/data_utils.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/utils/data_utils.py).
 
 <!-- Placeholder for "Used in" -->
 

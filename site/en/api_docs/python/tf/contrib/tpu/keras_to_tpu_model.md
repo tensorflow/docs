@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.tpu.keras_to_tpu_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/tpu/python/tpu/keras_support.py#L2184-L2259">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Copy `model` along with weights to the TPU. (deprecated)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.tpu.keras_to_tpu_model(
 ```
 
 
-
-Defined in [`contrib/tpu/python/tpu/keras_support.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tpu/python/tpu/keras_support.py).
 
 <!-- Placeholder for "Used in" -->
 

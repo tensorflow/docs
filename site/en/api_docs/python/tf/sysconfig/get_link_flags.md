@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.sysconfig.get_link_flags
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sysconfig/get_link_flags">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/sysconfig.py#L70-L86">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get the link flags for custom operators.
 
 ### Aliases:
 
-* `tf.compat.v1.sysconfig.get_link_flags`
-* `tf.compat.v2.sysconfig.get_link_flags`
-* `tf.sysconfig.get_link_flags`
+* <a href="/api_docs/python/tf/sysconfig/get_link_flags"><code>tf.compat.v1.sysconfig.get_link_flags</code></a>
+* <a href="/api_docs/python/tf/sysconfig/get_link_flags"><code>tf.compat.v2.sysconfig.get_link_flags</code></a>
+
 
 ``` python
 tf.sysconfig.get_link_flags()
 ```
 
 
-
-Defined in [`python/platform/sysconfig.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/sysconfig.py).
 
 <!-- Placeholder for "Used in" -->
 

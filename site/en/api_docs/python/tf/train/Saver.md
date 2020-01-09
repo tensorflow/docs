@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.Saver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L606-L1338">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Saver`
 
 Saves and restores variables.
@@ -13,12 +25,8 @@ Saves and restores variables.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.Saver`
-* Class `tf.train.Saver`
+* Class <a href="/api_docs/python/tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a>
 
-
-
-Defined in [`python/training/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -95,6 +103,8 @@ protocol buffer file in the call to `save()`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L681-L835">View source</a>
+
 ``` python
 __init__(
     var_list=None,
@@ -144,6 +154,9 @@ saver = tf.compat.v1.train.Saver([v1, v2])
 # as keys:
 saver = tf.compat.v1.train.Saver({v.op.name: v for v in [v1, v2]})
 ```
+
+Note: the newer `AutoTrackable` API is not supported by `Saver`. In this
+case, the <a href="../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a> class should be used.
 
 The optional `reshape` argument, if `True`, allows restoring a variable from
 a save file where the variable had a different shape, but the same number
@@ -202,7 +215,7 @@ checkpoints per device.
 * <b>`TypeError`</b>: If `var_list` is invalid.
 * <b>`ValueError`</b>: If any of the keys or values in `var_list` are not unique.
 * <b>`RuntimeError`</b>: If eager execution is enabled and`var_list` does not specify
-  a list of varialbes to save.
+  a list of variables to save.
 
 
 
@@ -238,6 +251,8 @@ A list of checkpoint filenames, sorted from oldest to newest.
 
 <h3 id="as_saver_def"><code>as_saver_def</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L967-L973">View source</a>
+
 ``` python
 as_saver_def()
 ```
@@ -252,6 +267,8 @@ A `SaverDef` proto.
 
 <h3 id="build"><code>build</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L837-L840">View source</a>
+
 ``` python
 build()
 ```
@@ -260,6 +277,8 @@ build()
 
 
 <h3 id="export_meta_graph"><code>export_meta_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1210-L1254">View source</a>
 
 ``` python
 export_meta_graph(
@@ -305,6 +324,8 @@ A `MetaGraphDef` proto.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1002-L1013">View source</a>
+
 ``` python
 @staticmethod
 from_proto(
@@ -330,6 +351,8 @@ A `Saver` built from saver_def.
 
 <h3 id="recover_last_checkpoints"><code>recover_last_checkpoints</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1056-L1072">View source</a>
+
 ``` python
 recover_last_checkpoints(checkpoint_paths)
 ```
@@ -347,6 +370,8 @@ exist, use their mtime as the checkpoint timestamp.
 * <b>`checkpoint_paths`</b>: a list of checkpoint paths.
 
 <h3 id="restore"><code>restore</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1256-L1326">View source</a>
 
 ``` python
 restore(
@@ -378,6 +403,8 @@ The `save_path` argument is typically a value previously returned from a
 * <b>`ValueError`</b>: If save_path is None or not a valid checkpoint.
 
 <h3 id="save"><code>save</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1074-L1208">View source</a>
 
 ``` python
 save(
@@ -448,6 +475,8 @@ If the saver is empty, returns None.
 
 <h3 id="set_last_checkpoints"><code>set_last_checkpoints</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1026-L1041">View source</a>
+
 ``` python
 set_last_checkpoints(last_checkpoints)
 ```
@@ -468,6 +497,8 @@ Sets the list of old checkpoint filenames.
 * <b>`AssertionError`</b>: If last_checkpoints is not a list.
 
 <h3 id="set_last_checkpoints_with_time"><code>set_last_checkpoints_with_time</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1043-L1054">View source</a>
 
 ``` python
 set_last_checkpoints_with_time(last_checkpoints_with_time)
@@ -490,6 +521,8 @@ Sets the list of old checkpoint filenames and timestamps.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L975-L1000">View source</a>
+
 ``` python
 to_proto(export_scope=None)
 ```
@@ -506,7 +539,3 @@ Converts this `Saver` to a `SaverDef` protocol buffer.
 #### Returns:
 
 A `SaverDef` protocol buffer.
-
-
-
-

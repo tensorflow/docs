@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.tpu.while_loop
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/training_loop.py#L30-L178">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Builds a training loop for TPUs.
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.tpu.while_loop(
 ```
 
 
-
-Defined in [`python/tpu/training_loop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/training_loop.py).
 
 <!-- Placeholder for "Used in" -->
 

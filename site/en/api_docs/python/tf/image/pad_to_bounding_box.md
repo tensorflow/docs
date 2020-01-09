@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.pad_to_bounding_box
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/pad_to_bounding_box">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L726-L806">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Pad `image` with zeros to the specified `height` and `width`.
 
 ### Aliases:
 
-* `tf.compat.v1.image.pad_to_bounding_box`
-* `tf.compat.v2.image.pad_to_bounding_box`
-* `tf.image.pad_to_bounding_box`
+* <a href="/api_docs/python/tf/image/pad_to_bounding_box"><code>tf.compat.v1.image.pad_to_bounding_box</code></a>
+* <a href="/api_docs/python/tf/image/pad_to_bounding_box"><code>tf.compat.v2.image.pad_to_bounding_box</code></a>
+
 
 ``` python
 tf.image.pad_to_bounding_box(
@@ -24,8 +42,6 @@ tf.image.pad_to_bounding_box(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

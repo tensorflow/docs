@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.make_template
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/template.py#L39-L161">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Given an arbitrary function, wrap it so that it does variable sharing.
 
 ### Aliases:
 
-* `tf.compat.v1.make_template`
-* `tf.make_template`
+* <a href="/api_docs/python/tf/make_template"><code>tf.compat.v1.make_template</code></a>
+
 
 ``` python
 tf.make_template(
@@ -24,8 +36,6 @@ tf.make_template(
 ```
 
 
-
-Defined in [`python/ops/template.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/template.py).
 
 <!-- Placeholder for "Used in" -->
 

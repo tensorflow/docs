@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.math.digamma
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/digamma">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes Psi, the derivative of Lgamma (the log of the absolute value of
 
 ### Aliases:
 
-* `tf.compat.v1.digamma`
-* `tf.compat.v1.math.digamma`
-* `tf.compat.v2.math.digamma`
-* `tf.digamma`
-* `tf.math.digamma`
+* <a href="/api_docs/python/tf/math/digamma"><code>tf.compat.v1.digamma</code></a>
+* <a href="/api_docs/python/tf/math/digamma"><code>tf.compat.v1.math.digamma</code></a>
+* <a href="/api_docs/python/tf/math/digamma"><code>tf.compat.v2.math.digamma</code></a>
+* <a href="/api_docs/python/tf/math/digamma"><code>tf.digamma</code></a>
+
 
 ``` python
 tf.math.digamma(
@@ -23,8 +37,6 @@ tf.math.digamma(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.mixed_precision
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/mixed_precision/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Library for mixed precision training.
-
-
-
-Defined in [`contrib/mixed_precision/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/mixed_precision/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -23,4 +31,3 @@ Defined in [`contrib/mixed_precision/__init__.py`](https://github.com/tensorflow
 [`class LossScaleManager`](../../tf/contrib/mixed_precision/LossScaleManager): Abstract loss scale manager class.
 
 [`class LossScaleOptimizer`](../../tf/contrib/mixed_precision/LossScaleOptimizer): An optimizer that applies loss scaling in backprop.
-

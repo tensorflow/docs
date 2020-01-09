@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.image.resize_image_with_pad
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1395-L1434">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Resizes and pads an image to a target width and height.
 
 ### Aliases:
 
-* `tf.compat.v1.image.resize_image_with_pad`
-* `tf.image.resize_image_with_pad`
+* <a href="/api_docs/python/tf/image/resize_image_with_pad"><code>tf.compat.v1.image.resize_image_with_pad</code></a>
+
 
 ``` python
 tf.image.resize_image_with_pad(
@@ -23,8 +35,6 @@ tf.image.resize_image_with_pad(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

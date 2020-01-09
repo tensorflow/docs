@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.Trainable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/trainable.py#L32-L90">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Trainable`
 
 Interface for objects that are trainable by, e.g., `Experiment`.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/trainable.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/trainable.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,6 +30,8 @@ THIS CLASS IS DEPRECATED.
 ## Methods
 
 <h3 id="fit"><code>fit</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/trainable.py#L38-L90">View source</a>
 
 ``` python
 fit(
@@ -82,7 +92,3 @@ Trains a model given training data `x` predictions and `y` labels.
 #### Returns:
 
 `self`, for chaining.
-
-
-
-

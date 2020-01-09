@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.RunConfig
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/run_config.py#L221-L420">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RunConfig`
 
 This class specifies the configurations for an `Estimator` run.
 
 Inherits From: [`RunConfig`](../../../tf/estimator/RunConfig)
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/run_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/run_config.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,6 +29,8 @@ This class is a deprecated implementation of <a href="../../../tf/estimator/RunC
 interface.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/run_config.py#L229-L341">View source</a>
 
 ``` python
 __init__(
@@ -38,7 +48,8 @@ __init__(
     protocol=None,
     evaluation_master='',
     model_dir=None,
-    session_config=None
+    session_config=None,
+    session_creation_timeout_secs=7200
 )
 ```
 
@@ -86,6 +97,8 @@ find the checkpoint due to race condition.
   the feature.
 * <b>`log_step_count_steps`</b>: The frequency, in number of global steps, that the
   global step/sec will be logged during training.
+* <b>`protocol`</b>: An optional argument which specifies the protocol used when
+  starting server. None means default to grpc.
 * <b>`evaluation_master`</b>: the master on which to perform evaluation.
 * <b>`model_dir`</b>: directory where model parameters, graph etc are saved. If
   `None`, will use `model_dir` property in `TF_CONFIG` environment
@@ -94,8 +107,11 @@ find the checkpoint due to race condition.
 * <b>`session_config`</b>: a ConfigProto used to set session parameters, or None.
   Note - using this argument, it is easy to provide settings which break
   otherwise perfectly good models. Use with care.
-* <b>`protocol`</b>: An optional argument which specifies the protocol used when
-  starting server. None means default to grpc.
+* <b>`session_creation_timeout_secs`</b>: Max time workers should wait for a session
+  to become available (on initialization or when recovering a session)
+  with MonitoredTrainingSession. Defaults to 7200 seconds, but users may
+  want to set a lower value to detect problems with variable / session
+  (re)-initialization more quickly.
 
 
 
@@ -245,6 +261,11 @@ Returns the platform defined (in TF_CONFIG) service dict.
 
 
 
+<h3 id="session_creation_timeout_secs"><code>session_creation_timeout_secs</code></h3>
+
+
+
+
 <h3 id="task_id"><code>task_id</code></h3>
 
 
@@ -276,6 +297,8 @@ Optional <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy<
 
 <h3 id="get_task_id"><code>get_task_id</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/run_config.py#L204-L218">View source</a>
+
 ``` python
 get_task_id()
 ```
@@ -292,6 +315,8 @@ variable.
 
 
 <h3 id="replace"><code>replace</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/run_config.py">View source</a>
 
 ``` python
 replace(**kwargs)
@@ -341,6 +366,8 @@ a new instance of `RunConfig`.
 
 <h3 id="uid"><code>uid</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/framework/experimental.py#L343-L376">View source</a>
+
 ``` python
 uid(
     *args,
@@ -367,7 +394,3 @@ is subject to change.
 #### Returns:
 
 A uid string.
-
-
-
-

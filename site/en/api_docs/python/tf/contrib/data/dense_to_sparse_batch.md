@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.dense_to_sparse_batch
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/batching.py#L30-L74">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that batches ragged elements into <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>s. (deprecated)
 
 ``` python
@@ -16,15 +28,13 @@ tf.contrib.data.dense_to_sparse_batch(
 
 
 
-Defined in [`contrib/data/python/ops/batching.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/batching.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
 Use <a href="../../../tf/data/experimental/dense_to_sparse_batch"><code>tf.data.experimental.dense_to_sparse_batch(...)</code></a>.
 
-Like `Dataset.padded_batch()`, this transformation combines multiple
+Like <a href="/api_docs/python/tf/data/Dataset#padded_batch"><code>Dataset.padded_batch()</code></a>, this transformation combines multiple
 consecutive elements of the dataset, which might have different
 shapes, into a single element. The resulting element has three
 components (`indices`, `values`, and `dense_shape`), which

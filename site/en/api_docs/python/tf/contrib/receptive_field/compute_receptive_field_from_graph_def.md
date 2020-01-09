@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.receptive_field.compute_receptive_field_from_graph_def
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/receptive_field/python/util/receptive_field.py#L153-L391">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes receptive field (RF) parameters from a Graph or GraphDef object.
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.receptive_field.compute_receptive_field_from_graph_def(
 ```
 
 
-
-Defined in [`contrib/receptive_field/python/util/receptive_field.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/receptive_field/python/util/receptive_field.py).
 
 <!-- Placeholder for "Used in" -->
 

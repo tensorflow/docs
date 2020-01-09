@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.eager.restore_network_checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L970-L1027">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Restore the Network from a checkpoint. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.eager.restore_network_checkpoint(
 ```
 
 
-
-Defined in [`contrib/eager/python/network.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/network.py).
 
 <!-- Placeholder for "Used in" -->
 

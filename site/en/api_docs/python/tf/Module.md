@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.Module
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/Module">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L33-L294">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Module`
 
 Base neural network module class.
@@ -13,13 +31,9 @@ Inherits From: [`Checkpointable`](../tf/contrib/checkpoint/Checkpointable)
 
 ### Aliases:
 
-* Class `tf.Module`
-* Class `tf.compat.v1.Module`
-* Class `tf.compat.v2.Module`
+* Class <a href="/api_docs/python/tf/Module"><code>tf.compat.v1.Module</code></a>
+* Class <a href="/api_docs/python/tf/Module"><code>tf.compat.v2.Module</code></a>
 
-
-
-Defined in [`python/module/module.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/module/module.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -87,11 +101,13 @@ class MLP(tf.Module):
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L107-L122">View source</a>
+
 ``` python
 __init__(name=None)
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -169,6 +185,8 @@ first).
 
 <h3 id="with_name_scope"><code>with_name_scope</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L260-L294">View source</a>
+
 ``` python
 @classmethod
 with_name_scope(
@@ -208,7 +226,3 @@ mod.w
 #### Returns:
 
 The original method wrapped such that it enters the module's name scope.
-
-
-
-

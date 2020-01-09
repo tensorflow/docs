@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.cosine_distance
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L259-L312">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a cosine-distance loss to the training procedure. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.losses.cosine_distance`
-* `tf.losses.cosine_distance`
+* <a href="/api_docs/python/tf/losses/cosine_distance"><code>tf.compat.v1.losses.cosine_distance</code></a>
+
 
 ``` python
 tf.losses.cosine_distance(
@@ -26,8 +38,6 @@ tf.losses.cosine_distance(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -71,4 +81,3 @@ shape as `labels`; otherwise, it is scalar.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

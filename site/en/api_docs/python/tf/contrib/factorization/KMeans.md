@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.factorization.KMeans
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/clustering_ops.py#L55-L534">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `KMeans`
 
 Creates the graph for k-means clustering.
 
 
 
-
-
-Defined in [`contrib/factorization/python/ops/clustering_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/clustering_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/clustering_ops.py#L58-L148">View source</a>
 
 ``` python
 __init__(
@@ -110,6 +120,8 @@ exactly like a full-batch version.
 
 <h3 id="training_graph"><code>training_graph</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/clustering_ops.py#L326-L392">View source</a>
+
 ``` python
 training_graph()
 ```
@@ -140,6 +152,3 @@ A tuple consisting of:
   initialized.
 * <b>`init_op`</b>: an op to initialize the clusters.
 * <b>`training_op`</b>: an op that runs an iteration of training.
-
-
-

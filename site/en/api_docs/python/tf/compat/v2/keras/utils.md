@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.compat.v2.keras.utils
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/utils">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Keras utilities.
-
-
-
-Defined in [`python/keras/api/_v2/keras/utils/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v2/keras/utils/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -44,6 +52,8 @@ Defined in [`python/keras/api/_v2/keras/utils/__init__.py`](https://github.com/t
 
 [`get_source_inputs(...)`](../../../../tf/keras/utils/get_source_inputs): Returns the list of input tensors necessary to compute `tensor`.
 
+[`model_to_dot(...)`](../../../../tf/keras/utils/model_to_dot): Convert a Keras model to dot format.
+
 [`multi_gpu_model(...)`](../../../../tf/keras/utils/multi_gpu_model): Replicates a model on different GPUs.
 
 [`normalize(...)`](../../../../tf/keras/utils/normalize): Normalizes a Numpy array.
@@ -53,4 +63,3 @@ Defined in [`python/keras/api/_v2/keras/utils/__init__.py`](https://github.com/t
 [`serialize_keras_object(...)`](../../../../tf/keras/utils/serialize_keras_object)
 
 [`to_categorical(...)`](../../../../tf/keras/utils/to_categorical): Converts a class vector (integers) to binary class matrix.
-

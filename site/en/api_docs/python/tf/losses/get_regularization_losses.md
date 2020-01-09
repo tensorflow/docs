@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.losses.get_regularization_losses
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/util.py#L211-L221">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Gets the list of regularization losses.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.get_regularization_losses`
-* `tf.losses.get_regularization_losses`
+* <a href="/api_docs/python/tf/losses/get_regularization_losses"><code>tf.compat.v1.losses.get_regularization_losses</code></a>
+
 
 ``` python
 tf.losses.get_regularization_losses(scope=None)
 ```
 
 
-
-Defined in [`python/ops/losses/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/util.py).
 
 <!-- Placeholder for "Used in" -->
 

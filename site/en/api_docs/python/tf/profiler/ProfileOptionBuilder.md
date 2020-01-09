@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.profiler.ProfileOptionBuilder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L27-L465">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ProfileOptionBuilder`
 
 Option Builder for Profiling API.
@@ -13,12 +25,8 @@ Option Builder for Profiling API.
 
 ### Aliases:
 
-* Class `tf.compat.v1.profiler.ProfileOptionBuilder`
-* Class `tf.profiler.ProfileOptionBuilder`
+* Class <a href="/api_docs/python/tf/profiler/ProfileOptionBuilder"><code>tf.compat.v1.profiler.ProfileOptionBuilder</code></a>
 
-
-
-Defined in [`python/profiler/option_builder.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/profiler/option_builder.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -53,6 +61,8 @@ _ = tf.compat.v1.profiler.profile(tf.compat.v1.get_default_graph(),
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L62-L86">View source</a>
+
 ``` python
 __init__(options=None)
 ```
@@ -70,6 +80,8 @@ Constructor.
 ## Methods
 
 <h3 id="account_displayed_op_only"><code>account_displayed_op_only</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L372-L385">View source</a>
 
 ``` python
 account_displayed_op_only(is_true)
@@ -94,6 +106,8 @@ self
 
 <h3 id="build"><code>build</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L193-L199">View source</a>
+
 ``` python
 build()
 ```
@@ -107,6 +121,8 @@ A dict of profiling options.
 
 
 <h3 id="float_operation"><code>float_operation</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L114-L141">View source</a>
 
 ``` python
 @staticmethod
@@ -124,6 +140,8 @@ A dict of profiling options.
 
 
 <h3 id="order_by"><code>order_by</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L421-L435">View source</a>
 
 ``` python
 order_by(attribute)
@@ -146,6 +164,8 @@ self
 
 <h3 id="select"><code>select</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L437-L451">View source</a>
+
 ``` python
 select(attributes)
 ```
@@ -166,6 +186,8 @@ self
 
 
 <h3 id="time_and_memory"><code>time_and_memory</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L143-L191">View source</a>
 
 ``` python
 @staticmethod
@@ -212,6 +234,8 @@ A dict of profiling options.
 
 <h3 id="trainable_variables_parameter"><code>trainable_variables_parameter</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L88-L112">View source</a>
+
 ``` python
 @staticmethod
 trainable_variables_parameter()
@@ -227,6 +251,8 @@ A dict of profiling options.
 
 
 <h3 id="with_accounted_types"><code>with_accounted_types</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L316-L336">View source</a>
 
 ``` python
 with_accounted_types(account_type_regexes)
@@ -257,6 +283,8 @@ self.
 
 <h3 id="with_empty_output"><code>with_empty_output</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L387-L390">View source</a>
+
 ``` python
 with_empty_output()
 ```
@@ -266,6 +294,8 @@ Do not generate side-effect outputs.
 
 <h3 id="with_file_output"><code>with_file_output</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L397-L400">View source</a>
+
 ``` python
 with_file_output(outfile)
 ```
@@ -274,6 +304,8 @@ Print the result to a file.
 
 
 <h3 id="with_max_depth"><code>with_max_depth</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L201-L214">View source</a>
 
 ``` python
 with_max_depth(max_depth)
@@ -296,6 +328,8 @@ self
 
 
 <h3 id="with_min_execution_time"><code>with_min_execution_time</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L245-L264">View source</a>
 
 ``` python
 with_min_execution_time(
@@ -325,6 +359,8 @@ self
 
 <h3 id="with_min_float_operations"><code>with_min_float_operations</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L299-L314">View source</a>
+
 ``` python
 with_min_float_operations(min_float_ops)
 ```
@@ -346,6 +382,8 @@ self
 
 
 <h3 id="with_min_memory"><code>with_min_memory</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L216-L243">View source</a>
 
 ``` python
 with_min_memory(
@@ -382,6 +420,8 @@ self
 
 <h3 id="with_min_occurrence"><code>with_min_occurrence</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L281-L297">View source</a>
+
 ``` python
 with_min_occurrence(min_occurrence)
 ```
@@ -405,6 +445,8 @@ self
 
 <h3 id="with_min_parameters"><code>with_min_parameters</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L266-L279">View source</a>
+
 ``` python
 with_min_parameters(min_params)
 ```
@@ -426,6 +468,8 @@ self
 
 
 <h3 id="with_node_names"><code>with_node_names</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L338-L370">View source</a>
 
 ``` python
 with_node_names(
@@ -462,6 +506,8 @@ self
 
 <h3 id="with_pprof_output"><code>with_pprof_output</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L407-L419">View source</a>
+
 ``` python
 with_pprof_output(pprof_file)
 ```
@@ -487,6 +533,8 @@ self.
 
 <h3 id="with_stdout_output"><code>with_stdout_output</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L392-L395">View source</a>
+
 ``` python
 with_stdout_output()
 ```
@@ -495,6 +543,8 @@ Print the result to stdout.
 
 
 <h3 id="with_step"><code>with_step</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L453-L465">View source</a>
 
 ``` python
 with_step(step)
@@ -517,12 +567,10 @@ self
 
 <h3 id="with_timeline_output"><code>with_timeline_output</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/profiler/option_builder.py#L402-L405">View source</a>
+
 ``` python
 with_timeline_output(timeline_file)
 ```
 
 Generate a timeline json file.
-
-
-
-

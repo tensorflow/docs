@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.nn.static_rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn.py#L1262-L1444">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.nn.static_rnn`
-* `tf.contrib.rnn.static_rnn`
-* `tf.nn.static_rnn`
+* <a href="/api_docs/python/tf/nn/static_rnn"><code>tf.compat.v1.nn.static_rnn</code></a>
+* <a href="/api_docs/python/tf/nn/static_rnn"><code>tf.contrib.rnn.static_rnn</code></a>
+
 
 ``` python
 tf.nn.static_rnn(
@@ -25,8 +37,6 @@ tf.nn.static_rnn(
 ```
 
 
-
-Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
 <!-- Placeholder for "Used in" -->
 

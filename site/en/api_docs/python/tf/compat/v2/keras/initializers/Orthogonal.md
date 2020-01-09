@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.keras.initializers.Orthogonal
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L448-L515">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Orthogonal`
 
 Initializer that generates an orthogonal matrix.
@@ -13,14 +25,10 @@ Inherits From: [`Initializer`](../../../../../tf/compat/v2/keras/initializers/In
 
 ### Aliases:
 
-* Class `tf.compat.v2.initializers.Orthogonal`
-* Class `tf.compat.v2.initializers.orthogonal`
-* Class `tf.compat.v2.keras.initializers.Orthogonal`
-* Class `tf.compat.v2.keras.initializers.orthogonal`
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Orthogonal"><code>tf.compat.v2.initializers.Orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Orthogonal"><code>tf.compat.v2.initializers.orthogonal</code></a>
+* Class <a href="/api_docs/python/tf/compat/v2/keras/initializers/Orthogonal"><code>tf.compat.v2.keras.initializers.orthogonal</code></a>
 
-
-
-Defined in [`python/ops/init_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/init_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -52,6 +60,8 @@ for behavior.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L473-L476">View source</a>
+
 ``` python
 __init__(
     gain=1.0,
@@ -59,7 +69,7 @@ __init__(
 )
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -67,6 +77,8 @@ __init__(
 ## Methods
 
 <h3 id="__call__"><code>__call__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L478-L512">View source</a>
 
 ``` python
 __call__(
@@ -93,6 +105,8 @@ Returns a tensor object initialized as specified by the initializer.
  valid.
 
 <h3 id="from_config"><code>from_config</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -128,12 +142,15 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops_v2.py#L514-L515">View source</a>
+
 ``` python
 get_config()
 ```
 
+Returns the configuration of the initializer as a JSON-serializable dict.
 
 
+#### Returns:
 
-
-
+A JSON-serializable Python dict.

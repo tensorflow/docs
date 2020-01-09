@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.metrics.streaming_curve_points
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/metrics/python/ops/metric_ops.py#L868-L965">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes curve (ROC or PR) values for a prespecified number of points.
 
 ``` python
@@ -21,8 +33,6 @@ tf.contrib.metrics.streaming_curve_points(
 ```
 
 
-
-Defined in [`contrib/metrics/python/ops/metric_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/metrics/python/ops/metric_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.scan
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/scan_ops.py#L24-L45">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A transformation that scans a function across an input dataset. (deprecated)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.data.scan(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/scan_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/scan_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

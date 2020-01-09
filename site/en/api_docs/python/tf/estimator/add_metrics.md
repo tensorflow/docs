@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.estimator.add_metrics
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/add_metrics">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/extenders.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a new <a href="../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> which has given metrics.
 
 ### Aliases:
 
-* `tf.compat.v1.estimator.add_metrics`
-* `tf.compat.v2.estimator.add_metrics`
-* `tf.estimator.add_metrics`
+* <a href="/api_docs/python/tf/estimator/add_metrics"><code>tf.compat.v1.estimator.add_metrics</code></a>
+* <a href="/api_docs/python/tf/estimator/add_metrics"><code>tf.compat.v2.estimator.add_metrics</code></a>
+
 
 ``` python
 tf.estimator.add_metrics(
@@ -21,8 +39,6 @@ tf.estimator.add_metrics(
 ```
 
 
-
-Defined in [`python/estimator/extenders.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/extenders.py).
 
 <!-- Placeholder for "Used in" -->
 

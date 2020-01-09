@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.feature_column.categorical_column_with_vocabulary_file
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1565-L1682">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A `CategoricalColumn` with a vocabulary file.
 
 ``` python
@@ -19,8 +31,6 @@ tf.compat.v2.feature_column.categorical_column_with_vocabulary_file(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -51,8 +61,8 @@ linear_prediction = linear_model(features, columns)
 
 Example with `default_value`:
 File `'/us/states.txt'` contains 51 lines - the first line is `'XX'`, and the
-other 50 each have a 2-character U.S. state abbreviation. Both a literal 
-`'XX'` in input, and other values missing from the file, will be assigned 
+other 50 each have a 2-character U.S. state abbreviation. Both a literal
+`'XX'` in input, and other values missing from the file, will be assigned
 ID 0. All others are assigned the corresponding line number 1-50.
 
 ```python

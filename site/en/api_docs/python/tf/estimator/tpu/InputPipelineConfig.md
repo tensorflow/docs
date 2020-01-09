@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.estimator.tpu.InputPipelineConfig
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `InputPipelineConfig`
 
 Please see the definition of these values in TPUConfig.
@@ -13,13 +25,9 @@ Please see the definition of these values in TPUConfig.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.tpu.InputPipelineConfig`
-* Class `tf.contrib.tpu.InputPipelineConfig`
-* Class `tf.estimator.tpu.InputPipelineConfig`
+* Class <a href="/api_docs/python/tf/estimator/tpu/InputPipelineConfig"><code>tf.compat.v1.estimator.tpu.InputPipelineConfig</code></a>
+* Class <a href="/api_docs/python/tf/estimator/tpu/InputPipelineConfig"><code>tf.contrib.tpu.InputPipelineConfig</code></a>
 
-
-
-Defined in [`python/estimator/tpu/tpu_config.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/tpu/tpu_config.py).
 
 <!-- Placeholder for "Used in" -->
 

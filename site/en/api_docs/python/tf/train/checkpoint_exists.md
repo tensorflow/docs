@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.train.checkpoint_exists
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L374-L393">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Checks whether a V1 or V2 checkpoint exists with the specified prefix. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.train.checkpoint_exists`
-* `tf.train.checkpoint_exists`
+* <a href="/api_docs/python/tf/train/checkpoint_exists"><code>tf.compat.v1.train.checkpoint_exists</code></a>
+
 
 ``` python
 tf.train.checkpoint_exists(checkpoint_prefix)
 ```
 
 
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,6 +47,7 @@ into account the naming difference between V1 and V2 formats.
   <a href="../../tf/train/latest_checkpoint"><code>tf.train.latest_checkpoint()</code></a>, regardless of sharded/non-sharded or
   V1/V2.
 
+
 #### Returns:
 
-A bool, true iff a checkpoint referred to by `checkpoint_prefix` exists.
+A bool, true if a checkpoint referred to by `checkpoint_prefix` exists.

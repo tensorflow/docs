@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.seq2seq
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/seq2seq/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops for building neural network seq2seq decoders and losses.
-
-
-
-Defined in [`contrib/seq2seq/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/seq2seq/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,13 +39,13 @@ guide.
 
 [`class BasicDecoder`](../../tf/contrib/seq2seq/BasicDecoder): Basic sampling decoder.
 
-[`class BasicDecoderOutput`](../../tf/contrib/seq2seq/BasicDecoderOutput)
+[`class BasicDecoderOutput`](../../tf/contrib/seq2seq/BasicDecoderOutput): BasicDecoderOutput(rnn_output, sample_id)
 
 [`class BeamSearchDecoder`](../../tf/contrib/seq2seq/BeamSearchDecoder): BeamSearch sampling decoder.
 
-[`class BeamSearchDecoderOutput`](../../tf/contrib/seq2seq/BeamSearchDecoderOutput)
+[`class BeamSearchDecoderOutput`](../../tf/contrib/seq2seq/BeamSearchDecoderOutput): BeamSearchDecoderOutput(scores, predicted_ids, parent_ids)
 
-[`class BeamSearchDecoderState`](../../tf/contrib/seq2seq/BeamSearchDecoderState)
+[`class BeamSearchDecoderState`](../../tf/contrib/seq2seq/BeamSearchDecoderState): BeamSearchDecoderState(cell_state, log_probs, finished, lengths, accumulated_attention_probs)
 
 [`class CustomHelper`](../../tf/contrib/seq2seq/CustomHelper): Base abstract class that allows the user to customize sampling.
 
@@ -78,4 +86,3 @@ guide.
 [`sequence_loss(...)`](../../tf/contrib/seq2seq/sequence_loss): Weighted cross-entropy loss for a sequence of logits.
 
 [`tile_batch(...)`](../../tf/contrib/seq2seq/tile_batch): Tile the batch dimension of a (possibly nested structure of) tensor(s) t.
-

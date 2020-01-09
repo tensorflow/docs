@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.timeseries.CSVReader
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L436-L513">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `CSVReader`
 
 Reads from a collection of CSV-formatted files.
 
 
 
-
-
-Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L439-L488">View source</a>
 
 ``` python
 __init__(
@@ -64,6 +74,8 @@ CSV-parsing reader for a `TimeSeriesInputFn`.
 
 <h3 id="check_dataset_size"><code>check_dataset_size</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L169-L183">View source</a>
+
 ``` python
 check_dataset_size(minimum_dataset_size)
 ```
@@ -85,6 +97,8 @@ method.
 
 <h3 id="read"><code>read</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L368-L383">View source</a>
+
 ``` python
 read()
 ```
@@ -94,12 +108,10 @@ Reads a chunk of data from the <a href="../../../tf/ReaderBase"><code>tf.compat.
 
 <h3 id="read_full"><code>read_full</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L385-L433">View source</a>
+
 ``` python
 read_full()
 ```
 
 Reads a full epoch of data into memory.
-
-
-
-

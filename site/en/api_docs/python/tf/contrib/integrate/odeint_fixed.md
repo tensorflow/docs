@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.integrate.odeint_fixed
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/integrate/python/ops/odes.py#L644-L704">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ODE integration on a fixed grid (with no step size control).
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.integrate.odeint_fixed(
 ```
 
 
-
-Defined in [`contrib/integrate/python/ops/odes.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/integrate/python/ops/odes.py).
 
 <!-- Placeholder for "Used in" -->
 

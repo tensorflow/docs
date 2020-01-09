@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.fingerprint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/fingerprint">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4671-L4717">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Generates fingerprint values.
 
 ### Aliases:
 
-* `tf.compat.v1.fingerprint`
-* `tf.compat.v2.fingerprint`
-* `tf.fingerprint`
+* <a href="/api_docs/python/tf/fingerprint"><code>tf.compat.v1.fingerprint</code></a>
+* <a href="/api_docs/python/tf/fingerprint"><code>tf.compat.v2.fingerprint</code></a>
+
 
 ``` python
 tf.fingerprint(
@@ -22,8 +40,6 @@ tf.fingerprint(
 ```
 
 
-
-Defined in [`python/ops/array_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/array_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

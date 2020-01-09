@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.factorization.GMM
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L69-L183">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GMM`
 
 An estimator for GMM clustering.
 
 Inherits From: [`Estimator`](../../../tf/contrib/learn/Estimator)
 
-
-
-Defined in [`contrib/factorization/python/ops/gmm.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/factorization/python/ops/gmm.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L75-L104">View source</a>
 
 ``` python
 __init__(
@@ -60,7 +70,7 @@ Creates a model for running GMM training and inference.
 
 <h3 id="model_dir"><code>model_dir</code></h3>
 
-
+Returns a path in which the eval process will look for checkpoints.
 
 
 <h3 id="model_fn"><code>model_fn</code></h3>
@@ -80,6 +90,8 @@ The model_fn with the following signature:
 
 <h3 id="clusters"><code>clusters</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L134-L138">View source</a>
+
 ``` python
 clusters()
 ```
@@ -89,6 +101,8 @@ Returns cluster centers.
 
 <h3 id="covariances"><code>covariances</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L140-L143">View source</a>
+
 ``` python
 covariances()
 ```
@@ -97,6 +111,8 @@ Returns the covariances.
 
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L580-L621">View source</a>
 
 ``` python
 evaluate(
@@ -132,6 +148,8 @@ Example conversion:
     Or if `metrics` is not `None` or `dict`.
 
 <h3 id="export"><code>export</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L695-L754">View source</a>
 
 ``` python
 export(
@@ -194,6 +212,8 @@ are not returning a value.
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L1317-L1490">View source</a>
+
 ``` python
 export_savedmodel(
     export_dir_base,
@@ -252,6 +272,8 @@ The string path to the exported directory.
 
 <h3 id="fit"><code>fit</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L487-L526">View source</a>
+
 ``` python
 fit(
     x=None,
@@ -282,6 +304,8 @@ Example conversion:
 
 <h3 id="get_params"><code>get_params</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L41-L67">View source</a>
+
 ``` python
 get_params(deep=True)
 ```
@@ -306,6 +330,8 @@ Parameter names mapped to their values.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L683-L689">View source</a>
+
 ``` python
 get_variable_names()
 ```
@@ -319,6 +345,8 @@ List of names.
 
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L672-L681">View source</a>
 
 ``` python
 get_variable_value(name)
@@ -339,6 +367,8 @@ Numpy array - value of the tensor.
 
 
 <h3 id="partial_fit"><code>partial_fit</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L528-L578">View source</a>
 
 ``` python
 partial_fit(
@@ -402,6 +432,8 @@ to converge, and you want to split up training into subparts.
 
 <h3 id="predict"><code>predict</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/estimator.py#L623-L670">View source</a>
+
 ``` python
 predict(
     x=None,
@@ -459,6 +491,8 @@ predictions if as_iterable is True.
 
 <h3 id="predict_assignments"><code>predict_assignments</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L106-L112">View source</a>
+
 ``` python
 predict_assignments(
     input_fn=None,
@@ -471,6 +505,8 @@ See BaseEstimator.predict.
 
 
 <h3 id="score"><code>score</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L114-L127">View source</a>
 
 ``` python
 score(
@@ -497,6 +533,8 @@ Total log-likelihood.
 
 
 <h3 id="set_params"><code>set_params</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/_sklearn.py#L69-L110">View source</a>
 
 ``` python
 set_params(**params)
@@ -527,6 +565,8 @@ self
 * <b>`ValueError`</b>: If params contain invalid names.
 
 <h3 id="weights"><code>weights</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/factorization/python/ops/gmm.py#L129-L132">View source</a>
 
 ``` python
 weights()

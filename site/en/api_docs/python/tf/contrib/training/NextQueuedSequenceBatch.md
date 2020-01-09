@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.training.NextQueuedSequenceBatch
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L358-L611">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NextQueuedSequenceBatch`
 
 NextQueuedSequenceBatch stores deferred SequenceQueueingStateSaver data.
 
 
-
-
-
-Defined in [`contrib/training/python/training/sequence_queueing_state_saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,11 +30,13 @@ via its `next_batch` property.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L365-L366">View source</a>
+
 ``` python
 __init__(state_saver)
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -200,6 +210,8 @@ An integer vector of length `batch_size`, the total lengths.
 
 <h3 id="save_state"><code>save_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L556-L611">View source</a>
+
 ``` python
 save_state(
     state_name,
@@ -245,6 +257,8 @@ will never progress through its states and run out of capacity).
 
 <h3 id="state"><code>state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/sequence_queueing_state_saver.py#L527-L554">View source</a>
+
 ``` python
 state(state_name)
 ```
@@ -283,6 +297,3 @@ state(state_name).get_shape() == [batch_size, d1, d2, ...]
 
 * <b>`KeyError`</b>: if `state_name` does not match any of the initial states
   declared in `initial_states`.
-
-
-

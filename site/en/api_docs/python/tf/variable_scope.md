@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.variable_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L1978-L2361">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `variable_scope`
 
 A context manager for defining ops that creates variables (layers).
@@ -13,12 +25,8 @@ A context manager for defining ops that creates variables (layers).
 
 ### Aliases:
 
-* Class `tf.compat.v1.variable_scope`
-* Class `tf.variable_scope`
+* Class <a href="/api_docs/python/tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a>
 
-
-
-Defined in [`python/ops/variable_scope.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variable_scope.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -154,6 +162,8 @@ thread = threading.Thread(target=thread_target_fn, args=(main_thread_scope,))
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2112-L2202">View source</a>
+
 ``` python
 __init__(
     name_or_scope,
@@ -232,6 +242,8 @@ A scope that can be captured and reused.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2204-L2228">View source</a>
+
 ``` python
 __enter__()
 ```
@@ -241,6 +253,8 @@ __enter__()
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2349-L2361">View source</a>
+
 ``` python
 __exit__(
     type_arg,
@@ -248,9 +262,3 @@ __exit__(
     traceback_arg
 )
 ```
-
-
-
-
-
-

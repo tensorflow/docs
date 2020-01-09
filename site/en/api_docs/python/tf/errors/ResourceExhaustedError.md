@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.errors.ResourceExhaustedError
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/errors/ResourceExhaustedError">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L356-L368">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ResourceExhaustedError`
 
 Some resource has been exhausted.
@@ -13,13 +31,9 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class `tf.compat.v1.errors.ResourceExhaustedError`
-* Class `tf.compat.v2.errors.ResourceExhaustedError`
-* Class `tf.errors.ResourceExhaustedError`
+* Class <a href="/api_docs/python/tf/errors/ResourceExhaustedError"><code>tf.compat.v1.errors.ResourceExhaustedError</code></a>
+* Class <a href="/api_docs/python/tf/errors/ResourceExhaustedError"><code>tf.compat.v2.errors.ResourceExhaustedError</code></a>
 
-
-
-Defined in [`python/framework/errors_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/errors_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,6 +42,8 @@ exhausted, or perhaps the entire file system is out of space.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L365-L368">View source</a>
 
 ``` python
 __init__(
@@ -73,7 +89,3 @@ discover information about the op.
 #### Returns:
 
 The `Operation` that failed, or None.
-
-
-
-

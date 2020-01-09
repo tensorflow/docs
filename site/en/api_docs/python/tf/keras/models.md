@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.models
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/models">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Code for model cloning, plus model-related API entries.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.models`
-* Module `tf.keras.models`
+* Module <a href="/api_docs/python/tf/keras/models"><code>tf.compat.v1.keras.models</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/models/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/models/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,4 +46,3 @@ Defined in [`python/keras/api/_v1/keras/models/__init__.py`](https://github.com/
 [`model_from_yaml(...)`](../../tf/keras/models/model_from_yaml): Parses a yaml model configuration file and returns a model instance.
 
 [`save_model(...)`](../../tf/keras/models/save_model): Saves a model as a TensorFlow SavedModel or HDF5 file.
-

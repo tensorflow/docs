@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.distribute.NcclAllReduce
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/NcclAllReduce">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L795-L817">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `NcclAllReduce`
 
 Reduction using NCCL all-reduce.
@@ -13,18 +31,16 @@ Inherits From: [`AllReduceCrossDeviceOps`](../../tf/contrib/distribute/AllReduce
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.NcclAllReduce`
-* Class `tf.compat.v2.distribute.NcclAllReduce`
-* Class `tf.distribute.NcclAllReduce`
+* Class <a href="/api_docs/python/tf/distribute/NcclAllReduce"><code>tf.compat.v1.distribute.NcclAllReduce</code></a>
+* Class <a href="/api_docs/python/tf/distribute/NcclAllReduce"><code>tf.compat.v2.distribute.NcclAllReduce</code></a>
 
-
-
-Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cross_device_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L798-L817">View source</a>
 
 ``` python
 __init__(num_packs=1)
@@ -32,20 +48,29 @@ __init__(num_packs=1)
 
 NCCL all-reduce implementation of CrossDeviceOps.
 
-Before performing all-reduce, tensors will be repacked or aggregated for
-more efficient cross-device transportation.
+It uses Nvidia NCCL for all-reduce. Before performing all-reduce, tensors
+will be repacked or aggregated for more efficient cross-device
+transportation.
 
 #### Args:
 
 
 * <b>`num_packs`</b>: values will be packed in this many splits.  `num_packs` should
-  be greater than 0.
+  be greater than or equals 0. When it is zero, no packing will be done.
+
+
+#### Raises:
+
+ValueError if `num_packs` is negative.
+
 
 
 
 ## Methods
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
 
 ``` python
 batch_reduce(
@@ -82,6 +107,8 @@ a list of Mirrored objects.
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
+
 ``` python
 broadcast(
     tensor,
@@ -105,6 +132,8 @@ a Mirrored object.
 
 
 <h3 id="reduce"><code>reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
 
 ``` python
 reduce(
@@ -139,6 +168,3 @@ a Mirrored object.
 
 * <b>`ValueError`</b>: if per_replica_value can't be converted to a PerReplica
   object.
-
-
-

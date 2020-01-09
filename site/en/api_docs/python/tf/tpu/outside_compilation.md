@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.tpu.outside_compilation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu.py#L535-L575">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Builds part of a computation outside any current TPU replicate scope.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.outside_compilation`
-* `tf.contrib.tpu.outside_compilation`
-* `tf.tpu.outside_compilation`
+* <a href="/api_docs/python/tf/tpu/outside_compilation"><code>tf.compat.v1.tpu.outside_compilation</code></a>
+* <a href="/api_docs/python/tf/tpu/outside_compilation"><code>tf.contrib.tpu.outside_compilation</code></a>
+
 
 ``` python
 tf.tpu.outside_compilation(
@@ -22,8 +34,6 @@ tf.tpu.outside_compilation(
 ```
 
 
-
-Defined in [`python/tpu/tpu.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu.py).
 
 <!-- Placeholder for "Used in" -->
 

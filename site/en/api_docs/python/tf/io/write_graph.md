@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.io.write_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/write_graph">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/graph_io.py#L30-L75">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Writes a graph proto to a file.
 
 ### Aliases:
 
-* `tf.compat.v1.io.write_graph`
-* `tf.compat.v1.train.write_graph`
-* `tf.compat.v2.io.write_graph`
-* `tf.io.write_graph`
-* `tf.train.write_graph`
+* <a href="/api_docs/python/tf/io/write_graph"><code>tf.compat.v1.io.write_graph</code></a>
+* <a href="/api_docs/python/tf/io/write_graph"><code>tf.compat.v1.train.write_graph</code></a>
+* <a href="/api_docs/python/tf/io/write_graph"><code>tf.compat.v2.io.write_graph</code></a>
+* <a href="/api_docs/python/tf/io/write_graph"><code>tf.train.write_graph</code></a>
+
 
 ``` python
 tf.io.write_graph(
@@ -25,8 +43,6 @@ tf.io.write_graph(
 ```
 
 
-
-Defined in [`python/framework/graph_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/graph_io.py).
 
 <!-- Placeholder for "Used in" -->
 

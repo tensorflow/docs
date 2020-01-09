@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.learn.extract_pandas_matrix
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py#L107-L120">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Extracts numpy matrix from pandas DataFrame. (deprecated)
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.learn.extract_pandas_matrix(data)
 ```
 
 
-
-Defined in [`contrib/learn/python/learn/learn_io/pandas_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/learn_io/pandas_io.py).
 
 <!-- Placeholder for "Used in" -->
 

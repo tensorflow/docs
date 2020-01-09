@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.train.import_meta_graph
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/saver.py#L1341-L1453">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Recreates a Graph saved in a `MetaGraphDef` proto.
 
 ### Aliases:
 
-* `tf.compat.v1.train.import_meta_graph`
-* `tf.train.import_meta_graph`
+* <a href="/api_docs/python/tf/train/import_meta_graph"><code>tf.compat.v1.train.import_meta_graph</code></a>
+
 
 ``` python
 tf.train.import_meta_graph(
@@ -22,8 +34,6 @@ tf.train.import_meta_graph(
 ```
 
 
-
-Defined in [`python/training/saver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/saver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,13 +72,13 @@ Later we can continue training from this saved `meta_graph` without building
 the model from scratch.
 
 ```Python
-with tf.compat.v1.Session() as sess:
+with tf.Session() as sess:
   new_saver =
-  tf.compat.v1.train.import_meta_graph('my-save-dir/my-model-10000.meta')
+  tf.train.import_meta_graph('my-save-dir/my-model-10000.meta')
   new_saver.restore(sess, 'my-save-dir/my-model-10000')
-  # tf.compat.v1.get_collection() returns a list. In this example we only want
+  # tf.get_collection() returns a list. In this example we only want
   # the first one.
-  train_op = tf.compat.v1.get_collection('train_op')[0]
+  train_op = tf.get_collection('train_op')[0]
   for step in xrange(1000000):
     sess.run(train_op)
 ```
@@ -76,7 +86,7 @@ with tf.compat.v1.Session() as sess:
 NOTE: Restarting training from saved `meta_graph` only works if the
 device assignments have not changed.
 
-#### Example 2:
+#### Example:
 
 
 Variables, placeholders, and independent operations can also be stored, as
@@ -84,14 +94,14 @@ shown in the following example.
 
 ```Python
 # Saving contents and operations.
-v1 = tf.compat.v1.placeholder(tf.float32, name="v1")
-v2 = tf.compat.v1.placeholder(tf.float32, name="v2")
-v3 = tf.mul(v1, v2)
+v1 = tf.placeholder(tf.float32, name="v1")
+v2 = tf.placeholder(tf.float32, name="v2")
+v3 = tf.math.multiply(v1, v2)
 vx = tf.Variable(10.0, name="vx")
 v4 = tf.add(v3, vx, name="v4")
-saver = tf.compat.v1.train.Saver([vx])
-sess = tf.compat.v1.Session()
-sess.run(tf.compat.v1.initialize_all_variables())
+saver = tf.train.Saver([vx])
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
 sess.run(vx.assign(tf.add(vx, vx)))
 result = sess.run(v4, feed_dict={v1:12.0, v2:3.3})
 print(result)
@@ -102,8 +112,8 @@ Later this model can be restored and contents loaded.
 
 ```Python
 # Restoring variables and running operations.
-saver = tf.compat.v1.train.import_meta_graph("./model_ex1.meta")
-sess = tf.compat.v1.Session()
+saver = tf.train.import_meta_graph("./model_ex1.meta")
+sess = tf.Session()
 saver.restore(sess, "./model_ex1")
 result = sess.run("v4:0", feed_dict={"v1:0": 12.0, "v2:0": 3.3})
 print(result)
@@ -140,4 +150,3 @@ A None value is returned if no variables exist in the `MetaGraphDef`
 #### Eager Compatibility
 Exporting/importing meta graphs is not supported. No graph exists when eager
 execution is enabled.
-

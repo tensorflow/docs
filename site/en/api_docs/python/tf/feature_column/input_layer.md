@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.feature_column.input_layer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column.py#L234-L303">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns a dense `Tensor` as input layer based on given `feature_columns`.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.input_layer`
-* `tf.feature_column.input_layer`
+* <a href="/api_docs/python/tf/feature_column/input_layer"><code>tf.compat.v1.feature_column.input_layer</code></a>
+
 
 ``` python
 tf.feature_column.input_layer(
@@ -24,8 +36,6 @@ tf.feature_column.input_layer(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 

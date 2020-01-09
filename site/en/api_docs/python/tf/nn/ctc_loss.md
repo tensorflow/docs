@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.ctc_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/ctc_loss">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ctc_ops.py#L47-L178">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the CTC (Connectionist Temporal Classification) Loss.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.ctc_loss`
-* `tf.nn.ctc_loss`
+* <a href="/api_docs/python/tf/nn/ctc_loss"><code>tf.compat.v1.nn.ctc_loss</code></a>
+
 
 ``` python
 tf.nn.ctc_loss(
@@ -26,8 +44,6 @@ tf.nn.ctc_loss(
 ```
 
 
-
-Defined in [`python/ops/ctc_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ctc_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

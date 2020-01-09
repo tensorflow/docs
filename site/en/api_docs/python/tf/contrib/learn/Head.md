@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.learn.Head
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/head.py#L59-L187">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Head`
 
 Interface for the head/top of a model.
 
 
-
-
-
-Defined in [`contrib/learn/python/learn/estimators/head.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/learn/python/learn/estimators/head.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,32 +70,34 @@ hidden layer. Some heads (like heads responsible for candidate sampling or
 hierarchical softmax) intrinsically will not support logits and you have
 to pass logits_input. Here is a common usage,
 
->     return head.create_model_fn_ops(
->         features=features,
->         labels=labels,
->         mode=mode,
->         train_op_fn=_train_op_fn,
->         logits_input=last_hidden_layer_out,
->         scope=...)
-
-There are cases where computing and applying gradients can not be meaningfully
-captured with train_op_fn we support (for example, with sync optimizer). In
-such case, you can take the responsibility on your own. Here is a common
-use case,
->     model_fn_ops = head.create_model_fn_ops(
->         features=features,
->         labels=labels,
->         mode=mode,
->         train_op_fn=tf.contrib.learn.no_op_train_fn,
->         logits=logits,
->         scope=...)
->     if mode == tf.contrib.learn.ModeKeys.TRAIN:
->       optimizer = ...
->       sync = tf.compat.v1.train.SyncReplicasOptimizer(opt=optimizer, ...)
->       update_op = tf.contrib.layers.optimize_loss(optimizer=sync,
->                                                   loss=model_fn_ops.loss, ...)
->       hooks = [sync.make_session_run_hook(is_chief)]
->       ... update train_op and hooks in ModelFnOps and return
+>       return head.create_model_fn_ops(
+>           features=features,
+>           labels=labels,
+>           mode=mode,
+>           train_op_fn=_train_op_fn,
+>           logits_input=last_hidden_layer_out,
+>           scope=...)
+>       ```python
+>     
+>     There are cases where computing and applying gradients can not be meaningfully
+>     captured with train_op_fn we support (for example, with sync optimizer). In
+>     such case, you can take the responsibility on your own. Here is a common
+>     use case,
+>       ```python
+>       model_fn_ops = head.create_model_fn_ops(
+>           features=features,
+>           labels=labels,
+>           mode=mode,
+>           train_op_fn=tf.contrib.learn.no_op_train_fn,
+>           logits=logits,
+>           scope=...)
+>       if mode == tf.contrib.learn.ModeKeys.TRAIN:
+>         optimizer = ...
+>         sync = tf.compat.v1.train.SyncReplicasOptimizer(opt=optimizer, ...)
+>         update_op = tf.contrib.layers.optimize_loss(optimizer=sync,
+>                                                     loss=model_fn_ops.loss, ...)
+>         hooks = [sync.make_session_run_hook(is_chief)]
+>         ... update train_op and hooks in ModelFnOps and return
 
 ## Properties
 
@@ -107,6 +117,8 @@ The expected size of the `logits` tensor.
 ## Methods
 
 <h3 id="create_model_fn_ops"><code>create_model_fn_ops</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn/estimators/head.py#L148-L187">View source</a>
 
 ``` python
 create_model_fn_ops(
@@ -157,6 +169,3 @@ An instance of `ModelFnOps`.
 
 * <b>`ValueError`</b>: If `mode` is not recognized.
 * <b>`ValueError`</b>: If neither or both of `logits` and `logits_input` is provided.
-
-
-

@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.backend.to_dense
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/to_dense">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L708-L732">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts a sparse tensor into a dense tensor and returns it.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.to_dense`
-* `tf.compat.v2.keras.backend.to_dense`
-* `tf.keras.backend.to_dense`
+* <a href="/api_docs/python/tf/keras/backend/to_dense"><code>tf.compat.v1.keras.backend.to_dense</code></a>
+* <a href="/api_docs/python/tf/keras/backend/to_dense"><code>tf.compat.v2.keras.backend.to_dense</code></a>
+
 
 ``` python
 tf.keras.backend.to_dense(tensor)
 ```
 
 
-
-Defined in [`python/keras/backend.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,11 +56,11 @@ A dense tensor.
 
 
 ```python
-    >>> from keras import backend as K
-    >>> b = K.placeholder((2, 2), sparse=True)
-    >>> print(K.is_sparse(b))
-    True
-    >>> c = K.to_dense(b)
-    >>> print(K.is_sparse(c))
-    False
+>>> from keras import backend as K
+>>> b = K.placeholder((2, 2), sparse=True)
+>>> print(K.is_sparse(b))
+True
+>>> c = K.to_dense(b)
+>>> print(K.is_sparse(c))
+False
 ```

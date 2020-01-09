@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.summary.FileWriterCache
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer_cache.py#L29-L64">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FileWriterCache`
 
 Cache for file writers.
@@ -13,12 +25,8 @@ Cache for file writers.
 
 ### Aliases:
 
-* Class `tf.compat.v1.summary.FileWriterCache`
-* Class `tf.summary.FileWriterCache`
+* Class <a href="/api_docs/python/tf/summary/FileWriterCache"><code>tf.compat.v1.summary.FileWriterCache</code></a>
 
-
-
-Defined in [`python/summary/writer/writer_cache.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/writer/writer_cache.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -27,6 +35,8 @@ This class caches file writers, one per directory.
 ## Methods
 
 <h3 id="clear"><code>clear</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer_cache.py#L40-L48">View source</a>
 
 ``` python
 @staticmethod
@@ -37,6 +47,8 @@ Clear cached summary writers. Currently only used for unit tests.
 
 
 <h3 id="get"><code>get</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/writer/writer_cache.py#L50-L64">View source</a>
 
 ``` python
 @staticmethod
@@ -55,7 +67,3 @@ Returns the FileWriter for the specified directory.
 #### Returns:
 
 A `FileWriter`.
-
-
-
-

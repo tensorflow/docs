@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.data.Iterator
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L75-L503">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Iterator`
 
 Represents the state of iterating through a `Dataset`.
@@ -13,17 +25,15 @@ Inherits From: [`CheckpointableBase`](../../tf/contrib/checkpoint/Checkpointable
 
 ### Aliases:
 
-* Class `tf.compat.v1.data.Iterator`
-* Class `tf.data.Iterator`
+* Class <a href="/api_docs/python/tf/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a>
 
-
-
-Defined in [`python/data/ops/iterator_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/ops/iterator_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L78-L116">View source</a>
 
 ``` python
 __init__(
@@ -58,6 +68,17 @@ instead use <a href="../../tf/data/Dataset#make_initializable_iterator"><code>Da
 
 
 ## Properties
+
+<h3 id="element_spec"><code>element_spec</code></h3>
+
+The type specification of an element of this iterator.
+
+
+#### Returns:
+
+A nested structure of <a href="../../tf/TypeSpec"><code>tf.TypeSpec</code></a> objects matching the structure of an
+element of this iterator and specifying the type of individual components.
+
 
 <h3 id="initializer"><code>initializer</code></h3>
 
@@ -125,6 +146,8 @@ of an element of this dataset.
 
 <h3 id="from_string_handle"><code>from_string_handle</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L222-L298">View source</a>
+
 ``` python
 @staticmethod
 from_string_handle(
@@ -186,6 +209,8 @@ An `Iterator`.
 
 
 <h3 id="from_structure"><code>from_structure</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L118-L220">View source</a>
 
 ``` python
 @staticmethod
@@ -272,6 +297,8 @@ An `Iterator`.
 
 <h3 id="get_next"><code>get_next</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L373-L427">View source</a>
+
 ``` python
 get_next(name=None)
 ```
@@ -326,6 +353,8 @@ A nested structure of <a href="../../tf/Tensor"><code>tf.Tensor</code></a> objec
 
 <h3 id="make_initializer"><code>make_initializer</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L317-L371">View source</a>
+
 ``` python
 make_initializer(
     dataset,
@@ -358,6 +387,8 @@ A <a href="../../tf/Operation"><code>tf.Operation</code></a> that can be run to 
 
 <h3 id="string_handle"><code>string_handle</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/iterator_ops.py#L429-L442">View source</a>
+
 ``` python
 string_handle(name=None)
 ```
@@ -374,7 +405,3 @@ Returns a string-valued <a href="../../tf/Tensor"><code>tf.Tensor</code></a> tha
 #### Returns:
 
 A scalar <a href="../../tf/Tensor"><code>tf.Tensor</code></a> of type <a href="../../tf#string"><code>tf.string</code></a>.
-
-
-
-

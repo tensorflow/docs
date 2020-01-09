@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.stop_gradient
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/stop_gradient">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Stops gradient computation.
 
 ### Aliases:
 
-* `tf.compat.v1.stop_gradient`
-* `tf.compat.v2.stop_gradient`
-* `tf.stop_gradient`
+* <a href="/api_docs/python/tf/stop_gradient"><code>tf.compat.v1.stop_gradient</code></a>
+* <a href="/api_docs/python/tf/stop_gradient"><code>tf.compat.v2.stop_gradient</code></a>
+
 
 ``` python
 tf.stop_gradient(
@@ -21,8 +35,6 @@ tf.stop_gradient(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

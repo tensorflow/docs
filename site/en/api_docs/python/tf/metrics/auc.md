@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.auc
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L629-L850">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the approximate AUC via a Riemann sum.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.auc`
-* `tf.metrics.auc`
+* <a href="/api_docs/python/tf/metrics/auc"><code>tf.compat.v1.metrics.auc</code></a>
+
 
 ``` python
 tf.metrics.auc(
@@ -28,8 +40,6 @@ tf.metrics.auc(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

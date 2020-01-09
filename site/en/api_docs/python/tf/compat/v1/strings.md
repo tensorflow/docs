@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.strings
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/strings">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Operations for working with string Tensors.
 
 <!-- Placeholder for "Used in" -->
@@ -12,7 +24,7 @@ Operations for working with string Tensors.
 
 ## Functions
 
-[`as_string(...)`](../../../tf/strings/as_string): Converts each entry in the given tensor to strings.  Supports many numeric
+[`as_string(...)`](../../../tf/strings/as_string): Converts each entry in the given tensor to strings.
 
 [`bytes_split(...)`](../../../tf/strings/bytes_split): Split string elements of `input` into bytes.
 
@@ -23,6 +35,8 @@ Operations for working with string Tensors.
 [`length(...)`](../../../tf/strings/length): String lengths of `input`.
 
 [`lower(...)`](../../../tf/strings/lower): TODO: add doc.
+
+[`ngrams(...)`](../../../tf/strings/ngrams): Create a tensor of n-grams based on `data`.
 
 [`reduce_join(...)`](../../../tf/strings/reduce_join): Joins a string Tensor across the given dimensions.
 
@@ -58,5 +72,6 @@ Operations for working with string Tensors.
 
 [`unicode_transcode(...)`](../../../tf/strings/unicode_transcode): Transcode the input text from a source encoding to a destination encoding.
 
-[`upper(...)`](../../../tf/strings/upper): TODO: add doc.
+[`unsorted_segment_join(...)`](../../../tf/strings/unsorted_segment_join): Joins the elements of `inputs` based on `segment_ids`.
 
+[`upper(...)`](../../../tf/strings/upper): TODO: add doc.

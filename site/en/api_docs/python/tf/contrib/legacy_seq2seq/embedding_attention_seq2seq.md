@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.legacy_seq2seq.embedding_attention_seq2seq
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py#L793-L918">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Embedding sequence-to-sequence model with attention.
 
 ``` python
@@ -25,8 +37,6 @@ tf.contrib.legacy_seq2seq.embedding_attention_seq2seq(
 ```
 
 
-
-Defined in [`contrib/legacy_seq2seq/python/ops/seq2seq.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py).
 
 <!-- Placeholder for "Used in" -->
 

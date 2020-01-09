@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.ZeroPadding1D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/ZeroPadding1D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2073-L2110">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ZeroPadding1D`
 
 Zero-padding layer for 1D input (e.g. temporal sequence).
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.ZeroPadding1D`
-* Class `tf.compat.v2.keras.layers.ZeroPadding1D`
-* Class `tf.keras.layers.ZeroPadding1D`
+* Class <a href="/api_docs/python/tf/keras/layers/ZeroPadding1D"><code>tf.compat.v1.keras.layers.ZeroPadding1D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/ZeroPadding1D"><code>tf.compat.v2.keras.layers.ZeroPadding1D</code></a>
 
-
-
-Defined in [`python/keras/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -49,15 +63,11 @@ Defined in [`python/keras/layers/convolutional.py`](https://github.com/tensorflo
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2092-L2095">View source</a>
+
 ``` python
 __init__(
     padding=1,
     **kwargs
 )
 ```
-
-
-
-
-
-

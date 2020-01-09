@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.get_collection
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6213-L6239">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Wrapper for <a href="../tf/Graph#get_collection"><code>Graph.get_collection()</code></a> using the default graph.
 
 ### Aliases:
 
-* `tf.compat.v1.get_collection`
-* `tf.get_collection`
+* <a href="/api_docs/python/tf/get_collection"><code>tf.compat.v1.get_collection</code></a>
+
 
 ``` python
 tf.get_collection(
@@ -20,8 +32,6 @@ tf.get_collection(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -52,4 +62,3 @@ collected.
 
 #### Eager Compatibility
 Collections are not supported when eager execution is enabled.
-

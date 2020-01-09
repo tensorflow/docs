@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.graph_util.import_graph_def
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/graph_util/import_graph_def">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/importer.py#L347-L405">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Imports the graph from `graph_def` into the current default `Graph`. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.graph_util.import_graph_def`
-* `tf.compat.v1.import_graph_def`
-* `tf.compat.v2.graph_util.import_graph_def`
-* `tf.compat.v2.import_graph_def`
-* `tf.graph_util.import_graph_def`
-* `tf.import_graph_def`
+* <a href="/api_docs/python/tf/graph_util/import_graph_def"><code>tf.compat.v1.graph_util.import_graph_def</code></a>
+* <a href="/api_docs/python/tf/graph_util/import_graph_def"><code>tf.compat.v1.import_graph_def</code></a>
+* <a href="/api_docs/python/tf/graph_util/import_graph_def"><code>tf.compat.v2.graph_util.import_graph_def</code></a>
+* <a href="/api_docs/python/tf/graph_util/import_graph_def"><code>tf.compat.v2.import_graph_def</code></a>
+* <a href="/api_docs/python/tf/graph_util/import_graph_def"><code>tf.import_graph_def</code></a>
+
 
 ``` python
 tf.graph_util.import_graph_def(
@@ -28,8 +46,6 @@ tf.graph_util.import_graph_def(
 ```
 
 
-
-Defined in [`python/framework/importer.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/importer.py).
 
 <!-- Placeholder for "Used in" -->
 

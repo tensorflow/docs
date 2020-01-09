@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.keras.backend.floatx
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/backend/floatx">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend_config.py#L60-L74">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the default float type, as a string.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.backend.floatx`
-* `tf.compat.v2.keras.backend.floatx`
-* `tf.keras.backend.floatx`
+* <a href="/api_docs/python/tf/keras/backend/floatx"><code>tf.compat.v1.keras.backend.floatx</code></a>
+* <a href="/api_docs/python/tf/keras/backend/floatx"><code>tf.compat.v2.keras.backend.floatx</code></a>
+
 
 ``` python
 tf.keras.backend.floatx()
 ```
 
 
-
-Defined in [`python/keras/backend_config.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/backend_config.py).
 
 <!-- Placeholder for "Used in" -->
 

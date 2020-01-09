@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.tpu.Topology
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L43-L220">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Topology`
 
 Describes a set of TPU devices.
 
 
-
-
-
-Defined in [`python/tpu/topology.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/topology.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,6 +29,8 @@ Represents both the shape of the physical mesh, and the mapping between
 TensorFlow TPU devices to physical mesh coordinates.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L50-L91">View source</a>
 
 ``` python
 __init__(
@@ -103,6 +113,8 @@ Returns the number of TPU devices per task in the TPU slice.
 
 <h3 id="cpu_device_name_at_coordinates"><code>cpu_device_name_at_coordinates</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L189-L192">View source</a>
+
 ``` python
 cpu_device_name_at_coordinates(
     device_coordinates,
@@ -115,6 +127,8 @@ Returns the CPU device attached to a logical core.
 
 <h3 id="serialized"><code>serialized</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L210-L220">View source</a>
+
 ``` python
 serialized()
 ```
@@ -123,6 +137,8 @@ Returns the serialized form of the topology.
 
 
 <h3 id="task_ordinal_at_coordinates"><code>task_ordinal_at_coordinates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L163-L174">View source</a>
 
 ``` python
 task_ordinal_at_coordinates(device_coordinates)
@@ -146,6 +162,8 @@ physical coordinates.
 
 <h3 id="tpu_device_name_at_coordinates"><code>tpu_device_name_at_coordinates</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L194-L198">View source</a>
+
 ``` python
 tpu_device_name_at_coordinates(
     device_coordinates,
@@ -157,6 +175,8 @@ Returns the name of the TPU device assigned to a logical core.
 
 
 <h3 id="tpu_device_ordinal_at_coordinates"><code>tpu_device_ordinal_at_coordinates</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/topology.py#L176-L187">View source</a>
 
 ``` python
 tpu_device_ordinal_at_coordinates(device_coordinates)
@@ -176,7 +196,3 @@ Returns the TensorFlow device number at `device_coordinates`.
 
 Returns the TensorFlow device number within the task corresponding to
 attached to the device with those physical coordinates.
-
-
-
-

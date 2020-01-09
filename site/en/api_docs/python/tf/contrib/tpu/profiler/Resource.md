@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.tpu.profiler.Resource
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/trace_events.proto">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Resource`
 
+A ProtocolMessage
 
 
-
-
-
-
-Defined in [`core/protobuf/trace_events.proto`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/core/protobuf/trace_events.proto).
 
 <!-- Placeholder for "Used in" -->
 
@@ -28,7 +36,3 @@ Defined in [`core/protobuf/trace_events.proto`](https://github.com/tensorflow/te
 <h3 id="resource_id"><code>resource_id</code></h3>
 
 `uint32 resource_id`
-
-
-
-

@@ -6,18 +6,27 @@ page_type: reference
 # Module: tf.estimator.export
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/export">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+All public utility methods for exporting Estimator to SavedModel.
 
 ### Aliases:
 
-* Module `tf.compat.v1.estimator.export`
-* Module `tf.estimator.export`
+* Module <a href="/api_docs/python/tf/estimator/export"><code>tf.compat.v1.estimator.export</code></a>
 
-
-
-Defined in [`python/estimator/api/_v1/estimator/export/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/export/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
+This file includes functions and constants from core (model_utils) and export.py
 
 ## Classes
 
@@ -38,4 +47,3 @@ Defined in [`python/estimator/api/_v1/estimator/export/__init__.py`](https://git
 [`build_parsing_serving_input_receiver_fn(...)`](../../tf/estimator/export/build_parsing_serving_input_receiver_fn): Build a serving_input_receiver_fn expecting fed tf.Examples.
 
 [`build_raw_serving_input_receiver_fn(...)`](../../tf/estimator/export/build_raw_serving_input_receiver_fn): Build a serving_input_receiver_fn expecting feature Tensors.
-

@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.contrib.distribute.MultiWorkerAllReduce
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L852-L971">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `MultiWorkerAllReduce`
 
 All-reduce algorithms for distributed TensorFlow.
 
 Inherits From: [`AllReduceCrossDeviceOps`](../../../tf/contrib/distribute/AllReduceCrossDeviceOps)
 
-
-
-Defined in [`python/distribute/cross_device_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cross_device_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L855-L922">View source</a>
 
 ``` python
 __init__(
@@ -69,6 +79,8 @@ Initialize the all-reduce algorithm.
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
+
 ``` python
 batch_reduce(
     reduce_op,
@@ -104,6 +116,8 @@ a list of Mirrored objects.
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
+
 ``` python
 broadcast(
     tensor,
@@ -127,6 +141,8 @@ a Mirrored object.
 
 
 <h3 id="reduce"><code>reduce</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
 
 ``` python
 reduce(
@@ -161,6 +177,3 @@ a Mirrored object.
 
 * <b>`ValueError`</b>: if per_replica_value can't be converted to a PerReplica
   object.
-
-
-

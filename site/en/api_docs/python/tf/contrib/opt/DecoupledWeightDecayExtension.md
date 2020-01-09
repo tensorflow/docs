@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.opt.DecoupledWeightDecayExtension
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L32-L226">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `DecoupledWeightDecayExtension`
 
 This class allows to extend optimizers with decoupled weight decay.
 
 
-
-
-
-Defined in [`contrib/opt/python/training/weight_decay_optimizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,6 +72,8 @@ the decay to the `weight_decay` as well. For example:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L81-L93">View source</a>
+
 ``` python
 __init__(
     weight_decay,
@@ -86,6 +96,8 @@ Construct the extension class that adds weight decay to an optimizer.
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L146-L175">View source</a>
 
 ``` python
 apply_gradients(
@@ -125,6 +137,8 @@ was not None, that operation also increments `global_step`.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/weight_decay_optimizers.py#L95-L144">View source</a>
+
 ``` python
 minimize(
     loss,
@@ -155,7 +169,7 @@ For more information see the documentation of Optimizer.minimize.
   have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in the
-  graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -171,7 +185,3 @@ For more information see the documentation of Optimizer.minimize.
 
 An Operation that updates the variables in `var_list`.  If `global_step`
 was not `None`, that operation also increments `global_step`.
-
-
-
-

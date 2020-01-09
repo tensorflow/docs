@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.FinalOpsHook
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L927-L967">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `FinalOpsHook`
 
 A hook which evaluates `Tensors` at the end of a session.
@@ -13,20 +25,18 @@ Inherits From: [`SessionRunHook`](../../tf/train/SessionRunHook)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.FinalOpsHook`
-* Class `tf.compat.v1.train.FinalOpsHook`
-* Class `tf.compat.v2.estimator.FinalOpsHook`
-* Class `tf.estimator.FinalOpsHook`
-* Class `tf.train.FinalOpsHook`
+* Class <a href="/api_docs/python/tf/train/FinalOpsHook"><code>tf.compat.v1.estimator.FinalOpsHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FinalOpsHook"><code>tf.compat.v1.train.FinalOpsHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FinalOpsHook"><code>tf.compat.v2.estimator.FinalOpsHook</code></a>
+* Class <a href="/api_docs/python/tf/train/FinalOpsHook"><code>tf.estimator.FinalOpsHook</code></a>
 
-
-
-Defined in [`python/training/basic_session_run_hooks.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/basic_session_run_hooks.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L930-L941">View source</a>
 
 ``` python
 __init__(
@@ -61,6 +71,8 @@ Initializes `FinalOpHook` with ops to run at the end of the session.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L112-L127">View source</a>
+
 ``` python
 after_create_session(
     session,
@@ -86,6 +98,8 @@ has two essential differences with the situation in which `begin` is called:
 
 <h3 id="after_run"><code>after_run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L152-L169">View source</a>
+
 ``` python
 after_run(
     run_context,
@@ -110,6 +124,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 * <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
 
 ``` python
 before_run(run_context)
@@ -142,6 +158,8 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L101-L110">View source</a>
+
 ``` python
 begin()
 ```
@@ -156,12 +174,24 @@ graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/basic_session_run_hooks.py#L947-L967">View source</a>
+
 ``` python
 end(session)
 ```
 
+Called at the end of session.
+
+The `session` argument can be used in case the hook wants to run final ops,
+such as saving a last checkpoint.
+
+If `session.run()` raises exception other than OutOfRangeError or
+StopIteration then `end()` is not called.
+Note the difference between `end()` and `after_run()` behavior when
+`session.run()` raises OutOfRangeError or StopIteration. In that case
+`end()` is called but `after_run()` is not called.
+
+#### Args:
 
 
-
-
-
+* <b>`session`</b>: A TensorFlow Session that will be soon closed.

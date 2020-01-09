@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.resource_loader
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Resource management library.
 
 <!-- Placeholder for "Used in" -->
 
@@ -21,4 +27,3 @@ page_type: reference
 [`load_resource(...)`](../tf/resource_loader/load_resource): Load the resource at given path, where path is relative to tensorflow/.
 
 [`readahead_file_path(...)`](../tf/resource_loader/readahead_file_path): Readahead files not implemented; simply returns given path.
-

@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.debugging.assert_scalar
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_scalar">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L2071-L2102">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
 
 ### Aliases:
 
-* `tf.assert_scalar`
-* `tf.compat.v1.assert_scalar`
-* `tf.compat.v1.debugging.assert_scalar`
-* `tf.contrib.framework.assert_scalar`
-* `tf.debugging.assert_scalar`
+* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.assert_scalar</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.compat.v1.assert_scalar</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.compat.v1.debugging.assert_scalar</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.contrib.framework.assert_scalar</code></a>
+
 
 ``` python
 tf.debugging.assert_scalar(
@@ -24,8 +42,6 @@ tf.debugging.assert_scalar(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

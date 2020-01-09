@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.quadrature_scheme_softmaxnormal_quantiles
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py#L123-L222">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Use SoftmaxNormal quantiles to form quadrature on `K - 1` simplex. (deprecated)
 
 ``` python
@@ -19,13 +31,11 @@ tf.contrib.distributions.quadrature_scheme_softmaxnormal_quantiles(
 
 
 
-Defined in [`contrib/distributions/python/ops/vector_diffeomixture.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/vector_diffeomixture.py).
-
 <!-- Placeholder for "Used in" -->
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2018-10-01.
 Instructions for updating:
-The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use `tfp.distributions` instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
+The TensorFlow Distributions library has moved to TensorFlow Probability (https://github.com/tensorflow/probability). You should update all references to use <a href="/probability/api_docs/python/tfp/distributions"><code>tfp.distributions</code></a> instead of <a href="../../../tf/contrib/distributions"><code>tf.contrib.distributions</code></a>.
 
 A `SoftmaxNormal` random variable `Y` may be generated via
 

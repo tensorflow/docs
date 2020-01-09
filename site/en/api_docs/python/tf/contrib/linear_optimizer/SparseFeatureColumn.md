@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.linear_optimizer.SparseFeatureColumn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py#L32-L132">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SparseFeatureColumn`
 
 Represents a sparse feature column.
 
 
-
-
-
-Defined in [`contrib/linear_optimizer/python/ops/sparse_feature_column.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -55,6 +63,8 @@ is represented by `SparseFeatureColumn` as:
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/linear_optimizer/python/ops/sparse_feature_column.py#L77-L105">View source</a>
 
 ``` python
 __init__(
@@ -118,7 +128,3 @@ The feature values represented as a dense tensor.
 #### Returns:
 
 May return None, or a 1-D Tensor of float32 with shape `[N]`.
-
-
-
-

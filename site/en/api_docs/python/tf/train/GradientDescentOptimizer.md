@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.GradientDescentOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/gradient_descent.py#L30-L82">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GradientDescentOptimizer`
 
 Optimizer that implements the gradient descent algorithm.
@@ -13,17 +25,15 @@ Inherits From: [`Optimizer`](../../tf/train/Optimizer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.GradientDescentOptimizer`
-* Class `tf.train.GradientDescentOptimizer`
+* Class <a href="/api_docs/python/tf/train/GradientDescentOptimizer"><code>tf.compat.v1.train.GradientDescentOptimizer</code></a>
 
-
-
-Defined in [`python/training/gradient_descent.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/gradient_descent.py).
 
 <!-- Placeholder for "Used in" -->
   
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/gradient_descent.py#L34-L53">View source</a>
 
 ``` python
 __init__(
@@ -60,6 +70,8 @@ functions.
 ## Methods
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L531-L638">View source</a>
 
 ``` python
 apply_gradients(
@@ -100,6 +112,8 @@ was not None, that operation also increments `global_step`.
 * <b>`RuntimeError`</b>: If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 ``` python
 compute_gradients(
@@ -163,6 +177,8 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -171,6 +187,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L735-L771">View source</a>
 
 ``` python
 get_slot(
@@ -202,6 +220,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L773-L781">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -216,6 +236,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 ``` python
 minimize(
@@ -282,6 +304,8 @@ execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L783-L809">View source</a>
 
 ``` python
 variables()

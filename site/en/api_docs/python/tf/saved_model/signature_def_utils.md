@@ -6,9 +6,16 @@ page_type: reference
 # Module: tf.saved_model.signature_def_utils
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+SignatureDef utility functions.
 
 <!-- Placeholder for "Used in" -->
 
+Utility functions for building and inspecting SignatureDef protos.
 
 ## Functions
 
@@ -21,4 +28,3 @@ page_type: reference
 [`predict_signature_def(...)`](../../tf/saved_model/predict_signature_def): Creates prediction signature from given inputs and outputs.
 
 [`regression_signature_def(...)`](../../tf/saved_model/regression_signature_def): Creates regression signature from given examples and predictions.
-

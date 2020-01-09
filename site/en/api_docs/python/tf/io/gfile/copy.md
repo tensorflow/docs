@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.io.gfile.copy
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/gfile/copy">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L472-L486">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Copies data from `src` to `dst`.
 
 ### Aliases:
 
-* `tf.compat.v1.io.gfile.copy`
-* `tf.compat.v2.io.gfile.copy`
-* `tf.io.gfile.copy`
+* <a href="/api_docs/python/tf/io/gfile/copy"><code>tf.compat.v1.io.gfile.copy</code></a>
+* <a href="/api_docs/python/tf/io/gfile/copy"><code>tf.compat.v2.io.gfile.copy</code></a>
+
 
 ``` python
 tf.io.gfile.copy(
@@ -22,8 +40,6 @@ tf.io.gfile.copy(
 ```
 
 
-
-Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/lib/io/file_io.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,4 +56,4 @@ Defined in [`python/lib/io/file_io.py`](https://github.com/tensorflow/tensorflow
 #### Raises:
 
 
-* <b>`errors.OpError`</b>: If the operation fails.
+* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.

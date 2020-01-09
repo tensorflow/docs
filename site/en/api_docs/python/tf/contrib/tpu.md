@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.tpu
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/tpu/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Ops related to Tensor Processing Units.
-
-
-
-Defined in [`contrib/tpu/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/tpu/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -97,4 +105,3 @@ Defined in [`contrib/tpu/__init__.py`](https://github.com/tensorflow/tensorflow/
 [`shutdown_system(...)`](../../tf/tpu/shutdown_system): Shuts down a running a distributed TPU system.
 
 [`while_loop(...)`](../../tf/contrib/tpu/while_loop): Builds a training loop for TPUs.
-

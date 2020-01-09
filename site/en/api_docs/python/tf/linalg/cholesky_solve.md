@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.linalg.cholesky_solve
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/cholesky_solve">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L82-L124">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Solves systems of linear eqns `A X = RHS`, given Cholesky factorizations.
 
 ### Aliases:
 
-* `tf.cholesky_solve`
-* `tf.compat.v1.cholesky_solve`
-* `tf.compat.v1.linalg.cholesky_solve`
-* `tf.compat.v2.linalg.cholesky_solve`
-* `tf.linalg.cholesky_solve`
+* <a href="/api_docs/python/tf/linalg/cholesky_solve"><code>tf.cholesky_solve</code></a>
+* <a href="/api_docs/python/tf/linalg/cholesky_solve"><code>tf.compat.v1.cholesky_solve</code></a>
+* <a href="/api_docs/python/tf/linalg/cholesky_solve"><code>tf.compat.v1.linalg.cholesky_solve</code></a>
+* <a href="/api_docs/python/tf/linalg/cholesky_solve"><code>tf.compat.v2.linalg.cholesky_solve</code></a>
+
 
 ``` python
 tf.linalg.cholesky_solve(
@@ -24,8 +42,6 @@ tf.linalg.cholesky_solve(
 ```
 
 
-
-Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

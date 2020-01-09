@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.contrib.layers.conv2d_in_plane
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L1211-L1314">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Performs the same in-plane convolution to each channel independently.
 
 ### Aliases:
 
-* `tf.contrib.layers.conv2d_in_plane`
-* `tf.contrib.layers.convolution2d_in_plane`
+* <a href="/api_docs/python/tf/contrib/layers/conv2d_in_plane"><code>tf.contrib.layers.convolution2d_in_plane</code></a>
+
 
 ``` python
 tf.contrib.layers.conv2d_in_plane(
@@ -34,8 +46,6 @@ tf.contrib.layers.conv2d_in_plane(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -77,7 +87,7 @@ operations such as image gradients:
   a dictionary containing a different list of collection per variable.
 * <b>`outputs_collections`</b>: Collection to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`scope`</b>: Optional scope for `variable_scope`.
 
 

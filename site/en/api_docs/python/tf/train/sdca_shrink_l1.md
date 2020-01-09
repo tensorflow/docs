@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.train.sdca_shrink_l1
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_sdca_ops.py`
+
+
+
 Applies L1 regularization shrink step on the parameters.
 
 ### Aliases:
 
-* `tf.compat.v1.train.sdca_shrink_l1`
-* `tf.train.sdca_shrink_l1`
+* <a href="/api_docs/python/tf/train/sdca_shrink_l1"><code>tf.compat.v1.train.sdca_shrink_l1</code></a>
+
 
 ``` python
 tf.train.sdca_shrink_l1(
@@ -22,8 +30,6 @@ tf.train.sdca_shrink_l1(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_sdca_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

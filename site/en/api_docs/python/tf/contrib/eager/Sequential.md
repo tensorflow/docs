@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.eager.Sequential
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L531-L575">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Sequential`
 
 Represents a linear sequence of Layers or functions.
 
 Inherits From: [`Network`](../../../tf/contrib/eager/Network)
-
-
-
-Defined in [`contrib/eager/python/network.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/eager/python/network.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -30,6 +38,8 @@ Layer, and it returns the outputs of the last Layer.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L544-L549">View source</a>
+
 ``` python
 __init__(
     layers_funcs=None,
@@ -37,8 +47,31 @@ __init__(
 )
 ```
 
+Configure the `Network`. (deprecated)
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+Please inherit from <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>, and see its documentation for details. <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> should be a drop-in replacement for `tfe.Network` in most cases, but note that `track_layer` is no longer necessary or supported. Instead, `Layer` instances are tracked on attribute assignment (see the section of <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a>'s documentation on subclassing). Since the output of `track_layer` is often assigned to an attribute anyway, most code can be ported by simply removing the `track_layer` calls.
+
+<a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> works with all TensorFlow `Layer` instances, including those from <a href="../../../tf/layers"><code>tf.layers</code></a>, but switching to the <a href="../../../tf/keras/layers"><code>tf.keras.layers</code></a> versions along with the migration to <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> is recommended, since it will preserve variable names. Feel free to import it with an alias to avoid excess typing :).
+
+#### Args:
 
 
+* <b>`name`</b>: The name to use for this `Network`. If specified, it must be unique
+  in the context where this `Network` is first (1) added to another
+  `Network` (in which case it must not share a name with other `Layers`
+  added to that `Network`), or (2) built/called (in which case no other
+  'top-level' `Network`s may share this name). If unspecified or None, the
+  `Network` will be named using its class name, with a number appended if
+  necessary for uniqueness (e.g. MyNetwork -> 'my_network_1').
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If `name` is not valid. Note that some naming errors will
+  instead be raised when the `Network` is called.
 
 
 
@@ -68,6 +101,8 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="add"><code>add</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L551-L561">View source</a>
+
 ``` python
 add(layer_func)
 ```
@@ -76,6 +111,8 @@ add(layer_func)
 
 
 <h3 id="get_layer"><code>get_layer</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L413-L447">View source</a>
 
 ``` python
 get_layer(
@@ -113,6 +150,8 @@ A <a href="../../../tf/layers/Layer"><code>tf.compat.v1.layers.Layer</code></a> 
 
 <h3 id="track_layer"><code>track_layer</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/eager/python/network.py#L350-L411">View source</a>
+
 ``` python
 track_layer(layer)
 ```
@@ -140,6 +179,3 @@ The passed in `layer`.
 * <b>`RuntimeError`</b>: If __init__ has not been called.
 * <b>`TypeError`</b>: If `layer` is the wrong type.
 * <b>`ValueError`</b>: If a `Layer` with the same name has already been added.
-
-
-

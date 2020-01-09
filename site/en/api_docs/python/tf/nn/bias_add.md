@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.nn.bias_add
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/bias_add">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2685-L2718">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds `bias` to `value`.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.bias_add`
-* `tf.compat.v2.nn.bias_add`
-* `tf.nn.bias_add`
+* <a href="/api_docs/python/tf/nn/bias_add"><code>tf.compat.v1.nn.bias_add</code></a>
+* <a href="/api_docs/python/tf/nn/bias_add"><code>tf.compat.v2.nn.bias_add</code></a>
+
 
 ``` python
 tf.nn.bias_add(
@@ -23,8 +41,6 @@ tf.nn.bias_add(
 ```
 
 
-
-Defined in [`python/ops/nn_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/nn_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,7 +54,7 @@ case where both types are quantized.
 
 * <b>`value`</b>: A `Tensor` with type `float`, `double`, `int64`, `int32`, `uint8`,
   `int16`, `int8`, `complex64`, or `complex128`.
-* <b>`bias`</b>: A 1-D `Tensor` with size matching the last dimension of `value`.
+* <b>`bias`</b>: A 1-D `Tensor` with size matching the channel dimension of `value`.
   Must be the same type as `value` unless `value` is a quantized type,
   in which case a different quantized type may be used.
 * <b>`data_format`</b>: A string. 'N...C' and 'NC...' are supported.

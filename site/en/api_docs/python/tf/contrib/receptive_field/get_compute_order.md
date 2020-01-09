@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.receptive_field.get_compute_order
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/receptive_field/python/util/graph_compute_order.py#L160-L192">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes order of computation for a given CNN graph.
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.receptive_field.get_compute_order(
 ```
 
 
-
-Defined in [`contrib/receptive_field/python/util/graph_compute_order.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/receptive_field/python/util/graph_compute_order.py).
 
 <!-- Placeholder for "Used in" -->
 

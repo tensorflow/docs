@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.data.experimental.unique
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/data/experimental/unique">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/unique.py#L26-L48">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a `Dataset` from another `Dataset`, discarding duplicates.
 
 ### Aliases:
 
-* `tf.compat.v1.data.experimental.unique`
-* `tf.compat.v2.data.experimental.unique`
-* `tf.data.experimental.unique`
+* <a href="/api_docs/python/tf/data/experimental/unique"><code>tf.compat.v1.data.experimental.unique</code></a>
+* <a href="/api_docs/python/tf/data/experimental/unique"><code>tf.compat.v2.data.experimental.unique</code></a>
+
 
 ``` python
 tf.data.experimental.unique()
 ```
 
 
-
-Defined in [`python/data/experimental/ops/unique.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/data/experimental/ops/unique.py).
 
 <!-- Placeholder for "Used in" -->
 

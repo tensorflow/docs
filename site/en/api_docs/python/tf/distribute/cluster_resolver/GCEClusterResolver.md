@@ -5,33 +5,48 @@ page_type: reference
 
 # tf.distribute.cluster_resolver.GCEClusterResolver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L35-L188">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `GCEClusterResolver`
 
-Cluster Resolver for Google Compute Engine.
+ClusterResolver for Google Compute Engine.
 
 Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/ClusterResolver)
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.cluster_resolver.GCEClusterResolver`
-* Class `tf.compat.v2.distribute.cluster_resolver.GCEClusterResolver`
-* Class `tf.contrib.cluster_resolver.GCEClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.GCEClusterResolver`
-* Class `tf.distribute.cluster_resolver.GCEClusterResolver`
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.GCEClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.GCEClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.contrib.cluster_resolver.GCEClusterResolver</code></a>
 
-
-
-Defined in [`python/distribute/cluster_resolver/gce_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py).
 
 <!-- Placeholder for "Used in" -->
 
 This is an implementation of cluster resolvers for the Google Compute Engine
 instance group platform. By specifying a project, zone, and instance group,
 this will retrieve the IP address of all the instances within the instance
-group and return a Cluster Resolver object suitable for use for distributed
+group and return a ClusterResolver object suitable for use for distributed
 TensorFlow.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L45-L104">View source</a>
 
 ``` python
 __init__(
@@ -121,6 +136,8 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L106-L149">View source</a>
+
 ``` python
 cluster_spec()
 ```
@@ -138,6 +155,8 @@ A ClusterSpec containing host information retrieved from GCE.
 
 <h3 id="master"><code>master</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L151-L162">View source</a>
+
 ``` python
 master(
     task_type=None,
@@ -146,10 +165,29 @@ master(
 )
 ```
 
+Retrieves the name or URL of the session master.
 
 
+#### Args:
+
+
+* <b>`task_type`</b>: (Optional) The type of the TensorFlow task of the master.
+* <b>`task_id`</b>: (Optional) The index of the TensorFlow task of the master.
+* <b>`rpc_layer`</b>: (Optional) The RPC protocol for the given cluster.
+
+
+#### Returns:
+
+The name or URL of the session master.
+
+
+Implementors of this function must take care in ensuring that the master
+returned is up-to-date at the time to calling this function. This usually
+means retrieving the master every time this function is invoked.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
 
 ``` python
 num_accelerators(
@@ -183,7 +221,3 @@ where the number of accelerators cores per host is different.
 #### Returns:
 
 A map of accelerator types to number of cores.
-
-
-
-

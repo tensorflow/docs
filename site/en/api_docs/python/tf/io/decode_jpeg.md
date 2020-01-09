@@ -5,16 +5,30 @@ page_type: reference
 
 # tf.io.decode_jpeg
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_jpeg">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_image_ops.py`
+
+
+
 Decode a JPEG-encoded image to a uint8 tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.image.decode_jpeg`
-* `tf.compat.v1.io.decode_jpeg`
-* `tf.compat.v2.image.decode_jpeg`
-* `tf.compat.v2.io.decode_jpeg`
-* `tf.image.decode_jpeg`
-* `tf.io.decode_jpeg`
+* <a href="/api_docs/python/tf/io/decode_jpeg"><code>tf.compat.v1.image.decode_jpeg</code></a>
+* <a href="/api_docs/python/tf/io/decode_jpeg"><code>tf.compat.v1.io.decode_jpeg</code></a>
+* <a href="/api_docs/python/tf/io/decode_jpeg"><code>tf.compat.v2.image.decode_jpeg</code></a>
+* <a href="/api_docs/python/tf/io/decode_jpeg"><code>tf.compat.v2.io.decode_jpeg</code></a>
+* <a href="/api_docs/python/tf/io/decode_jpeg"><code>tf.image.decode_jpeg</code></a>
+
 
 ``` python
 tf.io.decode_jpeg(
@@ -30,8 +44,6 @@ tf.io.decode_jpeg(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_image_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

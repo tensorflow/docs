@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.layers.experimental.keras_style_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/base.py#L45-L111">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Use Keras-style variable management.
 
 ### Aliases:
 
-* `tf.compat.v1.layers.experimental.keras_style_scope`
-* `tf.layers.experimental.keras_style_scope`
+* <a href="/api_docs/python/tf/layers/experimental/keras_style_scope"><code>tf.compat.v1.layers.experimental.keras_style_scope</code></a>
+
 
 ``` python
 tf.layers.experimental.keras_style_scope()
 ```
 
 
-
-Defined in [`python/layers/base.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/base.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -43,7 +53,7 @@ different models, or get errors about variables that already exist.
 class RNNModel(tf.keras.Model):
 
   def __init__(self, name):
-    super(RNNModel, self.).__init__(name=name)
+    super(RNNModel, self).__init__(name=name)
     self.rnn = tf.compat.v1.nn.rnn_cell.MultiRNNCell(
       [tf.compat.v1.nn.rnn_cell.LSTMCell(64) for _ in range(2)])
 

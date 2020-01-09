@@ -5,24 +5,40 @@ page_type: reference
 
 # tf.dtypes.as_dtype
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/dtypes/as_dtype">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/dtypes.py#L690-L721">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Converts the given `type_value` to a `DType`.
 
 ### Aliases:
 
-* `tf.as_dtype`
-* `tf.compat.v1.as_dtype`
-* `tf.compat.v1.dtypes.as_dtype`
-* `tf.compat.v2.as_dtype`
-* `tf.compat.v2.dtypes.as_dtype`
-* `tf.dtypes.as_dtype`
+* <a href="/api_docs/python/tf/dtypes/as_dtype"><code>tf.as_dtype</code></a>
+* <a href="/api_docs/python/tf/dtypes/as_dtype"><code>tf.compat.v1.as_dtype</code></a>
+* <a href="/api_docs/python/tf/dtypes/as_dtype"><code>tf.compat.v1.dtypes.as_dtype</code></a>
+* <a href="/api_docs/python/tf/dtypes/as_dtype"><code>tf.compat.v2.as_dtype</code></a>
+* <a href="/api_docs/python/tf/dtypes/as_dtype"><code>tf.compat.v2.dtypes.as_dtype</code></a>
+
 
 ``` python
 tf.dtypes.as_dtype(type_value)
 ```
 
 
-
-Defined in [`python/framework/dtypes.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/dtypes.py).
 
 <!-- Placeholder for "Used in" -->
 

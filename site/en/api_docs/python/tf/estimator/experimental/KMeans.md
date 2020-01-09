@@ -6,6 +6,18 @@ page_type: reference
 
 # tf.estimator.experimental.KMeans
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `KMeans`
 
 An Estimator for K-Means clustering.
@@ -14,12 +26,8 @@ Inherits From: [`Estimator`](../../../tf/estimator/Estimator)
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.experimental.KMeans`
-* Class `tf.estimator.experimental.KMeans`
+* Class <a href="/api_docs/python/tf/estimator/experimental/KMeans"><code>tf.compat.v1.estimator.experimental.KMeans</code></a>
 
-
-
-Defined in [`python/estimator/canned/kmeans.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -78,6 +86,8 @@ tf.train.load_variable(
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">View source</a>
 
 ``` python
 __init__(
@@ -213,6 +223,8 @@ The `model_fn` with following signature:
 
 <h3 id="cluster_centers"><code>cluster_centers</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">View source</a>
+
 ``` python
 cluster_centers()
 ```
@@ -221,6 +233,8 @@ Returns the cluster centers.
 
 
 <h3 id="eval_dir"><code>eval_dir</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 eval_dir(name=None)
@@ -244,6 +258,8 @@ A string which is the path of directory contains evaluation metrics.
 
 
 <h3 id="evaluate"><code>evaluate</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 evaluate(
@@ -311,6 +327,8 @@ the `accuracy`. Canned regressors also return the `label/mean` and the
 * <b>`ValueError`</b>: If `steps <= 0`.
 
 <h3 id="experimental_export_all_saved_models"><code>experimental_export_all_saved_models</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 experimental_export_all_saved_models(
@@ -396,6 +414,8 @@ The string path to the exported directory.
 
 <h3 id="export_saved_model"><code>export_saved_model</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 export_saved_model(
     export_dir_base,
@@ -475,6 +495,8 @@ The string path to the exported directory.
 `export_outputs` are provided, or no checkpoint can be found.
 
 <h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 export_savedmodel(
@@ -558,6 +580,8 @@ The string path to the exported directory.
 
 <h3 id="get_variable_names"><code>get_variable_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 get_variable_names()
 ```
@@ -577,6 +601,8 @@ List of names.
 * <b>`ValueError`</b>: If the `Estimator` has not produced a checkpoint yet.
 
 <h3 id="get_variable_value"><code>get_variable_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 get_variable_value(name)
@@ -604,6 +630,8 @@ Numpy array - value of the tensor.
 
 <h3 id="latest_checkpoint"><code>latest_checkpoint</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 latest_checkpoint()
 ```
@@ -618,6 +646,8 @@ found.
 
 
 <h3 id="predict"><code>predict</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
 
 ``` python
 predict(
@@ -686,6 +716,8 @@ Evaluated values of `predictions` tensors.
 
 <h3 id="predict_cluster_index"><code>predict_cluster_index</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">View source</a>
+
 ``` python
 predict_cluster_index(input_fn)
 ```
@@ -705,6 +737,8 @@ The index of the closest cluster center for each input point.
 
 
 <h3 id="score"><code>score</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">View source</a>
 
 ``` python
 score(input_fn)
@@ -730,6 +764,8 @@ inputs to its nearest cluster center.
 
 <h3 id="train"><code>train</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
+
 ``` python
 train(
     input_fn,
@@ -750,14 +786,14 @@ Trains a model given training data `input_fn`.
   See [Premade Estimators](
   https://tensorflow.org/guide/premade_estimators#create_input_functions)
   for more information. The function should construct and return one of
-  the following:  * A
-  <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be a tuple
-  `(features, labels)` with same constraints as below. * A tuple
-  `(features, labels)`: Where `features` is a <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or a dictionary
-  of string feature name to `Tensor` and `labels` is a `Tensor` or a
-  dictionary of string label name to `Tensor`. Both `features` and
-  `labels` are consumed by `model_fn`. They should satisfy the expectation
-  of `model_fn` from inputs.
+  the following:
+    * A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> object: Outputs of `Dataset` object must be
+      a tuple `(features, labels)` with same constraints as below.
+    * A tuple `(features, labels)`: Where `features` is a <a href="../../../tf/Tensor"><code>tf.Tensor</code></a> or
+      a dictionary of string feature name to `Tensor` and `labels` is a
+      `Tensor` or a dictionary of string label name to `Tensor`. Both
+      `features` and `labels` are consumed by `model_fn`. They should
+      satisfy the expectation of `model_fn` from inputs.
 * <b>`hooks`</b>: List of <a href="../../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
   callbacks inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train the model. If `None`, train
@@ -792,6 +828,8 @@ Trains a model given training data `input_fn`.
 * <b>`ValueError`</b>: If either `steps` or `max_steps <= 0`.
 
 <h3 id="transform"><code>transform</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/kmeans.py">View source</a>
 
 ``` python
 transform(input_fn)

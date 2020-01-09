@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.input_from_feature_columns
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/feature_column_ops.py#L155-L221">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A tf.contrib.layers style input layer builder based on FeatureColumns.
 
 ``` python
@@ -19,8 +31,6 @@ tf.contrib.layers.input_from_feature_columns(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/feature_column_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/feature_column_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -68,7 +78,7 @@ where feature_columns can be defined as follows:
   set should be instances of classes derived by FeatureColumn.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 * <b>`cols_to_outs`</b>: Optional dict from feature column to output tensor,
   which is concatenated into the returned tensor.

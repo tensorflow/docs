@@ -6,28 +6,36 @@ page_type: reference
 # Module: tf.estimator
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Estimator: High level tools for working with models.
 
 ### Aliases:
 
-* Module `tf.compat.v1.estimator`
-* Module `tf.estimator`
+* Module <a href="/api_docs/python/tf/estimator"><code>tf.compat.v1.estimator</code></a>
 
-
-
-Defined in [`python/estimator/api/_v1/estimator/__init__.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/api/_v1/estimator/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`experimental`](../tf/estimator/experimental) module
+[`experimental`](../tf/estimator/experimental) module: Public API for tf.estimator.experimental namespace.
 
-[`export`](../tf/estimator/export) module
+[`export`](../tf/estimator/export) module: All public utility methods for exporting Estimator to SavedModel.
 
-[`inputs`](../tf/estimator/inputs) module
+[`inputs`](../tf/estimator/inputs) module: Utility methods to create simple input_fns.
 
-[`tpu`](../tf/estimator/tpu) module
+[`tpu`](../tf/estimator/tpu) module: Public API for tf.estimator.tpu namespace.
 
 ## Classes
 
@@ -38,6 +46,8 @@ Defined in [`python/estimator/api/_v1/estimator/__init__.py`](https://github.com
 [`class BaselineRegressor`](../tf/estimator/BaselineRegressor): A regressor that can establish a simple baseline.
 
 [`class BestExporter`](../tf/estimator/BestExporter): This class exports the serving graph and checkpoints of the best models.
+
+[`class BinaryClassHead`](../tf/estimator/BinaryClassHead): Creates a `Head` for single label binary classification.
 
 [`class BoostedTreesClassifier`](../tf/estimator/BoostedTreesClassifier): A Classifier for Tensorflow Boosted Trees models.
 
@@ -77,6 +87,8 @@ Defined in [`python/estimator/api/_v1/estimator/__init__.py`](https://github.com
 
 [`class GlobalStepWaiterHook`](../tf/train/GlobalStepWaiterHook): Delays execution until global step reaches `wait_until_step`.
 
+[`class Head`](../tf/estimator/Head): Interface for the head/top of a model.
+
 [`class LatestExporter`](../tf/estimator/LatestExporter): This class regularly exports the serving graph and checkpoints.
 
 [`class LinearClassifier`](../tf/estimator/LinearClassifier): Linear classifier model.
@@ -87,13 +99,25 @@ Defined in [`python/estimator/api/_v1/estimator/__init__.py`](https://github.com
 
 [`class LoggingTensorHook`](../tf/train/LoggingTensorHook): Prints the given tensors every N local steps, every N seconds, or at end.
 
+[`class LogisticRegressionHead`](../tf/estimator/LogisticRegressionHead): Creates a `Head` for logistic regression.
+
 [`class ModeKeys`](../tf/estimator/ModeKeys): Standard names for Estimator model modes.
 
-[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError)
+[`class MultiClassHead`](../tf/estimator/MultiClassHead): Creates a `Head` for multi class classification.
+
+[`class MultiHead`](../tf/estimator/MultiHead): Creates a `Head` for multi-objective learning.
+
+[`class MultiLabelHead`](../tf/estimator/MultiLabelHead): Creates a `Head` for multi-label classification.
+
+[`class NanLossDuringTrainingError`](../tf/train/NanLossDuringTrainingError): Unspecified run-time error.
 
 [`class NanTensorHook`](../tf/train/NanTensorHook): Monitors the loss tensor and stops training if loss is NaN.
 
+[`class PoissonRegressionHead`](../tf/estimator/PoissonRegressionHead): Creates a `Head` for poisson regression using <a href="../tf/nn/log_poisson_loss"><code>tf.nn.log_poisson_loss</code></a>.
+
 [`class ProfilerHook`](../tf/train/ProfilerHook): Captures CPU/GPU profiling information every N steps or seconds.
+
+[`class RegressionHead`](../tf/estimator/RegressionHead): Creates a `Head` for regression using the `mean_squared_error` loss.
 
 [`class RunConfig`](../tf/estimator/RunConfig): This class specifies the configurations for an `Estimator` run.
 
@@ -128,4 +152,3 @@ Defined in [`python/estimator/api/_v1/estimator/__init__.py`](https://github.com
 [`regressor_parse_example_spec(...)`](../tf/estimator/regressor_parse_example_spec): Generates parsing spec for tf.parse_example to be used with regressors.
 
 [`train_and_evaluate(...)`](../tf/estimator/train_and_evaluate): Train and evaluate the `estimator`.
-

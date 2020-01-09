@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.keras.preprocessing.image.load_img
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/load_img">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Loads an image into PIL format.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.preprocessing.image.load_img`
-* `tf.compat.v2.keras.preprocessing.image.load_img`
-* `tf.keras.preprocessing.image.load_img`
+* <a href="/api_docs/python/tf/keras/preprocessing/image/load_img"><code>tf.compat.v1.keras.preprocessing.image.load_img</code></a>
+* <a href="/api_docs/python/tf/keras/preprocessing/image/load_img"><code>tf.compat.v2.keras.preprocessing.image.load_img</code></a>
+
 
 ``` python
 tf.keras.preprocessing.image.load_img(
@@ -22,6 +34,8 @@ tf.keras.preprocessing.image.load_img(
     interpolation='nearest'
 )
 ```
+
+
 
 <!-- Placeholder for "Used in" -->
 

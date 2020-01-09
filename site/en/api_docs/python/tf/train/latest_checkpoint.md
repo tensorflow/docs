@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.train.latest_checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/train/latest_checkpoint">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L320-L347">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Finds the filename of latest saved checkpoint file.
 
 ### Aliases:
 
-* `tf.compat.v1.train.latest_checkpoint`
-* `tf.compat.v2.train.latest_checkpoint`
-* `tf.train.latest_checkpoint`
+* <a href="/api_docs/python/tf/train/latest_checkpoint"><code>tf.compat.v1.train.latest_checkpoint</code></a>
+* <a href="/api_docs/python/tf/train/latest_checkpoint"><code>tf.compat.v2.train.latest_checkpoint</code></a>
+
 
 ``` python
 tf.train.latest_checkpoint(
@@ -21,8 +39,6 @@ tf.train.latest_checkpoint(
 ```
 
 
-
-Defined in [`python/training/checkpoint_management.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/checkpoint_management.py).
 
 <!-- Placeholder for "Used in" -->
 

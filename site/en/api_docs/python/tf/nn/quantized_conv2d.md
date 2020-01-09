@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.nn.quantized_conv2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_nn_ops.py`
+
+
+
 Computes a 2D convolution given quantized 4D input and filter tensors.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.quantized_conv2d`
-* `tf.nn.quantized_conv2d`
+* <a href="/api_docs/python/tf/nn/quantized_conv2d"><code>tf.compat.v1.nn.quantized_conv2d</code></a>
+
 
 ``` python
 tf.nn.quantized_conv2d(
@@ -29,8 +37,6 @@ tf.nn.quantized_conv2d(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_nn_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.math.confusion_matrix
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/confusion_matrix">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/confusion_matrix.py#L202-L261">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the confusion matrix from predictions and labels.
 
 ### Aliases:
 
-* `tf.compat.v1.confusion_matrix`
-* `tf.compat.v1.math.confusion_matrix`
-* `tf.confusion_matrix`
-* `tf.math.confusion_matrix`
+* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.compat.v1.confusion_matrix</code></a>
+* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.compat.v1.math.confusion_matrix</code></a>
+* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.confusion_matrix</code></a>
+
 
 ``` python
 tf.math.confusion_matrix(
@@ -26,8 +44,6 @@ tf.math.confusion_matrix(
 ```
 
 
-
-Defined in [`python/ops/confusion_matrix.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/confusion_matrix.py).
 
 <!-- Placeholder for "Used in" -->
 

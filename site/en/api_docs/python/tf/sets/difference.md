@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.sets.difference
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sets/difference">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sets_impl.py#L204-L280">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute set difference of elements in last dimension of `a` and `b`.
 
 ### Aliases:
 
-* `tf.compat.v1.sets.difference`
-* `tf.compat.v1.sets.set_difference`
-* `tf.compat.v2.sets.difference`
-* `tf.contrib.metrics.set_difference`
-* `tf.sets.difference`
-* `tf.sets.set_difference`
+* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v1.sets.difference</code></a>
+* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v1.sets.set_difference</code></a>
+* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v2.sets.difference</code></a>
+* <a href="/api_docs/python/tf/sets/difference"><code>tf.contrib.metrics.set_difference</code></a>
+* <a href="/api_docs/python/tf/sets/difference"><code>tf.sets.set_difference</code></a>
+
 
 ``` python
 tf.sets.difference(
@@ -26,8 +44,6 @@ tf.sets.difference(
 ```
 
 
-
-Defined in [`python/ops/sets_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sets_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -97,3 +113,14 @@ All but the last dimension of `a` and `b` must match.
 A `SparseTensor` whose shape is the same rank as `a` and `b`, and all but
 the last dimension the same. Elements along the last dimension contain the
 differences.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: If inputs are invalid types, or if `a` and `b` have
+    different types.
+* <b>`ValueError`</b>: If `a` is sparse and `b` is dense.
+* <b>`errors_impl.InvalidArgumentError`</b>: If the shapes of `a` and `b` do not
+    match in any dimension other than the last dimension.

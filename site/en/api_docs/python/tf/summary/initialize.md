@@ -5,13 +5,25 @@ page_type: reference
 
 # tf.summary.initialize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/summary_ops_v2.py#L291-L330">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Initializes summary writing for graph execution mode.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.initialize`
-* `tf.contrib.summary.initialize`
-* `tf.summary.initialize`
+* <a href="/api_docs/python/tf/summary/initialize"><code>tf.compat.v1.summary.initialize</code></a>
+* <a href="/api_docs/python/tf/summary/initialize"><code>tf.contrib.summary.initialize</code></a>
+
 
 ``` python
 tf.summary.initialize(
@@ -21,8 +33,6 @@ tf.summary.initialize(
 ```
 
 
-
-Defined in [`python/ops/summary_ops_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/summary_ops_v2.py).
 
 <!-- Placeholder for "Used in" -->
 

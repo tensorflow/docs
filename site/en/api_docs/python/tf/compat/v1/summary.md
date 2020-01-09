@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.summary
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/summary">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Operations for writing summary data, for use in analysis and visualization.
 
 <!-- Placeholder for "Used in" -->
@@ -14,19 +26,19 @@ TensorBoard](https://www.tensorflow.org/guide/summaries_and_tensorboard) guide.
 
 ## Classes
 
-[`class Event`](../../../tf/Event)
+[`class Event`](../../../tf/Event): A ProtocolMessage
 
 [`class FileWriter`](../../../tf/summary/FileWriter): Writes `Summary` protocol buffers to event files.
 
 [`class FileWriterCache`](../../../tf/summary/FileWriterCache): Cache for file writers.
 
-[`class SessionLog`](../../../tf/SessionLog)
+[`class SessionLog`](../../../tf/SessionLog): A ProtocolMessage
 
-[`class Summary`](../../../tf/Summary)
+[`class Summary`](../../../tf/Summary): A ProtocolMessage
 
-[`class SummaryDescription`](../../../tf/summary/SummaryDescription)
+[`class SummaryDescription`](../../../tf/summary/SummaryDescription): A ProtocolMessage
 
-[`class TaggedRunMetadata`](../../../tf/summary/TaggedRunMetadata)
+[`class TaggedRunMetadata`](../../../tf/summary/TaggedRunMetadata): A ProtocolMessage
 
 ## Functions
 
@@ -51,4 +63,3 @@ TensorBoard](https://www.tensorflow.org/guide/summaries_and_tensorboard) guide.
 [`tensor_summary(...)`](../../../tf/summary/tensor_summary): Outputs a `Summary` protocol buffer with a serialized tensor.proto.
 
 [`text(...)`](../../../tf/summary/text): Summarizes textual data.
-

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.feature_column.shared_embedding_columns
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L914-L1084">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 List of dense columns that convert from sparse, categorical input.
 
 ### Aliases:
 
-* `tf.compat.v1.feature_column.shared_embedding_columns`
-* `tf.feature_column.shared_embedding_columns`
+* <a href="/api_docs/python/tf/feature_column/shared_embedding_columns"><code>tf.compat.v1.feature_column.shared_embedding_columns</code></a>
+
 
 ``` python
 tf.feature_column.shared_embedding_columns(
@@ -27,8 +39,6 @@ tf.feature_column.shared_embedding_columns(
 ```
 
 
-
-Defined in [`python/feature_column/feature_column_v2.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/feature_column/feature_column_v2.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -100,7 +110,7 @@ def model_fn(features, ...):
   `tf.embedding_lookup_sparse`.
 * <b>`initializer`</b>: A variable initializer function to be used in embedding
   variable initialization. If not specified, defaults to
-  <a href="../../tf/initializers/truncated_normal"><code>tf.compat.v1.truncated_normal_initializer</code></a> with mean `0.0` and
+  `truncated_normal_initializer` with mean `0.0` and
   standard deviation `1/sqrt(dimension)`.
 * <b>`shared_embedding_collection_name`</b>: Optional name of the collection where
   shared embedding weights are added. If not given, a reasonable name will

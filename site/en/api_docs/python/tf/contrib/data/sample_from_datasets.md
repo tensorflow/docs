@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.data.sample_from_datasets
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/data/python/ops/interleave_ops.py#L135-L160">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Samples elements at random from the datasets in `datasets`. (deprecated)
 
 ``` python
@@ -16,8 +28,6 @@ tf.contrib.data.sample_from_datasets(
 ```
 
 
-
-Defined in [`contrib/data/python/ops/interleave_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/data/python/ops/interleave_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

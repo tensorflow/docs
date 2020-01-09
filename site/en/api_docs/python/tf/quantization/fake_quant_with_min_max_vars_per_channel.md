@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.quantization.fake_quant_with_min_max_vars_per_channel
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/quantization/fake_quant_with_min_max_vars_per_channel">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Fake-quantize the 'inputs' tensor of type float and one of the shapes: `[d]`,
 
 ### Aliases:
 
-* `tf.compat.v1.fake_quant_with_min_max_vars_per_channel`
-* `tf.compat.v1.quantization.fake_quant_with_min_max_vars_per_channel`
-* `tf.compat.v2.quantization.fake_quant_with_min_max_vars_per_channel`
-* `tf.fake_quant_with_min_max_vars_per_channel`
-* `tf.quantization.fake_quant_with_min_max_vars_per_channel`
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_vars_per_channel"><code>tf.compat.v1.fake_quant_with_min_max_vars_per_channel</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_vars_per_channel"><code>tf.compat.v1.quantization.fake_quant_with_min_max_vars_per_channel</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_vars_per_channel"><code>tf.compat.v2.quantization.fake_quant_with_min_max_vars_per_channel</code></a>
+* <a href="/api_docs/python/tf/quantization/fake_quant_with_min_max_vars_per_channel"><code>tf.fake_quant_with_min_max_vars_per_channel</code></a>
+
 
 ``` python
 tf.quantization.fake_quant_with_min_max_vars_per_channel(
@@ -27,8 +41,6 @@ tf.quantization.fake_quant_with_min_max_vars_per_channel(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

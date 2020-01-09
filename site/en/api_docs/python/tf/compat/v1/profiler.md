@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.profiler
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/profiler">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.profiler namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -12,13 +24,13 @@ Public API for tf.profiler namespace.
 
 ## Classes
 
-[`class AdviceProto`](../../../tf/profiler/AdviceProto)
+[`class AdviceProto`](../../../tf/profiler/AdviceProto): A ProtocolMessage
 
-[`class GraphNodeProto`](../../../tf/profiler/GraphNodeProto)
+[`class GraphNodeProto`](../../../tf/profiler/GraphNodeProto): A ProtocolMessage
 
-[`class MultiGraphNodeProto`](../../../tf/profiler/MultiGraphNodeProto)
+[`class MultiGraphNodeProto`](../../../tf/profiler/MultiGraphNodeProto): A ProtocolMessage
 
-[`class OpLogProto`](../../../tf/profiler/OpLogProto)
+[`class OpLogProto`](../../../tf/profiler/OpLogProto): A ProtocolMessage
 
 [`class ProfileOptionBuilder`](../../../tf/profiler/ProfileOptionBuilder): Option Builder for Profiling API.
 
@@ -31,4 +43,3 @@ Public API for tf.profiler namespace.
 [`profile(...)`](../../../tf/profiler/profile): Profile model.
 
 [`write_op_log(...)`](../../../tf/profiler/write_op_log): Log provided 'op_log', and add additional model information below.
-

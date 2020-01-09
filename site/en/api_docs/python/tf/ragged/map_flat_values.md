@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.ragged.map_flat_values
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/ragged/map_flat_values">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_functional_ops.py#L30-L94">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Applies `op` to the values of one or more RaggedTensors.
 
 ### Aliases:
 
-* `tf.compat.v1.ragged.map_flat_values`
-* `tf.compat.v2.ragged.map_flat_values`
-* `tf.ragged.map_flat_values`
+* <a href="/api_docs/python/tf/ragged/map_flat_values"><code>tf.compat.v1.ragged.map_flat_values</code></a>
+* <a href="/api_docs/python/tf/ragged/map_flat_values"><code>tf.compat.v2.ragged.map_flat_values</code></a>
+
 
 ``` python
 tf.ragged.map_flat_values(
@@ -22,8 +40,6 @@ tf.ragged.map_flat_values(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_functional_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_functional_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,17 +53,15 @@ identical `nested_row_splits`.
 
 #### Examples:
 
-
-
-```python
->>> rt = ragged.constant([[1, 2, 3], [], [4, 5], [6]])
->>> ragged.map_flat_values(tf.ones_like, rt).eval().tolist()
-[[1, 1, 1], [], [1, 1], [1]]
->>> ragged.map_flat_values(tf.multiply, rt, rt).eval().tolist()
-[[1, 4, 9], [], [16, 25], [36]]
->>> ragged.map_flat_values(tf.add, rt, 5).eval().tolist()
-[[6, 7, 8], [], [9, 10], [11]]
-```
+<pre class="devsite-click-to-copy prettyprint lang-py">
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}rt = ragged.constant([[1, 2, 3], [], [4, 5], [6]]){% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.map_flat_values(tf.ones_like, rt).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[1, 1, 1], [], [1, 1], [1]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.map_flat_values(tf.multiply, rt, rt).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[1, 4, 9], [], [16, 25], [36]]{% endhtmlescape %}</code>
+<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}ragged.map_flat_values(tf.add, rt, 5).eval().tolist(){% endhtmlescape %}</code>
+<code class="no-select nocode">{% htmlescape %}[[6, 7, 8], [], [9, 10], [11]]{% endhtmlescape %}</code>
+</pre>
 
 #### Args:
 

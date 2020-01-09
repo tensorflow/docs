@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.applications.xception
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/applications/xception">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Xception V1 model for Keras.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.applications.xception`
-* Module `tf.keras.applications.xception`
+* Module <a href="/api_docs/python/tf/keras/applications/xception"><code>tf.compat.v1.keras.applications.xception</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/applications/xception/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/applications/xception/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -26,4 +34,3 @@ Defined in [`python/keras/api/_v1/keras/applications/xception/__init__.py`](http
 [`decode_predictions(...)`](../../../tf/keras/applications/xception/decode_predictions)
 
 [`preprocess_input(...)`](../../../tf/keras/applications/xception/preprocess_input)
-

@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.List
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L253-L369">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `List`
 
 An append-only sequence type which is trackable.
 
 
-
-
-
-Defined in [`python/training/tracking/data_structures.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/data_structures.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -51,6 +59,8 @@ checkpoint dependency and does not add the `Layer` instance's weights to its
 parent `Model`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L288-L294">View source</a>
 
 ``` python
 __init__(
@@ -122,6 +132,8 @@ Aggregate updates from any `Layer` instances.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L331-L332">View source</a>
+
 ``` python
 __add__(other)
 ```
@@ -140,14 +152,18 @@ __contains__(value)
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L247-L250">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L356-L357">View source</a>
 
 ``` python
 __getitem__(key)
@@ -167,6 +183,8 @@ __iter__()
 
 <h3 id="__len__"><code>__len__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L362-L363">View source</a>
+
 ``` python
 __len__()
 ```
@@ -175,6 +193,8 @@ __len__()
 
 
 <h3 id="__mul__"><code>__mul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L347-L348">View source</a>
 
 ``` python
 __mul__(n)
@@ -185,6 +205,8 @@ __mul__(n)
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L353-L354">View source</a>
+
 ``` python
 __radd__(other)
 ```
@@ -193,6 +215,8 @@ __radd__(other)
 
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L350-L351">View source</a>
 
 ``` python
 __rmul__(n)
@@ -203,6 +227,8 @@ __rmul__(n)
 
 <h3 id="append"><code>append</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L317-L320">View source</a>
+
 ``` python
 append(value)
 ```
@@ -211,6 +237,8 @@ Add a new trackable value.
 
 
 <h3 id="copy"><code>copy</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L296-L297">View source</a>
 
 ``` python
 copy()
@@ -230,6 +258,8 @@ S.count(value) -> integer -- return number of occurrences of value
 
 <h3 id="extend"><code>extend</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L322-L325">View source</a>
+
 ``` python
 extend(values)
 ```
@@ -240,11 +270,12 @@ Add a sequence of trackable values.
 <h3 id="index"><code>index</code></h3>
 
 ``` python
-index(value)
+index(
+    value,
+    start=0,
+    stop=None
+)
 ```
 
-S.index(value) -> integer -- return first index of value.
+S.index(value, [start, [stop]]) -> integer -- return first index of value.
 Raises ValueError if the value is not present.
-
-
-

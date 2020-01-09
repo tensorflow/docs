@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.Operation
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/Operation">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1616-L2439">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Operation`
 
 Represents a graph node that performs computation on tensors.
@@ -13,13 +31,9 @@ Represents a graph node that performs computation on tensors.
 
 ### Aliases:
 
-* Class `tf.Operation`
-* Class `tf.compat.v1.Operation`
-* Class `tf.compat.v2.Operation`
+* Class <a href="/api_docs/python/tf/Operation"><code>tf.compat.v1.Operation</code></a>
+* Class <a href="/api_docs/python/tf/Operation"><code>tf.compat.v2.Operation</code></a>
 
-
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,6 +55,8 @@ be executed by passing it to
 `tf.compat.v1.get_default_session().run(op)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1637-L1789">View source</a>
 
 ``` python
 __init__(
@@ -199,6 +215,8 @@ The type of the op (e.g. `"MatMul"`).
 
 <h3 id="colocation_groups"><code>colocation_groups</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1837-L1854">View source</a>
+
 ``` python
 colocation_groups()
 ```
@@ -207,6 +225,8 @@ Returns the list of colocation groups of the op.
 
 
 <h3 id="get_attr"><code>get_attr</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2365-L2402">View source</a>
 
 ``` python
 get_attr(name)
@@ -234,6 +254,8 @@ The value of the attr, as a Python object.
 
 <h3 id="run"><code>run</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2423-L2439">View source</a>
+
 ``` python
 run(
     feed_dict=None,
@@ -260,12 +282,10 @@ available, or `session` must be specified explicitly.
 
 <h3 id="values"><code>values</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1856-L1858">View source</a>
+
 ``` python
 values()
 ```
 
 DEPRECATED: Use outputs.
-
-
-
-

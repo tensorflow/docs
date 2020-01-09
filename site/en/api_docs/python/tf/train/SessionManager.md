@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.train.SessionManager
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_manager.py#L50-L506">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `SessionManager`
 
 Training helper that restores from checkpoint and creates session.
@@ -13,12 +25,8 @@ Training helper that restores from checkpoint and creates session.
 
 ### Aliases:
 
-* Class `tf.compat.v1.train.SessionManager`
-* Class `tf.train.SessionManager`
+* Class <a href="/api_docs/python/tf/train/SessionManager"><code>tf.compat.v1.train.SessionManager</code></a>
 
-
-
-Defined in [`python/training/session_manager.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/session_manager.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -62,6 +70,8 @@ with tf.Graph().as_default():
 `wait_for_session()` waits for a model to be initialized by other processes.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_manager.py#L94-L153">View source</a>
 
 ``` python
 __init__(
@@ -122,6 +132,8 @@ be initialized or restored.  Defaults to 30 seconds.
 ## Methods
 
 <h3 id="prepare_session"><code>prepare_session</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_manager.py#L224-L314">View source</a>
 
 ``` python
 prepare_session(
@@ -195,6 +207,8 @@ A `Session` object that can be used to drive the model.
 
 <h3 id="recover_session"><code>recover_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_manager.py#L316-L378">View source</a>
+
 ``` python
 recover_session(
     master,
@@ -240,6 +254,8 @@ the session could be recovered and initialized, `False` otherwise.
 
 <h3 id="wait_for_session"><code>wait_for_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_manager.py#L380-L437">View source</a>
+
 ``` python
 wait_for_session(
     master,
@@ -280,6 +296,3 @@ specified by config.operation_timeout_in_ms.
 
 * <b>`tf.DeadlineExceededError`</b>: if the session is not available after
   max_wait_secs.
-
-
-

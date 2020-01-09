@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.linalg.qr
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/qr">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_linalg_ops.py`
+
+
+
 Computes the QR decompositions of one or more matrices.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.qr`
-* `tf.compat.v1.qr`
-* `tf.compat.v2.linalg.qr`
-* `tf.linalg.qr`
-* `tf.qr`
+* <a href="/api_docs/python/tf/linalg/qr"><code>tf.compat.v1.linalg.qr</code></a>
+* <a href="/api_docs/python/tf/linalg/qr"><code>tf.compat.v1.qr</code></a>
+* <a href="/api_docs/python/tf/linalg/qr"><code>tf.compat.v2.linalg.qr</code></a>
+* <a href="/api_docs/python/tf/linalg/qr"><code>tf.qr</code></a>
+
 
 ``` python
 tf.linalg.qr(
@@ -24,8 +38,6 @@ tf.linalg.qr(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_linalg_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

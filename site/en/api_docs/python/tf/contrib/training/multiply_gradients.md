@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.training.multiply_gradients
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/training/python/training/training.py#L329-L366">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Multiply specified gradients.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.training.multiply_gradients(
 ```
 
 
-
-Defined in [`contrib/training/python/training/training.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/training/python/training/training.py).
 
 <!-- Placeholder for "Used in" -->
 

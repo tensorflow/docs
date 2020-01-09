@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.scatter_mul
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/state_ops.py#L604-L653">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Multiplies sparse updates into a variable reference.
 
 ### Aliases:
 
-* `tf.compat.v1.scatter_mul`
-* `tf.scatter_mul`
+* <a href="/api_docs/python/tf/scatter_mul"><code>tf.compat.v1.scatter_mul</code></a>
+
 
 ``` python
 tf.scatter_mul(
@@ -23,8 +35,6 @@ tf.scatter_mul(
 ```
 
 
-
-Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

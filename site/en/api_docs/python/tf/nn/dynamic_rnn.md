@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.nn.dynamic_rnn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn.py#L517-L716">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a recurrent neural network specified by RNNCell `cell`. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.nn.dynamic_rnn`
-* `tf.nn.dynamic_rnn`
+* <a href="/api_docs/python/tf/nn/dynamic_rnn"><code>tf.compat.v1.nn.dynamic_rnn</code></a>
+
 
 ``` python
 tf.nn.dynamic_rnn(
@@ -27,8 +39,6 @@ tf.nn.dynamic_rnn(
 ```
 
 
-
-Defined in [`python/ops/rnn.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn.py).
 
 <!-- Placeholder for "Used in" -->
 

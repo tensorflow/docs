@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.lookup.TextFileInitializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/lookup/TextFileInitializer">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L497-L675">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TextFileInitializer`
 
 Table initializers from a text file.
@@ -13,14 +31,10 @@ Inherits From: [`TableInitializerBase`](../../tf/contrib/lookup/TableInitializer
 
 ### Aliases:
 
-* Class `tf.compat.v1.lookup.TextFileInitializer`
-* Class `tf.compat.v2.lookup.TextFileInitializer`
-* Class `tf.contrib.lookup.TextFileInitializer`
-* Class `tf.lookup.TextFileInitializer`
+* Class <a href="/api_docs/python/tf/lookup/TextFileInitializer"><code>tf.compat.v1.lookup.TextFileInitializer</code></a>
+* Class <a href="/api_docs/python/tf/lookup/TextFileInitializer"><code>tf.compat.v2.lookup.TextFileInitializer</code></a>
+* Class <a href="/api_docs/python/tf/lookup/TextFileInitializer"><code>tf.contrib.lookup.TextFileInitializer</code></a>
 
-
-
-Defined in [`python/ops/lookup_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/lookup_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -76,6 +90,8 @@ table.init.run()
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L552-L632">View source</a>
 
 ``` python
 __init__(
@@ -147,6 +163,8 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L634-L660">View source</a>
+
 ``` python
 initialize(table)
 ```
@@ -171,6 +189,3 @@ The operation that initializes the table.
 
 * <b>`TypeError`</b>: when the keys and values data types do not match the table
 key and value data types.
-
-
-

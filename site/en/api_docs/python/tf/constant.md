@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.constant
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/constant">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/constant_op.py#L99-L161">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Creates a constant tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.constant`
-* `tf.constant`
+* <a href="/api_docs/python/tf/constant"><code>tf.compat.v1.constant</code></a>
+
 
 ``` python
 tf.constant(
@@ -23,8 +41,6 @@ tf.constant(
 ```
 
 
-
-Defined in [`python/framework/constant_op.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/constant_op.py).
 
 <!-- Placeholder for "Used in" -->
 

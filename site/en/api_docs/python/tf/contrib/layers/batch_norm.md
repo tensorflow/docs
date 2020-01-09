@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.batch_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L430-L837">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a Batch Normalization layer from http://arxiv.org/abs/1502.03167.
 
 ``` python
@@ -36,8 +48,6 @@ tf.contrib.layers.batch_norm(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -81,7 +91,7 @@ can have a speed penalty, especially in distributed settings.
 * <b>`center`</b>: If True, add offset of `beta` to normalized tensor. If False, `beta`
   is ignored.
 * <b>`scale`</b>: If True, multiply by `gamma`. If False, `gamma` is not used. When the
-  next layer is linear (also e.g. `nn.relu`), this can be disabled since the
+  next layer is linear (also e.g. <a href="/api_docs/python/tf/nn/relu"><code>nn.relu</code></a>), this can be disabled since the
   scaling can be done by the next layer.
 * <b>`epsilon`</b>: Small float added to variance to avoid dividing by zero.
 * <b>`activation_fn`</b>: Activation function, default set to None to skip it and
@@ -102,7 +112,7 @@ can have a speed penalty, especially in distributed settings.
 * <b>`variables_collections`</b>: Optional collections for the variables.
 * <b>`outputs_collections`</b>: Collections to add the outputs.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see <a href="../../../tf/Variable"><code>tf.Variable</code></a>).
 * <b>`batch_weights`</b>: An optional tensor of shape `[batch_size]`, containing a
   frequency weight for each batch item. If present, then the batch
   normalization uses weighted mean and variance. (This can be used to

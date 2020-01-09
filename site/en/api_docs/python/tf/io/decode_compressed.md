@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.io.decode_compressed
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_compressed">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_parsing_ops.py`
+
+
+
 Decompress strings.
 
 ### Aliases:
 
-* `tf.compat.v1.decode_compressed`
-* `tf.compat.v1.io.decode_compressed`
-* `tf.compat.v2.io.decode_compressed`
-* `tf.decode_compressed`
-* `tf.io.decode_compressed`
+* <a href="/api_docs/python/tf/io/decode_compressed"><code>tf.compat.v1.decode_compressed</code></a>
+* <a href="/api_docs/python/tf/io/decode_compressed"><code>tf.compat.v1.io.decode_compressed</code></a>
+* <a href="/api_docs/python/tf/io/decode_compressed"><code>tf.compat.v2.io.decode_compressed</code></a>
+* <a href="/api_docs/python/tf/io/decode_compressed"><code>tf.decode_compressed</code></a>
+
 
 ``` python
 tf.io.decode_compressed(
@@ -24,8 +38,6 @@ tf.io.decode_compressed(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_parsing_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

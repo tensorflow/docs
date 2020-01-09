@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.central_crop
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/central_crop">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L617-L723">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Crop the central region of the image(s).
 
 ### Aliases:
 
-* `tf.compat.v1.image.central_crop`
-* `tf.compat.v2.image.central_crop`
-* `tf.image.central_crop`
+* <a href="/api_docs/python/tf/image/central_crop"><code>tf.compat.v1.image.central_crop</code></a>
+* <a href="/api_docs/python/tf/image/central_crop"><code>tf.compat.v2.image.central_crop</code></a>
+
 
 ``` python
 tf.image.central_crop(
@@ -21,8 +39,6 @@ tf.image.central_crop(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -46,7 +62,8 @@ batch of images (`image` is a 4-D Tensor).
 * <b>`image`</b>: Either a 3-D float Tensor of shape [height, width, depth], or a 4-D
   Tensor of shape [batch_size, height, width, depth].
 * <b>`central_fraction`</b>: float (0, 1], fraction of size to crop
-
+Usage Example: ```python >> import tensorflow as tf >> x =
+  tf.random.normal(shape=(256, 256, 3)) >> tf.image.central_crop(x, 0.5) ```
 
 #### Raises:
 

@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.add_to_collections
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6171-L6186">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Wrapper for <a href="../tf/Graph#add_to_collections"><code>Graph.add_to_collections()</code></a> using the default graph.
 
 ### Aliases:
 
-* `tf.add_to_collections`
-* `tf.compat.v1.add_to_collections`
+* <a href="/api_docs/python/tf/add_to_collections"><code>tf.compat.v1.add_to_collections</code></a>
+
 
 ``` python
 tf.add_to_collections(
@@ -20,8 +32,6 @@ tf.add_to_collections(
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -38,4 +48,3 @@ for more details.
 #### Eager Compatibility
 Collections are only supported in eager when variables are created inside
 an EagerVariableStore (e.g. as part of a layer or template).
-

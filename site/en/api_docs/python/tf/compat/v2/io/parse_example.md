@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.io.parse_example
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L584-L808">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Parses `Example` protos into a `dict` of tensors.
 
 ``` python
@@ -17,8 +29,6 @@ tf.compat.v2.io.parse_example(
 ```
 
 
-
-Defined in [`python/ops/parsing_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/parsing_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -48,7 +58,7 @@ Its `values` come from the feature in the examples with key `value_key`.
 A `values[i]` comes from a position `k` in the feature of an example at batch
 entry `batch`. This positional information is recorded in `indices[i]` as
 `[batch, index_0, index_1, ...]` where `index_j` is the `k-th` value of
-the feature in the example at with key `SparseFeature.index_key[j]`.
+the feature in the example at with key <a href="/api_docs/python/tf/io/SparseFeature#index_key"><code>SparseFeature.index_key[j]</code></a>.
 In other words, we split the indices (except the first index indicating the
 batch entry) of a `SparseTensor` by dimension into different features of the
 `Example`. Due to its complexity a `VarLenFeature` should be preferred over a

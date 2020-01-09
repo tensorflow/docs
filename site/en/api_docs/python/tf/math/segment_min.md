@@ -6,15 +6,29 @@ page_type: reference
 
 # tf.math.segment_min
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/segment_min">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes the minimum along segments of a tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.segment_min`
-* `tf.compat.v1.segment_min`
-* `tf.compat.v2.math.segment_min`
-* `tf.math.segment_min`
-* `tf.segment_min`
+* <a href="/api_docs/python/tf/math/segment_min"><code>tf.compat.v1.math.segment_min</code></a>
+* <a href="/api_docs/python/tf/math/segment_min"><code>tf.compat.v1.segment_min</code></a>
+* <a href="/api_docs/python/tf/math/segment_min"><code>tf.compat.v2.math.segment_min</code></a>
+* <a href="/api_docs/python/tf/math/segment_min"><code>tf.segment_min</code></a>
+
 
 ``` python
 tf.math.segment_min(
@@ -25,8 +39,6 @@ tf.math.segment_min(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

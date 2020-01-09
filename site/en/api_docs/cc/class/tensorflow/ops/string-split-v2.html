@@ -2,17 +2,17 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::StringSplitV2 Class Reference</title>
-  <meta name="project_path" value="/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.14/api_docs/_book.yaml" />
+  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>StringSplitV2</h1>
   <code>#include &lt;string_ops.h&gt;</code>
-  <p><a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> elements of <code>source</code> based on <code>sep</code> into a <code>SparseTensor</code>. </p>
+  <p>Split elements of <code>source</code> based on <code>sep</code> into a <code>SparseTensor</code>. </p>
   <h2>Summary</h2>
-  <p>Let N be the size of source (typically N will be the batch size). <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/split.html#classtensorflow_1_1ops_1_1_split">Split</a> each element of <code>source</code> based on <code>sep</code> and return a <code>SparseTensor</code> containing the split tokens. <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> tokens are ignored.</p>
+  <p>Let N be the size of source (typically N will be the batch size). Split each element of <code>source</code> based on <code>sep</code> and return a <code>SparseTensor</code> containing the split tokens. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/empty.html#classtensorflow_1_1ops_1_1_empty">Empty</a> tokens are ignored.</p>
   <p>For example, N = 2, source[0] is 'hello world' and source[1] is 'a b c', then the output will be <pre class="prettyprint">
 st.indices = [0, 0;
               0, 1;
@@ -25,17 +25,17 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
   <p>If <code>sep</code> is given, consecutive delimiters are not grouped together and are deemed to delimit empty strings. For example, source of <code>"1\<\>2\<\>\<\>3"</code> and sep of <code>"\<\>"</code> returns <code>["1", "2", "", "3"]</code>. If <code>sep</code> is None or an empty string, consecutive whitespace are regarded as a single separator, and the result will contain no empty strings at the startor end if the string has leading or trailing whitespace.</p>
   <p>Note that the above mentioned behavior matches python's str.split.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
-      <li>input: <code>1-D</code> string <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, the strings to split.</li>
-      <li>sep: <code>0-D</code> string <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, the delimiter character.</li>
+      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: <code>1-D</code> string <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, the strings to split.</li>
+      <li>sep: <code>0-D</code> string <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>, the delimiter character.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a></code>):<ul>
       <li>maxsplit: An <code>int</code>. If <code>maxsplit > 0</code>, limit of the split of the result.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices</li>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values</li>
-      <li><code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> shape </li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> indices</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> values</li>
+      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> shape </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -45,13 +45,13 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_string_split_v2_1acbea51cb12f95ef6cae1972ae134e7ac">StringSplitV2</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_split_v2_1acbea51cb12f95ef6cae1972ae134e7ac">StringSplitV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_string_split_v2_1a63b63775de3ac1b5830b860233d56cbc">StringSplitV2</a>(const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep, const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">StringSplitV2::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_string_split_v2_1a63b63775de3ac1b5830b860233d56cbc">StringSplitV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">StringSplitV2::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -68,7 +68,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -78,7 +78,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -88,7 +88,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -98,7 +98,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -115,7 +115,7 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -128,58 +128,58 @@ st.values = ['hello', 'world', 'a', 'b', 'c']
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs">tensorflow::<wbr/>ops::<wbr/>StringSplitV2::<wbr/>Attrs</a>
+        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs">tensorflow::<wbr/>ops::<wbr/>StringSplitV2::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.14/api_docs/cc/class/tensorflow/ops/string-split-v2.html#classtensorflow_1_1ops_1_1_string_split_v2">StringSplitV2</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/string-split-v2.html#classtensorflow_1_1ops_1_1_string_split_v2">StringSplitV2</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1afd84236fdcaab70d550ed4c31069c70b">
     <h3>indices</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> indices</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1a58af1d625de74aabfd6fbf24fc8f5000">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1af40d55ff0d2df1679c54c1d41e13dccf">
     <h3>shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1a06c7c35d77269fee3efbc2f4a6987c30">
     <h3>values</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
+    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> values</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1acbea51cb12f95ef6cae1972ae134e7ac">
     <h3>StringSplitV2</h3>
     <pre class="prettyprint"> StringSplitV2(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1a63b63775de3ac1b5830b860233d56cbc">
     <h3>StringSplitV2</h3>
     <pre class="prettyprint"> StringSplitV2(
-  const ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.14/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep,
-  const <a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">StringSplitV2::Attrs</a> & attrs
+  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sep,
+  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">StringSplitV2::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_string_split_v2_1a33e93526de570b25c067a8a35545e5b2">
     <h3>Maxsplit</h3>
-    <pre class="prettyprint"><a href="/versions/r1.14/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a> Maxsplit(
+    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/string-split-v2/attrs.html#structtensorflow_1_1ops_1_1_string_split_v2_1_1_attrs">Attrs</a> Maxsplit(
   int64 x
 )</pre>
     <div />

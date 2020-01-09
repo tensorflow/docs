@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.nn.rnn_cell.RNNCell
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L183-L344">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RNNCell`
 
 Abstract object representing an RNN cell.
@@ -13,13 +25,9 @@ Inherits From: [`Layer`](../../../tf/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.nn.rnn_cell.RNNCell`
-* Class `tf.contrib.rnn.RNNCell`
-* Class `tf.nn.rnn_cell.RNNCell`
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/RNNCell"><code>tf.compat.v1.nn.rnn_cell.RNNCell</code></a>
+* Class <a href="/api_docs/python/tf/nn/rnn_cell/RNNCell"><code>tf.contrib.rnn.RNNCell</code></a>
 
-
-
-Defined in [`python/ops/rnn_cell_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/rnn_cell_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -42,6 +50,8 @@ matching structure of Tensors having shape `[batch_size].concatenate(s)`
 for each `s` in `self.batch_size`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L205-L212">View source</a>
 
 ``` python
 __init__(
@@ -90,6 +100,8 @@ or TensorShapes.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L281-L309">View source</a>
+
 ``` python
 get_initial_state(
     inputs=None,
@@ -102,6 +114,8 @@ get_initial_state(
 
 
 <h3 id="zero_state"><code>zero_state</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/rnn_cell_impl.py#L311-L340">View source</a>
 
 ``` python
 zero_state(
@@ -128,7 +142,3 @@ If `state_size` is an int or TensorShape, then the return value is a
 If `state_size` is a nested list or tuple, then the return value is
 a nested list or tuple (of the same structure) of `2-D` tensors with
 the shapes `[batch_size, s]` for each s in `state_size`.
-
-
-
-

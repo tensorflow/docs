@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.checkpoint.UniqueNameTracker
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/python/containers.py#L24-L84">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `UniqueNameTracker`
 
 Adds dependencies on trackable objects with name hints.
 
 
-
-
-
-Defined in [`contrib/checkpoint/python/containers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/python/containers.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,11 +45,13 @@ class SlotManager(tf.contrib.checkpoint.Checkpointable):
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/python/containers.py#L44-L47">View source</a>
+
 ``` python
 __init__()
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -104,14 +114,18 @@ Aggregate updates from any `Layer` instances.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/data_structures.py#L247-L250">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="track"><code>track</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/python/containers.py#L53-L84">View source</a>
 
 ``` python
 track(
@@ -139,6 +153,3 @@ Add a dependency on `trackable`.
 
 
 * <b>`ValueError`</b>: If `trackable` is not a trackable object.
-
-
-

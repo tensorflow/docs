@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.signal.overlap_and_add
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/signal/overlap_and_add">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/reconstruction_ops.py#L29-L155">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Reconstructs a signal from a framed representation.
 
 ### Aliases:
 
-* `tf.compat.v1.signal.overlap_and_add`
-* `tf.compat.v2.signal.overlap_and_add`
-* `tf.contrib.signal.overlap_and_add`
-* `tf.signal.overlap_and_add`
+* <a href="/api_docs/python/tf/signal/overlap_and_add"><code>tf.compat.v1.signal.overlap_and_add</code></a>
+* <a href="/api_docs/python/tf/signal/overlap_and_add"><code>tf.compat.v2.signal.overlap_and_add</code></a>
+* <a href="/api_docs/python/tf/signal/overlap_and_add"><code>tf.contrib.signal.overlap_and_add</code></a>
+
 
 ``` python
 tf.signal.overlap_and_add(
@@ -23,8 +41,6 @@ tf.signal.overlap_and_add(
 ```
 
 
-
-Defined in [`python/ops/signal/reconstruction_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/signal/reconstruction_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

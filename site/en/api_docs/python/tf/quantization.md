@@ -6,6 +6,18 @@ page_type: reference
 # Module: tf.quantization
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/quantization">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.quantization namespace.
 
 <!-- Placeholder for "Used in" -->
 
@@ -31,4 +43,3 @@ page_type: reference
 [`quantize_and_dequantize(...)`](../tf/quantization/quantize_and_dequantize): Quantizes then dequantizes a tensor.
 
 [`quantized_concat(...)`](../tf/quantization/quantized_concat): Concatenates quantized tensors along one dimension.
-

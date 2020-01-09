@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.summary.text
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/summary/text">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L233-L271">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Summarizes textual data.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.text`
-* `tf.summary.text`
+* <a href="/api_docs/python/tf/summary/text"><code>tf.compat.v1.summary.text</code></a>
+
 
 ``` python
 tf.summary.text(
@@ -21,8 +39,6 @@ tf.summary.text(
 ```
 
 
-
-Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 

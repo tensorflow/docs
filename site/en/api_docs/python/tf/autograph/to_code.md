@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.autograph.to_code
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/autograph/to_code">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/impl/api.py#L693-L727">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Similar to `to_graph`, but returns Python source code as a string.
 
 ### Aliases:
 
-* `tf.autograph.to_code`
-* `tf.compat.v1.autograph.to_code`
+* <a href="/api_docs/python/tf/autograph/to_code"><code>tf.compat.v1.autograph.to_code</code></a>
+
 
 ``` python
 tf.autograph.to_code(
@@ -24,8 +42,6 @@ tf.autograph.to_code(
 ```
 
 
-
-Defined in [`python/autograph/impl/api.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/autograph/impl/api.py).
 
 <!-- Placeholder for "Used in" -->
 

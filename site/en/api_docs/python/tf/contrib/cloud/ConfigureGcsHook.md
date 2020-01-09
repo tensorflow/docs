@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.cloud.ConfigureGcsHook
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py#L54-L144">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `ConfigureGcsHook`
 
 ConfigureGcsHook configures GCS when used with Estimator/TPUEstimator.
 
 Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
-
-
-
-Defined in [`contrib/cloud/python/ops/gcs_config_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -42,6 +50,8 @@ tf.contrib.cloud.configure_gcs(sess, credentials=creds)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py#L86-L119">View source</a>
 
 ``` python
 __init__(
@@ -72,6 +82,8 @@ Constructs a ConfigureGcsHook.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py#L137-L144">View source</a>
+
 ``` python
 after_create_session(
     session,
@@ -79,10 +91,25 @@ after_create_session(
 )
 ```
 
+Called when new TensorFlow session is created.
+
+This is called to signal the hooks that a new session has been created. This
+has two essential differences with the situation in which `begin` is called:
+
+* When this is called, the graph is finalized and ops can no longer be added
+    to the graph.
+* This method will also be called as a result of recovering a wrapped
+    session, not only at the beginning of the overall session.
+
+#### Args:
 
 
+* <b>`session`</b>: A TensorFlow Session that has been created.
+* <b>`coord`</b>: A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L152-L169">View source</a>
 
 ``` python
 after_run(
@@ -108,6 +135,8 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 * <b>`run_values`</b>: A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
 
 ``` python
 before_run(run_context)
@@ -140,14 +169,23 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/cloud/python/ops/gcs_config_ops.py#L121-L135">View source</a>
+
 ``` python
 begin()
 ```
 
+Called once before using the session.
 
-
+When called, the default graph is the one that will be launched in the
+session.  The hook can modify the graph by adding new operations to it.
+After the `begin()` call the graph will be finalized and the other callbacks
+can not modify the graph anymore. Second call of `begin()` on the same
+graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L171-L186">View source</a>
 
 ``` python
 end(session)
@@ -168,6 +206,3 @@ Note the difference between `end()` and `after_run()` behavior when
 
 
 * <b>`session`</b>: A TensorFlow Session that will be soon closed.
-
-
-

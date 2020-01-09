@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.keras.optimizers.deserialize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/deserialize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizers.py#L785-L815">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Inverse of the `serialize` function.
 
 ### Aliases:
 
-* `tf.compat.v1.keras.optimizers.deserialize`
-* `tf.compat.v2.keras.optimizers.deserialize`
-* `tf.compat.v2.optimizers.deserialize`
-* `tf.keras.optimizers.deserialize`
+* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v1.keras.optimizers.deserialize</code></a>
+* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v2.keras.optimizers.deserialize</code></a>
+* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v2.optimizers.deserialize</code></a>
+
 
 ``` python
 tf.keras.optimizers.deserialize(
@@ -22,8 +40,6 @@ tf.keras.optimizers.deserialize(
 ```
 
 
-
-Defined in [`python/keras/optimizers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/optimizers.py).
 
 <!-- Placeholder for "Used in" -->
 

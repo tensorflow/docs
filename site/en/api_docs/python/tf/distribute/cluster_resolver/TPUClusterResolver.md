@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.distribute.cluster_resolver.TPUClusterResolver
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L78-L548">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `TPUClusterResolver`
 
 Cluster Resolver for Google Cloud TPUs.
@@ -13,16 +31,10 @@ Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/Clust
 
 ### Aliases:
 
-* Class `tf.compat.v1.distribute.cluster_resolver.TPUClusterResolver`
-* Class `tf.compat.v2.distribute.cluster_resolver.TPUClusterResolver`
-* Class `tf.contrib.cluster_resolver.TPUClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.TPUClusterResolver`
-* Class `tf.contrib.cluster_resolver.python.training.tpu_cluster_resolver.TPUClusterResolver`
-* Class `tf.distribute.cluster_resolver.TPUClusterResolver`
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.TPUClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.TPUClusterResolver</code></a>
+* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.contrib.cluster_resolver.TPUClusterResolver</code></a>
 
-
-
-Defined in [`python/distribute/cluster_resolver/tpu_cluster_resolver.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -37,6 +49,8 @@ Google Kubernetes Engine
 Google internal
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L193-L344">View source</a>
 
 ``` python
 __init__(
@@ -60,7 +74,7 @@ for the IP addresses and ports of each Cloud TPU listed.
 #### Args:
 
 
-* <b>`tpu`</b>: A string corresponding to the TPU to use. If the string is the empty
+* <b>`tpu`</b>: A string corresponding to the TPU to use. If the string is an empty
   string, the string 'local', or a string that begins with 'grpc://' or
     '/bns', then it is assumed to not correspond with a Cloud TPU and will
     instead be passed as the session master and no ClusterSpec propagation
@@ -114,6 +128,8 @@ Returns the current environment which TensorFlow is running in.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L401-L467">View source</a>
+
 ``` python
 cluster_spec()
 ```
@@ -125,7 +141,8 @@ called.
 
 #### Returns:
 
-A ClusterSpec containing host information returned from Cloud TPUs.
+A ClusterSpec containing host information returned from Cloud TPUs,
+or None.
 
 
 
@@ -136,6 +153,8 @@ A ClusterSpec containing host information returned from Cloud TPUs.
 
 <h3 id="get_job_name"><code>get_job_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L396-L399">View source</a>
+
 ``` python
 get_job_name()
 ```
@@ -145,6 +164,8 @@ get_job_name()
 
 <h3 id="get_master"><code>get_master</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L393-L394">View source</a>
+
 ``` python
 get_master()
 ```
@@ -153,6 +174,8 @@ get_master()
 
 
 <h3 id="master"><code>master</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L346-L391">View source</a>
 
 ``` python
 master(
@@ -196,6 +219,8 @@ string, the connection string to use when creating a session.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L482-L523">View source</a>
+
 ``` python
 num_accelerators(
     task_type=None,
@@ -224,6 +249,3 @@ cluster is the same before returning the number of TPU cores per host.
 
 * <b>`RuntimeError`</b>: If we cannot talk to a TPU worker after retrying or if the
   number of TPU devices per host is different.
-
-
-

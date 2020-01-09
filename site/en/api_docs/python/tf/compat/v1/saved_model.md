@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.saved_model
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/saved_model">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.saved_model namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -44,7 +56,7 @@ Public API for tf.saved_model namespace.
 
 [`contains_saved_model(...)`](../../../tf/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
 
-[`get_tensor_from_tensor_info(...)`](../../../tf/saved_model/get_tensor_from_tensor_info): Returns the Tensor or SparseTensor described by a TensorInfo proto. (deprecated)
+[`get_tensor_from_tensor_info(...)`](../../../tf/saved_model/get_tensor_from_tensor_info): Returns the Tensor or CompositeTensor described by a TensorInfo proto. (deprecated)
 
 [`is_valid_signature(...)`](../../../tf/saved_model/is_valid_signature): Determine whether a SignatureDef can be served by TensorFlow Serving.
 

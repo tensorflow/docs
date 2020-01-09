@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.layers
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/layers">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.layers namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -89,4 +101,3 @@ Public API for tf.layers namespace.
 [`separable_conv1d(...)`](../../../tf/layers/separable_conv1d): Functional interface for the depthwise separable 1D convolution layer. (deprecated)
 
 [`separable_conv2d(...)`](../../../tf/layers/separable_conv2d): Functional interface for the depthwise separable 2D convolution layer. (deprecated)
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.lookup.experimental
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/lookup/experimental">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.lookup.experimental namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -13,4 +25,3 @@ Public API for tf.lookup.experimental namespace.
 ## Classes
 
 [`class DenseHashTable`](../../../../tf/lookup/experimental/DenseHashTable): A generic mutable hash table implementation using tensors as backing store.
-

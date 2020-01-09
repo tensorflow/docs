@@ -6,13 +6,25 @@ page_type: reference
 # Module: tf.io
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+Public API for tf.io namespace.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Modules
 
-[`gfile`](../tf/io/gfile) module
+[`gfile`](../tf/io/gfile) module: Public API for tf.io.gfile namespace.
 
 ## Classes
 
@@ -103,4 +115,3 @@ page_type: reference
 [`write_file(...)`](../tf/io/write_file): Writes contents to the file at input filename. Creates file and recursively
 
 [`write_graph(...)`](../tf/io/write_graph): Writes a graph proto to a file.
-

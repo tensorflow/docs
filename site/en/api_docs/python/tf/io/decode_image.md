@@ -5,16 +5,34 @@ page_type: reference
 
 # tf.io.decode_image
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/decode_image">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2204-L2317">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Function for `decode_bmp`, `decode_gif`, `decode_jpeg`, and `decode_png`.
 
 ### Aliases:
 
-* `tf.compat.v1.image.decode_image`
-* `tf.compat.v1.io.decode_image`
-* `tf.compat.v2.image.decode_image`
-* `tf.compat.v2.io.decode_image`
-* `tf.image.decode_image`
-* `tf.io.decode_image`
+* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v1.image.decode_image</code></a>
+* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v1.io.decode_image</code></a>
+* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v2.image.decode_image</code></a>
+* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v2.io.decode_image</code></a>
+* <a href="/api_docs/python/tf/io/decode_image"><code>tf.image.decode_image</code></a>
+
 
 ``` python
 tf.io.decode_image(
@@ -27,8 +45,6 @@ tf.io.decode_image(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -52,11 +68,11 @@ and will truncate animated GIF files to the first frame.
   the decoded image.
 * <b>`dtype`</b>: The desired DType of the returned `Tensor`.
 * <b>`name`</b>: A name for the operation (optional)
-* <b>`expand_animations`</b>: Controls the shape of the returned op's output.
-  If `True`, the returned op will produce a 3-D tensor for PNG, JPEG, and
-  BMP files; and a 4-D tensor for all GIFs, whether animated or not.
-  If, `False`, the returned op will produce a 3-D tensor for all file
-  types and will truncate animated GIFs to the first frame.
+* <b>`expand_animations`</b>: Controls the shape of the returned op's output. If
+  `True`, the returned op will produce a 3-D tensor for PNG, JPEG, and BMP
+  files; and a 4-D tensor for all GIFs, whether animated or not. If,
+  `False`, the returned op will produce a 3-D tensor for all file types and
+  will truncate animated GIFs to the first frame.
 
 
 #### Returns:

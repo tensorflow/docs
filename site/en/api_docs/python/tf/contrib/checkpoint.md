@@ -5,11 +5,19 @@ page_type: reference
 
 # Module: tf.contrib.checkpoint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/checkpoint/__init__.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Tools for working with object-based checkpoints.
-
-
-
-Defined in [`contrib/checkpoint/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/checkpoint/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -35,7 +43,7 @@ Saving and restoring Python state:
 
 [`class CheckpointableBase`](../../tf/contrib/checkpoint/CheckpointableBase): Base class for `Trackable` objects without automatic dependencies.
 
-[`class CheckpointableObjectGraph`](../../tf/contrib/checkpoint/CheckpointableObjectGraph)
+[`class CheckpointableObjectGraph`](../../tf/contrib/checkpoint/CheckpointableObjectGraph): A ProtocolMessage
 
 [`class List`](../../tf/contrib/checkpoint/List): An append-only sequence type which is trackable.
 
@@ -60,4 +68,3 @@ Saving and restoring Python state:
 [`object_metadata(...)`](../../tf/contrib/checkpoint/object_metadata): Retrieves information about the objects in a checkpoint.
 
 [`split_dependency(...)`](../../tf/contrib/checkpoint/split_dependency): Creates multiple dependencies with a synchronized save/restore.
-

@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.distributions.percentile
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/distributions/python/ops/sample_stats.py#L219-L371">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Compute the `q`-th percentile of `x`.
 
 ``` python
@@ -20,8 +32,6 @@ tf.contrib.distributions.percentile(
 ```
 
 
-
-Defined in [`contrib/distributions/python/ops/sample_stats.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/distributions/python/ops/sample_stats.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.quantization.dequantize
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/quantization/dequantize">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Dequantize the 'input' tensor into a float Tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.dequantize`
-* `tf.compat.v1.quantization.dequantize`
-* `tf.compat.v2.quantization.dequantize`
-* `tf.dequantize`
-* `tf.quantization.dequantize`
+* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v1.dequantize</code></a>
+* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v1.quantization.dequantize</code></a>
+* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v2.quantization.dequantize</code></a>
+* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.dequantize</code></a>
+
 
 ``` python
 tf.quantization.dequantize(
@@ -26,8 +40,6 @@ tf.quantization.dequantize(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -55,7 +67,7 @@ each value by 128 prior to casting.
 
 If the mode is 'MIN_FIRST', then this approach is used:
 
-```
+```c++
 num_discrete_values = 1 << (# of bits in T)
 range_adjust = num_discrete_values / (num_discrete_values - 1)
 range = (range_max - range_min) * range_adjust
@@ -77,7 +89,7 @@ choosing to elide the lowest possible value for symmetry (e.g., output range is
 We first find the range of values in our tensor. The
 range we use is always centered on 0, so we find m such that
 
-```
+```c++
   m = max(abs(input_min), abs(input_max))
 ```
 
@@ -100,13 +112,13 @@ Otherwise, if T is unsigned, the fixed-point range is
 
 From this we compute our scaling factor, s:
 
-```
+```c++
   s = (2 * m) / (max_fixed - min_fixed)
 ```
 
 Now we can dequantize the elements of our tensor:
 
-```
+```c++
 result = input * s
 ```
 

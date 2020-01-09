@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.contrib.layers.separable_conv2d
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/layers.py#L2665-L2851">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a depth-separable 2D convolution with optional batch_norm layer.
 
 ### Aliases:
 
-* `tf.contrib.layers.separable_conv2d`
-* `tf.contrib.layers.separable_convolution2d`
+* <a href="/api_docs/python/tf/contrib/layers/separable_conv2d"><code>tf.contrib.layers.separable_convolution2d</code></a>
+
 
 ``` python
 tf.contrib.layers.separable_conv2d(
@@ -39,8 +51,6 @@ tf.contrib.layers.separable_conv2d(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/layers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/layers.py).
 
 <!-- Placeholder for "Used in" -->
 

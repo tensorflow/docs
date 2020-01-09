@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.tensor_scatter_nd_add
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/tensor_scatter_nd_add">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Adds sparse `updates` to an existing tensor according to `indices`.
 
 ### Aliases:
 
-* `tf.compat.v1.tensor_scatter_add`
-* `tf.compat.v1.tensor_scatter_nd_add`
-* `tf.compat.v2.tensor_scatter_nd_add`
-* `tf.tensor_scatter_add`
-* `tf.tensor_scatter_nd_add`
+* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v1.tensor_scatter_add</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v1.tensor_scatter_nd_add</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v2.tensor_scatter_nd_add</code></a>
+* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.tensor_scatter_add</code></a>
+
 
 ``` python
 tf.tensor_scatter_nd_add(
@@ -25,8 +39,6 @@ tf.tensor_scatter_nd_add(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.strings.unicode_decode
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/unicode_decode">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L179-L222">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Decodes each string in `input` into a sequence of Unicode code points.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.unicode_decode`
-* `tf.compat.v2.strings.unicode_decode`
-* `tf.strings.unicode_decode`
+* <a href="/api_docs/python/tf/strings/unicode_decode"><code>tf.compat.v1.strings.unicode_decode</code></a>
+* <a href="/api_docs/python/tf/strings/unicode_decode"><code>tf.compat.v2.strings.unicode_decode</code></a>
+
 
 ``` python
 tf.strings.unicode_decode(
@@ -25,8 +43,6 @@ tf.strings.unicode_decode(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -61,6 +77,7 @@ The returned tensor is a <a href="../../tf/Tensor"><code>tf.Tensor</code></a> if
 
 
 #### Example:
+
 >     >>> input = [s.encode('utf8') for s in (u'G\xf6\xf6dnight', u'\U0001f60a')]
 >     >>> tf.strings.unicode_decode(input, 'UTF-8').tolist()
 >     [[71, 246, 246, 100, 110, 105, 103, 104, 116], [128522]]

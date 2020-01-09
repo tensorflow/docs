@@ -5,12 +5,30 @@ page_type: reference
 
 # tf.nn.embedding_lookup_sparse
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/nn/embedding_lookup_sparse">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/embedding_ops.py#L367-L538">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes embeddings for the given ids and weights.
 
 ### Aliases:
 
-* `tf.compat.v1.nn.embedding_lookup_sparse`
-* `tf.nn.embedding_lookup_sparse`
+* <a href="/api_docs/python/tf/nn/embedding_lookup_sparse"><code>tf.compat.v1.nn.embedding_lookup_sparse</code></a>
+
 
 ``` python
 tf.nn.embedding_lookup_sparse(
@@ -25,8 +43,6 @@ tf.nn.embedding_lookup_sparse(
 ```
 
 
-
-Defined in [`python/ops/embedding_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/embedding_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

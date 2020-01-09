@@ -6,15 +6,23 @@ page_type: reference
 # Module: tf.keras.datasets.mnist
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/datasets/mnist">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
+MNIST handwritten digits dataset.
 
 ### Aliases:
 
-* Module `tf.compat.v1.keras.datasets.mnist`
-* Module `tf.keras.datasets.mnist`
+* Module <a href="/api_docs/python/tf/keras/datasets/mnist"><code>tf.compat.v1.keras.datasets.mnist</code></a>
 
-
-
-Defined in [`python/keras/api/_v1/keras/datasets/mnist/__init__.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/api/_v1/keras/datasets/mnist/__init__.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -22,4 +30,3 @@ Defined in [`python/keras/api/_v1/keras/datasets/mnist/__init__.py`](https://git
 ## Functions
 
 [`load_data(...)`](../../../tf/keras/datasets/mnist/load_data): Loads the MNIST dataset.
-

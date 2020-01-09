@@ -5,6 +5,14 @@ page_type: reference
 
 # tf.contrib.tpu.outfeed_dequeue_tuple
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_tpu_ops.py`
+
+
+
 Retrieve multiple values from the computation outfeed.
 
 ``` python
@@ -17,8 +25,6 @@ tf.contrib.tpu.outfeed_dequeue_tuple(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_tpu_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

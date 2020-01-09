@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.saved_model.Builder
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/builder_impl.py#L431-L620">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Builder`
 
 Builds the `SavedModel` protocol buffer and saves variables and assets.
@@ -13,14 +25,10 @@ Builds the `SavedModel` protocol buffer and saves variables and assets.
 
 ### Aliases:
 
-* Class `tf.compat.v1.saved_model.Builder`
-* Class `tf.compat.v1.saved_model.builder.SavedModelBuilder`
-* Class `tf.saved_model.Builder`
-* Class `tf.saved_model.builder.SavedModelBuilder`
+* Class <a href="/api_docs/python/tf/saved_model/Builder"><code>tf.compat.v1.saved_model.Builder</code></a>
+* Class <a href="/api_docs/python/tf/saved_model/Builder"><code>tf.compat.v1.saved_model.builder.SavedModelBuilder</code></a>
+* Class <a href="/api_docs/python/tf/saved_model/Builder"><code>tf.saved_model.builder.SavedModelBuilder</code></a>
 
-
-
-Defined in [`python/saved_model/builder_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/saved_model/builder_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -68,11 +76,13 @@ object-based method of creating SavedModels.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/builder_impl.py#L435-L436">View source</a>
+
 ``` python
 __init__(export_dir)
 ```
 
-
+Initialize self.  See help(type(self)) for accurate signature.
 
 
 
@@ -80,6 +90,8 @@ __init__(export_dir)
 ## Methods
 
 <h3 id="add_meta_graph"><code>add_meta_graph</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/builder_impl.py#L512-L554">View source</a>
 
 ``` python
 add_meta_graph(
@@ -130,6 +142,8 @@ API to have been invoked before.
 
 <h3 id="add_meta_graph_and_variables"><code>add_meta_graph_and_variables</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/builder_impl.py#L556-L614">View source</a>
+
 ``` python
 add_meta_graph_and_variables(
     sess,
@@ -178,6 +192,8 @@ meta graph defs to be added, the `add_meta_graph()` API must be used.
 
 <h3 id="save"><code>save</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/builder_impl.py#L395-L427">View source</a>
+
 ``` python
 save(as_text=False)
 ```
@@ -201,7 +217,3 @@ in serialized format.
 #### Returns:
 
 The path to which the SavedModel protocol buffer was written.
-
-
-
-

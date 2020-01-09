@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.summary.get_summary_description
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L409-L436">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Given a TensorSummary node_def, retrieve its SummaryDescription.
 
 ### Aliases:
 
-* `tf.compat.v1.summary.get_summary_description`
-* `tf.summary.get_summary_description`
+* <a href="/api_docs/python/tf/summary/get_summary_description"><code>tf.compat.v1.summary.get_summary_description</code></a>
+
 
 ``` python
 tf.summary.get_summary_description(node_def)
 ```
 
 
-
-Defined in [`python/summary/summary.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/summary/summary.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,4 +57,3 @@ a summary_pb2.SummaryDescription
 #### Eager Compatibility
 Not compatible with eager execution. To write TensorBoard
 summaries under eager execution, use <a href="../../tf/contrib/summary"><code>tf.contrib.summary</code></a> instead.
-

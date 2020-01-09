@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sparse.reduce_sum
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/reduce_sum">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1337-L1392">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the sum of elements across dimensions of a SparseTensor. (deprecated arguments) (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.reduce_sum`
-* `tf.compat.v1.sparse_reduce_sum`
-* `tf.sparse.reduce_sum`
-* `tf.sparse_reduce_sum`
+* <a href="/api_docs/python/tf/sparse/reduce_sum"><code>tf.compat.v1.sparse.reduce_sum</code></a>
+* <a href="/api_docs/python/tf/sparse/reduce_sum"><code>tf.compat.v1.sparse_reduce_sum</code></a>
+* <a href="/api_docs/python/tf/sparse/reduce_sum"><code>tf.sparse_reduce_sum</code></a>
+
 
 ``` python
 tf.sparse.reduce_sum(
@@ -25,8 +43,6 @@ tf.sparse.reduce_sum(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

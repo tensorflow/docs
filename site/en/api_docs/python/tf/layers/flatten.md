@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.layers.flatten
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/layers/core.py#L300-L332">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Flattens an input tensor while preserving the batch axis (axis 0). (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.layers.flatten`
-* `tf.layers.flatten`
+* <a href="/api_docs/python/tf/layers/flatten"><code>tf.compat.v1.layers.flatten</code></a>
+
 
 ``` python
 tf.layers.flatten(
@@ -21,8 +33,6 @@ tf.layers.flatten(
 ```
 
 
-
-Defined in [`python/layers/core.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/layers/core.py).
 
 <!-- Placeholder for "Used in" -->
 

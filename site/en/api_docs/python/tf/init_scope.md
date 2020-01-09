@@ -5,21 +5,37 @@ page_type: reference
 
 # tf.init_scope
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/init_scope">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5531-L5633">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 A context manager that lifts ops out of control-flow scopes and function-building graphs.
 
 ### Aliases:
 
-* `tf.compat.v1.init_scope`
-* `tf.compat.v2.init_scope`
-* `tf.init_scope`
+* <a href="/api_docs/python/tf/init_scope"><code>tf.compat.v1.init_scope</code></a>
+* <a href="/api_docs/python/tf/init_scope"><code>tf.compat.v2.init_scope</code></a>
+
 
 ``` python
 tf.init_scope()
 ```
 
 
-
-Defined in [`python/framework/ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/ops.py).
 
 <!-- Placeholder for "Used in" -->
 

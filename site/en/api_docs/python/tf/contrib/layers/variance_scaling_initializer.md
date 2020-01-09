@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.variance_scaling_initializer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/layers/python/layers/initializers.py#L62-L153">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns an initializer that generates tensors without scaling variance.
 
 ``` python
@@ -18,8 +30,6 @@ tf.contrib.layers.variance_scaling_initializer(
 ```
 
 
-
-Defined in [`contrib/layers/python/layers/initializers.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/layers/python/layers/initializers.py).
 
 <!-- Placeholder for "Used in" -->
 

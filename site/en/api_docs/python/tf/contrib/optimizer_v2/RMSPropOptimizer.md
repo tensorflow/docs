@@ -5,23 +5,33 @@ page_type: reference
 
 # tf.contrib.optimizer_v2.RMSPropOptimizer
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/rmsprop.py#L50-L234">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RMSPropOptimizer`
 
 Optimizer that implements the RMSProp algorithm.
 
 Inherits From: [`OptimizerV2`](../../../tf/contrib/optimizer_v2/OptimizerV2)
 
-
-
-Defined in [`contrib/optimizer_v2/rmsprop.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/optimizer_v2/rmsprop.py).
-
 <!-- Placeholder for "Used in" -->
 
 See the
-[paper](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf)
-.
+[paper]
+(http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf).
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/rmsprop.py#L58-L106">View source</a>
 
 ``` python
 __init__(
@@ -77,6 +87,8 @@ Tensor or a Python value.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L843-L879">View source</a>
+
 ``` python
 apply_gradients(
     grads_and_vars,
@@ -116,6 +128,8 @@ was not None, that operation also increments `global_step`.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L726-L832">View source</a>
+
 ``` python
 compute_gradients(
     loss,
@@ -144,7 +158,7 @@ given variable.
   enabled it must be a callable.
 * <b>`var_list`</b>: Optional list or tuple of <a href="../../../tf/Variable"><code>tf.Variable</code></a> to update to minimize
   `loss`.  Defaults to the list of variables collected in the graph under
-  the key `GraphKeys.TRAINABLE_VARIABLES`.
+  the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -181,6 +195,8 @@ are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+
 ``` python
 get_name()
 ```
@@ -189,6 +205,8 @@ get_name()
 
 
 <h3 id="get_slot"><code>get_slot</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L1019-L1037">View source</a>
 
 ``` python
 get_slot(
@@ -220,6 +238,8 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L1039-L1048">View source</a>
+
 ``` python
 get_slot_names()
 ```
@@ -234,6 +254,8 @@ A list of strings.
 
 
 <h3 id="minimize"><code>minimize</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L654-L724">View source</a>
 
 ``` python
 minimize(
@@ -264,7 +286,7 @@ of using this function.
   have been updated.
 * <b>`var_list`</b>: Optional list or tuple of `Variable` objects to update to
   minimize `loss`.  Defaults to the list of variables collected in the
-  graph under the key `GraphKeys.TRAINABLE_VARIABLES`.
+  graph under the key <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 * <b>`gate_gradients`</b>: How to gate the computation of gradients.  Can be
   `GATE_NONE`, `GATE_OP`, or  `GATE_GRAPH`.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.
@@ -304,6 +326,8 @@ eager execution is enabled.
 
 
 <h3 id="variables"><code>variables</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/optimizer_v2/optimizer_v2.py#L1050-L1060">View source</a>
 
 ``` python
 variables()

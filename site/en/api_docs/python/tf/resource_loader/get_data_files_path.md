@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.resource_loader.get_data_files_path
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/resource_loader.py#L49-L57">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Get a direct path to the data files colocated with the script.
 
 ### Aliases:
 
-* `tf.compat.v1.resource_loader.get_data_files_path`
-* `tf.resource_loader.get_data_files_path`
+* <a href="/api_docs/python/tf/resource_loader/get_data_files_path"><code>tf.compat.v1.resource_loader.get_data_files_path</code></a>
+
 
 ``` python
 tf.resource_loader.get_data_files_path()
 ```
 
 
-
-Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
 <!-- Placeholder for "Used in" -->
 

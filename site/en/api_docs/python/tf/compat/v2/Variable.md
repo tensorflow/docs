@@ -6,15 +6,23 @@ page_type: reference
 
 # tf.compat.v2.Variable
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L266-L1358">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Variable`
 
 See the [Variables Guide](https://tensorflow.org/guide/variables).
 
 Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
-
-
-
-Defined in [`python/ops/variables.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/variables.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -88,7 +96,7 @@ variables are initialized in the right order.
 
 All variables are automatically collected in the graph where they are
 created. By default, the constructor adds the new variable to the graph
-collection `GraphKeys.GLOBAL_VARIABLES`. The convenience function
+collection <a href="/api_docs/python/tf/GraphKeys#GLOBAL_VARIABLES"><code>GraphKeys.GLOBAL_VARIABLES</code></a>. The convenience function
 `global_variables()` returns the contents of that collection.
 
 When building a machine learning model it is often convenient to distinguish
@@ -96,41 +104,14 @@ between variables holding the trainable model parameters and other variables
 such as a `global step` variable used to count training steps. To make this
 easier, the variable constructor supports a `trainable=<bool>` parameter. If
 `True`, the new variable is also added to the graph collection
-`GraphKeys.TRAINABLE_VARIABLES`. The convenience function
+<a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. The convenience function
 `trainable_variables()` returns the contents of this collection. The
 various `Optimizer` classes use this collection as the default list of
 variables to optimize.
 
-WARNING: tf.Variable objects by default have a non-intuitive memory model. A
-Variable is represented internally as a mutable Tensor which can
-non-deterministically alias other Tensors in a graph. The set of operations
-which consume a Variable and can lead to aliasing is undetermined and can
-change across TensorFlow versions. Avoid writing code which relies on the
-value of a Variable either changing or not changing as other operations
-happen. For example, using Variable objects or simple functions thereof as
-predicates in a <a href="../../../tf/cond"><code>tf.cond</code></a> is dangerous and error-prone:
-
-```
-v = tf.Variable(True)
-tf.cond(v, lambda: v.assign(False), my_false_fn)  # Note: this is broken.
-```
-
-Here, adding `use_resource=True` when constructing the variable will
-fix any nondeterminism issues:
-
-```
-v = tf.Variable(True, use_resource=True)
-tf.cond(v, lambda: v.assign(False), my_false_fn)
-```
-
-To use the replacement for variables which does
-not have these issues:
-
-* Add `use_resource=True` when constructing <a href="../../../tf/Variable"><code>tf.Variable</code></a>;
-* Call `tf.compat.v1.get_variable_scope().set_use_resource(True)` inside a
-  <a href="../../../tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a> before the <a href="../../../tf/get_variable"><code>tf.compat.v1.get_variable()</code></a> call.
-
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L353-L432">View source</a>
 
 ``` python
 __init__(
@@ -155,7 +136,7 @@ The new variable is added to the graph collections listed in `collections`,
 which defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
 
 If `trainable` is `True` the variable is also added to the graph collection
-`GraphKeys.TRAINABLE_VARIABLES`.
+<a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
 
 This constructor creates both a `variable` Op and an `assign` Op to set the
 variable to its initial value.
@@ -169,41 +150,40 @@ variable to its initial value.
   callable with no argument that returns the initial value when called. In
   that case, `dtype` must be specified. (Note that initializer functions
   from init_ops.py must first be bound to a shape before being used here.)
-* <b>`trainable`</b>: If `True`, GradientTapes automatically watch uses
-  of this variable. Defaults to `True` unless `synchronization` is
-  set to `ON_READ`.
+* <b>`trainable`</b>: If `True`, GradientTapes automatically watch uses of this
+  variable. Defaults to `True`, unless `synchronization` is set to
+  `ON_READ`, in which case it defaults to `False`.
 * <b>`validate_shape`</b>: If `False`, allows the variable to be initialized with a
   value of unknown shape. If `True`, the default, the shape of
   `initial_value` must be known.
 * <b>`caching_device`</b>: Optional device string describing where the Variable
-  should be cached for reading.  Defaults to the Variable's device.
-  If not `None`, caches on another device.  Typical use is to cache
-  on the device where the Ops using the Variable reside, to deduplicate
-  copying through `Switch` and other conditional statements.
+  should be cached for reading.  Defaults to the Variable's device. If not
+  `None`, caches on another device.  Typical use is to cache on the device
+  where the Ops using the Variable reside, to deduplicate copying through
+  `Switch` and other conditional statements.
 * <b>`name`</b>: Optional name for the variable. Defaults to `'Variable'` and gets
   uniquified automatically.
-* <b>`variable_def`</b>: `VariableDef` protocol buffer. If not `None`, recreates
-  the Variable object with its contents, referencing the variable's nodes
-  in the graph, which must already exist. The graph is not changed.
+* <b>`variable_def`</b>: `VariableDef` protocol buffer. If not `None`, recreates the
+  Variable object with its contents, referencing the variable's nodes in
+  the graph, which must already exist. The graph is not changed.
   `variable_def` and the other arguments are mutually exclusive.
-* <b>`dtype`</b>: If set, initial_value will be converted to the given type.
-  If `None`, either the datatype will be kept (if `initial_value` is
-  a Tensor), or `convert_to_tensor` will decide.
-* <b>`import_scope`</b>: Optional `string`. Name scope to add to the
-  `Variable.` Only used when initializing from protocol buffer.
+* <b>`dtype`</b>: If set, initial_value will be converted to the given type. If
+  `None`, either the datatype will be kept (if `initial_value` is a
+  Tensor), or `convert_to_tensor` will decide.
+* <b>`import_scope`</b>: Optional `string`. Name scope to add to the `Variable.` Only
+  used when initializing from protocol buffer.
 * <b>`constraint`</b>: An optional projection function to be applied to the variable
   after being updated by an `Optimizer` (e.g. used to implement norm
   constraints or value constraints for layer weights). The function must
   take as input the unprojected Tensor representing the value of the
-  variable and return the Tensor for the projected value
-  (which must have the same shape). Constraints are not safe to
-  use when doing asynchronous distributed training.
+  variable and return the Tensor for the projected value (which must have
+  the same shape). Constraints are not safe to use when doing asynchronous
+  distributed training.
 * <b>`synchronization`</b>: Indicates when a distributed a variable will be
   aggregated. Accepted values are constants defined in the class
   <a href="../../../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
-  `AUTO` and the current `DistributionStrategy` chooses
-  when to synchronize. If `synchronization` is set to `ON_READ`,
-  `trainable` must not be set to `True`.
+  `AUTO` and the current `DistributionStrategy` chooses when to
+  synchronize.
 * <b>`aggregation`</b>: Indicates how a distributed variable will be aggregated.
   Accepted values are constants defined in the class
   <a href="../../../tf/VariableAggregation"><code>tf.VariableAggregation</code></a>.
@@ -314,6 +294,8 @@ A `TensorShape`.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
+
 ``` python
 __abs__(
     x,
@@ -355,6 +337,8 @@ Note, for `complex64` or `complex128` input, the returned `Tensor` will be
 
 <h3 id="__add__"><code>__add__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __add__(
     a,
@@ -363,25 +347,12 @@ __add__(
 )
 ```
 
-Returns x + y element-wise.
-
-*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-#### Args:
-
-
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `int16`, `int32`, `int64`, `complex64`, `complex128`, `string`.
-* <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor`. Has the same type as `x`.
+Dispatches to add for strings and add_v2 for all other types.
 
 
 <h3 id="__and__"><code>__and__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __and__(
@@ -393,7 +364,7 @@ __and__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/logical_and"><code>math.logical_and</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -410,6 +381,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__div__"><code>__div__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __div__(
@@ -436,7 +409,20 @@ Used for Tensor.__div__.
 `x / y` returns the quotient of x and y.
 
 
+<h3 id="__eq__"><code>__eq__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1092-L1101">View source</a>
+
+``` python
+__eq__(other)
+```
+
+Compares two variables element-wise for equality.
+
+
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __floordiv__(
@@ -479,6 +465,8 @@ as well.
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L4437-L4494">View source</a>
+
 ``` python
 __ge__(
     a,
@@ -489,7 +477,7 @@ __ge__(
 
 Returns the truth value of (x >= y) element-wise.
 
-*NOTE*: `math.greater_equal` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/greater_equal"><code>math.greater_equal</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -506,6 +494,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L999-L1042">View source</a>
 
 ``` python
 __getitem__(
@@ -544,7 +534,7 @@ semantics.
 
 
 * <b>`var`</b>: An `ops.Variable` object.
-* <b>`slice_spec`</b>: The arguments to `Tensor.__getitem__`.
+* <b>`slice_spec`</b>: The arguments to <a href="/api_docs/python/tf/Tensor#__getitem__"><code>Tensor.__getitem__</code></a>.
 
 
 #### Returns:
@@ -564,6 +554,8 @@ that can be used to generate an assignment operator.
 
 <h3 id="__gt__"><code>__gt__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L4354-L4411">View source</a>
+
 ``` python
 __gt__(
     a,
@@ -574,7 +566,7 @@ __gt__(
 
 Returns the truth value of (x > y) element-wise.
 
-*NOTE*: `math.greater` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/greater"><code>math.greater</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -591,6 +583,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__invert__"><code>__invert__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5922-L5975">View source</a>
 
 ``` python
 __invert__(
@@ -617,11 +611,15 @@ A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1116-L1128">View source</a>
+
 ``` python
 __iter__()
 ```
 
-Dummy method to prevent iteration. Do not call.
+Dummy method to prevent iteration.
+
+Do not call.
 
 NOTE(mrry): If we register __getitem__ as an overloaded operator,
 Python will valiantly attempt to iterate over the variable's Tensor from 0
@@ -634,6 +632,8 @@ to infinity.  Declaring this method prevents this unintended behavior.
 
 <h3 id="__le__"><code>__le__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5419-L5476">View source</a>
+
 ``` python
 __le__(
     a,
@@ -644,7 +644,7 @@ __le__(
 
 Returns the truth value of (x <= y) element-wise.
 
-*NOTE*: `math.less_equal` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/less_equal"><code>math.less_equal</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -662,6 +662,8 @@ A `Tensor` of type `bool`.
 
 <h3 id="__lt__"><code>__lt__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5336-L5393">View source</a>
+
 ``` python
 __lt__(
     a,
@@ -672,7 +674,7 @@ __lt__(
 
 Returns the truth value of (x < y) element-wise.
 
-*NOTE*: `math.less` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/less"><code>math.less</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -689,6 +691,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __matmul__(
@@ -810,6 +814,8 @@ for all indices i, j.
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __mod__(
     a,
@@ -823,7 +829,7 @@ Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 true, this follows Python semantics in that the result here is consistent
 with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
-*NOTE*: `math.floormod` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/floormod"><code>math.floormod</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -841,6 +847,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __mul__(
     a,
@@ -852,7 +860,20 @@ __mul__(
 Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 
+<h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1104-L1114">View source</a>
+
+``` python
+__ne__(other)
+```
+
+Compares two variables element-wise for equality.
+
+
 <h3 id="__neg__"><code>__neg__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L6802-L6857">View source</a>
 
 ``` python
 __neg__(
@@ -880,6 +901,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __or__(
     a,
@@ -890,7 +913,7 @@ __or__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/logical_or"><code>math.logical_or</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -907,6 +930,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__pow__"><code>__pow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __pow__(
@@ -944,6 +969,8 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __radd__(
     a,
@@ -952,25 +979,12 @@ __radd__(
 )
 ```
 
-Returns x + y element-wise.
-
-*NOTE*: `math.add` supports broadcasting. `AddN` does not. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-#### Args:
-
-
-* <b>`x`</b>: A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `int16`, `int32`, `int64`, `complex64`, `complex128`, `string`.
-* <b>`y`</b>: A `Tensor`. Must have the same type as `x`.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor`. Has the same type as `x`.
+Dispatches to add for strings and add_v2 for all other types.
 
 
 <h3 id="__rand__"><code>__rand__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rand__(
@@ -982,7 +996,7 @@ __rand__(
 
 Returns the truth value of x AND y element-wise.
 
-*NOTE*: `math.logical_and` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/logical_and"><code>math.logical_and</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -999,6 +1013,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rdiv__(
@@ -1026,6 +1042,8 @@ Used for Tensor.__div__.
 
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rfloordiv__(
@@ -1067,6 +1085,8 @@ as well.
 * <b>`TypeError`</b>: If the inputs are complex.
 
 <h3 id="__rmatmul__"><code>__rmatmul__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rmatmul__(
@@ -1188,6 +1208,8 @@ for all indices i, j.
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __rmod__(
     a,
@@ -1201,7 +1223,7 @@ Returns element-wise remainder of division. When `x < 0` xor `y < 0` is
 true, this follows Python semantics in that the result here is consistent
 with a flooring divide. E.g. `floor(x / y) * y + mod(x, y) = x`.
 
-*NOTE*: `math.floormod` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/floormod"><code>math.floormod</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1219,6 +1241,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __rmul__(
     a,
@@ -1232,6 +1256,8 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ror__"><code>__ror__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __ror__(
     a,
@@ -1242,7 +1268,7 @@ __ror__(
 
 Returns the truth value of x OR y element-wise.
 
-*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
+*NOTE*: <a href="/api_docs/python/tf/math/logical_or"><code>math.logical_or</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
 #### Args:
@@ -1259,6 +1285,8 @@ A `Tensor` of type `bool`.
 
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rpow__(
@@ -1296,6 +1324,8 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __rsub__(
     a,
@@ -1324,6 +1354,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+
 ``` python
 __rtruediv__(
     a,
@@ -1336,6 +1368,8 @@ __rtruediv__(
 
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rxor__(
@@ -1377,6 +1411,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __sub__(
     a,
@@ -1405,6 +1441,8 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+
 ``` python
 __truediv__(
     a,
@@ -1417,6 +1455,8 @@ __truediv__(
 
 
 <h3 id="__xor__"><code>__xor__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __xor__(
@@ -1458,6 +1498,8 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="assign"><code>assign</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L570-L586">View source</a>
+
 ``` python
 assign(
     value,
@@ -1477,8 +1519,8 @@ This is essentially a shortcut for `assign(self, value)`.
 * <b>`value`</b>: A `Tensor`. The new value for this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the assignment.
 * <b>`name`</b>: The name of the operation to be created
-* <b>`read_value`</b>: if True, will return something which evaluates to the
-  new value of the variable; if False will return the assign op.
+* <b>`read_value`</b>: if True, will return something which evaluates to the new
+  value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1488,6 +1530,8 @@ the assignment has completed.
 
 
 <h3 id="assign_add"><code>assign_add</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L588-L604">View source</a>
 
 ``` python
 assign_add(
@@ -1508,8 +1552,8 @@ Adds a value to this variable.
 * <b>`delta`</b>: A `Tensor`. The value to add to this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: The name of the operation to be created
-* <b>`read_value`</b>: if True, will return something which evaluates to the
-  new value of the variable; if False will return the assign op.
+* <b>`read_value`</b>: if True, will return something which evaluates to the new
+  value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1519,6 +1563,8 @@ the addition has completed.
 
 
 <h3 id="assign_sub"><code>assign_sub</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L606-L622">View source</a>
 
 ``` python
 assign_sub(
@@ -1539,8 +1585,8 @@ This is essentially a shortcut for `assign_sub(self, delta)`.
 * <b>`delta`</b>: A `Tensor`. The value to subtract from this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: The name of the operation to be created
-* <b>`read_value`</b>: if True, will return something which evaluates to the
-  new value of the variable; if False will return the assign op.
+* <b>`read_value`</b>: if True, will return something which evaluates to the new
+  value of the variable; if False will return the assign op.
 
 
 #### Returns:
@@ -1551,6 +1597,8 @@ the subtraction has completed.
 
 <h3 id="batch_scatter_update"><code>batch_scatter_update</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L745-L790">View source</a>
+
 ``` python
 batch_scatter_update(
     sparse_delta,
@@ -1559,7 +1607,7 @@ batch_scatter_update(
 )
 ```
 
-Assigns `IndexedSlices` to this variable batch-wise.
+Assigns <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to this variable batch-wise.
 
 Analogous to `batch_gather`. This assumes that this variable and the
 sparse_delta IndexedSlices have a series of leading dimensions that are the
@@ -1594,7 +1642,7 @@ efficient than this implementation.
 #### Args:
 
 
-* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to be assigned to this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: the name of the operation.
 
@@ -1609,9 +1657,11 @@ the scattered assignment has completed.
 #### Raises:
 
 
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="count_up_to"><code>count_up_to</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L967-L988">View source</a>
 
 ``` python
 count_up_to(limit)
@@ -1647,6 +1697,8 @@ distinct.
 
 <h3 id="eval"><code>eval</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L487-L517">View source</a>
+
 ``` python
 eval(session=None)
 ```
@@ -1676,8 +1728,8 @@ with tf.compat.v1.Session() as sess:
 #### Args:
 
 
-* <b>`session`</b>: The session to use to evaluate this variable. If
-  none, the default session is used.
+* <b>`session`</b>: The session to use to evaluate this variable. If none, the
+  default session is used.
 
 
 #### Returns:
@@ -1685,7 +1737,65 @@ with tf.compat.v1.Session() as sess:
 A numpy `ndarray` with a copy of the value of this variable.
 
 
+<h3 id="experimental_ref"><code>experimental_ref</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1226-L1277">View source</a>
+
+``` python
+experimental_ref()
+```
+
+Returns a hashable reference object to this Variable.
+
+Warning: Experimental API that could be changed or removed.
+
+The primary usecase for this API is to put variables in a set/dictionary.
+We can't put variables in a set/dictionary as `variable.__hash__()` is no
+longer available starting Tensorflow 2.0.
+
+```python
+import tensorflow as tf
+
+x = tf.Variable(5)
+y = tf.Variable(10)
+z = tf.Variable(10)
+
+# The followings will raise an exception starting 2.0
+# TypeError: Variable is unhashable if Variable equality is enabled.
+variable_set = {x, y, z}
+variable_dict = {x: 'five', y: 'ten'}
+```
+
+Instead, we can use `variable.experimental_ref()`.
+
+```python
+variable_set = {x.experimental_ref(),
+                y.experimental_ref(),
+                z.experimental_ref()}
+
+print(x.experimental_ref() in variable_set)
+==> True
+
+variable_dict = {x.experimental_ref(): 'five',
+                 y.experimental_ref(): 'ten',
+                 z.experimental_ref(): 'ten'}
+
+print(variable_dict[y.experimental_ref()])
+==> ten
+```
+
+Also, the reference object provides `.deref()` function that returns the
+original Variable.
+
+```python
+x = tf.Variable(5)
+print(x.experimental_ref().deref())
+==> <tf.Variable 'Variable:0' shape=() dtype=int32, numpy=5>
+```
+
 <h3 id="from_proto"><code>from_proto</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1210-L1213">View source</a>
 
 ``` python
 @staticmethod
@@ -1699,6 +1809,8 @@ Returns a `Variable` object created from `variable_def`.
 
 
 <h3 id="gather_nd"><code>gather_nd</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L952-L965">View source</a>
 
 ``` python
 gather_nd(
@@ -1726,14 +1838,18 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1190-L1192">View source</a>
+
 ``` python
 get_shape()
 ```
 
-Alias of `Variable.shape`.
+Alias of <a href="/api_docs/python/tf/compat/v2/Variable#shape"><code>Variable.shape</code></a>.
 
 
 <h3 id="initialized_value"><code>initialized_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L519-L544">View source</a>
 
 ``` python
 initialized_value()
@@ -1764,6 +1880,8 @@ has run.
 
 
 <h3 id="load"><code>load</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L990-L1033">View source</a>
 
 ``` python
 load(
@@ -1804,8 +1922,8 @@ with tf.compat.v1.Session() as sess:
 
 
 * <b>`value`</b>: New variable value
-* <b>`session`</b>: The session to use to evaluate this variable. If
-  none, the default session is used.
+* <b>`session`</b>: The session to use to evaluate this variable. If none, the
+  default session is used.
 
 
 #### Raises:
@@ -1814,6 +1932,8 @@ with tf.compat.v1.Session() as sess:
 * <b>`ValueError`</b>: Session is not passed and no default session
 
 <h3 id="read_value"><code>read_value</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L456-L465">View source</a>
 
 ``` python
 read_value()
@@ -1831,6 +1951,8 @@ A `Tensor` containing the value of the variable.
 
 <h3 id="scatter_add"><code>scatter_add</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L641-L656">View source</a>
+
 ``` python
 scatter_add(
     sparse_delta,
@@ -1839,13 +1961,13 @@ scatter_add(
 )
 ```
 
-Adds `IndexedSlices` to this variable.
+Adds <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to this variable.
 
 
 #### Args:
 
 
-* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to be added to this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: the name of the operation.
 
@@ -1860,9 +1982,153 @@ the scattered addition has completed.
 #### Raises:
 
 
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_div"><code>scatter_div</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L711-L726">View source</a>
+
+``` python
+scatter_div(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Divide this variable by <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a>.
+
+
+#### Args:
+
+
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to divide this variable by.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered division has completed.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_max"><code>scatter_max</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L658-L674">View source</a>
+
+``` python
+scatter_max(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Updates this variable with the max of <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> and itself.
+
+
+#### Args:
+
+
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to use as an argument of max with this
+  variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered maximization has completed.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_min"><code>scatter_min</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L676-L692">View source</a>
+
+``` python
+scatter_min(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Updates this variable with the min of <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> and itself.
+
+
+#### Args:
+
+
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to use as an argument of min with this
+  variable.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered minimization has completed.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+
+<h3 id="scatter_mul"><code>scatter_mul</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L694-L709">View source</a>
+
+``` python
+scatter_mul(
+    sparse_delta,
+    use_locking=False,
+    name=None
+)
+```
+
+Multiply this variable by <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a>.
+
+
+#### Args:
+
+
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to multiply this variable by.
+* <b>`use_locking`</b>: If `True`, use locking during the operation.
+* <b>`name`</b>: the name of the operation.
+
+
+#### Returns:
+
+A `Tensor` that will hold the new value of this variable after
+the scattered multiplication has completed.
+
+
+
+#### Raises:
+
+
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_nd_add"><code>scatter_nd_add</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L840-L886">View source</a>
 
 ``` python
 scatter_nd_add(
@@ -1922,13 +2188,9 @@ A `Tensor` that will hold the new value of this variable after
 the scattered addition has completed.
 
 
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
-
 <h3 id="scatter_nd_sub"><code>scatter_nd_sub</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L792-L838">View source</a>
 
 ``` python
 scatter_nd_sub(
@@ -1988,13 +2250,9 @@ A `Tensor` that will hold the new value of this variable after
 the scattered subtraction has completed.
 
 
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
-
 <h3 id="scatter_nd_update"><code>scatter_nd_update</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L888-L934">View source</a>
 
 ``` python
 scatter_nd_update(
@@ -2054,13 +2312,9 @@ A `Tensor` that will hold the new value of this variable after
 the scattered assignment has completed.
 
 
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
-
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L624-L639">View source</a>
 
 ``` python
 scatter_sub(
@@ -2070,13 +2324,13 @@ scatter_sub(
 )
 ```
 
-Subtracts `IndexedSlices` from this variable.
+Subtracts <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> from this variable.
 
 
 #### Args:
 
 
-* <b>`sparse_delta`</b>: `IndexedSlices` to be subtracted from this variable.
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to be subtracted from this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: the name of the operation.
 
@@ -2091,9 +2345,11 @@ the scattered subtraction has completed.
 #### Raises:
 
 
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_update"><code>scatter_update</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L728-L743">View source</a>
 
 ``` python
 scatter_update(
@@ -2103,13 +2359,13 @@ scatter_update(
 )
 ```
 
-Assigns `IndexedSlices` to this variable.
+Assigns <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to this variable.
 
 
 #### Args:
 
 
-* <b>`sparse_delta`</b>: `IndexedSlices` to be assigned to this variable.
+* <b>`sparse_delta`</b>: <a href="../../../tf/IndexedSlices"><code>tf.IndexedSlices</code></a> to be assigned to this variable.
 * <b>`use_locking`</b>: If `True`, use locking during the operation.
 * <b>`name`</b>: the name of the operation.
 
@@ -2124,9 +2380,11 @@ the scattered assignment has completed.
 #### Raises:
 
 
-* <b>`ValueError`</b>: if `sparse_delta` is not an `IndexedSlices`.
+* <b>`TypeError`</b>: if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="set_shape"><code>set_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L467-L473">View source</a>
 
 ``` python
 set_shape(shape)
@@ -2141,6 +2399,8 @@ Overrides the shape for this variable.
 * <b>`shape`</b>: the `TensorShape` representing the overridden shape.
 
 <h3 id="sparse_read"><code>sparse_read</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L936-L950">View source</a>
 
 ``` python
 sparse_read(
@@ -2169,6 +2429,8 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1198-L1208">View source</a>
+
 ``` python
 to_proto(export_scope=None)
 ```
@@ -2190,6 +2452,8 @@ in the specified name scope.
 
 <h3 id="value"><code>value</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L437-L454">View source</a>
+
 ``` python
 value()
 ```
@@ -2210,7 +2474,3 @@ is on a different device it will get a copy of the variable.
 #### Returns:
 
 A `Tensor` containing the value of the variable.
-
-
-
-

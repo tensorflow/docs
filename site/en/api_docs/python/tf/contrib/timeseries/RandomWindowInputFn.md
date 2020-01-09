@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.timeseries.RandomWindowInputFn
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L622-L802">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `RandomWindowInputFn`
 
 Wraps a `TimeSeriesReader` to create random batches of windows.
 
 
-
-
-
-Defined in [`contrib/timeseries/python/timeseries/input_pipeline.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -30,6 +38,8 @@ training). For qualitative evaluation or when preparing for predictions, use
 `WholeDatasetInputFn`.
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L638-L703">View source</a>
 
 ``` python
 __init__(
@@ -94,14 +104,18 @@ Configure the RandomWindowInputFn.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L573-L575">View source</a>
+
 ``` python
 __call__()
 ```
 
-
+Call self as a function.
 
 
 <h3 id="create_batch"><code>create_batch</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/timeseries/python/timeseries/input_pipeline.py#L705-L802">View source</a>
 
 ``` python
 create_batch()
@@ -115,7 +129,3 @@ Create queues to window and batch time series data.
 A dictionary of Tensors corresponding to the output of `self._reader`
 (from the `time_series_reader` constructor argument), each with shapes
 prefixed by [`batch_size`, `window_size`].
-
-
-
-

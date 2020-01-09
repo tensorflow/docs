@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.strings.unicode_encode
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/strings/unicode_encode">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L83-L175">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Encodes each sequence of Unicode code points in `input` into a string.
 
 ### Aliases:
 
-* `tf.compat.v1.strings.unicode_encode`
-* `tf.compat.v2.strings.unicode_encode`
-* `tf.strings.unicode_encode`
+* <a href="/api_docs/python/tf/strings/unicode_encode"><code>tf.compat.v1.strings.unicode_encode</code></a>
+* <a href="/api_docs/python/tf/strings/unicode_encode"><code>tf.compat.v2.strings.unicode_encode</code></a>
+
 
 ``` python
 tf.strings.unicode_encode(
@@ -24,8 +42,6 @@ tf.strings.unicode_encode(
 ```
 
 
-
-Defined in [`python/ops/ragged/ragged_string_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/ragged/ragged_string_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,6 +74,7 @@ A `N` dimensional `string` tensor with shape `[D1...DN]`.
 
 
 #### Example:
+
 >       >>> input = [[71, 246, 246, 100, 110, 105, 103, 104, 116], [128522]]
 >       >>> unicode_encode(input, 'UTF-8')
 >       ['G\xc3\xb6\xc3\xb6dnight', '\xf0\x9f\x98\x8a']

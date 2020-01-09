@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.train.sdca_fprint
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_sdca_ops.py`
+
+
+
 Computes fingerprints of the input strings.
 
 ### Aliases:
 
-* `tf.compat.v1.train.sdca_fprint`
-* `tf.train.sdca_fprint`
+* <a href="/api_docs/python/tf/train/sdca_fprint"><code>tf.compat.v1.train.sdca_fprint</code></a>
+
 
 ``` python
 tf.train.sdca_fprint(
@@ -20,8 +28,6 @@ tf.train.sdca_fprint(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_sdca_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

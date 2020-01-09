@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.debugging.assert_near
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L708-L758">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert the condition `x` and `y` are close element-wise.
 
 ``` python
@@ -20,8 +32,6 @@ tf.compat.v2.debugging.assert_near(
 ```
 
 
-
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -80,4 +90,3 @@ returns None
 Similar to `numpy.assert_allclose`, except tolerance depends on data type.
 This is due to the fact that `TensorFlow` is often used with `32bit`, `64bit`,
 and even `16bit` data.
-

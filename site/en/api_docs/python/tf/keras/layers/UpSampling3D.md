@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.UpSampling3D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/UpSampling3D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2000-L2069">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `UpSampling3D`
 
 Upsampling layer for 3D inputs.
@@ -13,13 +31,9 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.UpSampling3D`
-* Class `tf.compat.v2.keras.layers.UpSampling3D`
-* Class `tf.keras.layers.UpSampling3D`
+* Class <a href="/api_docs/python/tf/keras/layers/UpSampling3D"><code>tf.compat.v1.keras.layers.UpSampling3D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/UpSampling3D"><code>tf.compat.v2.keras.layers.UpSampling3D</code></a>
 
-
-
-Defined in [`python/keras/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -64,6 +78,8 @@ of the data by `size[0]`, `size[1]` and `size[2]` respectively.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2035-L2039">View source</a>
+
 ``` python
 __init__(
     size=(2, 2, 2),
@@ -71,9 +87,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

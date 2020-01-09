@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.compat.v2.sparse.segment_sqrt_n
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3876-L3907">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the sum along sparse segments of a tensor divided by the sqrt(N).
 
 ``` python
@@ -19,11 +31,14 @@ tf.compat.v2.sparse.segment_sqrt_n(
 
 
 
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
-`N` is the size of the segment being reduced.
+Read [the section on
+segmentation](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/math#about_segmentation)
+for an explanation of segments.
+
+Like <a href="../../../../tf/sparse/segment_mean"><code>tf.sparse.segment_mean</code></a>, but instead of dividing by the size of the
+segment, `N`, divide by `sqrt(N)` instead.
 
 #### Args:
 

@@ -6,6 +6,12 @@ page_type: reference
 # Module: tf.distributions
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+
+
+Core module for TensorFlow distribution objects and helpers.
 
 <!-- Placeholder for "Used in" -->
 

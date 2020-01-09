@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.random.categorical
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/random/categorical">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L364-L389">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Draws samples from a categorical distribution.
 
 ### Aliases:
 
-* `tf.compat.v1.random.categorical`
-* `tf.compat.v2.random.categorical`
-* `tf.random.categorical`
+* <a href="/api_docs/python/tf/random/categorical"><code>tf.compat.v1.random.categorical</code></a>
+* <a href="/api_docs/python/tf/random/categorical"><code>tf.compat.v2.random.categorical</code></a>
+
 
 ``` python
 tf.random.categorical(
@@ -25,8 +43,6 @@ tf.random.categorical(
 
 
 
-Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
 
@@ -37,7 +53,7 @@ Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow
 ```python
 # samples has shape [1, 5], where each value is either 0 or 1 with equal
 # probability.
-samples = tf.random.categorical(tf.math.log([[10., 10.]]), 5)
+samples = tf.random.categorical(tf.math.log([[0.5, 0.5]]), 5)
 ```
 
 #### Args:

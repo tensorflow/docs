@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.opt.clip_gradients_by_global_norm
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py#L115-L143">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Clips gradients of a multitask loss by their global norm.
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.opt.clip_gradients_by_global_norm(
 ```
 
 
-
-Defined in [`contrib/opt/python/training/multitask_optimizer_wrapper.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/opt/python/training/multitask_optimizer_wrapper.py).
 
 <!-- Placeholder for "Used in" -->
 

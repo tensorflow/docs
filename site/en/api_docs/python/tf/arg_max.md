@@ -5,12 +5,20 @@ page_type: reference
 
 # tf.arg_max
 
-Returns the index with the largest value across dimensions of a tensor. (deprecated)
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
+Returns the index with the largest value across dimensions of a tensor.
 
 ### Aliases:
 
-* `tf.arg_max`
-* `tf.compat.v1.arg_max`
+* <a href="/api_docs/python/tf/arg_max"><code>tf.compat.v1.arg_max</code></a>
+
 
 ``` python
 tf.arg_max(
@@ -23,13 +31,7 @@ tf.arg_max(
 
 
 
-Defined in generated file: `python/ops/gen_math_ops.py`.
-
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use <a href="../tf/math/argmax"><code>tf.math.argmax</code></a> instead
 
 Note that in case of ties the identity of the return value is not guaranteed.
 

@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.debugging.assert_positive
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/debugging/assert_positive">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L489-L505">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Assert the condition `x > 0` holds element-wise.
 
 ### Aliases:
 
-* `tf.assert_positive`
-* `tf.compat.v1.assert_positive`
-* `tf.compat.v1.debugging.assert_positive`
-* `tf.debugging.assert_positive`
+* <a href="/api_docs/python/tf/debugging/assert_positive"><code>tf.assert_positive</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_positive"><code>tf.compat.v1.assert_positive</code></a>
+* <a href="/api_docs/python/tf/debugging/assert_positive"><code>tf.compat.v1.debugging.assert_positive</code></a>
+
 
 ``` python
 tf.debugging.assert_positive(
@@ -26,14 +44,13 @@ tf.debugging.assert_positive(
 
 
 
-Defined in [`python/ops/check_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/check_ops.py).
-
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+When running in graph mode, you should add a dependency on this operation
+to ensure that it runs. Example of adding a dependency to an operation:
 
 ```python
-with tf.control_dependencies([tf.compat.v1.assert_positive(x)]):
+with tf.control_dependencies([tf.debugging.assert_positive(x, y)]):
   output = tf.reduce_sum(x)
 ```
 
@@ -53,4 +70,17 @@ If `x` is empty this is trivially satisfied.
 
 #### Returns:
 
-Op raising `InvalidArgumentError` unless `x` is all positive.
+Op that raises `InvalidArgumentError` if `x > 0` is False.
+
+
+
+
+#### Raises:
+
+
+* <b>`InvalidArgumentError`</b>: if the check can be performed immediately and
+  `x > 0` is False. The check can be performed immediately during 
+  eager execution or if `x` is statically known.
+
+#### Eager Compatibility
+returns None

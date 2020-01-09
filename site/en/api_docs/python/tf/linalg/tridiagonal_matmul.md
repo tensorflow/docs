@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.linalg.tridiagonal_matmul
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/tridiagonal_matmul">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linalg_impl.py#L552-L639">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Multiplies tridiagonal matrix by matrix.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.tridiagonal_matmul`
-* `tf.compat.v2.linalg.tridiagonal_matmul`
-* `tf.linalg.tridiagonal_matmul`
+* <a href="/api_docs/python/tf/linalg/tridiagonal_matmul"><code>tf.compat.v1.linalg.tridiagonal_matmul</code></a>
+* <a href="/api_docs/python/tf/linalg/tridiagonal_matmul"><code>tf.compat.v2.linalg.tridiagonal_matmul</code></a>
+
 
 ``` python
 tf.linalg.tridiagonal_matmul(
@@ -23,8 +41,6 @@ tf.linalg.tridiagonal_matmul(
 ```
 
 
-
-Defined in [`python/ops/linalg/linalg_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg/linalg_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

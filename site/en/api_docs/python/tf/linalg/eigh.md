@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.linalg.eigh
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/linalg/eigh">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L309-L329">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the eigen decomposition of a batch of self-adjoint matrices.
 
 ### Aliases:
 
-* `tf.compat.v1.linalg.eigh`
-* `tf.compat.v1.self_adjoint_eig`
-* `tf.compat.v2.linalg.eigh`
-* `tf.linalg.eigh`
-* `tf.self_adjoint_eig`
+* <a href="/api_docs/python/tf/linalg/eigh"><code>tf.compat.v1.linalg.eigh</code></a>
+* <a href="/api_docs/python/tf/linalg/eigh"><code>tf.compat.v1.self_adjoint_eig</code></a>
+* <a href="/api_docs/python/tf/linalg/eigh"><code>tf.compat.v2.linalg.eigh</code></a>
+* <a href="/api_docs/python/tf/linalg/eigh"><code>tf.self_adjoint_eig</code></a>
+
 
 ``` python
 tf.linalg.eigh(
@@ -23,8 +41,6 @@ tf.linalg.eigh(
 ```
 
 
-
-Defined in [`python/ops/linalg_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/linalg_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

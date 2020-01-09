@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.metrics.true_positives
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/metrics_impl.py#L1838-L1888">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Sum the weights of true_positives.
 
 ### Aliases:
 
-* `tf.compat.v1.metrics.true_positives`
-* `tf.metrics.true_positives`
+* <a href="/api_docs/python/tf/metrics/true_positives"><code>tf.compat.v1.metrics.true_positives</code></a>
+
 
 ``` python
 tf.metrics.true_positives(
@@ -24,8 +36,6 @@ tf.metrics.true_positives(
 ```
 
 
-
-Defined in [`python/ops/metrics_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/metrics_impl.py).
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,14 +5,22 @@ page_type: reference
 
 # tf.batch_to_space_nd
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 BatchToSpace for N-D tensors of type T.
 
 ### Aliases:
 
-* `tf.batch_to_space_nd`
-* `tf.compat.v1.batch_to_space_nd`
-* `tf.compat.v1.manip.batch_to_space_nd`
-* `tf.manip.batch_to_space_nd`
+* <a href="/api_docs/python/tf/batch_to_space_nd"><code>tf.compat.v1.batch_to_space_nd</code></a>
+* <a href="/api_docs/python/tf/batch_to_space_nd"><code>tf.compat.v1.manip.batch_to_space_nd</code></a>
+* <a href="/api_docs/python/tf/batch_to_space_nd"><code>tf.manip.batch_to_space_nd</code></a>
+
 
 ``` python
 tf.batch_to_space_nd(
@@ -24,8 +32,6 @@ tf.batch_to_space_nd(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

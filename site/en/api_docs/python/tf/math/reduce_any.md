@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.math.reduce_any
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/reduce_any">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L2309-L2360">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Computes the "logical or" of elements across dimensions of a tensor. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.math.reduce_any`
-* `tf.compat.v1.reduce_any`
-* `tf.math.reduce_any`
-* `tf.reduce_any`
+* <a href="/api_docs/python/tf/math/reduce_any"><code>tf.compat.v1.math.reduce_any</code></a>
+* <a href="/api_docs/python/tf/math/reduce_any"><code>tf.compat.v1.reduce_any</code></a>
+* <a href="/api_docs/python/tf/math/reduce_any"><code>tf.reduce_any</code></a>
+
 
 ``` python
 tf.math.reduce_any(
@@ -26,8 +44,6 @@ tf.math.reduce_any(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -76,4 +92,3 @@ The reduced tensor.
 
 #### Numpy Compatibility
 Equivalent to np.any
-

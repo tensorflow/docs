@@ -6,16 +6,30 @@ page_type: reference
 
 # tf.math.sqrt
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/sqrt">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_math_ops.py`
+
+
+
 Computes square root of x element-wise.
 
 ### Aliases:
 
-* `tf.compat.v1.math.sqrt`
-* `tf.compat.v1.sqrt`
-* `tf.compat.v2.math.sqrt`
-* `tf.compat.v2.sqrt`
-* `tf.math.sqrt`
-* `tf.sqrt`
+* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v1.math.sqrt</code></a>
+* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v1.sqrt</code></a>
+* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v2.math.sqrt</code></a>
+* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v2.sqrt</code></a>
+* <a href="/api_docs/python/tf/math/sqrt"><code>tf.sqrt</code></a>
+
 
 ``` python
 tf.math.sqrt(
@@ -25,8 +39,6 @@ tf.math.sqrt(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_math_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

@@ -5,22 +5,38 @@ page_type: reference
 
 # tf.tpu.experimental.initialize_tpu_system
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/tpu/experimental/initialize_tpu_system">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tpu/tpu_strategy_util.py#L39-L118">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Initialize the TPU devices.
 
 ### Aliases:
 
-* `tf.compat.v1.tpu.experimental.initialize_tpu_system`
-* `tf.compat.v2.tpu.experimental.initialize_tpu_system`
-* `tf.contrib.distribute.initialize_tpu_system`
-* `tf.tpu.experimental.initialize_tpu_system`
+* <a href="/api_docs/python/tf/tpu/experimental/initialize_tpu_system"><code>tf.compat.v1.tpu.experimental.initialize_tpu_system</code></a>
+* <a href="/api_docs/python/tf/tpu/experimental/initialize_tpu_system"><code>tf.compat.v2.tpu.experimental.initialize_tpu_system</code></a>
+* <a href="/api_docs/python/tf/tpu/experimental/initialize_tpu_system"><code>tf.contrib.distribute.initialize_tpu_system</code></a>
+
 
 ``` python
 tf.tpu.experimental.initialize_tpu_system(cluster_resolver=None)
 ```
 
 
-
-Defined in [`python/tpu/tpu_strategy_util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/tpu/tpu_strategy_util.py).
 
 <!-- Placeholder for "Used in" -->
 

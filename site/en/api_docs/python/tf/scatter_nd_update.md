@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.scatter_nd_update
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/state_ops.py#L309-L368">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Applies sparse `updates` to individual values or slices in a Variable.
 
 ### Aliases:
 
-* `tf.compat.v1.scatter_nd_update`
-* `tf.scatter_nd_update`
+* <a href="/api_docs/python/tf/scatter_nd_update"><code>tf.compat.v1.scatter_nd_update</code></a>
+
 
 ``` python
 tf.scatter_nd_update(
@@ -23,8 +35,6 @@ tf.scatter_nd_update(
 ```
 
 
-
-Defined in [`python/ops/state_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/state_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

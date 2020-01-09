@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.checkpoint.list_objects
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L479-L493">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Traverse the object graph and list all accessible objects.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.checkpoint.list_objects(root_trackable)
 ```
 
 
-
-Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
 <!-- Placeholder for "Used in" -->
 

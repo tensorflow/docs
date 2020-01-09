@@ -6,6 +6,14 @@ page_type: reference
 
 # tf.contrib.periodic_resample.periodic_resample
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+</table>
+
+Defined in generated file: `contrib/periodic_resample/python/ops/gen_periodic_resample_op.py`
+
+
+
 Periodically resample elements of a tensor to conform to `shape`.
 
 ``` python
@@ -17,8 +25,6 @@ tf.contrib.periodic_resample.periodic_resample(
 ```
 
 
-
-Defined in generated file: `contrib/periodic_resample/python/ops/gen_periodic_resample_op.py`.
 
 <!-- Placeholder for "Used in" -->
 
@@ -58,7 +64,7 @@ The formula for computing the elements in the `output` tensor is as follows:
 
   The \\(h_i\\) (\\(i\\neq q\\)) are defined by \\(h_i=\\lfloor s_i/g_i\\rfloor\\).
 
-  \\(h_q=S_q\\sum_{j\\neq q}^{q-1}G_j \\mathrm{mod} (s_j,g_j) + s_q\\), where
+  \\(h_q=S_q\\sum_{j\\neq q}^{q-1}G_j \\mathrm{mod}(s_j,g_j) + s_q\\), where
   \\(G_j=\\prod_{i}^{j-1}g_i\\) (\\(G_0=1\\)).
 
 One drawback of this method is that whenever the output dimensions are slightly

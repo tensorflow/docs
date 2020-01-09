@@ -5,6 +5,18 @@ page_type: reference
 
 # Module: tf.compat.v1.spectral
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/compat/v1/spectral">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+
+
 Public API for tf.spectral namespace.
 
 <!-- Placeholder for "Used in" -->
@@ -39,4 +51,3 @@ Public API for tf.spectral namespace.
 [`rfft2d(...)`](../../../tf/signal/rfft2d): 2D real-valued fast Fourier transform.
 
 [`rfft3d(...)`](../../../tf/signal/rfft3d): 3D real-valued fast Fourier transform.
-

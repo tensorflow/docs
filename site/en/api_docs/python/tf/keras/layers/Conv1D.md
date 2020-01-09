@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.keras.layers.Conv1D
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/layers/Conv1D">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L276-L387">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `Conv1D`
 
 1D convolution layer (e.g. temporal convolution).
@@ -13,16 +31,12 @@ page_type: reference
 
 ### Aliases:
 
-* Class `tf.compat.v1.keras.layers.Conv1D`
-* Class `tf.compat.v1.keras.layers.Convolution1D`
-* Class `tf.compat.v2.keras.layers.Conv1D`
-* Class `tf.compat.v2.keras.layers.Convolution1D`
-* Class `tf.keras.layers.Conv1D`
-* Class `tf.keras.layers.Convolution1D`
+* Class <a href="/api_docs/python/tf/keras/layers/Conv1D"><code>tf.compat.v1.keras.layers.Conv1D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Conv1D"><code>tf.compat.v1.keras.layers.Convolution1D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Conv1D"><code>tf.compat.v2.keras.layers.Conv1D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Conv1D"><code>tf.compat.v2.keras.layers.Convolution1D</code></a>
+* Class <a href="/api_docs/python/tf/keras/layers/Conv1D"><code>tf.keras.layers.Convolution1D</code></a>
 
-
-
-Defined in [`python/keras/layers/convolutional.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/layers/convolutional.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -77,6 +91,22 @@ or `(None, 128)` for variable-length sequences of 128-dimensional vectors.
 * <b>`bias_constraint`</b>: Constraint function applied to the bias vector.
 
 
+#### Examples:
+
+```python
+# Small convolutional model for 128-length vectors with 6 timesteps
+# model.input_shape == (None, 6, 128)
+
+model = Sequential()
+model.add(Conv1D(32, 3, 
+          activation='relu', 
+          input_shape=(6, 128)))
+
+# now: model.output_shape == (None, 4, 32)
+```
+
+
+
 #### Input shape:
 
 3D tensor with shape: `(batch_size, steps, input_dim)`
@@ -90,6 +120,8 @@ or `(None, 128)` for variable-length sequences of 128-dimensional vectors.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L348-L382">View source</a>
 
 ``` python
 __init__(
@@ -111,9 +143,3 @@ __init__(
     **kwargs
 )
 ```
-
-
-
-
-
-

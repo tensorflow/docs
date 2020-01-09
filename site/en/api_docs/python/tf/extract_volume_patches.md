@@ -5,13 +5,27 @@ page_type: reference
 
 # tf.extract_volume_patches
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/extract_volume_patches">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_array_ops.py`
+
+
+
 Extract `patches` from `input` and put them in the "depth" output dimension. 3D extension of `extract_image_patches`.
 
 ### Aliases:
 
-* `tf.compat.v1.extract_volume_patches`
-* `tf.compat.v2.extract_volume_patches`
-* `tf.extract_volume_patches`
+* <a href="/api_docs/python/tf/extract_volume_patches"><code>tf.compat.v1.extract_volume_patches</code></a>
+* <a href="/api_docs/python/tf/extract_volume_patches"><code>tf.compat.v2.extract_volume_patches</code></a>
+
 
 ``` python
 tf.extract_volume_patches(
@@ -24,8 +38,6 @@ tf.extract_volume_patches(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_array_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

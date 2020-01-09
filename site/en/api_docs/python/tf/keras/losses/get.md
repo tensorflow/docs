@@ -6,20 +6,36 @@ page_type: reference
 # tf.keras.losses.get
 
 
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/keras/losses/get">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L1160-L1173">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
+
 
 ### Aliases:
 
-* `tf.compat.v1.keras.losses.get`
-* `tf.compat.v2.keras.losses.get`
-* `tf.compat.v2.losses.get`
-* `tf.keras.losses.get`
+* <a href="/api_docs/python/tf/keras/losses/get"><code>tf.compat.v1.keras.losses.get</code></a>
+* <a href="/api_docs/python/tf/keras/losses/get"><code>tf.compat.v2.keras.losses.get</code></a>
+* <a href="/api_docs/python/tf/keras/losses/get"><code>tf.compat.v2.losses.get</code></a>
+
 
 ``` python
 tf.keras.losses.get(identifier)
 ```
 
 
-
-Defined in [`python/keras/losses.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/keras/losses.py).
 
 <!-- Placeholder for "Used in" -->

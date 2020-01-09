@@ -5,15 +5,29 @@ page_type: reference
 
 # tf.io.parse_tensor
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/io/parse_tensor">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+</table>
+
+Defined in generated file: `python/ops/gen_parsing_ops.py`
+
+
+
 Transforms a serialized tensorflow.TensorProto proto into a Tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.io.parse_tensor`
-* `tf.compat.v1.parse_tensor`
-* `tf.compat.v2.io.parse_tensor`
-* `tf.io.parse_tensor`
-* `tf.parse_tensor`
+* <a href="/api_docs/python/tf/io/parse_tensor"><code>tf.compat.v1.io.parse_tensor</code></a>
+* <a href="/api_docs/python/tf/io/parse_tensor"><code>tf.compat.v1.parse_tensor</code></a>
+* <a href="/api_docs/python/tf/io/parse_tensor"><code>tf.compat.v2.io.parse_tensor</code></a>
+* <a href="/api_docs/python/tf/io/parse_tensor"><code>tf.parse_tensor</code></a>
+
 
 ``` python
 tf.io.parse_tensor(
@@ -24,8 +38,6 @@ tf.io.parse_tensor(
 ```
 
 
-
-Defined in generated file: `python/ops/gen_parsing_ops.py`.
 
 <!-- Placeholder for "Used in" -->
 

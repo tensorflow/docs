@@ -5,20 +5,30 @@ page_type: reference
 
 # tf.resource_loader.load_resource
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/resource_loader.py#L27-L45">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Load the resource at given path, where path is relative to tensorflow/.
 
 ### Aliases:
 
-* `tf.compat.v1.resource_loader.load_resource`
-* `tf.resource_loader.load_resource`
+* <a href="/api_docs/python/tf/resource_loader/load_resource"><code>tf.compat.v1.resource_loader.load_resource</code></a>
+
 
 ``` python
 tf.resource_loader.load_resource(path)
 ```
 
 
-
-Defined in [`python/platform/resource_loader.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/platform/resource_loader.py).
 
 <!-- Placeholder for "Used in" -->
 

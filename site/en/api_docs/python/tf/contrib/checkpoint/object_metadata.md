@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.checkpoint.object_metadata
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/util.py#L442-L476">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Retrieves information about the objects in a checkpoint.
 
 ``` python
@@ -12,8 +24,6 @@ tf.contrib.checkpoint.object_metadata(save_path)
 ```
 
 
-
-Defined in [`python/training/tracking/util.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/training/tracking/util.py).
 
 <!-- Placeholder for "Used in" -->
 

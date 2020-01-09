@@ -5,6 +5,24 @@ page_type: reference
 
 # tf.estimator.experimental.LinearSDCA
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/LinearSDCA">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `LinearSDCA`
 
 Stochastic Dual Coordinate Ascent helper for linear estimators.
@@ -13,13 +31,9 @@ Stochastic Dual Coordinate Ascent helper for linear estimators.
 
 ### Aliases:
 
-* Class `tf.compat.v1.estimator.experimental.LinearSDCA`
-* Class `tf.compat.v2.estimator.experimental.LinearSDCA`
-* Class `tf.estimator.experimental.LinearSDCA`
+* Class <a href="/api_docs/python/tf/estimator/experimental/LinearSDCA"><code>tf.compat.v1.estimator.experimental.LinearSDCA</code></a>
+* Class <a href="/api_docs/python/tf/estimator/experimental/LinearSDCA"><code>tf.compat.v2.estimator.experimental.LinearSDCA</code></a>
 
-
-
-Defined in [`python/estimator/canned/linear.py`](https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -81,6 +95,8 @@ https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/
 
 <h2 id="__init__"><code>__init__</code></h2>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py">View source</a>
+
 ``` python
 __init__(
     example_id_column,
@@ -114,6 +130,8 @@ Construct a new SDCA optimizer for linear estimators.
 
 <h3 id="get_train_step"><code>get_train_step</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py">View source</a>
+
 ``` python
 get_train_step(
     state_manager,
@@ -128,7 +146,3 @@ get_train_step(
 ```
 
 Returns the training operation of an SdcaModel optimizer.
-
-
-
-

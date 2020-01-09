@@ -5,14 +5,32 @@ page_type: reference
 
 # tf.sparse.concat
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/sparse/concat">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L216-L329">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
 
 ### Aliases:
 
-* `tf.compat.v1.sparse.concat`
-* `tf.compat.v1.sparse_concat`
-* `tf.sparse.concat`
-* `tf.sparse_concat`
+* <a href="/api_docs/python/tf/sparse/concat"><code>tf.compat.v1.sparse.concat</code></a>
+* <a href="/api_docs/python/tf/sparse/concat"><code>tf.compat.v1.sparse_concat</code></a>
+* <a href="/api_docs/python/tf/sparse/concat"><code>tf.sparse_concat</code></a>
+
 
 ``` python
 tf.sparse.concat(
@@ -26,8 +44,6 @@ tf.sparse.concat(
 ```
 
 
-
-Defined in [`python/ops/sparse_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/sparse_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

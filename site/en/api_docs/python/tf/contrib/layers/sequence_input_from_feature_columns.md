@@ -5,6 +5,18 @@ page_type: reference
 
 # tf.contrib.layers.sequence_input_from_feature_columns
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/framework/python/framework/experimental.py#L224-L267">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Builds inputs for sequence models from `FeatureColumn`s. (experimental)
 
 ``` python
@@ -15,8 +27,6 @@ tf.contrib.layers.sequence_input_from_feature_columns(
 ```
 
 
-
-Defined in [`contrib/framework/python/framework/experimental.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/contrib/framework/python/framework/experimental.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -40,7 +50,7 @@ constructed using any of the following: `ScatteredEmbeddingColumn`,
   set should be instances of classes derived by FeatureColumn.
 * <b>`weight_collections`</b>: List of graph collections to which weights are added.
 * <b>`trainable`</b>: If `True` also add variables to the graph collection
-  `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+  <a href="/api_docs/python/tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a> (see tf.Variable).
 * <b>`scope`</b>: Optional scope for variable_scope.
 
 

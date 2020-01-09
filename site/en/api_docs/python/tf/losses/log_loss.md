@@ -5,12 +5,24 @@ page_type: reference
 
 # tf.losses.log_loss
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/losses/losses_impl.py#L443-L496">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adds a Log Loss term to the training procedure.
 
 ### Aliases:
 
-* `tf.compat.v1.losses.log_loss`
-* `tf.losses.log_loss`
+* <a href="/api_docs/python/tf/losses/log_loss"><code>tf.compat.v1.losses.log_loss</code></a>
+
 
 ``` python
 tf.losses.log_loss(
@@ -25,8 +37,6 @@ tf.losses.log_loss(
 ```
 
 
-
-Defined in [`python/ops/losses/losses_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/losses/losses_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -71,4 +81,3 @@ shape as `labels`; otherwise, it is scalar.
 #### Eager Compatibility
 The `loss_collection` argument is ignored when executing eagerly. Consider
 holding on to the return value or collecting losses via a <a href="../../tf/keras/Model"><code>tf.keras.Model</code></a>.
-

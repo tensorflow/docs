@@ -5,13 +5,31 @@ page_type: reference
 
 # tf.image.adjust_brightness
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/image/adjust_brightness">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1579-L1621">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Adjust the brightness of RGB or Grayscale images.
 
 ### Aliases:
 
-* `tf.compat.v1.image.adjust_brightness`
-* `tf.compat.v2.image.adjust_brightness`
-* `tf.image.adjust_brightness`
+* <a href="/api_docs/python/tf/image/adjust_brightness"><code>tf.compat.v1.image.adjust_brightness</code></a>
+* <a href="/api_docs/python/tf/image/adjust_brightness"><code>tf.compat.v2.image.adjust_brightness</code></a>
+
 
 ``` python
 tf.image.adjust_brightness(
@@ -21,8 +39,6 @@ tf.image.adjust_brightness(
 ```
 
 
-
-Defined in [`python/ops/image_ops_impl.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/image_ops_impl.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -47,3 +63,13 @@ floating point representation, where pixel values are in the `[0,1)` range.
 #### Returns:
 
 A brightness-adjusted tensor of the same shape and type as `image`.
+
+
+
+#### Usage Example:
+
+```python
+import tensorflow as tf
+x = tf.random.normal(shape=(256, 256, 3))
+tf.image.adjust_brightness(x, delta=0.1)
+```

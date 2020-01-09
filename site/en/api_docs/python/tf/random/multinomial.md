@@ -5,14 +5,26 @@ page_type: reference
 
 # tf.random.multinomial
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L334-L361">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Draws samples from a multinomial distribution. (deprecated)
 
 ### Aliases:
 
-* `tf.compat.v1.multinomial`
-* `tf.compat.v1.random.multinomial`
-* `tf.multinomial`
-* `tf.random.multinomial`
+* <a href="/api_docs/python/tf/random/multinomial"><code>tf.compat.v1.multinomial</code></a>
+* <a href="/api_docs/python/tf/random/multinomial"><code>tf.compat.v1.random.multinomial</code></a>
+* <a href="/api_docs/python/tf/random/multinomial"><code>tf.multinomial</code></a>
+
 
 ``` python
 tf.random.multinomial(
@@ -25,8 +37,6 @@ tf.random.multinomial(
 ```
 
 
-
-Defined in [`python/ops/random_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/random_ops.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -41,7 +51,7 @@ Use <a href="../../tf/random/categorical"><code>tf.random.categorical</code></a>
 ```python
 # samples has shape [1, 5], where each value is either 0 or 1 with equal
 # probability.
-samples = tf.random.categorical(tf.math.log([[10., 10.]]), 5)
+samples = tf.random.categorical(tf.math.log([[0.5, 0.5]]), 5)
 ```
 
 #### Args:

@@ -5,15 +5,33 @@ page_type: reference
 
 # tf.math.real
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="/api_docs/python/tf/math/real">
+  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
+  TensorFlow 2 version</a>
+</td>
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L508-L539">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 Returns the real part of a complex (or real) tensor.
 
 ### Aliases:
 
-* `tf.compat.v1.math.real`
-* `tf.compat.v1.real`
-* `tf.compat.v2.math.real`
-* `tf.math.real`
-* `tf.real`
+* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v1.math.real</code></a>
+* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v1.real</code></a>
+* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v2.math.real</code></a>
+* <a href="/api_docs/python/tf/math/real"><code>tf.real</code></a>
+
 
 ``` python
 tf.math.real(
@@ -23,8 +41,6 @@ tf.math.real(
 ```
 
 
-
-Defined in [`python/ops/math_ops.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/ops/math_ops.py).
 
 <!-- Placeholder for "Used in" -->
 

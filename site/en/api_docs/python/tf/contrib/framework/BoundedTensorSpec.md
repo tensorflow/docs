@@ -5,15 +5,23 @@ page_type: reference
 
 # tf.contrib.framework.BoundedTensorSpec
 
+
+<table class="tfo-notebook-buttons tfo-api" align="left">
+
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L188-L287">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td></table>
+
+
+
 ## Class `BoundedTensorSpec`
 
 A `TensorSpec` that specifies minimum and maximum values.
 
 Inherits From: [`TensorSpec`](../../../tf/TensorSpec)
-
-
-
-Defined in [`python/framework/tensor_spec.py`](https://github.com/tensorflow/tensorflow/tree/r1.14/tensorflow/python/framework/tensor_spec.py).
 
 <!-- Placeholder for "Used in" -->
 
@@ -36,6 +44,8 @@ spec = tensor_spec.BoundedTensorSpec((3, 5), tf.int32, 0, 2)
 ```
 
 <h2 id="__init__"><code>__init__</code></h2>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L208-L253">View source</a>
 
 ``` python
 __init__(
@@ -100,29 +110,40 @@ Returns the (optionally provided) name of the described tensor.
 Returns the `TensorShape` that represents the shape of the tensor.
 
 
+<h3 id="value_type"><code>value_type</code></h3>
+
+
+
+
 
 
 ## Methods
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L277-L280">View source</a>
+
 ``` python
 __eq__(other)
 ```
 
-
+Return self==value.
 
 
 <h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L120-L121">View source</a>
 
 ``` python
 __ne__(other)
 ```
 
-
+Return self!=value.
 
 
 <h3 id="from_spec"><code>from_spec</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L255-L260">View source</a>
 
 ``` python
 @classmethod
@@ -137,6 +158,8 @@ from_spec(
 
 <h3 id="from_tensor"><code>from_tensor</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L66-L73">View source</a>
+
 ``` python
 from_tensor(
     cls,
@@ -149,6 +172,8 @@ from_tensor(
 
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L90-L104">View source</a>
 
 ``` python
 is_compatible_with(spec_or_tensor)
@@ -170,5 +195,25 @@ and their shapes are compatible (see <a href="../../../tf/TensorShape#is_compati
 True if spec_or_tensor is compatible with self.
 
 
+<h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_spec.py#L125-L130">View source</a>
+
+``` python
+most_specific_compatible_type(other)
+```
+
+Returns the most specific TypeSpec compatible with `self` and `other`.
 
 
+#### Args:
+
+
+* <b>`other`</b>: A `TypeSpec`.
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If there is no TypeSpec that is compatible with both `self`
+  and `other`.
