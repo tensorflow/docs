@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ComplexAbs Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ComplexAbs</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Computes the complex absolute value of a tensor. </p>
+  <h2>Summary</h2>
+  <p>Given a tensor <code>x</code> of complex numbers, this operation returns a tensor of type <code>float</code> or <code>double</code> that is the absolute value of each element in <code>x</code>. <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> elements in <code>x</code> must be complex numbers of the form \(a + bj\). The absolute value is computed as \( {a^2 + b^2}\).</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The y tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1ae9a8ff8e40f2b268efeb2cbf52eb00c9">ComplexAbs</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1ae1f3cbfd4330b1a2b1bd0bb7d20aaa7e">ComplexAbs</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/complex-abs/attrs.html#structtensorflow_1_1ops_1_1_complex_abs_1_1_attrs">ComplexAbs::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1a6339381a61011992fd1de7df2195c9dc">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1a4aac4710658d4d29694592675b9ed213">y</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1aeaf0e98583b3d60a726ebf29e7541d17">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1a5590861b4175946a8e4ebff58d9e8f29">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1a81aea0f48f1416e116c66bb7111b1272">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_complex_abs_1af17c93749b98b61e134f43532f100da1">Tout</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/complex-abs/attrs.html#structtensorflow_1_1ops_1_1_complex_abs_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/complex-abs/attrs">tensorflow::<wbr/>ops::<wbr/>ComplexAbs::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/complex-abs.html#classtensorflow_1_1ops_1_1_complex_abs">ComplexAbs</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1a6339381a61011992fd1de7df2195c9dc">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1a4aac4710658d4d29694592675b9ed213">
+    <h3>y</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1ae9a8ff8e40f2b268efeb2cbf52eb00c9">
+    <h3>ComplexAbs</h3>
+    <pre class="prettyprint"> ComplexAbs(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1ae1f3cbfd4330b1a2b1bd0bb7d20aaa7e">
+    <h3>ComplexAbs</h3>
+    <pre class="prettyprint"> ComplexAbs(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/complex-abs/attrs.html#structtensorflow_1_1ops_1_1_complex_abs_1_1_attrs">ComplexAbs::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1aeaf0e98583b3d60a726ebf29e7541d17">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1a5590861b4175946a8e4ebff58d9e8f29">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1a81aea0f48f1416e116c66bb7111b1272">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_complex_abs_1af17c93749b98b61e134f43532f100da1">
+    <h3>Tout</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/complex-abs/attrs.html#structtensorflow_1_1ops_1_1_complex_abs_1_1_attrs">Attrs</a> Tout(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

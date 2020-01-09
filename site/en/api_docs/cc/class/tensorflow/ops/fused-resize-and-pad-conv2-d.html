@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FusedResizeAndPadConv2D Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FusedResizeAndPadConv2D</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Performs a resize and padding as a preprocess during a convolution. </p>
+  <h2>Summary</h2>
+  <p>It's often possible to do spatial transformations more efficiently as part of the packing stage of a convolution, so this op allows for an optimized implementation where these stages are fused together. This prevents the need to write out the intermediate results as whole tensors, reducing memory pressure, and we can get some latency gains by merging the transformation calculations. The data_format attribute for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/conv2-d.html#classtensorflow_1_1ops_1_1_conv2_d">Conv2D</a> isn't supported by this op, and defaults to 'NHWC' order. Internally this op uses a single per-graph scratch buffer, which means that it will block if multiple versions are being run in parallel. This is because this operator is primarily an optimization to minimize memory usage.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: 4-D with shape <code>[batch, in_height, in_width, in_channels]</code>.</li>
+      <li>size: A 1-D int32 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> of 2 elements: <code>new_height, new_width</code>. The new size for the images.</li>
+      <li>paddings: A two-column matrix specifying the padding sizes. The number of rows must be the same as the rank of <code>input</code>.</li>
+      <li>filter: 4-D with shape <code>[filter_height, filter_width, in_channels, out_channels]</code>.</li>
+      <li>strides: 1-D of length 4. The stride of the sliding window for each dimension of <code>input</code>. Must be in the same order as the dimension specified with format.</li>
+      <li>padding: The type of padding algorithm to use.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs.html#structtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1_1_attrs">Attrs</a></code>):<ul>
+      <li>resize_align_corners: If true, the centers of the 4 corner pixels of the input and output tensors are aligned, preserving the values at the corner pixels. Defaults to false.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1afdac6e55ba14082f1b161c3892feb79c">FusedResizeAndPadConv2D</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, StringPiece mode, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ab05dac1d726214f232015fa7696ee523">FusedResizeAndPadConv2D</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter, StringPiece mode, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs.html#structtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1_1_attrs">FusedResizeAndPadConv2D::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a452db77c1530086287369d18c4e67196">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad8619b45c03b5aa399ef784c4b5d96a5">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad006395b5772a9dad02d7e8aec083755">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad64d511881de03b3de360bc2d09af397">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a0ae5c811852f315f2b5cc87682ca69a3">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a26a1da31c5f264b43033f67ce65063c0">ResizeAlignCorners</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs.html#structtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs">tensorflow::<wbr/>ops::<wbr/>FusedResizeAndPadConv2D::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fused-resize-and-pad-conv2-d.html#classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d">FusedResizeAndPadConv2D</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a452db77c1530086287369d18c4e67196">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad8619b45c03b5aa399ef784c4b5d96a5">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1afdac6e55ba14082f1b161c3892feb79c">
+    <h3>FusedResizeAndPadConv2D</h3>
+    <pre class="prettyprint"> FusedResizeAndPadConv2D(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  StringPiece mode,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ab05dac1d726214f232015fa7696ee523">
+    <h3>FusedResizeAndPadConv2D</h3>
+    <pre class="prettyprint"> FusedResizeAndPadConv2D(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter,
+  StringPiece mode,
+  const gtl::ArraySlice< int > & strides,
+  StringPiece padding,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs.html#structtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1_1_attrs">FusedResizeAndPadConv2D::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad006395b5772a9dad02d7e8aec083755">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1ad64d511881de03b3de360bc2d09af397">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a0ae5c811852f315f2b5cc87682ca69a3">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1a26a1da31c5f264b43033f67ce65063c0">
+    <h3>ResizeAlignCorners</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/fused-resize-and-pad-conv2-d/attrs.html#structtensorflow_1_1ops_1_1_fused_resize_and_pad_conv2_d_1_1_attrs">Attrs</a> ResizeAlignCorners(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

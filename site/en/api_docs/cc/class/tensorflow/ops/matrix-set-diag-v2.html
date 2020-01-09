@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::MatrixSetDiagV2 Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>MatrixSetDiagV2</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Returns a batched matrix tensor with new batched diagonal values. </p>
+  <h2>Summary</h2>
+  <p>Given <code>input</code> and <code>diagonal</code>, this operation returns a tensor with the same shape and values as <code>input</code>, except for the specified diagonals of the innermost matrices. These will be overwritten by the values in <code>diagonal</code>.</p>
+  <p><code>input</code> has <code>r+1</code> dimensions <code>[I, J, ..., L, M, N]</code>. When <code>k</code> is scalar or <code>k[0] == k[1]</code>, <code>diagonal</code> has <code>r</code> dimensions <code>[I, J, ..., L, max_diag_len]</code>. Otherwise, it has <code>r+1</code> dimensions <code>[I, J, ..., L, num_diags, max_diag_len]</code>. <code>num_diags</code> is the number of diagonals, <code>num_diags = k[1] - k[0] + 1</code>. <code>max_diag_len</code> is the longest diagonal in the range <code>[k[0], k[1]]</code>, <code>max_diag_len = min(M + min(k[1], 0), N + min(-k[0], 0))</code></p>
+  <p>The output is a tensor of rank <code>k+1</code> with dimensions <code>[I, J, ..., L, M, N]</code>. If <code>k</code> is scalar or <code>k[0] == k[1]</code>:</p>
+  <p>
+    <pre class="prettyprint">
+output[i, j, ..., l, m, n]
+  = diagonal[i, j, ..., l, n-max(k[1], 0)] ; if n - m == k[1]
+    output[i, j, ..., l, m, n]             ; otherwise
+</pre>
+  </p>
+  <p>Otherwise,</p>
+  <p><pre class="prettyprint">
+output[i, j, ..., l, m, n]
+  = diagonal[i, j, ..., l, k[1]-d, n-max(d, 0)] ; if d_lower <= d <= d_upper
+    input[i, j, ..., l, m, n]                   ; otherwise
+</pre> where <code>d = n - m</code></p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; The main diagonal.
+input = np.array([[[7, 7, 7, 7],              &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 3, 4)
+                   [7, 7, 7, 7],
+                   [7, 7, 7, 7]],
+                  [[7, 7, 7, 7],
+                   [7, 7, 7, 7],
+                   [7, 7, 7, 7]]])
+diagonal = np.array([[1, 2, 3],               &#35; Diagonal shape: (2, 3)
+                     [4, 5, 6]])
+tf.matrix_diag(diagonal) ==> [[[1, 7, 7, 7],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 4)
+                               [7, 2, 7, 7],
+                               [7, 7, 3, 7]],
+                              [[4, 7, 7, 7],
+                               [7, 5, 7, 7],
+                               [7, 7, 6, 7]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; A superdiagonal (per batch).
+tf.matrix_diag(diagonal, k = 1)
+  ==> [[[7, 1, 7, 7],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 4)
+        [7, 7, 2, 7],
+        [7, 7, 7, 3]],
+       [[7, 4, 7, 7],
+        [7, 7, 5, 7],
+        [7, 7, 7, 6]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; A band of diagonals.
+diagonals = np.array([[[1, 2, 3],  &#35; Diagonal shape: (2, 2, 3)
+                       [4, 5, 0]],
+                      [[6, 1, 2],
+                       [3, 4, 0]]])
+tf.matrix_diag(diagonals, k = (-1, 0))
+  ==> [[[1, 7, 7, 7],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 4)
+        [4, 2, 7, 7],
+        [0, 5, 3, 7]],
+       [[6, 7, 7, 7],
+        [3, 1, 7, 7],
+        [7, 4, 2, 7]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: Rank <code>r+1</code>, where <code>r >= 1</code>.</li>
+      <li>diagonal: Rank <code>r</code> when <code>k</code> is an integer or <code>k[0] == k[1]</code>. Otherwise, it has rank <code>r+1</code>. <code>k >= 1</code>.</li>
+      <li>k: Diagonal offset(s). Positive value means superdiagonal, 0 refers to the main diagonal, and negative value means subdiagonals. <code>k</code> can be a single integer (for a single diagonal) or a pair of integers specifying the low and high ends of a matrix band. <code>k[0]</code> must not be larger than <code>k[1]</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Rank <code>r+1</code>, with <code>output.shape = input.shape</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a438f858712bda6df180ee19d8f278bf4">MatrixSetDiagV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a433c91a80772823c3acd4729a873900f">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a390fc69019f7170f80f7c4c3acb12cee">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1ab0f95dc9ddcb2221701f55c8caddcdb1">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a333c742af8203776572da9009d8c0930">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a0574bd8260d99f8d93fa3a0cb880f0fa">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a433c91a80772823c3acd4729a873900f">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a390fc69019f7170f80f7c4c3acb12cee">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a438f858712bda6df180ee19d8f278bf4">
+    <h3>MatrixSetDiagV2</h3>
+    <pre class="prettyprint"> MatrixSetDiagV2(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1ab0f95dc9ddcb2221701f55c8caddcdb1">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a333c742af8203776572da9009d8c0930">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_matrix_set_diag_v2_1a0574bd8260d99f8d93fa3a0cb880f0fa">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

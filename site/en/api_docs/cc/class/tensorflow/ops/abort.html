@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Abort Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Abort</h1>
+  <code>#include &lt;control_flow_ops.h&gt;</code>
+  <p>Raise a exception to abort the process when called. </p>
+  <h2>Summary</h2>
+  <p>If exit_without_error is true, the process will exit normally, otherwise it will exit with a SIGABORT signal.</p>
+  <p>Returns nothing but an exception.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Attrs</a></code>):<ul>
+      <li>error_msg: A string which is the message associated with the exception.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li>the created <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1ae3e887b2d01e7ca0d7b542402fb6109c">Abort</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1a454530dc73efb0c918895564c3a1c3aa">Abort</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Abort::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1a03764bd8e9c8d8208fb5326499a82414">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1a81e311c61ceced865499b5c3a685a974">operator::tensorflow::Operation</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1a93fa562bb7d000cf7568e9995a67757b">ErrorMsg</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_abort_1af4eb7322975126f0aeb2fee41d05ddd9">ExitWithoutError</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs">tensorflow::<wbr/>ops::<wbr/>Abort::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/abort.html#classtensorflow_1_1ops_1_1_abort">Abort</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_abort_1a03764bd8e9c8d8208fb5326499a82414">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_abort_1ae3e887b2d01e7ca0d7b542402fb6109c">
+    <h3>Abort</h3>
+    <pre class="prettyprint"> Abort(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_abort_1a454530dc73efb0c918895564c3a1c3aa">
+    <h3>Abort</h3>
+    <pre class="prettyprint"> Abort(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Abort::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_abort_1a81e311c61ceced865499b5c3a685a974">
+    <h3>operator::tensorflow::Operation</h3>
+    <pre class="prettyprint"> operator::tensorflow::Operation() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_abort_1a93fa562bb7d000cf7568e9995a67757b">
+    <h3>ErrorMsg</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Attrs</a> ErrorMsg(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_abort_1af4eb7322975126f0aeb2fee41d05ddd9">
+    <h3>ExitWithoutError</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/abort/attrs.html#structtensorflow_1_1ops_1_1_abort_1_1_attrs">Attrs</a> ExitWithoutError(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

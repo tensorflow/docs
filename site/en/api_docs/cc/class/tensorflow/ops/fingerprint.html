@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Fingerprint Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Fingerprint</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Generates fingerprint values. </p>
+  <h2>Summary</h2>
+  <p>Generates fingerprint values of <code>data</code>.</p>
+  <p><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fingerprint.html#classtensorflow_1_1ops_1_1_fingerprint">Fingerprint</a> op considers the first dimension of <code>data</code> as the batch dimension, and <code>output[i]</code> contains the fingerprint value generated from contents in <code>data[i, ...]</code> for all <code>i</code>.</p>
+  <p><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fingerprint.html#classtensorflow_1_1ops_1_1_fingerprint">Fingerprint</a> op writes fingerprint values as byte arrays. For example, the default method <code>farmhash64</code> generates a 64-bit fingerprint value at a time. This 8-byte value is written out as an <code>uint8</code> array of size 8, in little-endian order.</p>
+  <p>For example, suppose that <code>data</code> has data type <code>DT_INT32</code> and shape (2, 3, 4), and that the fingerprint method is <code>farmhash64</code>. In this case, the output shape is (2, 8), where 2 is the batch dimension size of <code>data</code>, and 8 is the size of each fingerprint value in bytes. <code>output[0, :]</code> is generated from 12 integers in <code>data[0, :, :]</code> and similarly <code>output[1, :]</code> is generated from other 12 integers in <code>data[1, :, :]</code>.</p>
+  <p>Note that this op fingerprints the raw underlying buffer, and it does not fingerprint <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>'s metadata such as data type and/or shape. For example, the fingerprint values are invariant under reshapes and bitcasts as long as the batch dimension remain the same:</p>
+  <p>
+    <pre class="prettyprint">
+Fingerprint(data) == <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fingerprint.html#classtensorflow_1_1ops_1_1_fingerprint">Fingerprint</a>(Reshape(data, ...))
+Fingerprint(data) == <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fingerprint.html#classtensorflow_1_1ops_1_1_fingerprint">Fingerprint</a>(<a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/bitcast.html#classtensorflow_1_1ops_1_1_bitcast">Bitcast</a>(data, ...))
+</pre>
+  </p>
+  <p>For string data, one should expect <code>Fingerprint(data) != Fingerprint(ReduceJoin(data))</code> in general.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>data: Must have rank 1 or higher.</li>
+      <li>method: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/fingerprint.html#classtensorflow_1_1ops_1_1_fingerprint">Fingerprint</a> method used by this op. Currently available method is <code>farmhash::fingerprint64</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A two-dimensional <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of type <code>tf.uint8</code>. The first dimension equals to <code>data</code>'s first dimension, and the second dimension size depends on the fingerprint algorithm. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1a5a9ba3aaf3975b520b93b93f97d3218e">Fingerprint</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> method)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1acb15a2bc227362487ec02887bd37371b">fingerprint</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1a28c7645b277237010a0c6e2b37c9e520">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1a6605930068854f0e7e5ba0ad2ce90daa">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1af0b4d90e2ccbff5efb796771a356e94d">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_fingerprint_1a1d72f0d143362ae62b95dfdadd166164">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1acb15a2bc227362487ec02887bd37371b">
+    <h3>fingerprint</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> fingerprint</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1a28c7645b277237010a0c6e2b37c9e520">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1a5a9ba3aaf3975b520b93b93f97d3218e">
+    <h3>Fingerprint</h3>
+    <pre class="prettyprint"> Fingerprint(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> method
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1a6605930068854f0e7e5ba0ad2ce90daa">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1af0b4d90e2ccbff5efb796771a356e94d">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_fingerprint_1a1d72f0d143362ae62b95dfdadd166164">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
-name: TensorFlow Core {VERSION}
-home_url:  {VERSION_ROOT}
+name: TensorFlow Core r2.0
+home_url:  /versions/r2.0/api_docs
 parent_project_metadata_path: /_project.yaml
 description: >
   An open source machine learning library for research and production.
@@ -8,3 +8,5 @@ hide_from_products_list: true
 content_license: cc-apache
 buganizer_id: 162698
 include: /_project_included.yaml
+search_suggest_blacklist:
+- /versions/r2.0/api_docs/...

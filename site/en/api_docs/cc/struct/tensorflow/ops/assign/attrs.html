@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Assign::Attrs Struct Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Assign::<wbr/>Attrs</h1>
+  <code>#include &lt;state_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_assign_1_1_attrs_1ae9bf9c16623a4261e299eb784f104eb4">use_locking_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a3401025d0470b42ec167e96408de3091">validate_shape_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a0d9dfa31afce496359a0994b6c1e43ea">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a6c63cacd6cce8eabbbb01ffd3ca16746">ValidateShape</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If true, the operation will validate that the shape of 'value' matches the shape of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> being assigned to. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_assign_1_1_attrs_1ae9bf9c16623a4261e299eb784f104eb4">
+    <h3>use_locking_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::Assign::Attrs::use_locking_ = true</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a3401025d0470b42ec167e96408de3091">
+    <h3>validate_shape_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::Assign::Attrs::validate_shape_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a0d9dfa31afce496359a0994b6c1e43ea">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a> tensorflow::ops::Assign::Attrs::UseLocking(
+  bool x
+)</pre>
+    <div>
+      <p>If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_assign_1_1_attrs_1a6c63cacd6cce8eabbbb01ffd3ca16746">
+    <h3>ValidateShape</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/assign/attrs.html#structtensorflow_1_1ops_1_1_assign_1_1_attrs">Attrs</a> tensorflow::ops::Assign::Attrs::ValidateShape(
+  bool x
+)</pre>
+    <div>
+      <p>If true, the operation will validate that the shape of 'value' matches the shape of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> being assigned to. </p>
+      <p>If false, 'ref' will take on the shape of 'value'.</p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+</body>
+</html>

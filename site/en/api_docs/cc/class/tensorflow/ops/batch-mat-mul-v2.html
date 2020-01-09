@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::BatchMatMulV2 Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>BatchMatMulV2</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Multiplies slices of two tensors in batches. </p>
+  <h2>Summary</h2>
+  <p>Multiplies all slices of <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code><code>x</code> and <code>y</code> (each slice can be viewed as an element of a batch), and arranges the individual results in a single output tensor of the same batch size. Each of the individual slices can optionally be adjointed (to adjoint a matrix means to transpose and conjugate it) before multiplication by setting the <code>adj_x</code> or <code>adj_y</code> flag to <code>True</code>, which are by default <code>False</code>.</p>
+  <p>The input tensors <code>x</code> and <code>y</code> are 2-D or higher with shape <code>[..., r_x, c_x]</code> and <code>[..., r_y, c_y]</code>.</p>
+  <p>The output tensor is 2-D or higher with shape <code>[..., r_o, c_o]</code>, where: <pre class="prettyprint">r_o = c_x if adj_x else r_x
+c_o = r_y if adj_y else c_y
+</pre></p>
+  <p>It is computed as: <pre class="prettyprint">output[..., :, :] = matrix(x[..., :, :]) * matrix(y[..., :, :])
+</pre></p>
+  <p><i>NOTE</i>: <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/batch-mat-mul-v2.html#classtensorflow_1_1ops_1_1_batch_mat_mul_v2">BatchMatMulV2</a></code> supports broadcasting in the batch dimensions. More about broadcasting <a href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">here</a>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: 2-D or higher with shape <code>[..., r_x, c_x]</code>.</li>
+      <li>y: 2-D or higher with shape <code>[..., r_y, c_y]</code>.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">Attrs</a></code>):<ul>
+      <li>adj_x: If <code>True</code>, adjoint the slices of <code>x</code>. Defaults to <code>False</code>.</li>
+      <li>adj_y: If <code>True</code>, adjoint the slices of <code>y</code>. Defaults to <code>False</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D or higher with shape <code>[..., r_o, c_o]</code></li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a72c2f4ad83e7c11063fadaf661ec6d54">BatchMatMulV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a6990e4599f21b54bb5f18572d215fcb1">BatchMatMulV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">BatchMatMulV2::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a6b83c78f1764f9f38262039680f75f48">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1ac477c6e218d7285987ba896599db161e">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a11c6e4f79b4fbd6ce36ecbc3c84c1e6e">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1af48144aa8d3a20f660281a87abccb7b8">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a807920b129cb268198f13fa48d55d9b7">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a8f28eaff740f7852929cd5e69f82196d">AdjX</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a76e0c3ea406e4d375518505611ff3358">AdjY</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs">tensorflow::<wbr/>ops::<wbr/>BatchMatMulV2::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/batch-mat-mul-v2.html#classtensorflow_1_1ops_1_1_batch_mat_mul_v2">BatchMatMulV2</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a6b83c78f1764f9f38262039680f75f48">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1ac477c6e218d7285987ba896599db161e">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a72c2f4ad83e7c11063fadaf661ec6d54">
+    <h3>BatchMatMulV2</h3>
+    <pre class="prettyprint"> BatchMatMulV2(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a6990e4599f21b54bb5f18572d215fcb1">
+    <h3>BatchMatMulV2</h3>
+    <pre class="prettyprint"> BatchMatMulV2(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">BatchMatMulV2::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a11c6e4f79b4fbd6ce36ecbc3c84c1e6e">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1af48144aa8d3a20f660281a87abccb7b8">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a807920b129cb268198f13fa48d55d9b7">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a8f28eaff740f7852929cd5e69f82196d">
+    <h3>AdjX</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">Attrs</a> AdjX(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_batch_mat_mul_v2_1a76e0c3ea406e4d375518505611ff3358">
+    <h3>AdjY</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/batch-mat-mul-v2/attrs.html#structtensorflow_1_1ops_1_1_batch_mat_mul_v2_1_1_attrs">Attrs</a> AdjY(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

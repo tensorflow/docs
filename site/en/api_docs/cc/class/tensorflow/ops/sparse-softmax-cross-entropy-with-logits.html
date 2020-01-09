@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseSoftmaxCrossEntropyWithLogits Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseSoftmaxCrossEntropyWithLogits</h1>
+  <code>#include &lt;nn_ops.h&gt;</code>
+  <p>Computes softmax cross entropy cost and gradients to backpropagate. </p>
+  <h2>Summary</h2>
+  <p>Unlike <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/softmax-cross-entropy-with-logits.html#classtensorflow_1_1ops_1_1_softmax_cross_entropy_with_logits">SoftmaxCrossEntropyWithLogits</a></code>, this operation does not accept a matrix of label probabilities, but rather a single label per row of features. This label is considered to have probability 1.0 for the given row.</p>
+  <p>Inputs are the logits, not probabilities.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>features: batch_size x num_classes matrix</li>
+      <li>labels: batch_size vector with values in [0, num_classes). This is the label for the given minibatch entry.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> loss: Per example loss (batch_size vector).</li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> backprop: backpropagated gradients (batch_size x num_classes matrix). </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1a965e868e103e3908d2bfb1dcd368e90d">SparseSoftmaxCrossEntropyWithLogits</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> features, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> labels)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1a9e77b4f5efe0d0762f8fc95a3f7cdbaa">backprop</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1aa3c9d1b704d919039c2cd2686fbea683">loss</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1ac581285ea4e5d57f85d8f317aed838fa">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1a9e77b4f5efe0d0762f8fc95a3f7cdbaa">
+    <h3>backprop</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> backprop</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1aa3c9d1b704d919039c2cd2686fbea683">
+    <h3>loss</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> loss</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1ac581285ea4e5d57f85d8f317aed838fa">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_softmax_cross_entropy_with_logits_1a965e868e103e3908d2bfb1dcd368e90d">
+    <h3>SparseSoftmaxCrossEntropyWithLogits</h3>
+    <pre class="prettyprint"> SparseSoftmaxCrossEntropyWithLogits(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> features,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> labels
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

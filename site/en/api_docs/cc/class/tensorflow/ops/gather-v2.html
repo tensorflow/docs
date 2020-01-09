@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::GatherV2 Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>GatherV2</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/gather.html#classtensorflow_1_1ops_1_1_gather">Gather</a> slices from <code>params</code> axis <code>axis</code> according to <code>indices</code>. </p>
+  <h2>Summary</h2>
+  <p><code>indices</code> must be an integer tensor of any dimension (usually 0-D or 1-D). Produces an output tensor with shape <code>params.shape[:axis] + indices.shape + params.shape[axis + 1:]</code> where:</p>
+  <p>
+    <pre class="prettyprint">
+    &#35; Scalar indices (output is rank(params) - 1).
+    output[a_0, ..., a_n, b_0, ..., b_n] =
+      params[a_0, ..., a_n, indices, b_0, ..., b_n]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    &#35; Vector indices (output is rank(params)).
+    output[a_0, ..., a_n, i, b_0, ..., b_n] =
+      params[a_0, ..., a_n, indices[i], b_0, ..., b_n]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    &#35; Higher rank indices (output is rank(params) + rank(indices) - 1).
+    output[a_0, ..., a_n, i, ..., j, b_0, ... b_n] =
+      params[a_0, ..., a_n, indices[i, ..., j], b_0, ..., b_n]
+</pre>
+  </p>
+  <p>
+    <figure id="@name">
+      <img src="/versions/r2.0/api_docs/cc/images/Gather.png" />
+    </figure>
+  </p>
+  <p>Note that on CPU, if an out of bound index is found, an error is returned. On GPU, if an out of bound index is found, a 0 is stored in the corresponding output value.</p>
+  <p>See also <code>tf.batch_gather</code> and <code>tf.gather_nd</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>params: The tensor from which to gather values. Must be at least rank <code>axis + 1</code>.</li>
+      <li>indices: Index tensor. Must be in range <code>[0, params.shape[axis])</code>.</li>
+      <li>axis: The axis in <code>params</code> to gather <code>indices</code> from. Defaults to the first dimension. Supports negative indexes.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Values from <code>params</code> gathered from indices given by <code>indices</code>, with shape <code>params.shape[:axis] + indices.shape + params.shape[axis + 1:]</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1afff9f85abc36b6134f07ac9264e6b6b7">GatherV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1a8f8e2e0c5f4693b13f8a2c747ff77d8b">GatherV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/gather-v2/attrs.html#structtensorflow_1_1ops_1_1_gather_v2_1_1_attrs">GatherV2::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1acada34664fa1ed40763d7823796966d3">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1a8d4dd95b0f18afade1621c680ecdac1a">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1abc465824a7b865f5bdfa41eb624a1bb7">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1a967966fdcae665e9578c3e9512e18b4c">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1a5f58668891b9a0ae4a460fe84c7b4d5c">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_gather_v2_1a96a2555cae1e27560651b09777fece7c">BatchDims</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/gather-v2/attrs.html#structtensorflow_1_1ops_1_1_gather_v2_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/gather-v2/attrs">tensorflow::<wbr/>ops::<wbr/>GatherV2::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/gather-v2.html#classtensorflow_1_1ops_1_1_gather_v2">GatherV2</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1acada34664fa1ed40763d7823796966d3">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1a8d4dd95b0f18afade1621c680ecdac1a">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1afff9f85abc36b6134f07ac9264e6b6b7">
+    <h3>GatherV2</h3>
+    <pre class="prettyprint"> GatherV2(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1a8f8e2e0c5f4693b13f8a2c747ff77d8b">
+    <h3>GatherV2</h3>
+    <pre class="prettyprint"> GatherV2(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> params,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/gather-v2/attrs.html#structtensorflow_1_1ops_1_1_gather_v2_1_1_attrs">GatherV2::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1abc465824a7b865f5bdfa41eb624a1bb7">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1a967966fdcae665e9578c3e9512e18b4c">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1a5f58668891b9a0ae4a460fe84c7b4d5c">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_gather_v2_1a96a2555cae1e27560651b09777fece7c">
+    <h3>BatchDims</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/gather-v2/attrs.html#structtensorflow_1_1ops_1_1_gather_v2_1_1_attrs">Attrs</a> BatchDims(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ResourceSparseApplyKerasMomentum::Attrs Struct Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ResourceSparseApplyKerasMomentum::<wbr/>Attrs</h1>
+  <code>#include &lt;training_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/resource-sparse-apply-keras-momentum.html#classtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum">ResourceSparseApplyKerasMomentum</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1af942b37368dcb9f480e43927a742009c">use_locking_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1ad11f6bd6b9236d5fe221cc763557a0a2">use_nesterov_</a> = false</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1a4edca02f2dc417b32e2c08ba79e73d2a">UseLocking</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1a8204904aac23a8290d68a339d6708813">UseNesterov</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If <code>True</code>, the tensor passed to compute grad will be var + momentum * accum, so in the end, the var you get is actually var + momentum * accum. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1af942b37368dcb9f480e43927a742009c">
+    <h3>use_locking_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ResourceSparseApplyKerasMomentum::Attrs::use_locking_ = false</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1ad11f6bd6b9236d5fe221cc763557a0a2">
+    <h3>use_nesterov_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::ResourceSparseApplyKerasMomentum::Attrs::use_nesterov_ = false</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1a4edca02f2dc417b32e2c08ba79e73d2a">
+    <h3>UseLocking</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs">Attrs</a> tensorflow::ops::ResourceSparseApplyKerasMomentum::Attrs::UseLocking(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs_1a8204904aac23a8290d68a339d6708813">
+    <h3>UseNesterov</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-sparse-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_sparse_apply_keras_momentum_1_1_attrs">Attrs</a> tensorflow::ops::ResourceSparseApplyKerasMomentum::Attrs::UseNesterov(
+  bool x
+)</pre>
+    <div>
+      <p>If <code>True</code>, the tensor passed to compute grad will be var + momentum * accum, so in the end, the var you get is actually var + momentum * accum. </p>
+      <p>Defaults to false </p>
+    </div>
+  </div>
+</body>
+</html>

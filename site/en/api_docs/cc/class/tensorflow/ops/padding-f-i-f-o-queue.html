@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::PaddingFIFOQueue Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>PaddingFIFOQueue</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A queue that produces elements in first-in first-out order. </p>
+  <h2>Summary</h2>
+  <p>Variable-size shapes are allowed by setting the corresponding shape dimensions to 0 in the shape attr. In this case DequeueMany will pad up to the maximum size of any given element in the minibatch. See below for details.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>component_types: The type of each component in a value.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a></code>):<ul>
+      <li>shapes: The shape of each component in a value. The length of this attr must be either 0 or the same as the length of component_types. Shapes of fixed rank but variable size are allowed by setting any shape dimension to -1. In this case, the inputs' shape may vary along the given dimension, and DequeueMany will pad the given dimension with zeros up to the maximum shape of all elements in the given batch. If the length of this attr is 0, different queue elements may have different ranks and shapes, but only one element may be dequeued at a time.</li>
+      <li>capacity: The upper bound on the number of elements in this queue. Negative numbers mean no limit.</li>
+      <li>container: If non-empty, this queue is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this queue will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the queue. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1ab818a0fb5c04118f9fb6a16f8d014bbf">PaddingFIFOQueue</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a6d7f8309f142ac9ffe7ec1de8a99e11e">PaddingFIFOQueue</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, const DataTypeSlice & component_types, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">PaddingFIFOQueue::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a39eb929611f708215faf1b5be357152e">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a73da6dae81f48ea4ac530b3cc265391e">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a60fdcd5f1e0d321510d5f1924e5ebb98">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a87a368787c970ea80238b0b277d4a1bc">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a24634a5ec26c56d5bf58e40e5f30ec00">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1ae1fa5194a675ccd0aac3d90adb2a5d7e">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a4d0859f5e43500c22a24ccf99f0b8ac8">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a29f0f0ce152db5f4517d7355650f6d2d">Shapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a182e79127160fbc1a6af358ebd5bf0c7">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs">tensorflow::<wbr/>ops::<wbr/>PaddingFIFOQueue::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/padding-f-i-f-o-queue.html#classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue">PaddingFIFOQueue</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a39eb929611f708215faf1b5be357152e">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a73da6dae81f48ea4ac530b3cc265391e">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1ab818a0fb5c04118f9fb6a16f8d014bbf">
+    <h3>PaddingFIFOQueue</h3>
+    <pre class="prettyprint"> PaddingFIFOQueue(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a6d7f8309f142ac9ffe7ec1de8a99e11e">
+    <h3>PaddingFIFOQueue</h3>
+    <pre class="prettyprint"> PaddingFIFOQueue(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  const DataTypeSlice & component_types,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">PaddingFIFOQueue::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a60fdcd5f1e0d321510d5f1924e5ebb98">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a87a368787c970ea80238b0b277d4a1bc">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a24634a5ec26c56d5bf58e40e5f30ec00">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1ae1fa5194a675ccd0aac3d90adb2a5d7e">
+    <h3>Capacity</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a> Capacity(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a4d0859f5e43500c22a24ccf99f0b8ac8">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a29f0f0ce152db5f4517d7355650f6d2d">
+    <h3>Shapes</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a> Shapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1a182e79127160fbc1a6af358ebd5bf0c7">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/padding-f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_padding_f_i_f_o_queue_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

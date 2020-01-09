@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeJpeg Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeJpeg</h1>
+  <code>#include &lt;image_ops.h&gt;</code>
+  <p>Decode a JPEG-encoded image to a uint8 tensor. </p>
+  <h2>Summary</h2>
+  <p>The attr <code>channels</code> indicates the desired number of color channels for the decoded image.</p>
+  <p>Accepted values are:</p>
+  <p>
+    <ul>
+      <li>0: Use the number of channels in the JPEG-encoded image.</li>
+      <li>1: output a grayscale image.</li>
+      <li>3: output an RGB image.</li>
+    </ul>
+  </p>
+  <p>If needed, the JPEG-encoded image is transformed to match the requested number of color channels.</p>
+  <p>The attr <code>ratio</code> allows downscaling the image by an integer factor during decoding. Allowed values are: 1, 2, 4, and 8. This is much faster than downscaling the image later.</p>
+  <p>This op also supports decoding PNGs and non-animated GIFs since the interface is the same, though it is cleaner to use <code>tf.image.decode_image</code>.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>contents: 0-D. The JPEG-encoded image.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>):<ul>
+      <li>channels: Number of color channels for the decoded image.</li>
+      <li>ratio: Downscaling ratio.</li>
+      <li>fancy_upscaling: If true use a slower but nicer upscaling of the chroma planes (yuv420/422 only).</li>
+      <li>try_recover_truncated: If true try to recover an image from truncated input.</li>
+      <li>acceptable_fraction: The minimum required fraction of lines before a truncated input is accepted.</li>
+      <li>dct_method: string specifying a hint about the algorithm used for decompression. Defaults to "" which maps to a system-specific default. Currently valid values are ["INTEGER_FAST", "INTEGER_ACCURATE"]. The hint may be ignored (e.g., the internal jpeg library changes to a version that does not have that specific option.)</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 3-D with shape <code>[height, width, channels]</code>.. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1ac4de6e02218f7ad73fca207fdedcbcad">DecodeJpeg</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a3d8ca9fbb0c56f07d1dfc15707345456">DecodeJpeg</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">DecodeJpeg::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1ae6c2f8ba16e122ec6fffd95b36d65ead">image</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1ac493d7d06da539cac7983b2046f8e9d1">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a62de1d307840ceb881b006cd346264f1">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a87002e2b5765be434ab912f4ae691605">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1af3a81e6979e68a832cbbc27890b24704">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a3e5bf8acaa171c786f414da0c3717e15">AcceptableFraction</a>(float x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a4ced6488b8eb52569e4c64cb514ae5af">Channels</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a11a129bf8cb32c9b4b80b8f379be1356">DctMethod</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a32505c9ff48d85625d2d574385e580d7">FancyUpscaling</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a55a5fb907878bbe1ed6fc08e696f55ce">Ratio</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_jpeg_1a0d8254ea2a648d8ad63b90b2e39d9cf5">TryRecoverTruncated</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs">tensorflow::<wbr/>ops::<wbr/>DecodeJpeg::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/decode-jpeg.html#classtensorflow_1_1ops_1_1_decode_jpeg">DecodeJpeg</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1ae6c2f8ba16e122ec6fffd95b36d65ead">
+    <h3>image</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> image</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1ac493d7d06da539cac7983b2046f8e9d1">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1ac4de6e02218f7ad73fca207fdedcbcad">
+    <h3>DecodeJpeg</h3>
+    <pre class="prettyprint"> DecodeJpeg(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a3d8ca9fbb0c56f07d1dfc15707345456">
+    <h3>DecodeJpeg</h3>
+    <pre class="prettyprint"> DecodeJpeg(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">DecodeJpeg::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a62de1d307840ceb881b006cd346264f1">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a87002e2b5765be434ab912f4ae691605">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1af3a81e6979e68a832cbbc27890b24704">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a3e5bf8acaa171c786f414da0c3717e15">
+    <h3>AcceptableFraction</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> AcceptableFraction(
+  float x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a4ced6488b8eb52569e4c64cb514ae5af">
+    <h3>Channels</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> Channels(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a11a129bf8cb32c9b4b80b8f379be1356">
+    <h3>DctMethod</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> DctMethod(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a32505c9ff48d85625d2d574385e580d7">
+    <h3>FancyUpscaling</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> FancyUpscaling(
+  bool x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a55a5fb907878bbe1ed6fc08e696f55ce">
+    <h3>Ratio</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> Ratio(
+  int64 x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_jpeg_1a0d8254ea2a648d8ad63b90b2e39d9cf5">
+    <h3>TryRecoverTruncated</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-jpeg/attrs.html#structtensorflow_1_1ops_1_1_decode_jpeg_1_1_attrs">Attrs</a> TryRecoverTruncated(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

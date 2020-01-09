@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Where3 Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Where3</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Selects elements from <code>x</code> or <code>y</code>, depending on <code>condition</code>. </p>
+  <h2>Summary</h2>
+  <p>The <code>x</code>, and <code>y</code> tensors must all have the same shape, and the output will also have that shape.</p>
+  <p>The <code>condition</code> tensor must be a scalar if <code>x</code> and <code>y</code> are scalars. If <code>x</code> and <code>y</code> are vectors or higher rank, then <code>condition</code> must be either a scalar, a vector with size matching the first dimension of <code>x</code>, or must have the same shape as <code>x</code>.</p>
+  <p>The <code>condition</code> tensor acts as a mask that chooses, based on the value at each element, whether the corresponding element / row in the output should be taken from <code>x</code> (if true) or <code>y</code> (if false).</p>
+  <p>If <code>condition</code> is a vector and <code>x</code> and <code>y</code> are higher rank matrices, then it chooses which row (outer dimension) to copy from <code>x</code> and <code>y</code>. If <code>condition</code> has the same shape as <code>x</code> and <code>y</code>, then it chooses which element to copy from <code>x</code> and <code>y</code>.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; 'condition' tensor is [[True,  False]
+&#35;                        [False, True]]
+&#35; 't' is [[1, 2],
+&#35;         [3, 4]]
+&#35; 'e' is [[5, 6],
+&#35;         [7, 8]]
+select(condition, t, e)  &#35; => [[1, 6], [7, 4]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; 'condition' tensor is [True, False]
+&#35; 't' is [[1, 2],
+&#35;         [3, 4]]
+&#35; 'e' is [[5, 6],
+&#35;         [7, 8]]
+select(condition, t, e) ==> [[1, 2],
+                             [7, 8]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>x: = A <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> which may have the same shape as <code>condition</code>. If <code>condition</code> is rank 1, <code>x</code> may have higher rank, but its first dimension must match the size of <code>condition</code>.</li>
+      <li>y: = A <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the same type and shape as <code>x</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: = A <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with the same type and shape as <code>x</code> and <code>y</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1a1e043e7f8493b555a94d106084a64a32">Where3</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1a9b749e1046fbe4c39075a2b037391cf2">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1a07742c7ad2705b0fa9b9cc9e59eca41b">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1aacfd2a5bd041b46bc2179d3e9ac5c0c6">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1a7fcabeeb211b239288d028b587a88e54">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where3_1aedd6e529c7127af0c5af333ded627ab3">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_where3_1a9b749e1046fbe4c39075a2b037391cf2">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where3_1a07742c7ad2705b0fa9b9cc9e59eca41b">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_where3_1a1e043e7f8493b555a94d106084a64a32">
+    <h3>Where3</h3>
+    <pre class="prettyprint"> Where3(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> y
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where3_1aacfd2a5bd041b46bc2179d3e9ac5c0c6">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where3_1a7fcabeeb211b239288d028b587a88e54">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where3_1aedd6e529c7127af0c5af333ded627ab3">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>

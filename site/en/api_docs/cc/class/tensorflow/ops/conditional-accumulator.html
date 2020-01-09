@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ConditionalAccumulator Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ConditionalAccumulator</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A conditional accumulator for aggregating gradients. </p>
+  <h2>Summary</h2>
+  <p>The accumulator accepts gradients marked with local_step greater or equal to the most recent global_step known to the accumulator. The average can be extracted from the accumulator, provided sufficient gradients have been accumulated. Extracting the average automatically resets the aggregate to 0, and increments the global_step recorded by the accumulator.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>dtype: The type of the value being accumulated.</li>
+      <li>shape: The shape of the values, can be [], in which case shape is unknown.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>):<ul>
+      <li>container: If non-empty, this accumulator is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this accumulator will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the accumulator. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a00272ac1cf0b035368cf3635f63f6a08">ConditionalAccumulator</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype, PartialTensorShape shape)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a081e21332352a96375526ce070986ebd">ConditionalAccumulator</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype, PartialTensorShape shape, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">ConditionalAccumulator::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1ac3a749ba3341a49ef50a14057e5da60a">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a30b98b6dbd156f113d937ac4275ad048">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a9cc82ba20297c140bf9f35fe3b6c0ae8">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1ade4edaefa0b8521b19f8520a78138955">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a1dd93d35edd3bcc2637ffa77017bf8cb">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1acaa49be6762015a74847412f577808c1">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1a59688e0c97eee5de1ead933f6f8c7815">ReductionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_conditional_accumulator_1aa2dce8224a78a988a81866ca421eb42b">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs">tensorflow::<wbr/>ops::<wbr/>ConditionalAccumulator::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/conditional-accumulator.html#classtensorflow_1_1ops_1_1_conditional_accumulator">ConditionalAccumulator</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1ac3a749ba3341a49ef50a14057e5da60a">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a30b98b6dbd156f113d937ac4275ad048">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a00272ac1cf0b035368cf3635f63f6a08">
+    <h3>ConditionalAccumulator</h3>
+    <pre class="prettyprint"> ConditionalAccumulator(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype,
+  PartialTensorShape shape
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a081e21332352a96375526ce070986ebd">
+    <h3>ConditionalAccumulator</h3>
+    <pre class="prettyprint"> ConditionalAccumulator(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype,
+  PartialTensorShape shape,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">ConditionalAccumulator::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a9cc82ba20297c140bf9f35fe3b6c0ae8">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1ade4edaefa0b8521b19f8520a78138955">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a1dd93d35edd3bcc2637ffa77017bf8cb">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1acaa49be6762015a74847412f577808c1">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1a59688e0c97eee5de1ead933f6f8c7815">
+    <h3>ReductionType</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> ReductionType(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_conditional_accumulator_1aa2dce8224a78a988a81866ca421eb42b">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_conditional_accumulator_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

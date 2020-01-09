@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::FIFOQueue::Attrs Struct Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>FIFOQueue::<wbr/>Attrs</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/f-i-f-o-queue.html#classtensorflow_1_1ops_1_1_f_i_f_o_queue">FIFOQueue</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1ae28ec14fda16522f12c863523082d344">capacity_</a> = -1</code>
+      </td>
+      <td>
+        <div>
+          <code>int64</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a3cad0c924b508b6f992b119b773808a7">container_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a14c5fe53dc9b7ac9c4a2d74ded350a87">shapes_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< PartialTensorShape ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a6969cd51d4824a259e92cbc90c3d0c06">shared_name_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a4a786bc68c2732d8e0d72b2c382101f5">Capacity</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The upper bound on the number of elements in this queue. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1afcf423b907d26985fab5863459b4bd1b">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue is placed in the given container. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a77e50ffbad8726bd7f8a7aeec309bf6e">Shapes</a>(const gtl::ArraySlice< PartialTensorShape > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>The shape of each component in a value. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1aa45a52efc11ffde51babdec6ffc57872">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If non-empty, this queue will be shared under the given name across multiple sessions. </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1ae28ec14fda16522f12c863523082d344">
+    <h3>capacity_</h3>
+    <pre class="prettyprint">int64 tensorflow::ops::FIFOQueue::Attrs::capacity_ = -1</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a3cad0c924b508b6f992b119b773808a7">
+    <h3>container_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::FIFOQueue::Attrs::container_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a14c5fe53dc9b7ac9c4a2d74ded350a87">
+    <h3>shapes_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< PartialTensorShape > tensorflow::ops::FIFOQueue::Attrs::shapes_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a6969cd51d4824a259e92cbc90c3d0c06">
+    <h3>shared_name_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::FIFOQueue::Attrs::shared_name_ = ""</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a4a786bc68c2732d8e0d72b2c382101f5">
+    <h3>Capacity</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> tensorflow::ops::FIFOQueue::Attrs::Capacity(
+  int64 x
+)</pre>
+    <div>
+      <p>The upper bound on the number of elements in this queue. </p>
+      <p>Negative numbers mean no limit.</p>
+      <p>Defaults to -1 </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1afcf423b907d26985fab5863459b4bd1b">
+    <h3>Container</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> tensorflow::ops::FIFOQueue::Attrs::Container(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue is placed in the given container. </p>
+      <p>Otherwise, a default container is used.</p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1a77e50ffbad8726bd7f8a7aeec309bf6e">
+    <h3>Shapes</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> tensorflow::ops::FIFOQueue::Attrs::Shapes(
+  const gtl::ArraySlice< PartialTensorShape > & x
+)</pre>
+    <div>
+      <p>The shape of each component in a value. </p>
+      <p>The length of this attr must be either 0 or the same as the length of component_types. If the length of this attr is 0, the shapes of queue elements are not constrained, and only one element may be dequeued at a time.</p>
+      <p>Defaults to [] </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs_1aa45a52efc11ffde51babdec6ffc57872">
+    <h3>SharedName</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/f-i-f-o-queue/attrs.html#structtensorflow_1_1ops_1_1_f_i_f_o_queue_1_1_attrs">Attrs</a> tensorflow::ops::FIFOQueue::Attrs::SharedName(
+  StringPiece x
+)</pre>
+    <div>
+      <p>If non-empty, this queue will be shared under the given name across multiple sessions. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+</body>
+</html>

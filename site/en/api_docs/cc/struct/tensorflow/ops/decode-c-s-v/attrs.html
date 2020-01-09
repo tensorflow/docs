@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeCSV::Attrs Struct Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeCSV::<wbr/>Attrs</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/decode-c-s-v.html#classtensorflow_1_1ops_1_1_decode_c_s_v">DecodeCSV</a>. </p>
+  <h2>Summary</h2>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a49cd1cec281eb0fac9c7252a186b8d7a">field_delim_</a> = ","</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a9e014d2b608b63a21e70eac80e7af794">na_value_</a> = ""</code>
+      </td>
+      <td>
+        <div>
+          <code>StringPiece</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a26b3966da17b683a55de1150ef9013ae">select_cols_</a> = {}</code>
+      </td>
+      <td>
+        <div>
+          <code>gtl::ArraySlice< int ></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1ad65426c0581e0d6e4b564113365da483">use_quote_delim_</a> = true</code>
+      </td>
+      <td>
+        <div>
+          <code>bool</code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a14f27f9627ddcf636907b8a7c4d7246f">FieldDelim</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>char delimiter to separate fields in a record. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1adbb0bb6b00e1eafd1e3ff12a74b965db">NaValue</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Additional string to recognize as NA/NaN. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1aedde6357cd08b0eb7ef30b85022d0098">SelectCols</a>(const gtl::ArraySlice< int > & x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>Defaults to []. </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1aecfb4b0c7731940997bf4b135dbe2b85">UseQuoteDelim</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code>TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a></code>
+        </div>
+        <div>If false, treats double quotation marks as regular characters inside of the string fields (ignoring RFC 4180, Section 2, Bullet 5). </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a49cd1cec281eb0fac9c7252a186b8d7a">
+    <h3>field_delim_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DecodeCSV::Attrs::field_delim_ = ","</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a9e014d2b608b63a21e70eac80e7af794">
+    <h3>na_value_</h3>
+    <pre class="prettyprint">StringPiece tensorflow::ops::DecodeCSV::Attrs::na_value_ = ""</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a26b3966da17b683a55de1150ef9013ae">
+    <h3>select_cols_</h3>
+    <pre class="prettyprint">gtl::ArraySlice< int > tensorflow::ops::DecodeCSV::Attrs::select_cols_ = {}</pre>
+    <div />
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1ad65426c0581e0d6e4b564113365da483">
+    <h3>use_quote_delim_</h3>
+    <pre class="prettyprint">bool tensorflow::ops::DecodeCSV::Attrs::use_quote_delim_ = true</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1a14f27f9627ddcf636907b8a7c4d7246f">
+    <h3>FieldDelim</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::FieldDelim(
+  StringPiece x
+)</pre>
+    <div>
+      <p>char delimiter to separate fields in a record. </p>
+      <p>Defaults to "," </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1adbb0bb6b00e1eafd1e3ff12a74b965db">
+    <h3>NaValue</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::NaValue(
+  StringPiece x
+)</pre>
+    <div>
+      <p>Additional string to recognize as NA/NaN. </p>
+      <p>Defaults to "" </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1aedde6357cd08b0eb7ef30b85022d0098">
+    <h3>SelectCols</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::SelectCols(
+  const gtl::ArraySlice< int > & x
+)</pre>
+    <div>
+      <p>Defaults to []. </p>
+    </div>
+  </div>
+  <div id="structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs_1aecfb4b0c7731940997bf4b135dbe2b85">
+    <h3>UseQuoteDelim</h3>
+    <pre class="prettyprint">TF_MUST_USE_RESULT <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/decode-c-s-v/attrs.html#structtensorflow_1_1ops_1_1_decode_c_s_v_1_1_attrs">Attrs</a> tensorflow::ops::DecodeCSV::Attrs::UseQuoteDelim(
+  bool x
+)</pre>
+    <div>
+      <p>If false, treats double quotation marks as regular characters inside of the string fields (ignoring RFC 4180, Section 2, Bullet 5). </p>
+      <p>Defaults to true </p>
+    </div>
+  </div>
+</body>
+</html>

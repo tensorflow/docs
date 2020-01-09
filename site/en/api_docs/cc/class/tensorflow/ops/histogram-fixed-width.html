@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::HistogramFixedWidth Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>HistogramFixedWidth</h1>
+  <code>#include &lt;math_ops.h&gt;</code>
+  <p>Return histogram of values. </p>
+  <h2>Summary</h2>
+  <p>Given the tensor <code>values</code>, this operation returns a rank 1 histogram counting the number of entries in <code>values</code> that fall into every bin. The bins are equal width and determined by the arguments <code>value_range</code> and <code>nbins</code>.</p>
+  <p>
+    <pre class="prettyprint">
+&#35; Bins will be:  (-inf, 1), [1, 2), [2, 3), [3, 4), [4, inf)
+nbins = 5
+value_range = [0.0, 5.0]
+new_values = [-1.0, 0.0, 1.5, 2.0, 5.0, 15]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">with tf.get_default_session() as sess:
+  hist = tf.histogram_fixed_width(new_values, value_range, nbins=5)
+  variables.global_variables_initializer().run()
+  sess.run(hist) => [2, 1, 1, 0, 2]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>values: Numeric <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>.</li>
+      <li>value_range: Shape [2] <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of same <code>dtype</code> as <code>values</code>. values <= value_range[0] will be mapped to hist[0], values >= value_range[1] will be mapped to hist[-1].</li>
+      <li>nbins: Scalar <code>int32 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code>. Number of histogram bins.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A 1-D <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> holding histogram of values. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a333002784eada5d11649a32ff58a5bce">HistogramFixedWidth</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value_range, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> nbins)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a1284e095c6b69e072988d8beecea179f">HistogramFixedWidth</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value_range, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> nbins, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/histogram-fixed-width/attrs.html#structtensorflow_1_1ops_1_1_histogram_fixed_width_1_1_attrs">HistogramFixedWidth::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a34fee699d7f4fdb4577eb33f6f46c23c">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a587b8e7c9541b52daed045e791a0520d">out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1afa5f92867dd3834b3808d6d25177c002">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a699360f21e94439323f32adaa8b09e30">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a4136d809be17e0bbd261e44d9dd9b377">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_histogram_fixed_width_1a9856da0e7bf5f4751e54495801a9f8e2">Dtype</a>(DataType x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/histogram-fixed-width/attrs.html#structtensorflow_1_1ops_1_1_histogram_fixed_width_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/histogram-fixed-width/attrs">tensorflow::<wbr/>ops::<wbr/>HistogramFixedWidth::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/histogram-fixed-width.html#classtensorflow_1_1ops_1_1_histogram_fixed_width">HistogramFixedWidth</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a34fee699d7f4fdb4577eb33f6f46c23c">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a587b8e7c9541b52daed045e791a0520d">
+    <h3>out</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> out</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a333002784eada5d11649a32ff58a5bce">
+    <h3>HistogramFixedWidth</h3>
+    <pre class="prettyprint"> HistogramFixedWidth(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value_range,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> nbins
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a1284e095c6b69e072988d8beecea179f">
+    <h3>HistogramFixedWidth</h3>
+    <pre class="prettyprint"> HistogramFixedWidth(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> values,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value_range,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> nbins,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/histogram-fixed-width/attrs.html#structtensorflow_1_1ops_1_1_histogram_fixed_width_1_1_attrs">HistogramFixedWidth::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1afa5f92867dd3834b3808d6d25177c002">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a699360f21e94439323f32adaa8b09e30">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a4136d809be17e0bbd261e44d9dd9b377">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_histogram_fixed_width_1a9856da0e7bf5f4751e54495801a9f8e2">
+    <h3>Dtype</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/histogram-fixed-width/attrs.html#structtensorflow_1_1ops_1_1_histogram_fixed_width_1_1_attrs">Attrs</a> Dtype(
+  DataType x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

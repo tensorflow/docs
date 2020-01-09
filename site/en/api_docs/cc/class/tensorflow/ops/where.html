@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::Where Class Reference</title>
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>Where</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Reshapes a quantized tensor as per the Reshape op. </p>
+  <h2>Summary</h2>
+  <p>
+    <pre class="prettyprint" />
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * shape: Defines the shape of the output tensor.
+    * input_min: The minimum value of the input.
+    * input_max: The maximum value of the input.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output` output
+    * `Output` output_min: This value is copied from input_min.
+    * `Output` output_max: This value is copied from input_max. */
+class QuantizedReshape {
+ public:
+  QuantizedReshape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max);</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns the rank of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns an integer representing the rank of `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'t' is [[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]]</h1>
+  </p>
+  <p>
+    <h1>shape of tensor 't' is [2, 2, 3]</h1>
+  </p>
+  <p>rank(t) ==> 3 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    **Note**: The rank of a tensor is not the same as the rank of a matrix. The rank
+    of a tensor is the number of indices required to uniquely select each element
+    of the tensor. Rank is also known as "order", "degree", or "ndims."</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Rank {
+ public:
+  Rank(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Reshapes a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Given `tensor`, this operation returns a tensor that has the same values
+    as `tensor` with shape `shape`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If one component of `shape` is the special value -1, the size of that dimension
+    is computed so that the total size remains constant.  In particular, a `shape`
+    of `[-1]` flattens into 1-D.  At most one component of `shape` can be -1.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If `shape` is 1-D or higher, then the operation returns a tensor with shape
+    `shape` filled with the values of `tensor`. In this case, the number of elements
+    implied by `shape` must be the same as the number of elements in `tensor`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]</h1>
+  </p>
+  <p>
+    <h1>tensor 't' has shape [9]</h1>
+  </p>
+  <p>reshape(t, [3, 3]) ==> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
+  <p>
+    <h1>tensor 't' is [[[1, 1], [2, 2]],</h1>
+  </p>
+  <p>
+    <h1>[[3, 3], [4, 4]]]</h1>
+  </p>
+  <p>
+    <h1>tensor 't' has shape [2, 2, 2]</h1>
+  </p>
+  <p>reshape(t, [2, 4]) ==> [[1, 1, 2, 2], [3, 3, 4, 4]]</p>
+  <p>
+    <h1>tensor 't' is [[[1, 1, 1],</h1>
+  </p>
+  <p>
+    <h1>[2, 2, 2]],</h1>
+  </p>
+  <p>
+    <h1>[[3, 3, 3],</h1>
+  </p>
+  <p>
+    <h1>[4, 4, 4]],</h1>
+  </p>
+  <p>
+    <h1>[[5, 5, 5],</h1>
+  </p>
+  <p>
+    <h1>[6, 6, 6]]]</h1>
+  </p>
+  <p>
+    <h1>tensor 't' has shape [3, 2, 3]</h1>
+  </p>
+  <p>
+    <h1>pass '[-1]' to flatten 't'</h1>
+  </p>
+  <p>reshape(t, [-1]) ==> [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]</p>
+  <p>
+    <h1>-1 can also be used to infer the shape</h1>
+  </p>
+  <p>
+    <h1>-1 is inferred to be 9:</h1>
+  </p>
+  <p>reshape(t, [2, -1]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3], [4, 4, 4, 5, 5, 5, 6, 6, 6]] <h1>-1 is inferred to be 2:</h1></p>
+  <p>reshape(t, [-1, 9]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3], [4, 4, 4, 5, 5, 5, 6, 6, 6]] <h1>-1 is inferred to be 3:</h1></p>
+  <p>reshape(t, [ 2, -1, 3]) ==> [[[1, 1, 1], [2, 2, 2], [3, 3, 3]], [[4, 4, 4], [5, 5, 5], [6, 6, 6]]]</p>
+  <p>
+    <h1>tensor 't' is [7]</h1>
+  </p>
+  <p>
+    <h1>shape <code>[]</code> reshapes to a scalar</h1>
+  </p>
+  <p>reshape(t, []) ==> 7 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * shape: Defines the shape of the output tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Reshape {
+ public:
+  Reshape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+        <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `ref`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The values of `value` are assigned to the positions in the variable
+    `ref` that are selected by the slice parameters. The slice parameters
+    `begin, `end`, `strides`, etc. work exactly as in `StridedSlice`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    NOTE this op currently does not support broadcasting and so `value`'s
+    shape must be exactly the shape produced by the slice of `ref`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * the created `Operation` */
+class ResourceStridedSliceAssign {
+ public:
+  /// Optional attribute setters for ResourceStridedSliceAssign
+  struct Attrs {
+    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs BeginMask(int64 x) {
+      Attrs ret = *this;
+      ret.begin_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EndMask(int64 x) {
+      Attrs ret = *this;
+      ret.end_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EllipsisMask(int64 x) {
+      Attrs ret = *this;
+      ret.ellipsis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs NewAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.new_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs ShrinkAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.shrink_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 begin_mask_ = 0;
+    int64 end_mask_ = 0;
+    int64 ellipsis_mask_ = 0;
+    int64 new_axis_mask_ = 0;
+    int64 shrink_axis_mask_ = 0;
+  };
+  ResourceStridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                           strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
+  ResourceStridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                           strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const
+                           ResourceStridedSliceAssign::Attrs& attrs);
+  operator ::tensorflow::Operation() const { return operation; }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BeginMask(int64 x) {
+    return Attrs().BeginMask(x);
+  }
+  static Attrs EndMask(int64 x) {
+    return Attrs().EndMask(x);
+  }
+  static Attrs EllipsisMask(int64 x) {
+    return Attrs().EllipsisMask(x);
+  }
+  static Attrs NewAxisMask(int64 x) {
+    return Attrs().NewAxisMask(x);
+  }
+  static Attrs ShrinkAxisMask(int64 x) {
+    return Attrs().ShrinkAxisMask(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Reverses variable length slices.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This op first slices `input` along the dimension `batch_dim`, and for each
+    slice `i`, reverses the first `seq_lengths[i]` elements along
+    the dimension `seq_dim`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The elements of `seq_lengths` must obey `seq_lengths[i] <= input.dims[seq_dim]`,
+    and `seq_lengths` must be a vector of length `input.dims[batch_dim]`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The output slice `i` along dimension `batch_dim` is then given by input
+    slice `i`, with the first `seq_lengths[i]` slices along dimension
+    `seq_dim` reversed.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>Given this:</h1>
+  </p>
+  <p>batch_dim = 0 seq_dim = 1 input.dims = (4, 8, ...) seq_lengths = [7, 2, 3, 5]</p>
+  <p>
+    <h1>then slices of input are reversed on seq_dim, but only up to seq_lengths:</h1>
+  </p>
+  <p>output[0, 0:7, :, ...] = input[0, 7:0:-1, :, ...] output[1, 0:2, :, ...] = input[1, 2:0:-1, :, ...] output[2, 0:3, :, ...] = input[2, 3:0:-1, :, ...] output[3, 0:5, :, ...] = input[3, 5:0:-1, :, ...]</p>
+  <p>
+    <h1>while entries past seq_lens are copied through:</h1>
+  </p>
+  <p>output[0, 7:, :, ...] = input[0, 7:, :, ...] output[1, 2:, :, ...] = input[1, 2:, :, ...] output[2, 3:, :, ...] = input[2, 3:, :, ...] output[3, 2:, :, ...] = input[3, 2:, :, ...] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    In contrast, if:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>Given this:</h1>
+  </p>
+  <p>batch_dim = 2 seq_dim = 0 input.dims = (8, ?, 4, ...) seq_lengths = [7, 2, 3, 5]</p>
+  <p>
+    <h1>then slices of input are reversed on seq_dim, but only up to seq_lengths:</h1>
+  </p>
+  <p>output[0:7, :, 0, :, ...] = input[7:0:-1, :, 0, :, ...] output[0:2, :, 1, :, ...] = input[2:0:-1, :, 1, :, ...] output[0:3, :, 2, :, ...] = input[3:0:-1, :, 2, :, ...] output[0:5, :, 3, :, ...] = input[5:0:-1, :, 3, :, ...]</p>
+  <p>
+    <h1>while entries past seq_lens are copied through:</h1>
+  </p>
+  <p>output[7:, :, 0, :, ...] = input[7:, :, 0, :, ...] output[2:, :, 1, :, ...] = input[2:, :, 1, :, ...] output[3:, :, 2, :, ...] = input[3:, :, 2, :, ...] output[2:, :, 3, :, ...] = input[2:, :, 3, :, ...] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: The input to reverse.
+    * seq_lengths: 1-D with length `input.dims(batch_dim)` and
+    `max(seq_lengths) <= input.dims(seq_dim)`
+    * seq_dim: The dimension which is partially reversed.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Optional attributes (see `Attrs`):
+    * batch_dim: The dimension along which reversal is performed.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The partially reversed input. It has the same shape as `input`. */
+class ReverseSequence {
+ public:
+  /// Optional attribute setters for ReverseSequence
+  struct Attrs {
+    /** The dimension along which reversal is performed.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs BatchDim(int64 x) {
+      Attrs ret = *this;
+      ret.batch_dim_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 batch_dim_ = 0;
+  };
+  ReverseSequence(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+                <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim);
+  ReverseSequence(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+                <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim, const
+                ReverseSequence::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BatchDim(int64 x) {
+    return Attrs().BatchDim(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Reverses specific dimensions of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    NOTE `tf.reverse` has now changed behavior in preparation for 1.0.
+    `tf.reverse_v2` is currently an alias that will be deprecated before TF 1.0.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Given a `tensor`, and a `int32` tensor `axis` representing the set of
+    dimensions of `tensor` to reverse. This operation reverses each dimension
+    `i` for which there exists `j` s.t. `axis[j] == i`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `tensor` can have up to 8 dimensions. The number of dimensions specified
+    in `axis` may be 0 or more entries. If an index is specified more than
+    once, a InvalidArgument error is raised.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 't' is [[[[ 0, 1, 2, 3],</h1>
+  </p>
+  <p>
+    <h1>[ 4, 5, 6, 7],</h1>
+  </p>
+  <p>
+    <h1>[ 8, 9, 10, 11]],</h1>
+  </p>
+  <p>
+    <h1>[[12, 13, 14, 15],</h1>
+  </p>
+  <p>
+    <h1>[16, 17, 18, 19],</h1>
+  </p>
+  <p>
+    <h1>[20, 21, 22, 23]]]]</h1>
+  </p>
+  <p>
+    <h1>tensor 't' shape is [1, 2, 3, 4]</h1>
+  </p>
+  <p>
+    <h1>'dims' is [3] or 'dims' is [-1]</h1>
+  </p>
+  <p>reverse(t, dims) ==> [[[[ 3, 2, 1, 0], [ 7, 6, 5, 4], [ 11, 10, 9, 8]], [[15, 14, 13, 12], [19, 18, 17, 16], [23, 22, 21, 20]]]]</p>
+  <p>
+    <h1>'dims' is '[1]' (or 'dims' is '[-3]')</h1>
+  </p>
+  <p>reverse(t, dims) ==> [[[[12, 13, 14, 15], [16, 17, 18, 19], [20, 21, 22, 23] [[ 0, 1, 2, 3], [ 4, 5, 6, 7], [ 8, 9, 10, 11]]]]</p>
+  <p>
+    <h1>'dims' is '[2]' (or 'dims' is '[-2]')</h1>
+  </p>
+  <p>reverse(t, dims) ==> [[[[8, 9, 10, 11], [4, 5, 6, 7], [0, 1, 2, 3]] [[20, 21, 22, 23], [16, 17, 18, 19], [12, 13, 14, 15]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: Up to 8-D.
+    * axis: 1-D. The indices of the dimensions to reverse. Must be in the range
+    `[-rank(tensor), rank(tensor))`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The same shape as `tensor`. */
+class Reverse {
+ public:
+  Reverse(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+        <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Scatter `updates` into a new tensor according to `indices`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Creates a new tensor by applying sparse `updates` to individual values or
+    slices within a tensor (initially zero for numeric, empty for string) of
+    the given `shape` according to indices.  This operator is the inverse of the
+    `tf.gather_nd` operator which extracts values or slices from a given tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation is similar to tensor_scatter_add, except that the tensor is
+    zero-initialized. Calling `tf.scatter_nd(indices, values, shape)` is identical
+    to `tensor_scatter_add(tf.zeros(shape, values.dtype), indices, values)`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If `indices` contains duplicates, then their updates are accumulated (summed).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    **WARNING**: The order in which updates are applied is nondeterministic, so the
+    output will be nondeterministic if `indices` contains duplicates -- because
+    of some numerical approximation issues, numbers summed in different order
+    may yield different results.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `indices` is an integer tensor containing indices into a new tensor of shape
+    `shape`.  The last dimension of `indices` can be at most the rank of `shape`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[-1] <= shape.rank</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The last dimension of `indices` corresponds to indices into elements
+    (if `indices.shape[-1] = shape.rank`) or slices
+    (if `indices.shape[-1] < shape.rank`) along dimension `indices.shape[-1]` of
+    `shape`.  `updates` is a tensor with shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[:-1] + shape[indices.shape[-1]:]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The simplest form of scatter is to insert individual elements in a tensor by
+    index. For example, say we want to insert 4 scattered elements in a rank-1
+    tensor with 8 elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[4], [3], [1], [7]]) updates = tf.constant([9, 10, 11, 12]) shape = tf.constant([8]) scatter = tf.scatter_nd(indices, updates, shape) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [0, 11, 0, 10, 9, 0, 0, 12]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    We can also, insert entire slices of a higher rank tensor all at once. For
+    example, if we wanted to insert two slices in the first dimension of a
+    rank-3 tensor with two matrices of new values.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd2.png" /></figure></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[0], [2]]) updates = tf.constant([[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]], [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]]]) shape = tf.constant([4, 4, 4]) scatter = tf.scatter_nd(indices, updates, shape) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]],
+         [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+         [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]],
+         [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note that on CPU, if an out of bound index is found, an error is returned.
+    On GPU, if an out of bound index is found, the index is ignored.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * indices: Index tensor.
+    * updates: Updates to scatter into output.
+    * shape: 1-D. The shape of the resulting tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: A new tensor with the given shape and updates applied according
+    to the indices. */
+class ScatterNd {
+ public:
+  ScatterNd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+          <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Applies sparse addition to `input` using individual values or slices</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    from `updates` according to indices `indices`.  The updates are non-aliasing:
+    `input` is only modified in-place if no other operations will use it.
+    Otherwise, a copy of `input` is made.  This operation has a gradient with
+    respect to both `input` and `updates`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `input` is a `Tensor` with rank `P` and `indices` is a `Tensor` of rank `Q`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `indices` must be integer tensor, containing indices into `input`.
+    It must be shape \([d_0, ..., d_{Q-2}, K]\) where `0 < K <= P`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The innermost dimension of `indices` (with length `K`) corresponds to
+    indices into elements (if `K = P`) or `(P-K)`-dimensional slices
+    (if `K < P`) along the `K`th dimension of `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `updates` is `Tensor` of rank `Q-1+P-K` with shape:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    $$[d_0, ..., d_{Q-2}, input.shape[K], ..., input.shape[P-1]].$$</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example, say we want to add 4 scattered elements to a rank-1 tensor to 8
+    elements. In Python, that addition would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        input = tf.constant([1, 2, 3, 4, 5, 6, 7, 8])
+        indices = tf.constant([[4], [3], [1], [7]])
+        updates = tf.constant([9, 10, 11, 12])
+        output = tf.scatter_nd_non_aliasing_add(input, indices, updates)
+        with tf.Session() as sess:
+          print(sess.run(output))</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The resulting value `output` would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [1, 13, 3, 14, 14, 6, 7, 20]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    See `tf.scatter_nd` for more details about how to make updates to slices.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    * indices: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: `int32`, `int64`.
+    A tensor of indices into `input`.
+    * updates: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values
+    to add to `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: A `Tensor` with the same shape as `input`, containing values of `input`
+    updated with `updates`. */
+class ScatterNdNonAliasingAdd {
+ public:
+  ScatterNdNonAliasingAdd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        updates);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns the shape of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns a 1-D integer tensor representing the shape of `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'t' is [[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]]</h1>
+  </p>
+  <p>shape(t) ==> [2, 2, 3] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Shape {
+ public:
+  /// Optional attribute setters for Shape
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutType(DataType x) {
+      Attrs ret = *this;
+      ret.out_type_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_type_ = DT_INT32;
+  };
+  Shape(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  Shape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+      Shape::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutType(DataType x) {
+    return Attrs().OutType(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns shape of tensors.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns N 1-D integer tensors representing shape of `input[i]s`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `OutputList`: The output tensor. */
+class ShapeN {
+ public:
+  /// Optional attribute setters for ShapeN
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutType(DataType x) {
+      Attrs ret = *this;
+      ret.out_type_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_type_ = DT_INT32;
+  };
+  ShapeN(const ::tensorflow::Scope& scope, ::tensorflow::InputList input);
+  ShapeN(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input, const
+       ShapeN::Attrs& attrs);
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutType(DataType x) {
+    return Attrs().OutType(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  ::tensorflow::OutputList output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns the size of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns an integer representing the number of elements in
+    `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'t' is [[[1, 1,, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]]]</h1>
+  </p>
+  <p>size(t) ==> 12 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Size {
+ public:
+  /// Optional attribute setters for Size
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutType(DataType x) {
+      Attrs ret = *this;
+      ret.out_type_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_type_ = DT_INT32;
+  };
+  Size(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  Size(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+     Size::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutType(DataType x) {
+    return Attrs().OutType(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Return a slice from 'input'.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The output tensor is a tensor with dimensions described by 'size'
+    whose values are extracted from 'input' starting at the offsets in
+    'begin'.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    *Requirements*:
+      0 <= begin[i] <= begin[i] + size[i] <= Di  for i in [0, n)</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * begin: begin[i] specifies the offset into the 'i'th dimension of
+    'input' to slice from.
+    * size: size[i] specifies the number of elements of the 'i'th dimension
+    of 'input' to slice. If size[i] is -1, all remaining elements in dimension
+    i are included in the slice (i.e. this is equivalent to setting
+    size[i] = input.dim_size(i) - begin[i]).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Slice {
+ public:
+  Slice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+      <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns a copy of the input tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Snapshot {
+ public:
+  Snapshot(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** SpaceToBatch for 4-D tensors of type T.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This is a legacy version of the more general SpaceToBatchND.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Zero-pads and then rearranges (permutes) blocks of spatial data into batch.
+    More specifically, this op outputs a copy of the input tensor where values from
+    the `height` and `width` dimensions are moved to the `batch` dimension. After
+    the zero-padding, both `height` and `width` of the input must be divisible by the
+    block size.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: 4-D with shape `[batch, height, width, depth]`.
+    * paddings: 2-D tensor of non-negative integers with shape `[2, 2]`. It specifies
+      the padding of the input with zeros across the spatial dimensions as follows:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">          paddings = [[pad_top, pad_bottom], [pad_left, pad_right]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">      The effective spatial dimensions of the zero-padded input tensor will be:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">          height_pad = pad_top + height + pad_bottom
+          width_pad = pad_left + width + pad_right</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The attr `block_size` must be greater than one. It indicates the block size.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">      * Non-overlapping blocks of size `block_size x block size` in the height and
+        width dimensions are rearranged into the batch dimension at each location.
+      * The batch of the output tensor is `batch * block_size * block_size`.
+      * Both height_pad and width_pad must be divisible by block_size.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The shape of the output will be:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [batch*block_size*block_size, height_pad/block_size, width_pad/block_size,
+         depth]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Some examples:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    (1) For the following input of shape `[1, 2, 2, 1]` and block_size of 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2]], [[3], [4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 1, 1, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1]]], [[[2]]], [[[3]]], [[[4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (2) For the following input of shape `[1, 2, 2, 3]` and block_size of 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 1, 1, 3]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1, 2, 3]]], [[[4, 5, 6]]], [[[7, 8, 9]]], [[[10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (3) For the following input of shape `[1, 4, 4, 1]` and block_size of 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2], [3], [4]], [[5], [6], [7], [8]], [[9], [10], [11], [12]], [[13], [14], [15], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 2, 2, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [3]], [[9], [11]]], [[[2], [4]], [[10], [12]]], [[[5], [7]], [[13], [15]]], [[[6], [8]], [[14], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (4) For the following input of shape `[2, 2, 4, 1]` and block_size of 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2], [3], [4]], [[5], [6], [7], [8]]], [[[9], [10], [11], [12]], [[13], [14], [15], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[8, 1, 2, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [3]]], [[[9], [11]]], [[[2], [4]]], [[[10], [12]]], [[[5], [7]]], [[[13], [15]]], [[[6], [8]]], [[[14], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Among others, this operation is useful for reducing atrous convolution into
+    regular convolution.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class SpaceToBatch {
+ public:
+  SpaceToBatch(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, int64 block_size);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** SpaceToBatch for N-D tensors of type T.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation divides "spatial" dimensions `[1, ..., M]` of the input into a
+    grid of blocks of shape `block_shape`, and interleaves these blocks with the
+    "batch" dimension (0) such that in the output, the spatial dimensions
+    `[1, ..., M]` correspond to the position within the grid, and the batch
+    dimension combines both the position within a spatial block and the original
+    batch position.  Prior to division into blocks, the spatial dimensions of the
+    input are optionally zero padded according to `paddings`.  See below for a
+    precise description.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: N-D with shape `input_shape = [batch] + spatial_shape + remaining_shape`,
+    where spatial_shape has `M` dimensions.
+    * block_shape: 1-D with shape `[M]`, all values must be >= 1.
+    * paddings: 2-D with shape `[M, 2]`, all values must be >= 0.
+      `paddings[i] = [pad_start, pad_end]` specifies the padding for input dimension
+      `i + 1`, which corresponds to spatial dimension `i`.  It is required that
+      `block_shape[i]` divides `input_shape[i + 1] + pad_start + pad_end`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation is equivalent to the following steps:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    1. Zero-pad the start and end of dimensions `[1, ..., M]` of the
+       input according to `paddings` to produce `padded` of shape `padded_shape`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    2. Reshape `padded` to `reshaped_padded` of shape:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">         [batch] +
+         [padded_shape[1] / block_shape[0],
+           block_shape[0],
+          ...,
+          padded_shape[M] / block_shape[M-1],
+          block_shape[M-1]] +
+         remaining_shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    3. Permute dimensions of `reshaped_padded` to produce
+       `permuted_reshaped_padded` of shape:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">         block_shape +
+         [batch] +
+         [padded_shape[1] / block_shape[0],
+          ...,
+          padded_shape[M] / block_shape[M-1]] +
+         remaining_shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    4. Reshape `permuted_reshaped_padded` to flatten `block_shape` into the batch
+       dimension, producing an output tensor of shape:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">         [batch * prod(block_shape)] +
+         [padded_shape[1] / block_shape[0],
+          ...,
+          padded_shape[M] / block_shape[M-1]] +
+         remaining_shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Some examples:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    (1) For the following input of shape `[1, 2, 2, 1]`, `block_shape = [2, 2]`, and
+        `paddings = [[0, 0], [0, 0]]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2]], [[3], [4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 1, 1, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1]]], [[[2]]], [[[3]]], [[[4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (2) For the following input of shape `[1, 2, 2, 3]`, `block_shape = [2, 2]`, and
+        `paddings = [[0, 0], [0, 0]]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 1, 1, 3]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1, 2, 3]]], [[[4, 5, 6]]], [[[7, 8, 9]]], [[[10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (3) For the following input of shape `[1, 4, 4, 1]`, `block_shape = [2, 2]`, and
+        `paddings = [[0, 0], [0, 0]]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2], [3], [4]], [[5], [6], [7], [8]], [[9], [10], [11], [12]], [[13], [14], [15], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[4, 2, 2, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [3]], [[9], [11]]], [[[2], [4]], [[10], [12]]], [[[5], [7]], [[13], [15]]], [[[6], [8]], [[14], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    (4) For the following input of shape `[2, 2, 4, 1]`, block_shape = `[2, 2]`, and
+        paddings = `[[0, 0], [2, 0]]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2], [3], [4]], [[5], [6], [7], [8]]], [[[9], [10], [11], [12]], [[13], [14], [15], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The output tensor has shape `[8, 1, 3, 1]` and value:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[0], [1], [3]]], [[[0], [9], [11]]], [[[0], [2], [4]]], [[[0], [10], [12]]], [[[0], [5], [7]]], [[[0], [13], [15]]], [[[0], [6], [8]]], [[[0], [14], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Among others, this operation is useful for reducing atrous convolution into
+    regular convolution.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class SpaceToBatchND {
+ public:
+  SpaceToBatchND(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+               <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> block_shape, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** SpaceToDepth for tensors of type T.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Rearranges blocks of spatial data, into depth. More specifically,
+    this op outputs a copy of the input tensor where values from the `height`
+    and `width` dimensions are moved to the `depth` dimension.
+    The attr `block_size` indicates the input block size.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">      * Non-overlapping blocks of size `block_size x block size` are rearranged
+        into depth at each location.
+      * The depth of the output tensor is `block_size * block_size * input_depth`.
+      * The Y, X coordinates within each block of the input become the high order
+        component of the output channel index.
+      * The input tensor's height and width must be divisible by block_size.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The `data_format` attr specifies the layout of the input and output tensors
+    with the following options:
+      "NHWC": `[ batch, height, width, channels ]`
+      "NCHW": `[ batch, channels, height, width ]`
+      "NCHW_VECT_C":
+          `qint8 [ batch, channels / 4, height, width, 4 ]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    It is useful to consider the operation as transforming a 6-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    e.g. for data_format = NHWC,
+         Each element in the input tensor can be specified via 6 coordinates,
+         ordered by decreasing memory layout significance as:
+         n,oY,bY,oX,bX,iC  (where n=batch index, oX, oY means X or Y coordinates
+                            within the output image, bX, bY means coordinates
+                            within the input block, iC means input channels).
+         The output would be a transpose to the following layout:
+         n,oY,oX,bY,bX,iC</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation is useful for resizing the activations between convolutions
+    (but keeping all data), e.g. instead of pooling. It is also useful for training
+    purely convolutional models.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example, given an input of shape `[1, 2, 2, 1]`, data_format = "NHWC" and
+    block_size = 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2]], [[3], [4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    This operation will output a tensor of shape `[1, 1, 1, 4]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1, 2, 3, 4]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Here, the input has a batch of 1 and each batch element has shape `[2, 2, 1]`,
+    the corresponding output will have a single element (i.e. width and height are
+    both 1) and will have a depth of 4 channels (1 * block_size * block_size).
+    The output element shape is `[1, 1, 4]`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For an input tensor with larger depth, here of shape `[1, 2, 2, 3]`, e.g.</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    This operation, for block_size of 2, will return the following tensor of shape
+    `[1, 1, 1, 12]`</pre>
+  </p>
+  <p><pre class="prettyprint" /> [[[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Similarly, for the following input of shape `[1 4 4 1]`, and a block size of 2:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1], [2], [5], [6]], [[3], [4], [7], [8]], [[9], [10], [13], [14]], [[11], [12], [15], [16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    the operator will return the following tensor of shape `[1 2 2 4]`:</pre>
+  </p>
+  <p><pre class="prettyprint" /> x = [[[[1, 2, 3, 4], [5, 6, 7, 8]], [[9, 10, 11, 12], [13, 14, 15, 16]]]] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * block_size: The size of the spatial block.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class SpaceToDepth {
+ public:
+  /// Optional attribute setters for SpaceToDepth
+  struct Attrs {
+    /// Defaults to "NHWC"
+    TF_MUST_USE_RESULT Attrs DataFormat(StringPiece x) {
+      Attrs ret = *this;
+      ret.data_format_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    StringPiece data_format_ = "NHWC";
+  };
+  SpaceToDepth(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
+             block_size);
+  SpaceToDepth(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
+             block_size, const SpaceToDepth::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs DataFormat(StringPiece x) {
+    return Attrs().DataFormat(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Splits a tensor into `num_split` tensors along one dimension.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * axis: 0-D.  The dimension along which to split.  Must be in the range
+    `[-rank(value), rank(value))`.
+    * value: The tensor to split.
+    * num_split: The number of ways to split.  Must evenly divide
+    `value.shape[split_dim]`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `OutputList`: They are identically shaped tensors, whose shape matches that of `value`
+    except along `axis`, where their sizes are
+    `values.shape[split_dim] / num_split`. */
+class Split {
+ public:
+  Split(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+      <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num_split);
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  ::tensorflow::OutputList output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Splits a tensor into `num_split` tensors along one dimension.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * value: The tensor to split.
+    * size_splits: list containing the sizes of each output tensor along the split
+    dimension. Must sum to the dimension of value along split_dim.
+    Can contain one -1 indicating that dimension is to be inferred.
+    * axis: 0-D.  The dimension along which to split.  Must be in the range
+    `[-rank(value), rank(value))`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `OutputList`: Tensors whose shape matches that of `value`
+    except along `axis`, where their sizes are
+    `size_splits[i]`. */
+class SplitV {
+ public:
+  SplitV(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+       <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size_splits, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, int64
+       num_split);
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  ::tensorflow::OutputList output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Removes dimensions of size 1 from the shape of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Given a tensor `input`, this operation returns a tensor of the same type with
+    all dimensions of size 1 removed. If you don't want to remove all size 1
+    dimensions, you can remove specific size 1 dimensions by specifying
+    `axis`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'t' is a tensor of shape [1, 2, 1, 3, 1, 1]</h1>
+  </p>
+  <p>shape(squeeze(t)) ==> [2, 3] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Or, to remove specific size 1 dimensions:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'t' is a tensor of shape [1, 2, 1, 3, 1, 1]</h1>
+  </p>
+  <p>shape(squeeze(t, [2, 4])) ==> [1, 2, 3, 1] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: The `input` to squeeze.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Optional attributes (see `Attrs`):
+    * axis: If specified, only squeezes the dimensions listed. The dimension
+    index starts at 0. It is an error to squeeze a dimension that is not 1. Must
+    be in the range `[-rank(input), rank(input))`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: Contains the same data as `input`, but has one or more dimensions of
+    size 1 removed. */
+class Squeeze {
+ public:
+  /// Optional attribute setters for Squeeze
+  struct Attrs {
+    /** If specified, only squeezes the dimensions listed. The dimension
+        index starts at 0. It is an error to squeeze a dimension that is not 1. Must
+        be in the range `[-rank(input), rank(input))`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to [] */
+    TF_MUST_USE_RESULT Attrs Axis(const gtl::ArraySlice<int>& x) {
+      Attrs ret = *this;
+      ret.axis_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    gtl::ArraySlice<int> axis_ = {};
+  };
+  Squeeze(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  Squeeze(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+        Squeeze::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs Axis(const gtl::ArraySlice<int>& x) {
+    return Attrs().Axis(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Stops gradient computation.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    When executed in a graph, this op outputs its input tensor as-is.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    When building ops to compute gradients, this op prevents the contribution of
+    its inputs to be taken into account.  Normally, the gradient generator adds ops
+    to a graph to compute the derivatives of a specified 'loss' by recursively
+    finding out inputs that contributed to its computation.  If you insert this op
+    in the graph it inputs are masked from the gradient generator.  They are not
+    taken into account for computing gradients.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This is useful any time you want to compute a value with TensorFlow but need
+    to pretend that the value was a constant. Some examples include:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    *  The *EM* algorithm where the *M-step* should not involve backpropagation
+       through the output of the *E-step*.
+    *  Contrastive divergence training of Boltzmann machines where, when
+       differentiating the energy function, the training must not backpropagate
+       through the graph that generated the samples from the model.
+    *  Adversarial training, where no backprop should happen through the adversarial
+       example generation process.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class StopGradient {
+ public:
+  StopGradient(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Return a strided slice from `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note, most python users will want to use the Python `Tensor.__getitem__`
+    or `Variable.__getitem__` rather than this op directly.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The goal of this op is to produce a new tensor with a subset of
+    the elements from the `n` dimensional `input` tensor. The subset is chosen using
+    a sequence of `m` sparse range specifications encoded into the arguments
+    of this function. Note, in some cases
+    `m` could be equal to `n`, but this need not be the case. Each
+    range specification entry can be one of the following:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><ul><li>An ellipsis (...). Ellipses are used to imply zero or more
+      dimensions of full-dimension selection and are produced using
+      `ellipsis_mask`. For example, `foo[...]` is the identity slice.</li></ul></pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><ul><li>A new axis. This is used to insert a new shape=1 dimension and is
+      produced using `new_axis_mask`. For example, `foo[:, ...]` where
+      `foo` is shape `(3, 4)` produces a `(1, 3, 4)` tensor.</li></ul></pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><ul><li>A range `begin:end:stride`. This is used to specify how much to choose from
+      a given dimension. `stride` can be any integer but 0.  `begin` is an integer
+      which represents the index of the first value to select while `end` represents
+      the index of the last value to select. The number of values selected in each
+      dimension is `end - begin` if `stride > 0` and `begin - end` if `stride < 0`.
+      `begin` and `end` can be negative where `-1` is the last element, `-2` is
+      the second to last. `begin_mask` controls whether to replace the explicitly
+      given `begin` with an implicit effective value of `0` if `stride > 0` and
+      `-1` if `stride < 0`. `end_mask` is analogous but produces the number
+      required to create the largest open interval. For example, given a shape
+      `(3,)` tensor `foo[:]`, the effective `begin` and `end` are `0` and `3`. Do
+      not assume this is equivalent to `foo[0:-1]` which has an effective `begin`
+      and `end` of `0` and `2`. Another example is `foo[-2::-1]` which reverses the
+      first dimension of a tensor while dropping the last two (in the original
+      order elements). For example `foo = [1,2,3,4]; foo[-2::-1]` is `[4,3]`.</li></ul></pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><ul><li>A single index. This is used to keep only elements that have a given
+      index. For example (`foo[2, :]` on a shape `(5,6)` tensor produces a
+      shape `(6,)` tensor. This is encoded in `begin` and `end` and
+      `shrink_axis_mask`.</li></ul></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Each conceptual range specification is encoded in the op's argument. This
+    encoding is best understand by considering a non-trivial example. In
+    particular,
+    `foo[1, 2:4, None, ..., :-3:-1, :]` will be encoded as</pre>
+  </p>
+  <p><pre class="prettyprint" /> begin = [1, 2, x, x, 0, x] # x denotes don't care (usually 0) end = [2, 4, x, x, -3, x] strides = [1, 1, x, x, -1, 1] begin_mask = 1<<4 | 1 << 5 = 48 end_mask = 1<<5 = 32 ellipsis_mask = 1<<3 = 8 new_axis_mask = 1<<2 4 shrink_axis_mask = 1<<0 <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    In this case if <code>foo.shape</code> is (5, 5, 5, 5, 5, 5) the final shape of
+    the slice becomes (2, 1, 5, 5, 2, 5).
+    Let us walk step by step through each argument specification.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    1.  The first argument in the example slice is turned into <code>begin = 1</code> and
+    <code>end = begin + 1 = 2</code>. To disambiguate from the original spec <code>2:4</code> we
+    also set the appropriate bit in <code>shrink_axis_mask</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    2. <code>2:4</code> is contributes 2, 4, 1 to begin, end, and stride. <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> masks have
+    zero bits contributed.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    3. None is a synonym for <code>tf.newaxis</code>. This means insert a dimension of size 1
+    dimension in the final shape. Dummy values are contributed to begin,
+    end and stride, while the new_axis_mask bit is set.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    4. <code>...</code> grab the full ranges from as many dimensions as needed to
+    fully specify a slice for every dimension of the input shape.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    5. <code>:-3:-1</code> shows the use of negative indices. A negative index <code>i</code> associated
+    with a dimension that has shape <code>s</code> is converted to a positive index
+    <code>s + i</code>. So <code>-1</code> becomes <code>s-1</code> (i.e. the last element). This conversion
+    is done internally so begin, end and strides receive x, -3, and -1.
+    The appropriate begin_mask bit is set to indicate the start range is the
+    full range (ignoring the x).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    6. <code>:</code> indicates that the entire contents of the corresponding dimension
+    is selected. This is equivalent to <code>::</code> or <code>0::1</code>. begin, end, and strides
+    receive 0, 0, and 1, respectively. The appropriate bits in <code>begin_mask</code> and
+    <code>end_mask</code> are also set.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><i>Requirements</i>:
+      <code>0 != strides[i] for i in [0, m)</code><code>ellipsis_mask must be a power of two (only one ellipsis)</code></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * begin: <code>begin[k]</code> specifies the offset into the <code>k</code>th range specification.
+    The exact dimension this corresponds to will be determined by context.
+    Out-of-bounds values will be silently clamped. If the <code>k</code>th bit of
+    <code>begin_mask</code> then <code>begin[k]</code> is ignored and the full range of the
+    appropriate dimension is used instead. Negative values causes indexing
+    to start from the highest element e.g. If <code>foo==[1,2,3]</code> then <code>foo[-1]==3</code>.
+    * end: <code>end[i]</code> is like <code>begin</code> with the exception that <code>end_mask</code> is
+    used to determine full ranges.
+    * strides: <code>strides[i]</code> specifies the increment in the <code>i</code>th specification
+    after extracting a given element. Negative indices will reverse
+    the original order. Out or range values are
+    clamped to <code>[0,dim[i]) if slice[i]>0</code> or <code>[-1,dim[i]-1] if slice[i] < 0</code></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Optional attributes (see <code>Attrs</code>):
+    * begin_mask: a bitmask where a bit i being 1 means to ignore the begin
+    value and instead use the largest interval possible. At runtime
+    begin[i] will be replaced with <code>[0, n-1)</code> if <code>stride[i] > 0</code> or
+    <code>[-1, n-1]</code> if <code>stride[i] < 0</code>
+    * end_mask: analogous to <code>begin_mask</code>
+    * ellipsis_mask: a bitmask where bit <code>i</code> being 1 means the <code>i</code>th
+    position is actually an ellipsis. One bit at most can be 1.
+    If <code>ellipsis_mask == 0</code>, then an implicit ellipsis mask of <code>1 << (m+1)</code>
+    is provided. This means that <code>foo[3:5] == foo[3:5, ...]</code>. An ellipsis
+    implicitly creates as many range specifications as necessary to fully
+    specify the sliced range for every dimension. For example for a 4-dimensional
+    tensor <code>foo</code> the slice <code>foo[2, ..., 5:8]</code> implies <code>foo[2, :, :, 5:8]</code>.
+    * new_axis_mask: a bitmask where bit <code>i</code> being 1 means the <code>i</code>th
+    specification creates a new shape 1 dimension. For example
+    <code>foo[:4, tf.newaxis, :2]</code> would produce a shape <code>(4, 1, 2)</code> tensor.
+    * shrink_axis_mask: a bitmask where bit <code>i</code> implies that the <code>i</code>th
+    specification should shrink the dimensionality. begin and end
+    must imply a slice of size 1 in the dimension. For example in
+    python one might do <code>foo[:, 3, :]</code> which would result in
+    <code>shrink_axis_mask</code> being 2.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
+class StridedSlice {
+ public:
+  /// Optional attribute setters for StridedSlice
+  struct Attrs {
+    /** a bitmask where a bit i being 1 means to ignore the begin
+        value and instead use the largest interval possible. At runtime
+        begin[i] will be replaced with <code>[0, n-1)</code> if <code>stride[i] > 0</code> or
+        <code>[-1, n-1]</code> if <code>stride[i] < 0</code></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs BeginMask(int64 x) {
+      Attrs ret = *this;
+      ret.begin_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /** analogous to <code>begin_mask</code></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs EndMask(int64 x) {
+      Attrs ret = *this;
+      ret.end_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /** a bitmask where bit <code>i</code> being 1 means the <code>i</code>th
+        position is actually an ellipsis. One bit at most can be 1.
+        If <code>ellipsis_mask == 0</code>, then an implicit ellipsis mask of <code>1 << (m+1)</code>
+        is provided. This means that <code>foo[3:5] == foo[3:5, ...]</code>. An ellipsis
+        implicitly creates as many range specifications as necessary to fully
+        specify the sliced range for every dimension. For example for a 4-dimensional
+        tensor <code>foo</code> the slice <code>foo[2, ..., 5:8]</code> implies <code>foo[2, :, :, 5:8]</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs EllipsisMask(int64 x) {
+      Attrs ret = *this;
+      ret.ellipsis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /** a bitmask where bit <code>i</code> being 1 means the <code>i</code>th
+        specification creates a new shape 1 dimension. For example
+        <code>foo[:4, tf.newaxis, :2]</code> would produce a shape <code>(4, 1, 2)</code> tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs NewAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.new_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /** a bitmask where bit <code>i</code> implies that the <code>i</code>th
+        specification should shrink the dimensionality. begin and end
+        must imply a slice of size 1 in the dimension. For example in
+        python one might do <code>foo[:, 3, :]</code> which would result in
+        <code>shrink_axis_mask</code> being 2.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs ShrinkAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.shrink_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 begin_mask_ = 0;
+    int64 end_mask_ = 0;
+    int64 ellipsis_mask_ = 0;
+    int64 new_axis_mask_ = 0;
+    int64 shrink_axis_mask_ = 0;
+  };
+  StridedSlice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides);
+  StridedSlice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, const StridedSlice::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BeginMask(int64 x) {
+    return Attrs().BeginMask(x);
+  }
+  static Attrs EndMask(int64 x) {
+    return Attrs().EndMask(x);
+  }
+  static Attrs EllipsisMask(int64 x) {
+    return Attrs().EllipsisMask(x);
+  }
+  static Attrs NewAxisMask(int64 x) {
+    return Attrs().NewAxisMask(x);
+  }
+  static Attrs ShrinkAxisMask(int64 x) {
+    return Attrs().ShrinkAxisMask(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The values of <code>value</code> are assigned to the positions in the variable
+    <code>ref</code> that are selected by the slice parameters. The slice parameters
+    <code>begin</code>, <code>end</code>, <code>strides</code>, etc. work exactly as in <code>StridedSlice</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    NOTE this op currently does not support broadcasting and so <code>value</code>'s
+    shape must be exactly the shape produced by the slice of <code>ref</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output_ref tensor. */
+class StridedSliceAssign {
+ public:
+  /// Optional attribute setters for StridedSliceAssign
+  struct Attrs {
+    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs BeginMask(int64 x) {
+      Attrs ret = *this;
+      ret.begin_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EndMask(int64 x) {
+      Attrs ret = *this;
+      ret.end_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EllipsisMask(int64 x) {
+      Attrs ret = *this;
+      ret.ellipsis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs NewAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.new_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs ShrinkAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.shrink_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 begin_mask_ = 0;
+    int64 end_mask_ = 0;
+    int64 ellipsis_mask_ = 0;
+    int64 new_axis_mask_ = 0;
+    int64 shrink_axis_mask_ = 0;
+  };
+  StridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
+  StridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+                   const StridedSliceAssign::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output_ref; }
+  operator ::tensorflow::Input() const { return output_ref; }
+  ::tensorflow::Node* node() const { return output_ref.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BeginMask(int64 x) {
+    return Attrs().BeginMask(x);
+  }
+  static Attrs EndMask(int64 x) {
+    return Attrs().EndMask(x);
+  }
+  static Attrs EllipsisMask(int64 x) {
+    return Attrs().EllipsisMask(x);
+  }
+  static Attrs NewAxisMask(int64 x) {
+    return Attrs().NewAxisMask(x);
+  }
+  static Attrs ShrinkAxisMask(int64 x) {
+    return Attrs().ShrinkAxisMask(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns the gradient of <code>StridedSlice</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Since <code>StridedSlice</code> cuts out pieces of its <code>input</code> which is size
+    <code>shape</code>, its gradient will have the same shape (which is passed here
+    as <code>shape</code>). The gradient will be zero in any element that the slice
+    does not select.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments are the same as StridedSliceGrad with the exception that
+    <code>dy</code> is the input gradient to be propagated and <code>shape</code> is the
+    shape of <code>StridedSlice</code>'s <code>input</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
+class StridedSliceGrad {
+ public:
+  /// Optional attribute setters for StridedSliceGrad
+  struct Attrs {
+    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs BeginMask(int64 x) {
+      Attrs ret = *this;
+      ret.begin_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EndMask(int64 x) {
+      Attrs ret = *this;
+      ret.end_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EllipsisMask(int64 x) {
+      Attrs ret = *this;
+      ret.ellipsis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs NewAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.new_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs ShrinkAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.shrink_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 begin_mask_ = 0;
+    int64 end_mask_ = 0;
+    int64 ellipsis_mask_ = 0;
+    int64 new_axis_mask_ = 0;
+    int64 shrink_axis_mask_ = 0;
+  };
+  StridedSliceGrad(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy);
+  StridedSliceGrad(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy, const
+                 StridedSliceGrad::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BeginMask(int64 x) {
+    return Attrs().BeginMask(x);
+  }
+  static Attrs EndMask(int64 x) {
+    return Attrs().EndMask(x);
+  }
+  static Attrs EllipsisMask(int64 x) {
+    return Attrs().EllipsisMask(x);
+  }
+  static Attrs NewAxisMask(int64 x) {
+    return Attrs().NewAxisMask(x);
+  }
+  static Attrs ShrinkAxisMask(int64 x) {
+    return Attrs().ShrinkAxisMask(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Adds sparse <code>updates</code> to an existing tensor according to <code>indices</code>.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation creates a new tensor by adding sparse <code>updates</code> to the passed
+    in <code>tensor</code>.
+    This operation is very similar to <code>tf.scatter_nd_add</code>, except that the updates
+    are added onto an existing tensor (as opposed to a variable). If the memory
+    for the existing tensor cannot be re-used, a copy is made and updated.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><code>indices</code> is an integer tensor containing indices into a new tensor of shape
+    <code>shape</code>.  The last dimension of <code>indices</code> can be at most the rank of <code>shape</code>:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[-1] <= shape.rank</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The last dimension of <code>indices</code> corresponds to indices into elements
+    (if <code>indices.shape[-1] = shape.rank</code>) or slices
+    (if <code>indices.shape[-1] < shape.rank</code>) along dimension <code>indices.shape[-1]</code> of
+    <code>shape</code>.  <code>updates</code> is a tensor with shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[:-1] + shape[indices.shape[-1]:]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The simplest form of tensor_scatter_add is to add individual elements to a
+    tensor by index. For example, say we want to add 4 elements in a rank-1
+    tensor with 8 elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter add operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[4], [3], [1], [7]]) updates = tf.constant([9, 10, 11, 12]) tensor = tf.ones([8], dtype=tf.int32) updated = tf.tensor_scatter_add(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [1, 12, 1, 11, 10, 1, 1, 13]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    We can also, insert entire slices of a higher rank tensor all at once. For
+    example, if we wanted to insert two slices in the first dimension of a
+    rank-3 tensor with two matrices of new values.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter add operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[0], [2]]) updates = tf.constant([[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]], [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]]]) tensor = tf.ones([4, 4, 4]) updated = tf.tensor_scatter_add(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [[[6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
+         [[6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note that on CPU, if an out of bound index is found, an error is returned.
+    On GPU, if an out of bound index is found, the index is ignored.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * indices: Index tensor.
+    * updates: Updates to scatter into output.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: A new tensor copied from tensor and updates added according to the indices. */
+class TensorScatterAdd {
+ public:
+  TensorScatterAdd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Subtracts sparse `updates` from an existing tensor according to `indices`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation creates a new tensor by subtracting sparse `updates` from the
+    passed in `tensor`.
+    This operation is very similar to `tf.scatter_nd_sub`, except that the updates
+    are subtracted from an existing tensor (as opposed to a variable). If the memory
+    for the existing tensor cannot be re-used, a copy is made and updated.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `indices` is an integer tensor containing indices into a new tensor of shape
+    `shape`.  The last dimension of `indices` can be at most the rank of `shape`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[-1] <= shape.rank</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The last dimension of `indices` corresponds to indices into elements
+    (if `indices.shape[-1] = shape.rank`) or slices
+    (if `indices.shape[-1] < shape.rank`) along dimension `indices.shape[-1]` of
+    `shape`.  `updates` is a tensor with shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[:-1] + shape[indices.shape[-1]:]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The simplest form of tensor_scatter_sub is to subtract individual elements
+    from a tensor by index. For example, say we want to insert 4 scattered elements
+    in a rank-1 tensor with 8 elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter subtract operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[4], [3], [1], [7]]) updates = tf.constant([9, 10, 11, 12]) tensor = tf.ones([8], dtype=tf.int32) updated = tf.tensor_scatter_sub(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [1, -10, 1, -9, -8, 1, 1, -11]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    We can also, insert entire slices of a higher rank tensor all at once. For
+    example, if we wanted to insert two slices in the first dimension of a
+    rank-3 tensor with two matrices of new values.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter add operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[0], [2]]) updates = tf.constant([[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]], [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]]]) tensor = tf.ones([4, 4, 4]) updated = tf.tensor_scatter_sub(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [[[-4, -4, -4, -4], [-5, -5, -5, -5], [-6, -6, -6, -6], [-7, -7, -7, -7]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
+         [[-4, -4, -4, -4], [-5, -5, -5, -5], [-6, -6, -6, -6], [-7, -7, -7, -7]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note that on CPU, if an out of bound index is found, an error is returned.
+    On GPU, if an out of bound index is found, the index is ignored.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * indices: Index tensor.
+    * updates: Updates to scatter into output.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: A new tensor copied from tensor and updates subtracted according to the indices. */
+class TensorScatterSub {
+ public:
+  TensorScatterSub(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Scatter `updates` into an existing tensor according to `indices`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation creates a new tensor by applying sparse `updates` to the passed
+    in `tensor`.
+    This operation is very similar to `tf.scatter_nd`, except that the updates are
+    scattered onto an existing tensor (as opposed to a zero-tensor). If the memory
+    for the existing tensor cannot be re-used, a copy is made and updated.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If `indices` contains duplicates, then their updates are accumulated (summed).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    **WARNING**: The order in which updates are applied is nondeterministic, so the
+    output will be nondeterministic if `indices` contains duplicates -- because
+    of some numerical approximation issues, numbers summed in different order
+    may yield different results.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `indices` is an integer tensor containing indices into a new tensor of shape
+    `shape`.  The last dimension of `indices` can be at most the rank of `shape`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[-1] <= shape.rank</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The last dimension of `indices` corresponds to indices into elements
+    (if `indices.shape[-1] = shape.rank`) or slices
+    (if `indices.shape[-1] < shape.rank`) along dimension `indices.shape[-1]` of
+    `shape`.  `updates` is a tensor with shape</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        indices.shape[:-1] + shape[indices.shape[-1]:]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The simplest form of scatter is to insert individual elements in a tensor by
+    index. For example, say we want to insert 4 scattered elements in a rank-1
+    tensor with 8 elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[4], [3], [1], [7]]) updates = tf.constant([9, 10, 11, 12]) tensor = tf.ones([8], dtype=tf.int32) updated = tf.tensor_scatter_update(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [1, 11, 1, 10, 9, 1, 1, 12]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    We can also, insert entire slices of a higher rank tensor all at once. For
+    example, if we wanted to insert two slices in the first dimension of a
+    rank-3 tensor with two matrices of new values.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
+  </p>
+  <p><pre class="prettyprint" />python indices = tf.constant([[0], [2]]) updates = tf.constant([[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]], [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]]]) tensor = tf.ones([4, 4, 4]) updated = tf.tensor_scatter_update(tensor, indices, updates) with tf.Session() as sess: print(sess.run(scatter)) <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    The resulting tensor would look like this:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        [[[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
+         [[5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8]],
+         [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Note that on CPU, if an out of bound index is found, an error is returned.
+    On GPU, if an out of bound index is found, the index is ignored.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * indices: Index tensor.
+    * updates: Updates to scatter into output.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: A new tensor with the given shape and updates applied according
+    to the indices. */
+class TensorScatterUpdate {
+ public:
+  TensorScatterUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                    tensor, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                    updates);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The values of `value` are assigned to the positions in the tensor `input` that
+    are selected by the slice parameters. The slice parameters `begin` `end`
+    `strides` etc. work exactly as in `StridedSlice`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    NOTE this op currently does not support broadcasting and so `value`'s shape
+    must be exactly the shape produced by the slice of `input`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class TensorStridedSliceUpdate {
+ public:
+  /// Optional attribute setters for TensorStridedSliceUpdate
+  struct Attrs {
+    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs BeginMask(int64 x) {
+      Attrs ret = *this;
+      ret.begin_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EndMask(int64 x) {
+      Attrs ret = *this;
+      ret.end_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs EllipsisMask(int64 x) {
+      Attrs ret = *this;
+      ret.ellipsis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs NewAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.new_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    /// Defaults to 0
+    TF_MUST_USE_RESULT Attrs ShrinkAxisMask(int64 x) {
+      Attrs ret = *this;
+      ret.shrink_axis_mask_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 begin_mask_ = 0;
+    int64 end_mask_ = 0;
+    int64 ellipsis_mask_ = 0;
+    int64 new_axis_mask_ = 0;
+    int64 shrink_axis_mask_ = 0;
+  };
+  TensorStridedSliceUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         value);
+  TensorStridedSliceUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         value, const TensorStridedSliceUpdate::Attrs& attrs);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs BeginMask(int64 x) {
+    return Attrs().BeginMask(x);
+  }
+  static Attrs EndMask(int64 x) {
+    return Attrs().EndMask(x);
+  }
+  static Attrs EllipsisMask(int64 x) {
+    return Attrs().EllipsisMask(x);
+  }
+  static Attrs NewAxisMask(int64 x) {
+    return Attrs().NewAxisMask(x);
+  }
+  static Attrs ShrinkAxisMask(int64 x) {
+    return Attrs().ShrinkAxisMask(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Constructs a tensor by tiling a given tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation creates a new tensor by replicating `input` `multiples` times.
+    The output tensor's i'th dimension has `input.dims(i) * multiples[i]` elements,
+    and the values of `input` are replicated `multiples[i]` times along the 'i'th
+    dimension. For example, tiling `[a b c d]` by `[2]` produces
+    `[a b c d a b c d]`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: 1-D or higher.
+    * multiples: 1-D. Length must be the same as the number of dimensions in `input`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The output tensor. */
+class Tile {
+ public:
+  Tile(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+     <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> multiples);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Shuffle dimensions of x according to a permutation.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    The output `y` has the same rank as `x`. The shapes of `x` and `y` satisfy:
+      `y.shape[i] == x.shape[perm[i]] for i in [0, 1, ..., rank(x) - 1]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: The y tensor. */
+class Transpose {
+ public:
+  Transpose(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+          <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> perm);
+  operator ::tensorflow::Output() const { return y; }
+  operator ::tensorflow::Input() const { return y; }
+  ::tensorflow::Node* node() const { return y.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Finds unique elements in a 1-D tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns a tensor `y` containing all of the unique elements of `x`
+    sorted in the same order that they occur in `x`. This operation also returns a
+    tensor `idx` the same size as `x` that contains the index of each value of `x`
+    in the unique output `y`. In other words:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]</h1>
+  </p>
+  <p>y, idx = unique(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * x: 1-D.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output` y: 1-D.
+    * `Output` idx: 1-D. */
+class Unique {
+ public:
+  /// Optional attribute setters for Unique
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutIdx(DataType x) {
+      Attrs ret = *this;
+      ret.out_idx_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
+  };
+  Unique(const ::tensorflow::Scope& scope, ::tensorflow::Input x);
+  Unique(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
+       Unique::Attrs& attrs);</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutIdx(DataType x) {
+    return Attrs().OutIdx(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Finds unique elements along an axis of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation either returns a tensor `y` containing unique elements
+    along the `axis` of a tensor. The returned unique elements is sorted
+    in the same order as they occur along `axis` in `x`.
+    This operation also returns a tensor `idx` that is the same size as
+    the number of the elements in `x` along the `axis` dimension. It
+    contains the index in the unique output `y`.
+    In other words, for an `1-D` tensor `x` with `axis = None:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]</h1>
+  </p>
+  <p>y, idx = unique(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    For an `2-D` tensor `x` with `axis = 0`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[2, 0, 0]]</h1>
+  </p>
+  <p>y, idx = unique(x, axis=0) y ==> [[1, 0, 0], [2, 0, 0]] idx ==> [0, 0, 1] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    For an `2-D` tensor `x` with `axis = 1`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[2, 0, 0]]</h1>
+  </p>
+  <p>y, idx = unique(x, axis=1) y ==> [[1, 0], [1, 0], [2, 0]] idx ==> [0, 1, 1] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * x: A `Tensor`.
+    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
+    find the unique elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output` y: A `Tensor`. Unique elements along the `axis` of `Tensor` x.
+    * `Output` idx: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
+    value of x in the output y. */
+class UniqueV2 {
+ public:
+  /// Optional attribute setters for UniqueV2
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutIdx(DataType x) {
+      Attrs ret = *this;
+      ret.out_idx_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
+  };
+  UniqueV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+         <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  UniqueV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+         <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueV2::Attrs& attrs);</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutIdx(DataType x) {
+    return Attrs().OutIdx(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Finds unique elements in a 1-D tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns a tensor `y` containing all of the unique elements of `x`
+    sorted in the same order that they occur in `x`. This operation also returns a
+    tensor `idx` the same size as `x` that contains the index of each value of `x`
+    in the unique output `y`. Finally, it returns a third tensor `count` that
+    contains the count of each element of `y` in `x`. In other words:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]</h1>
+  </p>
+  <p>y, idx, count = unique_with_counts(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] count ==> [2, 1, 3, 1, 2] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * x: 1-D.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output` y: 1-D.
+    * `Output` idx: 1-D.
+    * `Output` count: 1-D. */
+class UniqueWithCounts {
+ public:
+  /// Optional attribute setters for UniqueWithCounts
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutIdx(DataType x) {
+      Attrs ret = *this;
+      ret.out_idx_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
+  };
+  UniqueWithCounts(const ::tensorflow::Scope& scope, ::tensorflow::Input x);
+  UniqueWithCounts(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
+                 UniqueWithCounts::Attrs& attrs);</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutIdx(DataType x) {
+    return Attrs().OutIdx(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Finds unique elements along an axis of a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation either returns a tensor `y` containing unique elements
+    along the `axis` of a tensor. The returned unique elements is sorted
+    in the same order as they occur along `axis` in `x`.
+    This operation also returns a tensor `idx` and a tensor `count`
+    that are the same size as the number of the elements in `x` along the
+    `axis` dimension. The `idx` contains the index in the unique output `y`
+    and the `count` contains the count in the unique output `y`.
+    In other words, for an `1-D` tensor `x` with `axis = None:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    `y[idx[i]] = x[i] for i in [0, 1,...,rank(x) - 1]`</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [1, 1, 2, 4, 4, 4, 7, 8, 8]</h1>
+  </p>
+  <p>y, idx, count = unique_with_counts(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] count ==> [2, 1, 3, 1, 2] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    For an `2-D` tensor `x` with `axis = 0`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[2, 0, 0]]</h1>
+  </p>
+  <p>y, idx, count = unique_with_counts(x, axis=0) y ==> [[1, 0, 0], [2, 0, 0]] idx ==> [0, 0, 1] count ==> [2, 1] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    For an `2-D` tensor `x` with `axis = 1`:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>tensor 'x' is [[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[1, 0, 0],</h1>
+  </p>
+  <p>
+    <h1>[2, 0, 0]]</h1>
+  </p>
+  <p>y, idx, count = unique_with_counts(x, axis=1) y ==> [[1, 0], [1, 0], [2, 0]] idx ==> [0, 1, 1] count ==> [1, 2] <pre class="prettyprint" /></p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * x: A `Tensor`.
+    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
+    find the unique elements.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output` y: A `Tensor`. Unique elements along the `axis` of `Tensor` x.
+    * `Output` idx: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
+    value of x in the output y.
+    * `Output` count: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The count of each value of x in the output y. */
+class UniqueWithCountsV2 {
+ public:
+  /// Optional attribute setters for UniqueWithCountsV2
+  struct Attrs {
+    /// Defaults to DT_INT32
+    TF_MUST_USE_RESULT Attrs OutIdx(DataType x) {
+      Attrs ret = *this;
+      ret.out_idx_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
+  };
+  UniqueWithCountsV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  UniqueWithCountsV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueWithCountsV2::Attrs&
+                   attrs);</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs OutIdx(DataType x) {
+    return Attrs().OutIdx(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Unpacks a given dimension of a rank-`R` tensor into `num` rank-`(R-1)` tensors.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Unpacks `num` tensors from `value` by chipping it along the `axis` dimension.
+    For example, given a tensor of shape `(A, B, C, D)`;</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If `axis == 0` then the i'th tensor in `output` is the slice `value[i, :, :, :]`
+      and each tensor in `output` will have shape `(B, C, D)`. (Note that the
+      dimension unpacked along is gone, unlike `split`).</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    If `axis == 1` then the i'th tensor in `output` is the slice `value[:, i, :, :]`
+      and each tensor in `output` will have shape `(A, C, D)`.
+    Etc.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This is the opposite of `pack`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * value: 1-D or higher, with `axis` dimension size equal to `num`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Optional attributes (see `Attrs`):
+    * axis: Dimension along which to unpack.  Negative values wrap around, so the
+    valid range is `[-R, R)`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `OutputList`: The list of tensors unpacked from `value`. */
+class Unstack {
+ public:
+  /// Optional attribute setters for Unstack
+  struct Attrs {
+    /** Dimension along which to unpack.  Negative values wrap around, so the
+        valid range is `[-R, R)`.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">        Defaults to 0 */
+    TF_MUST_USE_RESULT Attrs Axis(int64 x) {
+      Attrs ret = *this;
+      ret.axis_ = x;
+      return ret;
+    }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    int64 axis_ = 0;
+  };
+  Unstack(const ::tensorflow::Scope& scope, ::tensorflow::Input value, int64 num);
+  Unstack(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num,
+        const Unstack::Attrs& attrs);
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">  static Attrs Axis(int64 x) {
+    return Attrs().Axis(x);
+  }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  ::tensorflow::OutputList output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Converts a flat index or array of flat indices into a tuple of</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    coordinate arrays.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    (numpy)
+    Equivalent to np.unravel_index
+    </pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Arguments:
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * indices: An 0-D or 1-D `int` <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> whose elements are indices into the
+    flattened version of an array of dimensions dims.
+    * dims: An 1-D `int` <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The shape of the array to use for unraveling
+    indices.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    Returns:
+    * `Output`: An 2-D (or 1-D if indices is 0-D) tensor where each row has the
+    same shape as the indices array. */
+class UnravelIndex {
+ public:
+  UnravelIndex(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims);
+  operator ::tensorflow::Output() const { return output; }
+  operator ::tensorflow::Input() const { return output; }
+  ::tensorflow::Node* node() const { return output.node(); }</pre>
+  </p>
+  <p>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+};</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">/** Returns locations of nonzero / true values in a tensor.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    This operation returns the coordinates of true elements in `condition`. The
+    coordinates are returned in a 2-D tensor where the first dimension (rows)
+    represents the number of true elements, and the second dimension (columns)
+    represents the coordinates of the true elements. Keep in mind, the shape of
+    the output tensor can vary depending on how many true values there are in
+    `condition`. Indices are output in row-major order.</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">    For example:</pre>
+  </p>
+  <p>
+    <pre class="prettyprint" />
+    <h1>'input' tensor is [[True, False]</h1>
+  </p>
+  <p>
+    <h1>[True, False]]</h1>
+  </p>
+  <p>
+    <h1>'input' has two true values, so output has two coordinates.</h1>
+  </p>
+  <p>
+    <h1>'input' has rank of 2, so coordinates have two indices.</h1>
+  </p>
+  <p>where(input) ==> [[0, 0], [1, 0]]</p>
+  <p>
+    <h1><code>condition</code> tensor is [[[True, False]</h1>
+  </p>
+  <p>
+    <h1>[True, False]]</h1>
+  </p>
+  <p>
+    <h1>[[False, True]</h1>
+  </p>
+  <p>
+    <h1>[False, True]]</h1>
+  </p>
+  <p>
+    <h1>[[False, False]</h1>
+  </p>
+  <p>
+    <h1>[False, True]]]</h1>
+  </p>
+  <p>
+    <h1>'input' has 5 true values, so output has 5 coordinates.</h1>
+  </p>
+  <p>
+    <h1>'input' has rank of 3, so coordinates have three indices.</h1>
+  </p>
+  <p>where(input) ==> [[0, 0, 0], [0, 1, 0], [1, 0, 1], [1, 1, 1], [2, 1, 1]]</p>
+  <p>
+    <h1><code>condition</code> tensor is [[[1.5, 0.0]</h1>
+  </p>
+  <p>
+    <h1>[-0.5, 0.0]]</h1>
+  </p>
+  <p>
+    <h1>[[0.0, 0.25]</h1>
+  </p>
+  <p>
+    <h1>[0.0, 0.75]]</h1>
+  </p>
+  <p>
+    <h1>[[0.0, 0.0]</h1>
+  </p>
+  <p>
+    <h1>[0.0, 0.01]]]</h1>
+  </p>
+  <p>
+    <h1>'input' has 5 nonzero values, so output has 5 coordinates.</h1>
+  </p>
+  <p>
+    <h1>'input' has rank of 3, so coordinates have three indices.</h1>
+  </p>
+  <p>where(input) ==> [[0, 0, 0], [0, 1, 0], [1, 0, 1], [1, 1, 1], [2, 1, 1]]</p>
+  <p>
+    <h1><code>condition</code> tensor is [[[1.5 + 0.0j, 0.0 + 0.0j]</h1>
+  </p>
+  <p>
+    <h1>[0.0 + 0.5j, 0.0 + 0.0j]]</h1>
+  </p>
+  <p>
+    <h1>[[0.0 + 0.0j, 0.25 + 1.5j]</h1>
+  </p>
+  <p>
+    <h1>[0.0 + 0.0j, 0.75 + 0.0j]]</h1>
+  </p>
+  <p>
+    <h1>[[0.0 + 0.0j, 0.0 + 0.0j]</h1>
+  </p>
+  <p>
+    <h1>[0.0 + 0.0j, 0.01 + 0.0j]]]</h1>
+  </p>
+  <p>
+    <h1>'input' has 5 nonzero magnitude values, so output has 5 coordinates.</h1>
+  </p>
+  <p>
+    <h1>'input' has rank of 3, so coordinates have three indices.</h1>
+  </p>
+  <p>where(input) ==> [[0, 0, 0], [0, 1, 0], [1, 0, 1], [1, 1, 1], [2, 1, 1]] ```</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The index tensor. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">Where</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1aa3b91b7d267d5cee38568a7d1f97647d">index</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1ad713509ff4e38a2f5241d9b2cee7b296">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a76eb69d2e854554e8ae583dba19f1df4">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a80da544c59726a48be37767fb8fe3c91">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a5662e0fc5b2303a6072fb9aba2cec345">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_where_1aa3b91b7d267d5cee38568a7d1f97647d">
+    <h3>index</h3>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> index</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1ad713509ff4e38a2f5241d9b2cee7b296">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">
+    <h3>Where</h3>
+    <pre class="prettyprint"> Where(
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a76eb69d2e854554e8ae583dba19f1df4">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a80da544c59726a48be37767fb8fe3c91">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_where_1a5662e0fc5b2303a6072fb9aba2cec345">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+</body>
+</html>
