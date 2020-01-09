@@ -98,7 +98,7 @@ toc:
 - title: "Images"
   style: accordion
   section:
-  - title: "Augmentation with tf.image"
+  - title: "Data Augmentation"
     path: /tutorials/images/data_augmentation
   - title: "Convolutional Neural Network"
     path: /tutorials/images/cnn
