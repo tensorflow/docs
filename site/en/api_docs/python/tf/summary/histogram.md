@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/summary/histogram">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L143-L181">
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/histogram/summary_v2.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,19 +17,20 @@ page_type: reference
 
 
 
-Outputs a `Summary` protocol buffer with a histogram.
+Write a histogram summary.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/summary/histogram"><code>tf.compat.v1.summary.histogram</code></a>
+* `tf.compat.v2.summary.histogram`
 
 
 ``` python
 tf.summary.histogram(
     name,
-    values,
-    collections=None,
-    family=None
+    data,
+    step=None,
+    buckets=None,
+    description=None
 )
 ```
 
@@ -43,31 +38,34 @@ tf.summary.histogram(
 
 <!-- Placeholder for "Used in" -->
 
-Adding a histogram summary makes it possible to visualize your data's
-distribution in TensorBoard. You can see a detailed explanation of the
-TensorBoard histogram dashboard
-[here](https://www.tensorflow.org/get_started/tensorboard_histograms).
 
-The generated
-[`Summary`](https://www.tensorflow.org/code/tensorflow/core/framework/summary.proto)
-has one summary value containing a histogram for `values`.
-
-This op reports an `InvalidArgument` error if any value is not finite.
-
-#### Args:
+#### Arguments:
 
 
-* <b>`name`</b>: A name for the generated node. Will also serve as a series name in
-  TensorBoard.
-* <b>`values`</b>: A real numeric `Tensor`. Any shape. Values to use to
-  build the histogram.
-* <b>`collections`</b>: Optional list of graph collections keys. The new summary op is
-  added to these collections. Defaults to `[GraphKeys.SUMMARIES]`.
-* <b>`family`</b>: Optional; if provided, used as the prefix of the summary tag name,
-  which controls the tab name used for display on Tensorboard.
+* <b>`name`</b>: A name for this summary. The summary tag used for TensorBoard will
+  be this name prefixed by any active name scopes.
+* <b>`data`</b>: A `Tensor` of any shape. Must be castable to `float64`.
+* <b>`step`</b>: Explicit `int64`-castable monotonic step value for this summary. If
+  omitted, this defaults to <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a>, which must
+  not be None.
+* <b>`buckets`</b>: Optional positive `int`. The output will have this
+  many buckets, except in two edge cases. If there is no data, then
+  there are no buckets. If there is data but all points have the
+  same value, then there is one bucket whose left and right
+  endpoints are the same.
+* <b>`description`</b>: Optional long-form description for this summary, as a
+  constant `str`. Markdown is supported. Defaults to empty.
 
 
 #### Returns:
 
-A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-buffer.
+True on success, or false if no summary was emitted because no default
+summary writer was available.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: if a default writer exists, but no step was provided and
+  <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a> is None.

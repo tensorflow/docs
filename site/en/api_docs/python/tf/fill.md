@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/fill">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L136-L173">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L136-L173">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a tensor filled with a scalar value.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/fill"><code>tf.compat.v1.fill</code></a>
-* <a href="/api_docs/python/tf/fill"><code>tf.compat.v2.fill</code></a>
+* `tf.compat.v1.fill`
+* `tf.compat.v2.fill`
 
 
 ``` python
@@ -41,7 +35,16 @@ tf.fill(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 This operation creates a tensor of shape `dims` and fills it with `value`.
 

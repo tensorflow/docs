@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/psnr">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3005-L3056">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3005-L3056">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns the Peak Signal-to-Noise Ratio between a and b.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/psnr"><code>tf.compat.v1.image.psnr</code></a>
-* <a href="/api_docs/python/tf/image/psnr"><code>tf.compat.v2.image.psnr</code></a>
+* `tf.compat.v1.image.psnr`
+* `tf.compat.v2.image.psnr`
 
 
 ``` python

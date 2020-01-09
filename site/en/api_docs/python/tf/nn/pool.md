@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/pool">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L1139-L1310">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L1313-L1409">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Performs an N-D pooling operation.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/pool"><code>tf.compat.v1.nn.pool</code></a>
+* `tf.compat.v2.nn.pool`
 
 
 ``` python
@@ -35,12 +29,11 @@ tf.nn.pool(
     input,
     window_shape,
     pooling_type,
-    padding,
-    dilation_rate=None,
     strides=None,
-    name=None,
+    padding='VALID',
     data_format=None,
-    dilations=None
+    dilations=None,
+    name=None
 )
 ```
 
@@ -81,29 +74,26 @@ simply transposed as follows:
 #### Args:
 
 
-* <b>`input`</b>: Tensor of rank N+2, of shape
-  `[batch_size] + input_spatial_shape + [num_channels]` if data_format does
-  not start with "NC" (default), or
+* <b>`input`</b>: Tensor of rank N+2, of shape `[batch_size] + input_spatial_shape +
+  [num_channels]` if data_format does not start with "NC" (default), or
   `[batch_size, num_channels] + input_spatial_shape` if data_format starts
   with "NC".  Pooling happens over the spatial dimensions only.
 * <b>`window_shape`</b>: Sequence of N ints >= 1.
 * <b>`pooling_type`</b>: Specifies pooling operation, must be "AVG" or "MAX".
-* <b>`padding`</b>: The padding algorithm, must be "SAME" or "VALID".
+* <b>`strides`</b>: Optional. Sequence of N ints >= 1.  Defaults to [1]*N. If any value of
+  strides is > 1, then all values of dilation_rate must be 1.
+* <b>`padding`</b>: The padding algorithm, must be "SAME" or "VALID". Defaults to "SAME".
   See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
-* <b>`dilation_rate`</b>: Optional.  Dilation rate.  List of N ints >= 1.
-  Defaults to [1]*N.  If any value of dilation_rate is > 1, then all values
-  of strides must be 1.
-* <b>`strides`</b>: Optional.  Sequence of N ints >= 1.  Defaults to [1]*N.
-  If any value of strides is > 1, then all values of dilation_rate must be
-  1.
-* <b>`name`</b>: Optional. Name of the op.
 * <b>`data_format`</b>: A string or None.  Specifies whether the channel dimension of
   the `input` and output is the last dimension (default, or if `data_format`
   does not start with "NC"), or the second dimension (if `data_format`
   starts with "NC").  For N=1, the valid values are "NWC" (default) and
-  "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW".
-  For N=3, the valid values are "NDHWC" (default) and "NCDHW".
-* <b>`dilations`</b>: Alias for dilation_rate
+  "NCW".  For N=2, the valid values are "NHWC" (default) and "NCHW". For
+  N=3, the valid values are "NDHWC" (default) and "NCDHW".
+* <b>`dilations`</b>: Optional.  Dilation rate.  List of N ints >= 1. Defaults to
+  [1]*N.  If any value of dilation_rate is > 1, then all values of strides
+  must be 1.
+* <b>`name`</b>: Optional. Name of the op.
 
 
 #### Returns:

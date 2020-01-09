@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/wrappers/scikit_learn">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Wrapper for using the Scikit-Learn API with Keras models.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/wrappers/scikit_learn"><code>tf.compat.v1.keras.wrappers.scikit_learn</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

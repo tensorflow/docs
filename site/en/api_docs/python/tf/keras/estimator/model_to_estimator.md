@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/estimator/model_to_estimator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/estimator/__init__.py#L29-L107">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/estimator/__init__.py#L110-L166">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Constructs an `Estimator` instance from given keras model.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/estimator/model_to_estimator"><code>tf.compat.v1.keras.estimator.model_to_estimator</code></a>
+* `tf.compat.v2.keras.estimator.model_to_estimator`
 
 
 ``` python
@@ -37,38 +31,26 @@ tf.keras.estimator.model_to_estimator(
     custom_objects=None,
     model_dir=None,
     config=None,
-    checkpoint_format='saver'
+    checkpoint_format='checkpoint'
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Estimators](https://www.tensorflow.org/guide/estimator)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+
+### Used in the tutorials:
+
+* [Create an Estimator from a Keras model](https://www.tensorflow.org/tutorials/estimator/keras_model_to_estimator)
+
+
 
 For usage example, please see:
 [Creating estimators from Keras
 Models](https://tensorflow.org/guide/estimators#model_to_estimator).
-
-__Sample Weights__
-Estimators returned by `model_to_estimator` are configured to handle sample
-weights (similar to `keras_model.fit(x, y, sample_weights)`). To pass sample
-weights when training or evaluating the Estimator, the first item returned by
-the input function should be a dictionary with keys `features` and
-`sample_weights`. Example below:
-
-```
-keras_model = tf.keras.Model(...)
-keras_model.compile(...)
-
-estimator = tf.keras.estimator.model_to_estimator(keras_model)
-
-def input_fn():
-  return dataset_ops.Dataset.from_tensors(
-      ({'features': features, 'sample_weights': sample_weights},
-       targets))
-
-estimator.train(input_fn, steps=1)
-```
 
 #### Args:
 
@@ -84,9 +66,8 @@ estimator.train(input_fn, steps=1)
 * <b>`config`</b>: `RunConfig` to config `Estimator`.
 * <b>`checkpoint_format`</b>: Sets the format of the checkpoint saved by the estimator
   when training. May be `saver` or `checkpoint`, depending on whether to
-  save checkpoints from <a href="../../../tf/train/Saver"><code>tf.train.Saver</code></a> or <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>. This
-  argument currently defaults to `saver`. When 2.0 is released, the default
-  will be `checkpoint`. Estimators use name-based <a href="../../../tf/train/Saver"><code>tf.train.Saver</code></a>
+  save checkpoints from <a href="../../../tf/compat/v1/train/Saver"><code>tf.compat.v1.train.Saver</code></a> or <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>.
+  The default is `checkpoint`. Estimators use name-based `tf.train.Saver`
   checkpoints, while Keras models use object-based checkpoints from
   <a href="../../../tf/train/Checkpoint"><code>tf.train.Checkpoint</code></a>. Currently, saving object-based checkpoints from
   `model_to_estimator` is only supported by Functional and Sequential

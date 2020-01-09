@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unicode_decode_with_offsets">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L225-L283">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_string_ops.py#L225-L283">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Decodes each string into a sequence of code points with start offsets.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unicode_decode_with_offsets"><code>tf.compat.v1.strings.unicode_decode_with_offsets</code></a>
-* <a href="/api_docs/python/tf/strings/unicode_decode_with_offsets"><code>tf.compat.v2.strings.unicode_decode_with_offsets</code></a>
+* `tf.compat.v1.strings.unicode_decode_with_offsets`
+* `tf.compat.v2.strings.unicode_decode_with_offsets`
 
 
 ``` python
@@ -44,7 +38,11 @@ tf.strings.unicode_decode_with_offsets(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 This op is similar to `tf.strings.decode(...)`, but it also returns the
 start offset for each character in its respective string.  This information

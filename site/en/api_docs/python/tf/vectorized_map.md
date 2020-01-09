@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/vectorized_map">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parallel_for/control_flow_ops.py#L308-L390">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parallel_for/control_flow_ops.py#L308-L390">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Parallel map on the list of tensors unpacked from `elems` on dimension 0.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/vectorized_map"><code>tf.compat.v1.vectorized_map</code></a>
-* <a href="/api_docs/python/tf/vectorized_map"><code>tf.compat.v2.vectorized_map</code></a>
+* `tf.compat.v1.vectorized_map`
+* `tf.compat.v2.vectorized_map`
 
 
 ``` python

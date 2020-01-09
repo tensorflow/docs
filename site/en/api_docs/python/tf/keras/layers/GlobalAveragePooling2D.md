@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L711-L740">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L711-L740">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,14 +25,23 @@ Global average pooling operation for spatial data.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"><code>tf.compat.v1.keras.layers.GlobalAveragePooling2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"><code>tf.compat.v1.keras.layers.GlobalAvgPool2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"><code>tf.compat.v2.keras.layers.GlobalAveragePooling2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"><code>tf.compat.v2.keras.layers.GlobalAvgPool2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"><code>tf.keras.layers.GlobalAvgPool2D</code></a>
+* Class `tf.compat.v1.keras.layers.GlobalAveragePooling2D`
+* Class `tf.compat.v1.keras.layers.GlobalAvgPool2D`
+* Class `tf.compat.v2.keras.layers.GlobalAveragePooling2D`
+* Class `tf.compat.v2.keras.layers.GlobalAvgPool2D`
+* Class `tf.keras.layers.GlobalAvgPool2D`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Transfer learning with a pretrained ConvNet](https://www.tensorflow.org/tutorials/images/transfer_learning)
+
+
 
 
 #### Arguments:
@@ -72,7 +75,7 @@ Global average pooling operation for spatial data.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L688-L691">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L688-L691">View source</a>
 
 ``` python
 __init__(

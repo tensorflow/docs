@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/tpu">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -28,26 +22,26 @@ Ops related to Tensor Processing Units.
 
 ## Classes
 
-[`class CrossShardOptimizer`](../../../tf/tpu/CrossShardOptimizer): An optimizer that averages gradients across TPU shards.
+[`class CrossShardOptimizer`](../../../tf/compat/v1/tpu/CrossShardOptimizer): An optimizer that averages gradients across TPU shards.
 
 ## Functions
 
-[`batch_parallel(...)`](../../../tf/tpu/batch_parallel): Shards `computation` along the batch dimension for parallel execution.
+[`batch_parallel(...)`](../../../tf/compat/v1/tpu/batch_parallel): Shards `computation` along the batch dimension for parallel execution.
 
-[`bfloat16_scope(...)`](../../../tf/tpu/bfloat16_scope): Scope class for bfloat16 variables so that the model uses custom getter.
+[`bfloat16_scope(...)`](../../../tf/compat/v1/tpu/bfloat16_scope): Scope class for bfloat16 variables so that the model uses custom getter.
 
-[`core(...)`](../../../tf/tpu/core): Returns the device name for a core in a replicated TPU computation.
+[`core(...)`](../../../tf/compat/v1/tpu/core): Returns the device name for a core in a replicated TPU computation.
 
-[`cross_replica_sum(...)`](../../../tf/tpu/cross_replica_sum): Sum the input tensor across replicas according to group_assignment.
+[`cross_replica_sum(...)`](../../../tf/compat/v1/tpu/cross_replica_sum): Sum the input tensor across replicas according to group_assignment.
 
-[`initialize_system(...)`](../../../tf/tpu/initialize_system): Initializes a distributed TPU system for use with TensorFlow.
+[`initialize_system(...)`](../../../tf/compat/v1/tpu/initialize_system): Initializes a distributed TPU system for use with TensorFlow.
 
-[`outside_compilation(...)`](../../../tf/tpu/outside_compilation): Builds part of a computation outside any current TPU replicate scope.
+[`outside_compilation(...)`](../../../tf/compat/v1/tpu/outside_compilation): Builds part of a computation outside any current TPU replicate scope.
 
-[`replicate(...)`](../../../tf/tpu/replicate): Builds a graph operator that runs a replicated TPU computation.
+[`replicate(...)`](../../../tf/compat/v1/tpu/replicate): Builds a graph operator that runs a replicated TPU computation.
 
-[`rewrite(...)`](../../../tf/tpu/rewrite): Rewrites `computation` for execution on a TPU system.
+[`rewrite(...)`](../../../tf/compat/v1/tpu/rewrite): Rewrites `computation` for execution on a TPU system.
 
-[`shard(...)`](../../../tf/tpu/shard): Shards `computation` for parallel execution.
+[`shard(...)`](../../../tf/compat/v1/tpu/shard): Shards `computation` for parallel execution.
 
-[`shutdown_system(...)`](../../../tf/tpu/shutdown_system): Shuts down a running a distributed TPU system.
+[`shutdown_system(...)`](../../../tf/compat/v1/tpu/shutdown_system): Shuts down a running a distributed TPU system.

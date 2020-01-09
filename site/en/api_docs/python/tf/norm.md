@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/norm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L497-L643">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/linalg_ops.py#L426-L493">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,13 +17,13 @@ page_type: reference
 
 
 
-Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
+Computes the norm of vectors, matrices, and tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/norm"><code>tf.compat.v1.linalg.norm</code></a>
-* <a href="/api_docs/python/tf/norm"><code>tf.compat.v1.norm</code></a>
-* <a href="/api_docs/python/tf/norm"><code>tf.linalg.norm</code></a>
+* `tf.compat.v2.linalg.norm`
+* `tf.compat.v2.norm`
+* `tf.linalg.norm`
 
 
 ``` python
@@ -38,18 +32,13 @@ tf.norm(
     ord='euclidean',
     axis=None,
     keepdims=None,
-    name=None,
-    keep_dims=None
+    name=None
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
-Instructions for updating:
-keep_dims is deprecated, use keepdims instead
 
 This function can compute several different vector norms (the 1-norm, the
 Euclidean or 2-norm, the inf-norm, and in general the p-norm for p > 0) and
@@ -59,13 +48,13 @@ matrix norms (Frobenius, 1-norm, 2-norm and inf-norm).
 
 
 * <b>`tensor`</b>: `Tensor` of types `float32`, `float64`, `complex64`, `complex128`
-* <b>`ord`</b>: Order of the norm. Supported values are 'fro', 'euclidean',
+* <b>`ord`</b>: Order of the norm. Supported values are `'fro'`, `'euclidean'`,
   `1`, `2`, `np.inf` and any positive real number yielding the corresponding
-  p-norm. Default is 'euclidean' which is equivalent to Frobenius norm if
+  p-norm. Default is `'euclidean'` which is equivalent to Frobenius norm if
   `tensor` is a matrix and equivalent to 2-norm for vectors.
   Some restrictions apply:
-    a) The Frobenius norm `fro` is not defined for vectors,
-    b) If axis is a 2-tuple (matrix norm), only 'euclidean', 'fro', `1`,
+    a) The Frobenius norm `'fro'` is not defined for vectors,
+    b) If axis is a 2-tuple (matrix norm), only `'euclidean'`, '`fro'`, `1`,
        `2`, `np.inf` are supported.
   See the description of `axis` on how to compute norms for a batch of
   vectors or matrices stored in a tensor.
@@ -86,7 +75,6 @@ matrix norms (Frobenius, 1-norm, 2-norm and inf-norm).
 * <b>`keepdims`</b>: If True, the axis indicated in `axis` are kept with size 1.
   Otherwise, the dimensions in `axis` are removed from the output shape.
 * <b>`name`</b>: The name of the op.
-* <b>`keep_dims`</b>: Deprecated alias for `keepdims`.
 
 
 #### Returns:

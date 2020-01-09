@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/dynamic_partition">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_data_flow_ops.py`
@@ -23,8 +17,8 @@ Partitions `data` into `num_partitions` tensors using indices from `partitions`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/dynamic_partition"><code>tf.compat.v1.dynamic_partition</code></a>
-* <a href="/api_docs/python/tf/dynamic_partition"><code>tf.compat.v2.dynamic_partition</code></a>
+* `tf.compat.v1.dynamic_partition`
+* `tf.compat.v2.dynamic_partition`
 
 
 ``` python

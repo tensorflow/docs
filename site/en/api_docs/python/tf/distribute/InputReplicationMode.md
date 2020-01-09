@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/InputReplicationMode">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L334-L343">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L330-L339">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Replication mode for input function.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/InputReplicationMode"><code>tf.compat.v1.distribute.InputReplicationMode</code></a>
-* Class <a href="/api_docs/python/tf/distribute/InputReplicationMode"><code>tf.compat.v2.distribute.InputReplicationMode</code></a>
+* Class `tf.compat.v1.distribute.InputReplicationMode`
+* Class `tf.compat.v2.distribute.InputReplicationMode`
 
 
 <!-- Placeholder for "Used in" -->

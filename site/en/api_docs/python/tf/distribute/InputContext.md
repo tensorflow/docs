@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/InputContext">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L347-L408">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L343-L404">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A class wrapping information needed by an input function.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/InputContext"><code>tf.compat.v1.distribute.InputContext</code></a>
-* Class <a href="/api_docs/python/tf/distribute/InputContext"><code>tf.compat.v2.distribute.InputContext</code></a>
+* Class `tf.compat.v1.distribute.InputContext`
+* Class `tf.compat.v2.distribute.InputContext`
 
 
 <!-- Placeholder for "Used in" -->
@@ -47,7 +41,7 @@ source etc).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L359-L373">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L355-L369">View source</a>
 
 ``` python
 __init__(
@@ -93,7 +87,7 @@ Returns the number of compute replicas in sync.
 
 <h3 id="get_per_replica_batch_size"><code>get_per_replica_batch_size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L390-L408">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L386-L404">View source</a>
 
 ``` python
 get_per_replica_batch_size(global_batch_size)

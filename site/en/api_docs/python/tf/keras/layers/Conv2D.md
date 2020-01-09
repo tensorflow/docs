@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Conv2D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L391-L498">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L391-L498">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,14 +25,38 @@ page_type: reference
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2D"><code>tf.compat.v1.keras.layers.Conv2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2D"><code>tf.compat.v1.keras.layers.Convolution2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2D"><code>tf.compat.v2.keras.layers.Conv2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2D"><code>tf.compat.v2.keras.layers.Convolution2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2D"><code>tf.keras.layers.Convolution2D</code></a>
+* Class `tf.compat.v1.keras.layers.Conv2D`
+* Class `tf.compat.v1.keras.layers.Convolution2D`
+* Class `tf.compat.v2.keras.layers.Conv2D`
+* Class `tf.compat.v2.keras.layers.Convolution2D`
+* Class `tf.keras.layers.Convolution2D`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Basic classification: Predict an image of clothing](https://www.tensorflow.org/tutorials/keras/classification)
+* [Convolutional Neural Network (CNN)](https://www.tensorflow.org/tutorials/images/cnn)
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Custom layers](https://www.tensorflow.org/tutorials/customization/custom_layers)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+* [Image classification](https://www.tensorflow.org/tutorials/images/classification)
+* [Multi-worker training with Estimator](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_estimator)
+* [Multi-worker training with Keras](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+* [TensorFlow 2.0 quickstart for experts](https://www.tensorflow.org/tutorials/quickstart/advanced)
+
+
 
 This layer creates a convolution kernel that is convolved
 with the layer input to produce a tensor of
@@ -119,7 +137,7 @@ or 4D tensor with shape:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L464-L498">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L464-L498">View source</a>
 
 ``` python
 __init__(

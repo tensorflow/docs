@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/Accuracy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L595-L627">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L594-L626">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,22 @@ Calculates how often predictions matches labels.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/Accuracy"><code>tf.compat.v1.keras.metrics.Accuracy</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/Accuracy"><code>tf.compat.v2.keras.metrics.Accuracy</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/Accuracy"><code>tf.compat.v2.metrics.Accuracy</code></a>
+* Class `tf.compat.v1.keras.metrics.Accuracy`
+* Class `tf.compat.v2.keras.metrics.Accuracy`
+* Class `tf.compat.v2.metrics.Accuracy`
+* Class `tf.metrics.Accuracy`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+
+### Used in the tutorials:
+
+* [Classification on imbalanced data](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+
+
 
 For example, if `y_true` is [1, 2, 3, 4] and `y_pred` is [0, 2, 3, 4]
 then the accuracy is 3/4 or .75.  If the weights were specified as
@@ -69,7 +73,7 @@ model.compile('sgd', loss='mse', metrics=[tf.keras.metrics.Accuracy()])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L626-L627">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L625-L626">View source</a>
 
 ``` python
 __init__(
@@ -92,7 +96,7 @@ Creates a `MeanMetricWrapper` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -111,7 +115,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L204-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L203-L209">View source</a>
 
 ``` python
 reset_states()
@@ -124,7 +128,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L362-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L361-L371">View source</a>
 
 ``` python
 result()
@@ -137,7 +141,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L559-L584">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L558-L583">View source</a>
 
 ``` python
 update_state(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/ReductionToOneDevice">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L400-L436">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L400-L436">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`CrossDeviceOps`](../../tf/distribute/CrossDeviceOps)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/ReductionToOneDevice"><code>tf.compat.v1.distribute.ReductionToOneDevice</code></a>
-* Class <a href="/api_docs/python/tf/distribute/ReductionToOneDevice"><code>tf.compat.v2.distribute.ReductionToOneDevice</code></a>
+* Class `tf.compat.v1.distribute.ReductionToOneDevice`
+* Class `tf.compat.v2.distribute.ReductionToOneDevice`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +35,7 @@ Batch reduction is done by reduction on each element one by one.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L406-L417">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L406-L417">View source</a>
 
 ``` python
 __init__(
@@ -67,7 +61,7 @@ Constructor.
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
 
 ``` python
 batch_reduce(
@@ -104,7 +98,7 @@ a list of Mirrored objects.
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
 
 ``` python
 broadcast(
@@ -130,7 +124,7 @@ a Mirrored object.
 
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
 
 ``` python
 reduce(

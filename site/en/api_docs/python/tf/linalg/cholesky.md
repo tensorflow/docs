@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/cholesky">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_linalg_ops.py`
@@ -23,10 +17,9 @@ Computes the Cholesky decomposition of one or more square matrices.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/cholesky"><code>tf.cholesky</code></a>
-* <a href="/api_docs/python/tf/linalg/cholesky"><code>tf.compat.v1.cholesky</code></a>
-* <a href="/api_docs/python/tf/linalg/cholesky"><code>tf.compat.v1.linalg.cholesky</code></a>
-* <a href="/api_docs/python/tf/linalg/cholesky"><code>tf.compat.v2.linalg.cholesky</code></a>
+* `tf.compat.v1.cholesky`
+* `tf.compat.v1.linalg.cholesky`
+* `tf.compat.v2.linalg.cholesky`
 
 
 ``` python

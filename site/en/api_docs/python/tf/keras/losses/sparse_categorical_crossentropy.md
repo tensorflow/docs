@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L969-L973">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L974-L978">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,15 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v1.keras.losses.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v1.keras.metrics.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v2.keras.losses.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v2.keras.metrics.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v2.losses.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.compat.v2.metrics.sparse_categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/losses/sparse_categorical_crossentropy"><code>tf.keras.metrics.sparse_categorical_crossentropy</code></a>
+* `tf.compat.v1.keras.losses.sparse_categorical_crossentropy`
+* `tf.compat.v1.keras.metrics.sparse_categorical_crossentropy`
+* `tf.compat.v2.keras.losses.sparse_categorical_crossentropy`
+* `tf.compat.v2.keras.metrics.sparse_categorical_crossentropy`
+* `tf.compat.v2.losses.sparse_categorical_crossentropy`
+* `tf.compat.v2.metrics.sparse_categorical_crossentropy`
+* `tf.keras.metrics.sparse_categorical_crossentropy`
+* `tf.losses.sparse_categorical_crossentropy`
+* `tf.metrics.sparse_categorical_crossentropy`
 
 
 ``` python
@@ -47,4 +43,8 @@ tf.keras.losses.sparse_categorical_crossentropy(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+
+

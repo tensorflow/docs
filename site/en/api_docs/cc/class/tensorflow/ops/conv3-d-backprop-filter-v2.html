@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Conv3DBackpropFilterV2 Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -13,19 +11,19 @@
   <p>Computes the gradients of 3-D convolution with respect to the filter. </p>
   <h2>Summary</h2>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>input: Shape <code>[batch, depth, rows, cols, in_channels]</code>.</li>
       <li>filter_sizes: An integer vector representing the tensor shape of <code>filter</code>, where <code>filter</code> is a 5-D <code>[filter_depth, filter_height, filter_width, in_channels, out_channels]</code> tensor.</li>
       <li>out_backprop: Backprop signal of shape <code>[batch, out_depth, out_rows, out_cols, out_channels]</code>.</li>
       <li>strides: 1-D tensor of length 5. The stride of the sliding window for each dimension of <code>input</code>. Must have <code>strides[0] = strides[4] = 1</code>.</li>
       <li>padding: The type of padding algorithm to use.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>):<ul>
       <li>data_format: The data format of the input and output data. With the default format "NDHWC", the data is stored in the order of: [batch, in_depth, in_height, in_width, in_channels]. Alternatively, the format could be "NCDHW", the data storage order is: [batch, in_channels, in_depth, in_height, in_width].</li>
       <li>dilations: 1-D tensor of length 5. The dilation factor for each dimension of <code>input</code>. If set to k > 1, there will be k-1 skipped cells between each filter element on that dimension. The dimension order is determined by the value of <code>data_format</code>, see above for details. Dilations in the batch and depth dimensions must be 1.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -35,13 +33,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a694ef8c8043c259c1c99aef255d72869">Conv3DBackpropFilterV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a694ef8c8043c259c1c99aef255d72869">Conv3DBackpropFilterV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a0e09f53b51c787856ce6a971679721bb">Conv3DBackpropFilterV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Conv3DBackpropFilterV2::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a0e09f53b51c787856ce6a971679721bb">Conv3DBackpropFilterV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop, const gtl::ArraySlice< int > & strides, StringPiece padding, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Conv3DBackpropFilterV2::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +56,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -68,7 +66,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -122,7 +120,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -132,7 +130,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -145,32 +143,32 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs">tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropFilterV2::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs">tensorflow::<wbr/>ops::<wbr/>Conv3DBackpropFilterV2::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/conv3-d-backprop-filter-v2.html#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2">Conv3DBackpropFilterV2</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/conv3-d-backprop-filter-v2.html#classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2">Conv3DBackpropFilterV2</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1ae093c45fec1912e7a7416513581a72a5">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a16fe3a472dbf075692b0235069b595a7">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a694ef8c8043c259c1c99aef255d72869">
     <h3>Conv3DBackpropFilterV2</h3>
     <pre class="prettyprint"> Conv3DBackpropFilterV2(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding
 )</pre>
@@ -179,13 +177,13 @@
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a0e09f53b51c787856ce6a971679721bb">
     <h3>Conv3DBackpropFilterV2</h3>
     <pre class="prettyprint"> Conv3DBackpropFilterV2(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> filter_sizes,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> out_backprop,
   const gtl::ArraySlice< int > & strides,
   StringPiece padding,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Conv3DBackpropFilterV2::Attrs</a> & attrs
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Conv3DBackpropFilterV2::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -207,14 +205,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a5fdada0d12a9197a2807356a68a6a42c">
     <h3>DataFormat</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> DataFormat(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> DataFormat(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1a00a08e7b665f96c4a5e9996c1e6dad2b">
     <h3>Dilations</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> Dilations(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/conv3-d-backprop-filter-v2/attrs.html#structtensorflow_1_1ops_1_1_conv3_d_backprop_filter_v2_1_1_attrs">Attrs</a> Dilations(
   const gtl::ArraySlice< int > & x
 )</pre>
     <div />

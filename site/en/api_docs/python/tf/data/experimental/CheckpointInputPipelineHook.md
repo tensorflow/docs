@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/CheckpointInputPipelineHook">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L93-L244">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L93-L244">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,12 @@ page_type: reference
 
 Checkpoints input pipeline state every N steps or seconds.
 
-Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
+Inherits From: [`SessionRunHook`](../../../tf/estimator/SessionRunHook)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/data/experimental/CheckpointInputPipelineHook"><code>tf.compat.v1.data.experimental.CheckpointInputPipelineHook</code></a>
-* Class <a href="/api_docs/python/tf/data/experimental/CheckpointInputPipelineHook"><code>tf.compat.v2.data.experimental.CheckpointInputPipelineHook</code></a>
+* Class `tf.compat.v1.data.experimental.CheckpointInputPipelineHook`
+* Class `tf.compat.v2.data.experimental.CheckpointInputPipelineHook`
 
 
 <!-- Placeholder for "Used in" -->
@@ -80,7 +74,7 @@ collector when building the eval graph.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L138-L184">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L138-L184">View source</a>
 
 ``` python
 __init__(estimator)
@@ -107,7 +101,7 @@ Initializes a `CheckpointInputPipelineHook`.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L112-L127">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/session_run_hook.py#L112-L127">View source</a>
 
 ``` python
 after_create_session(
@@ -134,7 +128,7 @@ has two essential differences with the situation in which `begin` is called:
 
 <h3 id="after_run"><code>after_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L240-L241">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L240-L241">View source</a>
 
 ``` python
 after_run(
@@ -161,7 +155,7 @@ If `session.run()` raises any exceptions then `after_run()` is not called.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L234-L238">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L234-L238">View source</a>
 
 ``` python
 before_run(run_context)
@@ -194,7 +188,7 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L186-L197">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L186-L197">View source</a>
 
 ``` python
 begin()
@@ -210,7 +204,7 @@ graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/iterator_ops.py#L243-L244">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/iterator_ops.py#L243-L244">View source</a>
 
 ``` python
 end(session)

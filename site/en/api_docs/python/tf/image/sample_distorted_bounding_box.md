@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/sample_distorted_bounding_box">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2490-L2601">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L2391-L2487">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,19 +17,18 @@ page_type: reference
 
 
 
-Generate a single randomly distorted bounding box for an image. (deprecated)
+Generate a single randomly distorted bounding box for an image.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/sample_distorted_bounding_box"><code>tf.compat.v1.image.sample_distorted_bounding_box</code></a>
+* `tf.compat.v2.image.sample_distorted_bounding_box`
 
 
 ``` python
 tf.image.sample_distorted_bounding_box(
     image_size,
     bounding_boxes,
-    seed=None,
-    seed2=None,
+    seed=0,
     min_object_covered=0.1,
     aspect_ratio_range=None,
     area_range=None,
@@ -48,10 +41,6 @@ tf.image.sample_distorted_bounding_box(
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
 
 Bounding box annotations are often supplied in addition to ground-truth labels
 in image recognition or object localization tasks. A common technique for
@@ -67,9 +56,8 @@ image. The latter may be supplied to <a href="../../tf/image/draw_bounding_boxes
 visualize what the bounding box looks like.
 
 Bounding boxes are supplied and returned as `[y_min, x_min, y_max, x_max]`.
-The
-bounding box coordinates are floats in `[0.0, 1.0]` relative to the width and
-height of the underlying image.
+The bounding box coordinates are floats in `[0.0, 1.0]` relative to the width
+and height of the underlying image.
 
 For example,
 
@@ -90,7 +78,7 @@ For example,
 ```
 
 Note that if no bounding box information is available, setting
-`use_image_if_no_bounding_boxes = True` will assume there is a single implicit
+`use_image_if_no_bounding_boxes = true` will assume there is a single implicit
 bounding box covering the whole image. If `use_image_if_no_bounding_boxes` is
 false and no bounding boxes are supplied, an error is raised.
 
@@ -101,19 +89,17 @@ false and no bounding boxes are supplied, an error is raised.
   `int16`, `int32`, `int64`. 1-D, containing `[height, width, channels]`.
 * <b>`bounding_boxes`</b>: A `Tensor` of type `float32`. 3-D with shape `[batch, N, 4]`
   describing the N bounding boxes associated with the image.
-* <b>`seed`</b>: An optional `int`. Defaults to `0`. If either `seed` or `seed2` are
-  set to non-zero, the random number generator is seeded by the given
-  `seed`.  Otherwise, it is seeded by a random seed.
-* <b>`seed2`</b>: An optional `int`. Defaults to `0`. A second seed to avoid seed
-  collision.
+* <b>`seed`</b>: An optional `int`. Defaults to `0`. If `seed` is set to non-zero, the
+  random number generator is seeded by the given `seed`.  Otherwise, it is
+  seeded by a random seed.
 * <b>`min_object_covered`</b>: A Tensor of type `float32`. Defaults to `0.1`. The
   cropped area of the image must contain at least this fraction of any
   bounding box supplied. The value of this parameter should be non-negative.
   In the case of 0, the cropped area does not need to overlap any of the
   bounding boxes supplied.
 * <b>`aspect_ratio_range`</b>: An optional list of `floats`. Defaults to `[0.75,
-  1.33]`. The cropped area of the image must have an aspect ratio = width /
-  height within this range.
+  1.33]`. The cropped area of the image must have an aspect `ratio = width /
+  height` within this range.
 * <b>`area_range`</b>: An optional list of `floats`. Defaults to `[0.05, 1]`. The
   cropped area of the image must contain a fraction of the supplied image
   within this range.
@@ -139,4 +125,4 @@ A tuple of `Tensor` objects (begin, size, bboxes).
   <a href="../../tf/slice"><code>tf.slice</code></a>.
 * <b>`bboxes`</b>: A `Tensor` of type `float32`. 3-D with shape `[1, 1, 4]` containing
 the distorted bounding box.
-  Provide as input to <a href="../../tf/image/draw_bounding_boxes"><code>tf.image.draw_bounding_boxes</code></a>.
+Provide as input to <a href="../../tf/image/draw_bounding_boxes"><code>tf.image.draw_bounding_boxes</code></a>.

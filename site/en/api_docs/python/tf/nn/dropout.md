@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/dropout">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L4178-L4229">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L4232-L4317">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,35 +17,42 @@ page_type: reference
 
 
 
-Computes dropout. (deprecated arguments)
+Computes dropout.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/dropout"><code>tf.compat.v1.nn.dropout</code></a>
+* `tf.compat.v2.nn.dropout`
 
 
 ``` python
 tf.nn.dropout(
     x,
-    keep_prob=None,
+    rate,
     noise_shape=None,
     seed=None,
-    name=None,
-    rate=None
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_prob)`. They will be removed in a future version.
-Instructions for updating:
-Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
 
-For each element of `x`, with probability `rate`, outputs `0`, and otherwise
-scales up the input by `1 / (1-rate)`. The scaling is such that the expected
-sum is unchanged.
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+
+
+
+With probability `rate`, drops elements of `x`. Input that are kept are
+scaled up by `1 / (1 - rate)`, otherwise outputs `0`.  The scaling is so that
+the expected sum is unchanged.
+
+**Note:** The behavior of dropout has changed between TensorFlow 1.x and 2.x.
+When converting 1.x code, please use named arguments to ensure behavior stays
+consistent.
 
 By default, each element is kept or dropped independently.  If `noise_shape`
 is specified, it must be
@@ -65,14 +66,14 @@ kept independently and each row and column will be kept or not kept together.
 
 
 * <b>`x`</b>: A floating point tensor.
-* <b>`keep_prob`</b>: (deprecated) A deprecated alias for `(1-rate)`.
+* <b>`rate`</b>: A scalar `Tensor` with the same type as x. The probability
+  that each element is dropped. For example, setting rate=0.1 would drop
+  10% of input elements.
 * <b>`noise_shape`</b>: A 1-D `Tensor` of type `int32`, representing the
   shape for randomly generated keep/drop flags.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 * <b>`name`</b>: A name for this operation (optional).
-* <b>`rate`</b>: A scalar `Tensor` with the same type as `x`. The probability that each
-  element of `x` is discarded.
 
 
 #### Returns:
@@ -84,5 +85,5 @@ A Tensor of the same shape of `x`.
 #### Raises:
 
 
-* <b>`ValueError`</b>: If `rate` is not in `[0, 1)` or if `x` is not a floating
-  point tensor.
+* <b>`ValueError`</b>: If `rate` is not in `(0, 1]` or if `x` is not a floating point
+  tensor.

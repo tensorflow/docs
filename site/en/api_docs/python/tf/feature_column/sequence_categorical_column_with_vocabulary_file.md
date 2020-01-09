@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_vocabulary_file">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/sequence_feature_column.py#L301-L363">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/sequence_feature_column.py#L297-L359">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A sequence of categorical terms where ids use a vocabulary file.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_vocabulary_file"><code>tf.compat.v1.feature_column.sequence_categorical_column_with_vocabulary_file</code></a>
-* <a href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_vocabulary_file"><code>tf.compat.v2.feature_column.sequence_categorical_column_with_vocabulary_file</code></a>
+* `tf.compat.v1.feature_column.sequence_categorical_column_with_vocabulary_file`
+* `tf.compat.v2.feature_column.sequence_categorical_column_with_vocabulary_file`
 
 
 ``` python

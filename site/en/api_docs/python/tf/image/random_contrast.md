@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/random_contrast">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1548-L1576">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L1548-L1576">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Adjust the contrast of an image or images by a random factor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/random_contrast"><code>tf.compat.v1.image.random_contrast</code></a>
-* <a href="/api_docs/python/tf/image/random_contrast"><code>tf.compat.v2.image.random_contrast</code></a>
+* `tf.compat.v1.image.random_contrast`
+* `tf.compat.v2.image.random_contrast`
 
 
 ``` python
@@ -54,7 +48,7 @@ picked in the interval `[lower, upper]`.
 * <b>`lower`</b>: float.  Lower bound for the random contrast factor.
 * <b>`upper`</b>: float.  Upper bound for the random contrast factor.
 * <b>`seed`</b>: A Python integer. Used to create a random seed. See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 
 
 #### Returns:

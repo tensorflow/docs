@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/OutOfRangeError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L407-L422">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L407-L422">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,22 +25,22 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/OutOfRangeError"><code>tf.compat.v1.errors.OutOfRangeError</code></a>
-* Class <a href="/api_docs/python/tf/errors/OutOfRangeError"><code>tf.compat.v2.errors.OutOfRangeError</code></a>
+* Class `tf.compat.v1.errors.OutOfRangeError`
+* Class `tf.compat.v2.errors.OutOfRangeError`
 
 
 <!-- Placeholder for "Used in" -->
 
 This exception is raised in "end-of-file" conditions, such as when a
-<a href="../../tf/queue/QueueBase#dequeue"><code>tf.QueueBase.dequeue</code></a>
+`tf.QueueBase.dequeue`
 operation is blocked on an empty queue, and a
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a>
+`tf.QueueBase.close`
 operation executes.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L419-L422">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L419-L422">View source</a>
 
 ``` python
 __init__(

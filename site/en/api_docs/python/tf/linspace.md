@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linspace">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,10 +17,9 @@ Generates values in an interval.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linspace"><code>tf.compat.v1.lin_space</code></a>
-* <a href="/api_docs/python/tf/linspace"><code>tf.compat.v1.linspace</code></a>
-* <a href="/api_docs/python/tf/linspace"><code>tf.compat.v2.linspace</code></a>
-* <a href="/api_docs/python/tf/linspace"><code>tf.lin_space</code></a>
+* `tf.compat.v1.lin_space`
+* `tf.compat.v1.linspace`
+* `tf.compat.v2.linspace`
 
 
 ``` python

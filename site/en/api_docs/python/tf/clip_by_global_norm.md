@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/clip_by_global_norm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/clip_ops.py#L237-L325">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/clip_ops.py#L237-L325">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Clips values of multiple tensors by the ratio of the sum of their norms.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/clip_by_global_norm"><code>tf.compat.v1.clip_by_global_norm</code></a>
-* <a href="/api_docs/python/tf/clip_by_global_norm"><code>tf.compat.v2.clip_by_global_norm</code></a>
+* `tf.compat.v1.clip_by_global_norm`
+* `tf.compat.v2.clip_by_global_norm`
 
 
 ``` python

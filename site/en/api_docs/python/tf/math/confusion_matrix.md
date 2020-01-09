@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/confusion_matrix">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/confusion_matrix.py#L202-L261">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/confusion_matrix.py#L95-L201">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,7 @@ Computes the confusion matrix from predictions and labels.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.compat.v1.confusion_matrix</code></a>
-* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.compat.v1.math.confusion_matrix</code></a>
-* <a href="/api_docs/python/tf/math/confusion_matrix"><code>tf.confusion_matrix</code></a>
+* `tf.compat.v2.math.confusion_matrix`
 
 
 ``` python
@@ -37,9 +29,9 @@ tf.math.confusion_matrix(
     labels,
     predictions,
     num_classes=None,
+    weights=None,
     dtype=tf.dtypes.int32,
-    name=None,
-    weights=None
+    name=None
 )
 ```
 
@@ -82,12 +74,12 @@ resulting in a 5x5 confusion matrix.
 
 * <b>`labels`</b>: 1-D `Tensor` of real labels for the classification task.
 * <b>`predictions`</b>: 1-D `Tensor` of predictions for a given classification.
-* <b>`num_classes`</b>: The possible number of labels the classification task can have.
-  If this value is not provided, it will be calculated using both
-  predictions and labels array.
+* <b>`num_classes`</b>: The possible number of labels the classification task can
+             have. If this value is not provided, it will be calculated
+             using both predictions and labels array.
+* <b>`weights`</b>: An optional `Tensor` whose shape matches `predictions`.
 * <b>`dtype`</b>: Data type of the confusion matrix.
 * <b>`name`</b>: Scope name.
-* <b>`weights`</b>: An optional `Tensor` whose shape matches `predictions`.
 
 
 #### Returns:

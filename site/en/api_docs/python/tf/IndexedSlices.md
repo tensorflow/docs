@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/IndexedSlices">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/indexed_slices.py#L62-L175">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/indexed_slices.py#L62-L175">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A sparse representation of a set of tensor slices at given indices.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/IndexedSlices"><code>tf.compat.v1.IndexedSlices</code></a>
-* Class <a href="/api_docs/python/tf/IndexedSlices"><code>tf.compat.v2.IndexedSlices</code></a>
+* Class `tf.compat.v1.IndexedSlices`
+* Class `tf.compat.v2.IndexedSlices`
 
 
 <!-- Placeholder for "Used in" -->
@@ -63,7 +57,7 @@ which uses multi-dimensional indices and scalar values.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/indexed_slices.py#L90-L95">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/indexed_slices.py#L90-L95">View source</a>
 
 ``` python
 __init__(
@@ -126,7 +120,7 @@ A `Tensor` containing the values of the slices.
 
 <h3 id="__neg__"><code>__neg__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/indexed_slices.py#L143-L144">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/indexed_slices.py#L143-L144">View source</a>
 
 ``` python
 __neg__()
@@ -137,7 +131,7 @@ __neg__()
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/indexed_slices.py#L174-L175">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/indexed_slices.py#L174-L175">View source</a>
 
 ``` python
 consumers()

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L35-L188">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L35-L188">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/Clust
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.GCEClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.GCEClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/GCEClusterResolver"><code>tf.contrib.cluster_resolver.GCEClusterResolver</code></a>
+* Class `tf.compat.v1.distribute.cluster_resolver.GCEClusterResolver`
+* Class `tf.compat.v2.distribute.cluster_resolver.GCEClusterResolver`
 
 
 <!-- Placeholder for "Used in" -->
@@ -46,7 +39,7 @@ TensorFlow.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L45-L104">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L45-L104">View source</a>
 
 ``` python
 __init__(
@@ -136,7 +129,7 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L106-L149">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L106-L149">View source</a>
 
 ``` python
 cluster_spec()
@@ -155,7 +148,7 @@ A ClusterSpec containing host information retrieved from GCE.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L151-L162">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/gce_cluster_resolver.py#L151-L162">View source</a>
 
 ``` python
 master(
@@ -187,7 +180,7 @@ means retrieving the master every time this function is invoked.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
 
 ``` python
 num_accelerators(

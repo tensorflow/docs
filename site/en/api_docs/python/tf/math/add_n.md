@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/add_n">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L2953-L3007">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L2964-L3018">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ Adds all input tensors element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/add_n"><code>tf.add_n</code></a>
-* <a href="/api_docs/python/tf/math/add_n"><code>tf.compat.v1.add_n</code></a>
-* <a href="/api_docs/python/tf/math/add_n"><code>tf.compat.v1.math.add_n</code></a>
-* <a href="/api_docs/python/tf/math/add_n"><code>tf.compat.v2.add_n</code></a>
-* <a href="/api_docs/python/tf/math/add_n"><code>tf.compat.v2.math.add_n</code></a>
+* `tf.add_n`
+* `tf.compat.v1.add_n`
+* `tf.compat.v1.math.add_n`
+* `tf.compat.v2.add_n`
+* `tf.compat.v2.math.add_n`
 
 
 ``` python
@@ -43,7 +37,16 @@ tf.math.add_n(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+
+### Used in the tutorials:
+
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 Converts `IndexedSlices` objects into dense tensors prior to adding.
 

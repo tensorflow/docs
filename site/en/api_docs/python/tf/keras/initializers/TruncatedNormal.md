@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/initializers/TruncatedNormal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/initializers.py#L71-L94">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L306-L350">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,13 @@ page_type: reference
 
 Initializer that generates a truncated normal distribution.
 
-Inherits From: [`truncated_normal`](../../../tf/initializers/truncated_normal)
+Inherits From: [`Initializer`](../../../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/initializers/TruncatedNormal"><code>tf.compat.v1.keras.initializers.TruncatedNormal</code></a>
-* Class <a href="/api_docs/python/tf/keras/initializers/TruncatedNormal"><code>tf.compat.v1.keras.initializers.truncated_normal</code></a>
-* Class <a href="/api_docs/python/tf/keras/initializers/TruncatedNormal"><code>tf.keras.initializers.truncated_normal</code></a>
+* Class `tf.compat.v2.initializers.TruncatedNormal`
+* Class `tf.compat.v2.keras.initializers.TruncatedNormal`
+* Class `tf.initializers.TruncatedNormal`
 
 
 <!-- Placeholder for "Used in" -->
@@ -46,38 +40,28 @@ neural network weights and filters.
 #### Args:
 
 
-* <b>`mean`</b>: a python scalar or a scalar tensor. Mean of the random values to
-  generate. Defaults to 0.
-* <b>`stddev`</b>: a python scalar or a scalar tensor. Standard deviation of the random
-  values to generate. Defaults to 0.05.
+* <b>`mean`</b>: a python scalar or a scalar tensor. Mean of the random values
+  to generate.
+* <b>`stddev`</b>: a python scalar or a scalar tensor. Standard deviation of the
+  random values to generate.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-  <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
-* <b>`dtype`</b>: The data type. Only floating point types are supported.
-
-
-#### Returns:
-
-A TruncatedNormal instance.
-
+  <a href="../../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/initializers.py#L92-L94">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L324-L328">View source</a>
 
 ``` python
 __init__(
     mean=0.0,
     stddev=0.05,
-    seed=None,
-    dtype=tf.dtypes.float32
+    seed=None
 )
 ```
 
-DEPRECATED FUNCTION ARGUMENTS
+Initialize self.  See help(type(self)) for accurate signature.
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(dtype)`. They will be removed in a future version.
-Instructions for updating:
-Call initializer instance with the dtype argument instead of passing it to the constructor
 
 
 
@@ -85,13 +69,12 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L365-L369">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L330-L343">View source</a>
 
 ``` python
 __call__(
     shape,
-    dtype=None,
-    partition_info=None
+    dtype=tf.dtypes.float32
 )
 ```
 
@@ -102,14 +85,18 @@ Returns a tensor object initialized as specified by the initializer.
 
 
 * <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-  dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-  tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. Only floating point types are
+ supported.
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If the dtype is not floating point
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -134,8 +121,8 @@ initializer = RandomUniform.from_config(config)
 #### Args:
 
 
-* <b>`config`</b>: A Python dictionary. It will typically be the output of
-  `get_config`.
+* <b>`config`</b>: A Python dictionary.
+  It will typically be the output of `get_config`.
 
 
 #### Returns:
@@ -145,7 +132,7 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L371-L377">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L345-L350">View source</a>
 
 ``` python
 get_config()

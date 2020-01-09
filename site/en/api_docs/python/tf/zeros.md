@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/zeros">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2303-L2352">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L2314-L2363">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a tensor with all elements set to zero.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/zeros"><code>tf.compat.v1.zeros</code></a>
-* <a href="/api_docs/python/tf/zeros"><code>tf.compat.v2.zeros</code></a>
+* `tf.compat.v1.zeros`
+* `tf.compat.v2.zeros`
 
 
 ``` python
@@ -41,7 +35,24 @@ tf.zeros(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Custom layers](https://www.tensorflow.org/tutorials/customization/custom_layers)
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+
+
 
 This operation returns a tensor of type `dtype` with shape `shape` and
 all elements set to zero.

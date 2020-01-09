@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/models/load_model">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/save.py#L115-L151">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/saving/save.py#L118-L154">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Loads a model saved via `save_model`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/models/load_model"><code>tf.compat.v1.keras.models.load_model</code></a>
-* <a href="/api_docs/python/tf/keras/models/load_model"><code>tf.compat.v2.keras.models.load_model</code></a>
+* `tf.compat.v1.keras.models.load_model`
+* `tf.compat.v2.keras.models.load_model`
 
 
 ``` python
@@ -41,7 +35,18 @@ tf.keras.models.load_model(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+
+
 
 
 #### Arguments:

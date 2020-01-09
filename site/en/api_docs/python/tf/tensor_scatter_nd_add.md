@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/tensor_scatter_nd_add">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Adds sparse `updates` to an existing tensor according to `indices`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v1.tensor_scatter_add</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v1.tensor_scatter_nd_add</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.compat.v2.tensor_scatter_nd_add</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_add"><code>tf.tensor_scatter_add</code></a>
+* `tf.compat.v1.tensor_scatter_add`
+* `tf.compat.v1.tensor_scatter_nd_add`
+* `tf.compat.v2.tensor_scatter_nd_add`
 
 
 ``` python
@@ -44,7 +37,7 @@ tf.tensor_scatter_nd_add(
 
 This operation creates a new tensor by adding sparse `updates` to the passed
 in `tensor`.
-This operation is very similar to <a href="../tf/scatter_nd_add"><code>tf.scatter_nd_add</code></a>, except that the updates
+This operation is very similar to `tf.scatter_nd_add`, except that the updates
 are added onto an existing tensor (as opposed to a variable). If the memory
 for the existing tensor cannot be re-used, a copy is made and updated.
 

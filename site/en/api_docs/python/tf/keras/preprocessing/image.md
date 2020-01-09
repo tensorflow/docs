@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Set of tools for real-time data augmentation on image data.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/preprocessing/image"><code>tf.compat.v1.keras.preprocessing.image</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

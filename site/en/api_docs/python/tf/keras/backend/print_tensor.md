@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/print_tensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L3262-L3290">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L3366-L3394">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Prints `message` and the tensor value when evaluated.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/print_tensor"><code>tf.compat.v1.keras.backend.print_tensor</code></a>
-* <a href="/api_docs/python/tf/keras/backend/print_tensor"><code>tf.compat.v2.keras.backend.print_tensor</code></a>
+* `tf.compat.v1.keras.backend.print_tensor`
+* `tf.compat.v2.keras.backend.print_tensor`
 
 
 ``` python
@@ -48,9 +42,9 @@ print operation is not taken into account during evaluation.
 
 #### Example:
 
-<pre class="devsite-click-to-copy prettyprint lang-py">
-<code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}x = K.print_tensor(x, message="x is: "){% endhtmlescape %}</code>
-</pre>
+   <pre class="devsite-click-to-copy prettyprint lang-py">
+   <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}x = K.print_tensor(x, message="x is: "){% endhtmlescape %}</code>
+   </pre>
 
 #### Arguments:
 

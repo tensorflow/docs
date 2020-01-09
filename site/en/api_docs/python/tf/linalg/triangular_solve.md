@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/triangular_solve">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_linalg_ops.py`
@@ -23,10 +17,9 @@ Solves systems of linear equations with upper or lower triangular matrices by ba
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/triangular_solve"><code>tf.compat.v1.linalg.triangular_solve</code></a>
-* <a href="/api_docs/python/tf/linalg/triangular_solve"><code>tf.compat.v1.matrix_triangular_solve</code></a>
-* <a href="/api_docs/python/tf/linalg/triangular_solve"><code>tf.compat.v2.linalg.triangular_solve</code></a>
-* <a href="/api_docs/python/tf/linalg/triangular_solve"><code>tf.matrix_triangular_solve</code></a>
+* `tf.compat.v1.linalg.triangular_solve`
+* `tf.compat.v1.matrix_triangular_solve`
+* `tf.compat.v2.linalg.triangular_solve`
 
 
 ``` python

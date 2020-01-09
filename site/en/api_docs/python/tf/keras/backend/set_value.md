@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/set_value">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L3190-L3220">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L3305-L3329">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Sets the value of a variable, from a Numpy array.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/set_value"><code>tf.compat.v1.keras.backend.set_value</code></a>
-* <a href="/api_docs/python/tf/keras/backend/set_value"><code>tf.compat.v2.keras.backend.set_value</code></a>
+* `tf.compat.v1.keras.backend.set_value`
+* `tf.compat.v2.keras.backend.set_value`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.keras.backend.set_value(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Keras custom callbacks](https://www.tensorflow.org/guide/keras/custom_callback)
+
+
 
 
 #### Arguments:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/TFRecordOptions">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/tf_record.py#L44-L150">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/tf_record.py#L44-L150">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,9 @@ Options used for manipulating TFRecord files.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/io/TFRecordOptions"><code>tf.compat.v1.io.TFRecordOptions</code></a>
-* Class <a href="/api_docs/python/tf/io/TFRecordOptions"><code>tf.compat.v1.python_io.TFRecordOptions</code></a>
-* Class <a href="/api_docs/python/tf/io/TFRecordOptions"><code>tf.compat.v2.io.TFRecordOptions</code></a>
-* Class <a href="/api_docs/python/tf/io/TFRecordOptions"><code>tf.python_io.TFRecordOptions</code></a>
+* Class `tf.compat.v1.io.TFRecordOptions`
+* Class `tf.compat.v1.python_io.TFRecordOptions`
+* Class `tf.compat.v2.io.TFRecordOptions`
 
 
 <!-- Placeholder for "Used in" -->
@@ -42,7 +35,7 @@ Options used for manipulating TFRecord files.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/tf_record.py#L52-L100">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/tf_record.py#L52-L100">View source</a>
 
 ``` python
 __init__(
@@ -97,7 +90,7 @@ A `TFRecordOptions` object.
 
 <h3 id="get_compression_type_string"><code>get_compression_type_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/tf_record.py#L102-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/tf_record.py#L102-L126">View source</a>
 
 ``` python
 @classmethod

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/datasets/imdb/load_data">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/datasets/imdb.py#L31-L132">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/datasets/imdb.py#L31-L132">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Loads the IMDB dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/datasets/imdb/load_data"><code>tf.compat.v1.keras.datasets.imdb.load_data</code></a>
-* <a href="/api_docs/python/tf/keras/datasets/imdb/load_data"><code>tf.compat.v2.keras.datasets.imdb.load_data</code></a>
+* `tf.compat.v1.keras.datasets.imdb.load_data`
+* `tf.compat.v2.keras.datasets.imdb.load_data`
 
 
 ``` python
@@ -47,7 +41,11 @@ tf.keras.datasets.imdb.load_data(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Explore overfit and underfit](https://www.tensorflow.org/tutorials/keras/overfit_and_underfit)
+
+
 
 
 #### Arguments:

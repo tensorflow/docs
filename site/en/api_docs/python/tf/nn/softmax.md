@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/softmax">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2931-L2958">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L2961-L2985">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,31 +17,33 @@ page_type: reference
 
 
 
-Computes softmax activations. (deprecated arguments)
+Computes softmax activations.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/softmax"><code>tf.compat.v1.math.softmax</code></a>
-* <a href="/api_docs/python/tf/nn/softmax"><code>tf.compat.v1.nn.softmax</code></a>
-* <a href="/api_docs/python/tf/nn/softmax"><code>tf.math.softmax</code></a>
+* `tf.compat.v2.math.softmax`
+* `tf.compat.v2.nn.softmax`
+* `tf.math.softmax`
 
 
 ``` python
 tf.nn.softmax(
     logits,
     axis=None,
-    name=None,
-    dim=None
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(dim)`. They will be removed in a future version.
-Instructions for updating:
-dim is deprecated, use axis instead
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 This function performs the equivalent of
 
@@ -61,7 +57,6 @@ This function performs the equivalent of
 * <b>`axis`</b>: The dimension softmax would be performed on. The default is -1 which
   indicates the last dimension.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`dim`</b>: Deprecated alias for `axis`.
 
 
 #### Returns:

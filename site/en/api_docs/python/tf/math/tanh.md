@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/tanh">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,14 +17,14 @@ Computes hyperbolic tangent of `x` element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.math.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.nn.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v1.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.math.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.nn.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.compat.v2.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.nn.tanh</code></a>
-* <a href="/api_docs/python/tf/math/tanh"><code>tf.tanh</code></a>
+* `tf.compat.v1.math.tanh`
+* `tf.compat.v1.nn.tanh`
+* `tf.compat.v1.tanh`
+* `tf.compat.v2.math.tanh`
+* `tf.compat.v2.nn.tanh`
+* `tf.compat.v2.tanh`
+* `tf.nn.tanh`
+* `tf.tanh`
 
 
 ``` python
@@ -42,7 +36,13 @@ tf.math.tanh(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+
+
 
   Given an input tensor, this function computes hyperbolic tangent of every
   element in the tensor. Input range is `[-inf, inf]` and

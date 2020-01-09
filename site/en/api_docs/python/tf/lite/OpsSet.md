@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lite/OpsSet">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/convert.py#L65-L88">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/convert.py#L65-L88">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Enum class defining the sets of ops available to generate TFLite models.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lite/OpsSet"><code>tf.compat.v1.lite.OpsSet</code></a>
-* Class <a href="/api_docs/python/tf/lite/OpsSet"><code>tf.compat.v2.lite.OpsSet</code></a>
+* Class `tf.compat.v1.lite.OpsSet`
+* Class `tf.compat.v2.lite.OpsSet`
 
 
 <!-- Placeholder for "Used in" -->

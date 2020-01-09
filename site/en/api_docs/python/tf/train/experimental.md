@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/train/experimental">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -30,12 +24,10 @@ Public API for tf.train.experimental namespace.
 
 [`class LossScale`](../../tf/train/experimental/LossScale): Loss scale base class.
 
-[`class MixedPrecisionLossScaleOptimizer`](../../tf/train/experimental/MixedPrecisionLossScaleOptimizer): An optimizer that applies loss scaling.
-
 [`class PythonState`](../../tf/train/experimental/PythonState): A mixin for putting Python state in an object-based checkpoint.
 
 ## Functions
 
 [`disable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/disable_mixed_precision_graph_rewrite): Disables the mixed precision graph rewrite.
 
-[`enable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/enable_mixed_precision_graph_rewrite): Enable mixed precision via a graph rewrite.
+[`enable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/enable_mixed_precision_graph_rewrite): Enable mixed precision in <a href="../../tf/function"><code>tf.function</code></a>s via a graph rewrite.

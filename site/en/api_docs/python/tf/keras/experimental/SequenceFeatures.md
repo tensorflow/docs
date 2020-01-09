@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/experimental/SequenceFeatures">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/sequence_feature_column.py#L45-L154">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/sequence_feature_column.py#L45-L150">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A layer for sequence input.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/experimental/SequenceFeatures"><code>tf.compat.v1.keras.experimental.SequenceFeatures</code></a>
-* Class <a href="/api_docs/python/tf/keras/experimental/SequenceFeatures"><code>tf.compat.v2.keras.experimental.SequenceFeatures</code></a>
+* Class `tf.compat.v1.keras.experimental.SequenceFeatures`
+* Class `tf.compat.v2.keras.experimental.SequenceFeatures`
 
 
 <!-- Placeholder for "Used in" -->
@@ -73,7 +67,7 @@ outputs, state = rnn_layer(sequence_input, mask=sequence_length_mask)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/sequence_feature_column.py#L81-L107">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/sequence_feature_column.py#L81-L107">View source</a>
 
 ``` python
 __init__(

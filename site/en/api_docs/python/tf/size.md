@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/size">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L504-L533">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L508-L512">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,52 +17,25 @@ page_type: reference
 
 
 
-Returns the size of a tensor.
+
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/size"><code>tf.compat.v1.size</code></a>
+* `tf.compat.v2.size`
 
 
 ``` python
 tf.size(
     input,
-    name=None,
-    out_type=tf.dtypes.int32
+    out_type=tf.dtypes.int32,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
 
-Returns a 0-D `Tensor` representing the number of elements in `input`
-of type `out_type`. Defaults to tf.int32.
-
-#### For example:
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
 
 
-
-```python
-t = tf.constant([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
-tf.size(t)  # 12
-```
-
-#### Args:
-
-
-* <b>`input`</b>: A `Tensor` or `SparseTensor`.
-* <b>`name`</b>: A name for the operation (optional).
-* <b>`out_type`</b>: (Optional) The specified non-quantized numeric output type of the
-  operation. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
-
-
-#### Returns:
-
-A `Tensor` of type `out_type`. Defaults to <a href="../tf#int32"><code>tf.int32</code></a>.
-
-
-
-
-#### Numpy Compatibility
-Equivalent to np.size()

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/histogram_fixed_width">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/histogram_ops.py#L103-L150">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/histogram_ops.py#L103-L150">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Return histogram of values.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/histogram_fixed_width"><code>tf.compat.v1.histogram_fixed_width</code></a>
-* <a href="/api_docs/python/tf/histogram_fixed_width"><code>tf.compat.v2.histogram_fixed_width</code></a>
+* `tf.compat.v1.histogram_fixed_width`
+* `tf.compat.v2.histogram_fixed_width`
 
 
 ``` python
@@ -71,7 +65,7 @@ A 1-D `Tensor` holding histogram of values.
 
 
 * <b>`TypeError`</b>: If any unsupported dtype is provided.
-* <b><a href="/api_docs/python/tf/errors/InvalidArgumentError"><code>tf.errors.InvalidArgumentError</code></a></b>: If value_range does not
+* <b>`tf.errors.InvalidArgumentError`</b>: If value_range does not
     satisfy value_range[0] < value_range[1].
 
 

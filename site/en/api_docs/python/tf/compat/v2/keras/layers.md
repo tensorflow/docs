@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/layers">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -52,7 +46,7 @@ Keras layers API.
 
 [`class AvgPool3D`](../../../../tf/keras/layers/AveragePooling3D): Average pooling operation for 3D data (spatial or spatio-temporal).
 
-[`class BatchNormalization`](../../../../tf/compat/v2/keras/layers/BatchNormalization): Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
+[`class BatchNormalization`](../../../../tf/keras/layers/BatchNormalization): Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
 
 [`class Bidirectional`](../../../../tf/keras/layers/Bidirectional): Bidirectional wrapper for RNNs.
 
@@ -88,7 +82,7 @@ Keras layers API.
 
 [`class Dense`](../../../../tf/keras/layers/Dense): Just your regular densely-connected NN layer.
 
-[`class DenseFeatures`](../../../../tf/compat/v2/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
+[`class DenseFeatures`](../../../../tf/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
 
 [`class DepthwiseConv2D`](../../../../tf/keras/layers/DepthwiseConv2D): Depthwise separable 2D convolution.
 
@@ -102,9 +96,9 @@ Keras layers API.
 
 [`class Flatten`](../../../../tf/keras/layers/Flatten): Flattens the input. Does not affect the batch size.
 
-[`class GRU`](../../../../tf/compat/v2/keras/layers/GRU): Gated Recurrent Unit - Cho et al. 2014.
+[`class GRU`](../../../../tf/keras/layers/GRU): Gated Recurrent Unit - Cho et al. 2014.
 
-[`class GRUCell`](../../../../tf/compat/v2/keras/layers/GRUCell): Cell class for the GRU layer.
+[`class GRUCell`](../../../../tf/keras/layers/GRUCell): Cell class for the GRU layer.
 
 [`class GaussianDropout`](../../../../tf/keras/layers/GaussianDropout): Apply multiplicative 1-centered Gaussian noise.
 
@@ -136,11 +130,11 @@ Keras layers API.
 
 [`class InputLayer`](../../../../tf/keras/layers/InputLayer): Layer to be used as an entry point into a Network (a graph of layers).
 
-[`class InputSpec`](../../../../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+[`class InputSpec`](../../../../tf/keras/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
 
-[`class LSTM`](../../../../tf/compat/v2/keras/layers/LSTM): Long Short-Term Memory layer - Hochreiter 1997.
+[`class LSTM`](../../../../tf/keras/layers/LSTM): Long Short-Term Memory layer - Hochreiter 1997.
 
-[`class LSTMCell`](../../../../tf/compat/v2/keras/layers/LSTMCell): Cell class for the LSTM layer.
+[`class LSTMCell`](../../../../tf/keras/layers/LSTMCell): Cell class for the LSTM layer.
 
 [`class Lambda`](../../../../tf/keras/layers/Lambda): Wraps arbitrary expressions as a `Layer` object.
 

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/hessians">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradients_impl.py#L332-L396">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/gradients_impl.py#L399-L406">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,17 +21,16 @@ Constructs the Hessian of sum of `ys` with respect to `x` in `xs`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/hessians"><code>tf.compat.v1.hessians</code></a>
+* `tf.compat.v2.hessians`
 
 
 ``` python
 tf.hessians(
     ys,
     xs,
-    name='hessians',
-    colocate_gradients_with_ops=False,
     gate_gradients=False,
-    aggregation_method=None
+    aggregation_method=None,
+    name='hessians'
 )
 ```
 

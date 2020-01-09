@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/RaggedTensorSpec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1925-L2067">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_tensor.py#L1925-L2067">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Type specification for a <a href="../tf/RaggedTensor"><code>tf.RaggedTensor</cod
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/RaggedTensorSpec"><code>tf.compat.v1.RaggedTensorSpec</code></a>
-* Class <a href="/api_docs/python/tf/RaggedTensorSpec"><code>tf.compat.v2.RaggedTensorSpec</code></a>
+* Class `tf.compat.v1.RaggedTensorSpec`
+* Class `tf.compat.v2.RaggedTensorSpec`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,7 +34,7 @@ Type specification for a <a href="../tf/RaggedTensor"><code>tf.RaggedTensor</cod
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L1934-L1963">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_tensor.py#L1934-L1963">View source</a>
 
 ``` python
 __init__(
@@ -80,7 +74,7 @@ The Python type for values that are compatible with this TypeSpec.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
 
 ``` python
 __eq__(other)
@@ -91,7 +85,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
 
 ``` python
 __ne__(other)
@@ -102,7 +96,7 @@ Return self!=value.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_tensor.py#L2062-L2067">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_tensor.py#L2062-L2067">View source</a>
 
 ``` python
 @classmethod
@@ -117,7 +111,7 @@ from_value(
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L87-L102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L87-L102">View source</a>
 
 ``` python
 is_compatible_with(spec_or_value)
@@ -128,7 +122,7 @@ Returns true if `spec_or_value` is compatible with this TypeSpec.
 
 <h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L104-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L104-L126">View source</a>
 
 ``` python
 most_specific_compatible_type(other)

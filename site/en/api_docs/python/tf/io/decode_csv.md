@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_csv">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L1921-L1967">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L1970-L2026">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,7 @@ Convert CSV records to tensors. Each column maps to one tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.compat.v1.decode_csv</code></a>
-* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.compat.v1.io.decode_csv</code></a>
-* <a href="/api_docs/python/tf/io/decode_csv"><code>tf.decode_csv</code></a>
+* `tf.compat.v2.io.decode_csv`
 
 
 ``` python
@@ -38,9 +30,9 @@ tf.io.decode_csv(
     record_defaults,
     field_delim=',',
     use_quote_delim=True,
-    name=None,
     na_value='',
-    select_cols=None
+    select_cols=None,
+    name=None
 )
 ```
 
@@ -69,10 +61,10 @@ Note that we allow leading and trailing spaces with int or float field.
   If false, treats double quotation marks as regular
   characters inside of the string fields (ignoring RFC 4180, Section 2,
   Bullet 5).
-* <b>`name`</b>: A name for the operation (optional).
 * <b>`na_value`</b>: Additional string to recognize as NA/NaN.
 * <b>`select_cols`</b>: Optional sorted list of column indices to select. If specified,
   only this subset of columns will be parsed and returned.
+* <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:

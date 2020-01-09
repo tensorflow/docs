@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/embedding_lookup_sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/embedding_ops.py#L367-L538">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/embedding_ops.py#L541-L618">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Computes embeddings for the given ids and weights.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/embedding_lookup_sparse"><code>tf.compat.v1.nn.embedding_lookup_sparse</code></a>
+* `tf.compat.v2.nn.embedding_lookup_sparse`
 
 
 ``` python
@@ -35,10 +29,9 @@ tf.nn.embedding_lookup_sparse(
     params,
     sp_ids,
     sp_weights,
-    partition_strategy='mod',
-    name=None,
     combiner=None,
-    max_norm=None
+    max_norm=None,
+    name=None
 )
 ```
 
@@ -60,16 +53,12 @@ is the sum of the size of params along dimension 0.
   list of P tensors all of same shape except for the first dimension,
   representing sharded embedding tensors.  Alternatively, a
   `PartitionedVariable`, created by partitioning along dimension 0. Each
-  element must be appropriately sized for the given `partition_strategy`.
+  element must be appropriately sized for ``"div"`` `partition_strategy`.
 * <b>`sp_ids`</b>: N x M `SparseTensor` of int64 ids where N is typically batch size
   and M is arbitrary.
 * <b>`sp_weights`</b>: either a `SparseTensor` of float / double weights, or `None` to
   indicate all weights should be taken to be 1. If specified, `sp_weights`
   must have exactly the same shape and indices as `sp_ids`.
-* <b>`partition_strategy`</b>: A string specifying the partitioning strategy, relevant
-  if `len(params) > 1`. Currently `"div"` and `"mod"` are supported. Default
-  is `"mod"`. See `tf.nn.embedding_lookup` for more details.
-* <b>`name`</b>: Optional name for the op.
 * <b>`combiner`</b>: A string specifying the reduction op. Currently "mean", "sqrtn"
   and "sum" are supported. "sum" computes the weighted sum of the embedding
   results for each row. "mean" is the weighted sum divided by the total
@@ -77,6 +66,7 @@ is the sum of the size of params along dimension 0.
   of the squares of the weights.
 * <b>`max_norm`</b>: If not `None`, each embedding is clipped if its l2-norm is larger
   than this value, before combining.
+* <b>`name`</b>: Optional name for the op.
 
 
 #### Returns:

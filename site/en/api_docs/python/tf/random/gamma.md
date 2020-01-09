@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/gamma">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L413-L496">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L413-L496">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Draws `shape` samples from each of the given Gamma distribution(s).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/gamma"><code>tf.compat.v1.random.gamma</code></a>
-* <a href="/api_docs/python/tf/random/gamma"><code>tf.compat.v1.random_gamma</code></a>
-* <a href="/api_docs/python/tf/random/gamma"><code>tf.compat.v2.random.gamma</code></a>
-* <a href="/api_docs/python/tf/random/gamma"><code>tf.random_gamma</code></a>
+* `tf.compat.v1.random.gamma`
+* `tf.compat.v1.random_gamma`
+* `tf.compat.v2.random.gamma`
 
 
 ``` python
@@ -104,7 +97,7 @@ beta.shape == dloss_dbeta.shape  # True
   `float64`.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distributions.
   See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: Optional name for the operation.
 

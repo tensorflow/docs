@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/utils/OrderedEnqueuer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L704-L789">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L700-L785">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`SequenceEnqueuer`](../../../tf/keras/utils/SequenceEnqueuer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/utils/OrderedEnqueuer"><code>tf.compat.v1.keras.utils.OrderedEnqueuer</code></a>
-* Class <a href="/api_docs/python/tf/keras/utils/OrderedEnqueuer"><code>tf.compat.v2.keras.utils.OrderedEnqueuer</code></a>
+* Class `tf.compat.v1.keras.utils.OrderedEnqueuer`
+* Class `tf.compat.v2.keras.utils.OrderedEnqueuer`
 
 
 <!-- Placeholder for "Used in" -->
@@ -48,7 +42,7 @@ Used in `fit_generator`, `evaluate_generator`, `predict_generator`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L715-L717">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L711-L713">View source</a>
 
 ``` python
 __init__(
@@ -67,7 +61,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="get"><code>get</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L771-L789">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L767-L785">View source</a>
 
 ``` python
 get()
@@ -86,7 +80,7 @@ The next element in the queue, i.e. a tuple
 
 <h3 id="is_running"><code>is_running</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L626-L627">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L626-L627">View source</a>
 
 ``` python
 is_running()
@@ -97,7 +91,7 @@ is_running()
 
 <h3 id="start"><code>start</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L629-L647">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L629-L647">View source</a>
 
 ``` python
 start(
@@ -118,7 +112,7 @@ Starts the handler's workers.
 
 <h3 id="stop"><code>stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L654-L668">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L654-L668">View source</a>
 
 ``` python
 stop(timeout=None)

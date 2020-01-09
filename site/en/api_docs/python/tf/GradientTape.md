@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/GradientTape">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L692-L1246">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L692-L1245">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,17 +25,47 @@ Record operations for automatic differentiation.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.compat.v1.GradientTape</code></a>
-* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.compat.v2.GradientTape</code></a>
-* Class <a href="/api_docs/python/tf/GradientTape"><code>tf.contrib.eager.GradientTape</code></a>
+* Class `tf.compat.v1.GradientTape`
+* Class `tf.compat.v2.GradientTape`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [TensorFlow 2.0 quickstart for experts](https://www.tensorflow.org/tutorials/quickstart/advanced)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Operations are recorded if they are executed within this context manager and
 at least one of their inputs is being "watched".
 
-Trainable variables (created by <a href="../tf/Variable"><code>tf.Variable</code></a> or <a href="../tf/get_variable"><code>tf.compat.v1.get_variable</code></a>,
+Trainable variables (created by <a href="../tf/Variable"><code>tf.Variable</code></a> or <a href="../tf/compat/v1/get_variable"><code>tf.compat.v1.get_variable</code></a>,
 where `trainable=True` is default in both cases) are automatically watched.
 Tensors can be manually watched by invoking the `watch` method on this context
 manager.
@@ -122,7 +146,7 @@ Note that only tensors with real or complex dtypes are differentiable.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L778-L799">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L778-L799">View source</a>
 
 ``` python
 __init__(
@@ -153,7 +177,7 @@ Creates a new GradientTape.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L801-L804">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L801-L804">View source</a>
 
 ``` python
 __enter__()
@@ -164,7 +188,7 @@ Enters a context inside which operations are recorded on this tape.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L806-L809">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L806-L809">View source</a>
 
 ``` python
 __exit__(
@@ -179,7 +203,7 @@ Exits the recording context, no further operations are traced.
 
 <h3 id="batch_jacobian"><code>batch_jacobian</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L1127-L1246">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L1126-L1245">View source</a>
 
 ``` python
 batch_jacobian(
@@ -254,7 +278,7 @@ per-example jacobians.
 
 <h3 id="gradient"><code>gradient</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L935-L1021">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L935-L1020">View source</a>
 
 ``` python
 gradient(
@@ -271,8 +295,7 @@ Computes the gradient using operations recorded in context of this tape.
 #### Args:
 
 
-* <b>`target`</b>: a list or nested structure of Tensors or Variables to be
-  differentiated.
+* <b>`target`</b>: Tensor (or list of tensors) to be differentiated.
 * <b>`sources`</b>: a list or nested structure of Tensors or Variables. `target`
   will be differentiated against elements in `sources`.
 * <b>`output_gradients`</b>: a list of gradients, one for each element of
@@ -301,7 +324,7 @@ the structure of `sources`.
 
 <h3 id="jacobian"><code>jacobian</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L1023-L1125">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L1022-L1124">View source</a>
 
 ``` python
 jacobian(
@@ -369,7 +392,7 @@ the future.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L895-L929">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L895-L929">View source</a>
 
 ``` python
 reset()
@@ -408,7 +431,7 @@ with tf.GradientTape() as t:
 
 <h3 id="stop_recording"><code>stop_recording</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L863-L893">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L863-L893">View source</a>
 
 ``` python
 stop_recording()
@@ -444,7 +467,7 @@ None
 
 <h3 id="watch"><code>watch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L837-L861">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L837-L861">View source</a>
 
 ``` python
 watch(tensor)
@@ -466,7 +489,7 @@ Ensures that `tensor` is being traced by this tape.
 
 <h3 id="watched_variables"><code>watched_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/backprop.py#L931-L933">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/backprop.py#L931-L933">View source</a>
 
 ``` python
 watched_variables()

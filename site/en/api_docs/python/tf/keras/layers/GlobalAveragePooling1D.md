@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L603-L651">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L603-L651">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,14 +25,23 @@ Global average pooling operation for temporal data.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"><code>tf.compat.v1.keras.layers.GlobalAveragePooling1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"><code>tf.compat.v1.keras.layers.GlobalAvgPool1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"><code>tf.compat.v2.keras.layers.GlobalAveragePooling1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"><code>tf.compat.v2.keras.layers.GlobalAvgPool1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"><code>tf.keras.layers.GlobalAvgPool1D</code></a>
+* Class `tf.compat.v1.keras.layers.GlobalAveragePooling1D`
+* Class `tf.compat.v1.keras.layers.GlobalAvgPool1D`
+* Class `tf.compat.v2.keras.layers.GlobalAveragePooling1D`
+* Class `tf.compat.v2.keras.layers.GlobalAvgPool1D`
+* Class `tf.keras.layers.GlobalAvgPool1D`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Text classification with preprocessed text: Movie reviews](https://www.tensorflow.org/tutorials/keras/text_classification)
+* [Word embeddings](https://www.tensorflow.org/tutorials/text/word_embeddings)
+
+
 
 
 #### Arguments:
@@ -79,7 +82,7 @@ Global average pooling operation for temporal data.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L632-L635">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L632-L635">View source</a>
 
 ``` python
 __init__(

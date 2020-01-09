@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/io">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -50,7 +44,7 @@ Public API for tf.io namespace.
 
 [`decode_compressed(...)`](../../../tf/io/decode_compressed): Decompress strings.
 
-[`decode_csv(...)`](../../../tf/compat/v2/io/decode_csv): Convert CSV records to tensors. Each column maps to one tensor.
+[`decode_csv(...)`](../../../tf/io/decode_csv): Convert CSV records to tensors. Each column maps to one tensor.
 
 [`decode_gif(...)`](../../../tf/io/decode_gif): Decode the frame(s) of a GIF-encoded image to a uint8 tensor.
 
@@ -64,7 +58,7 @@ Public API for tf.io namespace.
 
 [`decode_proto(...)`](../../../tf/io/decode_proto): The op extracts fields from a serialized protocol buffers message into tensors.
 
-[`decode_raw(...)`](../../../tf/compat/v2/io/decode_raw): Convert raw byte strings into tensors.
+[`decode_raw(...)`](../../../tf/io/decode_raw): Convert raw byte strings into tensors.
 
 [`deserialize_many_sparse(...)`](../../../tf/io/deserialize_many_sparse): Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
@@ -82,11 +76,11 @@ Public API for tf.io namespace.
 
 [`matching_files(...)`](../../../tf/io/matching_files): Returns the set of files matching one or more glob patterns.
 
-[`parse_example(...)`](../../../tf/compat/v2/io/parse_example): Parses `Example` protos into a `dict` of tensors.
+[`parse_example(...)`](../../../tf/io/parse_example): Parses `Example` protos into a `dict` of tensors.
 
 [`parse_sequence_example(...)`](../../../tf/io/parse_sequence_example): Parses a batch of `SequenceExample` protos.
 
-[`parse_single_example(...)`](../../../tf/compat/v2/io/parse_single_example): Parses a single `Example` proto.
+[`parse_single_example(...)`](../../../tf/io/parse_single_example): Parses a single `Example` proto.
 
 [`parse_single_sequence_example(...)`](../../../tf/io/parse_single_sequence_example): Parses a single `SequenceExample` proto.
 
@@ -94,9 +88,9 @@ Public API for tf.io namespace.
 
 [`read_file(...)`](../../../tf/io/read_file): Reads and outputs the entire contents of the input filename.
 
-[`serialize_many_sparse(...)`](../../../tf/compat/v2/io/serialize_many_sparse): Serialize `N`-minibatch `SparseTensor` into an `[N, 3]` `Tensor`.
+[`serialize_many_sparse(...)`](../../../tf/io/serialize_many_sparse): Serialize `N`-minibatch `SparseTensor` into an `[N, 3]` `Tensor`.
 
-[`serialize_sparse(...)`](../../../tf/compat/v2/io/serialize_sparse): Serialize a `SparseTensor` into a 3-vector (1-D `Tensor`) object.
+[`serialize_sparse(...)`](../../../tf/io/serialize_sparse): Serialize a `SparseTensor` into a 3-vector (1-D `Tensor`) object.
 
 [`serialize_tensor(...)`](../../../tf/io/serialize_tensor): Transforms a Tensor into a serialized TensorProto proto.
 

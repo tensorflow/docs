@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/summary/audio">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L184-L230">
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/audio/summary_v2.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,21 +17,22 @@ page_type: reference
 
 
 
-Outputs a `Summary` protocol buffer with audio.
+Write an audio summary.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/summary/audio"><code>tf.compat.v1.summary.audio</code></a>
+* `tf.compat.v2.summary.audio`
 
 
 ``` python
 tf.summary.audio(
     name,
-    tensor,
+    data,
     sample_rate,
+    step=None,
     max_outputs=3,
-    collections=None,
-    family=None
+    encoding=None,
+    description=None
 )
 ```
 
@@ -45,36 +40,42 @@ tf.summary.audio(
 
 <!-- Placeholder for "Used in" -->
 
-The summary has up to `max_outputs` summary values containing audio. The
-audio is built from `tensor` which must be 3-D with shape `[batch_size,
-frames, channels]` or 2-D with shape `[batch_size, frames]`. The values are
-assumed to be in the range of `[-1.0, 1.0]` with a sample rate of
-`sample_rate`.
 
-The `tag` in the outputted Summary.Value protobufs is generated based on the
-name, with a suffix depending on the max_outputs setting:
-
-*  If `max_outputs` is 1, the summary value tag is '*name*/audio'.
-*  If `max_outputs` is greater than 1, the summary value tags are
-   generated sequentially as '*name*/audio/0', '*name*/audio/1', etc
-
-#### Args:
+#### Arguments:
 
 
-* <b>`name`</b>: A name for the generated node. Will also serve as a series name in
-  TensorBoard.
-* <b>`tensor`</b>: A 3-D `float32` `Tensor` of shape `[batch_size, frames, channels]`
-  or a 2-D `float32` `Tensor` of shape `[batch_size, frames]`.
-* <b>`sample_rate`</b>: A Scalar `float32` `Tensor` indicating the sample rate of the
-  signal in hertz.
-* <b>`max_outputs`</b>: Max number of batch elements to generate audio for.
-* <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-  summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
-* <b>`family`</b>: Optional; if provided, used as the prefix of the summary tag name,
-  which controls the tab name used for display on Tensorboard.
+* <b>`name`</b>: A name for this summary. The summary tag used for TensorBoard will
+  be this name prefixed by any active name scopes.
+* <b>`data`</b>: A `Tensor` representing audio data with shape `[k, t, c]`,
+  where `k` is the number of audio clips, `t` is the number of
+  frames, and `c` is the number of channels. Elements should be
+  floating-point values in `[-1.0, 1.0]`. Any of the dimensions may
+  be statically unknown (i.e., `None`).
+* <b>`sample_rate`</b>: An `int` or rank-0 `int32` `Tensor` that represents the
+  sample rate, in Hz. Must be positive.
+* <b>`step`</b>: Explicit `int64`-castable monotonic step value for this summary. If
+  omitted, this defaults to <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a>, which must
+  not be None.
+* <b>`max_outputs`</b>: Optional `int` or rank-0 integer `Tensor`. At most this
+  many audio clips will be emitted at each step. When more than
+  `max_outputs` many clips are provided, the first `max_outputs`
+  many clips will be used and the rest silently discarded.
+* <b>`encoding`</b>: Optional constant `str` for the desired encoding. Only "wav"
+  is currently supported, but this is not guaranteed to remain the
+  default, so if you want "wav" in particular, set this explicitly.
+* <b>`description`</b>: Optional long-form description for this summary, as a
+  constant `str`. Markdown is supported. Defaults to empty.
 
 
 #### Returns:
 
-A scalar `Tensor` of type `string`. The serialized `Summary` protocol
-buffer.
+True on success, or false if no summary was emitted because no default
+summary writer was available.
+
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: if a default writer exists, but no step was provided and
+  <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a> is None.

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/reverse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,12 +17,10 @@ Reverses specific dimensions of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.manip.reverse</code></a>
-* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.reverse</code></a>
-* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v1.reverse_v2</code></a>
-* <a href="/api_docs/python/tf/reverse"><code>tf.compat.v2.reverse</code></a>
-* <a href="/api_docs/python/tf/reverse"><code>tf.manip.reverse</code></a>
-* <a href="/api_docs/python/tf/reverse"><code>tf.reverse_v2</code></a>
+* `tf.compat.v1.manip.reverse`
+* `tf.compat.v1.reverse`
+* `tf.compat.v1.reverse_v2`
+* `tf.compat.v2.reverse`
 
 
 ``` python
@@ -44,7 +36,7 @@ tf.reverse(
 <!-- Placeholder for "Used in" -->
 
 NOTE <a href="../tf/reverse"><code>tf.reverse</code></a> has now changed behavior in preparation for 1.0.
-<a href="../tf/reverse"><code>tf.reverse_v2</code></a> is currently an alias that will be deprecated before TF 1.0.
+`tf.reverse_v2` is currently an alias that will be deprecated before TF 1.0.
 
 Given a `tensor`, and a `int32` tensor `axis` representing the set of
 dimensions of `tensor` to reverse. This operation reverses each dimension

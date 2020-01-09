@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Cropping2D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2378-L2506">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L2378-L2506">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Cropping2D"><code>tf.compat.v1.keras.layers.Cropping2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Cropping2D"><code>tf.compat.v2.keras.layers.Cropping2D</code></a>
+* Class `tf.compat.v1.keras.layers.Cropping2D`
+* Class `tf.compat.v2.keras.layers.Cropping2D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -101,7 +95,7 @@ model.add(Cropping2D(cropping=((2, 2), (2, 2))))
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L2433-L2454">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L2433-L2454">View source</a>
 
 ``` python
 __init__(

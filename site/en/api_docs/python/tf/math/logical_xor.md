@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/logical_xor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1234-L1265">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1234-L1265">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,12 @@ Logical XOR function.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__xor__"><code>tf.RaggedTensor.__xor__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__xor__"><code>tf.compat.v1.RaggedTensor.__xor__</code></a>
-* <a href="/api_docs/python/tf/math/logical_xor"><code>tf.compat.v1.logical_xor</code></a>
-* <a href="/api_docs/python/tf/math/logical_xor"><code>tf.compat.v1.math.logical_xor</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__xor__"><code>tf.compat.v2.RaggedTensor.__xor__</code></a>
-* <a href="/api_docs/python/tf/math/logical_xor"><code>tf.compat.v2.math.logical_xor</code></a>
-* <a href="/api_docs/python/tf/math/logical_xor"><code>tf.logical_xor</code></a>
+* `tf.RaggedTensor.__xor__`
+* `tf.compat.v1.RaggedTensor.__xor__`
+* `tf.compat.v1.logical_xor`
+* `tf.compat.v1.math.logical_xor`
+* `tf.compat.v2.RaggedTensor.__xor__`
+* `tf.compat.v2.math.logical_xor`
 
 
 ``` python

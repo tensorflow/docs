@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/square">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,11 +18,11 @@ Computes square of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/square"><code>tf.compat.v1.math.square</code></a>
-* <a href="/api_docs/python/tf/math/square"><code>tf.compat.v1.square</code></a>
-* <a href="/api_docs/python/tf/math/square"><code>tf.compat.v2.math.square</code></a>
-* <a href="/api_docs/python/tf/math/square"><code>tf.compat.v2.square</code></a>
-* <a href="/api_docs/python/tf/math/square"><code>tf.square</code></a>
+* `tf.compat.v1.math.square`
+* `tf.compat.v1.square`
+* `tf.compat.v2.math.square`
+* `tf.compat.v2.square`
+* `tf.square`
 
 
 ``` python
@@ -40,7 +34,18 @@ tf.math.square(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [Customization basics: tensors and operations](https://www.tensorflow.org/tutorials/customization/basics)
+
+
 
 I.e., \\(y = x * x = x^2\\).
 

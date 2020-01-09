@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/truediv">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1036-L1066">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1036-L1066">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,14 +21,14 @@ Divides x / y elementwise (using Python 3 division operator semantics).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__truediv__"><code>tf.RaggedTensor.__truediv__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__truediv__"><code>tf.compat.v1.RaggedTensor.__truediv__</code></a>
-* <a href="/api_docs/python/tf/math/truediv"><code>tf.compat.v1.math.truediv</code></a>
-* <a href="/api_docs/python/tf/math/truediv"><code>tf.compat.v1.truediv</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__truediv__"><code>tf.compat.v2.RaggedTensor.__truediv__</code></a>
-* <a href="/api_docs/python/tf/math/truediv"><code>tf.compat.v2.math.truediv</code></a>
-* <a href="/api_docs/python/tf/math/truediv"><code>tf.compat.v2.truediv</code></a>
-* <a href="/api_docs/python/tf/math/truediv"><code>tf.truediv</code></a>
+* `tf.RaggedTensor.__truediv__`
+* `tf.compat.v1.RaggedTensor.__truediv__`
+* `tf.compat.v1.math.truediv`
+* `tf.compat.v1.truediv`
+* `tf.compat.v2.RaggedTensor.__truediv__`
+* `tf.compat.v2.math.truediv`
+* `tf.compat.v2.truediv`
+* `tf.truediv`
 
 
 ``` python

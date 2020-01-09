@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unicode_transcode">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,8 +17,8 @@ Transcode the input text from a source encoding to a destination encoding.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unicode_transcode"><code>tf.compat.v1.strings.unicode_transcode</code></a>
-* <a href="/api_docs/python/tf/strings/unicode_transcode"><code>tf.compat.v2.strings.unicode_transcode</code></a>
+* `tf.compat.v1.strings.unicode_transcode`
+* `tf.compat.v2.strings.unicode_transcode`
 
 
 ``` python
@@ -41,7 +35,11 @@ tf.strings.unicode_transcode(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 The input is a string tensor of any shape. The output is a string tensor of
 the same shape containing the transcoded strings. Output strings are always

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/Coordinator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L34-L407">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L34-L407">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A coordinator for threads.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/Coordinator"><code>tf.compat.v1.train.Coordinator</code></a>
-* Class <a href="/api_docs/python/tf/train/Coordinator"><code>tf.compat.v2.train.Coordinator</code></a>
+* Class `tf.compat.v1.train.Coordinator`
+* Class `tf.compat.v2.train.Coordinator`
 
 
 <!-- Placeholder for "Used in" -->
@@ -135,7 +129,7 @@ except Exception:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L130-L159">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L130-L159">View source</a>
 
 ``` python
 __init__(clean_stop_exception_types=None)
@@ -170,7 +164,7 @@ Create a new Coordinator.
 
 <h3 id="clear_stop"><code>clear_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L246-L255">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L246-L255">View source</a>
 
 ``` python
 clear_stop()
@@ -182,7 +176,7 @@ After this is called, calls to `should_stop()` will return `False`.
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L322-L397">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L322-L397">View source</a>
 
 ``` python
 join(
@@ -227,7 +221,7 @@ that `RuntimeError`.
 
 <h3 id="raise_requested_exception"><code>raise_requested_exception</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L403-L407">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L403-L407">View source</a>
 
 ``` python
 raise_requested_exception()
@@ -238,7 +232,7 @@ If an exception has been passed to `request_stop`, this raises it.
 
 <h3 id="register_thread"><code>register_thread</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L313-L320">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L313-L320">View source</a>
 
 ``` python
 register_thread(thread)
@@ -254,7 +248,7 @@ Register a thread to join.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L187-L244">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L187-L244">View source</a>
 
 ``` python
 request_stop(ex=None)
@@ -277,7 +271,7 @@ a newly created one.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L257-L263">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L257-L263">View source</a>
 
 ``` python
 should_stop()
@@ -333,7 +327,7 @@ nothing.
 
 <h3 id="wait_for_stop"><code>wait_for_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/coordinator.py#L301-L311">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/coordinator.py#L301-L311">View source</a>
 
 ``` python
 wait_for_stop(timeout=None)

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L111-L188">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L193-L240">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,11 @@ Computes sigmoid cross entropy given `logits`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits"><code>tf.compat.v1.nn.sigmoid_cross_entropy_with_logits</code></a>
+* `tf.compat.v2.nn.sigmoid_cross_entropy_with_logits`
 
 
 ``` python
 tf.nn.sigmoid_cross_entropy_with_logits(
-    _sentinel=None,
     labels=None,
     logits=None,
     name=None
@@ -41,7 +34,11 @@ tf.nn.sigmoid_cross_entropy_with_logits(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+
+
 
 Measures the probability error in discrete classification tasks in which each
 class is independent and not mutually exclusive.  For instance, one could
@@ -73,7 +70,6 @@ equivalent formulation
 #### Args:
 
 
-* <b>`_sentinel`</b>: Used to prevent positional parameters. Internal, do not use.
 * <b>`labels`</b>: A `Tensor` of the same type and shape as `logits`.
 * <b>`logits`</b>: A `Tensor` of type `float32` or `float64`.
 * <b>`name`</b>: A name for the operation (optional).

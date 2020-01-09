@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ragged/range">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_math_ops.py#L41-L110">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_math_ops.py#L41-L110">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a `RaggedTensor` containing the specified sequences of numbers.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ragged/range"><code>tf.compat.v1.ragged.range</code></a>
-* <a href="/api_docs/python/tf/ragged/range"><code>tf.compat.v2.ragged.range</code></a>
+* `tf.compat.v1.ragged.range`
+* `tf.compat.v2.ragged.range`
 
 
 ``` python

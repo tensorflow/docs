@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/callbacks/TensorBoard">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L42-L457">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1362-L1726">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,18 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/callbacks/TensorBoard"><code>tf.compat.v1.keras.callbacks.TensorBoard</code></a>
+* Class `tf.compat.v2.keras.callbacks.TensorBoard`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+
+### Used in the tutorials:
+
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+
+
 
 TensorBoard is a visualization tool provided with TensorFlow.
 
@@ -65,28 +67,8 @@ You can find more information about TensorBoard
   histogram visualizations.
 * <b>`write_graph`</b>: whether to visualize the graph in TensorBoard. The log file
   can become quite large when write_graph is set to True.
-* <b>`write_grads`</b>: whether to visualize gradient histograms in TensorBoard.
-  `histogram_freq` must be greater than 0.
-* <b>`batch_size`</b>: size of batch of inputs to feed to the network for histograms
-  computation.
 * <b>`write_images`</b>: whether to write model weights to visualize as image in
   TensorBoard.
-* <b>`embeddings_freq`</b>: frequency (in epochs) at which selected embedding layers
-  will be saved. If set to 0, embeddings won't be computed. Data to be
-  visualized in TensorBoard's Embedding tab must be passed as
-  `embeddings_data`.
-* <b>`embeddings_layer_names`</b>: a list of names of layers to keep eye on. If None
-  or empty list all the embedding layer will be watched.
-* <b>`embeddings_metadata`</b>: a dictionary which maps layer name to a file name in
-  which metadata for this embedding layer is saved. See the
-    [details](https://www.tensorflow.org/how_tos/embedding_viz/#metadata_optional)
-      about metadata files format. In case if the same metadata file is
-      used for all embedding layers, string can be passed.
-* <b>`embeddings_data`</b>: data to be embedded at layers specified in
-  `embeddings_layer_names`. Numpy array (if the model has a single input)
-  or list of Numpy arrays (if the model has multiple inputs). Learn [more
-  about
-      embeddings](https://www.tensorflow.org/programmers_guide/embedding)
 * <b>`update_freq`</b>: `'batch'` or `'epoch'` or integer. When using `'batch'`,
   writes the losses and metrics to TensorBoard after each batch. The same
   applies for `'epoch'`. If using an integer, let's say `1000`, the
@@ -95,7 +77,15 @@ You can find more information about TensorBoard
   your training.
 * <b>`profile_batch`</b>: Profile the batch to sample compute characteristics. By
   default, it will profile the second batch. Set profile_batch=0 to
-  disable profiling.
+  disable profiling. Must run in TensorFlow eager mode.
+* <b>`embeddings_freq`</b>: frequency (in epochs) at which embedding layers will
+  be visualized. If set to 0, embeddings won't be visualized.
+* <b>`embeddings_metadata`</b>: a dictionary which maps layer name to a file name in
+  which metadata for this embedding layer is saved. See the
+  [details](
+    https://www.tensorflow.org/how_tos/embedding_viz/#metadata_optional)
+  about metadata files format. In case if the same metadata file is
+  used for all embedding layers, string can be passed.
 
 
 #### Raises:
@@ -103,33 +93,21 @@ You can find more information about TensorBoard
 
 * <b>`ValueError`</b>: If histogram_freq is set and no validation data is provided.
 
-
-
-#### Eager Compatibility
-Using the `TensorBoard` callback will work when eager execution is enabled,
-with the restriction that outputting histogram summaries of weights and
-gradients is not supported. Consequently, `histogram_freq` will be ignored.
-
-
-
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L117-L163">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1419-L1463">View source</a>
 
 ``` python
 __init__(
-    log_dir='./logs',
+    log_dir='logs',
     histogram_freq=0,
-    batch_size=32,
     write_graph=True,
-    write_grads=False,
     write_images=False,
-    embeddings_freq=0,
-    embeddings_layer_names=None,
-    embeddings_metadata=None,
-    embeddings_data=None,
     update_freq='epoch',
-    profile_batch=2
+    profile_batch=2,
+    embeddings_freq=0,
+    embeddings_metadata=None,
+    **kwargs
 )
 ```
 
@@ -142,7 +120,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L465-L466">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L464-L465">View source</a>
 
 ``` python
 on_batch_begin(
@@ -156,7 +134,7 @@ A backwards compatibility alias for `on_train_batch_begin`.
 
 <h3 id="on_batch_end"><code>on_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L345-L367">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1585-L1606">View source</a>
 
 ``` python
 on_batch_end(
@@ -169,9 +147,15 @@ Writes scalar summaries for metrics on every training batch.
 
 Performs profiling if current batch is in profiler_batches.
 
+#### Arguments:
+
+
+* <b>`batch`</b>: Integer, index of batch within the current epoch.
+* <b>`logs`</b>: Dict. Metric results for this batch.
+
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L374-L386">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L470-L480">View source</a>
 
 ``` python
 on_epoch_begin(
@@ -180,12 +164,21 @@ on_epoch_begin(
 )
 ```
 
-Add histogram op to Model eval_function callbacks, reset batch count.
+Called at the start of an epoch.
 
+Subclasses should override for any actions to run. This function should only
+be called during TRAIN mode.
+
+#### Arguments:
+
+
+* <b>`epoch`</b>: integer, index of epoch.
+* <b>`logs`</b>: dict. Currently no data is passed to this argument for this method
+  but that may change in the future.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L389-L451">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1608-L1617">View source</a>
 
 ``` python
 on_epoch_end(
@@ -194,12 +187,12 @@ on_epoch_end(
 )
 ```
 
-Checks if summary ops should run next epoch, logs scalar summaries.
+Runs metrics and histogram summaries at epoch end.
 
 
 <h3 id="on_predict_batch_begin"><code>on_predict_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L548-L557">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L547-L556">View source</a>
 
 ``` python
 on_predict_batch_begin(
@@ -221,7 +214,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_batch_end"><code>on_predict_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L559-L567">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L558-L566">View source</a>
 
 ``` python
 on_predict_batch_end(
@@ -242,7 +235,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_begin"><code>on_predict_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L609-L617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L608-L616">View source</a>
 
 ``` python
 on_predict_begin(logs=None)
@@ -260,7 +253,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_end"><code>on_predict_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L619-L627">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L618-L626">View source</a>
 
 ``` python
 on_predict_end(logs=None)
@@ -278,7 +271,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_batch_begin"><code>on_test_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L521-L533">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L520-L532">View source</a>
 
 ``` python
 on_test_batch_begin(
@@ -303,7 +296,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_batch_end"><code>on_test_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L535-L546">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L534-L545">View source</a>
 
 ``` python
 on_test_batch_end(
@@ -327,7 +320,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_begin"><code>on_test_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L589-L597">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L588-L596">View source</a>
 
 ``` python
 on_test_begin(logs=None)
@@ -345,7 +338,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_end"><code>on_test_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L599-L607">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L598-L606">View source</a>
 
 ``` python
 on_test_end(logs=None)
@@ -363,7 +356,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_batch_begin"><code>on_train_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L496-L507">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L495-L506">View source</a>
 
 ``` python
 on_train_batch_begin(
@@ -385,7 +378,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_batch_end"><code>on_train_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L509-L519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L508-L518">View source</a>
 
 ``` python
 on_train_batch_end(
@@ -406,7 +399,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_begin"><code>on_train_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L369-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1580-L1583">View source</a>
 
 ``` python
 on_train_begin(logs=None)
@@ -424,7 +417,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L453-L457">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1619-L1622">View source</a>
 
 ``` python
 on_train_end(logs=None)
@@ -442,18 +435,18 @@ Subclasses should override for any actions to run.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks_v1.py#L232-L310">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1492-L1510">View source</a>
 
 ``` python
 set_model(model)
 ```
 
-Sets Keras model and creates summary ops.
+Sets Keras model and writes graph if specified.
 
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L459-L460">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L458-L459">View source</a>
 
 ``` python
 set_params(params)

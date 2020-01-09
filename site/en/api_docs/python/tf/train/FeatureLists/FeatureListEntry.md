@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/FeatureLists/FeatureListEntry">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/feature.proto">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/core/example/feature.proto">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A ProtocolMessage
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/FeatureLists/FeatureListEntry"><code>tf.compat.v1.train.FeatureLists.FeatureListEntry</code></a>
-* Class <a href="/api_docs/python/tf/train/FeatureLists/FeatureListEntry"><code>tf.compat.v2.train.FeatureLists.FeatureListEntry</code></a>
+* Class `tf.compat.v1.train.FeatureLists.FeatureListEntry`
+* Class `tf.compat.v2.train.FeatureLists.FeatureListEntry`
 
 
 <!-- Placeholder for "Used in" -->

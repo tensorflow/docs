@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_json_example">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_parsing_ops.py`
@@ -23,10 +17,9 @@ Convert JSON-encoded Example records to binary protocol buffer strings.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_json_example"><code>tf.compat.v1.decode_json_example</code></a>
-* <a href="/api_docs/python/tf/io/decode_json_example"><code>tf.compat.v1.io.decode_json_example</code></a>
-* <a href="/api_docs/python/tf/io/decode_json_example"><code>tf.compat.v2.io.decode_json_example</code></a>
-* <a href="/api_docs/python/tf/io/decode_json_example"><code>tf.decode_json_example</code></a>
+* `tf.compat.v1.decode_json_example`
+* `tf.compat.v1.io.decode_json_example`
+* `tf.compat.v2.io.decode_json_example`
 
 
 ``` python

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/profiler">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,22 +18,22 @@ Public API for tf.profiler namespace.
 
 ## Classes
 
-[`class AdviceProto`](../../../tf/profiler/AdviceProto): A ProtocolMessage
+[`class AdviceProto`](../../../tf/compat/v1/profiler/AdviceProto): A ProtocolMessage
 
-[`class GraphNodeProto`](../../../tf/profiler/GraphNodeProto): A ProtocolMessage
+[`class GraphNodeProto`](../../../tf/compat/v1/profiler/GraphNodeProto): A ProtocolMessage
 
-[`class MultiGraphNodeProto`](../../../tf/profiler/MultiGraphNodeProto): A ProtocolMessage
+[`class MultiGraphNodeProto`](../../../tf/compat/v1/profiler/MultiGraphNodeProto): A ProtocolMessage
 
-[`class OpLogProto`](../../../tf/profiler/OpLogProto): A ProtocolMessage
+[`class OpLogProto`](../../../tf/compat/v1/profiler/OpLogProto): A ProtocolMessage
 
-[`class ProfileOptionBuilder`](../../../tf/profiler/ProfileOptionBuilder): Option Builder for Profiling API.
+[`class ProfileOptionBuilder`](../../../tf/compat/v1/profiler/ProfileOptionBuilder): Option Builder for Profiling API.
 
-[`class Profiler`](../../../tf/profiler/Profiler): TensorFlow multi-step profiler.
+[`class Profiler`](../../../tf/compat/v1/profiler/Profiler): TensorFlow multi-step profiler.
 
 ## Functions
 
-[`advise(...)`](../../../tf/profiler/advise): Auto profile and advise.
+[`advise(...)`](../../../tf/compat/v1/profiler/advise): Auto profile and advise.
 
-[`profile(...)`](../../../tf/profiler/profile): Profile model.
+[`profile(...)`](../../../tf/compat/v1/profiler/profile): Profile model.
 
-[`write_op_log(...)`](../../../tf/profiler/write_op_log): Log provided 'op_log', and add additional model information below.
+[`write_op_log(...)`](../../../tf/compat/v1/profiler/write_op_log): Log provided 'op_log', and add additional model information below.

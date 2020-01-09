@@ -2,20 +2,18 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ResourceScatterNdAdd Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>ResourceScatterNdAdd</h1>
   <code>#include &lt;state_ops.h&gt;</code>
-  <p>Applies sparse addition to individual values or slices in a <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a>. </p>
+  <p>Applies sparse addition to individual values or slices in a <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/variable.html#classtensorflow_1_1ops_1_1_variable">Variable</a>. </p>
   <h2>Summary</h2>
-  <p><code>ref</code> is a <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
+  <p><code>ref</code> is a <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> with rank <code>P</code> and <code>indices</code> is a <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q</code>.</p>
   <p><code>indices</code> must be integer tensor, containing indices into <code>ref</code>. It must be shape <code>[d_0, ..., d_{Q-2}, K]</code> where <code>0 < K <= P</code>.</p>
   <p>The innermost dimension of <code>indices</code> (with length <code>K</code>) corresponds to indices into elements (if <code>K = P</code>) or slices (if <code>K < P</code>) along the <code>K</code>th dimension of <code>ref</code>.</p>
-  <p><code>updates</code> is <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
+  <p><code>updates</code> is <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a></code> of rank <code>Q-1+P-K</code> with shape:</p>
   <p>
     <pre class="prettyprint">
 [d_0, ..., d_{Q-2}, ref.shape[K], ..., ref.shape[P-1]]
@@ -36,16 +34,16 @@ with tf.Session() as sess:
 </pre></p>
   <p>See <code>tf.scatter_nd</code> for more details about how to make updates to slices.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>ref: A resource handle. Must be from a VarHandleOp.</li>
-      <li>indices: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: int32, int64. A tensor of indices into ref.</li>
-      <li>updates: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of values to add to ref.</li>
+      <li>indices: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: int32, int64. A tensor of indices into ref.</li>
+      <li>updates: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of values to add to ref.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: An optional bool. Defaults to True. If True, the assignment will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -55,13 +53,13 @@ with tf.Session() as sess:
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac61a21576bf08251b3104cbc6368deaf">ResourceScatterNdAdd</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac61a21576bf08251b3104cbc6368deaf">ResourceScatterNdAdd</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac36189a70aec0cf684abb8369d023498">ResourceScatterNdAdd</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">ResourceScatterNdAdd::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac36189a70aec0cf684abb8369d023498">ResourceScatterNdAdd</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">ResourceScatterNdAdd::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -78,7 +76,7 @@ with tf.Session() as sess:
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -112,7 +110,7 @@ with tf.Session() as sess:
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -125,38 +123,38 @@ with tf.Session() as sess:
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceScatterNdAdd::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceScatterNdAdd::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/resource-scatter-nd-add.html#classtensorflow_1_1ops_1_1_resource_scatter_nd_add">ResourceScatterNdAdd</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/resource-scatter-nd-add.html#classtensorflow_1_1ops_1_1_resource_scatter_nd_add">ResourceScatterNdAdd</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac94d129f0515c41be9253e727aaa988f">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac61a21576bf08251b3104cbc6368deaf">
     <h3>ResourceScatterNdAdd</h3>
     <pre class="prettyprint"> ResourceScatterNdAdd(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1ac36189a70aec0cf684abb8369d023498">
     <h3>ResourceScatterNdAdd</h3>
     <pre class="prettyprint"> ResourceScatterNdAdd(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">ResourceScatterNdAdd::Attrs</a> & attrs
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">ResourceScatterNdAdd::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -168,7 +166,7 @@ with tf.Session() as sess:
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_scatter_nd_add_1a817236acee28e1372228a96333567b07">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-scatter-nd-add/attrs.html#structtensorflow_1_1ops_1_1_resource_scatter_nd_add_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />

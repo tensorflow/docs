@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/normal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L42-L78">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L42-L78">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Outputs random values from a normal distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/normal"><code>tf.compat.v1.random.normal</code></a>
-* <a href="/api_docs/python/tf/random/normal"><code>tf.compat.v1.random_normal</code></a>
-* <a href="/api_docs/python/tf/random/normal"><code>tf.compat.v2.random.normal</code></a>
-* <a href="/api_docs/python/tf/random/normal"><code>tf.random_normal</code></a>
+* `tf.compat.v1.random.normal`
+* `tf.compat.v1.random_normal`
+* `tf.compat.v2.random.normal`
 
 
 ``` python
@@ -46,7 +39,18 @@ tf.random.normal(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+
+
 
 
 #### Args:
@@ -60,7 +64,7 @@ tf.random.normal(
 * <b>`dtype`</b>: The type of the output.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
   See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 

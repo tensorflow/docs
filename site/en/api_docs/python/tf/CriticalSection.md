@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/CriticalSection">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L75-L376">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/critical_section_ops.py#L75-L376">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Critical section.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/CriticalSection"><code>tf.compat.v1.CriticalSection</code></a>
-* Class <a href="/api_docs/python/tf/CriticalSection"><code>tf.compat.v2.CriticalSection</code></a>
+* Class `tf.compat.v1.CriticalSection`
+* Class `tf.compat.v2.CriticalSection`
 
 
 <!-- Placeholder for "Used in" -->
@@ -104,7 +98,7 @@ sess.run(bad_sum)  # May return 0.0
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L144-L154">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/critical_section_ops.py#L144-L154">View source</a>
 
 ``` python
 __init__(
@@ -133,7 +127,7 @@ Creates a critical section.
 
 <h3 id="execute"><code>execute</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/critical_section_ops.py#L189-L292">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/critical_section_ops.py#L189-L292">View source</a>
 
 ``` python
 execute(

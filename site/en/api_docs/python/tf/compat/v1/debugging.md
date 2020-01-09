@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/debugging">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -26,47 +20,47 @@ Public API for tf.debugging namespace.
 
 [`Assert(...)`](../../../tf/debugging/Assert): Asserts that the given condition is true.
 
-[`assert_all_finite(...)`](../../../tf/debugging/assert_all_finite): Assert that the tensor does not contain any NaN's or Inf's.
+[`assert_all_finite(...)`](../../../tf/compat/v1/verify_tensor_all_finite): Assert that the tensor does not contain any NaN's or Inf's.
 
-[`assert_equal(...)`](../../../tf/debugging/assert_equal): Assert the condition `x == y` holds element-wise.
+[`assert_equal(...)`](../../../tf/compat/v1/assert_equal): Assert the condition `x == y` holds element-wise.
 
-[`assert_greater(...)`](../../../tf/debugging/assert_greater): Assert the condition `x > y` holds element-wise.
+[`assert_greater(...)`](../../../tf/compat/v1/assert_greater): Assert the condition `x > y` holds element-wise.
 
-[`assert_greater_equal(...)`](../../../tf/debugging/assert_greater_equal): Assert the condition `x >= y` holds element-wise.
+[`assert_greater_equal(...)`](../../../tf/compat/v1/assert_greater_equal): Assert the condition `x >= y` holds element-wise.
 
-[`assert_integer(...)`](../../../tf/debugging/assert_integer): Assert that `x` is of integer dtype.
+[`assert_integer(...)`](../../../tf/compat/v1/assert_integer): Assert that `x` is of integer dtype.
 
-[`assert_less(...)`](../../../tf/debugging/assert_less): Assert the condition `x < y` holds element-wise.
+[`assert_less(...)`](../../../tf/compat/v1/assert_less): Assert the condition `x < y` holds element-wise.
 
-[`assert_less_equal(...)`](../../../tf/debugging/assert_less_equal): Assert the condition `x <= y` holds element-wise.
+[`assert_less_equal(...)`](../../../tf/compat/v1/assert_less_equal): Assert the condition `x <= y` holds element-wise.
 
-[`assert_near(...)`](../../../tf/debugging/assert_near): Assert the condition `x` and `y` are close element-wise.
+[`assert_near(...)`](../../../tf/compat/v1/assert_near): Assert the condition `x` and `y` are close element-wise.
 
-[`assert_negative(...)`](../../../tf/debugging/assert_negative): Assert the condition `x < 0` holds element-wise.
+[`assert_negative(...)`](../../../tf/compat/v1/assert_negative): Assert the condition `x < 0` holds element-wise.
 
-[`assert_non_negative(...)`](../../../tf/debugging/assert_non_negative): Assert the condition `x >= 0` holds element-wise.
+[`assert_non_negative(...)`](../../../tf/compat/v1/assert_non_negative): Assert the condition `x >= 0` holds element-wise.
 
-[`assert_non_positive(...)`](../../../tf/debugging/assert_non_positive): Assert the condition `x <= 0` holds element-wise.
+[`assert_non_positive(...)`](../../../tf/compat/v1/assert_non_positive): Assert the condition `x <= 0` holds element-wise.
 
-[`assert_none_equal(...)`](../../../tf/debugging/assert_none_equal): Assert the condition `x != y` holds element-wise.
+[`assert_none_equal(...)`](../../../tf/compat/v1/assert_none_equal): Assert the condition `x != y` holds for all elements.
 
-[`assert_positive(...)`](../../../tf/debugging/assert_positive): Assert the condition `x > 0` holds element-wise.
+[`assert_positive(...)`](../../../tf/compat/v1/assert_positive): Assert the condition `x > 0` holds element-wise.
 
 [`assert_proper_iterable(...)`](../../../tf/debugging/assert_proper_iterable): Static assert that values is a "proper" iterable.
 
-[`assert_rank(...)`](../../../tf/debugging/assert_rank): Assert `x` has rank equal to `rank`.
+[`assert_rank(...)`](../../../tf/compat/v1/assert_rank): Assert `x` has rank equal to `rank`.
 
-[`assert_rank_at_least(...)`](../../../tf/debugging/assert_rank_at_least): Assert `x` has rank equal to `rank` or higher.
+[`assert_rank_at_least(...)`](../../../tf/compat/v1/assert_rank_at_least): Assert `x` has rank equal to `rank` or higher.
 
-[`assert_rank_in(...)`](../../../tf/debugging/assert_rank_in): Assert `x` has rank in `ranks`.
+[`assert_rank_in(...)`](../../../tf/compat/v1/assert_rank_in): Assert `x` has rank in `ranks`.
 
 [`assert_same_float_dtype(...)`](../../../tf/debugging/assert_same_float_dtype): Validate and return float type based on `tensors` and `dtype`.
 
-[`assert_scalar(...)`](../../../tf/debugging/assert_scalar): Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
+[`assert_scalar(...)`](../../../tf/compat/v1/assert_scalar): Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
 
-[`assert_shapes(...)`](../../../tf/debugging/assert_shapes): Assert tensor shapes and dimension size relationships between tensors.
+[`assert_shapes(...)`](../../../tf/compat/v1/debugging/assert_shapes): Assert tensor shapes and dimension size relationships between tensors.
 
-[`assert_type(...)`](../../../tf/debugging/assert_type): Statically asserts that the given `Tensor` is of the specified type.
+[`assert_type(...)`](../../../tf/compat/v1/assert_type): Statically asserts that the given `Tensor` is of the specified type.
 
 [`check_numerics(...)`](../../../tf/debugging/check_numerics): Checks a tensor for NaN and Inf values.
 

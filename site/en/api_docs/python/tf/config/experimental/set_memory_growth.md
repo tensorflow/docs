@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental/set_memory_growth">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L434-L454">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/config.py#L434-L454">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Set if memory growth should be enabled for a PhysicalDevice.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental/set_memory_growth"><code>tf.compat.v1.config.experimental.set_memory_growth</code></a>
-* <a href="/api_docs/python/tf/config/experimental/set_memory_growth"><code>tf.compat.v2.config.experimental.set_memory_growth</code></a>
+* `tf.compat.v1.config.experimental.set_memory_growth`
+* `tf.compat.v2.config.experimental.set_memory_growth`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.config.experimental.set_memory_growth(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+
+
 
 A PhysicalDevice with memory growth set will not allocate all memory on the
 device upfront. Memory growth cannot be configured on a PhysicalDevice with

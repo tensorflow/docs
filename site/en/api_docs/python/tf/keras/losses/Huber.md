@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/Huber">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L708-L754">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L713-L759">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,10 @@ Computes the Huber loss between `y_true` and `y_pred`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/losses/Huber"><code>tf.compat.v1.keras.losses.Huber</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/Huber"><code>tf.compat.v2.keras.losses.Huber</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/Huber"><code>tf.compat.v2.losses.Huber</code></a>
+* Class `tf.compat.v1.keras.losses.Huber`
+* Class `tf.compat.v2.keras.losses.Huber`
+* Class `tf.compat.v2.losses.Huber`
+* Class `tf.losses.Huber`
 
 
 <!-- Placeholder for "Used in" -->
@@ -68,7 +63,7 @@ model.compile('sgd', loss=tf.keras.losses.Huber())
 
 * <b>`delta`</b>: A float, the point where the Huber loss function changes from a
   quadratic to linear.
-* <b>`reduction`</b>: (Optional) Type of `tf.keras.losses.Reduction` to apply to loss.
+* <b>`reduction`</b>: (Optional) Type of <a href="../../../tf/keras/losses/Reduction"><code>tf.keras.losses.Reduction</code></a> to apply to loss.
   Default value is `AUTO`. `AUTO` indicates that the reduction option will
   be determined by the usage context. For almost all cases this defaults to
   `SUM_OVER_BATCH_SIZE`.
@@ -81,7 +76,7 @@ model.compile('sgd', loss=tf.keras.losses.Huber())
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L749-L754">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L754-L759">View source</a>
 
 ``` python
 __init__(
@@ -100,7 +95,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L94-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L96-L128">View source</a>
 
 ``` python
 __call__(
@@ -144,7 +139,7 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L128-L138">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L130-L140">View source</a>
 
 ``` python
 from_config(
@@ -169,7 +164,7 @@ A `Loss` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L218-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L223-L228">View source</a>
 
 ``` python
 get_config()

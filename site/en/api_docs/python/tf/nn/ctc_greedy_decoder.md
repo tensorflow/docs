@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/ctc_greedy_decoder">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ctc_ops.py#L209-L255">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ctc_ops.py#L209-L255">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Performs greedy decoding on the logits given in input (best path).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/ctc_greedy_decoder"><code>tf.compat.v1.nn.ctc_greedy_decoder</code></a>
-* <a href="/api_docs/python/tf/nn/ctc_greedy_decoder"><code>tf.compat.v2.nn.ctc_greedy_decoder</code></a>
+* `tf.compat.v1.nn.ctc_greedy_decoder`
+* `tf.compat.v2.nn.ctc_greedy_decoder`
 
 
 ``` python

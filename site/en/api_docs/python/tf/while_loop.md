@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/while_loop">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L2482-L2757">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/control_flow_ops.py#L2302-L2478">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Repeat `body` while the condition `cond` is true.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/while_loop"><code>tf.compat.v1.while_loop</code></a>
+* `tf.compat.v2.while_loop`
 
 
 ``` python
@@ -39,9 +33,8 @@ tf.while_loop(
     parallel_iterations=10,
     back_prop=True,
     swap_memory=False,
-    name=None,
     maximum_iterations=None,
-    return_same_structure=False
+    name=None
 )
 ```
 
@@ -61,7 +54,7 @@ return TensorArray objects.  The flows of the TensorArray objects will
 be appropriately forwarded between loops and during gradient calculations.
 
 Note that `while_loop` calls `cond` and `body` *exactly once* (inside the
-call to `while_loop`, and not at all during <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>). `while_loop`
+call to `while_loop`, and not at all during `Session.run()`). `while_loop`
 stitches together the graph fragments created during the `cond` and `body`
 calls with some additional graph nodes to create the graph flow that
 repeats `body` until `cond` returns false.
@@ -119,23 +112,17 @@ sequences and large batches.
   must be a positive integer.
 * <b>`back_prop`</b>: Whether backprop is enabled for this while loop.
 * <b>`swap_memory`</b>: Whether GPU-CPU memory swap is enabled for this loop.
-* <b>`name`</b>: Optional name prefix for the returned tensors.
 * <b>`maximum_iterations`</b>: Optional maximum number of iterations of the while loop
   to run.  If provided, the `cond` output is AND-ed with an additional
   condition ensuring the number of iterations executed is no greater than
   `maximum_iterations`.
-* <b>`return_same_structure`</b>: If True, output has same structure as `loop_vars`. If
-  eager execution is enabled, this is ignored (and always treated as True).
+* <b>`name`</b>: Optional name prefix for the returned tensors.
 
 
 #### Returns:
 
-The output tensors for the loop variables after the loop.
- If `return_same_structure` is True, the return value has the same
- structure as `loop_vars`.
- If `return_same_structure` is False, the return value is a Tensor,
- TensorArray or IndexedSlice if the length of `loop_vars` is 1, or a list
- otherwise.
+The output tensors for the loop variables after the loop. The return value
+  has the same structure as `loop_vars`.
 
 
 

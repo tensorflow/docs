@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/hooks/hooks.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -27,12 +21,12 @@ page_type: reference
 
 Hook to run evaluation in training without a checkpoint.
 
-Inherits From: [`SessionRunHook`](../../../tf/train/SessionRunHook)
+Inherits From: [`SessionRunHook`](../../../tf/estimator/SessionRunHook)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook"><code>tf.compat.v1.estimator.experimental.InMemoryEvaluatorHook</code></a>
-* Class <a href="/api_docs/python/tf/estimator/experimental/InMemoryEvaluatorHook"><code>tf.compat.v2.estimator.experimental.InMemoryEvaluatorHook</code></a>
+* Class `tf.compat.v1.estimator.experimental.InMemoryEvaluatorHook`
+* Class `tf.compat.v2.estimator.experimental.InMemoryEvaluatorHook`
 
 
 <!-- Placeholder for "Used in" -->
@@ -90,7 +84,7 @@ Initializes a `InMemoryEvaluatorHook`.
 * <b>`estimator`</b>: A <a href="../../../tf/estimator/Estimator"><code>tf.estimator.Estimator</code></a> instance to call evaluate.
 * <b>`input_fn`</b>:  Equivalent to the `input_fn` arg to `estimator.evaluate`. A
   function that constructs the input data for evaluation.
-  See [Creating input functions](
+  See [Createing input functions](
   https://tensorflow.org/guide/premade_estimators#create_input_functions)
   for more information. The function should construct and return one of
   the following:
@@ -157,7 +151,7 @@ Runs evaluator.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/session_run_hook.py#L129-L150">View source</a>
 
 ``` python
 before_run(run_context)

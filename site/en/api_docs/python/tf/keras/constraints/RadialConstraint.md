@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/constraints/RadialConstraint">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L176-L249">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L176-L249">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/constraints/RadialConstraint"><code>tf.compat.v1.keras.constraints.RadialConstraint</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/RadialConstraint"><code>tf.compat.v1.keras.constraints.radial_constraint</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/RadialConstraint"><code>tf.compat.v2.keras.constraints.RadialConstraint</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/RadialConstraint"><code>tf.compat.v2.keras.constraints.radial_constraint</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/RadialConstraint"><code>tf.keras.constraints.radial_constraint</code></a>
+* Class `tf.compat.v1.keras.constraints.RadialConstraint`
+* Class `tf.compat.v1.keras.constraints.radial_constraint`
+* Class `tf.compat.v2.keras.constraints.RadialConstraint`
+* Class `tf.compat.v2.keras.constraints.radial_constraint`
+* Class `tf.keras.constraints.radial_constraint`
 
 
 <!-- Placeholder for "Used in" -->
@@ -67,7 +61,7 @@ shape `(rows, cols, input_depth, output_depth)`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L203-L217">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L203-L217">View source</a>
 
 ``` python
 __call__(w)
@@ -78,7 +72,7 @@ Call self as a function.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L40-L41">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L40-L41">View source</a>
 
 ``` python
 get_config()

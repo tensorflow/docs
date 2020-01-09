@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/diag">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1944-L2078">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1955-L2089">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns a batched diagonal tensor with given batched diagonal values.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/diag"><code>tf.compat.v1.linalg.diag</code></a>
-* <a href="/api_docs/python/tf/linalg/diag"><code>tf.compat.v1.matrix_diag</code></a>
-* <a href="/api_docs/python/tf/linalg/diag"><code>tf.compat.v2.linalg.diag</code></a>
-* <a href="/api_docs/python/tf/linalg/diag"><code>tf.matrix_diag</code></a>
+* `tf.compat.v1.linalg.diag`
+* `tf.compat.v1.matrix_diag`
+* `tf.compat.v2.linalg.diag`
 
 
 ``` python

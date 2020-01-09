@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/tuple">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L2947-L3014">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/control_flow_ops.py#L2911-L2944">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,14 +21,14 @@ Group tensors together.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/tuple"><code>tf.compat.v1.tuple</code></a>
+* `tf.compat.v2.tuple`
 
 
 ``` python
 tf.tuple(
     tensors,
-    name=None,
-    control_inputs=None
+    control_inputs=None,
+    name=None
 )
 ```
 
@@ -61,8 +55,8 @@ See also <a href="../tf/group"><code>tf.group</code></a> and
 
 
 * <b>`tensors`</b>: A list of `Tensor`s or `IndexedSlices`, some entries can be `None`.
-* <b>`name`</b>: (optional) A name to use as a `name_scope` for the operation.
 * <b>`control_inputs`</b>: List of additional ops to finish before returning.
+* <b>`name`</b>: (optional) A name to use as a `name_scope` for the operation.
 
 
 #### Returns:

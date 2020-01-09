@@ -47,8 +47,6 @@
 <html devsite>
   <head>
     <title>Session.Runner</title>
-    <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
-    <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
     <link rel="stylesheet" href="/api_docs/java/reference/screen.css">
   </head>
 
@@ -98,12 +96,11 @@
     <div class="jd-descr">
     
     
-    <p>Run <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s and evaluate <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.
+    <p>Run <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code>s and evaluate <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
 
  <p>A Runner runs the necessary graph fragments to execute every <code><a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a></code> required to
- evaluate the <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code> to fetch. The <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code> call allows
- callers to override the value of <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code> in the graph by substituting the
- provided <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code> for the outputs of the operations provided to <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code>.
+ evaluate the <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s to fetch. The <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code> call allows callers
+ to override the value of <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s in the graph by substituting the provided <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s for the outputs of the operations provided to <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#feed(java.lang.String, int, org.tensorflow.Tensor<?>)">feed(String, int, Tensor)</a></code>.
 </p>
     
     
@@ -209,7 +206,7 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#addTarget(java.lang.String)">addTarget</a></span>(String operation)
                 
-                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.</div>
+                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</div>
                 
               </div>
           </td>
@@ -230,7 +227,7 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#addTarget(org.tensorflow.Operand<?>)">addTarget</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operand.html">Operand</a>&lt;?&gt; operand)
                 
-                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.</div>
+                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</div>
                 
               </div>
           </td>
@@ -251,7 +248,7 @@
               <div class="jd-hang">
                 <span class="sympad"><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#addTarget(org.tensorflow.Operation)">addTarget</a></span>(<a href="/api_docs/java/reference/org/tensorflow/Operation.html">Operation</a> operation)
                 
-                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.</div>
+                  <div class="jd-descrdiv">Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</div>
                 
               </div>
           </td>
@@ -784,7 +781,7 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
 </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -823,7 +820,7 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operand</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.
 </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -862,7 +859,7 @@
           </div>
         <div class="jd-details-descr">
           
-  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Make <code><a href="/api_docs/java/reference/org/tensorflow/Session.Runner.html#run()">run()</a></code> execute <code>operation</code>, but not return any evaluated <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -876,7 +873,7 @@
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">
         <tr>
-            <th>IllegalArgumentException</th>
+            <th></th>
             <td>if the operation is not a <code><a href="/api_docs/java/reference/org/tensorflow/GraphOperation.html">GraphOperation</a></code>
 </td>
         </tr>
@@ -1219,8 +1216,8 @@
           
   <div class="jd-tagdata jd-tagdescr"><p>Execute the graph fragments necessary to compute all requested fetches.
 
- <p><b>WARNING:</b> The caller assumes ownership of all returned <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensors</a></code>, i.e.,
- the caller must call <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#close()">close()</a></code> on all elements of the returned list to free up
+ <p><b>WARNING:</b> The caller assumes ownership of all returned <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html">Tensor</a></code>s, i.e., the
+ caller must call <code><a href="/api_docs/java/reference/org/tensorflow/Tensor.html#close()">close()</a></code> on all elements of the returned list to free up
  resources.
 
  <p>TODO(ashankar): Reconsider the return type here. Two things in particular: (a) Make it

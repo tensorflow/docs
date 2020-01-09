@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/MeanSquaredError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L227-L252">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L232-L257">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,18 @@ Computes the mean of squares of errors between labels and predictions.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/losses/MeanSquaredError"><code>tf.compat.v1.keras.losses.MeanSquaredError</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/MeanSquaredError"><code>tf.compat.v2.keras.losses.MeanSquaredError</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/MeanSquaredError"><code>tf.compat.v2.losses.MeanSquaredError</code></a>
+* Class `tf.compat.v1.keras.losses.MeanSquaredError`
+* Class `tf.compat.v2.keras.losses.MeanSquaredError`
+* Class `tf.compat.v2.losses.MeanSquaredError`
+* Class `tf.losses.MeanSquaredError`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+
 
 `loss = square(y_true - y_pred)`
 
@@ -59,7 +59,7 @@ model.compile('sgd', loss=tf.keras.losses.MeanSquaredError())
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L248-L252">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L253-L257">View source</a>
 
 ``` python
 __init__(
@@ -77,7 +77,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L94-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L96-L128">View source</a>
 
 ``` python
 __call__(
@@ -121,7 +121,7 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L128-L138">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L130-L140">View source</a>
 
 ``` python
 from_config(
@@ -146,7 +146,7 @@ A `Loss` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L218-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L223-L228">View source</a>
 
 ``` python
 get_config()

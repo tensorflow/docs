@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/errors">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -57,14 +51,6 @@ Exception types for TensorFlow errors.
 [`class UnimplementedError`](../tf/errors/UnimplementedError): Raised when an operation has not been implemented.
 
 [`class UnknownError`](../tf/errors/UnknownError): Unknown error.
-
-[`class raise_exception_on_not_ok_status`](../tf/errors/raise_exception_on_not_ok_status): Context manager to check for C API status.
-
-## Functions
-
-[`error_code_from_exception_type(...)`](../tf/errors/error_code_from_exception_type)
-
-[`exception_type_from_error_code(...)`](../tf/errors/exception_type_from_error_code)
 
 ## Other Members
 

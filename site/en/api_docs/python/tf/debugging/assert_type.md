@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_type">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1496-L1524">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1589-L1605">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,13 +17,11 @@ page_type: reference
 
 
 
-Statically asserts that the given `Tensor` is of the specified type.
+Asserts that the given `Tensor` is of the specified type.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_type"><code>tf.assert_type</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_type"><code>tf.compat.v1.assert_type</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_type"><code>tf.compat.v1.debugging.assert_type</code></a>
+* `tf.compat.v2.debugging.assert_type`
 
 
 ``` python
@@ -45,6 +37,7 @@ tf.debugging.assert_type(
 
 <!-- Placeholder for "Used in" -->
 
+This can always be checked statically, so this method returns nothing.
 
 #### Args:
 
@@ -53,15 +46,10 @@ tf.debugging.assert_type(
 * <b>`tf_type`</b>: A tensorflow type (<a href="../../tf/dtypes#float32"><code>dtypes.float32</code></a>, <a href="../../tf#int64"><code>tf.int64</code></a>, <a href="../../tf/dtypes#bool"><code>dtypes.bool</code></a>,
   etc).
 * <b>`message`</b>: A string to prefix to the default message.
-* <b>`name`</b>:  A name to give this `Op`.  Defaults to "assert_type"
+* <b>`name`</b>:  A name for this operation. Defaults to "assert_type"
 
 
 #### Raises:
 
 
-* <b>`TypeError`</b>: If the tensors data type doesn't match `tf_type`.
-
-
-#### Returns:
-
-A `no_op` that does nothing.  Type can be determined statically.
+* <b>`TypeError`</b>: If the tensor's data type doesn't match `tf_type`.

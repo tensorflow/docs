@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/segment_sum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Computes the sum along segments of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/segment_sum"><code>tf.compat.v1.math.segment_sum</code></a>
-* <a href="/api_docs/python/tf/math/segment_sum"><code>tf.compat.v1.segment_sum</code></a>
-* <a href="/api_docs/python/tf/math/segment_sum"><code>tf.compat.v2.math.segment_sum</code></a>
-* <a href="/api_docs/python/tf/math/segment_sum"><code>tf.segment_sum</code></a>
+* `tf.compat.v1.math.segment_sum`
+* `tf.compat.v1.segment_sum`
+* `tf.compat.v2.math.segment_sum`
 
 
 ``` python

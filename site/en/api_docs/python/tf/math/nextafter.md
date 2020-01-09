@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/nextafter">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,8 +17,8 @@ Returns the next representable value of `x1` in the direction of `x2`, element-w
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/nextafter"><code>tf.compat.v1.math.nextafter</code></a>
-* <a href="/api_docs/python/tf/math/nextafter"><code>tf.compat.v2.math.nextafter</code></a>
+* `tf.compat.v1.math.nextafter`
+* `tf.compat.v2.math.nextafter`
 
 
 ``` python

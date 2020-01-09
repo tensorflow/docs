@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/nn/softsign">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_nn_ops.py`
@@ -23,11 +17,11 @@ Computes softsign: `features / (abs(features) + 1)`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v1.math.softsign</code></a>
-* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v1.nn.softsign</code></a>
-* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v2.math.softsign</code></a>
-* <a href="/api_docs/python/tf/nn/softsign"><code>tf.compat.v2.nn.softsign</code></a>
-* <a href="/api_docs/python/tf/nn/softsign"><code>tf.math.softsign</code></a>
+* `tf.compat.v1.math.softsign`
+* `tf.compat.v1.nn.softsign`
+* `tf.compat.v2.math.softsign`
+* `tf.compat.v2.nn.softsign`
+* `tf.math.softsign`
 
 
 ``` python

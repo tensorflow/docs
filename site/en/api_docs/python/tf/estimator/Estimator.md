@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/Estimator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -27,14 +21,23 @@ page_type: reference
 
 Estimator class to train and evaluate TensorFlow models.
 
-
+Inherits From: [`Estimator`](../../tf/compat/v1/estimator/Estimator)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/Estimator"><code>tf.compat.v1.estimator.Estimator</code></a>
+* Class `tf.compat.v2.estimator.Estimator`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [Multi-worker training with Estimator](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_estimator)
+
+
 
 The `Estimator` object wraps a model which is specified by a `model_fn`,
 which, given inputs and a number of other parameters, returns the ops
@@ -148,11 +151,8 @@ For more details on warm-start configuration, see
         Keys are names of parameters, values are basic python types.
 * <b>`warm_start_from`</b>: Optional string filepath to a checkpoint or SavedModel to
                  warm-start from, or a <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>
-                 object to fully configure warm-starting.
-
-                 If None, only TRAINABLE variables are warm-started.
-
-                 If the string filepath is provided instead of a
+                 object to fully configure warm-starting.  If the string
+                 filepath is provided instead of a
                  <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>, then all variables are
                  warm-started, and it is assumed that vocabularies
                  and <a href="../../tf/Tensor"><code>tf.Tensor</code></a> names are unchanged.
@@ -170,6 +170,11 @@ For more details on warm-start configuration, see
 ## Properties
 
 <h3 id="config"><code>config</code></h3>
+
+
+
+
+<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
 
 
@@ -264,7 +269,7 @@ or
   of `model_fn` from inputs.
 * <b>`steps`</b>: Number of steps for which to evaluate model. If `None`, evaluates
   until `input_fn` raises an end-of-input exception.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -325,12 +330,12 @@ Only one of the modes is used for saving variables to the `SavedModel`
 For the variables and `tf.MetaGraphDefs`, a timestamped export directory
 below
 `export_dir_base`, and writes a `SavedModel` into it containing
-the <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> for the given mode and its associated signatures.
+the `tf.MetaGraphDef` for the given mode and its associated signatures.
 
 For prediction, the exported `MetaGraphDef` will provide one `SignatureDef`
 for each element of the `export_outputs` dict returned from the `model_fn`,
 named using the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -405,14 +410,14 @@ this `Estimator`'s `model_fn` to generate the model graph based on those
 features. It restores the given checkpoint (or, lacking that, the most
 recent checkpoint) into this graph in a fresh session.  Finally it creates
 a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
+a `SavedModel` into it containing a single `tf.MetaGraphDef` saved from this
 session.
 
 The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -447,90 +452,6 @@ See `experimental_export_all_saved_models` for full docs.
   the most recent checkpoint found within the model directory is chosen.
 * <b>`experimental_mode`</b>: <a href="../../tf/estimator/ModeKeys"><code>tf.estimator.ModeKeys</code></a> value indicating with mode
   will be exported. Note that this feature is experimental.
-
-
-#### Returns:
-
-The string path to the exported directory.
-
-
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if no `serving_input_receiver_fn` is provided, no
-`export_outputs` are provided, or no checkpoint can be found.
-
-<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
-
-``` python
-export_savedmodel(
-    export_dir_base,
-    serving_input_receiver_fn,
-    assets_extra=None,
-    as_text=False,
-    checkpoint_path=None,
-    strip_default_attrs=False
-)
-```
-
-Exports inference graph as a `SavedModel` into the given dir. (deprecated)
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-This function has been renamed, use `export_saved_model` instead.
-
-For a detailed guide, see
-[Using SavedModel with Estimators](https://tensorflow.org/guide/saved_model#using_savedmodel_with_estimators).
-
-This method builds a new graph by first calling the
-`serving_input_receiver_fn` to obtain feature `Tensor`s, and then calling
-this `Estimator`'s `model_fn` to generate the model graph based on those
-features. It restores the given checkpoint (or, lacking that, the most
-recent checkpoint) into this graph in a fresh session.  Finally it creates
-a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
-session.
-
-The exported `MetaGraphDef` will provide one `SignatureDef` for each
-element of the `export_outputs` dict returned from the `model_fn`, named
-using
-the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
-indicating which
-signature will be served when a serving request does not specify one.
-For each signature, the outputs are provided by the corresponding
-<a href="../../tf/estimator/export/ExportOutput"><code>tf.estimator.export.ExportOutput</code></a>s, and the inputs are always the input
-receivers provided by
-the `serving_input_receiver_fn`.
-
-Extra assets may be written into the `SavedModel` via the `assets_extra`
-argument.  This should be a dict, where each key gives a destination path
-(including the filename) relative to the assets.extra directory.  The
-corresponding value gives the full path of the source file to be copied.
-For example, the simple case of copying a single file without renaming it
-is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
-
-#### Args:
-
-
-* <b>`export_dir_base`</b>: A string containing a directory in which to create
-  timestamped subdirectories containing exported `SavedModel`s.
-* <b>`serving_input_receiver_fn`</b>: A function that takes no argument and returns a
-  <a href="../../tf/estimator/export/ServingInputReceiver"><code>tf.estimator.export.ServingInputReceiver</code></a> or
-  <a href="../../tf/estimator/export/TensorServingInputReceiver"><code>tf.estimator.export.TensorServingInputReceiver</code></a>.
-* <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-  within the exported `SavedModel`, or `None` if no extra assets are
-  needed.
-* <b>`as_text`</b>: whether to write the `SavedModel` proto in text format.
-* <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
-  the most recent checkpoint found within the model directory is chosen.
-* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-  removed from the `NodeDef`s. For a detailed guide, see [Stripping
-  Default-Valued Attributes](
-  https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
 
 
 #### Returns:
@@ -654,7 +575,7 @@ https://github.com/tensorflow/tensorflow/issues/20506#issuecomment-422208517)
   the <a href="../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is a `dict`. If
   `predict_keys` is used then rest of the predictions will be filtered
   from the dictionary. If `None`, returns all.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -713,7 +634,7 @@ Trains a model given training data `input_fn`.
       `Tensor` or a dictionary of string label name to `Tensor`. Both
       `features` and `labels` are consumed by `model_fn`. They should
       satisfy the expectation of `model_fn` from inputs.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train the model. If `None`, train
   forever or train until `input_fn` generates the `tf.errors.OutOfRange`

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L295-L519">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/image.py#L295-L519">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,22 @@ Generate batches of tensor image data with real-time data augmentation.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator"><code>tf.compat.v1.keras.preprocessing.image.ImageDataGenerator</code></a>
-* Class <a href="/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator"><code>tf.compat.v2.keras.preprocessing.image.ImageDataGenerator</code></a>
+* Class `tf.compat.v1.keras.preprocessing.image.ImageDataGenerator`
+* Class `tf.compat.v2.keras.preprocessing.image.ImageDataGenerator`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Basic classification: Predict an image of clothing](https://www.tensorflow.org/tutorials/keras/classification)
+* [Image classification](https://www.tensorflow.org/tutorials/images/classification)
+* [Load images](https://www.tensorflow.org/tutorials/load_data/images)
+* [Transfer learning with TensorFlow Hub](https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub)
+
+
 
  The data will be looped over (in batches).
 
@@ -211,7 +216,7 @@ model.fit_generator(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L466-L519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/image.py#L466-L519">View source</a>
 
 ``` python
 __init__(

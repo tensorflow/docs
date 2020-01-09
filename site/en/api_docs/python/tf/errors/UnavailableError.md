@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/UnavailableError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L460-L471">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L460-L471">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/UnavailableError"><code>tf.compat.v1.errors.UnavailableError</code></a>
-* Class <a href="/api_docs/python/tf/errors/UnavailableError"><code>tf.compat.v2.errors.UnavailableError</code></a>
+* Class `tf.compat.v1.errors.UnavailableError`
+* Class `tf.compat.v2.errors.UnavailableError`
 
 
 <!-- Placeholder for "Used in" -->
@@ -42,7 +36,7 @@ This exception is not currently used.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L468-L471">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L468-L471">View source</a>
 
 ``` python
 __init__(

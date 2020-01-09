@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/conv3d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2449-L2461">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L2430-L2446">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,23 +17,22 @@ page_type: reference
 
 
 
-Computes a 3-D convolution given 5-D `input` and `filter` tensors.
+Computes a 3-D convolution given 5-D `input` and `filters` tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/conv3d"><code>tf.compat.v1.nn.conv3d</code></a>
+* `tf.compat.v2.nn.conv3d`
 
 
 ``` python
 tf.nn.conv3d(
     input,
-    filter=None,
-    strides=None,
-    padding=None,
+    filters,
+    strides,
+    padding,
     data_format='NDHWC',
-    dilations=[1, 1, 1, 1, 1],
-    name=None,
-    filters=None
+    dilations=None,
+    name=None
 )
 ```
 
@@ -58,9 +51,9 @@ Our Conv3D implements a form of cross-correlation.
 
 * <b>`input`</b>: A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `float64`.
   Shape `[batch, in_depth, in_height, in_width, in_channels]`.
-* <b>`filter`</b>: A `Tensor`. Must have the same type as `input`.
+* <b>`filters`</b>: A `Tensor`. Must have the same type as `input`.
   Shape `[filter_depth, filter_height, filter_width, in_channels,
-  out_channels]`. `in_channels` must match between `input` and `filter`.
+  out_channels]`. `in_channels` must match between `input` and `filters`.
 * <b>`strides`</b>: A list of `ints` that has length `>= 5`.
   1-D tensor of length 5. The stride of the sliding window for each
   dimension of `input`. Must have `strides[0] = strides[4] = 1`.

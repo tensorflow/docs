@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nest/is_nested">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L218-L229">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/util/nest.py#L217-L228">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Returns true if its input is a collections.abc.Sequence (except strings).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nest/is_nested"><code>tf.compat.v1.nest.is_nested</code></a>
-* <a href="/api_docs/python/tf/nest/is_nested"><code>tf.compat.v2.nest.is_nested</code></a>
-* <a href="/api_docs/python/tf/nest/is_nested"><code>tf.contrib.framework.nest.is_nested</code></a>
+* `tf.compat.v1.nest.is_nested`
+* `tf.compat.v2.nest.is_nested`
 
 
 ``` python

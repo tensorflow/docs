@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L78-L548">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L78-L536">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/Clust
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.TPUClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.TPUClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver"><code>tf.contrib.cluster_resolver.TPUClusterResolver</code></a>
+* Class `tf.compat.v1.distribute.cluster_resolver.TPUClusterResolver`
+* Class `tf.compat.v2.distribute.cluster_resolver.TPUClusterResolver`
 
 
 <!-- Placeholder for "Used in" -->
@@ -50,7 +43,7 @@ Google internal
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L193-L344">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L193-L331">View source</a>
 
 ``` python
 __init__(
@@ -128,7 +121,7 @@ Returns the current environment which TensorFlow is running in.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L401-L467">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L388-L454">View source</a>
 
 ``` python
 cluster_spec()
@@ -153,7 +146,7 @@ or None.
 
 <h3 id="get_job_name"><code>get_job_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L396-L399">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L383-L386">View source</a>
 
 ``` python
 get_job_name()
@@ -164,7 +157,7 @@ get_job_name()
 
 <h3 id="get_master"><code>get_master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L393-L394">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L380-L381">View source</a>
 
 ``` python
 get_master()
@@ -175,7 +168,7 @@ get_master()
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L346-L391">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L333-L378">View source</a>
 
 ``` python
 master(
@@ -219,7 +212,7 @@ string, the connection string to use when creating a session.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L482-L523">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/tpu_cluster_resolver.py#L470-L511">View source</a>
 
 ``` python
 num_accelerators(

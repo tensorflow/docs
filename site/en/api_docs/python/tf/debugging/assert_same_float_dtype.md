@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_same_float_dtype">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L2015-L2046">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L2127-L2158">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,9 @@ Validate and return float type based on `tensors` and `dtype`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_same_float_dtype"><code>tf.assert_same_float_dtype</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_same_float_dtype"><code>tf.compat.v1.assert_same_float_dtype</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_same_float_dtype"><code>tf.compat.v1.debugging.assert_same_float_dtype</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_same_float_dtype"><code>tf.compat.v2.debugging.assert_same_float_dtype</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_same_float_dtype"><code>tf.contrib.framework.assert_same_float_dtype</code></a>
+* `tf.compat.v1.assert_same_float_dtype`
+* `tf.compat.v1.debugging.assert_same_float_dtype`
+* `tf.compat.v2.debugging.assert_same_float_dtype`
 
 
 ``` python

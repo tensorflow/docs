@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/models/save_model">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/save.py#L46-L112">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/saving/save.py#L46-L115">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Saves a model as a TensorFlow SavedModel or HDF5 file.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/models/save_model"><code>tf.compat.v1.keras.models.save_model</code></a>
-* <a href="/api_docs/python/tf/keras/models/save_model"><code>tf.compat.v2.keras.models.save_model</code></a>
+* `tf.compat.v1.keras.models.save_model`
+* `tf.compat.v2.keras.models.save_model`
 
 
 ``` python
@@ -38,7 +32,8 @@ tf.keras.models.save_model(
     overwrite=True,
     include_optimizer=True,
     save_format=None,
-    signatures=None
+    signatures=None,
+    options=None
 )
 ```
 
@@ -79,6 +74,8 @@ loaded back as a Keras Model object.
 * <b>`signatures`</b>: Signatures to save with the SavedModel. Applicable to the 'tf'
   format only. Please see the `signatures` argument in
   <a href="../../../tf/saved_model/save"><code>tf.saved_model.save</code></a> for details.
+* <b>`options`</b>: Optional <a href="../../../tf/saved_model/SaveOptions"><code>tf.saved_model.SaveOptions</code></a> object that specifies
+  options for saving to SavedModel.
 
 
 #### Raises:

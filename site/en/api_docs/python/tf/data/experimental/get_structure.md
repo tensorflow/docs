@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/get_structure">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2118-L2137">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/ops/dataset_ops.py#L2109-L2128">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns the type specification of an element of a `Dataset` or `Iterator`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/get_structure"><code>tf.compat.v1.data.experimental.get_structure</code></a>
-* <a href="/api_docs/python/tf/data/experimental/get_structure"><code>tf.compat.v2.data.experimental.get_structure</code></a>
+* `tf.compat.v1.data.experimental.get_structure`
+* `tf.compat.v2.data.experimental.get_structure`
 
 
 ``` python
@@ -43,7 +37,7 @@ tf.data.experimental.get_structure(dataset_or_iterator)
 #### Args:
 
 
-* <b>`dataset_or_iterator`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> or <a href="../../../tf/data/Iterator"><code>tf.data.Iterator</code></a>.
+* <b>`dataset_or_iterator`</b>: A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> or `tf.data.Iterator`.
 
 
 #### Returns:

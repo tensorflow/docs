@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/gradients">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradients_impl.py#L43-L158">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/gradients_impl.py#L162-L274">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Constructs symbolic derivatives of sum of `ys` w.r.t. x in `xs`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/gradients"><code>tf.compat.v1.gradients</code></a>
+* `tf.compat.v2.gradients`
 
 
 ``` python
@@ -36,7 +30,6 @@ tf.gradients(
     xs,
     grad_ys=None,
     name='gradients',
-    colocate_gradients_with_ops=False,
     gate_gradients=False,
     aggregation_method=None,
     stop_gradients=None,
@@ -98,7 +91,7 @@ they were included in `stop_gradients`.
 
 `unconnected_gradients` determines the value returned for each x in xs if it
 is unconnected in the graph to ys. By default this is None to safeguard
-against errors. MAthematically these gradients are zero which can be requested
+against errors. Mathematically these gradients are zero which can be requested
 using the `'zero'` option. `tf.UnconnectedGradients` provides the
 following options and behaviors:
 
@@ -122,8 +115,6 @@ sess.run(g2)  # [array([[0., 0.]], dtype=float32)]
   `ys` and holding the gradients computed for each y in `ys`.
 * <b>`name`</b>: Optional name to use for grouping all the gradient ops together.
   defaults to 'gradients'.
-* <b>`colocate_gradients_with_ops`</b>: If True, try colocating gradients with
-  the corresponding op.
 * <b>`gate_gradients`</b>: If True, add a tuple around the gradients returned
   for an operations.  This avoids some race conditions.
 * <b>`aggregation_method`</b>: Specifies the method used to combine gradient terms.

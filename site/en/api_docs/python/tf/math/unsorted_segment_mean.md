@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/unsorted_segment_mean">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3516-L3559">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L3527-L3570">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,10 +22,9 @@ Computes the mean along segments of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/unsorted_segment_mean"><code>tf.compat.v1.math.unsorted_segment_mean</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_mean"><code>tf.compat.v1.unsorted_segment_mean</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_mean"><code>tf.compat.v2.math.unsorted_segment_mean</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_mean"><code>tf.unsorted_segment_mean</code></a>
+* `tf.compat.v1.math.unsorted_segment_mean`
+* `tf.compat.v1.unsorted_segment_mean`
+* `tf.compat.v2.math.unsorted_segment_mean`
 
 
 ``` python
@@ -48,7 +41,7 @@ tf.math.unsorted_segment_mean(
 <!-- Placeholder for "Used in" -->
 
 Read [the section on
-segmentation](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/math#about_segmentation)
+segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
 for an explanation of segments.
 
 This operator is similar to the unsorted segment sum operator found

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/SparseCategoricalAccuracy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L727-L765">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L726-L764">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,26 @@ Calculates how often predictions matches integer labels.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/SparseCategoricalAccuracy"><code>tf.compat.v1.keras.metrics.SparseCategoricalAccuracy</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/SparseCategoricalAccuracy"><code>tf.compat.v2.keras.metrics.SparseCategoricalAccuracy</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/SparseCategoricalAccuracy"><code>tf.compat.v2.metrics.SparseCategoricalAccuracy</code></a>
+* Class `tf.compat.v1.keras.metrics.SparseCategoricalAccuracy`
+* Class `tf.compat.v2.keras.metrics.SparseCategoricalAccuracy`
+* Class `tf.compat.v2.metrics.SparseCategoricalAccuracy`
+* Class `tf.metrics.SparseCategoricalAccuracy`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [Load NumPy data](https://www.tensorflow.org/tutorials/load_data/numpy)
+* [TensorFlow 2.0 quickstart for experts](https://www.tensorflow.org/tutorials/quickstart/advanced)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 For example, if `y_true` is [[2], [1]] and `y_pred` is
 [[0.1, 0.9, 0.8], [0.05, 0.95, 0]] then the categorical accuracy is 1/2 or .5.
@@ -74,7 +82,7 @@ model.compile(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L763-L765">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L762-L764">View source</a>
 
 ``` python
 __init__(
@@ -97,7 +105,7 @@ Creates a `MeanMetricWrapper` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -116,7 +124,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L204-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L203-L209">View source</a>
 
 ``` python
 reset_states()
@@ -129,7 +137,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L362-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L361-L371">View source</a>
 
 ``` python
 result()
@@ -142,7 +150,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L559-L584">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L558-L583">View source</a>
 
 ``` python
 update_state(

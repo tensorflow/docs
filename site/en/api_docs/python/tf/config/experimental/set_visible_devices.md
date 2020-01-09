@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental/set_visible_devices">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L379-L406">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/config.py#L379-L406">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Set the list of visible devices.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental/set_visible_devices"><code>tf.compat.v1.config.experimental.set_visible_devices</code></a>
-* <a href="/api_docs/python/tf/config/experimental/set_visible_devices"><code>tf.compat.v2.config.experimental.set_visible_devices</code></a>
+* `tf.compat.v1.config.experimental.set_visible_devices`
+* `tf.compat.v2.config.experimental.set_visible_devices`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.config.experimental.set_visible_devices(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+
+
 
 Sets the list of PhysicalDevices to be marked as visible to the runtime. Any
 devices that are not marked as visible means TensorFlow will not allocate

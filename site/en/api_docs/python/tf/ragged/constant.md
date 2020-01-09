@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ragged/constant">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_factory_ops.py#L36-L87">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_factory_ops.py#L36-L87">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Constructs a constant RaggedTensor from a nested Python list.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ragged/constant"><code>tf.compat.v1.ragged.constant</code></a>
-* <a href="/api_docs/python/tf/ragged/constant"><code>tf.compat.v2.ragged.constant</code></a>
+* `tf.compat.v1.ragged.constant`
+* `tf.compat.v2.ragged.constant`
 
 
 ``` python
@@ -44,7 +38,11 @@ tf.ragged.constant(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 
 #### Example:

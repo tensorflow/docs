@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/bitwise/bitwise_or">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_bitwise_ops.py`
@@ -23,8 +17,8 @@ Elementwise computes the bitwise OR of `x` and `y`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/bitwise/bitwise_or"><code>tf.compat.v1.bitwise.bitwise_or</code></a>
-* <a href="/api_docs/python/tf/bitwise/bitwise_or"><code>tf.compat.v2.bitwise.bitwise_or</code></a>
+* `tf.compat.v1.bitwise.bitwise_or`
+* `tf.compat.v2.bitwise.bitwise_or`
 
 
 ``` python

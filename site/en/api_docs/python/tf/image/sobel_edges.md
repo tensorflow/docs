@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/sobel_edges">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3496-L3534">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3463-L3501">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a tensor holding Sobel edge maps.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/sobel_edges"><code>tf.compat.v1.image.sobel_edges</code></a>
-* <a href="/api_docs/python/tf/image/sobel_edges"><code>tf.compat.v2.image.sobel_edges</code></a>
+* `tf.compat.v1.image.sobel_edges`
+* `tf.compat.v2.image.sobel_edges`
 
 
 ``` python
@@ -37,7 +31,11 @@ tf.image.sobel_edges(image)
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 
 #### Arguments:

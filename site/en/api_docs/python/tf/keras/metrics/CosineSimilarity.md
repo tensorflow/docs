@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/CosineSimilarity">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1873-L1919">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1872-L1918">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,10 @@ Computes the cosine similarity between the labels and predictions.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/CosineSimilarity"><code>tf.compat.v1.keras.metrics.CosineSimilarity</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/CosineSimilarity"><code>tf.compat.v2.keras.metrics.CosineSimilarity</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/CosineSimilarity"><code>tf.compat.v2.metrics.CosineSimilarity</code></a>
+* Class `tf.compat.v1.keras.metrics.CosineSimilarity`
+* Class `tf.compat.v2.keras.metrics.CosineSimilarity`
+* Class `tf.compat.v2.metrics.CosineSimilarity`
+* Class `tf.metrics.CosineSimilarity`
 
 
 <!-- Placeholder for "Used in" -->
@@ -74,7 +69,7 @@ model.compile(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1909-L1919">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1908-L1918">View source</a>
 
 ``` python
 __init__(
@@ -97,7 +92,7 @@ Creates a `CosineSimilarity` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -116,7 +111,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L204-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L203-L209">View source</a>
 
 ``` python
 reset_states()
@@ -129,7 +124,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L362-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L361-L371">View source</a>
 
 ``` python
 result()
@@ -142,7 +137,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L559-L584">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L558-L583">View source</a>
 
 ``` python
 update_state(

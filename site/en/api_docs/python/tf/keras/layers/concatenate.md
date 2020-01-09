@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/concatenate">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L693-L705">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/merge.py#L693-L705">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Functional interface to the `Concatenate` layer.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/layers/concatenate"><code>tf.compat.v1.keras.layers.concatenate</code></a>
-* <a href="/api_docs/python/tf/keras/layers/concatenate"><code>tf.compat.v2.keras.layers.concatenate</code></a>
+* `tf.compat.v1.keras.layers.concatenate`
+* `tf.compat.v2.keras.layers.concatenate`
 
 
 ``` python
@@ -41,7 +35,16 @@ tf.keras.layers.concatenate(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 
 #### Arguments:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/utils/get_custom_objects">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L107-L125">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/generic_utils.py#L107-L125">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Retrieves a live reference to the global dictionary of custom objects.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/utils/get_custom_objects"><code>tf.compat.v1.keras.utils.get_custom_objects</code></a>
-* <a href="/api_docs/python/tf/keras/utils/get_custom_objects"><code>tf.compat.v2.keras.utils.get_custom_objects</code></a>
+* `tf.compat.v1.keras.utils.get_custom_objects`
+* `tf.compat.v2.keras.utils.get_custom_objects`
 
 
 ``` python

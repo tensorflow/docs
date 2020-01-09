@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sets/size">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sets_impl.py#L34-L58">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sets_impl.py#L34-L58">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,9 @@ Compute number of unique elements along last dimension of `a`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sets/size"><code>tf.compat.v1.sets.set_size</code></a>
-* <a href="/api_docs/python/tf/sets/size"><code>tf.compat.v1.sets.size</code></a>
-* <a href="/api_docs/python/tf/sets/size"><code>tf.compat.v2.sets.size</code></a>
-* <a href="/api_docs/python/tf/sets/size"><code>tf.contrib.metrics.set_size</code></a>
-* <a href="/api_docs/python/tf/sets/size"><code>tf.sets.set_size</code></a>
+* `tf.compat.v1.sets.set_size`
+* `tf.compat.v1.sets.size`
+* `tf.compat.v2.sets.size`
 
 
 ``` python

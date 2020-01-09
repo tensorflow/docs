@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/BatchNormalization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L857-L870">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/normalization_v2.py#L26-L65">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,21 @@ Base class of Batch normalization layer (Ioffe and Szegedy, 2014).
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/BatchNormalization"><code>tf.compat.v1.keras.layers.BatchNormalization</code></a>
+* Class `tf.compat.v2.keras.layers.BatchNormalization`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+### Used in the tutorials:
+
+* [Custom layers](https://www.tensorflow.org/tutorials/customization/custom_layers)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Normalize the activations of the previous layer at each batch,
 i.e. applies a transformation that maintains the mean activation
@@ -139,7 +144,7 @@ Same shape as input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L138-L209">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/normalization.py#L138-L209">View source</a>
 
 ``` python
 __init__(

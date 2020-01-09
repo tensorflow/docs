@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/boolean_mask">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1423-L1507">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1521-L1571">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,15 +21,15 @@ Apply boolean mask to tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/boolean_mask"><code>tf.compat.v1.boolean_mask</code></a>
+* `tf.compat.v2.boolean_mask`
 
 
 ``` python
 tf.boolean_mask(
     tensor,
     mask,
-    name='boolean_mask',
-    axis=None
+    axis=None,
+    name='boolean_mask'
 )
 ```
 
@@ -69,10 +63,10 @@ of `tensor` (rather than flattening them, as <a href="../tf/boolean_mask"><code>
 
 * <b>`tensor`</b>:  N-D tensor.
 * <b>`mask`</b>:  K-D boolean tensor, K <= N and K must be known statically.
-* <b>`name`</b>:  A name for this operation (optional).
 * <b>`axis`</b>:  A 0-D int Tensor representing the axis in `tensor` to mask from. By
   default, axis is 0 which will mask from the first dimension. Otherwise K +
   axis <= N.
+* <b>`name`</b>:  A name for this operation (optional).
 
 
 #### Returns:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/to_indicator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1501-L1563">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L1485-L1547">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Converts a `SparseTensor` of ids into a dense bool indicator tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v1.sparse.to_indicator</code></a>
-* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v1.sparse_to_indicator</code></a>
-* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.compat.v2.sparse.to_indicator</code></a>
-* <a href="/api_docs/python/tf/sparse/to_indicator"><code>tf.sparse_to_indicator</code></a>
+* `tf.compat.v1.sparse.to_indicator`
+* `tf.compat.v1.sparse_to_indicator`
+* `tf.compat.v2.sparse.to_indicator`
 
 
 ``` python

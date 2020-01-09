@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lookup/KeyValueTensorInitializer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L415-L473">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L415-L473">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,12 @@ page_type: reference
 
 Table initializers given `keys` and `values` tensors.
 
-Inherits From: [`TableInitializerBase`](../../tf/contrib/lookup/TableInitializerBase)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lookup/KeyValueTensorInitializer"><code>tf.compat.v1.lookup.KeyValueTensorInitializer</code></a>
-* Class <a href="/api_docs/python/tf/lookup/KeyValueTensorInitializer"><code>tf.compat.v2.lookup.KeyValueTensorInitializer</code></a>
-* Class <a href="/api_docs/python/tf/lookup/KeyValueTensorInitializer"><code>tf.contrib.lookup.KeyValueTensorInitializer</code></a>
+* Class `tf.compat.v1.lookup.KeyValueTensorInitializer`
+* Class `tf.compat.v2.lookup.KeyValueTensorInitializer`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +34,7 @@ Inherits From: [`TableInitializerBase`](../../tf/contrib/lookup/TableInitializer
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L418-L446">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L418-L446">View source</a>
 
 ``` python
 __init__(
@@ -85,7 +78,7 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L448-L473">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L448-L473">View source</a>
 
 ``` python
 initialize(table)

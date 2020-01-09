@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/experimental">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,7 +15,7 @@ Public API for tf.estimator.experimental namespace.
 
 ### Aliases:
 
-* Module <a href="/api_docs/python/tf/estimator/experimental"><code>tf.compat.v1.estimator.experimental</code></a>
+* Module `tf.compat.v2.estimator.experimental`
 
 
 <!-- Placeholder for "Used in" -->
@@ -31,19 +25,17 @@ Public API for tf.estimator.experimental namespace.
 
 [`class InMemoryEvaluatorHook`](../../tf/estimator/experimental/InMemoryEvaluatorHook): Hook to run evaluation in training without a checkpoint.
 
-[`class KMeans`](../../tf/estimator/experimental/KMeans): An Estimator for K-Means clustering.
-
 [`class LinearSDCA`](../../tf/estimator/experimental/LinearSDCA): Stochastic Dual Coordinate Ascent helper for linear estimators.
+
+[`class RNNClassifier`](../../tf/estimator/experimental/RNNClassifier): A classifier for TensorFlow RNN models.
+
+[`class RNNEstimator`](../../tf/estimator/experimental/RNNEstimator): An Estimator for TensorFlow RNN models with user-specified head.
 
 ## Functions
 
-[`build_raw_supervised_input_receiver_fn(...)`](../../tf/contrib/estimator/build_raw_supervised_input_receiver_fn): Build a supervised_input_receiver_fn for raw features and labels.
+[`build_raw_supervised_input_receiver_fn(...)`](../../tf/estimator/experimental/build_raw_supervised_input_receiver_fn): Build a supervised_input_receiver_fn for raw features and labels.
 
 [`call_logit_fn(...)`](../../tf/estimator/experimental/call_logit_fn): Calls logit_fn (experimental).
-
-[`dnn_logit_fn_builder(...)`](../../tf/contrib/estimator/dnn_logit_fn_builder): Function builder for a dnn logit_fn.
-
-[`linear_logit_fn_builder(...)`](../../tf/contrib/estimator/linear_logit_fn_builder): Function builder for a linear logit_fn.
 
 [`make_early_stopping_hook(...)`](../../tf/estimator/experimental/make_early_stopping_hook): Creates early-stopping hook.
 

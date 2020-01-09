@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/frame">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/shape_ops.py#L55-L191">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/shape_ops.py#L55-L191">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Expands `signal`'s `axis` dimension into frames of `frame_length`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/frame"><code>tf.compat.v1.signal.frame</code></a>
-* <a href="/api_docs/python/tf/signal/frame"><code>tf.compat.v2.signal.frame</code></a>
-* <a href="/api_docs/python/tf/signal/frame"><code>tf.contrib.signal.frame</code></a>
+* `tf.compat.v1.signal.frame`
+* `tf.compat.v2.signal.frame`
 
 
 ``` python

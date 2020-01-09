@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/test/TestCase/failureException">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -25,8 +19,8 @@ Assertion failed.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/test/TestCase/failureException"><code>tf.compat.v1.test.TestCase.failureException</code></a>
-* Class <a href="/api_docs/python/tf/test/TestCase/failureException"><code>tf.compat.v2.test.TestCase.failureException</code></a>
+* Class `tf.compat.v1.test.TestCase.failureException`
+* Class `tf.compat.v2.test.TestCase.failureException`
 
 
 <!-- Placeholder for "Used in" -->

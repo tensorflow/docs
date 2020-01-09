@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/autograph">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -29,7 +23,7 @@ For more information, see the
 
 By equivalent graph code we mean code that generates a TensorFlow graph when
 run. The generated graph has the same effects as the original code when executed
-(for example with <a href="../tf/function"><code>tf.function</code></a> or <a href="../tf/Session#run"><code>tf.compat.v1.Session.run</code></a>). In other words,
+(for example with <a href="../tf/function"><code>tf.function</code></a> or <a href="../tf/compat/v1/Session#run"><code>tf.compat.v1.Session.run</code></a>). In other words,
 using AutoGraph can be thought of as running Python in TensorFlow.
 
 ## Modules

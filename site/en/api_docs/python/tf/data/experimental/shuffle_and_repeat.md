@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/shuffle_and_repeat">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/shuffle_ops.py#L54-L92">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/shuffle_ops.py#L54-L92">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Shuffles and repeats a Dataset returning a new permutation for each epoch. (depr
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/shuffle_and_repeat"><code>tf.compat.v1.data.experimental.shuffle_and_repeat</code></a>
-* <a href="/api_docs/python/tf/data/experimental/shuffle_and_repeat"><code>tf.compat.v2.data.experimental.shuffle_and_repeat</code></a>
+* `tf.compat.v1.data.experimental.shuffle_and_repeat`
+* `tf.compat.v2.data.experimental.shuffle_and_repeat`
 
 
 ``` python
@@ -68,7 +62,7 @@ this implementation.
   indefinitely.
 * <b>`seed`</b>: (Optional.) A <a href="../../../tf#int64"><code>tf.int64</code></a> scalar <a href="../../../tf/Tensor"><code>tf.Tensor</code></a>, representing the
   random seed that will be used to create the distribution. See
-  <a href="../../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
+  <a href="../../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
 
 
 #### Returns:

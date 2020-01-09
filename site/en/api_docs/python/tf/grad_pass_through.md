@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/grad_pass_through">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/custom_gradient.py#L411-L461">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/custom_gradient.py#L408-L458">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a grad-pass-through op with the forward behavior provided in f.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/grad_pass_through"><code>tf.compat.v1.grad_pass_through</code></a>
-* <a href="/api_docs/python/tf/grad_pass_through"><code>tf.compat.v2.grad_pass_through</code></a>
+* `tf.compat.v1.grad_pass_through`
+* `tf.compat.v2.grad_pass_through`
 
 
 ``` python

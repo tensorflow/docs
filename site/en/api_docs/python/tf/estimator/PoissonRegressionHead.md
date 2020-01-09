@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/PoissonRegressionHead">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/head/regression_head.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ Inherits From: [`RegressionHead`](../../tf/estimator/RegressionHead)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/PoissonRegressionHead"><code>tf.compat.v1.estimator.PoissonRegressionHead</code></a>
-* Class <a href="/api_docs/python/tf/estimator/PoissonRegressionHead"><code>tf.compat.v2.estimator.PoissonRegressionHead</code></a>
+* Class `tf.compat.v1.estimator.PoissonRegressionHead`
+* Class `tf.compat.v2.estimator.PoissonRegressionHead`
 
 
 <!-- Placeholder for "Used in" -->
@@ -92,7 +86,7 @@ my_estimator = tf.estimator.Estimator(model_fn=_my_model_fn)
 * <b>`label_dimension`</b>: Number of regression labels per example. This is the size
   of the last dimension of the labels `Tensor` (typically, this has shape
   `[batch_size, label_dimension]`).
-* <b>`loss_reduction`</b>: One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Decides how to
+* <b>`loss_reduction`</b>: One of <a href="../../tf/keras/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Decides how to
   reduce training loss over batch and label dimension. Defaults to
   `SUM_OVER_BATCH_SIZE`, namely weighted sum of losses divided by
   `batch size * label_dimension`.
@@ -180,7 +174,7 @@ It is recommended to pass all args via name.
 * <b>`trainable_variables`</b>: A list or tuple of `Variable` objects to update to
   minimize `loss`. In Tensorflow 1.x, by default these are the list of
   variables collected in the graph under the key
-  <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. As Tensorflow 2.x doesn't have
+  `GraphKeys.TRAINABLE_VARIABLES`. As Tensorflow 2.x doesn't have
   collections and GraphKeys, trainable_variables need to be passed
   explicitly here.
 * <b>`train_op_fn`</b>: Function that takes a scalar loss `Tensor` and returns an op

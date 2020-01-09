@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/app">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -22,6 +16,10 @@ Generic entry point script.
 <!-- Placeholder for "Used in" -->
 
 
+## Modules
+
+[`flags`](../../../tf/compat/v1/flags) module: Import router for absl.flags. See https://github.com/abseil/abseil-py.
+
 ## Functions
 
-[`run(...)`](../../../tf/app/run): Runs the program with an optional 'main' function and 'argv' list.
+[`run(...)`](../../../tf/compat/v1/app/run): Runs the program with an optional 'main' function and 'argv' list.

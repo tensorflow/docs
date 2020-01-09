@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/autograph/trace">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/utils/ag_logging.py#L91-L111">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/autograph/utils/ag_logging.py#L91-L111">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Traces argument information at compilation time.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/autograph/trace"><code>tf.compat.v1.autograph.trace</code></a>
-* <a href="/api_docs/python/tf/autograph/trace"><code>tf.compat.v2.autograph.trace</code></a>
+* `tf.compat.v1.autograph.trace`
+* `tf.compat.v2.autograph.trace`
 
 
 ``` python

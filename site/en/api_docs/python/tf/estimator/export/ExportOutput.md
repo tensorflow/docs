@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/export/ExportOutput">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/model_utils/export_output.py#L32-L99">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/model_utils/export_output.py#L32-L99">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Represents an output of a model that can be served.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/export/ExportOutput"><code>tf.compat.v1.estimator.export.ExportOutput</code></a>
-* Class <a href="/api_docs/python/tf/estimator/export/ExportOutput"><code>tf.compat.v2.estimator.export.ExportOutput</code></a>
+* Class `tf.compat.v1.estimator.export.ExportOutput`
+* Class `tf.compat.v2.estimator.export.ExportOutput`
 
 
 <!-- Placeholder for "Used in" -->
@@ -43,7 +37,7 @@ These typically correspond to model heads.
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/model_utils/export_output.py#L42-L53">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/model_utils/export_output.py#L42-L53">View source</a>
 
 ``` python
 as_signature_def(receiver_tensors)

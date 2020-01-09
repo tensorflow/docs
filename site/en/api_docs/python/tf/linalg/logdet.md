@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/logdet">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg/linalg_impl.py#L67-L98">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/linalg/linalg_impl.py#L64-L95">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Computes log of the determinant of a hermitian positive definite matrix.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/logdet"><code>tf.compat.v1.linalg.logdet</code></a>
-* <a href="/api_docs/python/tf/linalg/logdet"><code>tf.compat.v2.linalg.logdet</code></a>
+* `tf.compat.v1.linalg.logdet`
+* `tf.compat.v2.linalg.logdet`
 
 
 ``` python

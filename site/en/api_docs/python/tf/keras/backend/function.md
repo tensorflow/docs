@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/function">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L3648-L3678">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L3752-L3782">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Instantiates a Keras function.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/function"><code>tf.compat.v1.keras.backend.function</code></a>
-* <a href="/api_docs/python/tf/keras/backend/function"><code>tf.compat.v2.keras.backend.function</code></a>
+* `tf.compat.v1.keras.backend.function`
+* `tf.compat.v2.keras.backend.function`
 
 
 ``` python
@@ -53,7 +47,7 @@ tf.keras.backend.function(
 * <b>`outputs`</b>: List of output tensors.
 * <b>`updates`</b>: List of update ops.
 * <b>`name`</b>: String, name of function.
-* <b>`**kwargs`</b>: Passed to <a href="../../../tf/Session#run"><code>tf.Session.run</code></a>.
+* <b>`**kwargs`</b>: Passed to `tf.Session.run`.
 
 
 #### Returns:

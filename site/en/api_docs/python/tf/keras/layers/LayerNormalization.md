@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/LayerNormalization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L874-L1046">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/normalization.py#L874-L1046">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,15 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/LayerNormalization"><code>tf.compat.v1.keras.layers.LayerNormalization</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/LayerNormalization"><code>tf.compat.v2.keras.layers.LayerNormalization</code></a>
+* Class `tf.compat.v1.keras.layers.LayerNormalization`
+* Class `tf.compat.v2.keras.layers.LayerNormalization`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Normalize the activations of the previous layer for each given example in a
 batch independently, rather than across a batch like Batch Normalization.
@@ -85,7 +83,7 @@ Same shape as input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/normalization.py#L913-L947">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/normalization.py#L913-L947">View source</a>
 
 ``` python
 __init__(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/identity">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L176-L207">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L176-L218">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Return a tensor with the same shape and contents as input.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/identity"><code>tf.compat.v1.identity</code></a>
-* <a href="/api_docs/python/tf/identity"><code>tf.compat.v2.identity</code></a>
+* `tf.compat.v1.identity`
+* `tf.compat.v2.identity`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.identity(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+
+
 
 
 #### For example:

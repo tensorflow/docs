@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/separable_conv2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L883-L981">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L992-L1056">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/separable_conv2d"><code>tf.compat.v1.nn.separable_conv2d</code></a>
+* `tf.compat.v2.nn.separable_conv2d`
 
 
 ``` python
@@ -37,10 +31,9 @@ tf.nn.separable_conv2d(
     pointwise_filter,
     strides,
     padding,
-    rate=None,
-    name=None,
     data_format=None,
-    dilations=None
+    dilations=None,
+    name=None
 )
 ```
 
@@ -72,22 +65,21 @@ to 1.
 
 
 * <b>`input`</b>: 4-D `Tensor` with shape according to `data_format`.
-* <b>`depthwise_filter`</b>: 4-D `Tensor` with shape
-  `[filter_height, filter_width, in_channels, channel_multiplier]`.
-  Contains `in_channels` convolutional filters of depth 1.
-* <b>`pointwise_filter`</b>: 4-D `Tensor` with shape
-  `[1, 1, channel_multiplier * in_channels, out_channels]`.  Pointwise
-  filter to mix channels after `depthwise_filter` has convolved spatially.
-* <b>`strides`</b>: 1-D of size 4.  The strides for the depthwise convolution for
-  each dimension of `input`.
-* <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`.  The padding algorithm.
-  See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
-* <b>`rate`</b>: 1-D of size 2. The dilation rate in which we sample input values
+* <b>`depthwise_filter`</b>: 4-D `Tensor` with shape `[filter_height, filter_width,
+  in_channels, channel_multiplier]`. Contains `in_channels` convolutional
+  filters of depth 1.
+* <b>`pointwise_filter`</b>: 4-D `Tensor` with shape `[1, 1, channel_multiplier *
+  in_channels, out_channels]`.  Pointwise filter to mix channels after
+  `depthwise_filter` has convolved spatially.
+* <b>`strides`</b>: 1-D of size 4.  The strides for the depthwise convolution for each
+  dimension of `input`.
+* <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`.  The padding algorithm. See
+  the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
+* <b>`data_format`</b>: The data format for input. Either "NHWC" (default) or "NCHW".
+* <b>`dilations`</b>: 1-D of size 2. The dilation rate in which we sample input values
   across the `height` and `width` dimensions in atrous convolution. If it is
   greater than 1, then all values of strides must be 1.
 * <b>`name`</b>: A name for this operation (optional).
-* <b>`data_format`</b>: The data format for input. Either "NHWC" (default) or "NCHW".
-* <b>`dilations`</b>: Alias of rate.
 
 
 #### Returns:

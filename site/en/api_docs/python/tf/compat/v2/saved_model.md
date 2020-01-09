@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/saved_model">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -22,11 +16,17 @@ Public API for tf.saved_model namespace.
 <!-- Placeholder for "Used in" -->
 
 
+## Classes
+
+[`class Asset`](../../../tf/saved_model/Asset): Represents a file asset to hermetically include in a SavedModel.
+
+[`class SaveOptions`](../../../tf/saved_model/SaveOptions): Options for saving to SavedModel.
+
 ## Functions
 
-[`contains_saved_model(...)`](../../../tf/compat/v2/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
+[`contains_saved_model(...)`](../../../tf/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
 
-[`load(...)`](../../../tf/saved_model/load_v2): Load a SavedModel from `export_dir`.
+[`load(...)`](../../../tf/saved_model/load): Load a SavedModel from `export_dir`.
 
 [`save(...)`](../../../tf/saved_model/save): Exports the Trackable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).
 

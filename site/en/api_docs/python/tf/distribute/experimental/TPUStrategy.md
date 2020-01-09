@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/experimental/TPUStrategy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/tpu_strategy.py#L115-L150">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/tpu_strategy.py#L85-L111">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,7 @@ Inherits From: [`Strategy`](../../../tf/distribute/Strategy)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/experimental/TPUStrategy"><code>tf.compat.v1.distribute.experimental.TPUStrategy</code></a>
-* Class <a href="/api_docs/python/tf/distribute/experimental/TPUStrategy"><code>tf.contrib.distribute.TPUStrategy</code></a>
+* Class `tf.compat.v2.distribute.experimental.TPUStrategy`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,12 +33,11 @@ Inherits From: [`Strategy`](../../../tf/distribute/Strategy)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/tpu_strategy.py#L118-L137">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/tpu_strategy.py#L88-L101">View source</a>
 
 ``` python
 __init__(
     tpu_cluster_resolver=None,
-    steps_per_run=None,
     device_assignment=None
 )
 ```
@@ -58,11 +50,6 @@ Initializes the TPUStrategy object.
 
 * <b>`tpu_cluster_resolver`</b>: A tf.distribute.cluster_resolver.TPUClusterResolver,
     which provides information about the TPU cluster.
-* <b>`steps_per_run`</b>: Number of steps to run on device before returning to the
-    host. Note that this can have side-effects on performance, hooks,
-    metrics, summaries etc.
-    This parameter is only used when Distribution Strategy is used with
-    estimator or keras.
 * <b>`device_assignment`</b>: Optional <a href="../../../tf/tpu/experimental/DeviceAssignment"><code>tf.tpu.experimental.DeviceAssignment</code></a> to
     specify the placement of replicas on the TPU cluster. Currently only
     supports the usecase of using a single core within a TPU cluster.
@@ -81,18 +68,13 @@ Initializes the TPUStrategy object.
 Returns number of replicas over which gradients are aggregated.
 
 
-<h3 id="steps_per_run"><code>steps_per_run</code></h3>
-
-DEPRECATED: use .extended.steps_per_run instead.
-
-
 
 
 ## Methods
 
 <h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L614-L678">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L610-L674">View source</a>
 
 ``` python
 experimental_distribute_dataset(dataset)
@@ -168,7 +150,7 @@ it produces "per-replica" values.
 
 <h3 id="experimental_distribute_datasets_from_function"><code>experimental_distribute_datasets_from_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L680-L728">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L676-L724">View source</a>
 
 ``` python
 experimental_distribute_datasets_from_function(dataset_fn)
@@ -227,7 +209,7 @@ it produces "per-replica" values.
 
 <h3 id="experimental_local_results"><code>experimental_local_results</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L887-L904">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L878-L895">View source</a>
 
 ``` python
 experimental_local_results(value)
@@ -256,23 +238,19 @@ value, this returns `(value,).`
 
 <h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1052-L1081">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L575-L601">View source</a>
 
 ``` python
-experimental_make_numpy_dataset(
-    numpy_input,
-    session=None
-)
+experimental_make_numpy_dataset(numpy_input)
 ```
 
-Makes a tf.data.Dataset for input provided via a numpy array.
+Makes a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> for input provided via a numpy array.
 
 This avoids adding `numpy_input` as a large constant in the graph,
 and copies the data to the machine or machines that will be processing
 the input.
 
-Note that you will likely need to use
-tf.distribute.Strategy.experimental_distribute_dataset
+Note that you will likely need to use `experimental_distribute_dataset`
 with the returned dataset to further distribute it with the strategy.
 
 #### Example:
@@ -290,8 +268,6 @@ dist_dataset = strategy.experimental_distribute_dataset(dataset)
 * <b>`numpy_input`</b>: A nest of NumPy input arrays that will be converted into a
 dataset. Note that lists of Numpy arrays are stacked, as that is normal
 <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
-* <b>`session`</b>: (TensorFlow v1.x graph execution only) A session used for
-  initialization.
 
 
 #### Returns:
@@ -299,56 +275,9 @@ dataset. Note that lists of Numpy arrays are stacked, as that is normal
 A <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> representing `numpy_input`.
 
 
-<h3 id="experimental_run"><code>experimental_run</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1083-L1116">View source</a>
-
-``` python
-experimental_run(
-    fn,
-    input_iterator=None
-)
-```
-
-Runs ops in `fn` on each replica, with inputs from `input_iterator`.
-
-DEPRECATED: This method is not available in TF 2.x. Please switch
-to using `experimental_run_v2` instead.
-
-When eager execution is enabled, executes ops specified by `fn` on each
-replica. Otherwise, builds a graph to execute the ops on each replica.
-
-Each replica will take a single, different input from the inputs provided by
-one `get_next` call on the input iterator.
-
-`fn` may call <a href="../../../tf/distribute/get_replica_context"><code>tf.distribute.get_replica_context()</code></a> to access members such
-as `replica_id_in_sync_group`.
-
-IMPORTANT: Depending on the <a href="../../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a> implementation being
-used, and whether eager execution is enabled, `fn` may be called one or more
-times (once for each replica).
-
-#### Args:
-
-
-* <b>`fn`</b>: The function to run. The inputs to the function must match the outputs
-  of `input_iterator.get_next()`. The output must be a <a href="../../../tf/nest"><code>tf.nest</code></a> of
-  `Tensor`s.
-* <b>`input_iterator`</b>: (Optional) input iterator from which the inputs are taken.
-
-
-#### Returns:
-
-Merged return value of `fn` across replicas. The structure of the return
-value is the same as the return value from `fn`. Each element in the
-structure can either be `PerReplica` (if the values are unsynchronized),
-`Mirrored` (if the values are kept in sync), or `Tensor` (if running on a
-single replica).
-
-
 <h3 id="experimental_run_v2"><code>experimental_run_v2</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/tpu_strategy.py#L147-L150">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/tpu_strategy.py#L106-L111">View source</a>
 
 ``` python
 experimental_run_v2(
@@ -361,103 +290,15 @@ experimental_run_v2(
 See base class.
 
 
-<h3 id="make_dataset_iterator"><code>make_dataset_iterator</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L984-L1008">View source</a>
-
-``` python
-make_dataset_iterator(dataset)
-```
-
-Makes an iterator for input provided via `dataset`.
-
-DEPRECATED: This method is not available in TF 2.x.
-
-Data from the given dataset will be distributed evenly across all the
-compute replicas. We will assume that the input dataset is batched by the
-global batch size. With this assumption, we will make a best effort to
-divide each batch across all the replicas (one or more workers).
-If this effort fails, an error will be thrown, and the user should instead
-use `make_input_fn_iterator` which provides more control to the user, and
-does not try to divide a batch across replicas.
-
-The user could also use `make_input_fn_iterator` if they want to
-customize which input is fed to which replica/worker etc.
-
-#### Args:
-
-
-* <b>`dataset`</b>: <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> that will be distributed evenly across all
-  replicas.
-
-
-#### Returns:
-
-An `tf.distribute.InputIterator` which returns inputs for each step of the
-computation.  User should call `initialize` on the returned iterator.
-
-
-<h3 id="make_input_fn_iterator"><code>make_input_fn_iterator</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1010-L1050">View source</a>
-
-``` python
-make_input_fn_iterator(
-    input_fn,
-    replication_mode=tf.distribute.InputReplicationMode.PER_WORKER
-)
-```
-
-Returns an iterator split across replicas created from an input function.
-
-DEPRECATED: This method is not available in TF 2.x.
-
-The `input_fn` should take an <a href="../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> object where
-information about batching and input sharding can be accessed:
-
-```
-def input_fn(input_context):
-  batch_size = input_context.get_per_replica_batch_size(global_batch_size)
-  d = tf.data.Dataset.from_tensors([[1.]]).repeat().batch(batch_size)
-  return d.shard(input_context.num_input_pipelines,
-                 input_context.input_pipeline_id)
-with strategy.scope():
-  iterator = strategy.make_input_fn_iterator(input_fn)
-  replica_results = strategy.experimental_run(replica_fn, iterator)
-```
-
-The <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> returned by `input_fn` should have a per-replica
-batch size, which may be computed using
-`input_context.get_per_replica_batch_size`.
-
-#### Args:
-
-
-* <b>`input_fn`</b>: A function taking a <a href="../../../tf/distribute/InputContext"><code>tf.distribute.InputContext</code></a> object and
-  returning a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
-* <b>`replication_mode`</b>: an enum value of <a href="../../../tf/distribute/InputReplicationMode"><code>tf.distribute.InputReplicationMode</code></a>.
-  Only `PER_WORKER` is supported currently, which means there will be
-  a single call to `input_fn` per worker. Replicas will dequeue from the
-  local <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> on their worker.
-
-
-#### Returns:
-
-An iterator object that should first be `.initialize()`-ed. It may then
-either be passed to `strategy.experimental_run()` or you can
-`iterator.get_next()` to get the next value to pass to
-`strategy.extended.call_for_each_replica()`.
-
-
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1118-L1119">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L762-L854">View source</a>
 
 ``` python
 reduce(
     reduce_op,
     value,
-    axis=None
+    axis
 )
 ```
 
@@ -505,7 +346,7 @@ A `Tensor`.
 
 <h3 id="scope"><code>scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L545-L555">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L541-L551">View source</a>
 
 ``` python
 scope()
@@ -520,30 +361,3 @@ enter its "cross-replica context".
 #### Returns:
 
 A context manager.
-
-
-<h3 id="update_config_proto"><code>update_config_proto</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1123-L1138">View source</a>
-
-``` python
-update_config_proto(config_proto)
-```
-
-Returns a copy of `config_proto` modified for use with this strategy.
-
-DEPRECATED: This method is not available in TF 2.x.
-
-The updated config has something needed to run a strategy, e.g.
-configuration to run collective ops, or device filters to improve
-distributed training performance.
-
-#### Args:
-
-
-* <b>`config_proto`</b>: a <a href="../../../tf/ConfigProto"><code>tf.ConfigProto</code></a> object.
-
-
-#### Returns:
-
-The updated copy of the `config_proto`.

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_image">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2204-L2317">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L2204-L2317">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ Function for `decode_bmp`, `decode_gif`, `decode_jpeg`, and `decode_png`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v1.image.decode_image</code></a>
-* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v1.io.decode_image</code></a>
-* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v2.image.decode_image</code></a>
-* <a href="/api_docs/python/tf/io/decode_image"><code>tf.compat.v2.io.decode_image</code></a>
-* <a href="/api_docs/python/tf/io/decode_image"><code>tf.image.decode_image</code></a>
+* `tf.compat.v1.image.decode_image`
+* `tf.compat.v1.io.decode_image`
+* `tf.compat.v2.image.decode_image`
+* `tf.compat.v2.io.decode_image`
+* `tf.image.decode_image`
 
 
 ``` python
@@ -46,7 +40,12 @@ tf.io.decode_image(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 Detects whether an image is a BMP, GIF, JPEG, or PNG, and performs the
 appropriate operation to convert the input bytes `string` into a `Tensor`

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Permute">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L480-L534">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L480-L534">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Permute"><code>tf.compat.v1.keras.layers.Permute</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Permute"><code>tf.compat.v2.keras.layers.Permute</code></a>
+* Class `tf.compat.v1.keras.layers.Permute`
+* Class `tf.compat.v2.keras.layers.Permute`
 
 
 <!-- Placeholder for "Used in" -->
@@ -75,7 +69,7 @@ to the specified pattern.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L510-L518">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L510-L518">View source</a>
 
 ``` python
 __init__(

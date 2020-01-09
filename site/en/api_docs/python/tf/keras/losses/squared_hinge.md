@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/squared_hinge">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L824-L840">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L829-L845">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,15 @@ Computes the squared hinge loss between `y_true` and `y_pred`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v1.keras.losses.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v1.keras.metrics.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v2.keras.losses.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v2.keras.metrics.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v2.losses.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.compat.v2.metrics.squared_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/squared_hinge"><code>tf.keras.metrics.squared_hinge</code></a>
+* `tf.compat.v1.keras.losses.squared_hinge`
+* `tf.compat.v1.keras.metrics.squared_hinge`
+* `tf.compat.v2.keras.losses.squared_hinge`
+* `tf.compat.v2.keras.metrics.squared_hinge`
+* `tf.compat.v2.losses.squared_hinge`
+* `tf.compat.v2.metrics.squared_hinge`
+* `tf.keras.metrics.squared_hinge`
+* `tf.losses.squared_hinge`
+* `tf.metrics.squared_hinge`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ones">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2531-L2574">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L2542-L2585">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a tensor with all elements set to 1.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ones"><code>tf.compat.v1.ones</code></a>
-* <a href="/api_docs/python/tf/ones"><code>tf.compat.v2.ones</code></a>
+* `tf.compat.v1.ones`
+* `tf.compat.v2.ones`
 
 
 ``` python
@@ -41,7 +35,18 @@ tf.ones(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 This operation returns a tensor of type `dtype` with shape `shape` and all
 elements set to 1.

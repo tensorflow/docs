@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/reduce_logsumexp">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L2408-L2461">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L2475-L2529">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,33 +17,27 @@ page_type: reference
 
 
 
-Computes log(sum(exp(elements across dimensions of a tensor))). (deprecated arguments)
+Computes log(sum(exp(elements across dimensions of a tensor))).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/reduce_logsumexp"><code>tf.compat.v1.math.reduce_logsumexp</code></a>
-* <a href="/api_docs/python/tf/math/reduce_logsumexp"><code>tf.compat.v1.reduce_logsumexp</code></a>
-* <a href="/api_docs/python/tf/math/reduce_logsumexp"><code>tf.reduce_logsumexp</code></a>
+* `tf.compat.v2.math.reduce_logsumexp`
+* `tf.compat.v2.reduce_logsumexp`
+* `tf.reduce_logsumexp`
 
 
 ``` python
 tf.math.reduce_logsumexp(
     input_tensor,
     axis=None,
-    keepdims=None,
-    name=None,
-    reduction_indices=None,
-    keep_dims=None
+    keepdims=False,
+    name=None
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
-Instructions for updating:
-keep_dims is deprecated, use keepdims instead
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
@@ -85,8 +73,6 @@ tf.reduce_logsumexp(x, [0, 1])  # log(6)
   rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`reduction_indices`</b>: The old (deprecated) name for axis.
-* <b>`keep_dims`</b>: Deprecated alias for `keepdims`.
 
 
 #### Returns:

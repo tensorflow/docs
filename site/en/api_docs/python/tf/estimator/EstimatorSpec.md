@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/EstimatorSpec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/model_fn.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,11 +25,20 @@ Ops and objects returned from a `model_fn` and passed to an `Estimator`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/EstimatorSpec"><code>tf.compat.v1.estimator.EstimatorSpec</code></a>
-* Class <a href="/api_docs/python/tf/estimator/EstimatorSpec"><code>tf.compat.v2.estimator.EstimatorSpec</code></a>
+* Class `tf.compat.v1.estimator.EstimatorSpec`
+* Class `tf.compat.v2.estimator.EstimatorSpec`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [Multi-worker training with Estimator](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_estimator)
+
+
 
 `EstimatorSpec` fully defines the model to be run by an `Estimator`.
 
@@ -136,18 +139,18 @@ def my_model_fn(features, labels, mode):
   Single-headed models only need to specify one entry in this dictionary.
   Multi-headed models should specify one entry for each head, one of
   which must be named using
-  <a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>.
+  `tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`.
   If no entry is provided, a default `PredictOutput` mapping to
   `predictions` will be created.
-* <b>`training_chief_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to
+* <b>`training_chief_hooks`</b>: Iterable of `tf.train.SessionRunHook` objects to
   run on the chief worker during training.
-* <b>`training_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to run
+* <b>`training_hooks`</b>: Iterable of `tf.train.SessionRunHook` objects to run
   on all workers during training.
-* <b>`scaffold`</b>: A <a href="../../tf/train/Scaffold"><code>tf.train.Scaffold</code></a> object that can be used to set
+* <b>`scaffold`</b>: A `tf.train.Scaffold` object that can be used to set
   initialization, saver, and more to be used in training.
-* <b>`evaluation_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to
+* <b>`evaluation_hooks`</b>: Iterable of `tf.train.SessionRunHook` objects to
   run during evaluation.
-* <b>`prediction_hooks`</b>: Iterable of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> objects to
+* <b>`prediction_hooks`</b>: Iterable of `tf.train.SessionRunHook` objects to
   run during predictions.
 
 

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/log_uniform_candidate_sampler">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/candidate_sampling_ops.py#L89-L151">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/candidate_sampling_ops.py#L89-L151">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Samples a set of classes using a log-uniform (Zipfian) base distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/log_uniform_candidate_sampler"><code>tf.compat.v1.nn.log_uniform_candidate_sampler</code></a>
-* <a href="/api_docs/python/tf/random/log_uniform_candidate_sampler"><code>tf.compat.v1.random.log_uniform_candidate_sampler</code></a>
-* <a href="/api_docs/python/tf/random/log_uniform_candidate_sampler"><code>tf.compat.v2.random.log_uniform_candidate_sampler</code></a>
-* <a href="/api_docs/python/tf/random/log_uniform_candidate_sampler"><code>tf.nn.log_uniform_candidate_sampler</code></a>
+* `tf.compat.v1.nn.log_uniform_candidate_sampler`
+* `tf.compat.v1.random.log_uniform_candidate_sampler`
+* `tf.compat.v2.random.log_uniform_candidate_sampler`
 
 
 ``` python

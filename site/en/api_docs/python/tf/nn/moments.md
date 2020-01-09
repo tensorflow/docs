@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/moments">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1171-L1233">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L1244-L1277">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,11 +17,11 @@ page_type: reference
 
 
 
-Calculate the mean and variance of `x`.
+Calculates the mean and variance of `x`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/moments"><code>tf.compat.v1.nn.moments</code></a>
+* `tf.compat.v2.nn.moments`
 
 
 ``` python
@@ -35,9 +29,8 @@ tf.nn.moments(
     x,
     axes,
     shift=None,
-    name=None,
-    keep_dims=None,
-    keepdims=None
+    keepdims=False,
+    name=None
 )
 ```
 
@@ -64,10 +57,9 @@ When using these moments for batch normalization (see
 * <b>`x`</b>: A `Tensor`.
 * <b>`axes`</b>: Array of ints.  Axes along which to compute mean and
   variance.
-* <b>`shift`</b>: Not used in the current implementation
+* <b>`shift`</b>: Not used in the current implementation.
+* <b>`keepdims`</b>: produce moments with the same dimensionality as the input.
 * <b>`name`</b>: Name used to scope the operations that compute the moments.
-* <b>`keep_dims`</b>: produce moments with the same dimensionality as the input.
-* <b>`keepdims`</b>: Alias to keep_dims.
 
 
 #### Returns:

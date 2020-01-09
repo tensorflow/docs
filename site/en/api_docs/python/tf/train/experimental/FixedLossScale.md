@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/experimental/FixedLossScale">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L190-L234">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L190-L234">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`LossScale`](../../../tf/train/experimental/LossScale)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/experimental/FixedLossScale"><code>tf.compat.v1.train.experimental.FixedLossScale</code></a>
-* Class <a href="/api_docs/python/tf/train/experimental/FixedLossScale"><code>tf.compat.v2.train.experimental.FixedLossScale</code></a>
+* Class `tf.compat.v1.train.experimental.FixedLossScale`
+* Class `tf.compat.v2.train.experimental.FixedLossScale`
 
 
 <!-- Placeholder for "Used in" -->
@@ -42,7 +36,7 @@ A given instance of this class always returns the same number when called.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L197-L221">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L197-L221">View source</a>
 
 ``` python
 __init__(loss_scale_value)
@@ -72,7 +66,7 @@ Creates the fixed loss scale.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L223-L224">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L223-L224">View source</a>
 
 ``` python
 __call__()
@@ -83,7 +77,7 @@ Returns the current loss scale as a scalar `float32` tensor.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L179-L182">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L179-L182">View source</a>
 
 ``` python
 from_config(
@@ -97,7 +91,7 @@ Creates the LossScale from its config.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L233-L234">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L233-L234">View source</a>
 
 ``` python
 get_config()
@@ -108,7 +102,7 @@ Returns the config of this loss scale.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/experimental/loss_scale.py#L226-L228">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/experimental/loss_scale.py#L226-L228">View source</a>
 
 ``` python
 update(grads)

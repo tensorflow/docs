@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/transpose">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1772-L1860">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1713-L1780">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,21 +21,26 @@ Transposes `a`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/transpose"><code>tf.compat.v1.transpose</code></a>
+* `tf.compat.v2.transpose`
 
 
 ``` python
 tf.transpose(
     a,
     perm=None,
-    name='transpose',
-    conjugate=False
+    conjugate=False,
+    name='transpose'
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Permutes the dimensions according to `perm`.
 
@@ -97,9 +96,9 @@ tf.transpose(x, perm=[0, 2, 1])  # [[[1,  4],
 
 * <b>`a`</b>: A `Tensor`.
 * <b>`perm`</b>: A permutation of the dimensions of `a`.
-* <b>`name`</b>: A name for the operation (optional).
 * <b>`conjugate`</b>: Optional bool. Setting it to `True` is mathematically equivalent
   to tf.math.conj(tf.transpose(input)).
+* <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:

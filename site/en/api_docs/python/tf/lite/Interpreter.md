@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lite/Interpreter">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L173-L456">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L173-L456">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Interpreter interface for TensorFlow Lite Models.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lite/Interpreter"><code>tf.compat.v1.lite.Interpreter</code></a>
-* Class <a href="/api_docs/python/tf/lite/Interpreter"><code>tf.compat.v2.lite.Interpreter</code></a>
+* Class `tf.compat.v1.lite.Interpreter`
+* Class `tf.compat.v2.lite.Interpreter`
 
 
 <!-- Placeholder for "Used in" -->
@@ -49,7 +43,7 @@ has returned before calling tensor().
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L187-L231">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L187-L231">View source</a>
 
 ``` python
 __init__(
@@ -83,7 +77,7 @@ Constructor.
 
 <h3 id="allocate_tensors"><code>allocate_tensors</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L242-L244">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L242-L244">View source</a>
 
 ``` python
 allocate_tensors()
@@ -94,7 +88,7 @@ allocate_tensors()
 
 <h3 id="get_input_details"><code>get_input_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L322-L330">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L322-L330">View source</a>
 
 ``` python
 get_input_details()
@@ -110,7 +104,7 @@ A list of input details.
 
 <h3 id="get_output_details"><code>get_output_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L365-L373">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L365-L373">View source</a>
 
 ``` python
 get_output_details()
@@ -126,7 +120,7 @@ A list of output details.
 
 <h3 id="get_tensor"><code>get_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L375-L388">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L375-L388">View source</a>
 
 ``` python
 get_tensor(tensor_index)
@@ -151,7 +145,7 @@ a numpy array.
 
 <h3 id="get_tensor_details"><code>get_tensor_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L305-L320">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L305-L320">View source</a>
 
 ``` python
 get_tensor_details()
@@ -169,7 +163,7 @@ A list of dictionaries containing tensor information.
 
 <h3 id="invoke"><code>invoke</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L440-L453">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L440-L453">View source</a>
 
 ``` python
 invoke()
@@ -190,7 +184,7 @@ invoke() call has not finished.
 
 <h3 id="reset_all_variables"><code>reset_all_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L455-L456">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L455-L456">View source</a>
 
 ``` python
 reset_all_variables()
@@ -201,7 +195,7 @@ reset_all_variables()
 
 <h3 id="resize_tensor_input"><code>resize_tensor_input</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L348-L363">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L348-L363">View source</a>
 
 ``` python
 resize_tensor_input(
@@ -228,7 +222,7 @@ Resizes an input tensor.
 
 <h3 id="set_tensor"><code>set_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L332-L346">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L332-L346">View source</a>
 
 ``` python
 set_tensor(
@@ -257,7 +251,7 @@ numpy buffer pointing to the input buffer in the tflite interpreter.
 
 <h3 id="tensor"><code>tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/interpreter.py#L390-L438">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/interpreter.py#L390-L438">View source</a>
 
 ``` python
 tensor(tensor_index)

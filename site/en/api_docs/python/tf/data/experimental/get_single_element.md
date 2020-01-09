@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/get_single_element">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/get_single_element.py#L26-L70">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/get_single_element.py#L26-L70">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns the single element in `dataset` as a nested structure of tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/get_single_element"><code>tf.compat.v1.data.experimental.get_single_element</code></a>
-* <a href="/api_docs/python/tf/data/experimental/get_single_element"><code>tf.compat.v2.data.experimental.get_single_element</code></a>
+* `tf.compat.v1.data.experimental.get_single_element`
+* `tf.compat.v2.data.experimental.get_single_element`
 
 
 ``` python
@@ -41,7 +35,7 @@ tf.data.experimental.get_single_element(dataset)
 
 This function enables you to use a <a href="../../../tf/data/Dataset"><code>tf.data.Dataset</code></a> in a stateless
 "tensor-in tensor-out" expression, without creating a
-<a href="../../../tf/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a>.
+<a href="../../../tf/compat/v1/data/Iterator"><code>tf.compat.v1.data.Iterator</code></a>.
 This can be useful when your preprocessing transformations are expressed
 as a `Dataset`, and you want to use the transformation at serving time.
 For example:

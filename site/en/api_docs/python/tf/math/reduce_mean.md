@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/reduce_mean">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1751-L1812">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1826-L1881">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,25 +21,46 @@ Computes the mean of elements across dimensions of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/reduce_mean"><code>tf.compat.v1.math.reduce_mean</code></a>
-* <a href="/api_docs/python/tf/math/reduce_mean"><code>tf.compat.v1.reduce_mean</code></a>
-* <a href="/api_docs/python/tf/math/reduce_mean"><code>tf.reduce_mean</code></a>
+* `tf.compat.v2.math.reduce_mean`
+* `tf.compat.v2.reduce_mean`
+* `tf.reduce_mean`
 
 
 ``` python
 tf.math.reduce_mean(
     input_tensor,
     axis=None,
-    keepdims=None,
-    name=None,
-    reduction_indices=None,
-    keep_dims=None
+    keepdims=False,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
@@ -75,8 +90,6 @@ tf.reduce_mean(x, 1)  # [1.,  2.]
   rank(input_tensor))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`reduction_indices`</b>: The old (deprecated) name for axis.
-* <b>`keep_dims`</b>: Deprecated alias for `keepdims`.
 
 
 #### Returns:

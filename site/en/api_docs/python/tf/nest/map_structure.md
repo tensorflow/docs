@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nest/map_structure">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L475-L537">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/util/nest.py#L474-L536">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Applies `func` to each entry in `structure` and returns a new structure.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nest/map_structure"><code>tf.compat.v1.nest.map_structure</code></a>
-* <a href="/api_docs/python/tf/nest/map_structure"><code>tf.compat.v2.nest.map_structure</code></a>
-* <a href="/api_docs/python/tf/nest/map_structure"><code>tf.contrib.framework.nest.map_structure</code></a>
+* `tf.compat.v1.nest.map_structure`
+* `tf.compat.v2.nest.map_structure`
 
 
 ``` python

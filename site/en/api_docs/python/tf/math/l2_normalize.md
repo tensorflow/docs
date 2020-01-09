@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/l2_normalize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L591-L616">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L627-L653">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,15 +17,15 @@ page_type: reference
 
 
 
-Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
+Normalizes along dimension `axis` using an L2 norm.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.linalg.l2_normalize</code></a>
-* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.math.l2_normalize</code></a>
-* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.compat.v1.nn.l2_normalize</code></a>
-* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.linalg.l2_normalize</code></a>
-* <a href="/api_docs/python/tf/math/l2_normalize"><code>tf.nn.l2_normalize</code></a>
+* `tf.compat.v2.linalg.l2_normalize`
+* `tf.compat.v2.math.l2_normalize`
+* `tf.compat.v2.nn.l2_normalize`
+* `tf.linalg.l2_normalize`
+* `tf.nn.l2_normalize`
 
 
 ``` python
@@ -39,18 +33,13 @@ tf.math.l2_normalize(
     x,
     axis=None,
     epsilon=1e-12,
-    name=None,
-    dim=None
+    name=None
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(dim)`. They will be removed in a future version.
-Instructions for updating:
-dim is deprecated, use axis instead
 
 For a 1-D tensor with `axis = 0`, computes
 
@@ -68,7 +57,6 @@ dimension `axis`.
 * <b>`epsilon`</b>: A lower bound value for the norm. Will use `sqrt(epsilon)` as the
   divisor if `norm < sqrt(epsilon)`.
 * <b>`name`</b>: A name for this operation (optional).
-* <b>`dim`</b>: Deprecated alias for axis.
 
 
 #### Returns:

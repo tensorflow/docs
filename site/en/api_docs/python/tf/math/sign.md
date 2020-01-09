@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/sign">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Returns an element-wise indication of the sign of a number.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/sign"><code>tf.compat.v1.math.sign</code></a>
-* <a href="/api_docs/python/tf/math/sign"><code>tf.compat.v1.sign</code></a>
-* <a href="/api_docs/python/tf/math/sign"><code>tf.compat.v2.math.sign</code></a>
-* <a href="/api_docs/python/tf/math/sign"><code>tf.compat.v2.sign</code></a>
-* <a href="/api_docs/python/tf/math/sign"><code>tf.sign</code></a>
+* `tf.compat.v1.math.sign`
+* `tf.compat.v1.sign`
+* `tf.compat.v2.math.sign`
+* `tf.compat.v2.sign`
+* `tf.sign`
 
 
 ``` python
@@ -39,7 +33,11 @@ tf.math.sign(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+
+
 
 `y = sign(x) = -1` if `x < 0`; 0 if `x == 0`; 1 if `x > 0`.
 

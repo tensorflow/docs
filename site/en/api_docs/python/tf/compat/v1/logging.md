@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/logging">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,35 +18,35 @@ Logging and Summary Operations.
 
 ## Functions
 
-[`TaskLevelStatusMessage(...)`](../../../tf/logging/TaskLevelStatusMessage)
+[`TaskLevelStatusMessage(...)`](../../../tf/compat/v1/logging/TaskLevelStatusMessage)
 
-[`debug(...)`](../../../tf/logging/debug)
+[`debug(...)`](../../../tf/compat/v1/logging/debug)
 
-[`error(...)`](../../../tf/logging/error)
+[`error(...)`](../../../tf/compat/v1/logging/error)
 
-[`fatal(...)`](../../../tf/logging/fatal)
+[`fatal(...)`](../../../tf/compat/v1/logging/fatal)
 
-[`flush(...)`](../../../tf/logging/flush)
+[`flush(...)`](../../../tf/compat/v1/logging/flush)
 
-[`get_verbosity(...)`](../../../tf/logging/get_verbosity): Return how much logging output will be produced.
+[`get_verbosity(...)`](../../../tf/compat/v1/logging/get_verbosity): Return how much logging output will be produced.
 
-[`info(...)`](../../../tf/logging/info)
+[`info(...)`](../../../tf/compat/v1/logging/info)
 
-[`log(...)`](../../../tf/logging/log)
+[`log(...)`](../../../tf/compat/v1/logging/log)
 
-[`log_every_n(...)`](../../../tf/logging/log_every_n): Log 'msg % args' at level 'level' once per 'n' times.
+[`log_every_n(...)`](../../../tf/compat/v1/logging/log_every_n): Log 'msg % args' at level 'level' once per 'n' times.
 
-[`log_first_n(...)`](../../../tf/logging/log_first_n): Log 'msg % args' at level 'level' only first 'n' times.
+[`log_first_n(...)`](../../../tf/compat/v1/logging/log_first_n): Log 'msg % args' at level 'level' only first 'n' times.
 
-[`log_if(...)`](../../../tf/logging/log_if): Log 'msg % args' at level 'level' only if condition is fulfilled.
+[`log_if(...)`](../../../tf/compat/v1/logging/log_if): Log 'msg % args' at level 'level' only if condition is fulfilled.
 
-[`set_verbosity(...)`](../../../tf/logging/set_verbosity): Sets the threshold for what messages will be logged.
+[`set_verbosity(...)`](../../../tf/compat/v1/logging/set_verbosity): Sets the threshold for what messages will be logged.
 
-[`vlog(...)`](../../../tf/logging/vlog)
+[`vlog(...)`](../../../tf/compat/v1/logging/vlog)
 
-[`warn(...)`](../../../tf/logging/warn)
+[`warn(...)`](../../../tf/compat/v1/logging/warn)
 
-[`warning(...)`](../../../tf/logging/warning)
+[`warning(...)`](../../../tf/compat/v1/logging/warning)
 
 ## Other Members
 

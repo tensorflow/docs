@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/Input">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_layer.py#L162-L273">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/input_layer.py#L160-L280">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/Input"><code>tf.compat.v1.keras.Input</code></a>
-* <a href="/api_docs/python/tf/keras/Input"><code>tf.compat.v1.keras.layers.Input</code></a>
-* <a href="/api_docs/python/tf/keras/Input"><code>tf.compat.v2.keras.Input</code></a>
-* <a href="/api_docs/python/tf/keras/Input"><code>tf.compat.v2.keras.layers.Input</code></a>
-* <a href="/api_docs/python/tf/keras/Input"><code>tf.keras.layers.Input</code></a>
+* `tf.compat.v1.keras.Input`
+* `tf.compat.v1.keras.layers.Input`
+* `tf.compat.v2.keras.Input`
+* `tf.compat.v2.keras.layers.Input`
+* `tf.keras.layers.Input`
 
 
 ``` python
@@ -49,7 +43,26 @@ tf.keras.Input(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+* [Masking and padding with Keras](https://www.tensorflow.org/guide/keras/masking_and_padding)
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+* [Load a pandas.DataFrame](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+
+
 
 A Keras tensor is a tensor object from the underlying backend
 (Theano or TensorFlow), which we augment with certain
@@ -88,8 +101,7 @@ The added Keras attribute is:
     values of 'None' in the 'shape' argument represent ragged dimensions.
     For more information about RaggedTensors, see
     https://www.tensorflow.org/guide/ragged_tensors.
-* <b>`**kwargs`</b>: deprecated arguments support. Supports `batch_shape` and
-    `batch_input_shape`.
+* <b>`**kwargs`</b>: deprecated arguments support.
 
 
 #### Returns:

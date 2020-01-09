@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/test/TestCase">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1754-L2944">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1754-L2944">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -32,8 +26,8 @@ Base class for tests that need to test TensorFlow.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/test/TestCase"><code>tf.compat.v1.test.TestCase</code></a>
-* Class <a href="/api_docs/python/tf/test/TestCase"><code>tf.compat.v2.test.TestCase</code></a>
+* Class `tf.compat.v1.test.TestCase`
+* Class `tf.compat.v2.test.TestCase`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +35,7 @@ Base class for tests that need to test TensorFlow.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1757-L1769">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1757-L1769">View source</a>
 
 ``` python
 __init__(methodName='runTest')
@@ -120,7 +114,7 @@ their own type equality functions to provide nicer error messages.
 
 <h3 id="assertAllClose"><code>assertAllClose</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2385-L2411">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2385-L2411">View source</a>
 
 ``` python
 assertAllClose(
@@ -161,7 +155,7 @@ structure can be a `dict`, `namedtuple`, `tuple` or `list`.
 
 <h3 id="assertAllCloseAccordingToType"><code>assertAllCloseAccordingToType</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2413-L2459">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2413-L2459">View source</a>
 
 ``` python
 assertAllCloseAccordingToType(
@@ -201,7 +195,7 @@ one of the arguments is of type float16.
 
 <h3 id="assertAllEqual"><code>assertAllEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2480-L2523">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2480-L2523">View source</a>
 
 ``` python
 assertAllEqual(
@@ -223,7 +217,7 @@ Asserts that two numpy arrays or Tensors have the same values.
 
 <h3 id="assertAllGreater"><code>assertAllGreater</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2540-L2550">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2540-L2550">View source</a>
 
 ``` python
 assertAllGreater(
@@ -244,7 +238,7 @@ Assert element values are all greater than a target value.
 
 <h3 id="assertAllGreaterEqual"><code>assertAllGreaterEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2564-L2574">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2564-L2574">View source</a>
 
 ``` python
 assertAllGreaterEqual(
@@ -265,7 +259,7 @@ Assert element values are all greater than or equal to a target value.
 
 <h3 id="assertAllInRange"><code>assertAllInRange</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2619-L2676">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2619-L2676">View source</a>
 
 ``` python
 assertAllInRange(
@@ -303,7 +297,7 @@ Assert that elements in a Tensor are all in a given range.
 
 <h3 id="assertAllInSet"><code>assertAllInSet</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2678-L2698">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2678-L2698">View source</a>
 
 ``` python
 assertAllInSet(
@@ -331,7 +325,7 @@ Assert that elements of a Tensor are all in a given closed set.
 
 <h3 id="assertAllLess"><code>assertAllLess</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2552-L2562">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2552-L2562">View source</a>
 
 ``` python
 assertAllLess(
@@ -352,7 +346,7 @@ Assert element values are all less than a target value.
 
 <h3 id="assertAllLessEqual"><code>assertAllLessEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2576-L2586">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2576-L2586">View source</a>
 
 ``` python
 assertAllLessEqual(
@@ -408,7 +402,7 @@ assertAlmostEquals(
 
 <h3 id="assertArrayNear"><code>assertArrayNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2227-L2242">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2227-L2242">View source</a>
 
 ``` python
 assertArrayNear(
@@ -606,7 +600,7 @@ it verifies that the elements occur the same number of times.
 
 <h3 id="assertDTypeEqual"><code>assertDTypeEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2700-L2713">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2700-L2713">View source</a>
 
 ``` python
 assertDTypeEqual(
@@ -627,7 +621,7 @@ Assert ndarray data type is equal to expected.
 
 <h3 id="assertDeviceEqual"><code>assertDeviceEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2781-L2793">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2781-L2793">View source</a>
 
 ``` python
 assertDeviceEqual(
@@ -1017,7 +1011,7 @@ Asserts that two multi-line strings are equal.
 
 <h3 id="assertNDArrayNear"><code>assertNDArrayNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2247-L2257">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2247-L2257">View source</a>
 
 ``` python
 assertNDArrayNear(
@@ -1041,7 +1035,7 @@ Asserts that two numpy arrays have near values.
 
 <h3 id="assertNear"><code>assertNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2209-L2225">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2209-L2225">View source</a>
 
 ``` python
 assertNear(
@@ -1080,7 +1074,7 @@ Checks whether actual iterable and expected iterable are disjoint.
 
 <h3 id="assertNotAllClose"><code>assertNotAllClose</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2461-L2478">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2461-L2478">View source</a>
 
 ``` python
 assertNotAllClose(
@@ -1109,7 +1103,7 @@ Assert that two numpy arrays, or Tensors, do not have near values.
 
 <h3 id="assertNotAllEqual"><code>assertNotAllEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2525-L2538">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2525-L2538">View source</a>
 
 ``` python
 assertNotAllEqual(
@@ -1299,7 +1293,7 @@ Asserts that actual.startswith(unexpected_start) is False.
 
 <h3 id="assertProtoEquals"><code>assertProtoEquals</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1882-L1906">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1882-L1906">View source</a>
 
 ``` python
 assertProtoEquals(
@@ -1323,7 +1317,7 @@ then compares them using self._AssertProtoEqual().
 
 <h3 id="assertProtoEqualsVersion"><code>assertProtoEqualsVersion</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1908-L1917">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1908-L1917">View source</a>
 
 ``` python
 assertProtoEqualsVersion(
@@ -1375,7 +1369,7 @@ exception after the assertion::
 
 <h3 id="assertRaisesOpError"><code>assertRaisesOpError</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2759-L2761">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2759-L2761">View source</a>
 
 ``` python
 assertRaisesOpError(expected_err_re_or_predicate)
@@ -1751,7 +1745,7 @@ difference method).
 
 <h3 id="assertShapeEqual"><code>assertShapeEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2763-L2779">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2763-L2779">View source</a>
 
 ``` python
 assertShapeEqual(
@@ -1779,7 +1773,7 @@ Asserts that a Numpy ndarray and a TensorFlow tensor have the same shape.
 
 <h3 id="assertStartsWith"><code>assertStartsWith</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1919-L1930">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1919-L1930">View source</a>
 
 ``` python
 assertStartsWith(
@@ -2073,7 +2067,7 @@ made during this context.
 
 <h3 id="checkedThread"><code>checkedThread</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2188-L2206">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2188-L2206">View source</a>
 
 ``` python
 checkedThread(
@@ -2171,10 +2165,8 @@ a test fails.
 
 NOTE: This will zero-out the file. This ensures there is no pre-existing
 state.
-NOTE: If the file already exists, it will be made writable and overwritten.
 
-See also: `create_tempdir()` for creating temporary directories, and
-`_TempDir.create_file` for creating files within a temporary directory.
+See also: `create_tempdir()` for creating temporary directories.
 
 #### Args:
 
@@ -2232,7 +2224,7 @@ tearDown.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1961-L1978">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1961-L1978">View source</a>
 
 ``` python
 evaluate(tensors)
@@ -2350,7 +2342,7 @@ failUnlessRaises(
 
 <h3 id="get_temp_dir"><code>get_temp_dir</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1803-L1819">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1803-L1819">View source</a>
 
 ``` python
 get_temp_dir()
@@ -2441,7 +2433,7 @@ the graph building and execution code in a test case.
 
 <h3 id="setUp"><code>setUp</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1771-L1790">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1771-L1790">View source</a>
 
 ``` python
 setUp()
@@ -2504,7 +2496,7 @@ block, allowing further test code to be executed.
 
 <h3 id="tearDown"><code>tearDown</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L1792-L1796">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L1792-L1796">View source</a>
 
 ``` python
 tearDown()
@@ -2524,7 +2516,7 @@ Hook method for deconstructing the class fixture after running all tests in the 
 
 <h3 id="test_session"><code>test_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2076-L2098">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2076-L2098">View source</a>
 
 ``` python
 test_session(

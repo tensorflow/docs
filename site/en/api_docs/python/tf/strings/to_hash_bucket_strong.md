@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/to_hash_bucket_strong">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,10 +17,9 @@ Converts each string in the input Tensor to its hash mod by a number of buckets.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v1.string_to_hash_bucket_strong</code></a>
-* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v1.strings.to_hash_bucket_strong</code></a>
-* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.compat.v2.strings.to_hash_bucket_strong</code></a>
-* <a href="/api_docs/python/tf/strings/to_hash_bucket_strong"><code>tf.string_to_hash_bucket_strong</code></a>
+* `tf.compat.v1.string_to_hash_bucket_strong`
+* `tf.compat.v1.strings.to_hash_bucket_strong`
+* `tf.compat.v2.strings.to_hash_bucket_strong`
 
 
 ``` python
@@ -54,7 +47,7 @@ distribution over buckets. This requires that the hash function is
 seeded by a high-entropy (random) "key" unknown to the adversary.
 
 The additional robustness comes at a cost of roughly 4x higher compute
-time than <a href="../../tf/strings/to_hash_bucket_fast"><code>tf.string_to_hash_bucket_fast</code></a>.
+time than `tf.string_to_hash_bucket_fast`.
 
 #### Args:
 

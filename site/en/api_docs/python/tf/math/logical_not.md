@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/logical_not">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,17 +17,17 @@ Returns the truth value of NOT x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.RaggedTensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.Tensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.compat.v1.RaggedTensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.compat.v1.Tensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v1.logical_not</code></a>
-* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v1.math.logical_not</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__invert__"><code>tf.compat.v2.RaggedTensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__invert__"><code>tf.compat.v2.Tensor.__invert__</code></a>
-* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v2.logical_not</code></a>
-* <a href="/api_docs/python/tf/math/logical_not"><code>tf.compat.v2.math.logical_not</code></a>
-* <a href="/api_docs/python/tf/math/logical_not"><code>tf.logical_not</code></a>
+* `tf.RaggedTensor.__invert__`
+* `tf.Tensor.__invert__`
+* `tf.compat.v1.RaggedTensor.__invert__`
+* `tf.compat.v1.Tensor.__invert__`
+* `tf.compat.v1.logical_not`
+* `tf.compat.v1.math.logical_not`
+* `tf.compat.v2.RaggedTensor.__invert__`
+* `tf.compat.v2.Tensor.__invert__`
+* `tf.compat.v2.logical_not`
+* `tf.compat.v2.math.logical_not`
+* `tf.logical_not`
 
 
 ``` python
@@ -45,7 +39,13 @@ tf.math.logical_not(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 
 #### Args:

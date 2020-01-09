@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/embedding_column">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L809-L911">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L819-L921">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/embedding_column"><code>tf.compat.v1.feature_column.embedding_column</code></a>
-* <a href="/api_docs/python/tf/feature_column/embedding_column"><code>tf.compat.v2.feature_column.embedding_column</code></a>
+* `tf.compat.v1.feature_column.embedding_column`
+* `tf.compat.v2.feature_column.embedding_column`
 
 
 ``` python
@@ -46,7 +40,11 @@ tf.feature_column.embedding_column(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Classify structured data with feature columns](https://www.tensorflow.org/tutorials/structured_data/feature_columns)
+
+
 
 Use this when your inputs are sparse, but you want to convert them to a dense
 representation (e.g., to feed to a DNN).

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/bitwise/bitwise_xor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_bitwise_ops.py`
@@ -23,8 +17,8 @@ Elementwise computes the bitwise XOR of `x` and `y`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/bitwise/bitwise_xor"><code>tf.compat.v1.bitwise.bitwise_xor</code></a>
-* <a href="/api_docs/python/tf/bitwise/bitwise_xor"><code>tf.compat.v2.bitwise.bitwise_xor</code></a>
+* `tf.compat.v1.bitwise.bitwise_xor`
+* `tf.compat.v2.bitwise.bitwise_xor`
 
 
 ``` python

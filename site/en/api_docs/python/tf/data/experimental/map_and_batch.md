@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/map_and_batch">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/batching.py#L139-L199">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/batching.py#L139-L199">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Fused implementation of `map` and `batch`. (deprecated)
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/map_and_batch"><code>tf.compat.v1.data.experimental.map_and_batch</code></a>
-* <a href="/api_docs/python/tf/data/experimental/map_and_batch"><code>tf.compat.v2.data.experimental.map_and_batch</code></a>
+* `tf.compat.v1.data.experimental.map_and_batch`
+* `tf.compat.v2.data.experimental.map_and_batch`
 
 
 ``` python

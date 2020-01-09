@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/atan2">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,11 +18,11 @@ Computes arctangent of `y/x` element-wise, respecting signs of the arguments.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/atan2"><code>tf.atan2</code></a>
-* <a href="/api_docs/python/tf/math/atan2"><code>tf.compat.v1.atan2</code></a>
-* <a href="/api_docs/python/tf/math/atan2"><code>tf.compat.v1.math.atan2</code></a>
-* <a href="/api_docs/python/tf/math/atan2"><code>tf.compat.v2.atan2</code></a>
-* <a href="/api_docs/python/tf/math/atan2"><code>tf.compat.v2.math.atan2</code></a>
+* `tf.atan2`
+* `tf.compat.v1.atan2`
+* `tf.compat.v1.math.atan2`
+* `tf.compat.v2.atan2`
+* `tf.compat.v2.math.atan2`
 
 
 ``` python

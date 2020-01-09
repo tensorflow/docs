@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_bmp">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_image_ops.py`
@@ -23,11 +17,11 @@ Decode the first frame of a BMP-encoded image to a uint8 tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_bmp"><code>tf.compat.v1.image.decode_bmp</code></a>
-* <a href="/api_docs/python/tf/io/decode_bmp"><code>tf.compat.v1.io.decode_bmp</code></a>
-* <a href="/api_docs/python/tf/io/decode_bmp"><code>tf.compat.v2.image.decode_bmp</code></a>
-* <a href="/api_docs/python/tf/io/decode_bmp"><code>tf.compat.v2.io.decode_bmp</code></a>
-* <a href="/api_docs/python/tf/io/decode_bmp"><code>tf.image.decode_bmp</code></a>
+* `tf.compat.v1.image.decode_bmp`
+* `tf.compat.v1.io.decode_bmp`
+* `tf.compat.v2.image.decode_bmp`
+* `tf.compat.v2.io.decode_bmp`
+* `tf.image.decode_bmp`
 
 
 ``` python

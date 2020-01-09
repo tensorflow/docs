@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/schedules/PiecewiseConstantDecay">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L168-L263">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L168-L263">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,10 @@ Inherits From: [`LearningRateSchedule`](../../../../tf/keras/optimizers/schedule
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/PiecewiseConstantDecay"><code>tf.compat.v1.keras.optimizers.schedules.PiecewiseConstantDecay</code></a>
-* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/PiecewiseConstantDecay"><code>tf.compat.v2.keras.optimizers.schedules.PiecewiseConstantDecay</code></a>
-* Class <a href="/api_docs/python/tf/keras/optimizers/schedules/PiecewiseConstantDecay"><code>tf.compat.v2.optimizers.schedules.PiecewiseConstantDecay</code></a>
+* Class `tf.compat.v1.keras.optimizers.schedules.PiecewiseConstantDecay`
+* Class `tf.compat.v2.keras.optimizers.schedules.PiecewiseConstantDecay`
+* Class `tf.compat.v2.optimizers.schedules.PiecewiseConstantDecay`
+* Class `tf.optimizers.schedules.PiecewiseConstantDecay`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +36,7 @@ Inherits From: [`LearningRateSchedule`](../../../../tf/keras/optimizers/schedule
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L171-L233">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L171-L233">View source</a>
 
 ``` python
 __init__(
@@ -114,7 +109,7 @@ and values[-1] when `step > boundaries[-1]`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L235-L256">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L235-L256">View source</a>
 
 ``` python
 __call__(step)
@@ -125,7 +120,7 @@ Call self as a function.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
 
 ``` python
 from_config(
@@ -150,7 +145,7 @@ A `LearningRateSchedule` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L258-L263">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L258-L263">View source</a>
 
 ``` python
 get_config()

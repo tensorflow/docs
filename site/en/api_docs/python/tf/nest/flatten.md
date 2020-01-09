@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nest/flatten">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/nest.py#L232-L263">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/util/nest.py#L231-L262">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Returns a flat list from a given nested structure.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nest/flatten"><code>tf.compat.v1.nest.flatten</code></a>
-* <a href="/api_docs/python/tf/nest/flatten"><code>tf.compat.v2.nest.flatten</code></a>
-* <a href="/api_docs/python/tf/nest/flatten"><code>tf.contrib.framework.nest.flatten</code></a>
+* `tf.compat.v1.nest.flatten`
+* `tf.compat.v2.nest.flatten`
 
 
 ``` python
@@ -41,7 +34,11 @@ tf.nest.flatten(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+
 
 If nest is not a sequence, tuple, or dict, then returns a single-element list:
 [nest].

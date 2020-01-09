@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Built-in metrics.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/metrics"><code>tf.compat.v1.keras.metrics</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 
@@ -120,10 +109,6 @@ Built-in metrics.
 [`categorical_accuracy(...)`](../../tf/keras/metrics/categorical_accuracy)
 
 [`categorical_crossentropy(...)`](../../tf/keras/losses/categorical_crossentropy): Computes the categorical crossentropy loss.
-
-[`cosine(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
-
-[`cosine_proximity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
 
 [`deserialize(...)`](../../tf/keras/metrics/deserialize)
 

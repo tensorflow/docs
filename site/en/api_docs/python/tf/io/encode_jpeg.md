@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/encode_jpeg">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_image_ops.py`
@@ -23,11 +17,11 @@ JPEG-encode an image.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/encode_jpeg"><code>tf.compat.v1.image.encode_jpeg</code></a>
-* <a href="/api_docs/python/tf/io/encode_jpeg"><code>tf.compat.v1.io.encode_jpeg</code></a>
-* <a href="/api_docs/python/tf/io/encode_jpeg"><code>tf.compat.v2.image.encode_jpeg</code></a>
-* <a href="/api_docs/python/tf/io/encode_jpeg"><code>tf.compat.v2.io.encode_jpeg</code></a>
-* <a href="/api_docs/python/tf/io/encode_jpeg"><code>tf.image.encode_jpeg</code></a>
+* `tf.compat.v1.image.encode_jpeg`
+* `tf.compat.v1.io.encode_jpeg`
+* `tf.compat.v2.image.encode_jpeg`
+* `tf.compat.v2.io.encode_jpeg`
+* `tf.image.encode_jpeg`
 
 
 ``` python

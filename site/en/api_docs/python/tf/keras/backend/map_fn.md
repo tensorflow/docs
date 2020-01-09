@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/map_fn">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L5687-L5700">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L5791-L5804">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Map the function fn over the elements elems and return the outputs.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/map_fn"><code>tf.compat.v1.keras.backend.map_fn</code></a>
-* <a href="/api_docs/python/tf/keras/backend/map_fn"><code>tf.compat.v2.keras.backend.map_fn</code></a>
+* `tf.compat.v1.keras.backend.map_fn`
+* `tf.compat.v2.keras.backend.map_fn`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/experimental/LinearCosineDecay">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L730-L842">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L730-L842">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`LearningRateSchedule`](../../../tf/keras/optimizers/schedules/L
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/experimental/LinearCosineDecay"><code>tf.compat.v1.keras.experimental.LinearCosineDecay</code></a>
-* Class <a href="/api_docs/python/tf/keras/experimental/LinearCosineDecay"><code>tf.compat.v2.keras.experimental.LinearCosineDecay</code></a>
+* Class `tf.compat.v1.keras.experimental.LinearCosineDecay`
+* Class `tf.compat.v2.keras.experimental.LinearCosineDecay`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,7 +34,7 @@ Inherits From: [`LearningRateSchedule`](../../../tf/keras/optimizers/schedules/L
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L733-L810">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L733-L810">View source</a>
 
 ``` python
 __init__(
@@ -128,7 +122,7 @@ type as `initial_learning_rate`.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L812-L832">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L812-L832">View source</a>
 
 ``` python
 __call__(step)
@@ -139,7 +133,7 @@ Call self as a function.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L50-L60">View source</a>
 
 ``` python
 from_config(
@@ -164,7 +158,7 @@ A `LearningRateSchedule` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L834-L842">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py#L834-L842">View source</a>
 
 ``` python
 get_config()

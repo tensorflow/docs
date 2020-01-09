@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/inv">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_linalg_ops.py`
@@ -23,10 +17,9 @@ Computes the inverse of one or more square invertible matrices or their
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/inv"><code>tf.compat.v1.linalg.inv</code></a>
-* <a href="/api_docs/python/tf/linalg/inv"><code>tf.compat.v1.matrix_inverse</code></a>
-* <a href="/api_docs/python/tf/linalg/inv"><code>tf.compat.v2.linalg.inv</code></a>
-* <a href="/api_docs/python/tf/linalg/inv"><code>tf.matrix_inverse</code></a>
+* `tf.compat.v1.linalg.inv`
+* `tf.compat.v1.matrix_inverse`
+* `tf.compat.v2.linalg.inv`
 
 
 ``` python

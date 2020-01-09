@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/image/encode_png">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_image_ops.py`
@@ -23,8 +17,8 @@ PNG-encode an image.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/encode_png"><code>tf.compat.v1.image.encode_png</code></a>
-* <a href="/api_docs/python/tf/image/encode_png"><code>tf.compat.v2.image.encode_png</code></a>
+* `tf.compat.v1.image.encode_png`
+* `tf.compat.v2.image.encode_png`
 
 
 ``` python

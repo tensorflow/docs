@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -29,9 +23,9 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 ## Functions
 
-[`add(...)`](../../../tf/compat/v2/sparse/add): Adds two tensors, at least one of each is a `SparseTensor`.
+[`add(...)`](../../../tf/sparse/add): Adds two tensors, at least one of each is a `SparseTensor`.
 
-[`concat(...)`](../../../tf/compat/v2/sparse/concat): Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
+[`concat(...)`](../../../tf/sparse/concat): Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
 
 [`cross(...)`](../../../tf/sparse/cross): Generates sparse cross from a list of sparse and dense tensors.
 
@@ -51,9 +45,9 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 [`minimum(...)`](../../../tf/sparse/minimum): Returns the element-wise min of two SparseTensors.
 
-[`reduce_max(...)`](../../../tf/compat/v2/sparse/reduce_max): Computes the max of elements across dimensions of a SparseTensor.
+[`reduce_max(...)`](../../../tf/sparse/reduce_max): Computes the max of elements across dimensions of a SparseTensor.
 
-[`reduce_sum(...)`](../../../tf/compat/v2/sparse/reduce_sum): Computes the sum of elements across dimensions of a SparseTensor.
+[`reduce_sum(...)`](../../../tf/sparse/reduce_sum): Computes the sum of elements across dimensions of a SparseTensor.
 
 [`reorder(...)`](../../../tf/sparse/reorder): Reorders a `SparseTensor` into the canonical, row-major ordering.
 
@@ -63,11 +57,11 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 [`retain(...)`](../../../tf/sparse/retain): Retains specified non-empty values within a `SparseTensor`.
 
-[`segment_mean(...)`](../../../tf/compat/v2/sparse/segment_mean): Computes the mean along sparse segments of a tensor.
+[`segment_mean(...)`](../../../tf/sparse/segment_mean): Computes the mean along sparse segments of a tensor.
 
-[`segment_sqrt_n(...)`](../../../tf/compat/v2/sparse/segment_sqrt_n): Computes the sum along sparse segments of a tensor divided by the sqrt(N).
+[`segment_sqrt_n(...)`](../../../tf/sparse/segment_sqrt_n): Computes the sum along sparse segments of a tensor divided by the sqrt(N).
 
-[`segment_sum(...)`](../../../tf/compat/v2/sparse/segment_sum): Computes the sum along sparse segments of a tensor.
+[`segment_sum(...)`](../../../tf/sparse/segment_sum): Computes the sum along sparse segments of a tensor.
 
 [`slice(...)`](../../../tf/sparse/slice): Slice a `SparseTensor` based on the `start` and `size.
 
@@ -75,7 +69,7 @@ See also <a href="../../../tf/sparse/SparseTensor"><code>tf.SparseTensor</code><
 
 [`sparse_dense_matmul(...)`](../../../tf/sparse/sparse_dense_matmul): Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
 
-[`split(...)`](../../../tf/compat/v2/sparse/split): Split a `SparseTensor` into `num_split` tensors along `axis`.
+[`split(...)`](../../../tf/sparse/split): Split a `SparseTensor` into `num_split` tensors along `axis`.
 
 [`to_dense(...)`](../../../tf/sparse/to_dense): Converts a `SparseTensor` into a dense tensor.
 

@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/reciprocal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Computes the reciprocal of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/reciprocal"><code>tf.compat.v1.math.reciprocal</code></a>
-* <a href="/api_docs/python/tf/math/reciprocal"><code>tf.compat.v1.reciprocal</code></a>
-* <a href="/api_docs/python/tf/math/reciprocal"><code>tf.compat.v2.math.reciprocal</code></a>
-* <a href="/api_docs/python/tf/math/reciprocal"><code>tf.reciprocal</code></a>
+* `tf.compat.v1.math.reciprocal`
+* `tf.compat.v1.reciprocal`
+* `tf.compat.v2.math.reciprocal`
 
 
 ``` python

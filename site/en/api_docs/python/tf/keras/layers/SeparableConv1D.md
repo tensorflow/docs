@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/SeparableConv1D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L1387-L1530">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L1387-L1530">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Depthwise separable 1D convolution.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/SeparableConv1D"><code>tf.compat.v1.keras.layers.SeparableConv1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/SeparableConv1D"><code>tf.compat.v1.keras.layers.SeparableConvolution1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/SeparableConv1D"><code>tf.compat.v2.keras.layers.SeparableConv1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/SeparableConv1D"><code>tf.compat.v2.keras.layers.SeparableConvolution1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/SeparableConv1D"><code>tf.keras.layers.SeparableConvolution1D</code></a>
+* Class `tf.compat.v1.keras.layers.SeparableConv1D`
+* Class `tf.compat.v1.keras.layers.SeparableConvolution1D`
+* Class `tf.compat.v2.keras.layers.SeparableConv1D`
+* Class `tf.compat.v2.keras.layers.SeparableConvolution1D`
+* Class `tf.keras.layers.SeparableConvolution1D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -99,7 +93,7 @@ It then optionally applies an activation function to produce the final output.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L1446-L1488">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L1446-L1488">View source</a>
 
 ``` python
 __init__(

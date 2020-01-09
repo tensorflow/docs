@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ragged/stack_dynamic_partitions">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_array_ops.py#L553-L653">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_array_ops.py#L530-L630">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Stacks dynamic partitions of a Tensor or RaggedTensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ragged/stack_dynamic_partitions"><code>tf.compat.v1.ragged.stack_dynamic_partitions</code></a>
-* <a href="/api_docs/python/tf/ragged/stack_dynamic_partitions"><code>tf.compat.v2.ragged.stack_dynamic_partitions</code></a>
+* `tf.compat.v1.ragged.stack_dynamic_partitions`
+* `tf.compat.v2.ragged.stack_dynamic_partitions`
 
 
 ``` python

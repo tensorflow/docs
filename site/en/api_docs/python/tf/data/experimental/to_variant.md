@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/to_variant">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2465-L2475">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/ops/dataset_ops.py#L2447-L2457">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a variant representing the given dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/to_variant"><code>tf.compat.v1.data.experimental.to_variant</code></a>
-* <a href="/api_docs/python/tf/data/experimental/to_variant"><code>tf.compat.v2.data.experimental.to_variant</code></a>
+* `tf.compat.v1.data.experimental.to_variant`
+* `tf.compat.v2.data.experimental.to_variant`
 
 
 ``` python

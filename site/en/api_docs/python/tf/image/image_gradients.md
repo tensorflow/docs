@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/image_gradients">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3422-L3493">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3422-L3460">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns image gradients (dy, dx) for each color channel.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/image_gradients"><code>tf.compat.v1.image.image_gradients</code></a>
-* <a href="/api_docs/python/tf/image/image_gradients"><code>tf.compat.v2.image.image_gradients</code></a>
+* `tf.compat.v1.image.image_gradients`
+* `tf.compat.v2.image.image_gradients`
 
 
 ``` python
@@ -54,42 +48,6 @@ and dx will always have zeros in the last column.
 
 Pair of tensors (dy, dx) holding the vertical and horizontal image
 gradients (1-step finite difference).
-
-
-
-#### Usage Example:
-
-```python
-BATCH_SIZE = 1
-IMAGE_HEIGHT = 5
-IMAGE_WIDTH = 5
-CHANNELS = 1
-image = tf.reshape(tf.range(IMAGE_HEIGHT * IMAGE_WIDTH * CHANNELS, 
-  delta=1, dtype=tf.float32), 
-  shape=(BATCH_SIZE, IMAGE_HEIGHT, IMAGE_WIDTH, CHANNELS))
-dx, dy = tf.image.image_gradients(image)
-print(image[0, :,:,0])
-tf.Tensor(
-  [[ 0.  1.  2.  3.  4.]
-  [ 5.  6.  7.  8.  9.]
-  [10. 11. 12. 13. 14.]
-  [15. 16. 17. 18. 19.]
-  [20. 21. 22. 23. 24.]], shape=(5, 5), dtype=float32)
-print(dx[0, :,:,0])
-tf.Tensor(
-  [[5. 5. 5. 5. 5.]
-  [5. 5. 5. 5. 5.]
-  [5. 5. 5. 5. 5.]
-  [5. 5. 5. 5. 5.]
-  [0. 0. 0. 0. 0.]], shape=(5, 5), dtype=float32)    
-print(dy[0, :,:,0])
-tf.Tensor(
-  [[1. 1. 1. 1. 0.]
-  [1. 1. 1. 1. 0.]
-  [1. 1. 1. 1. 0.]
-  [1. 1. 1. 1. 0.]
-  [1. 1. 1. 1. 0.]], shape=(5, 5), dtype=float32)
-```
 
 
 

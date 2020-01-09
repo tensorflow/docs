@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/OptimizationOptions">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/optimization_options.py#L57-L224">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/optimization_options.py#L57-L224">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Represents options for dataset optimizations.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/data/experimental/OptimizationOptions"><code>tf.compat.v1.data.experimental.OptimizationOptions</code></a>
-* Class <a href="/api_docs/python/tf/data/experimental/OptimizationOptions"><code>tf.compat.v2.data.experimental.OptimizationOptions</code></a>
+* Class `tf.compat.v1.data.experimental.OptimizationOptions`
+* Class `tf.compat.v2.data.experimental.OptimizationOptions`
 
 
 <!-- Placeholder for "Used in" -->
@@ -51,7 +45,7 @@ dataset = dataset.with_options(options)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L33-L35">View source</a>
 
 ``` python
 __init__()
@@ -101,7 +95,7 @@ Whether to fuse filter dataset that predicts random_uniform < rate into a sampli
 
 <h3 id="hoist_random_uniform"><code>hoist_random_uniform</code></h3>
 
-Whether to hoist <a href="../../../tf/random/uniform"><code>tf.random_uniform()</code></a> ops out of map transformations. If None, defaults to False.
+Whether to hoist `tf.random_uniform()` ops out of map transformations. If None, defaults to False.
 
 
 <h3 id="map_and_batch_fusion"><code>map_and_batch_fusion</code></h3>
@@ -150,7 +144,7 @@ Whether to fuse shuffle and repeat transformations. If None, defaults to True.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L37-L43">View source</a>
 
 ``` python
 __eq__(other)
@@ -161,7 +155,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)

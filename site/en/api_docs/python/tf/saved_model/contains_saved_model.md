@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/saved_model/contains_saved_model">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/loader_impl.py#L192-L216">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/loader_impl.py#L219-L235">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,7 @@ Checks whether the provided export directory could contain a SavedModel.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/saved_model/contains_saved_model"><code>tf.compat.v1.saved_model.contains_saved_model</code></a>
-* <a href="/api_docs/python/tf/saved_model/contains_saved_model"><code>tf.compat.v1.saved_model.loader.maybe_saved_model_directory</code></a>
-* <a href="/api_docs/python/tf/saved_model/contains_saved_model"><code>tf.compat.v1.saved_model.maybe_saved_model_directory</code></a>
-* <a href="/api_docs/python/tf/saved_model/contains_saved_model"><code>tf.saved_model.loader.maybe_saved_model_directory</code></a>
-* <a href="/api_docs/python/tf/saved_model/contains_saved_model"><code>tf.saved_model.maybe_saved_model_directory</code></a>
+* `tf.compat.v2.saved_model.contains_saved_model`
 
 
 ``` python

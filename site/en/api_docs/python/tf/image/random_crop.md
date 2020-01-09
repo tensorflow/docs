@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/random_crop">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L290-L331">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L290-L331">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Randomly crops a tensor to a given size.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/random_crop"><code>tf.compat.v1.image.random_crop</code></a>
-* <a href="/api_docs/python/tf/image/random_crop"><code>tf.compat.v1.random_crop</code></a>
-* <a href="/api_docs/python/tf/image/random_crop"><code>tf.compat.v2.image.random_crop</code></a>
-* <a href="/api_docs/python/tf/image/random_crop"><code>tf.random_crop</code></a>
+* `tf.compat.v1.image.random_crop`
+* `tf.compat.v1.random_crop`
+* `tf.compat.v2.image.random_crop`
 
 
 ``` python
@@ -44,7 +37,12 @@ tf.image.random_crop(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Slices a shape `size` portion out of `value` at a uniformly chosen offset.
 Requires `value.shape >= size`.
@@ -59,7 +57,7 @@ For example, RGB images can be cropped with
 * <b>`value`</b>: Input tensor to crop.
 * <b>`size`</b>: 1-D tensor with size the rank of `value`.
 * <b>`seed`</b>: Python integer. Used to create a random seed. See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: A name for this operation (optional).
 

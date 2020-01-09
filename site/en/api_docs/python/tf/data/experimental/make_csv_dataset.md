@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/make_csv_dataset">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/readers.py#L560-L588">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/readers.py#L314-L538">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Reads CSV files into a dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/make_csv_dataset"><code>tf.compat.v1.data.experimental.make_csv_dataset</code></a>
+* `tf.compat.v2.data.experimental.make_csv_dataset`
 
 
 ``` python
@@ -46,8 +40,8 @@ tf.data.experimental.make_csv_dataset(
     shuffle=True,
     shuffle_buffer_size=10000,
     shuffle_seed=None,
-    prefetch_buffer_size=None,
-    num_parallel_reads=None,
+    prefetch_buffer_size=dataset_ops.AUTOTUNE,
+    num_parallel_reads=1,
     sloppy=False,
     num_rows_for_inference=100,
     compression_type=None,
@@ -57,7 +51,16 @@ tf.data.experimental.make_csv_dataset(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [Load CSV data](https://www.tensorflow.org/tutorials/load_data/csv)
+
+
 
 Reads CSV files into a dataset, where each element is a (features, labels)
 tuple that corresponds to a batch of CSV rows. The features dictionary
@@ -119,8 +122,9 @@ feature data, and labels is a `Tensor` containing the batch's label data.
 * <b>`prefetch_buffer_size`</b>: An int specifying the number of feature
   batches to prefetch for performance improvement. Recommended value is the
   number of batches consumed per training step. Defaults to auto-tune.
+
 * <b>`num_parallel_reads`</b>: Number of threads used to read CSV records from files.
-  If >1, the results will be interleaved. Defaults to `1`.
+  If >1, the results will be interleaved.
 * <b>`sloppy`</b>: If `True`, reading performance will be improved at
   the cost of non-deterministic ordering. If `False`, the order of elements
   produced is deterministic prior to shuffling (elements are still

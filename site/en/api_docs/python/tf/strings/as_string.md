@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/as_string">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,13 +17,12 @@ Converts each entry in the given tensor to strings.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.compat.v1.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.compat.v1.dtypes.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.compat.v1.strings.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.compat.v2.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.compat.v2.strings.as_string</code></a>
-* <a href="/api_docs/python/tf/strings/as_string"><code>tf.dtypes.as_string</code></a>
+* `tf.as_string`
+* `tf.compat.v1.as_string`
+* `tf.compat.v1.dtypes.as_string`
+* `tf.compat.v1.strings.as_string`
+* `tf.compat.v2.as_string`
+* `tf.compat.v2.strings.as_string`
 
 
 ``` python

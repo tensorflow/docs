@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/load_checkpoint">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_utils.py#L44-L66">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/checkpoint_utils.py#L44-L66">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/train/load_checkpoint"><code>tf.compat.v1.train.load_checkpoint</code></a>
-* <a href="/api_docs/python/tf/train/load_checkpoint"><code>tf.compat.v2.train.load_checkpoint</code></a>
+* `tf.compat.v1.train.load_checkpoint`
+* `tf.compat.v2.train.load_checkpoint`
 
 
 ``` python

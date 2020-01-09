@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/experimental/WideDeepModel">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/premade/wide_deep.py#L31-L193">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/premade/wide_deep.py#L31-L193">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Model`](../../../tf/keras/Model)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/experimental/WideDeepModel"><code>tf.compat.v1.keras.experimental.WideDeepModel</code></a>
-* Class <a href="/api_docs/python/tf/keras/experimental/WideDeepModel"><code>tf.compat.v2.keras.experimental.WideDeepModel</code></a>
+* Class `tf.compat.v1.keras.experimental.WideDeepModel`
+* Class `tf.compat.v2.keras.experimental.WideDeepModel`
 
 
 <!-- Placeholder for "Used in" -->
@@ -78,7 +72,7 @@ combined_model.fit([dnn_inputs, linear_inputs], y, epochs)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/premade/wide_deep.py#L71-L87">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/premade/wide_deep.py#L71-L87">View source</a>
 
 ``` python
 __init__(
@@ -163,7 +157,7 @@ A list of update ops.
 
 <h3 id="compile"><code>compile</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L184-L400">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L183-L400">View source</a>
 
 ``` python
 compile(
@@ -188,7 +182,7 @@ Configures the model for training.
 * <b>`optimizer`</b>: String (name of optimizer) or optimizer instance.
     See <a href="../../../tf/keras/optimizers"><code>tf.keras.optimizers</code></a>.
 * <b>`loss`</b>: String (name of objective function), objective function or
-    `tf.losses.Loss` instance. See <a href="../../../tf/losses"><code>tf.losses</code></a>. If the model has
+    <a href="../../../tf/keras/losses/Loss"><code>tf.losses.Loss</code></a> instance. See <a href="../../../tf/losses"><code>tf.losses</code></a>. If the model has
     multiple outputs, you can use a different loss on each output by
     passing a dictionary or a list of losses. The loss value that will
     be minimized by the model will then be the sum of all individual
@@ -240,7 +234,7 @@ Configures the model for training.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L729-L832">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L730-L833">View source</a>
 
 ``` python
 evaluate(
@@ -343,7 +337,7 @@ the display labels for the scalar outputs.
 
 <h3 id="evaluate_generator"><code>evaluate_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1298-L1363">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L1299-L1364">View source</a>
 
 ``` python
 evaluate_generator(
@@ -413,7 +407,7 @@ the display labels for the scalar outputs.
 
 <h3 id="fit"><code>fit</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L534-L727">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L535-L728">View source</a>
 
 ``` python
 fit(
@@ -592,7 +586,7 @@ and validation metrics values (if applicable).
 
 <h3 id="fit_generator"><code>fit_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1162-L1296">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L1163-L1297">View source</a>
 
 ``` python
 fit_generator(
@@ -721,7 +715,7 @@ Raises:
 
 <h3 id="get_layer"><code>get_layer</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L500-L531">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L508-L539">View source</a>
 
 ``` python
 get_layer(
@@ -755,7 +749,7 @@ A layer instance.
 
 <h3 id="load_weights"><code>load_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L175-L182">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L174-L181">View source</a>
 
 ``` python
 load_weights(
@@ -769,7 +763,7 @@ Loads all layer weights, either from a TensorFlow or an HDF5 file.
 
 <h3 id="predict"><code>predict</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L834-L908">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L835-L909">View source</a>
 
 ``` python
 predict(
@@ -846,7 +840,7 @@ Numpy array(s) of predictions.
 
 <h3 id="predict_generator"><code>predict_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1365-L1420">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L1366-L1421">View source</a>
 
 ``` python
 predict_generator(
@@ -905,7 +899,7 @@ Numpy array(s) of predictions.
 
 <h3 id="predict_on_batch"><code>predict_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1114-L1160">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L1115-L1161">View source</a>
 
 ``` python
 predict_on_batch(x)
@@ -939,7 +933,7 @@ Numpy array(s) of predictions.
 
 <h3 id="reset_metrics"><code>reset_metrics</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L910-L918">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L911-L919">View source</a>
 
 ``` python
 reset_metrics()
@@ -950,7 +944,7 @@ Resets the state of metrics.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L443-L446">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L446-L449">View source</a>
 
 ``` python
 reset_states()
@@ -961,7 +955,7 @@ reset_states()
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1122-L1171">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L923-L975">View source</a>
 
 ``` python
 save(
@@ -969,7 +963,8 @@ save(
     overwrite=True,
     include_optimizer=True,
     save_format=None,
-    signatures=None
+    signatures=None,
+    options=None
 )
 ```
 
@@ -1006,6 +1001,8 @@ save_format: Either 'tf' or 'h5', indicating whether to save the model
 * <b>`signatures`</b>: Signatures to save with the SavedModel. Applicable to the 'tf'
   format only. Please see the `signatures` argument in
   <a href="../../../tf/saved_model/save"><code>tf.saved_model.save</code></a> for details.
+* <b>`options`</b>: Optional <a href="../../../tf/saved_model/SaveOptions"><code>tf.saved_model.SaveOptions</code></a> object that specifies
+  options for saving to SavedModel.
 
 
 #### Example:
@@ -1025,7 +1022,7 @@ model = load_model('my_model.h5')
 
 <h3 id="save_weights"><code>save_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1173-L1292">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L977-L1096">View source</a>
 
 ``` python
 save_weights(
@@ -1100,7 +1097,7 @@ on the TensorFlow format.
 
 <h3 id="summary"><code>summary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1434-L1461">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L1238-L1265">View source</a>
 
 ``` python
 summary(
@@ -1135,7 +1132,7 @@ Prints a string summary of the network.
 
 <h3 id="test_on_batch"><code>test_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L1026-L1112">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L1027-L1113">View source</a>
 
 ``` python
 test_on_batch(
@@ -1194,7 +1191,7 @@ the display labels for the scalar outputs.
 
 <h3 id="to_json"><code>to_json</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1392-L1407">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L1196-L1211">View source</a>
 
 ``` python
 to_json(**kwargs)
@@ -1219,7 +1216,7 @@ A JSON string.
 
 <h3 id="to_yaml"><code>to_yaml</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/network.py#L1409-L1432">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/network.py#L1213-L1236">View source</a>
 
 ``` python
 to_yaml(**kwargs)
@@ -1254,7 +1251,7 @@ A YAML string.
 
 <h3 id="train_on_batch"><code>train_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/training.py#L920-L1024">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/training.py#L921-L1025">View source</a>
 
 ``` python
 train_on_batch(

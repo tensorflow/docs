@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/AggregationMethod">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/gradients_util.py#L881-L917">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/gradients_util.py#L881-L917">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A class listing aggregation methods used to combine gradients.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/AggregationMethod"><code>tf.compat.v1.AggregationMethod</code></a>
-* Class <a href="/api_docs/python/tf/AggregationMethod"><code>tf.compat.v2.AggregationMethod</code></a>
+* Class `tf.compat.v1.AggregationMethod`
+* Class `tf.compat.v2.AggregationMethod`
 
 
 <!-- Placeholder for "Used in" -->
@@ -59,7 +53,7 @@ be supported in future releases:
   gradients can be released earlier.
 
 * `EXPERIMENTAL_ACCUMULATE_N`: Gradient terms are summed using the
-  "AccumulateN" op (see <a href="../tf/math/accumulate_n"><code>tf.accumulate_n</code></a>), which accumulates the
+  "AccumulateN" op (see `tf.accumulate_n`), which accumulates the
   overall sum in a single buffer that is shared across threads.
   This method of summing gradients can result in a lower memory footprint
   and lower latency at the expense of higher CPU/GPU utilization.

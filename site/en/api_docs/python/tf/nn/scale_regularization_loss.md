@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/scale_regularization_loss">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L441-L476">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L441-L476">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Scales the sum of the given regularization losses by number of replicas.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/scale_regularization_loss"><code>tf.compat.v1.nn.scale_regularization_loss</code></a>
-* <a href="/api_docs/python/tf/nn/scale_regularization_loss"><code>tf.compat.v2.nn.scale_regularization_loss</code></a>
+* `tf.compat.v1.nn.scale_regularization_loss`
+* `tf.compat.v2.nn.scale_regularization_loss`
 
 
 ``` python

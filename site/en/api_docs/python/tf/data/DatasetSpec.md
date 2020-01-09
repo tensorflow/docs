@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/DatasetSpec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2481-L2543">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/ops/dataset_ops.py#L2463-L2525">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,9 @@ Type specification for <a href="../../tf/data/Dataset"><code>tf.data.Dataset</co
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/data/DatasetSpec"><code>tf.compat.v1.data.DatasetSpec</code></a>
-* Class <a href="/api_docs/python/tf/data/DatasetSpec"><code>tf.compat.v1.data.experimental.DatasetStructure</code></a>
-* Class <a href="/api_docs/python/tf/data/DatasetSpec"><code>tf.compat.v2.data.DatasetSpec</code></a>
-* Class <a href="/api_docs/python/tf/data/DatasetSpec"><code>tf.data.experimental.DatasetStructure</code></a>
+* Class `tf.compat.v1.data.DatasetSpec`
+* Class `tf.compat.v1.data.experimental.DatasetStructure`
+* Class `tf.compat.v2.data.DatasetSpec`
 
 
 <!-- Placeholder for "Used in" -->
@@ -42,7 +35,7 @@ Type specification for <a href="../../tf/data/Dataset"><code>tf.data.Dataset</co
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2486-L2488">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/ops/dataset_ops.py#L2468-L2470">View source</a>
 
 ``` python
 __init__(
@@ -69,7 +62,7 @@ The Python type for values that are compatible with this TypeSpec.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
 
 ``` python
 __eq__(other)
@@ -80,7 +73,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
 
 ``` python
 __ne__(other)
@@ -91,7 +84,7 @@ Return self!=value.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py#L2517-L2519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/ops/dataset_ops.py#L2499-L2501">View source</a>
 
 ``` python
 @staticmethod
@@ -103,7 +96,7 @@ from_value(value)
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L87-L102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L87-L102">View source</a>
 
 ``` python
 is_compatible_with(spec_or_value)
@@ -114,7 +107,7 @@ Returns true if `spec_or_value` is compatible with this TypeSpec.
 
 <h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L104-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L104-L126">View source</a>
 
 ``` python
 most_specific_compatible_type(other)

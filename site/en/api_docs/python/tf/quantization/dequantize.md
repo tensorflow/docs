@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/quantization/dequantize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Dequantize the 'input' tensor into a float Tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v1.dequantize</code></a>
-* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v1.quantization.dequantize</code></a>
-* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.compat.v2.quantization.dequantize</code></a>
-* <a href="/api_docs/python/tf/quantization/dequantize"><code>tf.dequantize</code></a>
+* `tf.compat.v1.dequantize`
+* `tf.compat.v1.quantization.dequantize`
+* `tf.compat.v2.quantization.dequantize`
 
 
 ``` python

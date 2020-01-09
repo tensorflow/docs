@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/length">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/string_ops.py#L374-L377">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/string_ops.py#L380-L383">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,41 +17,25 @@ page_type: reference
 
 
 
-String lengths of `input`.
+
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/length"><code>tf.compat.v1.strings.length</code></a>
+* `tf.compat.v2.strings.length`
 
 
 ``` python
 tf.strings.length(
     input,
-    name=None,
-    unit='BYTE'
+    unit='BYTE',
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
 
-Computes the length of each string given in the input tensor.
-
-#### Args:
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
 
 
-* <b>`input`</b>: A `Tensor` of type `string`.
-  The string for which to compute the length.
-* <b>`unit`</b>: An optional `string` from: `"BYTE", "UTF8_CHAR"`. Defaults to `"BYTE"`.
-  The unit that is counted to compute string length.  One of: `"BYTE"` (for
-  the number of bytes in each string) or `"UTF8_CHAR"` (for the number of UTF-8
-  encoded Unicode code points in each string).  Results are undefined
-  if `unit=UTF8_CHAR` and the `input` strings do not contain structurally
-  valid UTF-8.
-* <b>`name`</b>: A name for the operation (optional).
-
-
-#### Returns:
-
-A `Tensor` of type `int32`.

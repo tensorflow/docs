@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/data/experimental">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -36,7 +30,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class CheckpointInputPipelineHook`](../../../../tf/data/experimental/CheckpointInputPipelineHook): Checkpoints input pipeline state every N steps or seconds.
 
-[`class CsvDataset`](../../../../tf/data/experimental/CsvDataset): A Dataset comprising lines from one or more CSV files.
+[`class CsvDataset`](../../../../tf/compat/v1/data/experimental/CsvDataset): A Dataset comprising lines from one or more CSV files.
 
 [`class DatasetStructure`](../../../../tf/data/DatasetSpec): Type specification for <a href="../../../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
 
@@ -50,13 +44,13 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class OptionalStructure`](../../../../tf/OptionalSpec): Represents an optional potentially containing a structured value.
 
-[`class RandomDataset`](../../../../tf/data/experimental/RandomDataset): A `Dataset` of pseudorandom values.
+[`class RandomDataset`](../../../../tf/compat/v1/data/experimental/RandomDataset): A `Dataset` of pseudorandom values.
 
 [`class Reducer`](../../../../tf/data/experimental/Reducer): A reducer is used for reducing a set of elements.
 
-[`class SqlDataset`](../../../../tf/data/experimental/SqlDataset): A `Dataset` consisting of the results from a SQL query.
+[`class SqlDataset`](../../../../tf/compat/v1/data/experimental/SqlDataset): A `Dataset` consisting of the results from a SQL query.
 
-[`class StatsAggregator`](../../../../tf/data/experimental/StatsAggregator): A stateful resource that aggregates statistics from one or more iterators.
+[`class StatsAggregator`](../../../../tf/compat/v1/data/experimental/StatsAggregator): A stateful resource that aggregates statistics from one or more iterators.
 
 [`class StatsOptions`](../../../../tf/data/experimental/StatsOptions): Represents options for collecting dataset stats using `StatsAggregator`.
 
@@ -68,15 +62,15 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 ## Functions
 
-[`Counter(...)`](../../../../tf/data/experimental/Counter): Creates a `Dataset` that counts from `start` in steps of size `step`.
+[`Counter(...)`](../../../../tf/compat/v1/data/experimental/Counter): Creates a `Dataset` that counts from `start` in steps of size `step`.
 
-[`RaggedTensorStructure(...)`](../../../../tf/data/experimental/RaggedTensorStructure): DEPRECATED FUNCTION
+[`RaggedTensorStructure(...)`](../../../../tf/compat/v1/data/experimental/RaggedTensorStructure): DEPRECATED FUNCTION
 
-[`SparseTensorStructure(...)`](../../../../tf/data/experimental/SparseTensorStructure): DEPRECATED FUNCTION
+[`SparseTensorStructure(...)`](../../../../tf/compat/v1/data/experimental/SparseTensorStructure): DEPRECATED FUNCTION
 
-[`TensorArrayStructure(...)`](../../../../tf/data/experimental/TensorArrayStructure): DEPRECATED FUNCTION
+[`TensorArrayStructure(...)`](../../../../tf/compat/v1/data/experimental/TensorArrayStructure): DEPRECATED FUNCTION
 
-[`TensorStructure(...)`](../../../../tf/data/experimental/TensorStructure): DEPRECATED FUNCTION
+[`TensorStructure(...)`](../../../../tf/compat/v1/data/experimental/TensorStructure): DEPRECATED FUNCTION
 
 [`bucket_by_sequence_length(...)`](../../../../tf/data/experimental/bucket_by_sequence_length): A transformation that buckets elements in a `Dataset` by length.
 
@@ -84,7 +78,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`cardinality(...)`](../../../../tf/data/experimental/cardinality): Returns the cardinality of `dataset`, if known.
 
-[`choose_from_datasets(...)`](../../../../tf/data/experimental/choose_from_datasets): Creates a dataset that deterministically chooses elements from `datasets`.
+[`choose_from_datasets(...)`](../../../../tf/compat/v1/data/experimental/choose_from_datasets): Creates a dataset that deterministically chooses elements from `datasets`.
 
 [`copy_to_device(...)`](../../../../tf/data/experimental/copy_to_device): A transformation that copies dataset elements to the given `target_device`.
 
@@ -108,17 +102,17 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`latency_stats(...)`](../../../../tf/data/experimental/latency_stats): Records the latency of producing each element of the input dataset.
 
-[`make_batched_features_dataset(...)`](../../../../tf/data/experimental/make_batched_features_dataset): Returns a `Dataset` of feature dictionaries from `Example` protos.
+[`make_batched_features_dataset(...)`](../../../../tf/compat/v1/data/experimental/make_batched_features_dataset)
 
-[`make_csv_dataset(...)`](../../../../tf/data/experimental/make_csv_dataset): Reads CSV files into a dataset.
+[`make_csv_dataset(...)`](../../../../tf/compat/v1/data/experimental/make_csv_dataset): Reads CSV files into a dataset.
 
 [`make_saveable_from_iterator(...)`](../../../../tf/data/experimental/make_saveable_from_iterator): Returns a SaveableObject for saving/restoring iterator state using Saver.
 
 [`map_and_batch(...)`](../../../../tf/data/experimental/map_and_batch): Fused implementation of `map` and `batch`. (deprecated)
 
-[`map_and_batch_with_legacy_function(...)`](../../../../tf/data/experimental/map_and_batch_with_legacy_function): Fused implementation of `map` and `batch`. (deprecated)
+[`map_and_batch_with_legacy_function(...)`](../../../../tf/compat/v1/data/experimental/map_and_batch_with_legacy_function): Fused implementation of `map` and `batch`. (deprecated)
 
-[`parallel_interleave(...)`](../../../../tf/data/experimental/parallel_interleave): A parallel version of the <a href="/api_docs/python/tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
+[`parallel_interleave(...)`](../../../../tf/data/experimental/parallel_interleave): A parallel version of the `Dataset.interleave()` transformation. (deprecated)
 
 [`parse_example_dataset(...)`](../../../../tf/data/experimental/parse_example_dataset): A transformation that parses `Example` protos into a `dict` of tensors.
 
@@ -126,7 +120,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`rejection_resample(...)`](../../../../tf/data/experimental/rejection_resample): A transformation that resamples a dataset to achieve a target distribution.
 
-[`sample_from_datasets(...)`](../../../../tf/data/experimental/sample_from_datasets): Samples elements at random from the datasets in `datasets`.
+[`sample_from_datasets(...)`](../../../../tf/compat/v1/data/experimental/sample_from_datasets): Samples elements at random from the datasets in `datasets`.
 
 [`scan(...)`](../../../../tf/data/experimental/scan): A transformation that scans a function across an input dataset.
 

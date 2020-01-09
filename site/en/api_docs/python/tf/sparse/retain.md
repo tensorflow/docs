@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/retain">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1720-L1764">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L1704-L1748">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Retains specified non-empty values within a `SparseTensor`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/retain"><code>tf.compat.v1.sparse.retain</code></a>
-* <a href="/api_docs/python/tf/sparse/retain"><code>tf.compat.v1.sparse_retain</code></a>
-* <a href="/api_docs/python/tf/sparse/retain"><code>tf.compat.v2.sparse.retain</code></a>
-* <a href="/api_docs/python/tf/sparse/retain"><code>tf.sparse_retain</code></a>
+* `tf.compat.v1.sparse.retain`
+* `tf.compat.v1.sparse_retain`
+* `tf.compat.v2.sparse.retain`
 
 
 ``` python

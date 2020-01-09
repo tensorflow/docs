@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/DeviceSpec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L379-L440">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L48-L375">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ page_type: reference
 
 Represents a (possibly partial) specification for a TensorFlow device.
 
-Inherits From: [`DeviceSpec`](../tf/compat/v2/DeviceSpec)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/DeviceSpec"><code>tf.compat.v1.DeviceSpec</code></a>
+* Class `tf.compat.v2.DeviceSpec`
 
 
 <!-- Placeholder for "Used in" -->
@@ -77,7 +71,7 @@ which is optionally specified:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L92-L112">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L92-L112">View source</a>
 
 ``` python
 __init__(
@@ -137,7 +131,7 @@ Create a new `DeviceSpec` object.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L358-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L358-L372">View source</a>
 
 ``` python
 __eq__(other)
@@ -162,9 +156,10 @@ Return `False` otherwise.
 
 <h3 id="from_string"><code>from_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L123-L138">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L123-L138">View source</a>
 
 ``` python
+@classmethod
 from_string(
     cls,
     spec
@@ -192,7 +187,7 @@ A DeviceSpec.
 
 <h3 id="make_merged_spec"><code>make_merged_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L193-L215">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L193-L215">View source</a>
 
 ``` python
 make_merged_spec(dev)
@@ -226,27 +221,9 @@ combined_spec = tf.DeviceSpec(job=0, device_type="GPU")
 A new `DeviceSpec` which combines `self` and `dev`
 
 
-<h3 id="merge_from"><code>merge_from</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L426-L436">View source</a>
-
-``` python
-merge_from(dev)
-```
-
-Merge the properties of "dev" into this `DeviceSpec`.
-
-Note: Will be removed in TensorFlow 2.x since DeviceSpecs will become
-      immutable.
-
-#### Args:
-
-
-* <b>`dev`</b>: a `DeviceSpec`.
-
 <h3 id="parse_from_string"><code>parse_from_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L420-L424">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L140-L191">View source</a>
 
 ``` python
 parse_from_string(spec)
@@ -282,7 +259,7 @@ Parse a `DeviceSpec` name into its components.
 >       ...
 
   In general, <a href="../tf/DeviceSpec#from_string"><code>DeviceSpec.from_string</code></a> should completely replace
-  <a href="../tf/DeviceSpec#parse_from_string"><code>DeviceSpec.parse_from_string</code></a>, and <a href="../tf/compat/v2/DeviceSpec#replace"><code>DeviceSpec.replace</code></a> should
+  <a href="../tf/DeviceSpec#parse_from_string"><code>DeviceSpec.parse_from_string</code></a>, and <a href="../tf/DeviceSpec#replace"><code>DeviceSpec.replace</code></a> should
   completely replace setting attributes directly.
 
 #### Args:
@@ -309,7 +286,7 @@ The `DeviceSpec`.
 
 <h3 id="replace"><code>replace</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L217-L239">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L217-L239">View source</a>
 
 ``` python
 replace(**kwargs)
@@ -340,7 +317,7 @@ A DeviceSpec with the fields specified in kwargs overridden.
 
 <h3 id="to_string"><code>to_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/device_spec.py#L413-L418">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/device_spec.py#L114-L121">View source</a>
 
 ``` python
 to_string()

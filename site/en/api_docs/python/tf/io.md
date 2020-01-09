@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -32,17 +26,7 @@ Public API for tf.io namespace.
 
 [`class FixedLenSequenceFeature`](../tf/io/FixedLenSequenceFeature): Configuration for parsing a variable-length input feature into a `Tensor`.
 
-[`class PaddingFIFOQueue`](../tf/queue/PaddingFIFOQueue): A FIFOQueue that supports batching variable-sized tensors by padding.
-
-[`class PriorityQueue`](../tf/queue/PriorityQueue): A queue implementation that dequeues elements in prioritized order.
-
-[`class QueueBase`](../tf/queue/QueueBase): Base class for queue implementations.
-
-[`class RandomShuffleQueue`](../tf/queue/RandomShuffleQueue): A queue implementation that dequeues elements in a random order.
-
 [`class SparseFeature`](../tf/io/SparseFeature): Configuration for parsing a sparse input feature from an `Example`.
-
-[`class TFRecordCompressionType`](../tf/io/TFRecordCompressionType): The type of compression for the record.
 
 [`class TFRecordOptions`](../tf/io/TFRecordOptions): Options used for manipulating TFRecord files.
 
@@ -74,7 +58,7 @@ Public API for tf.io namespace.
 
 [`decode_proto(...)`](../tf/io/decode_proto): The op extracts fields from a serialized protocol buffers message into tensors.
 
-[`decode_raw(...)`](../tf/decode_raw): Convert raw byte strings into tensors. (deprecated arguments)
+[`decode_raw(...)`](../tf/io/decode_raw): Convert raw byte strings into tensors.
 
 [`deserialize_many_sparse(...)`](../tf/io/deserialize_many_sparse): Deserialize and concatenate `SparseTensors` from a serialized minibatch.
 
@@ -109,8 +93,6 @@ Public API for tf.io namespace.
 [`serialize_sparse(...)`](../tf/io/serialize_sparse): Serialize a `SparseTensor` into a 3-vector (1-D `Tensor`) object.
 
 [`serialize_tensor(...)`](../tf/io/serialize_tensor): Transforms a Tensor into a serialized TensorProto proto.
-
-[`tf_record_iterator(...)`](../tf/io/tf_record_iterator): An iterator that read the records from a TFRecords file. (deprecated)
 
 [`write_file(...)`](../tf/io/write_file): Writes contents to the file at input filename. Creates file and recursively
 

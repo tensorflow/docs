@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/scatter_nd">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Scatter `updates` into a new tensor according to `indices`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/scatter_nd"><code>tf.compat.v1.manip.scatter_nd</code></a>
-* <a href="/api_docs/python/tf/scatter_nd"><code>tf.compat.v1.scatter_nd</code></a>
-* <a href="/api_docs/python/tf/scatter_nd"><code>tf.compat.v2.scatter_nd</code></a>
-* <a href="/api_docs/python/tf/scatter_nd"><code>tf.manip.scatter_nd</code></a>
+* `tf.compat.v1.manip.scatter_nd`
+* `tf.compat.v1.scatter_nd`
+* `tf.compat.v2.scatter_nd`
 
 
 ``` python

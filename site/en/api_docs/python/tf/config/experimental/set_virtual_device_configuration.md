@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L492-L556">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/config.py#L492-L556">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Set the virtual device configuration for a PhysicalDevice.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration"><code>tf.compat.v1.config.experimental.set_virtual_device_configuration</code></a>
-* <a href="/api_docs/python/tf/config/experimental/set_virtual_device_configuration"><code>tf.compat.v2.config.experimental.set_virtual_device_configuration</code></a>
+* `tf.compat.v1.config.experimental.set_virtual_device_configuration`
+* `tf.compat.v2.config.experimental.set_virtual_device_configuration`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.config.experimental.set_virtual_device_configuration(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+
+
 
 A PhysicalDevice marked as visible will by default have a single LogicalDevice
 allocated to it once the runtime is configured. Specifying a list of

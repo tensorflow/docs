@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/FixedLenSequenceFeature">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L157-L187">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L157-L187">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,9 @@ Configuration for parsing a variable-length input feature into a `Tensor`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.FixedLenSequenceFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v1.FixedLenSequenceFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v1.io.FixedLenSequenceFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/FixedLenSequenceFeature"><code>tf.compat.v2.io.FixedLenSequenceFeature</code></a>
+* Class `tf.compat.v1.FixedLenSequenceFeature`
+* Class `tf.compat.v1.io.FixedLenSequenceFeature`
+* Class `tf.compat.v2.io.FixedLenSequenceFeature`
 
 
 <!-- Placeholder for "Used in" -->
@@ -65,7 +58,7 @@ the parse functions will fail on any examples missing this feature.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L185-L187">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L185-L187">View source</a>
 
 ``` python
 @staticmethod

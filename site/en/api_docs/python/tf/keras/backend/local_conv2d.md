@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/local_conv2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L5335-L5373">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L5439-L5477">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Apply 2D conv with un-shared weights.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/local_conv2d"><code>tf.compat.v1.keras.backend.local_conv2d</code></a>
-* <a href="/api_docs/python/tf/keras/backend/local_conv2d"><code>tf.compat.v2.keras.backend.local_conv2d</code></a>
+* `tf.compat.v1.keras.backend.local_conv2d`
+* `tf.compat.v2.keras.backend.local_conv2d`
 
 
 ``` python

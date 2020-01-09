@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/with_space_to_batch">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L326-L483">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L326-L483">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Performs `op` on the space-to-batch representation of `input`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/with_space_to_batch"><code>tf.compat.v1.nn.with_space_to_batch</code></a>
-* <a href="/api_docs/python/tf/nn/with_space_to_batch"><code>tf.compat.v2.nn.with_space_to_batch</code></a>
+* `tf.compat.v1.nn.with_space_to_batch`
+* `tf.compat.v2.nn.with_space_to_batch`
 
 
 ``` python

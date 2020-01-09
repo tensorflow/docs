@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/softmax_cross_entropy_with_logits">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L3235-L3300">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L3054-L3105">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,35 +17,28 @@ page_type: reference
 
 
 
-Computes softmax cross entropy between `logits` and `labels`. (deprecated)
+Computes softmax cross entropy between `logits` and `labels`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/softmax_cross_entropy_with_logits"><code>tf.compat.v1.nn.softmax_cross_entropy_with_logits</code></a>
+* `tf.compat.v2.nn.softmax_cross_entropy_with_logits`
 
 
 ``` python
 tf.nn.softmax_cross_entropy_with_logits(
-    _sentinel=None,
-    labels=None,
-    logits=None,
-    dim=-1,
-    name=None,
-    axis=None
+    labels,
+    logits,
+    axis=-1,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
+* [Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training)
 
-Future major versions of TensorFlow will allow gradients to flow
-into the labels input on backprop by default.
-
-See <a href="../../tf/nn/softmax_cross_entropy_with_logits_v2"><code>tf.nn.softmax_cross_entropy_with_logits_v2</code></a>.
 
 
 Measures the probability error in discrete classification tasks in which the
@@ -73,11 +60,14 @@ output of `softmax`, as it will produce incorrect results.
 
 A common use case is to have logits and labels of shape
 `[batch_size, num_classes]`, but higher dimensions are supported, with
-the `dim` argument specifying the class dimension.
+the `axis` argument specifying the class dimension.
 
-Backpropagation will happen only into `logits`.  To calculate a cross entropy
-loss that allows backpropagation into both `logits` and `labels`, see
-<a href="../../tf/nn/softmax_cross_entropy_with_logits_v2"><code>tf.nn.softmax_cross_entropy_with_logits_v2</code></a>.
+`logits` and `labels` must have the same dtype (either `float16`, `float32`,
+or `float64`).
+
+Backpropagation will happen into both `logits` and `labels`.  To disallow
+backpropagation into `labels`, pass label tensors through <a href="../../tf/stop_gradient"><code>tf.stop_gradient</code></a>
+before feeding it to this function.
 
 **Note that to avoid confusion, it is required to pass only named arguments to
 this function.**
@@ -85,16 +75,14 @@ this function.**
 #### Args:
 
 
-* <b>`_sentinel`</b>: Used to prevent positional parameters. Internal, do not use.
 * <b>`labels`</b>: Each vector along the class dimension should hold a valid
   probability distribution e.g. for the case in which labels are of shape
   `[batch_size, num_classes]`, each row of `labels[i]` must be a valid
   probability distribution.
 * <b>`logits`</b>: Per-label activations, typically a linear output. These activation
   energies are interpreted as unnormalized log probabilities.
-* <b>`dim`</b>: The class dimension. Defaulted to -1 which is the last dimension.
+* <b>`axis`</b>: The class dimension. Defaulted to -1 which is the last dimension.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`axis`</b>: Alias for dim.
 
 
 #### Returns:

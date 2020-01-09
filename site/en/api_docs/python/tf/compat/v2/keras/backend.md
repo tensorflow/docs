@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/backend">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -142,6 +136,8 @@ Keras backend API.
 
 [`int_shape(...)`](../../../../tf/keras/backend/int_shape): Returns the shape of tensor or variable as a tuple of int or None entries.
 
+[`is_keras_tensor(...)`](../../../../tf/keras/backend/is_keras_tensor): Returns whether `x` is a Keras tensor.
+
 [`is_sparse(...)`](../../../../tf/keras/backend/is_sparse): Returns whether a tensor is a sparse tensor.
 
 [`l2_normalize(...)`](../../../../tf/keras/backend/l2_normalize): Normalizes a tensor wrt the L2 norm alongside the specified axis.
@@ -176,7 +172,7 @@ Keras backend API.
 
 [`moving_average_update(...)`](../../../../tf/keras/backend/moving_average_update): Compute the moving average of a variable.
 
-[`name_scope(...)`](../../../../tf/compat/v2/keras/backend/name_scope): A context manager for use when defining a Python op.
+[`name_scope(...)`](../../../../tf/keras/backend/name_scope): A context manager for use when defining a Python op.
 
 [`ndim(...)`](../../../../tf/keras/backend/ndim): Returns the number of axes in a tensor, as an integer.
 

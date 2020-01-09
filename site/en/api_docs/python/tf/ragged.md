@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/ragged">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -35,17 +29,17 @@ and the [Ragged Tensor Guide](/guide/ragged_tensors).
 
 Arguments that accept `RaggedTensor`s are marked in **bold**.
 
-* <a href="../tf/batch_gather"><code>tf.batch_gather</code></a>(**params**, **indices**, name=`None`)
+* `tf.batch_gather`(**params**, **indices**, name=`None`)
 * <a href="../tf/bitwise/bitwise_and"><code>tf.bitwise.bitwise_and</code></a>(**x**, **y**, name=`None`)
 * <a href="../tf/bitwise/bitwise_or"><code>tf.bitwise.bitwise_or</code></a>(**x**, **y**, name=`None`)
 * <a href="../tf/bitwise/bitwise_xor"><code>tf.bitwise.bitwise_xor</code></a>(**x**, **y**, name=`None`)
 * <a href="../tf/bitwise/invert"><code>tf.bitwise.invert</code></a>(**x**, name=`None`)
 * <a href="../tf/bitwise/left_shift"><code>tf.bitwise.left_shift</code></a>(**x**, **y**, name=`None`)
 * <a href="../tf/bitwise/right_shift"><code>tf.bitwise.right_shift</code></a>(**x**, **y**, name=`None`)
-* <a href="../tf/cast"><code>tf.cast</code></a>(**x**, dtype, name=`None`)
 * <a href="../tf/clip_by_value"><code>tf.clip_by_value</code></a>(**t**, clip_value_min, clip_value_max, name=`None`)
 * <a href="../tf/concat"><code>tf.concat</code></a>(**values**, axis, name=`'concat'`)
 * <a href="../tf/debugging/check_numerics"><code>tf.debugging.check_numerics</code></a>(**tensor**, message, name=`None`)
+* <a href="../tf/dtypes/cast"><code>tf.dtypes.cast</code></a>(**x**, dtype, name=`None`)
 * <a href="../tf/dtypes/complex"><code>tf.dtypes.complex</code></a>(**real**, **imag**, name=`None`)
 * <a href="../tf/dtypes/saturate_cast"><code>tf.dtypes.saturate_cast</code></a>(**value**, dtype, name=`None`)
 * <a href="../tf/dynamic_partition"><code>tf.dynamic_partition</code></a>(**data**, **partitions**, num_partitions, name=`None`)
@@ -130,11 +124,10 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../tf/math/unsorted_segment_prod"><code>tf.math.unsorted_segment_prod</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
 * <a href="../tf/math/unsorted_segment_sqrt_n"><code>tf.math.unsorted_segment_sqrt_n</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
 * <a href="../tf/math/unsorted_segment_sum"><code>tf.math.unsorted_segment_sum</code></a>(**data**, **segment_ids**, num_segments, name=`None`)
-* <a href="../tf/one_hot"><code>tf.one_hot</code></a>(**indices**, depth, on_value=`None`, off_value=`None`, axis=`None`, dtype=`None`, name=`None`)
 * <a href="../tf/ones_like"><code>tf.ones_like</code></a>(**tensor**, dtype=`None`, name=`None`, optimize=`True`)
 * <a href="../tf/rank"><code>tf.rank</code></a>(**input**, name=`None`)
 * <a href="../tf/realdiv"><code>tf.realdiv</code></a>(**x**, **y**, name=`None`)
-* <a href="../tf/math/reduce_all"><code>tf.reduce_all</code></a>(**input_tensor**, axis=`None`, keepdims=`False`, name=`None`)
+* <a href="../tf/reduce_all"><code>tf.reduce_all</code></a>(**input_tensor**, axis=`None`, keepdims=`False`, name=`None`)
 * <a href="../tf/size"><code>tf.size</code></a>(**input**, name=`None`, out_type=<a href="../tf#int32"><code>tf.int32</code></a>)
 * <a href="../tf/squeeze"><code>tf.squeeze</code></a>(**input**, axis=`None`, name=`None`, squeeze_dims=`None`)
 * <a href="../tf/stack"><code>tf.stack</code></a>(**values**, axis=`0`, name=`'stack'`)
@@ -158,21 +151,13 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../tf/where"><code>tf.where</code></a>(**condition**, **x**=`None`, **y**=`None`, name=`None`)
 * <a href="../tf/zeros_like"><code>tf.zeros_like</code></a>(**tensor**, dtype=`None`, name=`None`, optimize=`True`)n
 
-## Classes
-
-[`class RaggedTensorValue`](../tf/ragged/RaggedTensorValue): Represents the value of a `RaggedTensor`.
-
 ## Functions
 
 [`boolean_mask(...)`](../tf/ragged/boolean_mask): Applies a boolean mask to `data` without flattening the mask dimensions.
 
 [`constant(...)`](../tf/ragged/constant): Constructs a constant RaggedTensor from a nested Python list.
 
-[`constant_value(...)`](../tf/ragged/constant_value): Constructs a RaggedTensorValue from a nested Python list.
-
 [`map_flat_values(...)`](../tf/ragged/map_flat_values): Applies `op` to the values of one or more RaggedTensors.
-
-[`placeholder(...)`](../tf/ragged/placeholder): Creates a placeholder for a <a href="../tf/RaggedTensor"><code>tf.RaggedTensor</code></a> that will always be fed.
 
 [`range(...)`](../tf/ragged/range): Returns a `RaggedTensor` containing the specified sequences of numbers.
 

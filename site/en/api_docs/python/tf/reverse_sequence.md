@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/reverse_sequence">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L3811-L3834">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L3841-L3852">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Reverses variable length slices.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/reverse_sequence"><code>tf.compat.v1.reverse_sequence</code></a>
+* `tf.compat.v2.reverse_sequence`
 
 
 ``` python
@@ -36,9 +30,7 @@ tf.reverse_sequence(
     seq_lengths,
     seq_axis=None,
     batch_axis=None,
-    name=None,
-    seq_dim=None,
-    batch_dim=None
+    name=None
 )
 ```
 

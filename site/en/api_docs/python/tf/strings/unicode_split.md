@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unicode_split">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L286-L331">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_string_ops.py#L286-L331">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Splits each string in `input` into a sequence of Unicode code points.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unicode_split"><code>tf.compat.v1.strings.unicode_split</code></a>
-* <a href="/api_docs/python/tf/strings/unicode_split"><code>tf.compat.v2.strings.unicode_split</code></a>
+* `tf.compat.v1.strings.unicode_split`
+* `tf.compat.v2.strings.unicode_split`
 
 
 ``` python
@@ -43,7 +37,11 @@ tf.strings.unicode_split(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 `result[i1...iN, j]` is the substring of `input[i1...iN]` that encodes its
 `j`th character, when decoded using `input_encoding`.

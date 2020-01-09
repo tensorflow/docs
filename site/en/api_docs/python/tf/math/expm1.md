@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/expm1">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,10 +17,9 @@ Computes `exp(x) - 1` element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/expm1"><code>tf.compat.v1.expm1</code></a>
-* <a href="/api_docs/python/tf/math/expm1"><code>tf.compat.v1.math.expm1</code></a>
-* <a href="/api_docs/python/tf/math/expm1"><code>tf.compat.v2.math.expm1</code></a>
-* <a href="/api_docs/python/tf/math/expm1"><code>tf.expm1</code></a>
+* `tf.compat.v1.expm1`
+* `tf.compat.v1.math.expm1`
+* `tf.compat.v2.math.expm1`
 
 
 ``` python

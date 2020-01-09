@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Bitcast Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -19,7 +17,7 @@
   <p>Example 1: <pre class="prettyprint">
 >>> a = [1., 2., 3.]
 >>> equality_bitcast = tf.bitcast(a,tf.complex128)
-tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot bitcast from float to complex128: shape [3] [Op:<a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/bitcast.html#classtensorflow_1_1ops_1_1_bitcast">Bitcast</a>]
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot bitcast from float to complex128: shape [3] [Op:<a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/bitcast.html#classtensorflow_1_1ops_1_1_bitcast">Bitcast</a>]
 >>> equality_cast = tf.cast(a,tf.complex128)
 >>> print(equality_cast)
 tf.Tensor([1.+0.j 2.+0.j 3.+0.j], shape=(3,), dtype=complex128)
@@ -42,12 +40,12 @@ tf.Tensor(
  [ 0 0 128 63]
  [ 0 0 128 63]], shape=(3, 4), dtype=uint8)
 </pre></p>
-  <p><i>NOTE</i>: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/bitcast.html#classtensorflow_1_1ops_1_1_bitcast">Bitcast</a> is implemented as a low-level cast, so machines with different endian orderings will give different results.</p>
+  <p><i>NOTE</i>: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/bitcast.html#classtensorflow_1_1ops_1_1_bitcast">Bitcast</a> is implemented as a low-level cast, so machines with different endian orderings will give different results.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -57,7 +55,7 @@ tf.Tensor(
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_bitcast_1a05bc5afdb6742a02847bb3a8d621b149">Bitcast</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, DataType type)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_bitcast_1a05bc5afdb6742a02847bb3a8d621b149">Bitcast</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, DataType type)</code>
         <br />
       </td>
     </tr>
@@ -74,7 +72,7 @@ tf.Tensor(
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -84,7 +82,7 @@ tf.Tensor(
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -129,20 +127,20 @@ tf.Tensor(
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_bitcast_1a73096d45a2f9d4344e1129af8152435c">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_bitcast_1a4b3a50f16d6247d11bfe2d42f5a438fd">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_bitcast_1a05bc5afdb6742a02847bb3a8d621b149">
     <h3>Bitcast</h3>
     <pre class="prettyprint"> Bitcast(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
   DataType type
 )</pre>
     <div />

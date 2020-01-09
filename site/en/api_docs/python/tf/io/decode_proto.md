@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_proto">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_decode_proto_ops.py`
@@ -23,9 +17,8 @@ The op extracts fields from a serialized protocol buffers message into tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_proto"><code>tf.compat.v1.io.decode_proto</code></a>
-* <a href="/api_docs/python/tf/io/decode_proto"><code>tf.compat.v2.io.decode_proto</code></a>
-* <a href="/api_docs/python/tf/io/decode_proto"><code>tf.contrib.proto.decode_proto</code></a>
+* `tf.compat.v1.io.decode_proto`
+* `tf.compat.v2.io.decode_proto`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/autograph/to_graph">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/impl/api.py#L621-L690">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/autograph/impl/api.py#L549-L618">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,15 +21,13 @@ Converts a Python entity into a TensorFlow graph.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/autograph/to_graph"><code>tf.compat.v1.autograph.to_graph</code></a>
+* `tf.compat.v2.autograph.to_graph`
 
 
 ``` python
 tf.autograph.to_graph(
     entity,
     recursive=True,
-    arg_values=None,
-    arg_types=None,
     experimental_optional_features=None
 )
 ```
@@ -90,8 +82,6 @@ argument called `self`.
 * <b>`entity`</b>: Python callable or class to convert.
 * <b>`recursive`</b>: Whether to recursively convert any functions that the converted
   function may call.
-* <b>`arg_values`</b>: Deprecated.
-* <b>`arg_types`</b>: Deprecated.
 * <b>`experimental_optional_features`</b>: `None`, a tuple of, or a single
   <a href="../../tf/autograph/experimental/Feature"><code>tf.autograph.experimental.Feature</code></a> value. Controls the use of optional
   features in the conversion process.

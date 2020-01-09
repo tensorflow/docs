@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/experimental/Generator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L171-L672">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L171-L670">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,12 @@ page_type: reference
 
 Random-number generator.
 
-Inherits From: [`Checkpointable`](../../../tf/contrib/checkpoint/Checkpointable)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/random/experimental/Generator"><code>tf.compat.v1.random.experimental.Generator</code></a>
-* Class <a href="/api_docs/python/tf/random/experimental/Generator"><code>tf.compat.v2.random.experimental.Generator</code></a>
+* Class `tf.compat.v1.random.experimental.Generator`
+* Class `tf.compat.v2.random.experimental.Generator`
 
 
 <!-- Placeholder for "Used in" -->
@@ -46,7 +40,7 @@ may have small numerical discrepancies between CPU and GPU.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L182-L216">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L182-L214">View source</a>
 
 ``` python
 __init__(
@@ -71,12 +65,10 @@ decreasing precedence:
 * <b>`copy_from`</b>: a generator to be copied from.
 * <b>`state`</b>: a vector of dtype STATE_TYPE representing the initial state of the
   RNG, whose length and semantics are algorithm-specific.
-* <b>`alg`</b>: the RNG algorithm. Possible values are `RNG_ALG_PHILOX` for the
-  Philox algorithm and `RNG_ALG_THREEFRY` for the ThreeFry
+* <b>`alg`</b>: the RNG algorithm. Possible values are RNG_ALG_PHILOX for the
+  Philox algorithm and RNG_ALG_THREEFRY for the ThreeFry
   algorithm (see paper 'Parallel Random Numbers: As Easy as 1, 2, 3'
   [https://www.thesalmons.org/john/random123/papers/random123sc11.pdf]).
-  Note `RNG_ALG_PHILOX` guarantees the same numbers are produced (given
-  the same random state) across all architextures (CPU, GPU, XLA etc).
 
 
 
@@ -117,7 +109,7 @@ The internal state of the RNG.
 
 <h3 id="binomial"><code>binomial</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L535-L583">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L533-L581">View source</a>
 
 ``` python
 binomial(
@@ -173,7 +165,7 @@ binomial_samples = rng.binomial(shape=[2], counts=counts, probs=probs)
 
 <h3 id="from_key_counter"><code>from_key_counter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L278-L301">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L276-L299">View source</a>
 
 ``` python
 @classmethod
@@ -207,7 +199,7 @@ The new generator.
 
 <h3 id="from_non_deterministic_state"><code>from_non_deterministic_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L258-L276">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L256-L274">View source</a>
 
 ``` python
 @classmethod
@@ -235,7 +227,7 @@ The new generator.
 
 <h3 id="from_seed"><code>from_seed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L233-L256">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L231-L254">View source</a>
 
 ``` python
 @classmethod
@@ -270,7 +262,7 @@ The new generator.
 
 <h3 id="from_state"><code>from_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L218-L231">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L216-L229">View source</a>
 
 ``` python
 @classmethod
@@ -299,7 +291,7 @@ The new generator.
 
 <h3 id="make_seeds"><code>make_seeds</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L594-L622">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L592-L620">View source</a>
 
 ``` python
 make_seeds(count=1)
@@ -334,7 +326,7 @@ A tensor of shape [2, count] and dtype int64.
 
 <h3 id="normal"><code>normal</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L394-L416">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L392-L414">View source</a>
 
 ``` python
 normal(
@@ -369,7 +361,7 @@ A tensor of the specified shape filled with random normal values.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L303-L313">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L301-L311">View source</a>
 
 ``` python
 reset(state)
@@ -386,7 +378,7 @@ See `__init__` for the meaning of "state".
 
 <h3 id="reset_from_key_counter"><code>reset_from_key_counter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L326-L342">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L324-L340">View source</a>
 
 ``` python
 reset_from_key_counter(
@@ -407,7 +399,7 @@ See `from_key_counter` for the meaning of "key" and "counter".
 
 <h3 id="reset_from_seed"><code>reset_from_seed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L315-L324">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L313-L322">View source</a>
 
 ``` python
 reset_from_seed(seed)
@@ -424,7 +416,7 @@ See `from_seed` for the meaning of "seed".
 
 <h3 id="skip"><code>skip</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L381-L390">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L379-L388">View source</a>
 
 ``` python
 skip(delta)
@@ -443,7 +435,7 @@ Advance the counter of a counter-based RNG.
 
 <h3 id="split"><code>split</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L624-L672">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L622-L670">View source</a>
 
 ``` python
 split(count=1)
@@ -495,7 +487,7 @@ The new generators have the same RNG algorithm as the old one.
 
 <h3 id="truncated_normal"><code>truncated_normal</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L422-L454">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L420-L452">View source</a>
 
 ``` python
 truncated_normal(
@@ -534,7 +526,7 @@ A tensor of the specified shape filled with random truncated normal
 
 <h3 id="uniform"><code>uniform</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L460-L511">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L458-L509">View source</a>
 
 ``` python
 uniform(
@@ -589,7 +581,7 @@ A tensor of the specified shape filled with random uniform values.
 
 <h3 id="uniform_full_int"><code>uniform_full_int</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L513-L533">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L511-L531">View source</a>
 
 ``` python
 uniform_full_int(

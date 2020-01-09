@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/shuffle">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L258-L287">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L258-L287">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Randomly shuffles a tensor along its first dimension.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v1.random.shuffle</code></a>
-* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v1.random_shuffle</code></a>
-* <a href="/api_docs/python/tf/random/shuffle"><code>tf.compat.v2.random.shuffle</code></a>
-* <a href="/api_docs/python/tf/random/shuffle"><code>tf.random_shuffle</code></a>
+* `tf.compat.v1.random.shuffle`
+* `tf.compat.v1.random_shuffle`
+* `tf.compat.v2.random.shuffle`
 
 
 ``` python
@@ -61,7 +54,7 @@ to one and only one `output[i]`. For example, a mapping that might occur for a
 * <b>`value`</b>: A Tensor to be shuffled.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
   See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 

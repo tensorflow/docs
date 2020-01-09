@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_near">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L761-L837">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L655-L705">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,7 @@ Assert the condition `x` and `y` are close element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_near"><code>tf.assert_near</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_near"><code>tf.compat.v1.assert_near</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_near"><code>tf.compat.v1.debugging.assert_near</code></a>
+* `tf.compat.v2.debugging.assert_near`
 
 
 ``` python
@@ -38,9 +30,8 @@ tf.debugging.assert_near(
     y,
     rtol=None,
     atol=None,
-    data=None,
-    summarize=None,
     message=None,
+    summarize=None,
     name=None
 )
 ```
@@ -49,19 +40,13 @@ tf.debugging.assert_near(
 
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+This Op checks that `x[i] - y[i] < atol + rtol * tf.abs(y[i])` holds for every
+pair of (possibly broadcast) elements of `x` and `y`. If both `x` and `y` are
+empty, this is trivially satisfied.
 
-```python
-with tf.control_dependencies([tf.compat.v1.assert_near(x, y)]):
-  output = tf.reduce_sum(x)
-```
-
-This condition holds if for every pair of (possibly broadcast) elements
-`x[i]`, `y[i]`, we have
-
-```tf.abs(x[i] - y[i]) <= atol + rtol * tf.abs(y[i])```.
-
-If both `x` and `y` are empty, this is trivially satisfied.
+If any elements of `x` and `y` are not close, `message`, as well as the first
+`summarize` entries of `x` and `y` are printed, and `InvalidArgumentError`
+is raised.
 
 The default `atol` and `rtol` is `10 * eps`, where `eps` is the smallest
 representable positive number such that `1 + eps != 1`.  This is about
@@ -71,23 +56,38 @@ See `numpy.finfo`.
 #### Args:
 
 
-* <b>`x`</b>:  Float or complex `Tensor`.
-* <b>`y`</b>:  Float or complex `Tensor`, same `dtype` as, and broadcastable to, `x`.
+* <b>`x`</b>: Float or complex `Tensor`.
+* <b>`y`</b>: Float or complex `Tensor`, same dtype as and broadcastable to `x`.
 * <b>`rtol`</b>:  `Tensor`.  Same `dtype` as, and broadcastable to, `x`.
   The relative tolerance.  Default is `10 * eps`.
 * <b>`atol`</b>:  `Tensor`.  Same `dtype` as, and broadcastable to, `x`.
   The absolute tolerance.  Default is `10 * eps`.
-* <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-  error message and first few entries of `x`, `y`.
-* <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`message`</b>: A string to prefix to the default message.
+* <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_near".
 
 
 #### Returns:
 
 Op that raises `InvalidArgumentError` if `x` and `y` are not close enough.
+  This can be used with <a href="../../tf/control_dependencies"><code>tf.control_dependencies</code></a> inside of <a href="../../tf/function"><code>tf.function</code></a>s
+  to block followup computation until the check has executed.
 
+
+
+
+#### Raises:
+
+
+* <b>`InvalidArgumentError`</b>: if the check can be performed immediately and
+  `x != y` is False for any pair of elements in `x` and `y`. The check can
+  be performed immediately during eager execution or if `x` and `y` are
+  statically known.
+
+
+
+#### Eager Compatibility
+returns None
 
 
 

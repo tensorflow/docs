@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/split">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1631-L1699">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1642-L1710">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Splits a tensor into sub tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/split"><code>tf.compat.v1.split</code></a>
-* <a href="/api_docs/python/tf/split"><code>tf.compat.v2.split</code></a>
+* `tf.compat.v1.split`
+* `tf.compat.v2.split`
 
 
 ``` python
@@ -43,7 +37,15 @@ tf.split(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Masking and padding with Keras](https://www.tensorflow.org/guide/keras/masking_and_padding)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+
+
 
 If `num_or_size_splits` is an integer, then `value` is split along dimension
 `axis` into `num_split` smaller tensors. This requires that `num_split` evenly

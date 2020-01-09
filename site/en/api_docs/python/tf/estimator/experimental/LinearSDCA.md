@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/LinearSDCA">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/linear.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,14 +25,14 @@ Stochastic Dual Coordinate Ascent helper for linear estimators.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/experimental/LinearSDCA"><code>tf.compat.v1.estimator.experimental.LinearSDCA</code></a>
-* Class <a href="/api_docs/python/tf/estimator/experimental/LinearSDCA"><code>tf.compat.v2.estimator.experimental.LinearSDCA</code></a>
+* Class `tf.compat.v1.estimator.experimental.LinearSDCA`
+* Class `tf.compat.v2.estimator.experimental.LinearSDCA`
 
 
 <!-- Placeholder for "Used in" -->
 
 Objects of this class are intended to be provided as the optimizer argument
-(though LinearSDCA objects do not implement the <a href="../../../tf/train/Optimizer"><code>tf.train.Optimizer</code></a> interface)
+(though LinearSDCA objects do not implement the `tf.train.Optimizer` interface)
 when creating <a href="../../../tf/estimator/LinearClassifier"><code>tf.estimator.LinearClassifier</code></a> or <a href="../../../tf/estimator/LinearRegressor"><code>tf.estimator.LinearRegressor</code></a>.
 
 SDCA can only be used with `LinearClassifier` and `LinearRegressor` under the

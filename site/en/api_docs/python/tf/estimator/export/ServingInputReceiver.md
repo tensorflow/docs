@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/export/ServingInputReceiver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ A return type for a serving_input_receiver_fn.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/export/ServingInputReceiver"><code>tf.compat.v1.estimator.export.ServingInputReceiver</code></a>
-* Class <a href="/api_docs/python/tf/estimator/export/ServingInputReceiver"><code>tf.compat.v2.estimator.export.ServingInputReceiver</code></a>
+* Class `tf.compat.v1.estimator.export.ServingInputReceiver`
+* Class `tf.compat.v2.estimator.export.ServingInputReceiver`
 
 
 <!-- Placeholder for "Used in" -->

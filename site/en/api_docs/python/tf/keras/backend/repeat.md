@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/repeat">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2813-L2845">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2927-L2959">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Repeats a 2D tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/repeat"><code>tf.compat.v1.keras.backend.repeat</code></a>
-* <a href="/api_docs/python/tf/keras/backend/repeat"><code>tf.compat.v2.keras.backend.repeat</code></a>
+* `tf.compat.v1.keras.backend.repeat`
+* `tf.compat.v2.keras.backend.repeat`
 
 
 ``` python
@@ -60,16 +54,16 @@ A tensor.
 
 #### Example:
 
-```python
->>> b = tf.constant([[1, 2], [3, 4]])
->>> b
-<tf.Tensor: id=78, shape=(2, 2), dtype=int32, numpy=
-array([[1, 2],
-       [3, 4]], dtype=int32)>
->>> tf.keras.backend.repeat(b, n=2)
-<tf.Tensor: id=82, shape=(2, 2, 2), dtype=int32, numpy=
-array([[[1, 2],
-        [1, 2]],
-       [[3, 4],
-        [3, 4]]], dtype=int32)>
-```
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}b = tf.constant([[1, 2], [3, 4]]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> b{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=78, shape=(2, 2), dtype=int32, numpy={% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  array([[1, 2],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [3, 4]], dtype=int32)>{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> tf.keras.backend.repeat(b, n=2){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=82, shape=(2, 2, 2), dtype=int32, numpy={% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  array([[[1, 2],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}          [1, 2]],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [[3, 4],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}          [3, 4]]], dtype=int32)>{% endhtmlescape %}</code>
+  </pre>

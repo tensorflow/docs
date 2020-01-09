@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/matching_files">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_io_ops.py`
@@ -23,10 +17,9 @@ Returns the set of files matching one or more glob patterns.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/matching_files"><code>tf.compat.v1.io.matching_files</code></a>
-* <a href="/api_docs/python/tf/io/matching_files"><code>tf.compat.v1.matching_files</code></a>
-* <a href="/api_docs/python/tf/io/matching_files"><code>tf.compat.v2.io.matching_files</code></a>
-* <a href="/api_docs/python/tf/io/matching_files"><code>tf.matching_files</code></a>
+* `tf.compat.v1.io.matching_files`
+* `tf.compat.v1.matching_files`
+* `tf.compat.v2.io.matching_files`
 
 
 ``` python

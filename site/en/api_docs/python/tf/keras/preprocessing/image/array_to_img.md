@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/array_to_img">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L47-L74">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/image.py#L47-L74">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Converts a 3D Numpy array to a PIL Image instance.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/image/array_to_img"><code>tf.compat.v1.keras.preprocessing.image.array_to_img</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/image/array_to_img"><code>tf.compat.v2.keras.preprocessing.image.array_to_img</code></a>
+* `tf.compat.v1.keras.preprocessing.image.array_to_img`
+* `tf.compat.v2.keras.preprocessing.image.array_to_img`
 
 
 ``` python
@@ -42,7 +36,11 @@ tf.keras.preprocessing.image.array_to_img(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+
+
 
 
 #### Arguments:

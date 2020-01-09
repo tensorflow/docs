@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/segment_sqrt_n">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L3838-L3873">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L3887-L3918">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,7 @@ Computes the sum along sparse segments of a tensor divided by the sqrt(N).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.compat.v1.sparse.segment_sqrt_n</code></a>
-* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.compat.v1.sparse_segment_sqrt_n</code></a>
-* <a href="/api_docs/python/tf/sparse/segment_sqrt_n"><code>tf.sparse_segment_sqrt_n</code></a>
+* `tf.compat.v2.sparse.segment_sqrt_n`
 
 
 ``` python
@@ -37,8 +29,8 @@ tf.sparse.segment_sqrt_n(
     data,
     indices,
     segment_ids,
-    name=None,
-    num_segments=None
+    num_segments=None,
+    name=None
 )
 ```
 
@@ -46,7 +38,12 @@ tf.sparse.segment_sqrt_n(
 
 <!-- Placeholder for "Used in" -->
 
-`N` is the size of the segment being reduced.
+Read [the section on
+segmentation](https://tensorflow.org/api_docs/python/tf/math#Segmentation)
+for an explanation of segments.
+
+Like <a href="../../tf/sparse/segment_mean"><code>tf.sparse.segment_mean</code></a>, but instead of dividing by the size of the
+segment, `N`, divide by `sqrt(N)` instead.
 
 #### Args:
 
@@ -56,9 +53,9 @@ tf.sparse.segment_sqrt_n(
   `segment_ids`.
 * <b>`segment_ids`</b>: A 1-D `Tensor` with indices into the output `Tensor`. Values
   should be sorted and can be repeated.
-* <b>`name`</b>: A name for the operation (optional).
 * <b>`num_segments`</b>: An optional int32 scalar. Indicates the size of the output
   `Tensor`.
+* <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:

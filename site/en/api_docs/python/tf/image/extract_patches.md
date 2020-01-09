@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/extract_patches">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4530-L4648">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L4545-L4663">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Extract `patches` from `images`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/extract_patches"><code>tf.compat.v1.image.extract_patches</code></a>
-* <a href="/api_docs/python/tf/image/extract_patches"><code>tf.compat.v2.image.extract_patches</code></a>
+* `tf.compat.v1.image.extract_patches`
+* `tf.compat.v2.image.extract_patches`
 
 
 ``` python

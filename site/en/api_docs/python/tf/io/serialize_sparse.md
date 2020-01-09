@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/serialize_sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1939-L1956">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L1943-L1966">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,16 +21,14 @@ Serialize a `SparseTensor` into a 3-vector (1-D `Tensor`) object.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/serialize_sparse"><code>tf.compat.v1.io.serialize_sparse</code></a>
-* <a href="/api_docs/python/tf/io/serialize_sparse"><code>tf.compat.v1.serialize_sparse</code></a>
-* <a href="/api_docs/python/tf/io/serialize_sparse"><code>tf.serialize_sparse</code></a>
+* `tf.compat.v2.io.serialize_sparse`
 
 
 ``` python
 tf.io.serialize_sparse(
     sp_input,
-    name=None,
-    out_type=tf.dtypes.string
+    out_type=tf.dtypes.string,
+    name=None
 )
 ```
 
@@ -49,8 +41,8 @@ tf.io.serialize_sparse(
 
 
 * <b>`sp_input`</b>: The input `SparseTensor`.
-* <b>`name`</b>: A name prefix for the returned tensors (optional).
 * <b>`out_type`</b>: The `dtype` to use for serialization.
+* <b>`name`</b>: A name prefix for the returned tensors (optional).
 
 
 #### Returns:

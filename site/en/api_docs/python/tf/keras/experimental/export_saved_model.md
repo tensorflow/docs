@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/experimental/export_saved_model">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/saved_model_experimental.py#L63-L145">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/saving/saved_model_experimental.py#L63-L145">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Exports a <a href="../../../tf/keras/Model"><code>tf.keras.Model</code></a> as a
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.compat.v1.keras.experimental.export_saved_model</code></a>
-* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.compat.v2.keras.experimental.export_saved_model</code></a>
-* <a href="/api_docs/python/tf/keras/experimental/export_saved_model"><code>tf.contrib.saved_model.save_keras_model</code></a>
+* `tf.compat.v1.keras.experimental.export_saved_model`
+* `tf.compat.v2.keras.experimental.export_saved_model`
 
 
 ``` python
@@ -45,7 +38,16 @@ tf.keras.experimental.export_saved_model(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+
+### Used in the tutorials:
+
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+* [Transfer learning with TensorFlow Hub](https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub)
+
+
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:

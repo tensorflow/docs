@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/xla/experimental/compile">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/compiler/xla/xla.py#L65-L110">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/compiler/xla/xla.py#L65-L110">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Builds an operator that compiles and runs `computation` with XLA.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/xla/experimental/compile"><code>tf.compat.v1.xla.experimental.compile</code></a>
-* <a href="/api_docs/python/tf/xla/experimental/compile"><code>tf.compat.v2.xla.experimental.compile</code></a>
+* `tf.compat.v1.xla.experimental.compile`
+* `tf.compat.v2.xla.experimental.compile`
 
 
 ``` python

@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::UnsortedSegmentProd Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -27,11 +25,11 @@ tf.unsorted_segment_prod(c, tf.constant([0, 1, 0]), num_segments=2)
   <p>If there is no entry for a given segment ID <code>i</code>, it outputs 1.</p>
   <p>If the given segment ID <code>i</code> is negative, then the corresponding value is dropped, and will not be included in the result.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>segment_ids: A tensor whose shape is a prefix of <code>data.shape</code>.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for the first <code>segment_ids.rank</code> dimensions, which are replaced with a single dimension which has size <code>num_segments</code>. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has same shape as data, except for the first <code>segment_ids.rank</code> dimensions, which are replaced with a single dimension which has size <code>num_segments</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -41,7 +39,7 @@ tf.unsorted_segment_prod(c, tf.constant([0, 1, 0]), num_segments=2)
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_prod_1a426fa7bf6679eaddb4357ecd2326ddfd">UnsortedSegmentProd</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_unsorted_segment_prod_1a426fa7bf6679eaddb4357ecd2326ddfd">UnsortedSegmentProd</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments)</code>
         <br />
       </td>
     </tr>
@@ -58,7 +56,7 @@ tf.unsorted_segment_prod(c, tf.constant([0, 1, 0]), num_segments=2)
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -68,7 +66,7 @@ tf.unsorted_segment_prod(c, tf.constant([0, 1, 0]), num_segments=2)
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -113,22 +111,22 @@ tf.unsorted_segment_prod(c, tf.constant([0, 1, 0]), num_segments=2)
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_unsorted_segment_prod_1a9f38a8974be98df327efd596fbfa4322">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_unsorted_segment_prod_1a3c1839365baeffc25fd511bcfdc9a12b">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_unsorted_segment_prod_1a426fa7bf6679eaddb4357ecd2326ddfd">
     <h3>UnsortedSegmentProd</h3>
     <pre class="prettyprint"> UnsortedSegmentProd(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> data,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> segment_ids,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_segments
 )</pre>
     <div />
   </div>

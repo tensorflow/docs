@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/ExponentialMovingAverage">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L260-L550">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L260-L550">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Maintains moving averages of variables by employing an exponential decay.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/ExponentialMovingAverage"><code>tf.compat.v1.train.ExponentialMovingAverage</code></a>
-* Class <a href="/api_docs/python/tf/train/ExponentialMovingAverage"><code>tf.compat.v2.train.ExponentialMovingAverage</code></a>
+* Class `tf.compat.v1.train.ExponentialMovingAverage`
+* Class `tf.compat.v2.train.ExponentialMovingAverage`
 
 
 <!-- Placeholder for "Used in" -->
@@ -99,7 +93,7 @@ There are two ways to use the moving averages for evaluations:
    for a given variable.
 *  Build a model normally but load the checkpoint files to evaluate by using
    the shadow variable names.  For this use the `average_name()` method.  See
-   the <a href="../../tf/train/Saver"><code>tf.compat.v1.train.Saver</code></a> for more
+   the <a href="../../tf/compat/v1/train/Saver"><code>tf.compat.v1.train.Saver</code></a> for more
    information on restoring saved variables.
 
 Example of restoring the shadow variable values:
@@ -116,7 +110,7 @@ saver.restore(...checkpoint filename...)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L341-L371">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L341-L371">View source</a>
 
 ``` python
 __init__(
@@ -165,7 +159,7 @@ The name of this ExponentialMovingAverage object.
 
 <h3 id="apply"><code>apply</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L378-L462">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L378-L462">View source</a>
 
 ``` python
 apply(var_list=None)
@@ -176,13 +170,13 @@ Maintains moving averages of variables.
 `var_list` must be a list of `Variable` or `Tensor` objects.  This method
 creates shadow variables for all elements of `var_list`.  Shadow variables
 for `Variable` objects are initialized to the variable's initial value.
-They will be added to the <a href="../../tf/GraphKeys#MOVING_AVERAGE_VARIABLES"><code>GraphKeys.MOVING_AVERAGE_VARIABLES</code></a> collection.
+They will be added to the `GraphKeys.MOVING_AVERAGE_VARIABLES` collection.
 For `Tensor` objects, the shadow variables are initialized to 0 and zero
 debiased (see docstring in `assign_moving_average` for more details).
 
 shadow variables are created with `trainable=False` and added to the
 `GraphKeys.ALL_VARIABLES` collection.  They will be returned by calls to
-<a href="../../tf/global_variables"><code>tf.compat.v1.global_variables()</code></a>.
+<a href="../../tf/compat/v1/global_variables"><code>tf.compat.v1.global_variables()</code></a>.
 
 Returns an op that updates all shadow variables from the current value of
 their associated variables.
@@ -211,7 +205,7 @@ An Operation that updates the moving averages.
 
 <h3 id="average"><code>average</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L464-L474">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L464-L474">View source</a>
 
 ``` python
 average(var)
@@ -234,7 +228,7 @@ is not maintained.
 
 <h3 id="average_name"><code>average_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L476-L501">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L476-L501">View source</a>
 
 ``` python
 average_name(var)
@@ -268,7 +262,7 @@ by the `ExponentialMovingAverage class` to hold the moving average of
 
 <h3 id="variables_to_restore"><code>variables_to_restore</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/moving_averages.py#L503-L550">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/moving_averages.py#L503-L550">View source</a>
 
 ``` python
 variables_to_restore(moving_avg_variables=None)

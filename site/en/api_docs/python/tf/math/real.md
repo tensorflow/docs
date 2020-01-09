@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/real">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L508-L539">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L508-L539">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns the real part of a complex (or real) tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v1.math.real</code></a>
-* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v1.real</code></a>
-* <a href="/api_docs/python/tf/math/real"><code>tf.compat.v2.math.real</code></a>
-* <a href="/api_docs/python/tf/math/real"><code>tf.real</code></a>
+* `tf.compat.v1.math.real`
+* `tf.compat.v1.real`
+* `tf.compat.v2.math.real`
 
 
 ``` python

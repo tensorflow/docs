@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/CrossDeviceOps">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L237-L396">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L237-L396">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Base class for cross-device reduction and broadcasting algorithms.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/CrossDeviceOps"><code>tf.compat.v1.distribute.CrossDeviceOps</code></a>
-* Class <a href="/api_docs/python/tf/distribute/CrossDeviceOps"><code>tf.compat.v2.distribute.CrossDeviceOps</code></a>
-* Class <a href="/api_docs/python/tf/distribute/CrossDeviceOps"><code>tf.contrib.distribute.CrossDeviceOps</code></a>
+* Class `tf.compat.v1.distribute.CrossDeviceOps`
+* Class `tf.compat.v2.distribute.CrossDeviceOps`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +34,7 @@ Base class for cross-device reduction and broadcasting algorithms.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L240-L241">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L240-L241">View source</a>
 
 ``` python
 __init__()
@@ -56,7 +49,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L284-L324">View source</a>
 
 ``` python
 batch_reduce(
@@ -93,7 +86,7 @@ a list of Mirrored objects.
 
 <h3 id="batch_reduce_implementation"><code>batch_reduce_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L362-L383">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L362-L383">View source</a>
 
 ``` python
 batch_reduce_implementation(
@@ -130,7 +123,7 @@ a list of Mirrored objects.
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L326-L337">View source</a>
 
 ``` python
 broadcast(
@@ -156,7 +149,7 @@ a Mirrored object.
 
 <h3 id="broadcast_implementation"><code>broadcast_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L385-L396">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L385-L396">View source</a>
 
 ``` python
 broadcast_implementation(
@@ -182,7 +175,7 @@ a Mirrored object.
 
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L248-L282">View source</a>
 
 ``` python
 reduce(
@@ -220,7 +213,7 @@ a Mirrored object.
 
 <h3 id="reduce_implementation"><code>reduce_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cross_device_ops.py#L339-L360">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cross_device_ops.py#L339-L360">View source</a>
 
 ``` python
 reduce_implementation(

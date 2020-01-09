@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/variable_creator_scope">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variable_scope.py#L2568-L2639">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variable_scope.py#L2647-L2712">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Scope which defines a variable creation function to be used by variable().
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/variable_creator_scope"><code>tf.compat.v1.variable_creator_scope</code></a>
+* `tf.compat.v2.variable_creator_scope`
 
 
 ``` python
@@ -62,13 +56,8 @@ The valid keyword arguments in kwds are:
       callable with no argument that returns the initial value when called. In
       that case, `dtype` must be specified. (Note that initializer functions
       from init_ops.py must first be bound to a shape before being used here.)
-    trainable: If `True`, the default, also adds the variable to the graph
-      collection <a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. This collection is used as
-      the default list of variables to use by the `Optimizer` classes.
-      `trainable` defaults to `True`, unless `synchronization` is
-      set to `ON_READ`, in which case it defaults to `False`.
-    collections: List of graph collections keys. The new variable is added to
-      these collections. Defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
+    trainable: If `True`, the default, GradientTapes automatically watch
+      uses of this Variable.
     validate_shape: If `False`, allows the variable to be initialized with a
       value of unknown shape. If `True`, the default, the shape of
       `initial_value` must be known.
@@ -84,7 +73,6 @@ The valid keyword arguments in kwds are:
       a Tensor), or `convert_to_tensor` will decide.
     constraint: A constraint function to be applied to the variable after
       updates by some algorithms.
-    use_resource: if True, a ResourceVariable is always created.
     synchronization: Indicates when a distributed a variable will be
       aggregated. Accepted values are constants defined in the class
       <a href="../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to

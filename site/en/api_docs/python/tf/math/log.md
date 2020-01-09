@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/log">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Computes natural logarithm of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v1.log</code></a>
-* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v1.math.log</code></a>
-* <a href="/api_docs/python/tf/math/log"><code>tf.compat.v2.math.log</code></a>
-* <a href="/api_docs/python/tf/math/log"><code>tf.log</code></a>
+* `tf.compat.v1.log`
+* `tf.compat.v1.math.log`
+* `tf.compat.v2.math.log`
 
 
 ``` python
@@ -39,7 +32,16 @@ tf.math.log(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+
+
 
 I.e., \\(y = \log_e x\\).
 

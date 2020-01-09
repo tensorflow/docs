@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/train">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -31,7 +25,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class BytesList`](../../../tf/train/BytesList): A ProtocolMessage
 
-[`class Checkpoint`](../../../tf/compat/v2/train/Checkpoint): Groups trackable objects, saving and restoring them.
+[`class Checkpoint`](../../../tf/train/Checkpoint): Groups trackable objects, saving and restoring them.
 
 [`class CheckpointManager`](../../../tf/train/CheckpointManager): Deletes old checkpoints.
 

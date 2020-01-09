@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Reshape">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L376-L476">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L376-L476">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,21 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Reshape"><code>tf.compat.v1.keras.layers.Reshape</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Reshape"><code>tf.compat.v2.keras.layers.Reshape</code></a>
+* Class `tf.compat.v1.keras.layers.Reshape`
+* Class `tf.compat.v2.keras.layers.Reshape`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+
+
 
 
 #### Arguments:
@@ -82,7 +86,7 @@ model.add(Reshape((-1, 2, 2)))
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L411-L413">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L411-L413">View source</a>
 
 ``` python
 __init__(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/LeakyReLU">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/advanced_activations.py#L33-L68">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/advanced_activations.py#L33-L68">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,16 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/LeakyReLU"><code>tf.compat.v1.keras.layers.LeakyReLU</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/LeakyReLU"><code>tf.compat.v2.keras.layers.LeakyReLU</code></a>
+* Class `tf.compat.v1.keras.layers.LeakyReLU`
+* Class `tf.compat.v2.keras.layers.LeakyReLU`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 It allows a small gradient when the unit is not active:
 `f(x) = alpha * x for x < 0`,
@@ -62,7 +61,7 @@ Same shape as the input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/advanced_activations.py#L53-L56">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/advanced_activations.py#L53-L56">View source</a>
 
 ``` python
 __init__(

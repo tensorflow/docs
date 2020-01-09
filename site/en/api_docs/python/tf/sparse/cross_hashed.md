@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/cross_hashed">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L554-L598">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L553-L597">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Generates hashed sparse cross from a list of sparse and dense tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/cross_hashed"><code>tf.compat.v1.sparse.cross_hashed</code></a>
-* <a href="/api_docs/python/tf/sparse/cross_hashed"><code>tf.compat.v2.sparse.cross_hashed</code></a>
+* `tf.compat.v1.sparse.cross_hashed`
+* `tf.compat.v2.sparse.cross_hashed`
 
 
 ``` python

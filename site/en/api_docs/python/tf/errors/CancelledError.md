@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/CancelledError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L213-L229">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L213-L229">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,24 +25,24 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/CancelledError"><code>tf.compat.v1.errors.CancelledError</code></a>
-* Class <a href="/api_docs/python/tf/errors/CancelledError"><code>tf.compat.v2.errors.CancelledError</code></a>
+* Class `tf.compat.v1.errors.CancelledError`
+* Class `tf.compat.v2.errors.CancelledError`
 
 
 <!-- Placeholder for "Used in" -->
 
 For example, a long-running operation (e.g.
-<a href="../../tf/queue/QueueBase#enqueue"><code>tf.QueueBase.enqueue</code></a> may be
+`tf.QueueBase.enqueue` may be
 cancelled by running another operation (e.g.
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a>,
-or by <a href="../../tf/Session#close"><code>tf.Session.close</code></a>.
+`tf.QueueBase.close`,
+or by `tf.Session.close`.
 A step that is running such a long-running operation will fail by raising
 `CancelledError`.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L227-L229">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L227-L229">View source</a>
 
 ``` python
 __init__(

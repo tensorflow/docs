@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/GRU">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1766-L2039">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent_v2.py#L147-L406">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,22 +21,49 @@ page_type: reference
 
 Gated Recurrent Unit - Cho et al. 2014.
 
-Inherits From: [`RNN`](../../../tf/keras/layers/RNN)
+Inherits From: [`GRU`](../../../tf/compat/v1/keras/layers/GRU)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/GRU"><code>tf.compat.v1.keras.layers.GRU</code></a>
+* Class `tf.compat.v2.keras.layers.GRU`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
-There are two variants. The default one is based on 1406.1078v3 and
-has reset gate applied to hidden state before matrix multiplication. The
-other one is based on original 1406.1078v1 and has the order reversed.
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+### Used in the tutorials:
+
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+
+
+
+Based on available runtime hardware and constraints, this layer
+will choose different implementations (cuDNN-based or pure-TensorFlow)
+to maximize the performance. If a GPU is available and all
+the arguments to the layer meet the requirement of the CuDNN kernel
+(see below for details), the layer will use a fast cuDNN implementation.
+
+The requirements to use the cuDNN implementation are:
+
+1. `activation` == 'tanh'
+2. `recurrent_activation` == 'sigmoid'
+3. `recurrent_dropout` == 0
+4. `unroll` is False
+5. `use_bias` is True
+6. `reset_after` is True
+7. Inputs are not masked or strictly right padded.
+
+There are two variants of the GRU implementation. The default one is based on
+[v3](https://arxiv.org/abs/1406.1078v3) and has reset gate applied to hidden
+state before matrix multiplication. The other one is based on
+[original](https://arxiv.org/abs/1406.1078v1) and has the order reversed.
 
 The second variant is compatible with CuDNNGRU (GPU-only) and allows
 inference on CPU. Thus it has separate biases for `kernel` and
-`recurrent_kernel`. Use `'reset_after'=True` and
+`recurrent_kernel`. To use this variant, set `'reset_after'=True` and
 `recurrent_activation='sigmoid'`.
 
 #### Arguments:
@@ -55,14 +76,15 @@ inference on CPU. Thus it has separate biases for `kernel` and
   (ie. "linear" activation: `a(x) = x`).
 * <b>`recurrent_activation`</b>: Activation function to use
   for the recurrent step.
-  Default: hard sigmoid (`hard_sigmoid`).
+  Default: sigmoid (`sigmoid`).
   If you pass `None`, no activation is applied
   (ie. "linear" activation: `a(x) = x`).
 * <b>`use_bias`</b>: Boolean, whether the layer uses a bias vector.
 * <b>`kernel_initializer`</b>: Initializer for the `kernel` weights matrix,
   used for the linear transformation of the inputs.
 * <b>`recurrent_initializer`</b>: Initializer for the `recurrent_kernel`
-  weights matrix, used for the linear transformation of the recurrent state.
+   weights matrix,
+   used for the linear transformation of the recurrent state.
 * <b>`bias_initializer`</b>: Initializer for the bias vector.
 * <b>`kernel_regularizer`</b>: Regularizer function applied to
   the `kernel` weights matrix.
@@ -77,8 +99,7 @@ inference on CPU. Thus it has separate biases for `kernel` and
   the `recurrent_kernel` weights matrix.
 * <b>`bias_constraint`</b>: Constraint function applied to the bias vector.
 * <b>`dropout`</b>: Float between 0 and 1.
-  Fraction of the units to drop for
-  the linear transformation of the inputs.
+  Fraction of the units to drop for the linear transformation of the inputs.
 * <b>`recurrent_dropout`</b>: Float between 0 and 1.
   Fraction of the units to drop for
   the linear transformation of the recurrent state.
@@ -104,17 +125,9 @@ inference on CPU. Thus it has separate biases for `kernel` and
   Unrolling can speed-up a RNN,
   although it tends to be more memory-intensive.
   Unrolling is only suitable for short sequences.
-* <b>`time_major`</b>: The shape format of the `inputs` and `outputs` tensors.
-  If True, the inputs and outputs will be in shape
-  `(timesteps, batch, ...)`, whereas in the False case, it will be
-  `(batch, timesteps, ...)`. Using `time_major = True` is a bit more
-  efficient because it avoids transposes at the beginning and end of the
-  RNN calculation. However, most TensorFlow data is batch-major, so by
-  default this function accepts input and emits output in batch-major
-  form. 
 * <b>`reset_after`</b>: GRU convention (whether to apply reset gate after or
-  before matrix multiplication). False = "before" (default),
-  True = "after" (CuDNN compatible).
+  before matrix multiplication). False = "before",
+  True = "after" (default and CuDNN compatible).
 
 
 #### Call arguments:
@@ -132,13 +145,13 @@ inference on CPU. Thus it has separate biases for `kernel` and
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1859-L1916">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent_v2.py#L249-L309">View source</a>
 
 ``` python
 __init__(
     units,
     activation='tanh',
-    recurrent_activation='hard_sigmoid',
+    recurrent_activation='sigmoid',
     use_bias=True,
     kernel_initializer='glorot_uniform',
     recurrent_initializer='orthogonal',
@@ -152,13 +165,14 @@ __init__(
     bias_constraint=None,
     dropout=0.0,
     recurrent_dropout=0.0,
-    implementation=1,
+    implementation=2,
     return_sequences=False,
     return_state=False,
     go_backwards=False,
     stateful=False,
     unroll=False,
-    reset_after=False,
+    time_major=False,
+    reset_after=True,
     **kwargs
 )
 ```
@@ -264,9 +278,41 @@ __init__(
 
 ## Methods
 
+<h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1033-L1067">View source</a>
+
+``` python
+get_dropout_mask_for_cell(
+    inputs,
+    training,
+    count=1
+)
+```
+
+Get the dropout mask for RNN cell's input.
+
+It will create mask based on context if there isn't any existing cached
+mask. If a new mask is generated, it will update the cache in the cell.
+
+#### Args:
+
+
+* <b>`inputs`</b>: the input tensor whose shape will be used to generate dropout
+  mask.
+* <b>`training`</b>: boolean tensor, whether its in training mode, dropout will be
+  ignored in non-training mode.
+* <b>`count`</b>: int, how many dropout mask will be generated. It is useful for cell
+  that has internal weights fused together.
+
+#### Returns:
+
+List of mask tensor, generated or cached mask based on context.
+
+
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L593-L614">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L593-L614">View source</a>
 
 ``` python
 get_initial_state(inputs)
@@ -275,9 +321,73 @@ get_initial_state(inputs)
 
 
 
+<h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1069-L1105">View source</a>
+
+``` python
+get_recurrent_dropout_mask_for_cell(
+    inputs,
+    training,
+    count=1
+)
+```
+
+Get the recurrent dropout mask for RNN cell.
+
+It will create mask based on context if there isn't any existing cached
+mask. If a new mask is generated, it will update the cache in the cell.
+
+#### Args:
+
+
+* <b>`inputs`</b>: the input tensor whose shape will be used to generate dropout
+  mask.
+* <b>`training`</b>: boolean tensor, whether its in training mode, dropout will be
+  ignored in non-training mode.
+* <b>`count`</b>: int, how many dropout mask will be generated. It is useful for cell
+  that has internal weights fused together.
+
+#### Returns:
+
+List of mask tensor, generated or cached mask based on context.
+
+
+<h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1009-L1019">View source</a>
+
+``` python
+reset_dropout_mask()
+```
+
+Reset the cached dropout masks if any.
+
+This is important for the RNN layer to invoke this in it call() method so
+that the cached mask is cleared before calling the cell.call(). The mask
+should be cached across the timestep within the same batch, but shouldn't
+be cached between batches. Otherwise it will introduce unreasonable bias
+against certain index of data within the batch.
+
+<h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1021-L1031">View source</a>
+
+``` python
+reset_recurrent_dropout_mask()
+```
+
+Reset the cached recurrent dropout masks if any.
+
+This is important for the RNN layer to invoke this in it call() method so
+that the cached mask is cleared before calling the cell.call(). The mask
+should be cached across the timestep within the same batch, but shouldn't
+be cached between batches. Otherwise it will introduce unreasonable bias
+against certain index of data within the batch.
+
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L806-L858">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L806-L858">View source</a>
 
 ``` python
 reset_states(states=None)

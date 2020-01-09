@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/constant">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/constant_op.py#L99-L161">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/constant_op.py#L164-L227">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Creates a constant tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/constant"><code>tf.compat.v1.constant</code></a>
+* `tf.compat.v2.constant`
 
 
 ``` python
@@ -35,14 +29,32 @@ tf.constant(
     value,
     dtype=None,
     shape=None,
-    name='Const',
-    verify_shape=False
+    name='Const'
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Load a pandas.DataFrame](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 The resulting tensor is populated with values of type `dtype`, as
 specified by arguments `value` and (optionally) `shape` (see examples
@@ -67,7 +79,11 @@ the type of `value`.
 
 ```python
 # Constant 1-D Tensor populated with value list.
-tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) => [1 2 3 4 5 6 7]
+tensor = tf.constant([1, 2, 3, 4, 5, 6]) => [1 2 3 4 5 6]
+
+# Constant 1-D Tensor populated with value list.
+tensor = tf.constant([1, 2, 3, 4, 5, 6], shape=(2,3))
+     => [[1 2 3], [4 5 6]]
 
 # Constant 2-D tensor populated with scalar value -1.
 tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
@@ -95,8 +111,6 @@ tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1. -1. -1.]
 * <b>`shape`</b>:          Optional dimensions of resulting tensor.
 
 * <b>`name`</b>:           Optional name for the tensor.
-
-* <b>`verify_shape`</b>:   Boolean that enables verification of a shape of values.
 
 
 #### Returns:

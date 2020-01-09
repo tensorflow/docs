@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/repeat_elements">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2752-L2810">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2866-L2924">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Repeats the elements of a tensor along an axis, like `np.repeat`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/repeat_elements"><code>tf.compat.v1.keras.backend.repeat_elements</code></a>
-* <a href="/api_docs/python/tf/keras/backend/repeat_elements"><code>tf.compat.v2.keras.backend.repeat_elements</code></a>
+* `tf.compat.v1.keras.backend.repeat_elements`
+* `tf.compat.v2.keras.backend.repeat_elements`
 
 
 ``` python
@@ -62,9 +56,9 @@ A tensor.
 
 #### Example:
 
-```python
->>> b = tf.constant([1, 2, 3])
->>> tf.keras.backend.repeat_elements(b, rep=2, axis=0)
-<tf.Tensor: id=70, shape=(6,), dtype=int32,
-    numpy=array([1, 1, 2, 2, 3, 3], dtype=int32)>
-```
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}b = tf.constant([1, 2, 3]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> tf.keras.backend.repeat_elements(b, rep=2, axis=0){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=70, shape=(6,), dtype=int32,{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}      numpy=array([1, 1, 2, 2, 3, 3], dtype=int32)>{% endhtmlescape %}</code>
+  </pre>

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_shapes">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1638-L1852">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1697-L1747">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Assert tensor shapes and dimension size relationships between tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_shapes"><code>tf.compat.v1.debugging.assert_shapes</code></a>
+* `tf.compat.v2.debugging.assert_shapes`
 
 
 ``` python
@@ -52,19 +46,12 @@ satisfies given constraints.
 
 
 ```python
-tf.assert_shapes({
-  (x, ('N', 'Q')),
-  (y, ('N', 'D')),
-  (param, ('Q',)),
-  (scalar, ())
-})
-```
-
-Example of adding a dependency to an operation:
-
-```python
-with tf.control_dependencies([tf.assert_shapes(shapes)]):
-  output = tf.matmul(x, y, transpose_a=True)
+tf.assert_shapes([
+  (x: ('N', 'Q')),
+  (y: ('N', 'D')),
+  (param: ('Q',)),
+  (scalar: ()),
+])
 ```
 
 If `x`, `y`, `param` or `scalar` does not have a shape that satisfies
@@ -95,15 +82,6 @@ prefix) are both treated as having a single dimension of size one.
 * <b>`summarize`</b>: Print this many entries of the tensor.
 * <b>`message`</b>: A string to prefix to the default message.
 * <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_shapes".
-
-
-#### Returns:
-
-Op raising `InvalidArgumentError` unless all shape constraints are
-satisfied.
-If static checks determine all constraints are satisfied, a `no_op` is
-returned.
-
 
 
 #### Raises:

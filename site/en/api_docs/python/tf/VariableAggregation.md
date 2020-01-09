@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/VariableAggregation">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L128-L136">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L93-L124">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,7 +25,7 @@ Indicates how a distributed variable will be aggregated.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/VariableAggregation"><code>tf.compat.v1.VariableAggregation</code></a>
+* Class `tf.compat.v2.VariableAggregation`
 
 
 <!-- Placeholder for "Used in" -->
@@ -49,7 +43,6 @@ different values for `x` computed in the different replicas.
 * `ONLY_FIRST_REPLICA`: This is for when every replica is performing the same
   update, but we only want to perform the update once. Used, e.g., for the
   global step counter.
-* `ONLY_FIRST_TOWER`: Deprecated alias for `ONLY_FIRST_REPLICA`.
 
 ## Class Members
 

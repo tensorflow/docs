@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/softplus">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_nn_ops.py`
@@ -23,11 +17,11 @@ Computes softplus: `log(exp(features) + 1)`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/softplus"><code>tf.compat.v1.math.softplus</code></a>
-* <a href="/api_docs/python/tf/math/softplus"><code>tf.compat.v1.nn.softplus</code></a>
-* <a href="/api_docs/python/tf/math/softplus"><code>tf.compat.v2.math.softplus</code></a>
-* <a href="/api_docs/python/tf/math/softplus"><code>tf.compat.v2.nn.softplus</code></a>
-* <a href="/api_docs/python/tf/math/softplus"><code>tf.nn.softplus</code></a>
+* `tf.compat.v1.math.softplus`
+* `tf.compat.v1.nn.softplus`
+* `tf.compat.v2.math.softplus`
+* `tf.compat.v2.nn.softplus`
+* `tf.nn.softplus`
 
 
 ``` python

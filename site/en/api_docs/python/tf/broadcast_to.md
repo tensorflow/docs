@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/broadcast_to">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,8 +17,8 @@ Broadcast an array for a compatible shape.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/broadcast_to"><code>tf.compat.v1.broadcast_to</code></a>
-* <a href="/api_docs/python/tf/broadcast_to"><code>tf.compat.v2.broadcast_to</code></a>
+* `tf.compat.v1.broadcast_to`
+* `tf.compat.v2.broadcast_to`
 
 
 ``` python

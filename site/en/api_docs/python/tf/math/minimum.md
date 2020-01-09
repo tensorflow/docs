@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/minimum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Returns the min of x and y (i.e. x < y ? x : y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v1.math.minimum</code></a>
-* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v1.minimum</code></a>
-* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v2.math.minimum</code></a>
-* <a href="/api_docs/python/tf/math/minimum"><code>tf.compat.v2.minimum</code></a>
-* <a href="/api_docs/python/tf/math/minimum"><code>tf.minimum</code></a>
+* `tf.compat.v1.math.minimum`
+* `tf.compat.v1.minimum`
+* `tf.compat.v2.math.minimum`
+* `tf.compat.v2.minimum`
+* `tf.minimum`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.math.minimum(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 *NOTE*: <a href="../../tf/math/minimum"><code>math.minimum</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)

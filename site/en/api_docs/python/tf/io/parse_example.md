@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/parse_example">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L367-L581">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L584-L808">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,23 +21,25 @@ Parses `Example` protos into a `dict` of tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/parse_example"><code>tf.compat.v1.io.parse_example</code></a>
-* <a href="/api_docs/python/tf/io/parse_example"><code>tf.compat.v1.parse_example</code></a>
-* <a href="/api_docs/python/tf/io/parse_example"><code>tf.parse_example</code></a>
+* `tf.compat.v2.io.parse_example`
 
 
 ``` python
 tf.io.parse_example(
     serialized,
     features,
-    name=None,
-    example_names=None
+    example_names=None,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 Parses a number of serialized [`Example`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
 protos given in `serialized`. We refer to `serialized` as a batch with
@@ -250,9 +246,9 @@ Then the output is a dictionary:
   serialized `Example` protos.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature`,
   `VarLenFeature`, and `SparseFeature` values.
-* <b>`name`</b>: A name for this operation (optional).
 * <b>`example_names`</b>: A vector (1-D Tensor) of strings (optional), the names of
   the serialized protos in the batch.
+* <b>`name`</b>: A name for this operation (optional).
 
 
 #### Returns:

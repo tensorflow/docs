@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/stateless_normal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateless_random_ops.py#L105-L141">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateless_random_ops.py#L105-L141">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Outputs deterministic pseudorandom values from a normal distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.compat.v1.random.stateless_normal</code></a>
-* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.compat.v2.random.stateless_normal</code></a>
-* <a href="/api_docs/python/tf/random/stateless_normal"><code>tf.contrib.stateless.stateless_random_normal</code></a>
+* `tf.compat.v1.random.stateless_normal`
+* `tf.compat.v2.random.stateless_normal`
 
 
 ``` python

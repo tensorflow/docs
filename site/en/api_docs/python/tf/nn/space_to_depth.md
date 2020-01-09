@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/space_to_depth">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L3232-L3235">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L3252-L3254">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,17 +21,15 @@ SpaceToDepth for tensors of type T.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/space_to_depth"><code>tf.compat.v1.nn.space_to_depth</code></a>
-* <a href="/api_docs/python/tf/nn/space_to_depth"><code>tf.compat.v1.space_to_depth</code></a>
-* <a href="/api_docs/python/tf/nn/space_to_depth"><code>tf.space_to_depth</code></a>
+* `tf.compat.v2.nn.space_to_depth`
 
 
 ``` python
 tf.nn.space_to_depth(
     input,
     block_size,
-    name=None,
-    data_format='NHWC'
+    data_format='NHWC',
+    name=None
 )
 ```
 

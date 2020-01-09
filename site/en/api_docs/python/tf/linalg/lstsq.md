@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/lstsq">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L172-L306">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/linalg_ops.py#L172-L306">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,10 +22,9 @@ Solves one or more linear least-squares problems.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v1.linalg.lstsq</code></a>
-* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v1.matrix_solve_ls</code></a>
-* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.compat.v2.linalg.lstsq</code></a>
-* <a href="/api_docs/python/tf/linalg/lstsq"><code>tf.matrix_solve_ls</code></a>
+* `tf.compat.v1.linalg.lstsq`
+* `tf.compat.v1.matrix_solve_ls`
+* `tf.compat.v2.linalg.lstsq`
 
 
 ``` python

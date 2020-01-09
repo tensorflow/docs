@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Layer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L93-L2511">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L86-L2422">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Module`](../../../tf/Module)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Layer"><code>tf.compat.v1.keras.layers.Layer</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Layer"><code>tf.compat.v2.keras.layers.Layer</code></a>
+* Class `tf.compat.v1.keras.layers.Layer`
+* Class `tf.compat.v2.keras.layers.Layer`
 
 
 <!-- Placeholder for "Used in" -->
@@ -218,7 +212,7 @@ z = layer3(x)  # layer3's dense layer runs in float64, since NestedLayer
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L284-L370">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L277-L363">View source</a>
 
 ``` python
 __init__(
@@ -469,7 +463,7 @@ A list of variables.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L710-L902">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L703-L895">View source</a>
 
 ``` python
 __call__(
@@ -517,7 +511,7 @@ Output tensor(s).
 
 <h3 id="add_loss"><code>add_loss</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1022-L1140">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1017-L1135">View source</a>
 
 ``` python
 add_loss(
@@ -602,7 +596,7 @@ specific set of inputs.
 
 <h3 id="add_metric"><code>add_metric</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1155-L1224">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1150-L1219">View source</a>
 
 ``` python
 add_metric(
@@ -636,7 +630,7 @@ Adds metric tensor to the layer.
 
 <h3 id="add_update"><code>add_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1226-L1310">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1221-L1305">View source</a>
 
 ``` python
 add_update(
@@ -676,7 +670,7 @@ execution).
 
 <h3 id="add_weight"><code>add_weight</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L401-L544">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L394-L537">View source</a>
 
 ``` python
 add_weight(
@@ -690,7 +684,7 @@ add_weight(
     partitioner=None,
     use_resource=None,
     synchronization=tf.VariableSynchronization.AUTO,
-    aggregation=tf.VariableAggregation.NONE,
+    aggregation=tf.compat.v1.VariableAggregation.NONE,
     **kwargs
 )
 ```
@@ -745,7 +739,7 @@ instance is returned.
 
 <h3 id="build"><code>build</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L372-L386">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L365-L379">View source</a>
 
 ``` python
 build(input_shape)
@@ -768,7 +762,7 @@ This is typically used to create the weights of `Layer` subclasses.
 
 <h3 id="call"><code>call</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L388-L399">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L381-L392">View source</a>
 
 ``` python
 call(
@@ -794,7 +788,7 @@ A tensor or list/tuple of tensors.
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L688-L708">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L681-L701">View source</a>
 
 ``` python
 compute_mask(
@@ -821,7 +815,7 @@ None or a tensor (or list of tensors,
 
 <h3 id="compute_output_shape"><code>compute_output_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L603-L646">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L596-L639">View source</a>
 
 ``` python
 compute_output_shape(input_shape)
@@ -849,7 +843,7 @@ An input shape tuple.
 
 <h3 id="compute_output_signature"><code>compute_output_signature</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L648-L686">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L641-L679">View source</a>
 
 ``` python
 compute_output_signature(input_signature)
@@ -885,7 +879,7 @@ Single TensorSpec or nested structure of TensorSpec objects, describing
 
 <h3 id="count_params"><code>count_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1616-L1635">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1611-L1630">View source</a>
 
 ``` python
 count_params()
@@ -908,7 +902,7 @@ An integer count.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L585-L601">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L578-L594">View source</a>
 
 ``` python
 @classmethod
@@ -939,7 +933,7 @@ A layer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L546-L583">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L539-L576">View source</a>
 
 ``` python
 get_config()
@@ -963,7 +957,7 @@ Python dictionary.
 
 <h3 id="get_input_at"><code>get_input_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1510-L1526">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1505-L1521">View source</a>
 
 ``` python
 get_input_at(node_index)
@@ -994,7 +988,7 @@ A tensor (or list of tensors if the layer has multiple inputs).
 
 <h3 id="get_input_mask_at"><code>get_input_mask_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1392-L1409">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1387-L1404">View source</a>
 
 ``` python
 get_input_mask_at(node_index)
@@ -1020,7 +1014,7 @@ A mask tensor
 
 <h3 id="get_input_shape_at"><code>get_input_shape_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1472-L1489">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1467-L1484">View source</a>
 
 ``` python
 get_input_shape_at(node_index)
@@ -1052,7 +1046,7 @@ A shape tuple
 
 <h3 id="get_losses_for"><code>get_losses_for</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1373-L1390">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1368-L1385">View source</a>
 
 ``` python
 get_losses_for(inputs)
@@ -1074,7 +1068,7 @@ List of loss tensors of the layer that depend on `inputs`.
 
 <h3 id="get_output_at"><code>get_output_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1528-L1544">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1523-L1539">View source</a>
 
 ``` python
 get_output_at(node_index)
@@ -1105,7 +1099,7 @@ A tensor (or list of tensors if the layer has multiple outputs).
 
 <h3 id="get_output_mask_at"><code>get_output_mask_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1411-L1428">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1406-L1423">View source</a>
 
 ``` python
 get_output_mask_at(node_index)
@@ -1131,7 +1125,7 @@ A mask tensor
 
 <h3 id="get_output_shape_at"><code>get_output_shape_at</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1491-L1508">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1486-L1503">View source</a>
 
 ``` python
 get_output_shape_at(node_index)
@@ -1163,7 +1157,7 @@ A shape tuple
 
 <h3 id="get_updates_for"><code>get_updates_for</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1354-L1371">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1349-L1366">View source</a>
 
 ``` python
 get_updates_for(inputs)
@@ -1185,7 +1179,7 @@ List of update ops of the layer that depend on `inputs`.
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1345-L1352">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1340-L1347">View source</a>
 
 ``` python
 get_weights()
@@ -1201,7 +1195,7 @@ Weights values as a list of numpy arrays.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L1312-L1343">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L1307-L1338">View source</a>
 
 ``` python
 set_weights(weights)

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unicode_decode">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L179-L222">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_string_ops.py#L179-L222">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Decodes each string in `input` into a sequence of Unicode code points.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unicode_decode"><code>tf.compat.v1.strings.unicode_decode</code></a>
-* <a href="/api_docs/python/tf/strings/unicode_decode"><code>tf.compat.v2.strings.unicode_decode</code></a>
+* `tf.compat.v1.strings.unicode_decode`
+* `tf.compat.v2.strings.unicode_decode`
 
 
 ``` python
@@ -44,7 +38,11 @@ tf.strings.unicode_decode(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 `result[i1...iN, j]` is the Unicode codepoint for the `j`th character in
 `input[i1...iN]`, when decoded using `input_encoding`.

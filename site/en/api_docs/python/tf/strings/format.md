@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/format">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/string_ops.py#L114-L192">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/string_ops.py#L114-L192">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Formats a string template using a list of tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/format"><code>tf.compat.v1.strings.format</code></a>
-* <a href="/api_docs/python/tf/strings/format"><code>tf.compat.v2.strings.format</code></a>
+* `tf.compat.v1.strings.format`
+* `tf.compat.v2.strings.format`
 
 
 ``` python

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/strings">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -32,31 +26,31 @@ Operations for working with string Tensors.
 
 [`join(...)`](../../../tf/strings/join): Joins the strings in the given list of string tensors into one tensor;
 
-[`length(...)`](../../../tf/compat/v2/strings/length)
+[`length(...)`](../../../tf/strings/length)
 
 [`lower(...)`](../../../tf/strings/lower): TODO: add doc.
 
 [`ngrams(...)`](../../../tf/strings/ngrams): Create a tensor of n-grams based on `data`.
 
-[`reduce_join(...)`](../../../tf/compat/v2/strings/reduce_join)
+[`reduce_join(...)`](../../../tf/strings/reduce_join)
 
 [`regex_full_match(...)`](../../../tf/strings/regex_full_match): Check if the input matches the regex pattern.
 
 [`regex_replace(...)`](../../../tf/strings/regex_replace): Replace elements of `input` matching regex `pattern` with `rewrite`.
 
-[`split(...)`](../../../tf/compat/v2/strings/split): Split elements of `input` based on `sep` into a `RaggedTensor`.
+[`split(...)`](../../../tf/strings/split): Split elements of `input` based on `sep` into a `RaggedTensor`.
 
 [`strip(...)`](../../../tf/strings/strip): Strip leading and trailing whitespaces from the Tensor.
 
-[`substr(...)`](../../../tf/compat/v2/strings/substr): Return substrings from `Tensor` of strings.
+[`substr(...)`](../../../tf/strings/substr): Return substrings from `Tensor` of strings.
 
-[`to_hash_bucket(...)`](../../../tf/compat/v2/strings/to_hash_bucket): Converts each string in the input Tensor to its hash mod by a number of buckets.
+[`to_hash_bucket(...)`](../../../tf/strings/to_hash_bucket): Converts each string in the input Tensor to its hash mod by a number of buckets.
 
 [`to_hash_bucket_fast(...)`](../../../tf/strings/to_hash_bucket_fast): Converts each string in the input Tensor to its hash mod by a number of buckets.
 
 [`to_hash_bucket_strong(...)`](../../../tf/strings/to_hash_bucket_strong): Converts each string in the input Tensor to its hash mod by a number of buckets.
 
-[`to_number(...)`](../../../tf/compat/v2/strings/to_number): Converts each string in the input Tensor to the specified numeric type.
+[`to_number(...)`](../../../tf/strings/to_number): Converts each string in the input Tensor to the specified numeric type.
 
 [`unicode_decode(...)`](../../../tf/strings/unicode_decode): Decodes each string in `input` into a sequence of Unicode code points.
 

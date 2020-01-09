@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/atanh">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes inverse hyperbolic tangent of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/atanh"><code>tf.atanh</code></a>
-* <a href="/api_docs/python/tf/math/atanh"><code>tf.compat.v1.atanh</code></a>
-* <a href="/api_docs/python/tf/math/atanh"><code>tf.compat.v1.math.atanh</code></a>
-* <a href="/api_docs/python/tf/math/atanh"><code>tf.compat.v2.atanh</code></a>
-* <a href="/api_docs/python/tf/math/atanh"><code>tf.compat.v2.math.atanh</code></a>
+* `tf.atanh`
+* `tf.compat.v1.atanh`
+* `tf.compat.v1.math.atanh`
+* `tf.compat.v2.atanh`
+* `tf.compat.v2.math.atanh`
 
 
 ``` python

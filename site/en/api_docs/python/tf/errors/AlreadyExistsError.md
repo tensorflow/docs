@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/AlreadyExistsError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L305-L319">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L305-L319">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,21 +25,21 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/AlreadyExistsError"><code>tf.compat.v1.errors.AlreadyExistsError</code></a>
-* Class <a href="/api_docs/python/tf/errors/AlreadyExistsError"><code>tf.compat.v2.errors.AlreadyExistsError</code></a>
+* Class `tf.compat.v1.errors.AlreadyExistsError`
+* Class `tf.compat.v2.errors.AlreadyExistsError`
 
 
 <!-- Placeholder for "Used in" -->
 
 For example, running an operation that saves a file
-(e.g. <a href="../../tf/train/Saver#save"><code>tf.train.Saver.save</code></a>)
+(e.g. `tf.train.Saver.save`)
 could potentially raise this exception if an explicit filename for an
 existing file was passed.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L316-L319">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L316-L319">View source</a>
 
 ``` python
 __init__(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/BinaryCrossentropy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L343-L401">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L348-L406">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,19 @@ Computes the cross-entropy loss between true labels and predicted labels.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/losses/BinaryCrossentropy"><code>tf.compat.v1.keras.losses.BinaryCrossentropy</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/BinaryCrossentropy"><code>tf.compat.v2.keras.losses.BinaryCrossentropy</code></a>
-* Class <a href="/api_docs/python/tf/keras/losses/BinaryCrossentropy"><code>tf.compat.v2.losses.BinaryCrossentropy</code></a>
+* Class `tf.compat.v1.keras.losses.BinaryCrossentropy`
+* Class `tf.compat.v2.keras.losses.BinaryCrossentropy`
+* Class `tf.compat.v2.losses.BinaryCrossentropy`
+* Class `tf.losses.BinaryCrossentropy`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Use this cross-entropy loss when there are only two label classes (assumed to
 be 0 and 1). For each example, there should be a single floating-point value
@@ -74,7 +75,7 @@ model.compile('sgd', loss=tf.keras.losses.BinaryCrossentropy())
   compute the loss between the predicted labels and a smoothed version of
   the true labels, where the smoothing squeezes the labels towards 0.5.
   Larger values of `label_smoothing` correspond to heavier smoothing.
-* <b>`reduction`</b>: (Optional) Type of `tf.keras.losses.Reduction` to apply to loss.
+* <b>`reduction`</b>: (Optional) Type of <a href="../../../tf/keras/losses/Reduction"><code>tf.keras.losses.Reduction</code></a> to apply to loss.
   Default value is `AUTO`. `AUTO` indicates that the reduction option will
   be determined by the usage context. For almost all cases this defaults to
   `SUM_OVER_BATCH_SIZE`.
@@ -87,7 +88,7 @@ model.compile('sgd', loss=tf.keras.losses.BinaryCrossentropy())
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L390-L401">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L395-L406">View source</a>
 
 ``` python
 __init__(
@@ -107,7 +108,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L94-L126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L96-L128">View source</a>
 
 ``` python
 __call__(
@@ -151,7 +152,7 @@ Weighted loss float `Tensor`. If `reduction` is `NONE`, this has
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L128-L138">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L130-L140">View source</a>
 
 ``` python
 from_config(
@@ -176,7 +177,7 @@ A `Loss` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L218-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L223-L228">View source</a>
 
 ``` python
 get_config()

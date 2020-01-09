@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_hash_bucket">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/sequence_feature_column.py#L255-L298">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/sequence_feature_column.py#L251-L294">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A sequence of categorical terms where ids are set by hashing.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_hash_bucket"><code>tf.compat.v1.feature_column.sequence_categorical_column_with_hash_bucket</code></a>
-* <a href="/api_docs/python/tf/feature_column/sequence_categorical_column_with_hash_bucket"><code>tf.compat.v2.feature_column.sequence_categorical_column_with_hash_bucket</code></a>
+* `tf.compat.v1.feature_column.sequence_categorical_column_with_hash_bucket`
+* `tf.compat.v2.feature_column.sequence_categorical_column_with_hash_bucket`
 
 
 ``` python

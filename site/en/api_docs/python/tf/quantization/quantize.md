@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/quantization/quantize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4403-L4419">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L4418-L4434">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v1.quantization.quantize</code></a>
-* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v1.quantize</code></a>
-* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.compat.v2.quantization.quantize</code></a>
-* <a href="/api_docs/python/tf/quantization/quantize"><code>tf.quantize</code></a>
+* `tf.compat.v1.quantization.quantize`
+* `tf.compat.v1.quantize`
+* `tf.compat.v2.quantization.quantize`
 
 
 ``` python

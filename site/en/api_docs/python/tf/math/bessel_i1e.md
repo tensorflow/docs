@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/bessel_i1e">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,8 +17,8 @@ Computes the Bessel i1e function of `x` element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/bessel_i1e"><code>tf.compat.v1.math.bessel_i1e</code></a>
-* <a href="/api_docs/python/tf/math/bessel_i1e"><code>tf.compat.v2.math.bessel_i1e</code></a>
+* `tf.compat.v1.math.bessel_i1e`
+* `tf.compat.v2.math.bessel_i1e`
 
 
 ``` python

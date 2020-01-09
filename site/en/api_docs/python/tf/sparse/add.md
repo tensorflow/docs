@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/add">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L371-L432">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L434-L515">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,31 +17,24 @@ page_type: reference
 
 
 
-Adds two tensors, at least one of each is a `SparseTensor`. (deprecated arguments)
+Adds two tensors, at least one of each is a `SparseTensor`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/add"><code>tf.compat.v1.sparse.add</code></a>
-* <a href="/api_docs/python/tf/sparse/add"><code>tf.compat.v1.sparse_add</code></a>
-* <a href="/api_docs/python/tf/sparse/add"><code>tf.sparse_add</code></a>
+* `tf.compat.v2.sparse.add`
 
 
 ``` python
 tf.sparse.add(
     a,
     b,
-    threshold=None,
-    thresh=None
+    threshold=0
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(thresh)`. They will be removed in a future version.
-Instructions for updating:
-thresh is deprecated, use threshold instead
 
 If one `SparseTensor` and one `Tensor` are passed in, returns a `Tensor`.  If
 both arguments are `SparseTensor`s, this returns a `SparseTensor`.  The order
@@ -63,10 +50,10 @@ lexicographic order.  If this is not the case, before this step run
 If both arguments are sparse, we perform "clipping" as follows.  By default,
 if two values sum to zero at some index, the output `SparseTensor` would still
 include that particular location in its index, storing a zero in the
-corresponding value slot.  To override this, callers can specify `thresh`,
-indicating that if the sum has a magnitude strictly smaller than `thresh`, its
-corresponding value and index would then not be included.  In particular,
-`thresh == 0.0` (default) means everything is kept and actual thresholding
+corresponding value slot.  To override this, callers can specify `threshold`,
+indicating that if the sum has a magnitude strictly smaller than `threshold`,
+its corresponding value and index would then not be included.  In particular,
+`threshold == 0.0` (default) means everything is kept and actual thresholding
 happens only for a positive value.
 
 For example, suppose the logical sum of two sparse operands is (densified):
@@ -77,10 +64,11 @@ For example, suppose the logical sum of two sparse operands is (densified):
 
 Then,
 
-* `thresh == 0` (the default): all 5 index/value pairs will be returned.
-* `thresh == 0.11`: only .1 and 0 will vanish, and the remaining three
+* `threshold == 0` (the default): all 5 index/value pairs will be
+    returned.
+* `threshold == 0.11`: only .1 and 0 will vanish, and the remaining three
     index/value pairs will be returned.
-* `thresh == 0.21`: .1, 0, and -.2 will vanish.
+* `threshold == 0.21`: .1, 0, and -.2 will vanish.
 
 #### Args:
 
@@ -88,12 +76,10 @@ Then,
 * <b>`a`</b>: The first operand; `SparseTensor` or `Tensor`.
 * <b>`b`</b>: The second operand; `SparseTensor` or `Tensor`. At least one operand
   must be sparse.
-* <b>`threshold`</b>: An optional 0-D `Tensor` (defaults to `0`). The magnitude
-  threshold that determines if an output value/index pair takes space. Its
-  dtype should match that of the values if they are real; if the latter are
-  complex64/complex128, then the dtype should be float32/float64,
-  correspondingly.
-* <b>`thresh`</b>: Deprecated alias for `threshold`.
+* <b>`threshold`</b>: A 0-D `Tensor`. The magnitude threshold that determines if an
+  output value/index pair takes space. Its dtype should match that of the
+  values if they are real; if the latter are complex64/complex128, then the
+  dtype should be float32/float64, correspondingly.
 
 
 #### Returns:

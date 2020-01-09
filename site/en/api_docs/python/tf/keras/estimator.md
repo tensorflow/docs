@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/estimator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Keras estimator API.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/estimator"><code>tf.compat.v1.keras.estimator</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

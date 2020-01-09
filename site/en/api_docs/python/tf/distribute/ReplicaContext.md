@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/ReplicaContext">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1875-L2020">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1852-L1997">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ page_type: reference
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/ReplicaContext"><code>tf.compat.v1.distribute.ReplicaContext</code></a>
-* Class <a href="/api_docs/python/tf/distribute/ReplicaContext"><code>tf.compat.v2.distribute.ReplicaContext</code></a>
-* Class <a href="/api_docs/python/tf/distribute/ReplicaContext"><code>tf.contrib.distribute.ReplicaContext</code></a>
+* Class `tf.compat.v1.distribute.ReplicaContext`
+* Class `tf.compat.v2.distribute.ReplicaContext`
 
 
 <!-- Placeholder for "Used in" -->
@@ -44,7 +37,7 @@ as in a <a href="../../tf/distribute/Strategy#experimental_run_v2"><code>tf.dist
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1883-L1888">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1860-L1865">View source</a>
 
 ``` python
 __init__(
@@ -89,7 +82,7 @@ The current <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy<
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1890-L1900">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1867-L1877">View source</a>
 
 ``` python
 __enter__()
@@ -100,7 +93,7 @@ __enter__()
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1902-L1906">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1879-L1883">View source</a>
 
 ``` python
 __exit__(
@@ -115,7 +108,7 @@ __exit__(
 
 <h3 id="all_reduce"><code>all_reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1978-L2020">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1955-L1997">View source</a>
 
 ``` python
 all_reduce(
@@ -156,7 +149,7 @@ A `Tensor` nest with the reduced `value`s from each replica.
 
 <h3 id="merge_call"><code>merge_call</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1908-L1940">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1885-L1917">View source</a>
 
 ``` python
 merge_call(

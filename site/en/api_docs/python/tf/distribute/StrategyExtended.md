@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/StrategyExtended">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1664-L1852">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1121-L1637">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ page_type: reference
 
 Additional APIs for algorithms that need to be distribution-aware.
 
-Inherits From: [`StrategyExtended`](../../tf/compat/v2/distribute/StrategyExtended)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/StrategyExtended"><code>tf.compat.v1.distribute.StrategyExtended</code></a>
+* Class `tf.compat.v2.distribute.StrategyExtended`
 
 
 <!-- Placeholder for "Used in" -->
@@ -199,7 +193,7 @@ the <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1309-L1314">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1286-L1291">View source</a>
 
 ``` python
 __init__(container_strategy)
@@ -212,36 +206,14 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 ## Properties
 
-<h3 id="experimental_between_graph"><code>experimental_between_graph</code></h3>
-
-Whether the strategy uses between-graph replication or not.
-
-This is expected to return a constant value that will not be changed
-throughout its life cycle.
-
 <h3 id="experimental_require_static_shapes"><code>experimental_require_static_shapes</code></h3>
 
 Returns `True` if static shape is required; `False` otherwise.
 
 
-<h3 id="experimental_should_init"><code>experimental_should_init</code></h3>
-
-Whether initialization is needed.
-
-
 <h3 id="parameter_devices"><code>parameter_devices</code></h3>
 
 Returns the tuple of all devices used to place variables.
-
-
-<h3 id="should_checkpoint"><code>should_checkpoint</code></h3>
-
-Whether checkpointing is needed.
-
-
-<h3 id="should_save_summary"><code>should_save_summary</code></h3>
-
-Whether saving summaries is needed.
 
 
 <h3 id="worker_devices"><code>worker_devices</code></h3>
@@ -255,7 +227,7 @@ Returns the tuple of all devices used to for compute replica execution.
 
 <h3 id="batch_reduce_to"><code>batch_reduce_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1488-L1504">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1465-L1481">View source</a>
 
 ``` python
 batch_reduce_to(
@@ -280,96 +252,9 @@ Combine multiple `reduce_to` calls into one for faster execution.
 A list of mirrored values, one per pair in `value_destination_pairs`.
 
 
-<h3 id="broadcast_to"><code>broadcast_to</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1691-L1706">View source</a>
-
-``` python
-broadcast_to(
-    tensor,
-    destinations
-)
-```
-
-Mirror a tensor on one device to all worker devices.
-
-
-#### Args:
-
-
-* <b>`tensor`</b>: A Tensor value to broadcast.
-* <b>`destinations`</b>: A mirrored variable or device string specifying the
-  destination devices to copy `tensor` to.
-
-
-#### Returns:
-
-A value mirrored to `destinations` devices.
-
-
-<h3 id="call_for_each_replica"><code>call_for_each_replica</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1762-L1810">View source</a>
-
-``` python
-call_for_each_replica(
-    fn,
-    args=(),
-    kwargs=None
-)
-```
-
-Run `fn` once per replica.
-
-`fn` may call `tf.get_replica_context()` to access methods such as
-`replica_id_in_sync_group` and `merge_call()`.
-
-`merge_call()` is used to communicate between the replicas and
-re-enter the cross-replica context. All replicas pause their execution
-having encountered a `merge_call()` call. After that the
-`merge_fn`-function is executed. Its results are then unwrapped and
-given back to each replica call. After that execution resumes until
-`fn` is complete or encounters another `merge_call()`.  Example:
-
-```python
-# Called once in "cross-replica" context.
-def merge_fn(distribution, three_plus_replica_id):
-  # sum the values across replicas
-  return sum(distribution.experimental_local_results(three_plus_replica_id))
-
-# Called once per replica in `distribution`, in a "replica" context.
-def fn(three):
-  replica_ctx = tf.get_replica_context()
-  v = three + replica_ctx.replica_id_in_sync_group
-  # Computes the sum of the `v` values across all replicas.
-  s = replica_ctx.merge_call(merge_fn, args=(v,))
-  return s + v
-
-with distribution.scope():
-  # in "cross-replica" context
-  ...
-  merged_results = distribution.experimental_run_v2(fn, args=[3])
-  # merged_results has the values from every replica execution of `fn`.
-  # This statement prints a list:
-  print(distribution.experimental_local_results(merged_results))
-```
-
-#### Args:
-
-
-* <b>`fn`</b>: function to run (will be run once per replica).
-* <b>`args`</b>: Tuple or list with positional arguments for `fn`.
-* <b>`kwargs`</b>: Dict with keyword arguments for `fn`.
-
-
-#### Returns:
-
-Merged return value of `fn` across all replicas.
-
-
 <h3 id="colocate_vars_with"><code>colocate_vars_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1393-L1437">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1370-L1414">View source</a>
 
 ``` python
 colocate_vars_with(colocate_with_variable)
@@ -417,96 +302,9 @@ with strategy.scope():
 A context manager.
 
 
-<h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1668-L1686">View source</a>
-
-``` python
-experimental_make_numpy_dataset(
-    numpy_input,
-    session=None
-)
-```
-
-Makes a dataset for input provided via a numpy array.
-
-This avoids adding `numpy_input` as a large constant in the graph,
-and copies the data to the machine or machines that will be processing
-the input.
-
-#### Args:
-
-
-* <b>`numpy_input`</b>: A nest of NumPy input arrays that will be distributed evenly
-  across all replicas. Note that lists of Numpy arrays are stacked, as
-  that is normal <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> behavior.
-* <b>`session`</b>: (TensorFlow v1.x graph execution only) A session used for
-  initialization.
-
-
-#### Returns:
-
-A <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a> representing `numpy_input`.
-
-
-<h3 id="experimental_run_steps_on_iterator"><code>experimental_run_steps_on_iterator</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1711-L1756">View source</a>
-
-``` python
-experimental_run_steps_on_iterator(
-    fn,
-    iterator,
-    iterations=1,
-    initial_loop_values=None
-)
-```
-
-DEPRECATED: please use `experimental_run_v2` instead.
-
-Run `fn` with input from `iterator` for `iterations` times.
-
-This method can be used to run a step function for training a number of
-times using input from a dataset.
-
-#### Args:
-
-
-* <b>`fn`</b>: function to run using this distribution strategy. The function must
-  have the following signature: `def fn(context, inputs)`. `context` is an
-    instance of `MultiStepContext` that will be passed when `fn` is run.
-    `context` can be used to specify the outputs to be returned from `fn`
-    by calling `context.set_last_step_output`. It can also be used to
-    capture non tensor outputs by `context.set_non_tensor_output`. See
-    `MultiStepContext` documentation for more information. `inputs` will
-    have same type/structure as `iterator.get_next()`. Typically, `fn`
-    will use `call_for_each_replica` method of the strategy to distribute
-    the computation over multiple replicas.
-* <b>`iterator`</b>: Iterator of a dataset that represents the input for `fn`. The
-  caller is responsible for initializing the iterator as needed.
-* <b>`iterations`</b>: (Optional) Number of iterations that `fn` should be run.
-  Defaults to 1.
-* <b>`initial_loop_values`</b>: (Optional) Initial values to be passed into the
-  loop that runs `fn`. Defaults to `None`. # TODO(priyag): Remove
-    initial_loop_values argument when we have a mechanism to infer the
-    outputs of `fn`.
-
-
-#### Returns:
-
-Returns the `MultiStepContext` object which has the following properties,
-among other things:
-  - run_op: An op that runs `fn` `iterations` times.
-  - last_step_outputs: A dictionary containing tensors set using
-  `context.set_last_step_output`. Evaluating this returns the value of
-  the tensors after the last iteration.
-  - non_tensor_outputs: A dictionatry containing anything that was set by
-    `fn` by calling `context.set_non_tensor_output`.
-
-
 <h3 id="non_slot_devices"><code>non_slot_devices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1636-L1649">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1613-L1626">View source</a>
 
 ``` python
 non_slot_devices(var_list)
@@ -529,34 +327,9 @@ Update those using `update_non_slot()`.
 A sequence of devices for non-slot variables.
 
 
-<h3 id="read_var"><code>read_var</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1815-L1828">View source</a>
-
-``` python
-read_var(v)
-```
-
-Reads the value of a variable.
-
-Returns the aggregate value of a replica-local variable, or the
-(read-only) value of any other variable.
-
-#### Args:
-
-
-* <b>`v`</b>: A variable allocated within the scope of this <a href="../../tf/distribute/Strategy"><code>tf.distribute.Strategy</code></a>.
-
-
-#### Returns:
-
-A tensor representing the value of `v`, aggregated across replicas if
-necessary.
-
-
 <h3 id="reduce_to"><code>reduce_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1461-L1483">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1438-L1460">View source</a>
 
 ``` python
 reduce_to(
@@ -587,7 +360,7 @@ A tensor or value mirrored to `destinations`.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1512-L1553">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1489-L1530">View source</a>
 
 ``` python
 update(
@@ -642,7 +415,7 @@ for ensuring all elements are executed.
 
 <h3 id="update_non_slot"><code>update_non_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1558-L1577">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1535-L1554">View source</a>
 
 ``` python
 update_non_slot(
@@ -675,7 +448,7 @@ Return value of `fn`, possibly merged across devices.
 
 <h3 id="value_container"><code>value_container</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1585-L1599">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1562-L1576">View source</a>
 
 ``` python
 value_container(value)
@@ -702,7 +475,7 @@ always be true.
 
 <h3 id="variable_created_in_scope"><code>variable_created_in_scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribute_lib.py#L1369-L1391">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribute_lib.py#L1346-L1368">View source</a>
 
 ``` python
 variable_created_in_scope(v)

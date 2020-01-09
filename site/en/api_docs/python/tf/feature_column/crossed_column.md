@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/crossed_column">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1981-L2106">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L1991-L2116">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a column for performing crosses of categorical features.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/crossed_column"><code>tf.compat.v1.feature_column.crossed_column</code></a>
-* <a href="/api_docs/python/tf/feature_column/crossed_column"><code>tf.compat.v2.feature_column.crossed_column</code></a>
+* `tf.compat.v1.feature_column.crossed_column`
+* `tf.compat.v2.feature_column.crossed_column`
 
 
 ``` python
@@ -41,7 +35,12 @@ tf.feature_column.crossed_column(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Build a linear model with Estimators](https://www.tensorflow.org/tutorials/estimator/linear)
+* [Classify structured data with feature columns](https://www.tensorflow.org/tutorials/structured_data/feature_columns)
+
+
 
 Crossed features will be hashed according to `hash_bucket_size`. Conceptually,
 the transformation can be thought of as:

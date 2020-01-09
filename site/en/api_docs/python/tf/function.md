@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/function">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/def_function.py#L759-L1078">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/def_function.py#L820-L1122">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Creates a callable TensorFlow graph from a Python function.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/function"><code>tf.compat.v1.function</code></a>
-* <a href="/api_docs/python/tf/function"><code>tf.compat.v2.function</code></a>
-* <a href="/api_docs/python/tf/function"><code>tf.contrib.eager.function</code></a>
+* `tf.compat.v1.function`
+* `tf.compat.v2.function`
 
 
 ``` python
@@ -38,14 +31,24 @@ tf.function(
     input_signature=None,
     autograph=True,
     experimental_autograph_options=None,
-    experimental_relax_shapes=False,
-    experimental_compile=None
+    experimental_relax_shapes=False
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 `function` constructs a callable that executes a TensorFlow graph
 (<a href="../tf/Graph"><code>tf.Graph</code></a>) created by tracing the TensorFlow operations in `func`.
@@ -249,7 +252,7 @@ is invoked to trace a graph.
 
 The same is true if code with Python side effects is used inside control flow,
 such as a loop. If your code uses side effects that are not intended to
-control graph construction, wrap them inside <a href="../tf/py_func"><code>tf.compat.v1.py_func</code></a>.
+control graph construction, wrap them inside <a href="../tf/compat/v1/py_func"><code>tf.compat.v1.py_func</code></a>.
 
 _Retracing_
 
@@ -303,21 +306,6 @@ To control the tracing behavior, use the following tools:
   autograph=True.
 * <b>`experimental_relax_shapes`</b>: When true, argument shapes may be relaxed to
   avoid unecessary retracing.
-* <b>`experimental_compile`</b>: If false, execute the function in a regular way. The
-  function is optimized by some graph rewrite passes (some ops might be
-  clustered into a single op) and interpreted by the standard TensorFlow
-  executor, which dispatches op kernels one by one as they become
-  executable. Set it to false when directly running a multi-device function
-  on TPUs (e.g. two TPU cores, one TPU core and its host CPU). If True, the
-  function is compiled directly by XLA (https://www.tensorflow.org/xla).
-  XLA would fuse all the ops and emit more efficient code to run for some
-  devices (e.g. TPU, XLA_GPU) and some use cases (e.g. dense tensor
-  computation). It requires that the whole function is compilable by XLA
-  (e.g. static tensor shape, a subset of operations, no string, compile-time
-  constant input, etc). If None (default), compile the function with XLA
-  when running on TPU and go through the regular function execution path
-  when running on other devices. Note: TensorArrays on TPU don't work with
-  standard TensorFlow executor.
 
 
 #### Returns:

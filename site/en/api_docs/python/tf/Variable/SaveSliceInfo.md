@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/Variable/SaveSliceInfo">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1279-L1358">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1279-L1358">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Information on how to save this Variable as a slice.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/Variable/SaveSliceInfo"><code>tf.compat.v1.Variable.SaveSliceInfo</code></a>
-* Class <a href="/api_docs/python/tf/Variable/SaveSliceInfo"><code>tf.compat.v2.Variable.SaveSliceInfo</code></a>
-* Class <a href="/api_docs/python/tf/Variable/SaveSliceInfo"><code>tf.contrib.eager.Variable.SaveSliceInfo</code></a>
+* Class `tf.compat.v1.Variable.SaveSliceInfo`
+* Class `tf.compat.v2.Variable.SaveSliceInfo`
 
 
 <!-- Placeholder for "Used in" -->
@@ -52,7 +45,7 @@ variable.  This API is not public and is subject to change.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1293-L1326">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1293-L1326">View source</a>
 
 ``` python
 __init__(
@@ -98,7 +91,7 @@ Computes the spec string used for saving.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1336-L1358">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1336-L1358">View source</a>
 
 ``` python
 to_proto(export_scope=None)

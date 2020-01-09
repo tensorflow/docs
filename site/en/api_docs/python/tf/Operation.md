@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/Operation">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1616-L2439">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L1619-L2442">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Represents a graph node that performs computation on tensors.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/Operation"><code>tf.compat.v1.Operation</code></a>
-* Class <a href="/api_docs/python/tf/Operation"><code>tf.compat.v2.Operation</code></a>
+* Class `tf.compat.v1.Operation`
+* Class `tf.compat.v2.Operation`
 
 
 <!-- Placeholder for "Used in" -->
@@ -50,13 +44,13 @@ as output.
 
 After the graph has been launched in a session, an `Operation` can
 be executed by passing it to
-<a href="../tf/Session#run"><code>tf.Session.run</code></a>.
+`tf.Session.run`.
 `op.run()` is a shortcut for calling
 `tf.compat.v1.get_default_session().run(op)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1637-L1789">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L1640-L1792">View source</a>
 
 ``` python
 __init__(
@@ -215,7 +209,7 @@ The type of the op (e.g. `"MatMul"`).
 
 <h3 id="colocation_groups"><code>colocation_groups</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1837-L1854">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L1840-L1857">View source</a>
 
 ``` python
 colocation_groups()
@@ -226,7 +220,7 @@ Returns the list of colocation groups of the op.
 
 <h3 id="get_attr"><code>get_attr</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2365-L2402">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2368-L2405">View source</a>
 
 ``` python
 get_attr(name)
@@ -254,7 +248,7 @@ The value of the attr, as a Python object.
 
 <h3 id="run"><code>run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2423-L2439">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2426-L2442">View source</a>
 
 ``` python
 run(
@@ -276,13 +270,13 @@ available, or `session` must be specified explicitly.
 
 
 * <b>`feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values. See
-  <a href="../tf/Session#run"><code>tf.Session.run</code></a> for a description of the valid feed values.
+  `tf.Session.run` for a description of the valid feed values.
 * <b>`session`</b>: (Optional.) The `Session` to be used to run to this operation. If
   none, the default session will be used.
 
 <h3 id="values"><code>values</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1856-L1858">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L1859-L1861">View source</a>
 
 ``` python
 values()

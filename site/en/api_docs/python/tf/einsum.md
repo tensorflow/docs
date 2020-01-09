@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/einsum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/special_math_ops.py#L170-L308">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/special_math_ops.py#L170-L308">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,15 +17,15 @@ page_type: reference
 
 
 
-Tensor contraction over specified indices and outer product.
+A generalized contraction between tensors of arbitrary dimension.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v1.einsum</code></a>
-* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v1.linalg.einsum</code></a>
-* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v2.einsum</code></a>
-* <a href="/api_docs/python/tf/einsum"><code>tf.compat.v2.linalg.einsum</code></a>
-* <a href="/api_docs/python/tf/einsum"><code>tf.linalg.einsum</code></a>
+* `tf.compat.v1.einsum`
+* `tf.compat.v1.linalg.einsum`
+* `tf.compat.v2.einsum`
+* `tf.compat.v2.linalg.einsum`
+* `tf.linalg.einsum`
 
 
 ``` python
@@ -44,7 +38,15 @@ tf.einsum(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+### Used in the tutorials:
+
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 This function returns a tensor whose elements are defined by `equation`,
 which is written in a shorthand form inspired by the Einstein summation

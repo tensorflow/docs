@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/feature_column">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -30,7 +24,7 @@ Public API for tf.feature_column namespace.
 
 [`categorical_column_with_identity(...)`](../../../tf/feature_column/categorical_column_with_identity): A `CategoricalColumn` that returns identity values.
 
-[`categorical_column_with_vocabulary_file(...)`](../../../tf/compat/v2/feature_column/categorical_column_with_vocabulary_file): A `CategoricalColumn` with a vocabulary file.
+[`categorical_column_with_vocabulary_file(...)`](../../../tf/feature_column/categorical_column_with_vocabulary_file): A `CategoricalColumn` with a vocabulary file.
 
 [`categorical_column_with_vocabulary_list(...)`](../../../tf/feature_column/categorical_column_with_vocabulary_list): A `CategoricalColumn` with in-memory vocabulary.
 
@@ -40,7 +34,7 @@ Public API for tf.feature_column namespace.
 
 [`indicator_column(...)`](../../../tf/feature_column/indicator_column): Represents multi-hot representation of given categorical column.
 
-[`make_parse_example_spec(...)`](../../../tf/compat/v2/feature_column/make_parse_example_spec): Creates parsing spec dictionary from input feature_columns.
+[`make_parse_example_spec(...)`](../../../tf/feature_column/make_parse_example_spec): Creates parsing spec dictionary from input feature_columns.
 
 [`numeric_column(...)`](../../../tf/feature_column/numeric_column): Represents real valued or numerical features.
 
@@ -54,6 +48,6 @@ Public API for tf.feature_column namespace.
 
 [`sequence_numeric_column(...)`](../../../tf/feature_column/sequence_numeric_column): Returns a feature column that represents sequences of numeric data.
 
-[`shared_embeddings(...)`](../../../tf/compat/v2/feature_column/shared_embeddings): List of dense columns that convert from sparse, categorical input.
+[`shared_embeddings(...)`](../../../tf/feature_column/shared_embeddings): List of dense columns that convert from sparse, categorical input.
 
 [`weighted_categorical_column(...)`](../../../tf/feature_column/weighted_categorical_column): Applies weight values to a `CategoricalColumn`.

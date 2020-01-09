@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/flip_left_right">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L411-L429">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L411-L429">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Flip an image horizontally (left to right).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/flip_left_right"><code>tf.compat.v1.image.flip_left_right</code></a>
-* <a href="/api_docs/python/tf/image/flip_left_right"><code>tf.compat.v2.image.flip_left_right</code></a>
+* `tf.compat.v1.image.flip_left_right`
+* `tf.compat.v2.image.flip_left_right`
 
 
 ``` python
@@ -37,7 +31,12 @@ tf.image.flip_left_right(image)
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Outputs the contents of `image` flipped along the width dimension.
 

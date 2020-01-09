@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/saved_model/save">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/save.py#L673-L880">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/save.py#L703-L913">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,23 +21,32 @@ Exports the Trackable object `obj` to [SavedModel format](https://github.com/ten
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v1.saved_model.experimental.save</code></a>
-* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v1.saved_model.save</code></a>
-* <a href="/api_docs/python/tf/saved_model/save"><code>tf.compat.v2.saved_model.save</code></a>
-* <a href="/api_docs/python/tf/saved_model/save"><code>tf.saved_model.experimental.save</code></a>
+* `tf.compat.v1.saved_model.experimental.save`
+* `tf.compat.v1.saved_model.save`
+* `tf.compat.v2.saved_model.save`
 
 
 ``` python
 tf.saved_model.save(
     obj,
     export_dir,
-    signatures=None
+    signatures=None,
+    options=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+
+
 
 
 #### Example usage:
@@ -181,7 +184,9 @@ which the consumer does not have definitions for.
   maps from signature keys to either <a href="../../tf/function"><code>tf.function</code></a> instances with input
   signatures or concrete functions. The keys of such a dictionary may be
   arbitrary strings, but will typically be from the
-  <a href="../../tf/saved_model/signature_constants"><code>tf.saved_model.signature_constants</code></a> module.
+  `tf.saved_model.signature_constants` module.
+* <b>`options`</b>: Optional, <a href="../../tf/saved_model/SaveOptions"><code>tf.saved_model.SaveOptions</code></a> object that specifies
+  options for saving.
 
 
 #### Raises:
@@ -193,7 +198,7 @@ which the consumer does not have definitions for.
 
 #### Eager Compatibility
 Not well supported when graph building. From TensorFlow 1.x,
-<a href="../../tf/enable_eager_execution"><code>tf.compat.v1.enable_eager_execution()</code></a> should run first. Calling
+<a href="../../tf/compat/v1/enable_eager_execution"><code>tf.compat.v1.enable_eager_execution()</code></a> should run first. Calling
 tf.saved_model.save in a loop when graph building from TensorFlow 1.x will
 add new save operations to the default graph each iteration.
 

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ragged/map_flat_values">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_functional_ops.py#L30-L94">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_functional_ops.py#L30-L94">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Applies `op` to the values of one or more RaggedTensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ragged/map_flat_values"><code>tf.compat.v1.ragged.map_flat_values</code></a>
-* <a href="/api_docs/python/tf/ragged/map_flat_values"><code>tf.compat.v2.ragged.map_flat_values</code></a>
+* `tf.compat.v1.ragged.map_flat_values`
+* `tf.compat.v2.ragged.map_flat_values`
 
 
 ``` python
@@ -41,7 +35,11 @@ tf.ragged.map_flat_values(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 Replaces any `RaggedTensor` in `args` or `kwargs` with its `flat_values`
 tensor, and then calls `op`.  Returns a `RaggedTensor` that is constructed

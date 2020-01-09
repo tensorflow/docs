@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/bitwise/left_shift">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_bitwise_ops.py`
@@ -23,8 +17,8 @@ Elementwise computes the bitwise left-shift of `x` and `y`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/bitwise/left_shift"><code>tf.compat.v1.bitwise.left_shift</code></a>
-* <a href="/api_docs/python/tf/bitwise/left_shift"><code>tf.compat.v2.bitwise.left_shift</code></a>
+* `tf.compat.v1.bitwise.left_shift`
+* `tf.compat.v2.bitwise.left_shift`
 
 
 ``` python

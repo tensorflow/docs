@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -91,9 +85,9 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`angle(...)`](../tf/math/angle): Returns the element-wise argument of a complex (or real) tensor.
 
-[`argmax(...)`](../tf/math/argmax): Returns the index with the largest value across axes of a tensor. (deprecated arguments)
+[`argmax(...)`](../tf/math/argmax): Returns the index with the largest value across axes of a tensor.
 
-[`argmin(...)`](../tf/math/argmin): Returns the index with the smallest value across axes of a tensor. (deprecated arguments)
+[`argmin(...)`](../tf/math/argmin): Returns the index with the smallest value across axes of a tensor.
 
 [`asin(...)`](../tf/math/asin): Computes the trignometric inverse sine of x element-wise.
 
@@ -127,7 +121,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`cosh(...)`](../tf/math/cosh): Computes hyperbolic cosine of x element-wise.
 
-[`count_nonzero(...)`](../tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments) (deprecated arguments)
+[`count_nonzero(...)`](../tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor.
 
 [`cumprod(...)`](../tf/math/cumprod): Compute the cumulative product of the tensor `x` along `axis`.
 
@@ -181,7 +175,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`is_strictly_increasing(...)`](../tf/math/is_strictly_increasing): Returns `True` if `x` is strictly increasing.
 
-[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
+[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm.
 
 [`lbeta(...)`](../tf/math/lbeta): Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
 
@@ -197,7 +191,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`log_sigmoid(...)`](../tf/math/log_sigmoid): Computes log sigmoid of `x` element-wise.
 
-[`log_softmax(...)`](../tf/nn/log_softmax): Computes log softmax activations. (deprecated arguments)
+[`log_softmax(...)`](../tf/nn/log_softmax): Computes log softmax activations.
 
 [`logical_and(...)`](../tf/math/logical_and): Returns the truth value of x AND y element-wise.
 
@@ -235,25 +229,25 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`reciprocal_no_nan(...)`](../tf/math/reciprocal_no_nan): Performs a safe reciprocal operation, element wise.
 
-[`reduce_all(...)`](../tf/math/reduce_all): Computes the "logical and" of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_all(...)`](../tf/reduce_all): Computes the "logical and" of elements across dimensions of a tensor.
 
-[`reduce_any(...)`](../tf/math/reduce_any): Computes the "logical or" of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_any(...)`](../tf/math/reduce_any): Computes the "logical or" of elements across dimensions of a tensor.
 
 [`reduce_euclidean_norm(...)`](../tf/math/reduce_euclidean_norm): Computes the Euclidean norm of elements across dimensions of a tensor.
 
-[`reduce_logsumexp(...)`](../tf/math/reduce_logsumexp): Computes log(sum(exp(elements across dimensions of a tensor))). (deprecated arguments)
+[`reduce_logsumexp(...)`](../tf/math/reduce_logsumexp): Computes log(sum(exp(elements across dimensions of a tensor))).
 
-[`reduce_max(...)`](../tf/math/reduce_max): Computes the maximum of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_max(...)`](../tf/math/reduce_max): Computes the maximum of elements across dimensions of a tensor.
 
 [`reduce_mean(...)`](../tf/math/reduce_mean): Computes the mean of elements across dimensions of a tensor.
 
-[`reduce_min(...)`](../tf/math/reduce_min): Computes the minimum of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_min(...)`](../tf/math/reduce_min): Computes the minimum of elements across dimensions of a tensor.
 
-[`reduce_prod(...)`](../tf/math/reduce_prod): Computes the product of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_prod(...)`](../tf/math/reduce_prod): Computes the product of elements across dimensions of a tensor.
 
 [`reduce_std(...)`](../tf/math/reduce_std): Computes the standard deviation of elements across dimensions of a tensor.
 
-[`reduce_sum(...)`](../tf/math/reduce_sum): Computes the sum of elements across dimensions of a tensor. (deprecated arguments)
+[`reduce_sum(...)`](../tf/math/reduce_sum): Computes the sum of elements across dimensions of a tensor.
 
 [`reduce_variance(...)`](../tf/math/reduce_variance): Computes the variance of elements across dimensions of a tensor.
 
@@ -283,7 +277,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`sinh(...)`](../tf/math/sinh): Computes hyperbolic sine of x element-wise.
 
-[`softmax(...)`](../tf/nn/softmax): Computes softmax activations. (deprecated arguments)
+[`softmax(...)`](../tf/nn/softmax): Computes softmax activations.
 
 [`softplus(...)`](../tf/math/softplus): Computes softplus: `log(exp(features) + 1)`.
 

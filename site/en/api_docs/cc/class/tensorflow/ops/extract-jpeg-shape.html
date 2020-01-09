@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ExtractJpegShape Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -12,16 +10,16 @@
   <code>#include &lt;image_ops.h&gt;</code>
   <p>Extract the shape information of a JPEG-encoded image. </p>
   <h2>Summary</h2>
-  <p>This op only parses the image header, so it is much faster than <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/decode-jpeg.html#classtensorflow_1_1ops_1_1_decode_jpeg">DecodeJpeg</a>.</p>
+  <p>This op only parses the image header, so it is much faster than <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/decode-jpeg.html#classtensorflow_1_1ops_1_1_decode_jpeg">DecodeJpeg</a>.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>contents: 0-D. The JPEG-encoded image.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a></code>):<ul>
       <li>output_type: (Optional) The output type of the operation (int32 or int64). Defaults to int32.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 1-D. The image shape with format [height, width, channels]. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 1-D. The image shape with format [height, width, channels]. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -31,13 +29,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a64ffa4ea238d244c52716d482a64aeb4">ExtractJpegShape</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a64ffa4ea238d244c52716d482a64aeb4">ExtractJpegShape</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a5c8f40a8498a2351175856f88c12df3b">ExtractJpegShape</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">ExtractJpegShape::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a5c8f40a8498a2351175856f88c12df3b">ExtractJpegShape</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">ExtractJpegShape::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -54,7 +52,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -64,7 +62,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -118,7 +116,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -131,39 +129,39 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs">tensorflow::<wbr/>ops::<wbr/>ExtractJpegShape::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs">tensorflow::<wbr/>ops::<wbr/>ExtractJpegShape::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/extract-jpeg-shape.html#classtensorflow_1_1ops_1_1_extract_jpeg_shape">ExtractJpegShape</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/extract-jpeg-shape.html#classtensorflow_1_1ops_1_1_extract_jpeg_shape">ExtractJpegShape</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a119b30980cd88aeb7e800ef248fe0ef9">
     <h3>image_shape</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> image_shape</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> image_shape</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a93aaacf0ede8a075a9e7cbaae6ec1851">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a64ffa4ea238d244c52716d482a64aeb4">
     <h3>ExtractJpegShape</h3>
     <pre class="prettyprint"> ExtractJpegShape(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a5c8f40a8498a2351175856f88c12df3b">
     <h3>ExtractJpegShape</h3>
     <pre class="prettyprint"> ExtractJpegShape(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">ExtractJpegShape::Attrs</a> & attrs
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> contents,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">ExtractJpegShape::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -185,7 +183,7 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_extract_jpeg_shape_1a74c981eaa0a2024456fbe7c35c65b01e">
     <h3>OutputType</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a> OutputType(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/extract-jpeg-shape/attrs.html#structtensorflow_1_1ops_1_1_extract_jpeg_shape_1_1_attrs">Attrs</a> OutputType(
   DataType x
 )</pre>
     <div />

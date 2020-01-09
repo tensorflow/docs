@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/categorical_crossentropy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L4321-L4373">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L4425-L4477">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Categorical crossentropy between an output tensor and a target tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/categorical_crossentropy"><code>tf.compat.v1.keras.backend.categorical_crossentropy</code></a>
-* <a href="/api_docs/python/tf/keras/backend/categorical_crossentropy"><code>tf.compat.v2.keras.backend.categorical_crossentropy</code></a>
+* `tf.compat.v1.keras.backend.categorical_crossentropy`
+* `tf.compat.v2.keras.backend.categorical_crossentropy`
 
 
 ``` python
@@ -75,14 +69,14 @@ Output tensor.
 
 
 ```python:
-import tensorflow as tf
-from tensorflow.keras import backend as K
-a = tf.constant([1., 0., 0., 0., 1., 0., 0., 0., 1.], shape=[3,3])
-print("a: ", a)
-b = tf.constant([.9, .05, .05, .5, .89, .6, .05, .01, .94], shape=[3,3])
-print("b: ", b)
-loss = K.categorical_crossentropy(a, b)
-print('Loss: ', loss) #Loss: tf.Tensor([0.10536055 0.8046684  0.06187541], shape=(3,), dtype=float32)
-loss = K.categorical_crossentropy(a, a)
-print('Loss: ', loss) #Loss:  tf.Tensor([1.1920929e-07 1.1920929e-07 1.1920929e-07], shape=(3,), dtype=float32)
+    import tensorflow as tf
+    from tensorflow.keras import backend as K
+    a = tf.constant([1., 0., 0., 0., 1., 0., 0., 0., 1.], shape=[3,3])
+    print("a: ", a)
+    b = tf.constant([.9, .05, .05, .5, .89, .6, .05, .01, .94], shape=[3,3])
+    print("b: ", b)
+    loss = K.categorical_crossentropy(a, b)
+    print('Loss: ', loss) #Loss: tf.Tensor([0.10536055 0.8046684  0.06187541], shape=(3,), dtype=float32)
+    loss = K.categorical_crossentropy(a, a)
+    print('Loss: ', loss) #Loss:  tf.Tensor([1.1920929e-07 1.1920929e-07 1.1920929e-07], shape=(3,), dtype=float32)
 ```

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/audio/decode_wav">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_audio_ops.py`
@@ -23,8 +17,8 @@ Decode a 16-bit PCM WAV file to a float tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/audio/decode_wav"><code>tf.compat.v1.audio.decode_wav</code></a>
-* <a href="/api_docs/python/tf/audio/decode_wav"><code>tf.compat.v2.audio.decode_wav</code></a>
+* `tf.compat.v1.audio.decode_wav`
+* `tf.compat.v2.audio.decode_wav`
 
 
 ``` python

@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::CombinedNonMaxSuppression Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -14,7 +12,7 @@
   <h2>Summary</h2>
   <p>This operation performs non_max_suppression on the inputs per batch, across all classes. Prunes away boxes that have high intersection-over-union (IOU) overlap with previously selected boxes. Bounding boxes are supplied as [y1, x1, y2, x2], where (y1, x1) and (y2, x2) are the coordinates of any diagonal pair of box corners and the coordinates can be provided as normalized (i.e., lying in the interval [0, 1]) or absolute. Note that this algorithm is agnostic to where the origin is in the coordinate system. Also note that this algorithm is invariant to orthogonal transformations and translations of the coordinate system; thus translating or reflections of the coordinate system result in the same boxes being selected by the algorithm. The output of this operation is the final boxes, scores and classes tensor returned after performing non_max_suppression.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>boxes: A 4-D float tensor of shape <code>[batch_size, num_boxes, q, 4]</code>. If <code>q</code> is 1 then same boxes are used for all classes otherwise, if <code>q</code> is equal to number of classes, class-specific boxes are used.</li>
       <li>scores: A 3-D float tensor of shape <code>[batch_size, num_boxes, num_classes]</code> representing a single score corresponding to each box (each row of boxes).</li>
       <li>max_output_size_per_class: A scalar integer tensor representing the maximum number of boxes to be selected by non max suppression per class</li>
@@ -22,15 +20,15 @@
       <li>iou_threshold: A 0-D float tensor representing the threshold for deciding whether boxes overlap too much with respect to IOU.</li>
       <li>score_threshold: A 0-D float tensor representing the threshold for deciding when to remove boxes based on score.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>):<ul>
       <li>pad_per_class: If false, the output nmsed boxes, scores and classes are padded/clipped to <code>max_total_size</code>. If true, the output nmsed boxes, scores and classes are padded to be of length <code>max_size_per_class</code>*<code>num_classes</code>, unless it exceeds <code>max_total_size</code> in which case it is clipped to <code>max_total_size</code>. Defaults to false.</li>
       <li>clip_boxes: If true, assume the box coordinates are between [0, 1] and clip the output boxes if they fall beyond [0, 1]. If false, do not do clipping and output the box coordinates as it is.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_boxes: A [batch_size, max_detections, 4] float32 tensor containing the non-max suppressed boxes.</li>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_scores: A [batch_size, max_detections] float32 tensor containing the scores for the boxes.</li>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_classes: A [batch_size, max_detections] float32 tensor containing the classes for the boxes.</li>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> valid_detections: A [batch_size] int32 tensor indicating the number of valid detections per batch item. Only the top num_detections[i] entries in nms_boxes[i], nms_scores[i] and nms_class[i] are valid. The rest of the entries are zero paddings. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_boxes: A [batch_size, max_detections, 4] float32 tensor containing the non-max suppressed boxes.</li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_scores: A [batch_size, max_detections] float32 tensor containing the scores for the boxes.</li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> nmsed_classes: A [batch_size, max_detections] float32 tensor containing the classes for the boxes.</li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> valid_detections: A [batch_size] int32 tensor indicating the number of valid detections per batch item. Only the top num_detections[i] entries in nms_boxes[i], nms_scores[i] and nms_class[i] are valid. The rest of the entries are zero paddings. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -40,13 +38,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a37433d4e2aa6d72fde6172813056fd7e">CombinedNonMaxSuppression</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a37433d4e2aa6d72fde6172813056fd7e">CombinedNonMaxSuppression</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a2ad706eeb5912c87ebbbd6db116d303b">CombinedNonMaxSuppression</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">CombinedNonMaxSuppression::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a2ad706eeb5912c87ebbbd6db116d303b">CombinedNonMaxSuppression</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">CombinedNonMaxSuppression::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -63,7 +61,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -73,7 +71,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -83,7 +81,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -93,7 +91,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -103,7 +101,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -120,7 +118,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -130,7 +128,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -143,78 +141,78 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs">tensorflow::<wbr/>ops::<wbr/>CombinedNonMaxSuppression::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs">tensorflow::<wbr/>ops::<wbr/>CombinedNonMaxSuppression::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/combined-non-max-suppression.html#classtensorflow_1_1ops_1_1_combined_non_max_suppression">CombinedNonMaxSuppression</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/combined-non-max-suppression.html#classtensorflow_1_1ops_1_1_combined_non_max_suppression">CombinedNonMaxSuppression</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a26fe07d747c139edcecac96e27a26d8a">
     <h3>nmsed_boxes</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_boxes</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_boxes</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a2684d63b2b480538fd1b801cd32d09ae">
     <h3>nmsed_classes</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_classes</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_classes</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a979fef315b03030a750668758a75211b">
     <h3>nmsed_scores</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_scores</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> nmsed_scores</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a77c909be6771b9070654cdb791ad3667">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a01b23f77d5db080eac0d7c43d6be83d7">
     <h3>valid_detections</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> valid_detections</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> valid_detections</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a37433d4e2aa6d72fde6172813056fd7e">
     <h3>CombinedNonMaxSuppression</h3>
     <pre class="prettyprint"> CombinedNonMaxSuppression(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a2ad706eeb5912c87ebbbd6db116d303b">
     <h3>CombinedNonMaxSuppression</h3>
     <pre class="prettyprint"> CombinedNonMaxSuppression(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">CombinedNonMaxSuppression::Attrs</a> & attrs
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> boxes,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> scores,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_output_size_per_class,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> max_total_size,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> iou_threshold,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> score_threshold,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">CombinedNonMaxSuppression::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a27f4c9e9f78ab3448359cee869b2db76">
     <h3>ClipBoxes</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> ClipBoxes(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> ClipBoxes(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_combined_non_max_suppression_1a9f704224f56d8d5a9459e3e5e6ff5e56">
     <h3>PadPerClass</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> PadPerClass(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/combined-non-max-suppression/attrs.html#structtensorflow_1_1ops_1_1_combined_non_max_suppression_1_1_attrs">Attrs</a> PadPerClass(
   bool x
 )</pre>
     <div />

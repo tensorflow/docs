@@ -10,12 +10,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/train_and_evaluate">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/training.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -28,8 +22,8 @@ Train and evaluate the `estimator`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/estimator/train_and_evaluate"><code>tf.compat.v1.estimator.train_and_evaluate</code></a>
-* <a href="/api_docs/python/tf/estimator/train_and_evaluate"><code>tf.compat.v2.estimator.train_and_evaluate</code></a>
+* `tf.compat.v1.estimator.train_and_evaluate`
+* `tf.compat.v2.estimator.train_and_evaluate`
 
 
 ``` python
@@ -42,7 +36,15 @@ tf.estimator.train_and_evaluate(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+
+### Used in the tutorials:
+
+* [Multi-worker training with Estimator](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_estimator)
+
+
 
 This utility function trains, evaluates, and (optionally) exports the model by
 using the given `estimator`. All training related specification is held in
@@ -66,7 +68,7 @@ model is trained forever. *Use with care* if model stop condition is
 different. For example, assume that the model is expected to be trained with
 one epoch of training data, and the training `input_fn` is configured to throw
 `OutOfRangeError` after going through one epoch, which stops the
-<a href="../../tf/estimator/Estimator#train"><code>Estimator.train</code></a>. For a three-training-worker distributed configuration, each
+<a href="../../tf/compat/v1/estimator/Estimator#train"><code>Estimator.train</code></a>. For a three-training-worker distributed configuration, each
 training worker is likely to go through the whole epoch independently. So, the
 model will be trained with three epochs of training data instead of one epoch.
 

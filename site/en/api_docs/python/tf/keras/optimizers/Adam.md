@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/Adam">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L32-L274">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/adam.py#L32-L271">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -32,12 +26,41 @@ Inherits From: [`Optimizer`](../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v1.keras.optimizers.Adam</code></a>
-* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v2.keras.optimizers.Adam</code></a>
-* Class <a href="/api_docs/python/tf/keras/optimizers/Adam"><code>tf.compat.v2.optimizers.Adam</code></a>
+* Class `tf.compat.v1.keras.optimizers.Adam`
+* Class `tf.compat.v2.keras.optimizers.Adam`
+* Class `tf.compat.v2.optimizers.Adam`
+* Class `tf.optimizers.Adam`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+* [TensorFlow 2.0 quickstart for experts](https://www.tensorflow.org/tutorials/quickstart/advanced)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Transfer learning with TensorFlow Hub](https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Adam optimization is a stochastic gradient descent method that is based on
 adaptive estimation of first-order and second-order moments.
@@ -53,7 +76,7 @@ Reddi et al., 5-8](https://openreview.net/pdf?id=ryQu7f-RZ).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L48-L143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/adam.py#L48-L140">View source</a>
 
 ``` python
 __init__(
@@ -135,22 +158,16 @@ unless a variable slice was actually used).
 * <b>`amsgrad`</b>: boolean. Whether to apply AMSGrad variant of this algorithm from
   the paper "On the Convergence of Adam and beyond".
 * <b>`name`</b>: Optional name for the operations created when applying gradients.
-  Defaults to "Adam".
+  Defaults to "Adam".  @compatibility(eager) When eager execution is
+  enabled, `learning_rate`, `beta_1`, `beta_2`, and `epsilon` can each be
+  a callable that takes no arguments and returns the actual value to use.
+  This can be useful for changing these values across different
+  invocations of optimizer functions. @end_compatibility
 * <b>`**kwargs`</b>: keyword arguments. Allowed to be {`clipnorm`, `clipvalue`, `lr`,
   `decay`}. `clipnorm` is clip gradients by norm; `clipvalue` is clip
   gradients by value, `decay` is included for backward compatibility to
   allow time inverse decay of learning rate. `lr` is included for backward
   compatibility, recommended to use `learning_rate` instead.
-
-
-
-#### Eager Compatibility
-When eager execution is enabled, `learning_rate`, `beta_1`, `beta_2`,
-and `epsilon` can each be a callable that takes no arguments and
-returns the actual value to use. This can be useful for changing these
-values across different invocations of optimizer functions.
-
-
 
 
 
@@ -172,7 +189,7 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L567-L594">View source</a>
 
 ``` python
 add_slot(
@@ -187,7 +204,7 @@ Add a new slot variable for `var`.
 
 <h3 id="add_weight"><code>add_weight</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L768-L808">View source</a>
 
 ``` python
 add_weight(
@@ -197,7 +214,7 @@ add_weight(
     initializer='zeros',
     trainable=None,
     synchronization=tf.VariableSynchronization.AUTO,
-    aggregation=tf.VariableAggregation.NONE
+    aggregation=tf.compat.v1.VariableAggregation.NONE
 )
 ```
 
@@ -206,7 +223,7 @@ add_weight(
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L406-L439">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L408-L441">View source</a>
 
 ``` python
 apply_gradients(
@@ -230,8 +247,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. The `iterations`
-  will be automatically increased by 1.
+An `Operation` that applies the specified gradients. If `global_step`
+was not None, that operation also increments `global_step`.
 
 
 
@@ -243,7 +260,7 @@ An `Operation` that applies the specified gradients. The `iterations`
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L696-L719">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L698-L721">View source</a>
 
 ``` python
 from_config(
@@ -275,7 +292,7 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L264-L274">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/adam.py#L261-L271">View source</a>
 
 ``` python
 get_config()
@@ -295,7 +312,7 @@ Python dictionary.
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L372-L404">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L374-L406">View source</a>
 
 ``` python
 get_gradients(
@@ -328,7 +345,7 @@ List of gradient tensors.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L596-L599">View source</a>
 
 ``` python
 get_slot(
@@ -342,7 +359,7 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L561-L563">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L563-L565">View source</a>
 
 ``` python
 get_slot_names()
@@ -353,7 +370,7 @@ A list of names for this optimizer's slots.
 
 <h3 id="get_updates"><code>get_updates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L499-L506">View source</a>
 
 ``` python
 get_updates(
@@ -367,7 +384,7 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L743-L745">View source</a>
 
 ``` python
 get_weights()
@@ -378,7 +395,7 @@ get_weights()
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L290-L319">View source</a>
 
 ``` python
 minimize(
@@ -423,7 +440,7 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/adam.py#L177-L185">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/adam.py#L174-L182">View source</a>
 
 ``` python
 set_weights(weights)
@@ -434,7 +451,7 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L734-L736">View source</a>
 
 ``` python
 variables()

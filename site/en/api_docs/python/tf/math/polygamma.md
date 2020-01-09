@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/polygamma">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Compute the polygamma function \\(\psi^{(n)}(x)\\).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v1.math.polygamma</code></a>
-* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v1.polygamma</code></a>
-* <a href="/api_docs/python/tf/math/polygamma"><code>tf.compat.v2.math.polygamma</code></a>
-* <a href="/api_docs/python/tf/math/polygamma"><code>tf.polygamma</code></a>
+* `tf.compat.v1.math.polygamma`
+* `tf.compat.v1.polygamma`
+* `tf.compat.v2.math.polygamma`
 
 
 ``` python

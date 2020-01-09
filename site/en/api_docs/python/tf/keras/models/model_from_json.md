@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/models/model_from_json">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/saving/model_config.py#L81-L96">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/saving/model_config.py#L81-L96">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Parses a JSON model configuration file and returns a model instance.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/models/model_from_json"><code>tf.compat.v1.keras.models.model_from_json</code></a>
-* <a href="/api_docs/python/tf/keras/models/model_from_json"><code>tf.compat.v2.keras.models.model_from_json</code></a>
+* `tf.compat.v1.keras.models.model_from_json`
+* `tf.compat.v2.keras.models.model_from_json`
 
 
 ``` python
@@ -40,7 +34,12 @@ tf.keras.models.model_from_json(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+
+
 
 
 #### Arguments:

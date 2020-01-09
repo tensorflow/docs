@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/Assert">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L112-L176">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/control_flow_ops.py#L112-L176">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ Asserts that the given condition is true.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/Assert"><code>tf.Assert</code></a>
-* <a href="/api_docs/python/tf/debugging/Assert"><code>tf.compat.v1.Assert</code></a>
-* <a href="/api_docs/python/tf/debugging/Assert"><code>tf.compat.v1.debugging.Assert</code></a>
-* <a href="/api_docs/python/tf/debugging/Assert"><code>tf.compat.v2.Assert</code></a>
-* <a href="/api_docs/python/tf/debugging/Assert"><code>tf.compat.v2.debugging.Assert</code></a>
+* `tf.Assert`
+* `tf.compat.v1.Assert`
+* `tf.compat.v1.debugging.Assert`
+* `tf.compat.v2.Assert`
+* `tf.compat.v2.debugging.Assert`
 
 
 ``` python

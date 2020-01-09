@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/tensor_diag_part">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Returns the diagonal part of the tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/tensor_diag_part"><code>tf.compat.v1.diag_part</code></a>
-* <a href="/api_docs/python/tf/linalg/tensor_diag_part"><code>tf.compat.v1.linalg.tensor_diag_part</code></a>
-* <a href="/api_docs/python/tf/linalg/tensor_diag_part"><code>tf.compat.v2.linalg.tensor_diag_part</code></a>
-* <a href="/api_docs/python/tf/linalg/tensor_diag_part"><code>tf.diag_part</code></a>
+* `tf.compat.v1.diag_part`
+* `tf.compat.v1.linalg.tensor_diag_part`
+* `tf.compat.v2.linalg.tensor_diag_part`
 
 
 ``` python

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/user_ops">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,4 +18,4 @@ Public API for tf.user_ops namespace.
 
 ## Functions
 
-[`my_fact(...)`](../../../tf/user_ops/my_fact): Example of overriding the generated code for an Op.
+[`my_fact(...)`](../../../tf/compat/v1/user_ops/my_fact): Example of overriding the generated code for an Op.

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/test/Benchmark">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L231-L349">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L231-L349">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Abstract class that provides helpers for TensorFlow benchmarks.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/test/Benchmark"><code>tf.compat.v1.test.Benchmark</code></a>
-* Class <a href="/api_docs/python/tf/test/Benchmark"><code>tf.compat.v2.test.Benchmark</code></a>
+* Class `tf.compat.v1.test.Benchmark`
+* Class `tf.compat.v2.test.Benchmark`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,7 +34,7 @@ Abstract class that provides helpers for TensorFlow benchmarks.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L234-L238">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L234-L238">View source</a>
 
 ``` python
 __init__()
@@ -55,7 +49,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L339-L349">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L339-L349">View source</a>
 
 ``` python
 evaluate(tensors)
@@ -77,7 +71,7 @@ tensors numpy values.
 
 <h3 id="is_abstract"><code>is_abstract</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L240-L244">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L240-L244">View source</a>
 
 ``` python
 @classmethod
@@ -89,7 +83,7 @@ is_abstract(cls)
 
 <h3 id="report_benchmark"><code>report_benchmark</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L185-L214">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L185-L214">View source</a>
 
 ``` python
 report_benchmark(
@@ -125,7 +119,7 @@ Report a benchmark.
 
 <h3 id="run_op_benchmark"><code>run_op_benchmark</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/platform/benchmark.py#L246-L337">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/platform/benchmark.py#L246-L337">View source</a>
 
 ``` python
 run_op_benchmark(
@@ -151,7 +145,7 @@ Run an op or tensor in the given session.  Report the results.
 * <b>`sess`</b>: `Session` object to use for timing.
 * <b>`op_or_tensor`</b>: `Operation` or `Tensor` to benchmark.
 * <b>`feed_dict`</b>: A `dict` of values to feed for each op iteration (see the
-  `feed_dict` parameter of <a href="../../tf/InteractiveSession#run"><code>Session.run</code></a>).
+  `feed_dict` parameter of `Session.run`).
 * <b>`burn_iters`</b>: Number of burn-in iterations to run.
 * <b>`min_iters`</b>: Minimum number of iterations to use for timing.
 * <b>`store_trace`</b>: Boolean, whether to run an extra untimed iteration and

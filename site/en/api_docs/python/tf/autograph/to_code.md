@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/autograph/to_code">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/impl/api.py#L693-L727">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/autograph/impl/api.py#L730-L755">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,23 +21,28 @@ Similar to `to_graph`, but returns Python source code as a string.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/autograph/to_code"><code>tf.compat.v1.autograph.to_code</code></a>
+* `tf.compat.v2.autograph.to_code`
 
 
 ``` python
 tf.autograph.to_code(
     entity,
     recursive=True,
-    arg_values=None,
-    arg_types=None,
-    indentation='  ',
     experimental_optional_features=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+
+
 
 Also see: <a href="../../tf/autograph/to_graph"><code>tf.autograph.to_graph</code></a>.
 
@@ -56,9 +55,6 @@ TensorFlow graph that is functionally identical to the input Python code.
 * <b>`entity`</b>: Python callable or class to convert.
 * <b>`recursive`</b>: Whether to recursively convert any functions that the converted
   function may call.
-* <b>`arg_values`</b>: Deprecated.
-* <b>`arg_types`</b>: Deprecated.
-* <b>`indentation`</b>: Deprecated.
 * <b>`experimental_optional_features`</b>: `None`, a tuple of, or a single
   <a href="../../tf/autograph/experimental/Feature"><code>tf.autograph.experimental.Feature</code></a> value. Controls the use of optional
   features in the conversion process.

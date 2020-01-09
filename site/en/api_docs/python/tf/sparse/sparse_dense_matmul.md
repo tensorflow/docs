@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/sparse_dense_matmul">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L2188-L2405">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L2172-L2389">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,10 @@ Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.compat.v1.sparse.matmul</code></a>
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.compat.v1.sparse.sparse_dense_matmul</code></a>
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.compat.v1.sparse_tensor_dense_matmul</code></a>
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.compat.v2.sparse.sparse_dense_matmul</code></a>
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.sparse.matmul</code></a>
-* <a href="/api_docs/python/tf/sparse/sparse_dense_matmul"><code>tf.sparse_tensor_dense_matmul</code></a>
+* `tf.compat.v1.sparse.matmul`
+* `tf.compat.v1.sparse.sparse_dense_matmul`
+* `tf.compat.v1.sparse_tensor_dense_matmul`
+* `tf.compat.v2.sparse.sparse_dense_matmul`
 
 
 ``` python

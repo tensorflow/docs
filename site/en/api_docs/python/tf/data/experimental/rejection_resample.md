@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/rejection_resample">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/resampling.py#L37-L101">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/resampling.py#L37-L101">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A transformation that resamples a dataset to achieve a target distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/rejection_resample"><code>tf.compat.v1.data.experimental.rejection_resample</code></a>
-* <a href="/api_docs/python/tf/data/experimental/rejection_resample"><code>tf.compat.v2.data.experimental.rejection_resample</code></a>
+* `tf.compat.v1.data.experimental.rejection_resample`
+* `tf.compat.v2.data.experimental.rejection_resample`
 
 
 ``` python
@@ -42,7 +36,11 @@ tf.data.experimental.rejection_resample(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 **NOTE** Resampling is performed via rejection sampling; some fraction
 of the input values will be dropped.

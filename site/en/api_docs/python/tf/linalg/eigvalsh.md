@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/eigvalsh">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L332-L352">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/linalg_ops.py#L332-L352">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Computes the eigenvalues of one or more self-adjoint matrices.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/eigvalsh"><code>tf.compat.v1.linalg.eigvalsh</code></a>
-* <a href="/api_docs/python/tf/linalg/eigvalsh"><code>tf.compat.v1.self_adjoint_eigvals</code></a>
-* <a href="/api_docs/python/tf/linalg/eigvalsh"><code>tf.compat.v2.linalg.eigvalsh</code></a>
-* <a href="/api_docs/python/tf/linalg/eigvalsh"><code>tf.self_adjoint_eigvals</code></a>
+* `tf.compat.v1.linalg.eigvalsh`
+* `tf.compat.v1.self_adjoint_eigvals`
+* `tf.compat.v2.linalg.eigvalsh`
 
 
 ``` python

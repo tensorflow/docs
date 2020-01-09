@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/InputLayer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_layer.py#L33-L159">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/input_layer.py#L33-L157">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,15 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/InputLayer"><code>tf.compat.v1.keras.layers.InputLayer</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/InputLayer"><code>tf.compat.v2.keras.layers.InputLayer</code></a>
+* Class `tf.compat.v1.keras.layers.InputLayer`
+* Class `tf.compat.v2.keras.layers.InputLayer`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+
+
 
 It can either wrap an existing tensor (pass an `input_tensor` argument)
 or create a placeholder tensor (pass arguments `input_shape`, and
@@ -65,7 +63,7 @@ tf.RaggedTensors by choosing 'sparse=True' or 'ragged=True'.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/input_layer.py#L61-L149">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/input_layer.py#L61-L148">View source</a>
 
 ``` python
 __init__(

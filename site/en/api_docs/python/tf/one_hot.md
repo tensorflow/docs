@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/one_hot">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L3360-L3516">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L3371-L3514">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a one-hot tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/one_hot"><code>tf.compat.v1.one_hot</code></a>
-* <a href="/api_docs/python/tf/one_hot"><code>tf.compat.v2.one_hot</code></a>
+* `tf.compat.v1.one_hot`
+* `tf.compat.v2.one_hot`
 
 
 ``` python
@@ -81,11 +75,6 @@ shape will be:
   depth x batch x features if axis == 0
 ```
 
-If `indices` is a RaggedTensor, the 'axis' argument must be positive and refer
-to a non-ragged axis. The output will be equivalent to applying 'one_hot' on
-the values of the RaggedTensor, and creating a new RaggedTensor from the
-result.
-
 If `dtype` is not provided, it will attempt to assume the data type of
 `on_value` or `off_value`, if one or both are passed in. If none of
 `on_value`, `off_value`, or `dtype` are provided, `dtype` will default to the
@@ -125,13 +114,6 @@ tf.one_hot(indices, depth,
 #   [0.0, 0.0, 1.0]],  # one_hot(2)
 #  [[0.0, 1.0, 0.0],   # one_hot(1)
 #   [0.0, 0.0, 0.0]]]  # one_hot(-1)
-
-indices = tf.ragged.constant([[0, 1], [2]])
-depth = 3
-tf.one_hot(indices, depth)  # output: [2 x None x 3]
-# [[[1., 0., 0.],
-#   [0., 1., 0.]],
-#  [[0., 0., 1.]]]
 ```
 
 #### Args:

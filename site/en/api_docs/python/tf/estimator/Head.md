@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/Head">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/head/base_head.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ Interface for the head/top of a model.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/Head"><code>tf.compat.v1.estimator.Head</code></a>
-* Class <a href="/api_docs/python/tf/estimator/Head"><code>tf.compat.v2.estimator.Head</code></a>
+* Class `tf.compat.v1.estimator.Head`
+* Class `tf.compat.v2.estimator.Head`
 
 
 <!-- Placeholder for "Used in" -->
@@ -102,7 +96,7 @@ The expected size of the `logits` tensor.
 
 <h3 id="loss_reduction"><code>loss_reduction</code></h3>
 
-One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a>.
+One of <a href="../../tf/keras/losses/Reduction"><code>tf.losses.Reduction</code></a>.
 
 Describes how to reduce training loss over batch, such as mean or sum.
 
@@ -163,7 +157,7 @@ It is recommended to pass all args via name.
 * <b>`trainable_variables`</b>: A list or tuple of `Variable` objects to update to
   minimize `loss`. In Tensorflow 1.x, by default these are the list of
   variables collected in the graph under the key
-  <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. As Tensorflow 2.x doesn't have
+  `GraphKeys.TRAINABLE_VARIABLES`. As Tensorflow 2.x doesn't have
   collections and GraphKeys, trainable_variables need to be passed
   explicitly here.
 * <b>`train_op_fn`</b>: Function that takes a scalar loss `Tensor` and returns an op

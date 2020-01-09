@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/negative">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,17 +18,17 @@ Computes numerical negative value element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__neg__"><code>tf.RaggedTensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__neg__"><code>tf.Tensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__neg__"><code>tf.compat.v1.RaggedTensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__neg__"><code>tf.compat.v1.Tensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/math/negative"><code>tf.compat.v1.math.negative</code></a>
-* <a href="/api_docs/python/tf/math/negative"><code>tf.compat.v1.negative</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__neg__"><code>tf.compat.v2.RaggedTensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__neg__"><code>tf.compat.v2.Tensor.__neg__</code></a>
-* <a href="/api_docs/python/tf/math/negative"><code>tf.compat.v2.math.negative</code></a>
-* <a href="/api_docs/python/tf/math/negative"><code>tf.compat.v2.negative</code></a>
-* <a href="/api_docs/python/tf/math/negative"><code>tf.negative</code></a>
+* `tf.RaggedTensor.__neg__`
+* `tf.Tensor.__neg__`
+* `tf.compat.v1.RaggedTensor.__neg__`
+* `tf.compat.v1.Tensor.__neg__`
+* `tf.compat.v1.math.negative`
+* `tf.compat.v1.negative`
+* `tf.compat.v2.RaggedTensor.__neg__`
+* `tf.compat.v2.Tensor.__neg__`
+* `tf.compat.v2.math.negative`
+* `tf.compat.v2.negative`
+* `tf.negative`
 
 
 ``` python

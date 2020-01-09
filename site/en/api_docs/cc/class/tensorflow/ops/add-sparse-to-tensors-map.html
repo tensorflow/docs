@@ -2,31 +2,29 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::AddSparseToTensorsMap Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
   <div id="top"><!-- do not remove this div --></div>
   <h1>tensorflow::<wbr/>ops::<wbr/>AddSparseToTensorsMap</h1>
   <code>#include &lt;sparse_ops.h&gt;</code>
-  <p><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/add.html#classtensorflow_1_1ops_1_1_add">Add</a> a <code>SparseTensor</code> to a <code>SparseTensorsMap</code> return its handle. </p>
+  <p><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/add.html#classtensorflow_1_1ops_1_1_add">Add</a> a <code>SparseTensor</code> to a <code>SparseTensorsMap</code> return its handle. </p>
   <h2>Summary</h2>
   <p>A <code>SparseTensor</code> is represented by three tensors: <code>sparse_indices</code>, <code>sparse_values</code>, and <code>sparse_shape</code>.</p>
   <p>This operator takes the given <code>SparseTensor</code> and adds it to a container object (a <code>SparseTensorsMap</code>). A unique key within this container is generated in the form of an <code>int64</code>, and this is the value that is returned.</p>
-  <p>The <code>SparseTensor</code> can then be read out as part of a minibatch by passing the key as a vector element to <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a></code>. To ensure the correct <code>SparseTensorsMap</code> is accessed, ensure that the same <code>container</code> and <code>shared_name</code> are passed to that Op. If no <code>shared_name</code> is provided here, instead use the <i>name</i> of the <a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> created by calling <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/add-sparse-to-tensors-map.html#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map">AddSparseToTensorsMap</a></code> as the <code>shared_name</code> passed to <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a></code>. Ensure the Operations are colocated.</p>
+  <p>The <code>SparseTensor</code> can then be read out as part of a minibatch by passing the key as a vector element to <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a></code>. To ensure the correct <code>SparseTensorsMap</code> is accessed, ensure that the same <code>container</code> and <code>shared_name</code> are passed to that Op. If no <code>shared_name</code> is provided here, instead use the <i>name</i> of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> created by calling <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/add-sparse-to-tensors-map.html#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map">AddSparseToTensorsMap</a></code> as the <code>shared_name</code> passed to <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/take-many-sparse-from-tensors-map.html#classtensorflow_1_1ops_1_1_take_many_sparse_from_tensors_map">TakeManySparseFromTensorsMap</a></code>. Ensure the Operations are colocated.</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>sparse_indices: 2-D. The <code>indices</code> of the <code>SparseTensor</code>.</li>
       <li>sparse_values: 1-D. The <code>values</code> of the <code>SparseTensor</code>.</li>
       <li>sparse_shape: 1-D. The <code>shape</code> of the <code>SparseTensor</code>.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>):<ul>
       <li>container: The container name for the <code>SparseTensorsMap</code> created by this op.</li>
-      <li>shared_name: The shared name for the <code>SparseTensorsMap</code> created by this op. If blank, the new <a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a>'s unique name is used.</li>
+      <li>shared_name: The shared name for the <code>SparseTensorsMap</code> created by this op. If blank, the new <a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a>'s unique name is used.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 0-D. The handle of the <code>SparseTensor</code> now stored in the <code>SparseTensorsMap</code>. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: 0-D. The handle of the <code>SparseTensor</code> now stored in the <code>SparseTensorsMap</code>. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -36,13 +34,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a19db933f8fd5d01db12d8b59d63bf06a">AddSparseToTensorsMap</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a19db933f8fd5d01db12d8b59d63bf06a">AddSparseToTensorsMap</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1aff3889e43d0d729ad526a005889b5626">AddSparseToTensorsMap</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">AddSparseToTensorsMap::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1aff3889e43d0d729ad526a005889b5626">AddSparseToTensorsMap</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">AddSparseToTensorsMap::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -59,7 +57,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -69,7 +67,7 @@
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -123,7 +121,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -133,7 +131,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -146,43 +144,43 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs">tensorflow::<wbr/>ops::<wbr/>AddSparseToTensorsMap::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs">tensorflow::<wbr/>ops::<wbr/>AddSparseToTensorsMap::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/add-sparse-to-tensors-map.html#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map">AddSparseToTensorsMap</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/add-sparse-to-tensors-map.html#classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map">AddSparseToTensorsMap</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a3c43523211fb26d79e4d22b5149c4029">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a48d455f05445afe51dff6364bb8968c8">
     <h3>sparse_handle</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_handle</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> sparse_handle</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a19db933f8fd5d01db12d8b59d63bf06a">
     <h3>AddSparseToTensorsMap</h3>
     <pre class="prettyprint"> AddSparseToTensorsMap(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1aff3889e43d0d729ad526a005889b5626">
     <h3>AddSparseToTensorsMap</h3>
     <pre class="prettyprint"> AddSparseToTensorsMap(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">AddSparseToTensorsMap::Attrs</a> & attrs
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_indices,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_values,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> sparse_shape,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">AddSparseToTensorsMap::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -204,14 +202,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1a8d3e3d5c6cf3b841ecbbc82322d94a89">
     <h3>Container</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a> Container(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a> Container(
   StringPiece x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1accd0cca1251e1cf70fe8c4d9498dd117">
     <h3>SharedName</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a> SharedName(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/add-sparse-to-tensors-map/attrs.html#structtensorflow_1_1ops_1_1_add_sparse_to_tensors_map_1_1_attrs">Attrs</a> SharedName(
   StringPiece x
 )</pre>
     <div />

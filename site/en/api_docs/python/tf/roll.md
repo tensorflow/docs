@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/roll">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/manip_ops.py#L27-L30">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/manip_ops.py#L27-L30">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Rolls the elements of a tensor along an axis.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/roll"><code>tf.compat.v1.manip.roll</code></a>
-* <a href="/api_docs/python/tf/roll"><code>tf.compat.v1.roll</code></a>
-* <a href="/api_docs/python/tf/roll"><code>tf.compat.v2.roll</code></a>
-* <a href="/api_docs/python/tf/roll"><code>tf.manip.roll</code></a>
+* `tf.compat.v1.manip.roll`
+* `tf.compat.v1.roll`
+* `tf.compat.v2.roll`
 
 
 ``` python
@@ -44,7 +37,11 @@ tf.roll(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+
+
 
 The elements are shifted positively (towards larger indices) by the offset of
 `shift` along the dimension of `axis`. Negative `shift` values will shift

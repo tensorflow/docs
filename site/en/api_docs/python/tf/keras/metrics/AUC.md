@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/AUC">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1589-L1869">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1588-L1868">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,17 @@ Inherits From: [`Metric`](../../../tf/keras/metrics/Metric)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v1.keras.metrics.AUC</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v2.keras.metrics.AUC</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/AUC"><code>tf.compat.v2.metrics.AUC</code></a>
+* Class `tf.compat.v1.keras.metrics.AUC`
+* Class `tf.compat.v2.keras.metrics.AUC`
+* Class `tf.compat.v2.metrics.AUC`
+* Class `tf.metrics.AUC`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Classification on imbalanced data](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)
+
+
 
 This metric creates four local variables, `true_positives`, `true_negatives`,
 `false_positives` and `false_negatives` that are used to compute the AUC.
@@ -88,7 +87,7 @@ model.compile('sgd', loss='mse', metrics=[tf.keras.metrics.AUC()])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1639-L1728">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1638-L1727">View source</a>
 
 ``` python
 __init__(
@@ -129,7 +128,7 @@ Creates an `AUC` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -148,7 +147,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="interpolate_pr_auc"><code>interpolate_pr_auc</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1750-L1817">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1749-L1816">View source</a>
 
 ``` python
 interpolate_pr_auc()
@@ -201,7 +200,7 @@ first bucket having >0 true positives.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1854-L1856">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1853-L1855">View source</a>
 
 ``` python
 reset_states()
@@ -214,7 +213,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1819-L1852">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1818-L1851">View source</a>
 
 ``` python
 result()
@@ -227,7 +226,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1730-L1748">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1729-L1747">View source</a>
 
 ``` python
 update_state(

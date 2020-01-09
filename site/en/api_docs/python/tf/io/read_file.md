@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/read_file">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_io_ops.py`
@@ -23,10 +17,9 @@ Reads and outputs the entire contents of the input filename.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/read_file"><code>tf.compat.v1.io.read_file</code></a>
-* <a href="/api_docs/python/tf/io/read_file"><code>tf.compat.v1.read_file</code></a>
-* <a href="/api_docs/python/tf/io/read_file"><code>tf.compat.v2.io.read_file</code></a>
-* <a href="/api_docs/python/tf/io/read_file"><code>tf.read_file</code></a>
+* `tf.compat.v1.io.read_file`
+* `tf.compat.v1.read_file`
+* `tf.compat.v2.io.read_file`
 
 
 ``` python
@@ -38,7 +31,19 @@ tf.io.read_file(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Load images](https://www.tensorflow.org/tutorials/load_data/images)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 
 #### Args:

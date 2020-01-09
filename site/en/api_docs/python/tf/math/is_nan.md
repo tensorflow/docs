@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/is_nan">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,12 +17,10 @@ Returns which elements of x are NaN.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.debugging.is_nan</code></a>
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.is_nan</code></a>
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v1.math.is_nan</code></a>
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.compat.v2.math.is_nan</code></a>
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.debugging.is_nan</code></a>
-* <a href="/api_docs/python/tf/math/is_nan"><code>tf.is_nan</code></a>
+* `tf.compat.v1.debugging.is_nan`
+* `tf.compat.v1.is_nan`
+* `tf.compat.v1.math.is_nan`
+* `tf.compat.v2.math.is_nan`
 
 
 ``` python

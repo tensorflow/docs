@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_rank_in">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1355-L1415">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1435-L1464">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,21 +17,17 @@ page_type: reference
 
 
 
-Assert `x` has rank in `ranks`.
+Assert that `x` has a rank in `ranks`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.assert_rank_in</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.compat.v1.assert_rank_in</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_rank_in"><code>tf.compat.v1.debugging.assert_rank_in</code></a>
+* `tf.compat.v2.debugging.assert_rank_in`
 
 
 ``` python
 tf.debugging.assert_rank_in(
     x,
     ranks,
-    data=None,
-    summarize=None,
     message=None,
     name=None
 )
@@ -47,34 +37,36 @@ tf.debugging.assert_rank_in(
 
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+This Op checks that the rank of `x` is in `ranks`.
 
-```python
-with tf.control_dependencies([tf.compat.v1.assert_rank_in(x, (2, 4))]):
-  output = tf.reduce_sum(x)
-```
+If `x` has a different rank, `message`, as well as the shape of `x` are
+printed, and `InvalidArgumentError` is raised.
 
 #### Args:
 
 
-* <b>`x`</b>:  Numeric `Tensor`.
-* <b>`ranks`</b>:  Iterable of scalar `Tensor` objects.
-* <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-  error message and first few entries of `x`.
-* <b>`summarize`</b>: Print this many entries of each tensor.
+* <b>`x`</b>: `Tensor`.
+* <b>`ranks`</b>: `Iterable` of scalar `Tensor` objects.
 * <b>`message`</b>: A string to prefix to the default message.
-* <b>`name`</b>: A name for this operation (optional).
-  Defaults to "assert_rank_in".
+* <b>`name`</b>: A name for this operation (optional). Defaults to "assert_rank_in".
 
 
 #### Returns:
 
 Op raising `InvalidArgumentError` unless rank of `x` is in `ranks`.
 If static checks determine `x` has matching rank, a `no_op` is returned.
+This can be used with <a href="../../tf/control_dependencies"><code>tf.control_dependencies</code></a> inside of <a href="../../tf/function"><code>tf.function</code></a>s
+to block followup computation until the check has executed.
+
 
 
 
 #### Raises:
 
 
-* <b>`ValueError`</b>:  If static checks determine `x` has mismatched rank.
+* <b>`InvalidArgumentError`</b>: `x` does not have rank in `ranks`, but the rank cannot
+  be statically determined.
+* <b>`ValueError`</b>: If static checks determine `x` has mismatched rank.
+
+#### Eager Compatibility
+returns None

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/truncatemod">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,8 +17,8 @@ Returns element-wise remainder of division. This emulates C semantics in that
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/truncatemod"><code>tf.compat.v1.truncatemod</code></a>
-* <a href="/api_docs/python/tf/truncatemod"><code>tf.compat.v2.truncatemod</code></a>
+* `tf.compat.v1.truncatemod`
+* `tf.compat.v2.truncatemod`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/draw_bounding_boxes">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3975-L4001">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3889-L3919">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,15 +21,15 @@ Draw bounding boxes on a batch of images.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/draw_bounding_boxes"><code>tf.compat.v1.image.draw_bounding_boxes</code></a>
+* `tf.compat.v2.image.draw_bounding_boxes`
 
 
 ``` python
 tf.image.draw_bounding_boxes(
     images,
     boxes,
-    name=None,
-    colors=None
+    colors,
+    name=None
 )
 ```
 
@@ -62,6 +56,8 @@ Parts of the bounding box may fall outside the image.
   4-D with shape `[batch, height, width, depth]`. A batch of images.
 * <b>`boxes`</b>: A `Tensor` of type `float32`. 3-D with shape `[batch,
   num_bounding_boxes, 4]` containing bounding boxes.
+* <b>`colors`</b>: A `Tensor` of type `float32`. 2-D. A list of RGBA colors to cycle
+  through for the boxes.
 * <b>`name`</b>: A name for the operation (optional).
 
 

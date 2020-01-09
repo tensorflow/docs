@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/constraints/NonNeg">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L82-L87">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L82-L87">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/constraints/NonNeg"><code>tf.compat.v1.keras.constraints.NonNeg</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/NonNeg"><code>tf.compat.v1.keras.constraints.non_neg</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/NonNeg"><code>tf.compat.v2.keras.constraints.NonNeg</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/NonNeg"><code>tf.compat.v2.keras.constraints.non_neg</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/NonNeg"><code>tf.keras.constraints.non_neg</code></a>
+* Class `tf.compat.v1.keras.constraints.NonNeg`
+* Class `tf.compat.v1.keras.constraints.non_neg`
+* Class `tf.compat.v2.keras.constraints.NonNeg`
+* Class `tf.compat.v2.keras.constraints.non_neg`
+* Class `tf.keras.constraints.non_neg`
 
 
 <!-- Placeholder for "Used in" -->
@@ -45,7 +39,7 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L86-L87">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L86-L87">View source</a>
 
 ``` python
 __call__(w)
@@ -56,7 +50,7 @@ Call self as a function.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L40-L41">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L40-L41">View source</a>
 
 ``` python
 get_config()

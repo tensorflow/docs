@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ragged/row_splits_to_segment_ids">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/segment_id_ops.py#L33-L73">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/segment_id_ops.py#L33-L73">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Generates the segmentation corresponding to a RaggedTensor `row_splits`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ragged/row_splits_to_segment_ids"><code>tf.compat.v1.ragged.row_splits_to_segment_ids</code></a>
-* <a href="/api_docs/python/tf/ragged/row_splits_to_segment_ids"><code>tf.compat.v2.ragged.row_splits_to_segment_ids</code></a>
+* `tf.compat.v1.ragged.row_splits_to_segment_ids`
+* `tf.compat.v2.ragged.row_splits_to_segment_ids`
 
 
 ``` python

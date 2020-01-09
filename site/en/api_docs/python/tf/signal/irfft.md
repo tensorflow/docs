@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/irfft">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/fft_ops.py#L133-L145">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/fft_ops.py#L133-L145">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Inverse real-valued fast Fourier transform.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/irfft"><code>tf.compat.v1.signal.irfft</code></a>
-* <a href="/api_docs/python/tf/signal/irfft"><code>tf.compat.v1.spectral.irfft</code></a>
-* <a href="/api_docs/python/tf/signal/irfft"><code>tf.compat.v2.signal.irfft</code></a>
-* <a href="/api_docs/python/tf/signal/irfft"><code>tf.spectral.irfft</code></a>
+* `tf.compat.v1.signal.irfft`
+* `tf.compat.v1.spectral.irfft`
+* `tf.compat.v2.signal.irfft`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/TruePositives">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1055-L1101">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1054-L1100">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,17 @@ Calculates the number of true positives.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/TruePositives"><code>tf.compat.v1.keras.metrics.TruePositives</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/TruePositives"><code>tf.compat.v2.keras.metrics.TruePositives</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/TruePositives"><code>tf.compat.v2.metrics.TruePositives</code></a>
+* Class `tf.compat.v1.keras.metrics.TruePositives`
+* Class `tf.compat.v2.keras.metrics.TruePositives`
+* Class `tf.compat.v2.metrics.TruePositives`
+* Class `tf.metrics.TruePositives`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Classification on imbalanced data](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)
+
+
 
 For example, if `y_true` is [0, 1, 1, 1] and `y_pred` is [1, 0, 1, 1]
 then the true positives value is 2.  If the weights were specified as
@@ -68,7 +67,7 @@ model.compile('sgd', loss='mse', metrics=[tf.keras.metrics.TruePositives()])
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L1085-L1101">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L1084-L1100">View source</a>
 
 ``` python
 __init__(
@@ -94,7 +93,7 @@ Creates a `TruePositives` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -113,7 +112,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L893-L896">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L892-L895">View source</a>
 
 ``` python
 reset_states()
@@ -126,7 +125,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L886-L891">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L885-L890">View source</a>
 
 ``` python
 result()
@@ -139,7 +138,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L866-L884">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L865-L883">View source</a>
 
 ``` python
 update_state(

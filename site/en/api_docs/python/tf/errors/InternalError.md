@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/InternalError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L445-L456">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L445-L456">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/InternalError"><code>tf.compat.v1.errors.InternalError</code></a>
-* Class <a href="/api_docs/python/tf/errors/InternalError"><code>tf.compat.v2.errors.InternalError</code></a>
+* Class `tf.compat.v1.errors.InternalError`
+* Class `tf.compat.v2.errors.InternalError`
 
 
 <!-- Placeholder for "Used in" -->
@@ -43,7 +37,7 @@ has been broken. Catching this exception is not recommended.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L454-L456">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L454-L456">View source</a>
 
 ``` python
 __init__(

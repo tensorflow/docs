@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/asinh">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes inverse hyperbolic sine of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/asinh"><code>tf.asinh</code></a>
-* <a href="/api_docs/python/tf/math/asinh"><code>tf.compat.v1.asinh</code></a>
-* <a href="/api_docs/python/tf/math/asinh"><code>tf.compat.v1.math.asinh</code></a>
-* <a href="/api_docs/python/tf/math/asinh"><code>tf.compat.v2.asinh</code></a>
-* <a href="/api_docs/python/tf/math/asinh"><code>tf.compat.v2.math.asinh</code></a>
+* `tf.asinh`
+* `tf.compat.v1.asinh`
+* `tf.compat.v1.math.asinh`
+* `tf.compat.v2.asinh`
+* `tf.compat.v2.math.asinh`
 
 
 ``` python

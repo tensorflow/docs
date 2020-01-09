@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/TensorShape">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L722-L1208">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L722-L1208">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,20 @@ Represents the shape of a `Tensor`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/TensorShape"><code>tf.compat.v1.TensorShape</code></a>
-* Class <a href="/api_docs/python/tf/TensorShape"><code>tf.compat.v2.TensorShape</code></a>
+* Class `tf.compat.v1.TensorShape`
+* Class `tf.compat.v2.TensorShape`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+### Used in the tutorials:
+
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+
+
 
 A `TensorShape` represents a possibly-partial shape specification for a
 `Tensor`. It may be one of the following:
@@ -56,7 +59,7 @@ the shape may be set explicitly using <a href="../tf/Tensor#set_shape"><code>tf.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L743-L776">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L743-L776">View source</a>
 
 ``` python
 __init__(dims)
@@ -101,7 +104,7 @@ Returns the rank of this shape, or None if it is unspecified.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L936-L939">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L936-L939">View source</a>
 
 ``` python
 __add__(other)
@@ -112,7 +115,7 @@ __add__(other)
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L830-L832">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L830-L832">View source</a>
 
 ``` python
 __bool__()
@@ -123,7 +126,7 @@ Returns True if this shape contains non-zero information.
 
 <h3 id="__concat__"><code>__concat__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1207-L1208">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1207-L1208">View source</a>
 
 ``` python
 __concat__(other)
@@ -134,7 +137,7 @@ __concat__(other)
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1184-L1190">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1184-L1190">View source</a>
 
 ``` python
 __eq__(other)
@@ -145,7 +148,7 @@ Returns True if `self` is equivalent to `other`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L847-L895">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L847-L895">View source</a>
 
 ``` python
 __getitem__(key)
@@ -177,7 +180,7 @@ slice.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L837-L845">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L837-L845">View source</a>
 
 ``` python
 __iter__()
@@ -188,7 +191,7 @@ Returns `self.dims` if the rank is known, otherwise raises ValueError.
 
 <h3 id="__len__"><code>__len__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L824-L828">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L824-L828">View source</a>
 
 ``` python
 __len__()
@@ -199,7 +202,7 @@ Returns the rank of this shape, or raises ValueError if unspecified.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1192-L1202">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1192-L1202">View source</a>
 
 ``` python
 __ne__(other)
@@ -210,7 +213,7 @@ Returns True if `self` is known to be different from `other`.
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L830-L832">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L830-L832">View source</a>
 
 ``` python
 __nonzero__()
@@ -221,7 +224,7 @@ Returns True if this shape contains non-zero information.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L941-L944">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L941-L944">View source</a>
 
 ``` python
 __radd__(other)
@@ -232,7 +235,7 @@ __radd__(other)
 
 <h3 id="as_list"><code>as_list</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1161-L1172">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1161-L1172">View source</a>
 
 ``` python
 as_list()
@@ -254,7 +257,7 @@ A list of integers or `None` for each dimension.
 
 <h3 id="as_proto"><code>as_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1174-L1182">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1174-L1182">View source</a>
 
 ``` python
 as_proto()
@@ -265,7 +268,7 @@ Returns this shape as a `TensorShapeProto`.
 
 <h3 id="assert_has_rank"><code>assert_has_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L985-L995">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L985-L995">View source</a>
 
 ``` python
 assert_has_rank(rank)
@@ -287,7 +290,7 @@ Raises an exception if `self` is not compatible with the given `rank`.
 
 <h3 id="assert_is_compatible_with"><code>assert_is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1102-L1115">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1102-L1115">View source</a>
 
 ``` python
 assert_is_compatible_with(other)
@@ -311,7 +314,7 @@ This method can be used to assert that there exists a shape that both
 
 <h3 id="assert_is_fully_defined"><code>assert_is_fully_defined</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1152-L1159">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1152-L1159">View source</a>
 
 ``` python
 assert_is_fully_defined()
@@ -327,7 +330,7 @@ Raises an exception if `self` is not fully defined in every dimension.
 
 <h3 id="assert_same_rank"><code>assert_same_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L969-L983">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L969-L983">View source</a>
 
 ``` python
 assert_same_rank(other)
@@ -350,7 +353,7 @@ Raises an exception if `self` and `other` do not have compatible ranks.
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L946-L967">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L946-L967">View source</a>
 
 ``` python
 concatenate(other)
@@ -377,7 +380,7 @@ dimensions in `self` and `other`.
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1055-L1100">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1055-L1100">View source</a>
 
 ``` python
 is_compatible_with(other)
@@ -426,7 +429,7 @@ True iff `self` is compatible with `other`.
 
 <h3 id="is_fully_defined"><code>is_fully_defined</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1147-L1150">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1147-L1150">View source</a>
 
 ``` python
 is_fully_defined()
@@ -437,7 +440,7 @@ Returns True iff `self` is fully defined in every dimension.
 
 <h3 id="merge_with"><code>merge_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L907-L934">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L907-L934">View source</a>
 
 ``` python
 merge_with(other)
@@ -446,7 +449,7 @@ merge_with(other)
 Returns a `TensorShape` combining the information in `self` and `other`.
 
 The dimensions in `self` and `other` are merged elementwise,
-according to the rules defined for <a href="../tf/Dimension#merge_with"><code>Dimension.merge_with()</code></a>.
+according to the rules defined for `Dimension.merge_with()`.
 
 #### Args:
 
@@ -468,7 +471,7 @@ A `TensorShape` containing the combined information of `self` and
 
 <h3 id="most_specific_compatible_shape"><code>most_specific_compatible_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1117-L1145">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1117-L1145">View source</a>
 
 ``` python
 most_specific_compatible_shape(other)
@@ -499,7 +502,7 @@ and `other`.
 
 <h3 id="num_elements"><code>num_elements</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L897-L905">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L897-L905">View source</a>
 
 ``` python
 num_elements()
@@ -510,7 +513,7 @@ Returns the total number of elements, or none for incomplete shapes.
 
 <h3 id="with_rank"><code>with_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L997-L1015">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L997-L1015">View source</a>
 
 ``` python
 with_rank(rank)
@@ -540,7 +543,7 @@ A shape that is at least as specific as `self` with the given rank.
 
 <h3 id="with_rank_at_least"><code>with_rank_at_least</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1017-L1034">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1017-L1034">View source</a>
 
 ``` python
 with_rank_at_least(rank)
@@ -570,7 +573,7 @@ rank.
 
 <h3 id="with_rank_at_most"><code>with_rank_at_most</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/tensor_shape.py#L1036-L1053">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/tensor_shape.py#L1036-L1053">View source</a>
 
 ``` python
 with_rank_at_most(rank)

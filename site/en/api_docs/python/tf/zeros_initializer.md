@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/zeros_initializer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L102-L117">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L93-L98">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,31 +25,21 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.compat.v1.initializers.zeros</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.compat.v1.keras.initializers.Zeros</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.compat.v1.keras.initializers.zeros</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.compat.v1.zeros_initializer</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.initializers.zeros</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.keras.initializers.Zeros</code></a>
-* Class <a href="/api_docs/python/tf/zeros_initializer"><code>tf.keras.initializers.zeros</code></a>
+* Class `tf.compat.v2.initializers.Zeros`
+* Class `tf.compat.v2.initializers.zeros`
+* Class `tf.compat.v2.keras.initializers.Zeros`
+* Class `tf.compat.v2.keras.initializers.zeros`
+* Class `tf.compat.v2.zeros_initializer`
+* Class `tf.initializers.Zeros`
+* Class `tf.initializers.zeros`
+* Class `tf.keras.initializers.Zeros`
+* Class `tf.keras.initializers.zeros`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
 
-<h2 id="__init__"><code>__init__</code></h2>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L105-L109">View source</a>
-
-``` python
-__init__(dtype=tf.dtypes.float32)
-```
-
-DEPRECATED FUNCTION ARGUMENTS
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(dtype)`. They will be removed in a future version.
-Instructions for updating:
-Call initializer instance with the dtype argument instead of passing it to the constructor
 
 
 
@@ -63,13 +47,12 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L111-L114">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L96-L98">View source</a>
 
 ``` python
 __call__(
     shape,
-    dtype=None,
-    partition_info=None
+    dtype=tf.dtypes.float32
 )
 ```
 
@@ -80,14 +63,12 @@ Returns a tensor object initialized as specified by the initializer.
 
 
 * <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-  dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-  tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. If not provided will return tensor
+ of <a href="../tf#float32"><code>tf.float32</code></a>.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -112,8 +93,8 @@ initializer = RandomUniform.from_config(config)
 #### Args:
 
 
-* <b>`config`</b>: A Python dictionary. It will typically be the output of
-  `get_config`.
+* <b>`config`</b>: A Python dictionary.
+  It will typically be the output of `get_config`.
 
 
 #### Returns:
@@ -123,7 +104,7 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L116-L117">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L61-L67">View source</a>
 
 ``` python
 get_config()

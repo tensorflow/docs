@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/required_space_to_batch_paddings">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L3126-L3202">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L3137-L3213">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Calculate padding required to make block_shape divide input_shape.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/required_space_to_batch_paddings"><code>tf.compat.v1.required_space_to_batch_paddings</code></a>
-* <a href="/api_docs/python/tf/required_space_to_batch_paddings"><code>tf.compat.v2.required_space_to_batch_paddings</code></a>
+* `tf.compat.v1.required_space_to_batch_paddings`
+* `tf.compat.v2.required_space_to_batch_paddings`
 
 
 ``` python

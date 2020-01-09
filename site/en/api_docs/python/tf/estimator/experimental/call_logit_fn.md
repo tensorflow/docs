@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/call_logit_fn">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/model_fn.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -27,8 +21,8 @@ Calls logit_fn (experimental).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/estimator/experimental/call_logit_fn"><code>tf.compat.v1.estimator.experimental.call_logit_fn</code></a>
-* <a href="/api_docs/python/tf/estimator/experimental/call_logit_fn"><code>tf.compat.v2.estimator.experimental.call_logit_fn</code></a>
+* `tf.compat.v1.estimator.experimental.call_logit_fn`
+* `tf.compat.v2.estimator.experimental.call_logit_fn`
 
 
 ``` python

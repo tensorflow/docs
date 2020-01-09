@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/mask">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1563-L1604">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1574-L1615">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Masks elements of `IndexedSlices`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/mask"><code>tf.compat.v1.sparse.mask</code></a>
-* <a href="/api_docs/python/tf/sparse/mask"><code>tf.compat.v1.sparse_mask</code></a>
-* <a href="/api_docs/python/tf/sparse/mask"><code>tf.compat.v2.sparse.mask</code></a>
-* <a href="/api_docs/python/tf/sparse/mask"><code>tf.sparse_mask</code></a>
+* `tf.compat.v1.sparse.mask`
+* `tf.compat.v1.sparse_mask`
+* `tf.compat.v2.sparse.mask`
 
 
 ``` python

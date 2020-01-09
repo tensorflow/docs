@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/abs">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L245-L278">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,17 +22,17 @@ Computes the absolute value of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.RaggedTensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.Tensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/math/abs"><code>tf.abs</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.compat.v1.RaggedTensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.compat.v1.Tensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v1.abs</code></a>
-* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v1.math.abs</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__abs__"><code>tf.compat.v2.RaggedTensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__abs__"><code>tf.compat.v2.Tensor.__abs__</code></a>
-* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v2.abs</code></a>
-* <a href="/api_docs/python/tf/math/abs"><code>tf.compat.v2.math.abs</code></a>
+* `tf.RaggedTensor.__abs__`
+* `tf.Tensor.__abs__`
+* `tf.abs`
+* `tf.compat.v1.RaggedTensor.__abs__`
+* `tf.compat.v1.Tensor.__abs__`
+* `tf.compat.v1.abs`
+* `tf.compat.v1.math.abs`
+* `tf.compat.v2.RaggedTensor.__abs__`
+* `tf.compat.v2.Tensor.__abs__`
+* `tf.compat.v2.abs`
+* `tf.compat.v2.math.abs`
 
 
 ``` python
@@ -50,7 +44,17 @@ tf.math.abs(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Given a tensor of integer or floating-point values, this operation returns a
 tensor of the same type, where each element contains the absolute value of the

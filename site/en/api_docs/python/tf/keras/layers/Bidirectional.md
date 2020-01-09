@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Bidirectional">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L339-L742">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/wrappers.py#L339-L742">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,20 @@ Inherits From: [`Wrapper`](../../../tf/keras/layers/Wrapper)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Bidirectional"><code>tf.compat.v1.keras.layers.Bidirectional</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Bidirectional"><code>tf.compat.v2.keras.layers.Bidirectional</code></a>
+* Class `tf.compat.v1.keras.layers.Bidirectional`
+* Class `tf.compat.v2.keras.layers.Bidirectional`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+
+### Used in the tutorials:
+
+* [Load text](https://www.tensorflow.org/tutorials/load_data/text)
+* [Text classification with an RNN](https://www.tensorflow.org/tutorials/text/text_classification_rnn)
+
+
 
 
 #### Arguments:
@@ -100,7 +103,7 @@ model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L393-L453">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/wrappers.py#L393-L453">View source</a>
 
 ``` python
 __init__(
@@ -130,7 +133,7 @@ __init__(
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L676-L678">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/wrappers.py#L676-L678">View source</a>
 
 ``` python
 reset_states()

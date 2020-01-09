@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/range">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1358-L1427">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1358-L1438">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a sequence of numbers.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/range"><code>tf.compat.v1.range</code></a>
-* <a href="/api_docs/python/tf/range"><code>tf.compat.v2.range</code></a>
+* `tf.compat.v1.range`
+* `tf.compat.v2.range`
 
 
 ``` python
@@ -38,7 +32,18 @@ tf.range(start, limit, delta=1, dtype=None, name='range')
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Creates a sequence of numbers that begins at `start` and extends by
 increments of `delta` up to but not including `limit`.

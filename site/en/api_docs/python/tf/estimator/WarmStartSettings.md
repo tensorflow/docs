@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/WarmStartSettings">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ Settings for warm-starting in `tf.estimator.Estimators`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/WarmStartSettings"><code>tf.compat.v1.estimator.WarmStartSettings</code></a>
-* Class <a href="/api_docs/python/tf/estimator/WarmStartSettings"><code>tf.compat.v2.estimator.WarmStartSettings</code></a>
+* Class `tf.compat.v1.estimator.WarmStartSettings`
+* Class `tf.compat.v2.estimator.WarmStartSettings`
 
 
 <!-- Placeholder for "Used in" -->
@@ -198,7 +192,7 @@ ws = WarmStartSettings(ckpt_to_initialize_from="/tmp",
   TRAINABLE_VARIABLES collection.  Note that this excludes variables such
   as accumulators and moving statistics from batch norm.
 * <b>`var_name_to_vocab_info`</b>: [Optional] Dict of variable names (strings) to
-  <a href="../../tf/train/VocabInfo"><code>tf.estimator.VocabInfo</code></a>. The variable names should be "full" variables,
+  <a href="../../tf/estimator/VocabInfo"><code>tf.estimator.VocabInfo</code></a>. The variable names should be "full" variables,
   not the names of the partitions.  If not explicitly provided, the variable
   is assumed to have no (changes to) vocabulary.
 * <b>`var_name_to_prev_var_name`</b>: [Optional] Dict of variable names (strings) to

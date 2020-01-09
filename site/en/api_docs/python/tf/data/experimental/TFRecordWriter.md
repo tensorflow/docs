@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/TFRecordWriter">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/writers.py#L30-L87">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/writers.py#L30-L87">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,15 @@ Writes data to a TFRecord file.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/data/experimental/TFRecordWriter"><code>tf.compat.v1.data.experimental.TFRecordWriter</code></a>
-* Class <a href="/api_docs/python/tf/data/experimental/TFRecordWriter"><code>tf.compat.v2.data.experimental.TFRecordWriter</code></a>
+* Class `tf.compat.v1.data.experimental.TFRecordWriter`
+* Class `tf.compat.v2.data.experimental.TFRecordWriter`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+
+
 
 To write a `dataset` to a single TFRecord file:
 
@@ -64,7 +62,7 @@ dataset = dataset.apply(tf.data.experimental.group_by_window(
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/writers.py#L59-L66">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/writers.py#L59-L66">View source</a>
 
 ``` python
 __init__(
@@ -82,7 +80,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="write"><code>write</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/writers.py#L68-L87">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/writers.py#L68-L87">View source</a>
 
 ``` python
 write(dataset)

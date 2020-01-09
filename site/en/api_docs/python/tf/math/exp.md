@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/exp">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,11 +18,11 @@ Computes exponential of x element-wise.  \\(y = e^x\\).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/exp"><code>tf.compat.v1.exp</code></a>
-* <a href="/api_docs/python/tf/math/exp"><code>tf.compat.v1.math.exp</code></a>
-* <a href="/api_docs/python/tf/math/exp"><code>tf.compat.v2.exp</code></a>
-* <a href="/api_docs/python/tf/math/exp"><code>tf.compat.v2.math.exp</code></a>
-* <a href="/api_docs/python/tf/math/exp"><code>tf.exp</code></a>
+* `tf.compat.v1.exp`
+* `tf.compat.v1.math.exp`
+* `tf.compat.v2.exp`
+* `tf.compat.v2.math.exp`
+* `tf.exp`
 
 
 ``` python
@@ -40,7 +34,16 @@ tf.math.exp(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+
+
 
   This function computes the exponential of every element in the input tensor.
   i.e. `exp(x)` or `e^(x)`, where `x` is the input tensor.

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/metrics">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,7 +15,7 @@ Built-in metrics.
 
 ### Aliases:
 
-* Module <a href="/api_docs/python/tf/compat/v2/keras/metrics"><code>tf.compat.v2.metrics</code></a>
+* Module `tf.compat.v2.metrics`
 
 
 <!-- Placeholder for "Used in" -->

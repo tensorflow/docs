@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/decode_png">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_image_ops.py`
@@ -23,11 +17,11 @@ Decode a PNG-encoded image to a uint8 or uint16 tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/decode_png"><code>tf.compat.v1.image.decode_png</code></a>
-* <a href="/api_docs/python/tf/io/decode_png"><code>tf.compat.v1.io.decode_png</code></a>
-* <a href="/api_docs/python/tf/io/decode_png"><code>tf.compat.v2.image.decode_png</code></a>
-* <a href="/api_docs/python/tf/io/decode_png"><code>tf.compat.v2.io.decode_png</code></a>
-* <a href="/api_docs/python/tf/io/decode_png"><code>tf.image.decode_png</code></a>
+* `tf.compat.v1.image.decode_png`
+* `tf.compat.v1.io.decode_png`
+* `tf.compat.v2.image.decode_png`
+* `tf.compat.v2.io.decode_png`
+* `tf.image.decode_png`
 
 
 ``` python
@@ -41,7 +35,11 @@ tf.io.decode_png(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 The attr `channels` indicates the desired number of color channels for the
 decoded image.

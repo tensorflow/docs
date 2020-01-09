@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/fractional_avg_pool">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L4549-L4607">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L4610-L4665">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,11 +17,11 @@ page_type: reference
 
 
 
-Performs fractional average pooling on the input. (deprecated)
+Performs fractional average pooling on the input.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/fractional_avg_pool"><code>tf.compat.v1.nn.fractional_avg_pool</code></a>
+* `tf.compat.v2.nn.fractional_avg_pool`
 
 
 ``` python
@@ -36,9 +30,7 @@ tf.nn.fractional_avg_pool(
     pooling_ratio,
     pseudo_random=False,
     overlapping=False,
-    deterministic=False,
     seed=0,
-    seed2=0,
     name=None
 )
 ```
@@ -46,12 +38,6 @@ tf.nn.fractional_avg_pool(
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-`seed2` and `deterministic` args are deprecated.  Use fractional_avg_pool_v2.
-
-This is a deprecated version of `fractional_avg_pool`.
 
 Fractional average pooling is similar to Fractional max pooling in the pooling
 region generation step. The only difference is that after pooling regions are
@@ -80,12 +66,9 @@ pooling region.
   `value  20 5  16 3  7`
   If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used
   twice.  The result would be [20, 16] for fractional avg pooling.
-* <b>`deterministic`</b>: An optional `bool`.  Deprecated; use `fractional_avg_pool_v2`
-  instead.
 * <b>`seed`</b>: An optional `int`.  Defaults to `0`.  If set to be non-zero, the
   random number generator is seeded by the given seed.  Otherwise it is
   seeded by a random seed.
-* <b>`seed2`</b>: An optional `int`.  Deprecated; use `fractional_avg_pool_v2` instead.
 * <b>`name`</b>: A name for the operation (optional).
 
 

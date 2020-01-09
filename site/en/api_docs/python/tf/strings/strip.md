@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/strip">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,10 +17,9 @@ Strip leading and trailing whitespaces from the Tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/strip"><code>tf.compat.v1.string_strip</code></a>
-* <a href="/api_docs/python/tf/strings/strip"><code>tf.compat.v1.strings.strip</code></a>
-* <a href="/api_docs/python/tf/strings/strip"><code>tf.compat.v2.strings.strip</code></a>
-* <a href="/api_docs/python/tf/strings/strip"><code>tf.string_strip</code></a>
+* `tf.compat.v1.string_strip`
+* `tf.compat.v1.strings.strip`
+* `tf.compat.v2.strings.strip`
 
 
 ``` python

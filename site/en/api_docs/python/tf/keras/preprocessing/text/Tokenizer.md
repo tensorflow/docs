@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -26,11 +20,16 @@ Text tokenization utility class.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer"><code>tf.compat.v1.keras.preprocessing.text.Tokenizer</code></a>
-* Class <a href="/api_docs/python/tf/keras/preprocessing/text/Tokenizer"><code>tf.compat.v2.keras.preprocessing.text.Tokenizer</code></a>
+* Class `tf.compat.v1.keras.preprocessing.text.Tokenizer`
+* Class `tf.compat.v2.keras.preprocessing.text.Tokenizer`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+
+
 
 This class allows to vectorize a text corpus, by turning each
 text into either a sequence of integers (each integer being the index

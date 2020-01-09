@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/matrix_transpose">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1864-L1941">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1875-L1952">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,10 @@ Transposes last two dimensions of tensor `a`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.linalg.matrix_transpose</code></a>
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.linalg.transpose</code></a>
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v1.matrix_transpose</code></a>
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.compat.v2.linalg.matrix_transpose</code></a>
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.linalg.transpose</code></a>
-* <a href="/api_docs/python/tf/linalg/matrix_transpose"><code>tf.matrix_transpose</code></a>
+* `tf.compat.v1.linalg.matrix_transpose`
+* `tf.compat.v1.linalg.transpose`
+* `tf.compat.v1.matrix_transpose`
+* `tf.compat.v2.linalg.matrix_transpose`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/cumsum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1918-L1929">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2032-L2043">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Cumulative sum of the values in a tensor, alongside the specified axis.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/cumsum"><code>tf.compat.v1.keras.backend.cumsum</code></a>
-* <a href="/api_docs/python/tf/keras/backend/cumsum"><code>tf.compat.v2.keras.backend.cumsum</code></a>
+* `tf.compat.v1.keras.backend.cumsum`
+* `tf.compat.v2.keras.backend.cumsum`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/idct">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/dct_ops.py#L167-L207">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/dct_ops.py#L167-L207">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Computes the 1D [Inverse Discrete Cosine Transform (DCT)][idct] of `input`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/idct"><code>tf.compat.v1.signal.idct</code></a>
-* <a href="/api_docs/python/tf/signal/idct"><code>tf.compat.v1.spectral.idct</code></a>
-* <a href="/api_docs/python/tf/signal/idct"><code>tf.compat.v2.signal.idct</code></a>
-* <a href="/api_docs/python/tf/signal/idct"><code>tf.spectral.idct</code></a>
+* `tf.compat.v1.signal.idct`
+* `tf.compat.v1.spectral.idct`
+* `tf.compat.v2.signal.idct`
 
 
 ``` python

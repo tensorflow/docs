@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/map_fn">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/map_fn.py#L37-L285">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/map_fn.py#L37-L285">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ map on the list of tensors unpacked from `elems` on dimension 0.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/map_fn"><code>tf.compat.v1.map_fn</code></a>
-* <a href="/api_docs/python/tf/map_fn"><code>tf.compat.v2.map_fn</code></a>
+* `tf.compat.v1.map_fn`
+* `tf.compat.v2.map_fn`
 
 
 ``` python
@@ -89,7 +83,7 @@ instead.
 When executing eagerly, map_fn does not execute in parallel even if
 `parallel_iterations` is set to a value > 1. You can still get the
 performance benefits of running a function in parallel by using the
-<a href="../tf/contrib/eager/defun"><code>tf.contrib.eager.defun</code></a> decorator,
+`tf.contrib.eager.defun` decorator,
 
 ```python
 # Assume the function being used in map_fn is fn.
@@ -101,7 +95,7 @@ def func(tensor):
 
 Note that if you use the defun decorator, any non-TensorFlow Python code
 that you may have written in your function won't get executed. See
-<a href="../tf/contrib/eager/defun"><code>tf.contrib.eager.defun</code></a> for more details. The recommendation would be to
+`tf.contrib.eager.defun` for more details. The recommendation would be to
 debug without defun but switch to defun to get performance benefits of
 running map_fn in parallel.
 

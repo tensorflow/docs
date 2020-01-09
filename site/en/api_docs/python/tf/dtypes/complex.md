@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/dtypes/complex">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L463-L505">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L463-L505">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,11 +22,11 @@ Converts two real numbers to a complex number.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/dtypes/complex"><code>tf.compat.v1.complex</code></a>
-* <a href="/api_docs/python/tf/dtypes/complex"><code>tf.compat.v1.dtypes.complex</code></a>
-* <a href="/api_docs/python/tf/dtypes/complex"><code>tf.compat.v2.complex</code></a>
-* <a href="/api_docs/python/tf/dtypes/complex"><code>tf.compat.v2.dtypes.complex</code></a>
-* <a href="/api_docs/python/tf/dtypes/complex"><code>tf.complex</code></a>
+* `tf.compat.v1.complex`
+* `tf.compat.v1.dtypes.complex`
+* `tf.compat.v2.complex`
+* `tf.compat.v2.dtypes.complex`
+* `tf.complex`
 
 
 ``` python

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/saved_model/utils">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -25,6 +19,6 @@ Utility functions to assist with setup and construction of the SavedModel proto.
 
 ## Functions
 
-[`build_tensor_info(...)`](../../../../tf/saved_model/build_tensor_info): Utility function to build TensorInfo proto from a Tensor. (deprecated)
+[`build_tensor_info(...)`](../../../../tf/compat/v1/saved_model/build_tensor_info): Utility function to build TensorInfo proto from a Tensor. (deprecated)
 
-[`get_tensor_from_tensor_info(...)`](../../../../tf/saved_model/get_tensor_from_tensor_info): Returns the Tensor or CompositeTensor described by a TensorInfo proto. (deprecated)
+[`get_tensor_from_tensor_info(...)`](../../../../tf/compat/v1/saved_model/get_tensor_from_tensor_info): Returns the Tensor or SparseTensor described by a TensorInfo proto. (deprecated)

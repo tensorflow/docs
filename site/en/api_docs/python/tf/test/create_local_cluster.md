@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/test/create_local_cluster">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/test_util.py#L2947-L3034">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/test_util.py#L2947-L3034">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Create and start local servers and return the associated `Server` objects.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/test/create_local_cluster"><code>tf.compat.v1.test.create_local_cluster</code></a>
-* <a href="/api_docs/python/tf/test/create_local_cluster"><code>tf.compat.v2.test.create_local_cluster</code></a>
+* `tf.compat.v1.test.create_local_cluster`
+* `tf.compat.v2.test.create_local_cluster`
 
 
 ``` python
@@ -86,9 +80,9 @@ worker_sessions[0].run(...)
 * <b>`num_ps`</b>: Number of PS servers to start.
 * <b>`protocol`</b>: Communication protocol. Allowed values are documented in the
   documentation of <a href="../../tf/distribute/Server"><code>tf.distribute.Server</code></a>.
-* <b>`worker_config`</b>: (optional) <a href="../../tf/ConfigProto"><code>tf.ConfigProto</code></a> to initialize workers. Can be
+* <b>`worker_config`</b>: (optional) `tf.ConfigProto` to initialize workers. Can be
   used to instantiate multiple devices etc.
-* <b>`ps_config`</b>: (optional) <a href="../../tf/ConfigProto"><code>tf.ConfigProto</code></a> to initialize PS servers.
+* <b>`ps_config`</b>: (optional) `tf.ConfigProto` to initialize PS servers.
 
 
 #### Returns:

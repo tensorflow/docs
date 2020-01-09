@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/safe_embedding_lookup_sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/embedding_ops.py#L685-L817">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/embedding_ops.py#L621-L682">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Lookup embedding results, accounting for invalid IDs and empty features.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/safe_embedding_lookup_sparse"><code>tf.compat.v1.nn.safe_embedding_lookup_sparse</code></a>
+* `tf.compat.v2.nn.safe_embedding_lookup_sparse`
 
 
 ``` python
@@ -37,9 +31,8 @@ tf.nn.safe_embedding_lookup_sparse(
     sparse_weights=None,
     combiner='mean',
     default_id=None,
-    name=None,
-    partition_strategy='div',
-    max_norm=None
+    max_norm=None,
+    name=None
 )
 ```
 
@@ -51,7 +44,7 @@ The partitioned embedding in `embedding_weights` must all be the same shape
 except for the first dimension. The first dimension is allowed to vary as the
 vocabulary size is not necessarily a multiple of `P`.  `embedding_weights`
 may be a `PartitionedVariable` as returned by using
-<a href="../../tf/get_variable"><code>tf.compat.v1.get_variable()</code></a> with a
+<a href="../../tf/compat/v1/get_variable"><code>tf.compat.v1.get_variable()</code></a> with a
 partitioner.
 
 Invalid IDs (< 0) are pruned from input IDs and weights, as well as any IDs
@@ -60,6 +53,10 @@ for `default_id` is returned, or the 0-vector if `default_id` is not supplied.
 
 The ids and weights may be multi-dimensional. Embeddings are always aggregated
 along the last dimension.
+
+Note: when doing embedding lookup on `embedding_weights`, "div" partition
+strategy will be used. Support for other partition strategy will be added
+later.
 
 #### Args:
 
@@ -78,11 +75,9 @@ along the last dimension.
   entry. Currently "mean", "sqrtn" and "sum" are supported, with "mean" the
   default.
 * <b>`default_id`</b>: The id to use for an entry with no features.
-* <b>`name`</b>: A name for this operation (optional).
-* <b>`partition_strategy`</b>: A string specifying the partitioning strategy. Currently
-  `"div"` and `"mod"` are supported. Default is `"div"`.
 * <b>`max_norm`</b>: If not `None`, all embeddings are l2-normalized to max_norm before
   combining.
+* <b>`name`</b>: A name for this operation (optional).
 
 
 #### Returns:

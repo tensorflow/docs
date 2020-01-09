@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Conv2DTranspose">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L621-L888">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L621-L888">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,14 +25,25 @@ Inherits From: [`Conv2D`](../../../tf/keras/layers/Conv2D)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2DTranspose"><code>tf.compat.v1.keras.layers.Conv2DTranspose</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2DTranspose"><code>tf.compat.v1.keras.layers.Convolution2DTranspose</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2DTranspose"><code>tf.compat.v2.keras.layers.Conv2DTranspose</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2DTranspose"><code>tf.compat.v2.keras.layers.Convolution2DTranspose</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Conv2DTranspose"><code>tf.keras.layers.Convolution2DTranspose</code></a>
+* Class `tf.compat.v1.keras.layers.Conv2DTranspose`
+* Class `tf.compat.v1.keras.layers.Convolution2DTranspose`
+* Class `tf.compat.v2.keras.layers.Conv2DTranspose`
+* Class `tf.compat.v2.keras.layers.Convolution2DTranspose`
+* Class `tf.keras.layers.Convolution2DTranspose`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 The need for transposed convolutions generally arises
 from the desire to use a transformation going in the opposite direction
@@ -137,7 +142,7 @@ or 4D tensor with shape:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional.py#L709-L753">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional.py#L709-L753">View source</a>
 
 ``` python
 __init__(

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/sin">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes sine of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/sin"><code>tf.compat.v1.math.sin</code></a>
-* <a href="/api_docs/python/tf/math/sin"><code>tf.compat.v1.sin</code></a>
-* <a href="/api_docs/python/tf/math/sin"><code>tf.compat.v2.math.sin</code></a>
-* <a href="/api_docs/python/tf/math/sin"><code>tf.compat.v2.sin</code></a>
-* <a href="/api_docs/python/tf/math/sin"><code>tf.sin</code></a>
+* `tf.compat.v1.math.sin`
+* `tf.compat.v1.sin`
+* `tf.compat.v2.math.sin`
+* `tf.compat.v2.sin`
+* `tf.sin`
 
 
 ``` python

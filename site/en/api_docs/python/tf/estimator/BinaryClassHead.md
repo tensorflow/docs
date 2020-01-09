@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/BinaryClassHead">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/head/binary_class_head.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ Inherits From: [`Head`](../../tf/estimator/Head)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/BinaryClassHead"><code>tf.compat.v1.estimator.BinaryClassHead</code></a>
-* Class <a href="/api_docs/python/tf/estimator/BinaryClassHead"><code>tf.compat.v2.estimator.BinaryClassHead</code></a>
+* Class `tf.compat.v1.estimator.BinaryClassHead`
+* Class `tf.compat.v2.estimator.BinaryClassHead`
 
 
 <!-- Placeholder for "Used in" -->
@@ -77,7 +71,7 @@ the input labels before passing them to `loss_fn`.
   [0, 1]. If given, labels must be string type and have any value in
   `label_vocabulary`. Note that errors will be raised if `label_vocabulary`
   is not provided but labels are strings.
-* <b>`loss_reduction`</b>: One of <a href="../../tf/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Decides how to
+* <b>`loss_reduction`</b>: One of <a href="../../tf/keras/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Decides how to
   reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`, namely
   weighted sum of losses divided by `batch size * label_dimension`.
 * <b>`loss_fn`</b>: Optional loss function.
@@ -163,7 +157,7 @@ It is recommended to pass all args via name.
 * <b>`trainable_variables`</b>: A list or tuple of `Variable` objects to update to
   minimize `loss`. In Tensorflow 1.x, by default these are the list of
   variables collected in the graph under the key
-  <a href="../../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. As Tensorflow 2.x doesn't have
+  `GraphKeys.TRAINABLE_VARIABLES`. As Tensorflow 2.x doesn't have
   collections and GraphKeys, trainable_variables need to be passed
   explicitly here.
 * <b>`train_op_fn`</b>: Function that takes a scalar loss `Tensor` and returns an op

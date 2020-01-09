@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/callbacks">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -46,6 +40,6 @@ Callbacks: utilities called at certain points during model training.
 
 [`class RemoteMonitor`](../../../../tf/keras/callbacks/RemoteMonitor): Callback used to stream events to a server.
 
-[`class TensorBoard`](../../../../tf/compat/v2/keras/callbacks/TensorBoard): Enable visualizations for TensorBoard.
+[`class TensorBoard`](../../../../tf/keras/callbacks/TensorBoard): Enable visualizations for TensorBoard.
 
 [`class TerminateOnNaN`](../../../../tf/keras/callbacks/TerminateOnNaN): Callback that terminates training when a NaN loss is encountered.

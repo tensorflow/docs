@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/tile">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Constructs a tensor by tiling a given tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/tile"><code>tf.compat.v1.manip.tile</code></a>
-* <a href="/api_docs/python/tf/tile"><code>tf.compat.v1.tile</code></a>
-* <a href="/api_docs/python/tf/tile"><code>tf.compat.v2.tile</code></a>
-* <a href="/api_docs/python/tf/tile"><code>tf.manip.tile</code></a>
+* `tf.compat.v1.manip.tile`
+* `tf.compat.v1.tile`
+* `tf.compat.v2.tile`
 
 
 ``` python
@@ -39,7 +32,12 @@ tf.tile(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Masking and padding with Keras](https://www.tensorflow.org/guide/keras/masking_and_padding)
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 This operation creates a new tensor by replicating `input` `multiples` times.
 The output tensor's i'th dimension has `input.dims(i) * multiples[i]` elements,

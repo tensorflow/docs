@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sets/difference">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sets_impl.py#L204-L280">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sets_impl.py#L204-L280">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,9 @@ Compute set difference of elements in last dimension of `a` and `b`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v1.sets.difference</code></a>
-* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v1.sets.set_difference</code></a>
-* <a href="/api_docs/python/tf/sets/difference"><code>tf.compat.v2.sets.difference</code></a>
-* <a href="/api_docs/python/tf/sets/difference"><code>tf.contrib.metrics.set_difference</code></a>
-* <a href="/api_docs/python/tf/sets/difference"><code>tf.sets.set_difference</code></a>
+* `tf.compat.v1.sets.difference`
+* `tf.compat.v1.sets.set_difference`
+* `tf.compat.v2.sets.difference`
 
 
 ``` python

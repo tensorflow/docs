@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/ifftshift">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/fft_ops.py#L370-L408">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/fft_ops.py#L370-L408">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ The inverse of fftshift.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/ifftshift"><code>tf.compat.v1.signal.ifftshift</code></a>
-* <a href="/api_docs/python/tf/signal/ifftshift"><code>tf.compat.v2.signal.ifftshift</code></a>
+* `tf.compat.v1.signal.ifftshift`
+* `tf.compat.v2.signal.ifftshift`
 
 
 ``` python

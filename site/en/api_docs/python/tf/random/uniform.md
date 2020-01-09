@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/uniform">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L186-L252">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L186-L252">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Outputs random values from a uniform distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v1.random.uniform</code></a>
-* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v1.random_uniform</code></a>
-* <a href="/api_docs/python/tf/random/uniform"><code>tf.compat.v2.random.uniform</code></a>
-* <a href="/api_docs/python/tf/random/uniform"><code>tf.random_uniform</code></a>
+* `tf.compat.v1.random.uniform`
+* `tf.compat.v1.random_uniform`
+* `tf.compat.v2.random.uniform`
 
 
 ``` python
@@ -46,7 +39,22 @@ tf.random.uniform(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Customization basics: tensors and operations](https://www.tensorflow.org/tutorials/customization/basics)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 The generated values follow a uniform distribution in the range
 `[minval, maxval)`. The lower bound `minval` is included in the range, while
@@ -72,7 +80,7 @@ In the integer case, the random integers are slightly biased unless
 * <b>`dtype`</b>: The type of the output: `float16`, `float32`, `float64`, `int32`,
   or `int64`.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
-  See <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  See <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 

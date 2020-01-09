@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/logical_or">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,14 +17,14 @@ Returns the truth value of x OR y element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__or__"><code>tf.RaggedTensor.__or__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__or__"><code>tf.compat.v1.RaggedTensor.__or__</code></a>
-* <a href="/api_docs/python/tf/math/logical_or"><code>tf.compat.v1.logical_or</code></a>
-* <a href="/api_docs/python/tf/math/logical_or"><code>tf.compat.v1.math.logical_or</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__or__"><code>tf.compat.v2.RaggedTensor.__or__</code></a>
-* <a href="/api_docs/python/tf/math/logical_or"><code>tf.compat.v2.logical_or</code></a>
-* <a href="/api_docs/python/tf/math/logical_or"><code>tf.compat.v2.math.logical_or</code></a>
-* <a href="/api_docs/python/tf/math/logical_or"><code>tf.logical_or</code></a>
+* `tf.RaggedTensor.__or__`
+* `tf.compat.v1.RaggedTensor.__or__`
+* `tf.compat.v1.logical_or`
+* `tf.compat.v1.math.logical_or`
+* `tf.compat.v2.RaggedTensor.__or__`
+* `tf.compat.v2.logical_or`
+* `tf.compat.v2.math.logical_or`
+* `tf.logical_or`
 
 
 ``` python

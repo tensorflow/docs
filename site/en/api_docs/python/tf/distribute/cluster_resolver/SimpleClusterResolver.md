@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/SimpleClusterResolver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L182-L279">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L182-L279">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/Clust
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SimpleClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.SimpleClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SimpleClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.SimpleClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/SimpleClusterResolver"><code>tf.contrib.cluster_resolver.SimpleClusterResolver</code></a>
+* Class `tf.compat.v1.distribute.cluster_resolver.SimpleClusterResolver`
+* Class `tf.compat.v2.distribute.cluster_resolver.SimpleClusterResolver`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +34,7 @@ Inherits From: [`ClusterResolver`](../../../tf/distribute/cluster_resolver/Clust
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L185-L204">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L185-L204">View source</a>
 
 ``` python
 __init__(
@@ -99,7 +92,7 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L206-L208">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L206-L208">View source</a>
 
 ``` python
 cluster_spec()
@@ -110,7 +103,7 @@ Returns the ClusterSpec passed into the constructor.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L210-L229">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L210-L229">View source</a>
 
 ``` python
 master(
@@ -141,7 +134,7 @@ string passed into the initialization function.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L251-L271">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L251-L271">View source</a>
 
 ``` python
 num_accelerators(

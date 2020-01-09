@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/scalar_mul">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L395-L424">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L427-L431">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,9 @@ Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/scalar_mul"><code>tf.compat.v1.math.scalar_mul</code></a>
-* <a href="/api_docs/python/tf/math/scalar_mul"><code>tf.compat.v1.scalar_mul</code></a>
-* <a href="/api_docs/python/tf/math/scalar_mul"><code>tf.scalar_mul</code></a>
+* `tf.compat.v2.math.scalar_mul`
+* `tf.compat.v2.scalar_mul`
+* `tf.scalar_mul`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/optimizers/deserialize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizers.py#L785-L815">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizers.py#L785-L817">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,10 @@ Inverse of the `serialize` function.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v1.keras.optimizers.deserialize</code></a>
-* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v2.keras.optimizers.deserialize</code></a>
-* <a href="/api_docs/python/tf/keras/optimizers/deserialize"><code>tf.compat.v2.optimizers.deserialize</code></a>
+* `tf.compat.v1.keras.optimizers.deserialize`
+* `tf.compat.v2.keras.optimizers.deserialize`
+* `tf.compat.v2.optimizers.deserialize`
+* `tf.optimizers.deserialize`
 
 
 ``` python

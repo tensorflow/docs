@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/bias_add">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2685-L2718">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L2685-L2718">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Adds `bias` to `value`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/bias_add"><code>tf.compat.v1.nn.bias_add</code></a>
-* <a href="/api_docs/python/tf/nn/bias_add"><code>tf.compat.v2.nn.bias_add</code></a>
+* `tf.compat.v1.nn.bias_add`
+* `tf.compat.v2.nn.bias_add`
 
 
 ``` python

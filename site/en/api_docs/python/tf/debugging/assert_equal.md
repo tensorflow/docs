@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_equal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L650-L658">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L425-L456">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,53 +21,51 @@ Assert the condition `x == y` holds element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_equal"><code>tf.assert_equal</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_equal"><code>tf.compat.v1.assert_equal</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_equal"><code>tf.compat.v1.debugging.assert_equal</code></a>
+* `tf.assert_equal`
+* `tf.compat.v2.assert_equal`
+* `tf.compat.v2.debugging.assert_equal`
 
 
 ``` python
 tf.debugging.assert_equal(
     x,
     y,
-    data=None,
-    summarize=None,
     message=None,
+    summarize=None,
     name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
-This condition holds if for every pair of (possibly broadcast) elements
-`x[i]`, `y[i]`, we have `x[i] == y[i]`.
-If both `x` and `y` are empty, this is trivially satisfied.
+* [Eager execution](https://www.tensorflow.org/guide/eager)
 
-When running in graph mode, you should add a dependency on this operation
-to ensure that it runs. Example of adding a dependency to an operation:
 
-```python
-with tf.control_dependencies([tf.compat.v1.assert_equal(x, y)]):
-  output = tf.reduce_sum(x)
-```
+
+This Op checks that `x[i] == y[i]` holds for every pair of (possibly
+broadcast) elements of `x` and `y`. If both `x` and `y` are empty, this is
+trivially satisfied.
+
+If `x` and `y` are not equal, `message`, as well as the first `summarize`
+entries of `x` and `y` are printed, and `InvalidArgumentError` is raised.
 
 #### Args:
 
 
 * <b>`x`</b>:  Numeric `Tensor`.
 * <b>`y`</b>:  Numeric `Tensor`, same dtype as and broadcastable to `x`.
-* <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-  error message and first few entries of `x`, `y`.
-* <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`message`</b>: A string to prefix to the default message.
+* <b>`summarize`</b>: Print this many entries of each tensor.
 * <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_equal".
 
 
 #### Returns:
 
-Op that raises `InvalidArgumentError` if `x == y` is False.
+Op that raises `InvalidArgumentError` if `x == y` is False. This can be
+  used with <a href="../../tf/control_dependencies"><code>tf.control_dependencies</code></a> inside of <a href="../../tf/function"><code>tf.function</code></a>s to block
+  followup computation until the check has executed.
 
 
 
@@ -82,8 +74,8 @@ Op that raises `InvalidArgumentError` if `x == y` is False.
 
 
 * <b>`InvalidArgumentError`</b>: if the check can be performed immediately and
-  `x == y` is False. The check can be performed immediately during 
-  eager execution or if `x` and `y` are statically known.
+  `x == y` is False. The check can be performed immediately during eager
+  execution or if `x` and `y` are statically known.
 
 #### Eager Compatibility
 returns None

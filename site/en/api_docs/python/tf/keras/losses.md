@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Built-in loss functions.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/losses"><code>tf.compat.v1.keras.losses</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 
@@ -57,6 +46,8 @@ Built-in loss functions.
 
 [`class Poisson`](../../tf/keras/losses/Poisson): Computes the Poisson loss between `y_true` and `y_pred`.
 
+[`class Reduction`](../../tf/keras/losses/Reduction): Types of loss reduction.
+
 [`class SparseCategoricalCrossentropy`](../../tf/keras/losses/SparseCategoricalCrossentropy): Computes the crossentropy loss between the labels and predictions.
 
 [`class SquaredHinge`](../../tf/keras/losses/SquaredHinge): Computes the squared hinge loss between `y_true` and `y_pred`.
@@ -79,11 +70,7 @@ Built-in loss functions.
 
 [`categorical_hinge(...)`](../../tf/keras/losses/categorical_hinge): Computes the categorical hinge loss between `y_true` and `y_pred`.
 
-[`cosine(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
-
-[`cosine_proximity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
-
-[`cosine_similarity(...)`](../../tf/keras/losses/cosine): Computes the cosine similarity between labels and predictions.
+[`cosine_similarity(...)`](../../tf/keras/losses/cosine_similarity): Computes the cosine similarity between labels and predictions.
 
 [`deserialize(...)`](../../tf/keras/losses/deserialize)
 

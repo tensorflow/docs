@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/conv2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L1916-L2010">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L1832-L1913">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,24 +17,22 @@ page_type: reference
 
 
 
-Computes a 2-D convolution given 4-D `input` and `filter` tensors.
+Computes a 2-D convolution given 4-D `input` and `filters` tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/conv2d"><code>tf.compat.v1.nn.conv2d</code></a>
+* `tf.compat.v2.nn.conv2d`
 
 
 ``` python
 tf.nn.conv2d(
     input,
-    filter=None,
-    strides=None,
-    padding=None,
-    use_cudnn_on_gpu=True,
+    filters,
+    strides,
+    padding,
     data_format='NHWC',
-    dilations=[1, 1, 1, 1],
-    name=None,
-    filters=None
+    dilations=None,
+    name=None
 )
 ```
 
@@ -64,8 +56,8 @@ performs the following:
 In detail, with the default NHWC format,
 
     output[b, i, j, k] =
-        sum_{di, dj, q} input[b, strides[1] * i + di, strides[2] * j + dj, q]
-                        * filter[di, dj, q, k]
+        sum_{di, dj, q} input[b, strides[1] * i + di, strides[2] * j + dj, q] *
+                        filter[di, dj, q, k]
 
 Must have `strides[0] = strides[3] = 1`.  For the most common case of the same
 horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
@@ -77,7 +69,7 @@ horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
   `half`, `bfloat16`, `float32`, `float64`.
   A 4-D tensor. The dimension order is interpreted according to the value
   of `data_format`, see below for details.
-* <b>`filter`</b>: A `Tensor`. Must have the same type as `input`.
+* <b>`filters`</b>: A `Tensor`. Must have the same type as `input`.
   A 4-D tensor of shape
   `[filter_height, filter_width, in_channels, out_channels]`
 * <b>`strides`</b>: An int or list of `ints` that has length `1`, `2` or `4`.  The
@@ -92,7 +84,6 @@ horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
   pad_bottom], [pad_left, pad_right], [0, 0]]`. When explicit padding used
   and data_format is `"NCHW"`, this should be in the form `[[0, 0], [0, 0],
   [pad_top, pad_bottom], [pad_left, pad_right]]`.
-* <b>`use_cudnn_on_gpu`</b>: An optional `bool`. Defaults to `True`.
 * <b>`data_format`</b>: An optional `string` from: `"NHWC", "NCHW"`.
   Defaults to `"NHWC"`.
   Specify the data format of the input and output data. With the
@@ -109,7 +100,6 @@ horizontal and vertices strides, `strides = [1, stride, stride, 1]`.
   for details. Dilations in the batch and depth dimensions if a 4-d tensor
   must be 1.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`filters`</b>: Alias for filter.
 
 
 #### Returns:

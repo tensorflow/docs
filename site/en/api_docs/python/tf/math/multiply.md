@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/multiply">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L328-L331">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L328-L331">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,14 +21,14 @@ Returns x * y element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.RaggedTensor.__mul__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.compat.v1.RaggedTensor.__mul__</code></a>
-* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v1.math.multiply</code></a>
-* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v1.multiply</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__mul__"><code>tf.compat.v2.RaggedTensor.__mul__</code></a>
-* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v2.math.multiply</code></a>
-* <a href="/api_docs/python/tf/math/multiply"><code>tf.compat.v2.multiply</code></a>
-* <a href="/api_docs/python/tf/math/multiply"><code>tf.multiply</code></a>
+* `tf.RaggedTensor.__mul__`
+* `tf.compat.v1.RaggedTensor.__mul__`
+* `tf.compat.v1.math.multiply`
+* `tf.compat.v1.multiply`
+* `tf.compat.v2.RaggedTensor.__mul__`
+* `tf.compat.v2.math.multiply`
+* `tf.compat.v2.multiply`
+* `tf.multiply`
 
 
 ``` python
@@ -47,7 +41,16 @@ tf.math.multiply(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Customization basics: tensors and operations](https://www.tensorflow.org/tutorials/customization/basics)
+
+
 
 *NOTE*: <a href="../../tf/math/multiply"><code>tf.multiply</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)

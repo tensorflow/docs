@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/tan">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes tan of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/tan"><code>tf.compat.v1.math.tan</code></a>
-* <a href="/api_docs/python/tf/math/tan"><code>tf.compat.v1.tan</code></a>
-* <a href="/api_docs/python/tf/math/tan"><code>tf.compat.v2.math.tan</code></a>
-* <a href="/api_docs/python/tf/math/tan"><code>tf.compat.v2.tan</code></a>
-* <a href="/api_docs/python/tf/math/tan"><code>tf.tan</code></a>
+* `tf.compat.v1.math.tan`
+* `tf.compat.v1.tan`
+* `tf.compat.v2.math.tan`
+* `tf.compat.v2.tan`
+* `tf.tan`
 
 
 ``` python

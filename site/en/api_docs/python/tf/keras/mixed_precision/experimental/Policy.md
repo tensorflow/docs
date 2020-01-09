@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/mixed_precision/experimental/Policy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/policy.py#L39-L313">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/policy.py#L39-L329">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A dtype policy for a Keras layer.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/mixed_precision/experimental/Policy"><code>tf.compat.v1.keras.mixed_precision.experimental.Policy</code></a>
-* Class <a href="/api_docs/python/tf/keras/mixed_precision/experimental/Policy"><code>tf.compat.v2.keras.mixed_precision.experimental.Policy</code></a>
+* Class `tf.compat.v1.keras.mixed_precision.experimental.Policy`
+* Class `tf.compat.v2.keras.mixed_precision.experimental.Policy`
 
 
 <!-- Placeholder for "Used in" -->
@@ -53,28 +47,21 @@ not match the computation dtype, variables will be automatically casted to the
 computation dtype to avoid type errors.
 
 Policies also have a <a href="../../../../tf/train/experimental/LossScale"><code>tf.train.experimental.LossScale</code></a> instance, which is used
-by Models to performance loss scaling. Layers which are not Models ignore
-the loss scale.
+by <a href="../../../../tf/keras/Model"><code>tf.keras.Model</code></a>s to performance loss scaling. Loss scaling is only done by
+Models in <a href="../../../../tf/keras/Model#fit"><code>Model.fit</code></a> and <a href="../../../../tf/keras/Model#train_on_batch"><code>Model.train_on_batch</code></a>. Layers which are not Models
+ignore the loss scale.
 
 Policies are constructed by passing a string to the constructor, e.g.
 `tf.keras.mixed_precision.experimental.Policy('float32')`. The string
-determines the compute and variable dtypes. Currently, it can be one of
-in one of the following forms:
+determines the compute and variable dtypes. It can be one of the following:
 
   * Any dtype name, such as 'float32' or 'float64'. Both the variable and
-    compute dtypes will be that dtype.
-  * '<dtype>_with_float32_vars', where <dtype> is any dtype. The compute dtype
-    will be <dtype>, while the variable dtype is float32. This can be used for
-    mixed precision, which uses float16 or bfloat16 for most computations, and
-    float32 for variables, but it is recommended to use the 'mixed_float16' or
-    'mixed_bfloat16' policies instead.
-  * 'mixed_float16' or 'mixed_bfloat16': Similar to
-    'float16_with_float32_vars' or 'bfloat16_with_float32_vars' respectively.
-    'mixed_float16' is identical to 'float16_with_float32_vars' except the
-    loss_scale is dynamic by default. 'mixed_bfloat16' is currently identical
-    to 'bfloat16_with_float32_vars'. More changes may be added to these mixed
-    policies in the future, to further differentiate them from
-    [b]float16_with_float32_vars.
+    compute dtypes will be that dtype. No loss scaling is done by default.
+  * 'mixed_float16' or 'mixed_bfloat16': The compute dtype is float16 or
+    bfloat16, while the variable dtype is float32. These policies are used for
+    mixed precision training. With 'mixed_float16', a dynamic loss scale is
+    used by default. 'mixed_bfloat16' does no loss scaling by default, as loss
+    scaling is unnecessary with bfloat16.
 
 ### How to use mixed precision in layers with Policies
 
@@ -116,6 +103,14 @@ As the above example shows, strings can be directly passed to layer
 constructors in the `dtype` argument instead of policies, but only if the
 string is convertible to a dtype.
 
+Note the 'mixed_float16' policy will apply loss scaling by default in
+<a href="../../../../tf/keras/Model#fit"><code>Model.fit</code></a> and <a href="../../../../tf/keras/Model#train_on_batch"><code>Model.train_on_batch</code></a>. If neither method is used (e.g., a
+custom training loop is used) and 'mixed_float16' is used, the loss scale must
+be manually applied. See
+<a href="../../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer"><code>tf.keras.mixed_precision.experimental.LossScaleOptimizer</code></a> for details. For
+'mixed_bfloat16', no loss scaling is done and loss scaling never needs to be
+manually applied.
+
 ### The deprecated "infer" policy
 
 In addition to a dtype or "<dtype>_with_float32_vars", a policy can also be
@@ -127,14 +122,20 @@ Once the layer is called for the first time, the layer's policy will change to
 the dtype of the first input.
 
 Similarly to "infer", there is a deprecated "infer_with_float32_vars" policy
-that infers the compute dtype, but not the variable dtype.
+that infers the compute dtype, but not the variable dtype. Once a layer with
+an "infer_with_float32_vars" policy is called for the first time, the layer's
+policy will change to "<dtype>_with_float32_vars", where <dtype> is the dtype
+of the first input. These policies force variables in float32.
+
+Warning: Policies ending in "_with_float32_vars" will be removed in TensorFlow
+2.1. Please use "mixed_float16" or "mixed_bfloat16" instead.
 
 In TensorFlow 1, only the "infer" and "infer_with_float32_vars" policies are
 available.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/policy.py#L140-L195">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/policy.py#L153-L211">View source</a>
 
 ``` python
 __init__(
@@ -155,21 +156,12 @@ specified through `name`, and cannot be specified directly.
 * <b>`name`</b>: A string. Can be one of the following values:
   * Any dtype name, such as 'float32' or 'float64'. Both the variable and
     compute dtypes will be that dtype.
-  * '<dtype>_with_float32_vars', where <dtype> is any dtype. The compute
-    dtype will be <dtype>, while the variable dtype is float32. This can
-    be used for mixed precision, which uses float16 or bfloat16 for most
-    computations, and float32 for variables, but it is recommended to use
-    the 'mixed_float16' or 'mixed_bfloat16' policies instead.
-  * 'mixed_float16' or 'mixed_bfloat16': Similar to
-    'float16_with_float32_vars' or 'bfloat16_with_float32_vars'
-    respectively. 'mixed_float16' is identical to
-    'float16_with_float32_vars' except the loss_scale is dynamic by
-    default. 'mixed_bfloat16' is currently identical to
-    'bfloat16_with_float32_vars'. More changes may be added to these mixed
-    policies in the future, to further differentiate them from
-    [b]float16_with_float32_vars.
-  * 'infer' or 'infer_with_float32_vars' (deprecated): Infer the
-    computation dtype from the input dtype.
+  * 'mixed_float16' or 'mixed_bfloat16': The compute dtype is float16 or
+    bfloat16, while the variable dtype is float32. With 'mixed_float16',
+    a dynamic loss scale is used. These policies are used for mixed
+    precision training.
+  * 'infer' (deprecated): Infer the compute and variable dtype from the
+    input dtype.
 * <b>`loss_scale`</b>: A <a href="../../../../tf/train/experimental/LossScale"><code>tf.train.experimental.LossScale</code></a>, or a value convertible to
   one such as "dynamic". Defaults to using no loss scaling unless `name`
   is "mixed_float16", in which case this defaults to "dynamic". Only

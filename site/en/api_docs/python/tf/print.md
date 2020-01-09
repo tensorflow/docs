@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/print">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/logging_ops.py#L138-L383">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/logging_ops.py#L138-L383">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Print the specified inputs.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/print"><code>tf.compat.v1.print</code></a>
-* <a href="/api_docs/python/tf/print"><code>tf.compat.v2.print</code></a>
+* `tf.compat.v1.print`
+* `tf.compat.v2.print`
 
 
 ``` python
@@ -40,7 +34,16 @@ tf.print(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+
+
 
 A TensorFlow operator that prints the specified inputs to a desired
 output stream or logging level. The inputs may be dense or sparse Tensors,
@@ -100,7 +103,7 @@ range_tensor = f()
 In graphs manually created outside of <a href="../tf/function"><code>tf.function</code></a>, this method returns
 the created TF operator that prints the data. To make sure the
 operator runs, users need to pass the produced op to
-<a href="../tf/Session"><code>tf.compat.v1.Session</code></a>'s run method, or to use the op as a control
+<a href="../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a>'s run method, or to use the op as a control
 dependency for executed ops by specifying
 `with tf.compat.v1.control_dependencies([print_op])`.
 @end_compatibility

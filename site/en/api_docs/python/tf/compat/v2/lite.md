@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/lite">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -36,6 +30,6 @@ Public API for tf.lite namespace.
 
 [`class RepresentativeDataset`](../../../tf/lite/RepresentativeDataset): Representative dataset to evaluate optimizations.
 
-[`class TFLiteConverter`](../../../tf/compat/v2/lite/TFLiteConverter): Converts a TensorFlow model into TensorFlow Lite model.
+[`class TFLiteConverter`](../../../tf/lite/TFLiteConverter): Converts a TensorFlow model into TensorFlow Lite model.
 
 [`class TargetSpec`](../../../tf/lite/TargetSpec): Specification of target device.

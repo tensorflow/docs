@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unicode_script">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,8 +17,8 @@ Determine the script codes of a given tensor of Unicode integer code points.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unicode_script"><code>tf.compat.v1.strings.unicode_script</code></a>
-* <a href="/api_docs/python/tf/strings/unicode_script"><code>tf.compat.v2.strings.unicode_script</code></a>
+* `tf.compat.v1.strings.unicode_script`
+* `tf.compat.v2.strings.unicode_script`
 
 
 ``` python
@@ -36,7 +30,11 @@ tf.strings.unicode_script(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 This operation converts Unicode code points to script codes corresponding to
 each code point. Script codes correspond to International Components for

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/reshape">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2597-L2623">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2711-L2737">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Reshapes a tensor to the specified shape.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/reshape"><code>tf.compat.v1.keras.backend.reshape</code></a>
-* <a href="/api_docs/python/tf/keras/backend/reshape"><code>tf.compat.v2.keras.backend.reshape</code></a>
+* `tf.compat.v1.keras.backend.reshape`
+* `tf.compat.v2.keras.backend.reshape`
 
 
 ``` python
@@ -58,16 +52,16 @@ A tensor.
 
 #### Example:
 
-```python
->>> a = tf.constant([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
->>> a
-<tf.Tensor: id=32, shape=(4, 3), dtype=int32, numpy=
-array([[ 1,  2,  3],
-       [ 4,  5,  6],
-       [ 7,  8,  9],
-       [10, 11, 12]], dtype=int32)>
->>> tf.keras.backend.reshape(a, shape=(2, 6))
-<tf.Tensor: id=35, shape=(2, 6), dtype=int32, numpy=
-array([[ 1,  2,  3,  4,  5,  6],
-       [ 7,  8,  9, 10, 11, 12]], dtype=int32)>
-```
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}a = tf.constant([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> a{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=32, shape=(4, 3), dtype=int32, numpy={% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  array([[ 1,  2,  3],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [ 4,  5,  6],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [ 7,  8,  9],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [10, 11, 12]], dtype=int32)>{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> tf.keras.backend.reshape(a, shape=(2, 6)){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=35, shape=(2, 6), dtype=int32, numpy={% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  array([[ 1,  2,  3,  4,  5,  6],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [ 7,  8,  9, 10, 11, 12]], dtype=int32)>{% endhtmlescape %}</code>
+  </pre>

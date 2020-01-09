@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/pad">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2777-L2868">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L2730-L2785">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Pads a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/pad"><code>tf.compat.v1.pad</code></a>
+* `tf.compat.v2.pad`
 
 
 ``` python
@@ -35,8 +29,8 @@ tf.pad(
     tensor,
     paddings,
     mode='CONSTANT',
-    name=None,
-    constant_values=0
+    constant_values=0,
+    name=None
 )
 ```
 
@@ -89,9 +83,9 @@ tf.pad(t, paddings, "SYMMETRIC")  # [[2, 1, 1, 2, 3, 3, 2],
 * <b>`tensor`</b>: A `Tensor`.
 * <b>`paddings`</b>: A `Tensor` of type `int32`.
 * <b>`mode`</b>: One of "CONSTANT", "REFLECT", or "SYMMETRIC" (case-insensitive)
-* <b>`name`</b>: A name for the operation (optional).
 * <b>`constant_values`</b>: In "CONSTANT" mode, the scalar pad value to use. Must be
   same type as `tensor`.
+* <b>`name`</b>: A name for the operation (optional).
 
 
 #### Returns:

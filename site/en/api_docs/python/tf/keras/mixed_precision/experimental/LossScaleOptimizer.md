@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/mixed_precision/experimental/LossScaleOptimizer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L47-L298">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L48-L328">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Optimizer`](../../../../tf/keras/optimizers/Optimizer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/mixed_precision/experimental/LossScaleOptimizer"><code>tf.compat.v1.keras.mixed_precision.experimental.LossScaleOptimizer</code></a>
-* Class <a href="/api_docs/python/tf/keras/mixed_precision/experimental/LossScaleOptimizer"><code>tf.compat.v2.keras.mixed_precision.experimental.LossScaleOptimizer</code></a>
+* Class `tf.compat.v1.keras.mixed_precision.experimental.LossScaleOptimizer`
+* Class `tf.compat.v2.keras.mixed_precision.experimental.LossScaleOptimizer`
 
 
 <!-- Placeholder for "Used in" -->
@@ -91,11 +85,11 @@ opt.apply_gradients(zip(grads, vars))  # Loss scale will be updated here
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L103-L141">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L104-L142">View source</a>
 
 ``` python
 __init__(
-    opt,
+    optimizer,
     loss_scale
 )
 ```
@@ -106,7 +100,7 @@ Initializes this loss scale optimizer.
 #### Args:
 
 
-* <b>`opt`</b>: The Optimizer instance to wrap.
+* <b>`optimizer`</b>: The Optimizer instance to wrap.
 * <b>`loss_scale`</b>: The loss scale to scale the loss and gradients. This can
   either be an int/float to use a fixed loss scale, the string "dynamic"
   to use dynamic loss scaling, or an instance of a LossScale. The string
@@ -149,7 +143,7 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L565-L592">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L324-L328">View source</a>
 
 ``` python
 add_slot(
@@ -164,7 +158,7 @@ Add a new slot variable for `var`.
 
 <h3 id="add_weight"><code>add_weight</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L766-L806">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L768-L808">View source</a>
 
 ``` python
 add_weight(
@@ -174,7 +168,7 @@ add_weight(
     initializer='zeros',
     trainable=None,
     synchronization=tf.VariableSynchronization.AUTO,
-    aggregation=tf.VariableAggregation.NONE
+    aggregation=tf.compat.v1.VariableAggregation.NONE
 )
 ```
 
@@ -183,7 +177,7 @@ add_weight(
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L217-L222">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L214-L219">View source</a>
 
 ``` python
 apply_gradients(
@@ -207,8 +201,8 @@ applies gradients.
 
 #### Returns:
 
-An `Operation` that applies the specified gradients. The `iterations`
-  will be automatically increased by 1.
+An `Operation` that applies the specified gradients. If `global_step`
+was not None, that operation also increments `global_step`.
 
 
 
@@ -220,7 +214,7 @@ An `Operation` that applies the specified gradients. The `iterations`
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L295-L298">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L256-L263">View source</a>
 
 ``` python
 @classmethod
@@ -253,7 +247,7 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L291-L293">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L248-L254">View source</a>
 
 ``` python
 get_config()
@@ -273,7 +267,7 @@ Python dictionary.
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L212-L215">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L209-L212">View source</a>
 
 ``` python
 get_gradients(
@@ -306,7 +300,7 @@ List of gradient tensors.
 
 <h3 id="get_scaled_loss"><code>get_scaled_loss</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L148-L175">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L149-L173">View source</a>
 
 ``` python
 get_scaled_loss(loss)
@@ -338,7 +332,7 @@ an example.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L594-L597">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L313-L322">View source</a>
 
 ``` python
 get_slot(
@@ -352,7 +346,7 @@ get_slot(
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L280-L282">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L276-L277">View source</a>
 
 ``` python
 get_slot_names()
@@ -363,7 +357,7 @@ A list of names for this optimizer's slots.
 
 <h3 id="get_unscaled_gradients"><code>get_unscaled_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L177-L201">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L175-L198">View source</a>
 
 ``` python
 get_unscaled_gradients(grads)
@@ -396,7 +390,7 @@ is divided by <a href="../../../../tf/keras/mixed_precision/experimental/LossSca
 
 <h3 id="get_updates"><code>get_updates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L497-L504">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L499-L506">View source</a>
 
 ``` python
 get_updates(
@@ -410,7 +404,7 @@ get_updates(
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L741-L743">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L286-L287">View source</a>
 
 ``` python
 get_weights()
@@ -421,7 +415,7 @@ get_weights()
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L288-L317">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L290-L319">View source</a>
 
 ``` python
 minimize(
@@ -466,7 +460,7 @@ was not `None`, that operation also increments `global_step`.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L746-L764">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L289-L290">View source</a>
 
 ``` python
 set_weights(weights)
@@ -477,7 +471,7 @@ set_weights(weights)
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L732-L734">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/mixed_precision/experimental/loss_scale_optimizer.py#L279-L280">View source</a>
 
 ``` python
 variables()

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/image">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -71,8 +65,6 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`extract_glimpse(...)`](../tf/image/extract_glimpse): Extracts a glimpse from the input tensor.
 
-[`extract_image_patches(...)`](../tf/image/extract_image_patches): Extract `patches` from `images` and put them in the "depth" output dimension.
-
 [`extract_jpeg_shape(...)`](../tf/io/extract_jpeg_shape): Extract the shape information of a JPEG-encoded image.
 
 [`extract_patches(...)`](../tf/image/extract_patches): Extract `patches` from `images`.
@@ -119,23 +111,11 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`random_saturation(...)`](../tf/image/random_saturation): Adjust the saturation of RGB images by a random factor.
 
-[`resize(...)`](../tf/image/resize_images): Resize `images` to `size` using the specified `method`.
-
-[`resize_area(...)`](../tf/image/resize_area): Resize `images` to `size` using area interpolation.
-
-[`resize_bicubic(...)`](../tf/image/resize_bicubic)
-
-[`resize_bilinear(...)`](../tf/image/resize_bilinear)
-
-[`resize_image_with_crop_or_pad(...)`](../tf/image/resize_with_crop_or_pad): Crops and/or pads an image to a target width and height.
-
-[`resize_image_with_pad(...)`](../tf/image/resize_image_with_pad): Resizes and pads an image to a target width and height.
-
-[`resize_images(...)`](../tf/image/resize_images): Resize `images` to `size` using the specified `method`.
-
-[`resize_nearest_neighbor(...)`](../tf/image/resize_nearest_neighbor)
+[`resize(...)`](../tf/image/resize): Resize `images` to `size` using the specified `method`.
 
 [`resize_with_crop_or_pad(...)`](../tf/image/resize_with_crop_or_pad): Crops and/or pads an image to a target width and height.
+
+[`resize_with_pad(...)`](../tf/image/resize_with_pad): Resizes and pads an image to a target width and height.
 
 [`rgb_to_grayscale(...)`](../tf/image/rgb_to_grayscale): Converts one or more images from RGB to Grayscale.
 
@@ -147,7 +127,7 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 
 [`rot90(...)`](../tf/image/rot90): Rotate image(s) counter-clockwise by 90 degrees.
 
-[`sample_distorted_bounding_box(...)`](../tf/image/sample_distorted_bounding_box): Generate a single randomly distorted bounding box for an image. (deprecated)
+[`sample_distorted_bounding_box(...)`](../tf/image/sample_distorted_bounding_box): Generate a single randomly distorted bounding box for an image.
 
 [`sobel_edges(...)`](../tf/image/sobel_edges): Returns a tensor holding Sobel edge maps.
 
@@ -158,8 +138,6 @@ See the [Images](https://tensorflow.org/api_guides/python/image) guide.
 [`total_variation(...)`](../tf/image/total_variation): Calculate and return the total variation for one or more images.
 
 [`transpose(...)`](../tf/image/transpose): Transpose image(s) by swapping the height and width dimension.
-
-[`transpose_image(...)`](../tf/image/transpose): Transpose image(s) by swapping the height and width dimension.
 
 [`yiq_to_rgb(...)`](../tf/image/yiq_to_rgb): Converts one or more images from YIQ to RGB.
 

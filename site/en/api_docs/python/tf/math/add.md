@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/add">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,14 +17,14 @@ Returns x + y element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.RaggedTensor.__add__</code></a>
-* <a href="/api_docs/python/tf/math/add"><code>tf.add</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.compat.v1.RaggedTensor.__add__</code></a>
-* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v1.add</code></a>
-* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v1.math.add</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__add__"><code>tf.compat.v2.RaggedTensor.__add__</code></a>
-* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v2.add</code></a>
-* <a href="/api_docs/python/tf/math/add"><code>tf.compat.v2.math.add</code></a>
+* `tf.RaggedTensor.__add__`
+* `tf.add`
+* `tf.compat.v1.RaggedTensor.__add__`
+* `tf.compat.v1.add`
+* `tf.compat.v1.math.add`
+* `tf.compat.v2.RaggedTensor.__add__`
+* `tf.compat.v2.add`
+* `tf.compat.v2.math.add`
 
 
 ``` python
@@ -43,7 +37,17 @@ tf.math.add(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Customization basics: tensors and operations](https://www.tensorflow.org/tutorials/customization/basics)
+
+
 
 *NOTE*: <a href="../../tf/math/add"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)

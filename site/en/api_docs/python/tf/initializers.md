@@ -7,61 +7,67 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/initializers">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
-Public API for tf.initializers namespace.
+Keras initializer serialization / deserialization.
 
 <!-- Placeholder for "Used in" -->
 
 
 ## Classes
 
-[`class constant`](../tf/initializers/constant): Initializer that generates tensors with constant values.
+[`class Constant`](../tf/constant_initializer): Initializer that generates tensors with constant values.
 
-[`class glorot_normal`](../tf/glorot_normal_initializer): The Glorot normal initializer, also called Xavier normal initializer.
+[`class GlorotNormal`](../tf/keras/initializers/GlorotNormal): The Glorot normal initializer, also called Xavier normal initializer.
 
-[`class glorot_uniform`](../tf/glorot_uniform_initializer): The Glorot uniform initializer, also called Xavier uniform initializer.
+[`class GlorotUniform`](../tf/keras/initializers/GlorotUniform): The Glorot uniform initializer, also called Xavier uniform initializer.
 
-[`class identity`](../tf/initializers/identity): Initializer that generates the identity matrix.
+[`class Identity`](../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
 
-[`class ones`](../tf/initializers/ones): Initializer that generates tensors initialized to 1.
+[`class Initializer`](../tf/keras/initializers/Initializer): Initializer base class: all initializers inherit from this class.
 
-[`class orthogonal`](../tf/initializers/orthogonal): Initializer that generates an orthogonal matrix.
+[`class Ones`](../tf/ones_initializer): Initializer that generates tensors initialized to 1.
 
-[`class random_normal`](../tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
+[`class Orthogonal`](../tf/keras/initializers/Orthogonal): Initializer that generates an orthogonal matrix.
 
-[`class random_uniform`](../tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
+[`class RandomNormal`](../tf/random_normal_initializer): Initializer that generates tensors with a normal distribution.
 
-[`class truncated_normal`](../tf/initializers/truncated_normal): Initializer that generates a truncated normal distribution.
+[`class RandomUniform`](../tf/random_uniform_initializer): Initializer that generates tensors with a uniform distribution.
 
-[`class uniform_unit_scaling`](../tf/initializers/uniform_unit_scaling): Initializer that generates tensors without scaling variance.
+[`class TruncatedNormal`](../tf/keras/initializers/TruncatedNormal): Initializer that generates a truncated normal distribution.
 
-[`class variance_scaling`](../tf/initializers/variance_scaling): Initializer capable of adapting its scale to the shape of weights tensors.
+[`class VarianceScaling`](../tf/keras/initializers/VarianceScaling): Initializer capable of adapting its scale to the shape of weights tensors.
+
+[`class Zeros`](../tf/zeros_initializer): Initializer that generates tensors initialized to 0.
+
+[`class constant`](../tf/constant_initializer): Initializer that generates tensors with constant values.
+
+[`class glorot_normal`](../tf/keras/initializers/GlorotNormal): The Glorot normal initializer, also called Xavier normal initializer.
+
+[`class glorot_uniform`](../tf/keras/initializers/GlorotUniform): The Glorot uniform initializer, also called Xavier uniform initializer.
+
+[`class identity`](../tf/keras/initializers/Identity): Initializer that generates the identity matrix.
+
+[`class ones`](../tf/ones_initializer): Initializer that generates tensors initialized to 1.
+
+[`class orthogonal`](../tf/keras/initializers/Orthogonal): Initializer that generates an orthogonal matrix.
 
 [`class zeros`](../tf/zeros_initializer): Initializer that generates tensors initialized to 0.
 
 ## Functions
 
-[`global_variables(...)`](../tf/initializers/global_variables): Returns an Op that initializes global variables.
+[`deserialize(...)`](../tf/keras/initializers/deserialize): Return an `Initializer` object from its config.
 
-[`he_normal(...)`](../tf/initializers/he_normal): He normal initializer.
+[`get(...)`](../tf/keras/initializers/get)
 
-[`he_uniform(...)`](../tf/initializers/he_uniform): He uniform variance scaling initializer.
+[`he_normal(...)`](../tf/keras/initializers/he_normal): He normal initializer.
 
-[`lecun_normal(...)`](../tf/initializers/lecun_normal): LeCun normal initializer.
+[`he_uniform(...)`](../tf/keras/initializers/he_uniform): He uniform variance scaling initializer.
 
-[`lecun_uniform(...)`](../tf/initializers/lecun_uniform): LeCun uniform initializer.
+[`lecun_normal(...)`](../tf/keras/initializers/lecun_normal): LeCun normal initializer.
 
-[`local_variables(...)`](../tf/initializers/local_variables): Returns an Op that initializes all local variables.
+[`lecun_uniform(...)`](../tf/keras/initializers/lecun_uniform): LeCun uniform initializer.
 
-[`tables_initializer(...)`](../tf/initializers/tables_initializer): Returns an Op that initializes all tables of the default graph.
-
-[`variables(...)`](../tf/initializers/variables): Returns an Op that initializes a list of variables.
+[`serialize(...)`](../tf/keras/initializers/serialize)

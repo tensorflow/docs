@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/guarantee_const">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,8 +17,8 @@ Gives a guarantee to the TF runtime that the input tensor is a constant.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/guarantee_const"><code>tf.compat.v1.guarantee_const</code></a>
-* <a href="/api_docs/python/tf/guarantee_const"><code>tf.compat.v2.guarantee_const</code></a>
+* `tf.compat.v1.guarantee_const`
+* `tf.compat.v2.guarantee_const`
 
 
 ``` python

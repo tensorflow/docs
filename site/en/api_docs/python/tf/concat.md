@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/concat">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1326-L1420">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1337-L1431">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Concatenates tensors along one dimension.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/concat"><code>tf.compat.v1.concat</code></a>
-* <a href="/api_docs/python/tf/concat"><code>tf.compat.v2.concat</code></a>
+* `tf.compat.v1.concat`
+* `tf.compat.v2.concat`
 
 
 ``` python
@@ -41,7 +35,19 @@ tf.concat(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 Concatenates the list of tensors `values` along dimension `axis`.  If
 `values[i].shape = [D0, D1, ... Daxis(i), ...Dn]`, the concatenated

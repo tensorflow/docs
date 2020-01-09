@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/extract_glimpse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3711-L3787">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3737-L3814">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Extracts a glimpse from the input tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/extract_glimpse"><code>tf.compat.v1.image.extract_glimpse</code></a>
+* `tf.compat.v2.image.extract_glimpse`
 
 
 ``` python
@@ -37,7 +31,7 @@ tf.image.extract_glimpse(
     offsets,
     centered=True,
     normalized=True,
-    uniform_noise=True,
+    noise='uniform',
     name=None
 )
 ```
@@ -85,9 +79,9 @@ The argument `normalized` and `centered` controls how the windows are built:
   offset corresponds to the upper left corner of the input images.
 * <b>`normalized`</b>: An optional `bool`. Defaults to `True`. indicates if the offset
   coordinates are normalized.
-* <b>`uniform_noise`</b>: An optional `bool`. Defaults to `True`. indicates if the
-  noise should be generated using a uniform distribution or a Gaussian
-  distribution.
+* <b>`noise`</b>: An optional `string`. Defaults to `uniform`. indicates if the noise
+  should be `uniform` (uniform distribution), `gaussian` (gaussian
+  distribution), or `zero` (zero padding).
 * <b>`name`</b>: A name for the operation (optional).
 
 

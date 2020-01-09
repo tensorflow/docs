@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/TensorArraySpec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1243-L1341">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/tensor_array_ops.py#L1243-L1341">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`TypeSpec`](../tf/TypeSpec)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/TensorArraySpec"><code>tf.compat.v1.TensorArraySpec</code></a>
-* Class <a href="/api_docs/python/tf/TensorArraySpec"><code>tf.compat.v2.TensorArraySpec</code></a>
+* Class `tf.compat.v1.TensorArraySpec`
+* Class `tf.compat.v2.TensorArraySpec`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,7 +34,7 @@ Inherits From: [`TypeSpec`](../tf/TypeSpec)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1250-L1263">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/tensor_array_ops.py#L1250-L1263">View source</a>
 
 ``` python
 __init__(
@@ -77,7 +71,7 @@ Constructs a type specification for a <a href="../tf/TensorArray"><code>tf.Tenso
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L262-L265">View source</a>
 
 ``` python
 __eq__(other)
@@ -88,7 +82,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/type_spec.py#L267-L268">View source</a>
 
 ``` python
 __ne__(other)
@@ -99,7 +93,7 @@ Return self!=value.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1320-L1330">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/tensor_array_ops.py#L1320-L1330">View source</a>
 
 ``` python
 @staticmethod
@@ -111,7 +105,7 @@ from_value(value)
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1265-L1274">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/tensor_array_ops.py#L1265-L1274">View source</a>
 
 ``` python
 is_compatible_with(other)
@@ -122,7 +116,7 @@ Returns true if `spec_or_value` is compatible with this TypeSpec.
 
 <h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/tensor_array_ops.py#L1276-L1284">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/tensor_array_ops.py#L1276-L1284">View source</a>
 
 ``` python
 most_specific_compatible_type(other)

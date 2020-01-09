@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/PermissionDeniedError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L323-L337">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L323-L337">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,21 +25,21 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/PermissionDeniedError"><code>tf.compat.v1.errors.PermissionDeniedError</code></a>
-* Class <a href="/api_docs/python/tf/errors/PermissionDeniedError"><code>tf.compat.v2.errors.PermissionDeniedError</code></a>
+* Class `tf.compat.v1.errors.PermissionDeniedError`
+* Class `tf.compat.v2.errors.PermissionDeniedError`
 
 
 <!-- Placeholder for "Used in" -->
 
 For example, running the
-<a href="../../tf/WholeFileReader#read"><code>tf.WholeFileReader.read</code></a>
+`tf.WholeFileReader.read`
 operation could raise `PermissionDeniedError` if it receives the name of a
 file for which the user does not have the read file permission.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L334-L337">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L334-L337">View source</a>
 
 ``` python
 __init__(

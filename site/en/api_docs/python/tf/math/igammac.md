@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/igammac">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Compute the upper regularized incomplete Gamma function `Q(a, x)`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/igammac"><code>tf.compat.v1.igammac</code></a>
-* <a href="/api_docs/python/tf/math/igammac"><code>tf.compat.v1.math.igammac</code></a>
-* <a href="/api_docs/python/tf/math/igammac"><code>tf.compat.v2.math.igammac</code></a>
-* <a href="/api_docs/python/tf/math/igammac"><code>tf.igammac</code></a>
+* `tf.compat.v1.igammac`
+* `tf.compat.v1.math.igammac`
+* `tf.compat.v2.math.igammac`
 
 
 ``` python

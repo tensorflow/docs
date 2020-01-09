@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/datasets/fashion_mnist/load_data">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/datasets/fashion_mnist.py#L30-L68">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/datasets/fashion_mnist.py#L30-L68">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,8 +22,8 @@ Loads the Fashion-MNIST dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/datasets/fashion_mnist/load_data"><code>tf.compat.v1.keras.datasets.fashion_mnist.load_data</code></a>
-* <a href="/api_docs/python/tf/keras/datasets/fashion_mnist/load_data"><code>tf.compat.v2.keras.datasets.fashion_mnist.load_data</code></a>
+* `tf.compat.v1.keras.datasets.fashion_mnist.load_data`
+* `tf.compat.v2.keras.datasets.fashion_mnist.load_data`
 
 
 ``` python
@@ -38,7 +32,11 @@ tf.keras.datasets.fashion_mnist.load_data()
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 
 #### Returns:

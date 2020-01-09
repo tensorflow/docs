@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lookup/TextFileIndex">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L477-L493">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L477-L493">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ The key and value content to get from each line.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.compat.v1.lookup.TextFileIndex</code></a>
-* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.compat.v2.lookup.TextFileIndex</code></a>
-* Class <a href="/api_docs/python/tf/lookup/TextFileIndex"><code>tf.contrib.lookup.TextFileIndex</code></a>
+* Class `tf.compat.v1.lookup.TextFileIndex`
+* Class `tf.compat.v2.lookup.TextFileIndex`
 
 
 <!-- Placeholder for "Used in" -->

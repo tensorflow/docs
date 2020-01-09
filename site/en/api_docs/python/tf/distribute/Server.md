@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/Server">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L99-L237">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/server_lib.py#L99-L237">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,16 +25,15 @@ An in-process TensorFlow server, for use in distributed training.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/Server"><code>tf.compat.v1.distribute.Server</code></a>
-* Class <a href="/api_docs/python/tf/distribute/Server"><code>tf.compat.v1.train.Server</code></a>
-* Class <a href="/api_docs/python/tf/distribute/Server"><code>tf.compat.v2.distribute.Server</code></a>
-* Class <a href="/api_docs/python/tf/distribute/Server"><code>tf.train.Server</code></a>
+* Class `tf.compat.v1.distribute.Server`
+* Class `tf.compat.v1.train.Server`
+* Class `tf.compat.v2.distribute.Server`
 
 
 <!-- Placeholder for "Used in" -->
 
 A <a href="../../tf/distribute/Server"><code>tf.distribute.Server</code></a> instance encapsulates a set of devices and a
-<a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> target that
+<a href="../../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a> target that
 can participate in distributed training. A server belongs to a
 cluster (specified by a <a href="../../tf/train/ClusterSpec"><code>tf.train.ClusterSpec</code></a>), and
 corresponds to a particular task in a named job. The server can
@@ -48,7 +41,7 @@ communicate with any other server in the same cluster.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L110-L149">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/server_lib.py#L110-L149">View source</a>
 
 ``` python
 __init__(
@@ -82,7 +75,7 @@ override any information provided in `server_or_cluster_def`.
   Acceptable values include `"grpc", "grpc+verbs"`. Defaults to the value
   in `server_or_cluster_def`, if specified. Otherwise defaults to
   `"grpc"`.
-* <b>`config`</b>: (Options.) A <a href="../../tf/ConfigProto"><code>tf.compat.v1.ConfigProto</code></a> that specifies default
+* <b>`config`</b>: (Options.) A <a href="../../tf/compat/v1/ConfigProto"><code>tf.compat.v1.ConfigProto</code></a> that specifies default
   configuration options for all sessions that run on this server.
 * <b>`start`</b>: (Optional.) Boolean, indicating whether to start the server after
   creating it. Defaults to `True`.
@@ -91,7 +84,7 @@ override any information provided in `server_or_cluster_def`.
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
   creating the TensorFlow server.
 
 
@@ -111,10 +104,10 @@ of this server.
 
 <h3 id="target"><code>target</code></h3>
 
-Returns the target for a <a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> to connect to this server.
+Returns the target for a <a href="../../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a> to connect to this server.
 
 To create a
-<a href="../../tf/Session"><code>tf.compat.v1.Session</code></a> that
+<a href="../../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a> that
 connects to this server, use the following snippet:
 
 ```python
@@ -134,7 +127,7 @@ A string containing a session target for this server.
 
 <h3 id="create_local_server"><code>create_local_server</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L214-L237">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/server_lib.py#L214-L237">View source</a>
 
 ``` python
 @staticmethod
@@ -154,7 +147,7 @@ single-process cluster containing a single task in a job called
 #### Args:
 
 
-* <b>`config`</b>: (Options.) A <a href="../../tf/ConfigProto"><code>tf.compat.v1.ConfigProto</code></a> that specifies default
+* <b>`config`</b>: (Options.) A <a href="../../tf/compat/v1/ConfigProto"><code>tf.compat.v1.ConfigProto</code></a> that specifies default
   configuration options for all sessions that run on this server.
 * <b>`start`</b>: (Optional.) Boolean, indicating whether to start the server after
   creating it. Defaults to `True`.
@@ -167,7 +160,7 @@ A local <a href="../../tf/distribute/Server"><code>tf.distribute.Server</code></
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L174-L183">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/server_lib.py#L174-L183">View source</a>
 
 ``` python
 join()
@@ -180,12 +173,12 @@ This method currently blocks forever.
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
   joining the TensorFlow server.
 
 <h3 id="start"><code>start</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/server_lib.py#L165-L172">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/server_lib.py#L165-L172">View source</a>
 
 ``` python
 start()
@@ -197,5 +190,5 @@ Starts this server.
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>tf.errors.OpError</code></a></b>: Or one of its subclasses if an error occurs while
+* <b>`tf.errors.OpError`</b>: Or one of its subclasses if an error occurs while
   starting the TensorFlow server.

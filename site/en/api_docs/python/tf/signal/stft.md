@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/stft">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/spectral_ops.py#L36-L92">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/spectral_ops.py#L36-L92">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Computes the [Short-time Fourier Transform][stft] of `signals`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/stft"><code>tf.compat.v1.signal.stft</code></a>
-* <a href="/api_docs/python/tf/signal/stft"><code>tf.compat.v2.signal.stft</code></a>
-* <a href="/api_docs/python/tf/signal/stft"><code>tf.contrib.signal.stft</code></a>
+* `tf.compat.v1.signal.stft`
+* `tf.compat.v2.signal.stft`
 
 
 ``` python

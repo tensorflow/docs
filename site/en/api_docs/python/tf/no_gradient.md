@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/no_gradient">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2490-L2522">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2493-L2525">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,10 @@ Specifies that ops of type `op_type` is not differentiable.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.NoGradient</code></a>
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.NotDifferentiable</code></a>
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.compat.v1.NoGradient</code></a>
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.compat.v1.NotDifferentiable</code></a>
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.compat.v1.no_gradient</code></a>
-* <a href="/api_docs/python/tf/no_gradient"><code>tf.compat.v2.no_gradient</code></a>
+* `tf.compat.v1.NoGradient`
+* `tf.compat.v1.NotDifferentiable`
+* `tf.compat.v1.no_gradient`
+* `tf.compat.v2.no_gradient`
 
 
 ``` python

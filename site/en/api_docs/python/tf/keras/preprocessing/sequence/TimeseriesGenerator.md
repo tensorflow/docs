@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/sequence/TimeseriesGenerator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/sequence.py#L35-L89">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/sequence.py#L35-L89">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Sequence`](../../../../tf/keras/utils/Sequence)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/preprocessing/sequence/TimeseriesGenerator"><code>tf.compat.v1.keras.preprocessing.sequence.TimeseriesGenerator</code></a>
-* Class <a href="/api_docs/python/tf/keras/preprocessing/sequence/TimeseriesGenerator"><code>tf.compat.v2.keras.preprocessing.sequence.TimeseriesGenerator</code></a>
+* Class `tf.compat.v1.keras.preprocessing.sequence.TimeseriesGenerator`
+* Class `tf.compat.v2.keras.preprocessing.sequence.TimeseriesGenerator`
 
 
 <!-- Placeholder for "Used in" -->
@@ -124,7 +118,7 @@ __getitem__(index)
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L403-L406">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L403-L406">View source</a>
 
 ``` python
 __iter__()
@@ -155,7 +149,7 @@ Returns the TimeseriesGenerator configuration as Python dictionary.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L398-L401">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L398-L401">View source</a>
 
 ``` python
 on_epoch_end()

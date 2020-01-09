@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/name_scope">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6251-L6361">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L6386-L6454">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,28 +21,23 @@ page_type: reference
 
 A context manager for use when defining a Python op.
 
-
+Inherits From: [`name_scope`](../tf/compat/v1/keras/backend/name_scope)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/name_scope"><code>tf.compat.v1.keras.backend.name_scope</code></a>
-* Class <a href="/api_docs/python/tf/name_scope"><code>tf.compat.v1.name_scope</code></a>
-* Class <a href="/api_docs/python/tf/name_scope"><code>tf.keras.backend.name_scope</code></a>
+* Class `tf.compat.v2.name_scope`
 
 
 <!-- Placeholder for "Used in" -->
 
-This context manager validates that the given `values` are from the
-same graph, makes that graph the default graph, and pushes a
-name scope in that graph (see
-<a href="../tf/Graph#name_scope"><code>tf.Graph.name_scope</code></a>
-for more details on that).
+This context manager pushes a name scope, which will make the name of all
+operations added within it have a prefix.
 
 For example, to define a new Python op called `my_op`:
 
 ```python
 def my_op(a, b, c, name=None):
-  with tf.name_scope(name, "MyOp", [a, b, c]) as scope:
+  with tf.name_scope("MyOp") as scope:
     a = tf.convert_to_tensor(a, name="a")
     b = tf.convert_to_tensor(b, name="b")
     c = tf.convert_to_tensor(c, name="c")
@@ -56,16 +45,19 @@ def my_op(a, b, c, name=None):
     return foo_op(..., name=scope)
 ```
 
+When executed, the Tensors `a`, `b`, `c`, will have names `MyOp/a`, `MyOp/b`,
+and `MyOp/c`.
+
+If the scope name already exists, the name will be made unique by appending
+`_n`. For example, calling `my_op` the second time will generate `MyOp_1/a`,
+etc.
+
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6277-L6303">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L6412-L6424">View source</a>
 
 ``` python
-__init__(
-    name,
-    default_name=None,
-    values=None
-)
+__init__(name)
 ```
 
 Initialize the context manager.
@@ -74,15 +66,13 @@ Initialize the context manager.
 #### Args:
 
 
-* <b>`name`</b>: The name argument that is passed to the op function.
-* <b>`default_name`</b>: The default name to use if the `name` argument is `None`.
-* <b>`values`</b>: The list of `Tensor` arguments that are passed to the op function.
+* <b>`name`</b>: The prefix to use on all names created within the name scope.
 
 
 #### Raises:
 
 
-* <b>`TypeError`</b>: if `default_name` is passed in but not a string.
+* <b>`ValueError`</b>: If name is None, or not a string.
 
 
 
@@ -99,7 +89,7 @@ Initialize the context manager.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6305-L6350">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L6430-L6449">View source</a>
 
 ``` python
 __enter__()
@@ -122,7 +112,7 @@ The scope name.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L6352-L6361">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L6451-L6454">View source</a>
 
 ``` python
 __exit__(

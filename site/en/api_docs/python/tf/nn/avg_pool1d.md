@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/avg_pool1d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L3625-L3667">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L3625-L3667">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Performs the average pooling on the input.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/avg_pool1d"><code>tf.compat.v1.nn.avg_pool1d</code></a>
-* <a href="/api_docs/python/tf/nn/avg_pool1d"><code>tf.compat.v2.nn.avg_pool1d</code></a>
+* `tf.compat.v1.nn.avg_pool1d`
+* `tf.compat.v2.nn.avg_pool1d`
 
 
 ``` python

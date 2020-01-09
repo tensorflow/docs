@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/xdivy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,8 +17,8 @@ Returns 0 if x == 0, and x / y otherwise, elementwise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/xdivy"><code>tf.compat.v1.math.xdivy</code></a>
-* <a href="/api_docs/python/tf/math/xdivy"><code>tf.compat.v2.math.xdivy</code></a>
+* `tf.compat.v1.math.xdivy`
+* `tf.compat.v2.math.xdivy`
 
 
 ``` python

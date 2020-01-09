@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/concat">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L216-L329">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L331-L363">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,25 +21,25 @@ Concatenates a list of `SparseTensor` along the specified dimension. (deprecated
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/concat"><code>tf.compat.v1.sparse.concat</code></a>
-* <a href="/api_docs/python/tf/sparse/concat"><code>tf.compat.v1.sparse_concat</code></a>
-* <a href="/api_docs/python/tf/sparse/concat"><code>tf.sparse_concat</code></a>
+* `tf.compat.v2.sparse.concat`
 
 
 ``` python
 tf.sparse.concat(
     axis,
     sp_inputs,
-    name=None,
-    expand_nonconcat_dim=False,
-    concat_dim=None,
-    expand_nonconcat_dims=None
+    expand_nonconcat_dims=False,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 Warning: SOME ARGUMENTS ARE DEPRECATED: `(concat_dim)`. They will be removed in a future version.
 Instructions for updating:

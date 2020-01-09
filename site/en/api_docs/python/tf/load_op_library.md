@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/load_op_library">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/load_library.py#L38-L86">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/load_library.py#L38-L86">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Loads a TensorFlow plugin, containing custom ops and kernels.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/load_op_library"><code>tf.compat.v1.load_op_library</code></a>
-* <a href="/api_docs/python/tf/load_op_library"><code>tf.compat.v2.load_op_library</code></a>
+* `tf.compat.v1.load_op_library`
+* `tf.compat.v2.load_op_library`
 
 
 ``` python

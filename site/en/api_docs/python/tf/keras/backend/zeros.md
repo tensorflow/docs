@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/zeros">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1268-L1305">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L1274-L1311">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Instantiates an all-zeros variable and returns it.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/zeros"><code>tf.compat.v1.keras.backend.zeros</code></a>
-* <a href="/api_docs/python/tf/keras/backend/zeros"><code>tf.compat.v2.keras.backend.zeros</code></a>
+* `tf.compat.v1.keras.backend.zeros`
+* `tf.compat.v2.keras.backend.zeros`
 
 
 ``` python

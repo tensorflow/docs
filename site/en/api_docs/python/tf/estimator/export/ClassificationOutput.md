@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/export/ClassificationOutput">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/model_utils/export_output.py#L102-L167">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/model_utils/export_output.py#L102-L167">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`ExportOutput`](../../../tf/estimator/export/ExportOutput)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/export/ClassificationOutput"><code>tf.compat.v1.estimator.export.ClassificationOutput</code></a>
-* Class <a href="/api_docs/python/tf/estimator/export/ClassificationOutput"><code>tf.compat.v2.estimator.export.ClassificationOutput</code></a>
+* Class `tf.compat.v1.estimator.export.ClassificationOutput`
+* Class `tf.compat.v2.estimator.export.ClassificationOutput`
 
 
 <!-- Placeholder for "Used in" -->
@@ -53,7 +47,7 @@ on the order of the entries.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/model_utils/export_output.py#L120-L148">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/model_utils/export_output.py#L120-L148">View source</a>
 
 ``` python
 __init__(
@@ -101,7 +95,7 @@ Constructor for `ClassificationOutput`.
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/model_utils/export_output.py#L158-L167">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/saved_model/model_utils/export_output.py#L158-L167">View source</a>
 
 ``` python
 as_signature_def(receiver_tensors)

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/depthwise_conv2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L727-L819">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L830-L885">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Depthwise 2-D convolution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/depthwise_conv2d"><code>tf.compat.v1.nn.depthwise_conv2d</code></a>
+* `tf.compat.v2.nn.depthwise_conv2d`
 
 
 ``` python
@@ -36,10 +30,9 @@ tf.nn.depthwise_conv2d(
     filter,
     strides,
     padding,
-    rate=None,
-    name=None,
     data_format=None,
-    dilations=None
+    dilations=None,
+    name=None
 )
 ```
 
@@ -77,12 +70,11 @@ to 1.
   dimension of `input`.
 * <b>`padding`</b>: A string, either `'VALID'` or `'SAME'`. The padding algorithm.
   See the "returns" section of <a href="../../tf/nn/convolution"><code>tf.nn.convolution</code></a> for details.
-* <b>`rate`</b>: 1-D of size 2. The dilation rate in which we sample input values
+* <b>`data_format`</b>: The data format for input. Either "NHWC" (default) or "NCHW".
+* <b>`dilations`</b>: 1-D of size 2. The dilation rate in which we sample input values
   across the `height` and `width` dimensions in atrous convolution. If it is
   greater than 1, then all values of strides must be 1.
 * <b>`name`</b>: A name for this operation (optional).
-* <b>`data_format`</b>: The data format for input. Either "NHWC" (default) or "NCHW".
-* <b>`dilations`</b>: Alias of rate.
 
 
 #### Returns:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/batch_normalization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2500-L2556">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2614-L2670">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Applies batch normalization on x given mean, var, beta and gamma.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/batch_normalization"><code>tf.compat.v1.keras.backend.batch_normalization</code></a>
-* <a href="/api_docs/python/tf/keras/backend/batch_normalization"><code>tf.compat.v2.keras.backend.batch_normalization</code></a>
+* `tf.compat.v1.keras.backend.batch_normalization`
+* `tf.compat.v2.keras.backend.batch_normalization`
 
 
 ``` python

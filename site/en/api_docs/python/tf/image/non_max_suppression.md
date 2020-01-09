@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/non_max_suppression">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2604-L2653">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L2604-L2653">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Greedily selects a subset of bounding boxes in descending order of score.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/non_max_suppression"><code>tf.compat.v1.image.non_max_suppression</code></a>
-* <a href="/api_docs/python/tf/image/non_max_suppression"><code>tf.compat.v2.image.non_max_suppression</code></a>
+* `tf.compat.v1.image.non_max_suppression`
+* `tf.compat.v2.image.non_max_suppression`
 
 
 ``` python

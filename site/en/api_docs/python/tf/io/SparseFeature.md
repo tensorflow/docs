@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/SparseFeature">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L61-L132">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L61-L132">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,10 +25,9 @@ Configuration for parsing a sparse input feature from an `Example`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.SparseFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v1.SparseFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v1.io.SparseFeature</code></a>
-* Class <a href="/api_docs/python/tf/io/SparseFeature"><code>tf.compat.v2.io.SparseFeature</code></a>
+* Class `tf.compat.v1.SparseFeature`
+* Class `tf.compat.v1.io.SparseFeature`
+* Class `tf.compat.v2.io.SparseFeature`
 
 
 <!-- Placeholder for "Used in" -->
@@ -105,7 +98,7 @@ SparseFeature(index_key=["ix0", "ix1"],
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L130-L132">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L130-L132">View source</a>
 
 ``` python
 @staticmethod

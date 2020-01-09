@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/latest_checkpoint">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L320-L347">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/checkpoint_management.py#L320-L347">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Finds the filename of latest saved checkpoint file.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/train/latest_checkpoint"><code>tf.compat.v1.train.latest_checkpoint</code></a>
-* <a href="/api_docs/python/tf/train/latest_checkpoint"><code>tf.compat.v2.train.latest_checkpoint</code></a>
+* `tf.compat.v1.train.latest_checkpoint`
+* `tf.compat.v2.train.latest_checkpoint`
 
 
 ``` python
@@ -40,7 +34,20 @@ tf.train.latest_checkpoint(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+
+
 
 
 #### Args:
@@ -49,7 +56,7 @@ tf.train.latest_checkpoint(
 * <b>`checkpoint_dir`</b>: Directory where the variables were saved.
 * <b>`latest_filename`</b>: Optional name for the protocol buffer file that
   contains the list of most recent checkpoint filenames.
-  See the corresponding argument to <a href="../../tf/train/Saver#save"><code>Saver.save()</code></a>.
+  See the corresponding argument to `Saver.save()`.
 
 
 #### Returns:

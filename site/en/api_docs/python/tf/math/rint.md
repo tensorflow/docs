@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/rint">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,10 +17,9 @@ Returns element-wise integer closest to x.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/rint"><code>tf.compat.v1.math.rint</code></a>
-* <a href="/api_docs/python/tf/math/rint"><code>tf.compat.v1.rint</code></a>
-* <a href="/api_docs/python/tf/math/rint"><code>tf.compat.v2.math.rint</code></a>
-* <a href="/api_docs/python/tf/math/rint"><code>tf.rint</code></a>
+* `tf.compat.v1.math.rint`
+* `tf.compat.v1.rint`
+* `tf.compat.v2.math.rint`
 
 
 ``` python

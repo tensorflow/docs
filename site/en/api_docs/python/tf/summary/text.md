@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/summary/text">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L233-L271">
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/text/summary_v2.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,18 +17,19 @@ page_type: reference
 
 
 
-Summarizes textual data.
+Write a text summary.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/summary/text"><code>tf.compat.v1.summary.text</code></a>
+* `tf.compat.v2.summary.text`
 
 
 ``` python
 tf.summary.text(
     name,
-    tensor,
-    collections=None
+    data,
+    step=None,
+    description=None
 )
 ```
 
@@ -42,33 +37,29 @@ tf.summary.text(
 
 <!-- Placeholder for "Used in" -->
 
-Text data summarized via this plugin will be visible in the Text Dashboard
-in TensorBoard. The standard TensorBoard Text Dashboard will render markdown
-in the strings, and will automatically organize 1d and 2d tensors into tables.
-If a tensor with more than 2 dimensions is provided, a 2d subarray will be
-displayed along with a warning message. (Note that this behavior is not
-intrinsic to the text summary api, but rather to the default TensorBoard text
-plugin.)
 
-#### Args:
+#### Arguments:
 
 
-* <b>`name`</b>: A name for the generated node. Will also serve as a series name in
-  TensorBoard.
-* <b>`tensor`</b>: a string-type Tensor to summarize.
-* <b>`collections`</b>: Optional list of ops.GraphKeys.  The collections to add the
-  summary to.  Defaults to [_ops.GraphKeys.SUMMARIES]
+* <b>`name`</b>: A name for this summary. The summary tag used for TensorBoard will
+  be this name prefixed by any active name scopes.
+* <b>`data`</b>: A UTF-8 string tensor value.
+* <b>`step`</b>: Explicit `int64`-castable monotonic step value for this summary. If
+  omitted, this defaults to <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a>, which must
+  not be None.
+* <b>`description`</b>: Optional long-form description for this summary, as a
+  constant `str`. Markdown is supported. Defaults to empty.
 
 
 #### Returns:
 
-A TensorSummary op that is configured so that TensorBoard will recognize
-that it contains textual data. The TensorSummary is a scalar `Tensor` of
-type `string` which contains `Summary` protobufs.
+True on success, or false if no summary was emitted because no default
+summary writer was available.
 
 
 
 #### Raises:
 
 
-* <b>`ValueError`</b>: If tensor has the wrong type.
+* <b>`ValueError`</b>: if a default writer exists, but no step was provided and
+  <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a> is None.

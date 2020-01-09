@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::MatrixDiagV2 Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -32,9 +30,9 @@ output[i, j, ..., l, m, n]
   <p>
     <pre class="prettyprint">
 &#35; The main diagonal.
-diagonal = np.array([[1, 2, 3, 4],            &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 4)
+diagonal = np.array([[1, 2, 3, 4],            &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 4)
                      [5, 6, 7, 8]])
-tf.matrix_diag(diagonal) ==> [[[1, 0, 0, 0],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 4, 4)
+tf.matrix_diag(diagonal) ==> [[[1, 0, 0, 0],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 4, 4)
                                [0, 2, 0, 0],
                                [0, 0, 3, 0],
                                [0, 0, 0, 4]],
@@ -45,10 +43,10 @@ tf.matrix_diag(diagonal) ==> [[[1, 0, 0, 0],  &#35; <a href="/versions/r1.15/api
   </p>
   <p>
     <pre class="prettyprint">&#35; A superdiagonal (per batch).
-diagonal = np.array([[1, 2, 3],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 3)
+diagonal = np.array([[1, 2, 3],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 3)
                      [4, 5, 6]])
 tf.matrix_diag(diagonal, k = 1)
-  ==> [[[0, 1, 0, 0],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 4, 4)
+  ==> [[[0, 1, 0, 0],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 4, 4)
         [0, 0, 2, 0],
         [0, 0, 0, 3],
         [0, 0, 0, 0]],
@@ -59,12 +57,12 @@ tf.matrix_diag(diagonal, k = 1)
   </p>
   <p>
     <pre class="prettyprint">&#35; A band of diagonals.
-diagonals = np.array([[[1, 2, 3],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 2, 3)
+diagonals = np.array([[[1, 2, 3],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2, 2, 3)
                        [4, 5, 0]],
                       [[6, 7, 9],
                        [9, 1, 0]]])
 tf.matrix_diag(diagonals, k = (-1, 0))
-  ==> [[[1, 0, 0],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 3)
+  ==> [[[1, 0, 0],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (2, 3, 3)
         [4, 2, 0],
         [0, 5, 3]],
        [[6, 0, 0],
@@ -73,22 +71,22 @@ tf.matrix_diag(diagonals, k = (-1, 0))
   </p>
   <p>
     <pre class="prettyprint">&#35; Rectangular matrix.
-diagonal = np.array([1, 2])  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2)
+diagonal = np.array([1, 2])  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">Input</a> shape: (2)
 tf.matrix_diag(diagonal, k = -1, num_rows = 3, num_cols = 4)
-  ==> [[0, 0, 0, 0],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (3, 4)
+  ==> [[0, 0, 0, 0],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (3, 4)
        [1, 0, 0, 0],
        [0, 2, 0, 0]]</pre>
   </p>
   <p>
     <pre class="prettyprint">&#35; Rectangular matrix with inferred num_cols and padding = 9.
 tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
-  ==> [[9, 9],  &#35; <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (3, 2)
+  ==> [[9, 9],  &#35; <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a> shape: (3, 2)
        [1, 9],
        [9, 2]]
 </pre>
   </p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>diagonal: Rank <code>r</code>, where <code>r >= 1</code></li>
       <li>k: Diagonal offset(s). Positive value means superdiagonal, 0 refers to the main diagonal, and negative value means subdiagonals. <code>k</code> can be a single integer (for a single diagonal) or a pair of integers specifying the low and high ends of a matrix band. <code>k[0]</code> must not be larger than <code>k[1]</code>.</li>
       <li>num_rows: The number of rows of the output matrix. If it is not provided, the op assumes the output matrix is a square matrix and infers the matrix size from k and the innermost dimension of <code>diagonal</code>.</li>
@@ -96,7 +94,7 @@ tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
       <li>padding_value: The number to fill the area outside the specified diagonal band with. Default is 0.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has rank <code>r+1</code> when <code>k</code> is an integer or <code>k[0] == k[1]</code>, rank <code>r</code> otherwise. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: Has rank <code>r+1</code> when <code>k</code> is an integer or <code>k[0] == k[1]</code>, rank <code>r</code> otherwise. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -106,7 +104,7 @@ tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_v2_1a0f4757e436efeaed1ba2bd9690367b7f">MatrixDiagV2</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_rows, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_cols, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_matrix_diag_v2_1a0f4757e436efeaed1ba2bd9690367b7f">MatrixDiagV2</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_rows, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_cols, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value)</code>
         <br />
       </td>
     </tr>
@@ -123,7 +121,7 @@ tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -133,7 +131,7 @@ tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -178,24 +176,24 @@ tf.matrix_diag(diagonal, k = -1, num_rows = 3, padding = 9)
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_matrix_diag_v2_1a09bb44acf7362d90e9b70dfaa3ebd8fd">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_matrix_diag_v2_1a180f0e2069ba614f9a8bf4593d6b322a">
     <h3>output</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_matrix_diag_v2_1a0f4757e436efeaed1ba2bd9690367b7f">
     <h3>MatrixDiagV2</h3>
     <pre class="prettyprint"> MatrixDiagV2(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_rows,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_cols,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> diagonal,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> k,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_rows,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> num_cols,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> padding_value
 )</pre>
     <div />
   </div>

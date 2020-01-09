@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/less">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,17 +17,17 @@ Returns the truth value of (x < y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__lt__"><code>tf.RaggedTensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__lt__"><code>tf.Tensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__lt__"><code>tf.compat.v1.RaggedTensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__lt__"><code>tf.compat.v1.Tensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/math/less"><code>tf.compat.v1.less</code></a>
-* <a href="/api_docs/python/tf/math/less"><code>tf.compat.v1.math.less</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__lt__"><code>tf.compat.v2.RaggedTensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__lt__"><code>tf.compat.v2.Tensor.__lt__</code></a>
-* <a href="/api_docs/python/tf/math/less"><code>tf.compat.v2.less</code></a>
-* <a href="/api_docs/python/tf/math/less"><code>tf.compat.v2.math.less</code></a>
-* <a href="/api_docs/python/tf/math/less"><code>tf.less</code></a>
+* `tf.RaggedTensor.__lt__`
+* `tf.Tensor.__lt__`
+* `tf.compat.v1.RaggedTensor.__lt__`
+* `tf.compat.v1.Tensor.__lt__`
+* `tf.compat.v1.less`
+* `tf.compat.v1.math.less`
+* `tf.compat.v2.RaggedTensor.__lt__`
+* `tf.compat.v2.Tensor.__lt__`
+* `tf.compat.v2.less`
+* `tf.compat.v2.math.less`
+* `tf.less`
 
 
 ``` python

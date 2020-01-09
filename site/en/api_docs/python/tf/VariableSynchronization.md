@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/VariableSynchronization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L71-L88">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L71-L88">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Indicates when a distributed variable will be synced.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/VariableSynchronization"><code>tf.compat.v1.VariableSynchronization</code></a>
-* Class <a href="/api_docs/python/tf/VariableSynchronization"><code>tf.compat.v2.VariableSynchronization</code></a>
+* Class `tf.compat.v1.VariableSynchronization`
+* Class `tf.compat.v2.VariableSynchronization`
 
 
 <!-- Placeholder for "Used in" -->

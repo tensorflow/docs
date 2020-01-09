@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Utilities for text input preprocessing.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/preprocessing/text"><code>tf.compat.v1.keras.preprocessing.text</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

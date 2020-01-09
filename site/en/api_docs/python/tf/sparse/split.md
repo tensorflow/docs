@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/split">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L841-L912">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L899-L941">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,33 +17,25 @@ page_type: reference
 
 
 
-Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
+Split a `SparseTensor` into `num_split` tensors along `axis`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/split"><code>tf.compat.v1.sparse.split</code></a>
-* <a href="/api_docs/python/tf/sparse/split"><code>tf.compat.v1.sparse_split</code></a>
-* <a href="/api_docs/python/tf/sparse/split"><code>tf.sparse_split</code></a>
+* `tf.compat.v2.sparse.split`
 
 
 ``` python
 tf.sparse.split(
-    keyword_required=KeywordRequired(),
     sp_input=None,
     num_split=None,
     axis=None,
-    name=None,
-    split_dim=None
+    name=None
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(split_dim)`. They will be removed in a future version.
-Instructions for updating:
-split_dim is deprecated, use axis instead
 
 If the `sp_input.dense_shape[axis]` is not an integer multiple of `num_split`
 each slice starting from 0:`shape[axis] % num_split` gets extra one
@@ -63,8 +49,8 @@ input is:
 Graphically the output tensors are:
 
     output_tensor[0] =
-    [    a   ]
-    [b c     ]
+    [    a ]
+    [b c   ]
 
     output_tensor[1] =
     [ d e  ]
@@ -73,12 +59,10 @@ Graphically the output tensors are:
 #### Args:
 
 
-* <b>`keyword_required`</b>: Python 2 standin for * (temporary for argument reorder)
 * <b>`sp_input`</b>: The `SparseTensor` to split.
 * <b>`num_split`</b>: A Python integer. The number of ways to split.
 * <b>`axis`</b>: A 0-D `int32` `Tensor`. The dimension along which to split.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`split_dim`</b>: Deprecated old name for axis.
 
 
 #### Returns:
@@ -91,4 +75,3 @@ Graphically the output tensors are:
 
 
 * <b>`TypeError`</b>: If `sp_input` is not a `SparseTensor`.
-* <b>`ValueError`</b>: If the deprecated `split_dim` and `axis` are both non None.

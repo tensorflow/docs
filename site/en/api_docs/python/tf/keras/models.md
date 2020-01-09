@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/models">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Code for model cloning, plus model-related API entries.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/models"><code>tf.compat.v1.keras.models</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

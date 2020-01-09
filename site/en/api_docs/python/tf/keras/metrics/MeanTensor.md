@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/metrics/MeanTensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2383-L2490">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L2382-L2489">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,10 @@ Inherits From: [`Metric`](../../../tf/keras/metrics/Metric)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/metrics/MeanTensor"><code>tf.compat.v1.keras.metrics.MeanTensor</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/MeanTensor"><code>tf.compat.v2.keras.metrics.MeanTensor</code></a>
-* Class <a href="/api_docs/python/tf/keras/metrics/MeanTensor"><code>tf.compat.v2.metrics.MeanTensor</code></a>
+* Class `tf.compat.v1.keras.metrics.MeanTensor`
+* Class `tf.compat.v2.keras.metrics.MeanTensor`
+* Class `tf.compat.v2.metrics.MeanTensor`
+* Class `tf.metrics.MeanTensor`
 
 
 <!-- Placeholder for "Used in" -->
@@ -58,7 +53,7 @@ print('Result: ', m.result().numpy())  # Result: [2, 3.636, 4.8, 5.333]
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2403-L2414">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L2402-L2413">View source</a>
 
 ``` python
 __init__(
@@ -78,7 +73,7 @@ Creates a `MeanTensor` instance.
 
 <h2 id="__new__"><code>__new__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L145-L161">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L144-L160">View source</a>
 
 ``` python
 __new__(
@@ -111,7 +106,7 @@ Create and return a new object.  See help(type) for accurate signature.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2487-L2490">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L2486-L2489">View source</a>
 
 ``` python
 reset_states()
@@ -124,7 +119,7 @@ when a metric is evaluated during training.
 
 <h3 id="result"><code>result</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2479-L2485">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L2478-L2484">View source</a>
 
 ``` python
 result()
@@ -137,7 +132,7 @@ metric value using the state variables.
 
 <h3 id="update_state"><code>update_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/metrics.py#L2436-L2477">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/metrics.py#L2435-L2476">View source</a>
 
 ``` python
 update_state(

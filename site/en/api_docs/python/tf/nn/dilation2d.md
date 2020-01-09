@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/dilation2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L308-L320">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L241-L305">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,23 +17,22 @@ page_type: reference
 
 
 
-Computes the grayscale dilation of 4-D `input` and 3-D `filter` tensors.
+Computes the grayscale dilation of 4-D `input` and 3-D `filters` tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/dilation2d"><code>tf.compat.v1.nn.dilation2d</code></a>
+* `tf.compat.v2.nn.dilation2d`
 
 
 ``` python
 tf.nn.dilation2d(
     input,
-    filter=None,
-    strides=None,
-    rates=None,
-    padding=None,
-    name=None,
-    filters=None,
-    dilations=None
+    filters,
+    strides,
+    padding,
+    data_format,
+    dilations,
+    name=None
 )
 ```
 
@@ -48,12 +41,12 @@ tf.nn.dilation2d(
 <!-- Placeholder for "Used in" -->
 
 The `input` tensor has shape `[batch, in_height, in_width, depth]` and the
-`filter` tensor has shape `[filter_height, filter_width, depth]`, i.e., each
-input channel is processed independently of the others with its own structuring
-function. The `output` tensor has shape
+`filters` tensor has shape `[filter_height, filter_width, depth]`, i.e., each
+input channel is processed independently of the others with its own
+structuring function. The `output` tensor has shape
 `[batch, out_height, out_width, depth]`. The spatial dimensions of the output
-tensor depend on the `padding` algorithm. We currently only support the default
-"NHWC" `data_format`.
+tensor depend on the `padding` algorithm. We currently only support the
+default "NHWC" `data_format`.
 
 In detail, the grayscale morphological 2-D dilation is the max-sum correlation
 (for consistency with `conv2d`, we use unmirrored filters):
@@ -63,29 +56,32 @@ In detail, the grayscale morphological 2-D dilation is the max-sum correlation
                           strides[1] * y + rates[1] * dy,
                           strides[2] * x + rates[2] * dx,
                           c] +
-                    filter[dy, dx, c]
+                    filters[dy, dx, c]
 
 Max-pooling is a special case when the filter has size equal to the pooling
 kernel size and contains all zeros.
 
-Note on duality: The dilation of `input` by the `filter` is equal to the
-negation of the erosion of `-input` by the reflected `filter`.
+Note on duality: The dilation of `input` by the `filters` is equal to the
+negation of the erosion of `-input` by the reflected `filters`.
 
 #### Args:
 
 
-* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`, `int32`, `uint8`, `int16`, `int8`, `int64`, `bfloat16`, `uint16`, `half`, `uint32`, `uint64`.
+* <b>`input`</b>: A `Tensor`. Must be one of the following types: `float32`, `float64`,
+  `int32`, `uint8`, `int16`, `int8`, `int64`, `bfloat16`, `uint16`, `half`,
+  `uint32`, `uint64`.
   4-D with shape `[batch, in_height, in_width, depth]`.
-* <b>`filter`</b>: A `Tensor`. Must have the same type as `input`.
+* <b>`filters`</b>: A `Tensor`. Must have the same type as `input`.
   3-D with shape `[filter_height, filter_width, depth]`.
 * <b>`strides`</b>: A list of `ints` that has length `>= 4`.
   The stride of the sliding window for each dimension of the input
   tensor. Must be: `[1, stride_height, stride_width, 1]`.
-* <b>`rates`</b>: A list of `ints` that has length `>= 4`.
-  The input stride for atrous morphological dilation. Must be:
-  `[1, rate_height, rate_width, 1]`.
 * <b>`padding`</b>: A `string` from: `"SAME", "VALID"`.
   The type of padding algorithm to use.
+* <b>`data_format`</b>: A `string`, only `"NHWC"` is currently supported.
+* <b>`dilations`</b>: A list of `ints` that has length `>= 4`.
+  The input stride for atrous morphological dilation. Must be:
+  `[1, rate_height, rate_width, 1]`.
 * <b>`name`</b>: A name for the operation (optional).
 
 

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/serialize_many_sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L1985-L2011">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L1998-L2030">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,16 +21,14 @@ Serialize `N`-minibatch `SparseTensor` into an `[N, 3]` `Tensor`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/serialize_many_sparse"><code>tf.compat.v1.io.serialize_many_sparse</code></a>
-* <a href="/api_docs/python/tf/io/serialize_many_sparse"><code>tf.compat.v1.serialize_many_sparse</code></a>
-* <a href="/api_docs/python/tf/io/serialize_many_sparse"><code>tf.serialize_many_sparse</code></a>
+* `tf.compat.v2.io.serialize_many_sparse`
 
 
 ``` python
 tf.io.serialize_many_sparse(
     sp_input,
-    name=None,
-    out_type=tf.dtypes.string
+    out_type=tf.dtypes.string,
+    name=None
 )
 ```
 
@@ -56,8 +48,8 @@ The minibatch size `N` is extracted from `sparse_shape[0]`.
 
 
 * <b>`sp_input`</b>: The input rank `R` `SparseTensor`.
-* <b>`name`</b>: A name prefix for the returned tensors (optional).
 * <b>`out_type`</b>: The `dtype` to use for serialization.
+* <b>`name`</b>: A name prefix for the returned tensors (optional).
 
 
 #### Returns:

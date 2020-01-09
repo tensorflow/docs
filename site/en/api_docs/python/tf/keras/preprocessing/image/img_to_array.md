@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/img_to_array">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L77-L101">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/image.py#L77-L101">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Converts a PIL Image instance to a Numpy array.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/image/img_to_array"><code>tf.compat.v1.keras.preprocessing.image.img_to_array</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/image/img_to_array"><code>tf.compat.v2.keras.preprocessing.image.img_to_array</code></a>
+* `tf.compat.v1.keras.preprocessing.image.img_to_array`
+* `tf.compat.v2.keras.preprocessing.image.img_to_array`
 
 
 ``` python
@@ -41,7 +35,15 @@ tf.keras.preprocessing.image.img_to_array(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+
+
 
 
 #### Arguments:

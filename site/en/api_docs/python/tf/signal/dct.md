@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/dct">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/dct_ops.py#L51-L163">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/dct_ops.py#L51-L163">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Computes the 1D [Discrete Cosine Transform (DCT)][dct] of `input`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/dct"><code>tf.compat.v1.signal.dct</code></a>
-* <a href="/api_docs/python/tf/signal/dct"><code>tf.compat.v1.spectral.dct</code></a>
-* <a href="/api_docs/python/tf/signal/dct"><code>tf.compat.v2.signal.dct</code></a>
-* <a href="/api_docs/python/tf/signal/dct"><code>tf.spectral.dct</code></a>
+* `tf.compat.v1.signal.dct`
+* `tf.compat.v1.spectral.dct`
+* `tf.compat.v2.signal.dct`
 
 
 ``` python

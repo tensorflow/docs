@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/imag">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L542-L572">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L542-L572">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns the imaginary part of a complex (or real) tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/imag"><code>tf.compat.v1.imag</code></a>
-* <a href="/api_docs/python/tf/math/imag"><code>tf.compat.v1.math.imag</code></a>
-* <a href="/api_docs/python/tf/math/imag"><code>tf.compat.v2.math.imag</code></a>
-* <a href="/api_docs/python/tf/math/imag"><code>tf.imag</code></a>
+* `tf.compat.v1.imag`
+* `tf.compat.v1.math.imag`
+* `tf.compat.v2.math.imag`
 
 
 ``` python

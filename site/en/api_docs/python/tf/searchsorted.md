@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/searchsorted">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L4466-L4524">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L4481-L4539">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Searches input tensor for values on the innermost dimension.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/searchsorted"><code>tf.compat.v1.searchsorted</code></a>
-* <a href="/api_docs/python/tf/searchsorted"><code>tf.compat.v2.searchsorted</code></a>
+* `tf.compat.v1.searchsorted`
+* `tf.compat.v2.searchsorted`
 
 
 ``` python

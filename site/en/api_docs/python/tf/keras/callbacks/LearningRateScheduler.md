@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/callbacks/LearningRateScheduler">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L1316-L1363">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1311-L1358">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,15 @@ Inherits From: [`Callback`](../../../tf/keras/callbacks/Callback)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/callbacks/LearningRateScheduler"><code>tf.compat.v1.keras.callbacks.LearningRateScheduler</code></a>
-* Class <a href="/api_docs/python/tf/keras/callbacks/LearningRateScheduler"><code>tf.compat.v2.keras.callbacks.LearningRateScheduler</code></a>
+* Class `tf.compat.v1.keras.callbacks.LearningRateScheduler`
+* Class `tf.compat.v2.keras.callbacks.LearningRateScheduler`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+
+
 
 
 #### Arguments:
@@ -62,7 +60,7 @@ model.fit(data, labels, epochs=100, callbacks=[callback],
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L1340-L1343">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1335-L1338">View source</a>
 
 ``` python
 __init__(
@@ -80,7 +78,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L465-L466">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L464-L465">View source</a>
 
 ``` python
 on_batch_begin(
@@ -94,7 +92,7 @@ A backwards compatibility alias for `on_train_batch_begin`.
 
 <h3 id="on_batch_end"><code>on_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L468-L469">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L467-L468">View source</a>
 
 ``` python
 on_batch_end(
@@ -108,7 +106,7 @@ A backwards compatibility alias for `on_train_batch_end`.
 
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L1345-L1359">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1340-L1354">View source</a>
 
 ``` python
 on_epoch_begin(
@@ -131,7 +129,7 @@ be called during TRAIN mode.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L1361-L1363">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L1356-L1358">View source</a>
 
 ``` python
 on_epoch_end(
@@ -155,7 +153,7 @@ be called during TRAIN mode.
 
 <h3 id="on_predict_batch_begin"><code>on_predict_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L548-L557">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L547-L556">View source</a>
 
 ``` python
 on_predict_batch_begin(
@@ -177,7 +175,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_batch_end"><code>on_predict_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L559-L567">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L558-L566">View source</a>
 
 ``` python
 on_predict_batch_end(
@@ -198,7 +196,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_begin"><code>on_predict_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L609-L617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L608-L616">View source</a>
 
 ``` python
 on_predict_begin(logs=None)
@@ -216,7 +214,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_predict_end"><code>on_predict_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L619-L627">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L618-L626">View source</a>
 
 ``` python
 on_predict_end(logs=None)
@@ -234,7 +232,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_batch_begin"><code>on_test_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L521-L533">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L520-L532">View source</a>
 
 ``` python
 on_test_batch_begin(
@@ -259,7 +257,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_batch_end"><code>on_test_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L535-L546">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L534-L545">View source</a>
 
 ``` python
 on_test_batch_end(
@@ -283,7 +281,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_begin"><code>on_test_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L589-L597">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L588-L596">View source</a>
 
 ``` python
 on_test_begin(logs=None)
@@ -301,7 +299,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_test_end"><code>on_test_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L599-L607">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L598-L606">View source</a>
 
 ``` python
 on_test_end(logs=None)
@@ -319,7 +317,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_batch_begin"><code>on_train_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L496-L507">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L495-L506">View source</a>
 
 ``` python
 on_train_batch_begin(
@@ -341,7 +339,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_batch_end"><code>on_train_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L509-L519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L508-L518">View source</a>
 
 ``` python
 on_train_batch_end(
@@ -362,7 +360,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_begin"><code>on_train_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L569-L577">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L568-L576">View source</a>
 
 ``` python
 on_train_begin(logs=None)
@@ -380,7 +378,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L579-L587">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L578-L586">View source</a>
 
 ``` python
 on_train_end(logs=None)
@@ -398,7 +396,7 @@ Subclasses should override for any actions to run.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L462-L463">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L461-L462">View source</a>
 
 ``` python
 set_model(model)
@@ -409,7 +407,7 @@ set_model(model)
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/callbacks.py#L459-L460">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/callbacks.py#L458-L459">View source</a>
 
 ``` python
 set_params(params)

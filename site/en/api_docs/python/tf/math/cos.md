@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/cos">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes cos of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/cos"><code>tf.compat.v1.cos</code></a>
-* <a href="/api_docs/python/tf/math/cos"><code>tf.compat.v1.math.cos</code></a>
-* <a href="/api_docs/python/tf/math/cos"><code>tf.compat.v2.cos</code></a>
-* <a href="/api_docs/python/tf/math/cos"><code>tf.compat.v2.math.cos</code></a>
-* <a href="/api_docs/python/tf/math/cos"><code>tf.cos</code></a>
+* `tf.compat.v1.cos`
+* `tf.compat.v1.math.cos`
+* `tf.compat.v2.cos`
+* `tf.compat.v2.math.cos`
+* `tf.cos`
 
 
 ``` python

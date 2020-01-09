@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/bytes_split">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/ragged/ragged_string_ops.py#L34-L79">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/ragged/ragged_string_ops.py#L34-L79">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Split string elements of `input` into bytes.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/bytes_split"><code>tf.compat.v1.strings.bytes_split</code></a>
-* <a href="/api_docs/python/tf/strings/bytes_split"><code>tf.compat.v2.strings.bytes_split</code></a>
+* `tf.compat.v1.strings.bytes_split`
+* `tf.compat.v2.strings.bytes_split`
 
 
 ``` python
@@ -55,7 +49,7 @@ tf.strings.bytes_split(
 Note that this op splits strings into bytes, not unicode characters.  To
 split strings into unicode characters, use <a href="../../tf/strings/unicode_split"><code>tf.strings.unicode_split</code></a>.
 
-See also: <a href="../../tf/decode_raw"><code>tf.io.decode_raw</code></a>, <a href="../../tf/strings/split"><code>tf.strings.split</code></a>, <a href="../../tf/strings/unicode_split"><code>tf.strings.unicode_split</code></a>.
+See also: <a href="../../tf/io/decode_raw"><code>tf.io.decode_raw</code></a>, <a href="../../tf/strings/split"><code>tf.strings.split</code></a>, <a href="../../tf/strings/unicode_split"><code>tf.strings.unicode_split</code></a>.
 
 #### Args:
 

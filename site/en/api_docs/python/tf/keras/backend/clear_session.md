@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/clear_session">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L219-L244">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L224-L249">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Destroys the current TF graph and creates a new one.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/clear_session"><code>tf.compat.v1.keras.backend.clear_session</code></a>
-* <a href="/api_docs/python/tf/keras/backend/clear_session"><code>tf.compat.v2.keras.backend.clear_session</code></a>
+* `tf.compat.v1.keras.backend.clear_session`
+* `tf.compat.v2.keras.backend.clear_session`
 
 
 ``` python
@@ -37,6 +31,14 @@ tf.keras.backend.clear_session()
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+
 
 Useful to avoid clutter from old models / layers.

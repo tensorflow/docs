@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/queue/PaddingFIFOQueue">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L772-L842">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L772-L842">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,10 @@ Inherits From: [`QueueBase`](../../tf/queue/QueueBase)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.PaddingFIFOQueue</code></a>
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.compat.v1.PaddingFIFOQueue</code></a>
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.compat.v1.io.PaddingFIFOQueue</code></a>
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.compat.v1.queue.PaddingFIFOQueue</code></a>
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.compat.v2.queue.PaddingFIFOQueue</code></a>
-* Class <a href="/api_docs/python/tf/queue/PaddingFIFOQueue"><code>tf.io.PaddingFIFOQueue</code></a>
+* Class `tf.compat.v1.PaddingFIFOQueue`
+* Class `tf.compat.v1.io.PaddingFIFOQueue`
+* Class `tf.compat.v1.queue.PaddingFIFOQueue`
+* Class `tf.compat.v2.queue.PaddingFIFOQueue`
 
 
 <!-- Placeholder for "Used in" -->
@@ -49,7 +41,7 @@ this class.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L782-L842">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L782-L842">View source</a>
 
 ``` python
 __init__(
@@ -140,7 +132,7 @@ The list of shapes for each component of a queue element.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L544-L577">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L544-L577">View source</a>
 
 ``` python
 close(
@@ -177,7 +169,7 @@ The operation that closes the queue.
 
 <h3 id="dequeue"><code>dequeue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L422-L458">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L422-L458">View source</a>
 
 ``` python
 dequeue(name=None)
@@ -189,11 +181,11 @@ If the queue is empty when this operation executes, it will block
 until there is an element to dequeue.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+`tf.QueueBase.close` before or during its execution. If the
 queue is closed, the queue is empty, and there are no pending
 enqueue operations that can fulfill this request,
 <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> will be raised. If the session is
-<a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
+`tf.Session.close`,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised.
 
 #### Args:
@@ -209,7 +201,7 @@ The tuple of tensors that was dequeued.
 
 <h3 id="dequeue_many"><code>dequeue_many</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L460-L501">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L460-L501">View source</a>
 
 ``` python
 dequeue_many(
@@ -228,11 +220,11 @@ If the queue is closed and there are less than `n` elements left, then an
 `OutOfRange` exception is raised.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+`tf.QueueBase.close` before or during its execution. If the
 queue is closed, the queue contains fewer than `n` elements, and
 there are no pending enqueue operations that can fulfill this
 request, <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> will be raised. If the
-session is <a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
+session is `tf.Session.close`,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised.
 
 #### Args:
@@ -249,7 +241,7 @@ The list of concatenated tensors that was dequeued.
 
 <h3 id="dequeue_up_to"><code>dequeue_up_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L503-L542">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L503-L542">View source</a>
 
 ``` python
 dequeue_up_to(
@@ -270,7 +262,7 @@ will have size `n` in the 0th dimension.
 
 If the queue is closed and there are more than `0` but fewer than
 `n` elements remaining, then instead of raising a
-<a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> like <a href="../../tf/queue/QueueBase#dequeue_many"><code>tf.QueueBase.dequeue_many</code></a>,
+<a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> like `tf.QueueBase.dequeue_many`,
 less than `n` elements are returned immediately.  If the queue is
 closed and there are `0` elements left in the queue, then a
 <a href="../../tf/errors/OutOfRangeError"><code>tf.errors.OutOfRangeError</code></a> is raised just like in `dequeue_many`.
@@ -290,7 +282,7 @@ The tuple of concatenated tensors that was dequeued.
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L312-L349">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L312-L349">View source</a>
 
 ``` python
 enqueue(
@@ -305,12 +297,12 @@ If the queue is full when this operation executes, it will block
 until the element has been enqueued.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+`tf.QueueBase.close` before or during its execution. If the
 queue is closed before this operation runs,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised. If this operation is
 blocked, and either (i) the queue is closed by a close operation
 with `cancel_pending_enqueues=True`, or (ii) the session is
-<a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
+`tf.Session.close`,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised.
 
 #### Args:
@@ -328,7 +320,7 @@ The operation that enqueues a new tuple of tensors to the queue.
 
 <h3 id="enqueue_many"><code>enqueue_many</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L351-L397">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L351-L397">View source</a>
 
 ``` python
 enqueue_many(
@@ -347,12 +339,12 @@ If the queue is full when this operation executes, it will block
 until all of the elements have been enqueued.
 
 At runtime, this operation may raise an error if the queue is
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> before or during its execution. If the
+`tf.QueueBase.close` before or during its execution. If the
 queue is closed before this operation runs,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised. If this operation is
 blocked, and either (i) the queue is closed by a close operation
 with `cancel_pending_enqueues=True`, or (ii) the session is
-<a href="../../tf/Session#close"><code>tf.Session.close</code></a>,
+`tf.Session.close`,
 <a href="../../tf/errors/CancelledError"><code>tf.errors.CancelledError</code></a> will be raised.
 
 #### Args:
@@ -370,7 +362,7 @@ The operation that enqueues a batch of tuples of tensors to the queue.
 
 <h3 id="from_list"><code>from_list</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L185-L224">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L185-L224">View source</a>
 
 ``` python
 from_list(
@@ -404,7 +396,7 @@ A `QueueBase` object.
 
 <h3 id="is_closed"><code>is_closed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L579-L596">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L579-L596">View source</a>
 
 ``` python
 is_closed(name=None)
@@ -428,7 +420,7 @@ True if the queue is closed and false if the queue is open.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/data_flow_ops.py#L598-L612">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/data_flow_ops.py#L598-L612">View source</a>
 
 ``` python
 size(name=None)

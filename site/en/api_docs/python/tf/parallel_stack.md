@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/parallel_stack">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1048-L1096">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1059-L1107">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor in parallel.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/parallel_stack"><code>tf.compat.v1.parallel_stack</code></a>
-* <a href="/api_docs/python/tf/parallel_stack"><code>tf.compat.v2.parallel_stack</code></a>
+* `tf.compat.v1.parallel_stack`
+* `tf.compat.v2.parallel_stack`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/py_function">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/script_ops.py#L345-L425">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/script_ops.py#L327-L407">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Wraps a python function into a TensorFlow op that executes it eagerly.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/py_function"><code>tf.compat.v1.py_function</code></a>
-* <a href="/api_docs/python/tf/py_function"><code>tf.compat.v2.py_function</code></a>
-* <a href="/api_docs/python/tf/py_function"><code>tf.contrib.eager.py_func</code></a>
+* `tf.compat.v1.py_function`
+* `tf.compat.v2.py_function`
 
 
 ``` python
@@ -43,7 +36,18 @@ tf.py_function(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Load text](https://www.tensorflow.org/tutorials/load_data/text)
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 This function allows expressing computations in a TensorFlow graph as
 Python functions. In particular, it wraps a Python function `func`
@@ -83,16 +87,16 @@ or print statements as desired, and wrap those functions in
 For more information on eager execution, see the
 [Eager guide](https://tensorflow.org/guide/eager).
 
-<a href="../tf/py_function"><code>tf.py_function</code></a> is similar in spirit to <a href="../tf/py_func"><code>tf.compat.v1.py_func</code></a>, but unlike
+<a href="../tf/py_function"><code>tf.py_function</code></a> is similar in spirit to <a href="../tf/compat/v1/py_func"><code>tf.compat.v1.py_func</code></a>, but unlike
 the latter, the former lets you use TensorFlow operations in the wrapped
-Python function. In particular, while <a href="../tf/py_func"><code>tf.compat.v1.py_func</code></a> only runs on CPUs
+Python function. In particular, while <a href="../tf/compat/v1/py_func"><code>tf.compat.v1.py_func</code></a> only runs on CPUs
 and
 wraps functions that take NumPy arrays as inputs and return NumPy arrays as
 outputs, <a href="../tf/py_function"><code>tf.py_function</code></a> can be placed on GPUs and wraps functions
 that take Tensors as inputs, execute TensorFlow operations in their bodies,
 and return Tensors as outputs.
 
-Like <a href="../tf/py_func"><code>tf.compat.v1.py_func</code></a>, <a href="../tf/py_function"><code>tf.py_function</code></a> has the following limitations
+Like <a href="../tf/compat/v1/py_func"><code>tf.compat.v1.py_func</code></a>, <a href="../tf/py_function"><code>tf.py_function</code></a> has the following limitations
 with respect to serialization and distribution:
 
 * The body of the function (i.e. `func`) will not be serialized in a

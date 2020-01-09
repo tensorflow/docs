@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/summary/scalar">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/summary/summary.py#L57-L84">
+  <a target="_blank" href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/scalar/summary_v2.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,19 +17,19 @@ page_type: reference
 
 
 
-Outputs a `Summary` protocol buffer containing a single scalar value.
+Write a scalar summary.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/summary/scalar"><code>tf.compat.v1.summary.scalar</code></a>
+* `tf.compat.v2.summary.scalar`
 
 
 ``` python
 tf.summary.scalar(
     name,
-    tensor,
-    collections=None,
-    family=None
+    data,
+    step=None,
+    description=None
 )
 ```
 
@@ -43,27 +37,29 @@ tf.summary.scalar(
 
 <!-- Placeholder for "Used in" -->
 
-The generated Summary has a Tensor.proto containing the input Tensor.
 
-#### Args:
+#### Arguments:
 
 
-* <b>`name`</b>: A name for the generated node. Will also serve as the series name in
-  TensorBoard.
-* <b>`tensor`</b>: A real numeric Tensor containing a single value.
-* <b>`collections`</b>: Optional list of graph collections keys. The new summary op is
-  added to these collections. Defaults to `[GraphKeys.SUMMARIES]`.
-* <b>`family`</b>: Optional; if provided, used as the prefix of the summary tag name,
-  which controls the tab name used for display on Tensorboard.
+* <b>`name`</b>: A name for this summary. The summary tag used for TensorBoard will
+  be this name prefixed by any active name scopes.
+* <b>`data`</b>: A real numeric scalar value, convertible to a `float32` Tensor.
+* <b>`step`</b>: Explicit `int64`-castable monotonic step value for this summary. If
+  omitted, this defaults to <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a>, which must
+  not be None.
+* <b>`description`</b>: Optional long-form description for this summary, as a
+  constant `str`. Markdown is supported. Defaults to empty.
 
 
 #### Returns:
 
-A scalar `Tensor` of type `string`. Which contains a `Summary` protobuf.
+True on success, or false if no summary was written because no default
+summary writer was available.
 
 
 
 #### Raises:
 
 
-* <b>`ValueError`</b>: If tensor has the wrong shape or type.
+* <b>`ValueError`</b>: if a default writer exists, but no step was provided and
+  <a href="../../tf/summary/experimental/get_step"><code>tf.summary.experimental.get_step()</code></a> is None.

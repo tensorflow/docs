@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/convert_to_tensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L1127-L1184">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L1187-L1242">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,22 +21,32 @@ Converts the given `value` to a `Tensor`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/convert_to_tensor"><code>tf.compat.v1.convert_to_tensor</code></a>
+* `tf.compat.v2.convert_to_tensor`
 
 
 ``` python
 tf.convert_to_tensor(
     value,
     dtype=None,
-    name=None,
-    preferred_dtype=None,
-    dtype_hint=None
+    dtype_hint=None,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+
+### Used in the tutorials:
+
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+
+
 
 This function converts Python objects of various types to `Tensor`
 objects. It accepts `Tensor` objects, numpy arrays, Python lists,
@@ -77,13 +81,12 @@ Note: This function diverges from default Numpy behavior for `float` and
 * <b>`value`</b>: An object whose type has a registered `Tensor` conversion function.
 * <b>`dtype`</b>: Optional element type for the returned tensor. If missing, the type
   is inferred from the type of `value`.
+* <b>`dtype_hint`</b>: Optional element type for the returned tensor, used when dtype
+  is None. In some cases, a caller may not have a dtype in mind when
+  converting to a tensor, so dtype_hint can be used as a soft preference.
+  If the conversion to `dtype_hint` is not possible, this argument has no
+  effect.
 * <b>`name`</b>: Optional name to use if a new `Tensor` is created.
-* <b>`preferred_dtype`</b>: Optional element type for the returned tensor, used when
-  dtype is None. In some cases, a caller may not have a dtype in mind when
-  converting to a tensor, so preferred_dtype can be used as a soft
-  preference.  If the conversion to `preferred_dtype` is not possible, this
-  argument has no effect.
-* <b>`dtype_hint`</b>: same meaning as preferred_dtype, and overrides it.
 
 
 #### Returns:

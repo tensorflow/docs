@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/experimental/stop_if_no_decrease_hook">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/early_stopping.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -27,8 +21,8 @@ Creates hook to stop if metric does not decrease within given max steps.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/estimator/experimental/stop_if_no_decrease_hook"><code>tf.compat.v1.estimator.experimental.stop_if_no_decrease_hook</code></a>
-* <a href="/api_docs/python/tf/estimator/experimental/stop_if_no_decrease_hook"><code>tf.compat.v2.estimator.experimental.stop_if_no_decrease_hook</code></a>
+* `tf.compat.v1.estimator.experimental.stop_if_no_decrease_hook`
+* `tf.compat.v2.estimator.experimental.stop_if_no_decrease_hook`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/batch_dot">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1701-L1790">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L1707-L1904">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Batchwise dot product.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/batch_dot"><code>tf.compat.v1.keras.backend.batch_dot</code></a>
-* <a href="/api_docs/python/tf/keras/backend/batch_dot"><code>tf.compat.v2.keras.backend.batch_dot</code></a>
+* `tf.compat.v1.keras.backend.batch_dot`
+* `tf.compat.v2.keras.backend.batch_dot`
 
 
 ``` python
@@ -55,8 +49,8 @@ we use `expand_dims` to make sure that ndim is at least 2.
 
 * <b>`x`</b>: Keras tensor or variable with `ndim >= 2`.
 * <b>`y`</b>: Keras tensor or variable with `ndim >= 2`.
-* <b>`axes`</b>: list of (or single) int with target dimensions.
-    The lengths of `axes[0]` and `axes[1]` should be the same.
+* <b>`axes`</b>: Tuple or list of integers with target dimensions, or single integer.
+  The sizes of `x.shape[axes[0]]` and `y.shape[axes[1]]` should be equal.
 
 
 #### Returns:
@@ -71,15 +65,22 @@ If the final rank is 1, we reshape it to `(batch_size, 1)`.
 #### Examples:
 
 Assume `x = [[1, 2], [3, 4]]` and `y = [[5, 6], [7, 8]]`
-`batch_dot(x, y, axes=1) = [[17, 53]]` which is the main diagonal
+`batch_dot(x, y, axes=1) = [[17], [53]]` which is the main diagonal
 of `x.dot(y.T)`, although we never have to calculate the off-diagonal
 elements.
+
+
+* <b>`Pseudocode`</b>: ```
+inner_products = []
+for xi, yi in zip(x, y):
+    inner_products.append(xi.dot(yi))
+result = stack(inner_products)
+```
 
 Shape inference:
 Let `x`'s shape be `(100, 20)` and `y`'s shape be `(100, 30, 20)`.
 If `axes` is (1, 2), to find the output shape of resultant tensor,
     loop through each dimension in `x`'s shape and `y`'s shape:
-
 * `x.shape[0]` : 100 : append to output shape
 * `x.shape[1]` : 20 : do not append to output shape,
     dimension 1 of `x` has been summed over. (`dot_axes[0]` = 1)
@@ -90,11 +91,8 @@ If `axes` is (1, 2), to find the output shape of resultant tensor,
     dimension 2 of `y` has been summed over. (`dot_axes[1]` = 2)
 `output_shape` = `(100, 30)`
 
-
-```python
->>> x_batch = K.ones(shape=(32, 20, 1))
->>> y_batch = K.ones(shape=(32, 30, 20))
->>> xy_batch_dot = K.batch_dot(x_batch, y_batch, axes=[1, 2])
->>> K.int_shape(xy_batch_dot)
+>>> x_batch = tf.keras.backend.ones(shape=(32, 20, 1))
+>>> y_batch = tf.keras.backend.ones(shape=(32, 30, 20))
+>>> xy_batch_dot = tf.keras.backend.batch_dot(x_batch, y_batch, axes=(1, 2))
+>>> tf.keras.backend.int_shape(xy_batch_dot)
 (32, 1, 30)
-```

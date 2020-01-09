@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/prefetch_to_device">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/prefetching_ops.py#L36-L56">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/prefetching_ops.py#L36-L56">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A transformation that prefetches dataset values to the given `device`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/prefetch_to_device"><code>tf.compat.v1.data.experimental.prefetch_to_device</code></a>
-* <a href="/api_docs/python/tf/data/experimental/prefetch_to_device"><code>tf.compat.v2.data.experimental.prefetch_to_device</code></a>
+* `tf.compat.v1.data.experimental.prefetch_to_device`
+* `tf.compat.v2.data.experimental.prefetch_to_device`
 
 
 ``` python

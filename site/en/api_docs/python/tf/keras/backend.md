@@ -7,29 +7,14 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Keras backend API.
 
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/backend"><code>tf.compat.v1.keras.backend</code></a>
-
-
 <!-- Placeholder for "Used in" -->
 
-
-## Classes
-
-[`class name_scope`](../../tf/name_scope): A context manager for use when defining a Python op.
 
 ## Functions
 
@@ -129,8 +114,6 @@ Keras backend API.
 
 [`gather(...)`](../../tf/keras/backend/gather): Retrieves the elements of indices `indices` in the tensor `reference`.
 
-[`get_session(...)`](../../tf/keras/backend/get_session): Returns the TF session to be used by the backend.
-
 [`get_uid(...)`](../../tf/keras/backend/get_uid): Associates a string prefix with an integer counter in a TensorFlow graph.
 
 [`get_value(...)`](../../tf/keras/backend/get_value): Returns the value of a variable.
@@ -152,6 +135,8 @@ Keras backend API.
 [`in_train_phase(...)`](../../tf/keras/backend/in_train_phase): Selects `x` in train phase, and `alt` otherwise.
 
 [`int_shape(...)`](../../tf/keras/backend/int_shape): Returns the shape of tensor or variable as a tuple of int or None entries.
+
+[`is_keras_tensor(...)`](../../tf/keras/backend/is_keras_tensor): Returns whether `x` is a Keras tensor.
 
 [`is_sparse(...)`](../../tf/keras/backend/is_sparse): Returns whether a tensor is a sparse tensor.
 
@@ -186,6 +171,8 @@ Keras backend API.
 [`minimum(...)`](../../tf/keras/backend/minimum): Element-wise minimum of two tensors.
 
 [`moving_average_update(...)`](../../tf/keras/backend/moving_average_update): Compute the moving average of a variable.
+
+[`name_scope(...)`](../../tf/keras/backend/name_scope): A context manager for use when defining a Python op.
 
 [`ndim(...)`](../../tf/keras/backend/ndim): Returns the number of axes in a tensor, as an integer.
 
@@ -252,8 +239,6 @@ Keras backend API.
 [`set_image_data_format(...)`](../../tf/keras/backend/set_image_data_format): Sets the value of the image data format convention.
 
 [`set_learning_phase(...)`](../../tf/keras/backend/set_learning_phase): Sets the learning phase to a fixed value.
-
-[`set_session(...)`](../../tf/keras/backend/set_session): Sets the global TensorFlow session.
 
 [`set_value(...)`](../../tf/keras/backend/set_value): Sets the value of a variable, from a Numpy array.
 

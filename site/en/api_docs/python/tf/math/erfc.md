@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/erfc">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,10 +17,9 @@ Computes the complementary error function of `x` element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/erfc"><code>tf.compat.v1.erfc</code></a>
-* <a href="/api_docs/python/tf/math/erfc"><code>tf.compat.v1.math.erfc</code></a>
-* <a href="/api_docs/python/tf/math/erfc"><code>tf.compat.v2.math.erfc</code></a>
-* <a href="/api_docs/python/tf/math/erfc"><code>tf.erfc</code></a>
+* `tf.compat.v1.erfc`
+* `tf.compat.v1.math.erfc`
+* `tf.compat.v2.math.erfc`
 
 
 ``` python

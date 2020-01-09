@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/LocallyConnected2D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L335-L655">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/local.py#L335-L655">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected2D"><code>tf.compat.v1.keras.layers.LocallyConnected2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected2D"><code>tf.compat.v2.keras.layers.LocallyConnected2D</code></a>
+* Class `tf.compat.v1.keras.layers.LocallyConnected2D`
+* Class `tf.compat.v2.keras.layers.LocallyConnected2D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -152,7 +146,7 @@ or 4D tensor with shape:
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L442-L479">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/local.py#L442-L479">View source</a>
 
 ``` python
 __init__(

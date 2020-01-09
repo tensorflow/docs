@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/ConvLSTM2D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional_recurrent.py#L758-L1062">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional_recurrent.py#L758-L1062">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Convolutional LSTM.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/ConvLSTM2D"><code>tf.compat.v1.keras.layers.ConvLSTM2D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/ConvLSTM2D"><code>tf.compat.v2.keras.layers.ConvLSTM2D</code></a>
+* Class `tf.compat.v1.keras.layers.ConvLSTM2D`
+* Class `tf.compat.v2.keras.layers.ConvLSTM2D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -171,7 +165,7 @@ cells output.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional_recurrent.py#L877-L931">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional_recurrent.py#L877-L931">View source</a>
 
 ``` python
 __init__(
@@ -327,7 +321,7 @@ __init__(
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional_recurrent.py#L278-L292">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional_recurrent.py#L278-L292">View source</a>
 
 ``` python
 get_initial_state(inputs)
@@ -338,7 +332,7 @@ get_initial_state(inputs)
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/convolutional_recurrent.py#L414-L482">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/convolutional_recurrent.py#L414-L482">View source</a>
 
 ``` python
 reset_states(states=None)

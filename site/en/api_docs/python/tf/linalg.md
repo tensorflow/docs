@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -82,7 +76,7 @@ Operations for linear algebra.
 
 [`eigvalsh(...)`](../tf/linalg/eigvalsh): Computes the eigenvalues of one or more self-adjoint matrices.
 
-[`einsum(...)`](../tf/einsum): Tensor contraction over specified indices and outer product.
+[`einsum(...)`](../tf/einsum): A generalized contraction between tensors of arbitrary dimension.
 
 [`expm(...)`](../tf/linalg/expm): Computes the matrix exponential of one or more square matrices.
 
@@ -92,7 +86,7 @@ Operations for linear algebra.
 
 [`inv(...)`](../tf/linalg/inv): Computes the inverse of one or more square invertible matrices or their
 
-[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
+[`l2_normalize(...)`](../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm.
 
 [`logdet(...)`](../tf/linalg/logdet): Computes log of the determinant of a hermitian positive definite matrix.
 
@@ -104,17 +98,13 @@ Operations for linear algebra.
 
 [`matmul(...)`](../tf/linalg/matmul): Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
 
-[`matrix_rank(...)`](../tf/linalg/matrix_rank): Compute the matrix rank of one or more matrices.
-
 [`matrix_transpose(...)`](../tf/linalg/matrix_transpose): Transposes last two dimensions of tensor `a`.
 
 [`matvec(...)`](../tf/linalg/matvec): Multiplies matrix `a` by vector `b`, producing `a` * `b`.
 
-[`norm(...)`](../tf/norm): Computes the norm of vectors, matrices, and tensors. (deprecated arguments)
+[`norm(...)`](../tf/norm): Computes the norm of vectors, matrices, and tensors.
 
 [`normalize(...)`](../tf/linalg/normalize): Normalizes `tensor` along dimension `axis` using specified norm.
-
-[`pinv(...)`](../tf/linalg/pinv): Compute the Moore-Penrose pseudo-inverse of one or more matrices.
 
 [`qr(...)`](../tf/linalg/qr): Computes the QR decompositions of one or more matrices.
 
@@ -132,11 +122,9 @@ Operations for linear algebra.
 
 [`tensor_diag_part(...)`](../tf/linalg/tensor_diag_part): Returns the diagonal part of the tensor.
 
-[`tensordot(...)`](../tf/tensordot): Tensor contraction of a and b along specified axes and outer product.
+[`tensordot(...)`](../tf/tensordot): Tensor contraction of a and b along specified axes.
 
 [`trace(...)`](../tf/linalg/trace): Compute the trace of a tensor `x`.
-
-[`transpose(...)`](../tf/linalg/matrix_transpose): Transposes last two dimensions of tensor `a`.
 
 [`triangular_solve(...)`](../tf/linalg/triangular_solve): Solves systems of linear equations with upper or lower triangular matrices by backsubstitution.
 

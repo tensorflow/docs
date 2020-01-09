@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/Counter">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/counter.py#L58-L60">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/counter.py#L28-L55">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Creates a `Dataset` that counts from `start` in steps of size `step`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/Counter"><code>tf.compat.v1.data.experimental.Counter</code></a>
+* `tf.compat.v2.data.experimental.Counter`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.data.experimental.Counter(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 
 #### For example:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/stack">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L3075-L3098">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L3189-L3212">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Stacks a list of rank `R` tensors into a rank `R+1` tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/stack"><code>tf.compat.v1.keras.backend.stack</code></a>
-* <a href="/api_docs/python/tf/keras/backend/stack"><code>tf.compat.v2.keras.backend.stack</code></a>
+* `tf.compat.v1.keras.backend.stack`
+* `tf.compat.v2.keras.backend.stack`
 
 
 ``` python
@@ -58,13 +52,13 @@ A tensor.
 
 #### Example:
 
-```python
->>> a = tf.constant([[1, 2],[3, 4]])
->>> b = tf.constant([[10, 20],[30, 40]])
->>> tf.keras.backend.stack((a, b))
-<tf.Tensor: id=146, shape=(2, 2, 2), dtype=int32, numpy=
-array([[[ 1,  2],
-        [ 3,  4]],
-       [[10, 20],
-        [30, 40]]], dtype=int32)>
-```
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}a = tf.constant([[1, 2],[3, 4]]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> b = tf.constant([[10, 20],[30, 40]]){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  >>> tf.keras.backend.stack((a, b)){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=146, shape=(2, 2, 2), dtype=int32, numpy={% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  array([[[ 1,  2],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}          [ 3,  4]],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}         [[10, 20],{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}          [30, 40]]], dtype=int32)>{% endhtmlescape %}</code>
+  </pre>

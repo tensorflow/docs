@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/experimental/PeepholeLSTMCell">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2318-L2392">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L2318-L2392">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,12 @@ page_type: reference
 
 Equivalent to LSTMCell class but adds peephole connections.
 
-Inherits From: [`LSTMCell`](../../../tf/keras/layers/LSTMCell)
+Inherits From: [`LSTMCell`](../../../tf/compat/v1/keras/layers/LSTMCell)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/experimental/PeepholeLSTMCell"><code>tf.compat.v1.keras.experimental.PeepholeLSTMCell</code></a>
-* Class <a href="/api_docs/python/tf/keras/experimental/PeepholeLSTMCell"><code>tf.compat.v2.keras.experimental.PeepholeLSTMCell</code></a>
+* Class `tf.compat.v1.keras.experimental.PeepholeLSTMCell`
+* Class `tf.compat.v2.keras.experimental.PeepholeLSTMCell`
 
 
 <!-- Placeholder for "Used in" -->
@@ -69,7 +63,7 @@ output = layer(input)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2100-L2148">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L2100-L2148">View source</a>
 
 ``` python
 __init__(
@@ -103,7 +97,7 @@ __init__(
 
 <h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1033-L1067">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1033-L1067">View source</a>
 
 ``` python
 get_dropout_mask_for_cell(
@@ -135,7 +129,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L2312-L2314">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L2312-L2314">View source</a>
 
 ``` python
 get_initial_state(
@@ -150,7 +144,7 @@ get_initial_state(
 
 <h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1069-L1105">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1069-L1105">View source</a>
 
 ``` python
 get_recurrent_dropout_mask_for_cell(
@@ -182,7 +176,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1009-L1019">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1009-L1019">View source</a>
 
 ``` python
 reset_dropout_mask()
@@ -198,7 +192,7 @@ against certain index of data within the batch.
 
 <h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L1021-L1031">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L1021-L1031">View source</a>
 
 ``` python
 reset_recurrent_dropout_mask()

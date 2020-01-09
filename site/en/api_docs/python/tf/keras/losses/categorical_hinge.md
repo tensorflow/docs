@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/categorical_hinge">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L861-L877">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L866-L882">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,10 @@ Computes the categorical hinge loss between `y_true` and `y_pred`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/losses/categorical_hinge"><code>tf.compat.v1.keras.losses.categorical_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/categorical_hinge"><code>tf.compat.v2.keras.losses.categorical_hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/categorical_hinge"><code>tf.compat.v2.losses.categorical_hinge</code></a>
+* `tf.compat.v1.keras.losses.categorical_hinge`
+* `tf.compat.v2.keras.losses.categorical_hinge`
+* `tf.compat.v2.losses.categorical_hinge`
+* `tf.losses.categorical_hinge`
 
 
 ``` python

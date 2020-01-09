@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/compat/path_to_str">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/util/compat.py#L128-L164">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/util/compat.py#L128-L164">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Converts input which is a `PathLike` object to `str` type.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/compat/path_to_str"><code>tf.compat.v1.compat.path_to_str</code></a>
-* <a href="/api_docs/python/tf/compat/path_to_str"><code>tf.compat.v2.compat.path_to_str</code></a>
+* `tf.compat.v1.compat.path_to_str`
+* `tf.compat.v2.compat.path_to_str`
 
 
 ``` python

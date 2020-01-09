@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/RegisterGradient">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2445-L2487">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2448-L2490">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ A decorator for registering the gradient function for an op type.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/RegisterGradient"><code>tf.compat.v1.RegisterGradient</code></a>
-* Class <a href="/api_docs/python/tf/RegisterGradient"><code>tf.compat.v2.RegisterGradient</code></a>
+* Class `tf.compat.v1.RegisterGradient`
+* Class `tf.compat.v2.RegisterGradient`
 
 
 <!-- Placeholder for "Used in" -->
@@ -60,7 +54,7 @@ that defines the operation.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2470-L2482">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2473-L2485">View source</a>
 
 ``` python
 __init__(op_type)
@@ -87,7 +81,7 @@ Creates a new decorator with `op_type` as the Operation type.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L2484-L2487">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L2487-L2490">View source</a>
 
 ``` python
 __call__(f)

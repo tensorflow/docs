@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/unsorted_segment_join">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,8 +17,8 @@ Joins the elements of `inputs` based on `segment_ids`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/unsorted_segment_join"><code>tf.compat.v1.strings.unsorted_segment_join</code></a>
-* <a href="/api_docs/python/tf/strings/unsorted_segment_join"><code>tf.compat.v2.strings.unsorted_segment_join</code></a>
+* `tf.compat.v1.strings.unsorted_segment_join`
+* `tf.compat.v2.strings.unsorted_segment_join`
 
 
 ``` python

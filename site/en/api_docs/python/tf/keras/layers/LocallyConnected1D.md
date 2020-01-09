@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/LocallyConnected1D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L36-L331">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/local.py#L36-L331">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected1D"><code>tf.compat.v1.keras.layers.LocallyConnected1D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/LocallyConnected1D"><code>tf.compat.v2.keras.layers.LocallyConnected1D</code></a>
+* Class `tf.compat.v1.keras.layers.LocallyConnected1D`
+* Class `tf.compat.v2.keras.layers.LocallyConnected1D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -140,7 +134,7 @@ of the input.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/local.py#L131-L168">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/local.py#L131-L168">View source</a>
 
 ``` python
 __init__(

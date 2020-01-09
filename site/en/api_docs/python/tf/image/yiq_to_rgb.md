@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/yiq_to_rgb">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L2883-L2903">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L2883-L2903">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Converts one or more images from YIQ to RGB.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/yiq_to_rgb"><code>tf.compat.v1.image.yiq_to_rgb</code></a>
-* <a href="/api_docs/python/tf/image/yiq_to_rgb"><code>tf.compat.v2.image.yiq_to_rgb</code></a>
+* `tf.compat.v1.image.yiq_to_rgb`
+* `tf.compat.v2.image.yiq_to_rgb`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/signal/fftshift">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/signal/fft_ops.py#L329-L367">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/signal/fft_ops.py#L329-L367">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Shift the zero-frequency component to the center of the spectrum.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/fftshift"><code>tf.compat.v1.signal.fftshift</code></a>
-* <a href="/api_docs/python/tf/signal/fftshift"><code>tf.compat.v2.signal.fftshift</code></a>
+* `tf.compat.v1.signal.fftshift`
+* `tf.compat.v2.signal.fftshift`
 
 
 ``` python

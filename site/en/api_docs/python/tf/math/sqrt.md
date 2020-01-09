@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/sqrt">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,11 +18,11 @@ Computes square root of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v1.math.sqrt</code></a>
-* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v1.sqrt</code></a>
-* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v2.math.sqrt</code></a>
-* <a href="/api_docs/python/tf/math/sqrt"><code>tf.compat.v2.sqrt</code></a>
-* <a href="/api_docs/python/tf/math/sqrt"><code>tf.sqrt</code></a>
+* `tf.compat.v1.math.sqrt`
+* `tf.compat.v1.sqrt`
+* `tf.compat.v2.math.sqrt`
+* `tf.compat.v2.sqrt`
+* `tf.sqrt`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.math.sqrt(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 I.e., \\(y = \sqrt{x} = x^{1/2}\\).
 

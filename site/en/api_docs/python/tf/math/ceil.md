@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/ceil">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,10 +17,9 @@ Returns element-wise smallest integer not less than x.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/ceil"><code>tf.ceil</code></a>
-* <a href="/api_docs/python/tf/math/ceil"><code>tf.compat.v1.ceil</code></a>
-* <a href="/api_docs/python/tf/math/ceil"><code>tf.compat.v1.math.ceil</code></a>
-* <a href="/api_docs/python/tf/math/ceil"><code>tf.compat.v2.math.ceil</code></a>
+* `tf.compat.v1.ceil`
+* `tf.compat.v1.math.ceil`
+* `tf.compat.v2.math.ceil`
 
 
 ``` python

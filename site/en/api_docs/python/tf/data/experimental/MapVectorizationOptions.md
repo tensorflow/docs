@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/MapVectorizationOptions">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/optimization_options.py#L25-L53">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/optimization_options.py#L25-L53">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Represents options for the MapVectorization optimization.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/data/experimental/MapVectorizationOptions"><code>tf.compat.v1.data.experimental.MapVectorizationOptions</code></a>
-* Class <a href="/api_docs/python/tf/data/experimental/MapVectorizationOptions"><code>tf.compat.v2.data.experimental.MapVectorizationOptions</code></a>
+* Class `tf.compat.v1.data.experimental.MapVectorizationOptions`
+* Class `tf.compat.v2.data.experimental.MapVectorizationOptions`
 
 
 <!-- Placeholder for "Used in" -->
@@ -40,7 +34,7 @@ Represents options for the MapVectorization optimization.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L33-L35">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L33-L35">View source</a>
 
 ``` python
 __init__()
@@ -69,7 +63,7 @@ Whether to use ChooseFastestBranchDataset with this transformation. If True, the
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L37-L43">View source</a>
 
 ``` python
 __eq__(other)
@@ -80,7 +74,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/util/options.py#L45-L49">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/util/options.py#L45-L49">View source</a>
 
 ``` python
 __ne__(other)

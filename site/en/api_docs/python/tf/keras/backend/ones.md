@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/ones">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1308-L1340">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L1314-L1346">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Instantiates an all-ones variable and returns it.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/ones"><code>tf.compat.v1.keras.backend.ones</code></a>
-* <a href="/api_docs/python/tf/keras/backend/ones"><code>tf.compat.v2.keras.backend.ones</code></a>
+* `tf.compat.v1.keras.backend.ones`
+* `tf.compat.v2.keras.backend.ones`
 
 
 ``` python
@@ -64,10 +58,10 @@ and will return a dynamically-shaped tensor instead.
 
 
 ```python
->>> from keras import backend as K
->>> kvar = K.ones((3,4))
->>> K.eval(kvar)
-array([[ 1.,  1.,  1.,  1.],
-       [ 1.,  1.,  1.,  1.],
-       [ 1.,  1.,  1.,  1.]], dtype=float32)
+    >>> from keras import backend as K
+    >>> kvar = K.ones((3,4))
+    >>> K.eval(kvar)
+    array([[ 1.,  1.,  1.,  1.],
+           [ 1.,  1.,  1.,  1.],
+           [ 1.,  1.,  1.,  1.]], dtype=float32)
 ```

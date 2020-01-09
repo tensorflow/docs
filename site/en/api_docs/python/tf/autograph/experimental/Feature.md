@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/autograph/experimental/Feature">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/core/converter.py#L90-L139">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/autograph/core/converter.py#L90-L139">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ This enumeration represents optional conversion options.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/autograph/experimental/Feature"><code>tf.compat.v1.autograph.experimental.Feature</code></a>
-* Class <a href="/api_docs/python/tf/autograph/experimental/Feature"><code>tf.compat.v2.autograph.experimental.Feature</code></a>
-* Class <a href="/api_docs/python/tf/autograph/experimental/Feature"><code>tf.contrib.autograph.Feature</code></a>
+* Class `tf.compat.v1.autograph.experimental.Feature`
+* Class `tf.compat.v2.autograph.experimental.Feature`
 
 
 <!-- Placeholder for "Used in" -->

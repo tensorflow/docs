@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/realdiv">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,8 +17,8 @@ Returns x / y element-wise for real types.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/realdiv"><code>tf.compat.v1.realdiv</code></a>
-* <a href="/api_docs/python/tf/realdiv"><code>tf.compat.v2.realdiv</code></a>
+* `tf.compat.v1.realdiv`
+* `tf.compat.v2.realdiv`
 
 
 ``` python

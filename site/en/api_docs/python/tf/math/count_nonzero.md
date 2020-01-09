@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/count_nonzero">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1608-L1681">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1695-L1759">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,25 +17,20 @@ page_type: reference
 
 
 
-Computes number of nonzero elements across dimensions of a tensor. (deprecated arguments) (deprecated arguments)
+Computes number of nonzero elements across dimensions of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/count_nonzero"><code>tf.compat.v1.count_nonzero</code></a>
-* <a href="/api_docs/python/tf/math/count_nonzero"><code>tf.compat.v1.math.count_nonzero</code></a>
-* <a href="/api_docs/python/tf/math/count_nonzero"><code>tf.count_nonzero</code></a>
+* `tf.compat.v2.math.count_nonzero`
 
 
 ``` python
 tf.math.count_nonzero(
-    input_tensor=None,
+    input,
     axis=None,
     keepdims=None,
     dtype=tf.dtypes.int64,
-    name=None,
-    reduction_indices=None,
-    keep_dims=None,
-    input=None
+    name=None
 )
 ```
 
@@ -49,15 +38,7 @@ tf.math.count_nonzero(
 
 <!-- Placeholder for "Used in" -->
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(keep_dims)`. They will be removed in a future version.
-Instructions for updating:
-keep_dims is deprecated, use keepdims instead
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(axis)`. They will be removed in a future version.
-Instructions for updating:
-reduction_indices is deprecated, use axis instead
-
-Reduces `input_tensor` along the dimensions given in `axis`.
+Reduces `input` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
 entry in `axis`. If `keepdims` is true, the reduced dimensions
 are retained with length 1.
@@ -96,17 +77,12 @@ tf.math.count_nonzero(x) # 3, with "a", "  ", and "b" as nonzero strings.
 #### Args:
 
 
-* <b>`input_tensor`</b>: The tensor to reduce. Should be of numeric type, `bool`, or
-  `string`.
+* <b>`input`</b>: The tensor to reduce. Should be of numeric type, `bool`, or `string`.
 * <b>`axis`</b>: The dimensions to reduce. If `None` (the default), reduces all
-  dimensions. Must be in the range `[-rank(input_tensor),
-  rank(input_tensor))`.
+  dimensions. Must be in the range `[-rank(input), rank(input))`.
 * <b>`keepdims`</b>: If true, retains reduced dimensions with length 1.
 * <b>`dtype`</b>: The output dtype; defaults to <a href="../../tf#int64"><code>tf.int64</code></a>.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`reduction_indices`</b>: The old (deprecated) name for axis.
-* <b>`keep_dims`</b>: Deprecated alias for `keepdims`.
-* <b>`input`</b>: Overrides input_tensor. For compatibility.
 
 
 #### Returns:

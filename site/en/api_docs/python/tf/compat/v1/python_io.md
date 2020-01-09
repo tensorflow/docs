@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/python_io">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,7 +18,7 @@ Python functions for directly manipulating TFRecord-formatted files.
 
 ## Classes
 
-[`class TFRecordCompressionType`](../../../tf/io/TFRecordCompressionType): The type of compression for the record.
+[`class TFRecordCompressionType`](../../../tf/compat/v1/io/TFRecordCompressionType): The type of compression for the record.
 
 [`class TFRecordOptions`](../../../tf/io/TFRecordOptions): Options used for manipulating TFRecord files.
 
@@ -32,4 +26,4 @@ Python functions for directly manipulating TFRecord-formatted files.
 
 ## Functions
 
-[`tf_record_iterator(...)`](../../../tf/io/tf_record_iterator): An iterator that read the records from a TFRecords file. (deprecated)
+[`tf_record_iterator(...)`](../../../tf/compat/v1/io/tf_record_iterator): An iterator that read the records from a TFRecords file. (deprecated)

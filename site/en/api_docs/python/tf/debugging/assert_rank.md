@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_rank">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1096-L1155">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1175-L1205">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,21 +17,19 @@ page_type: reference
 
 
 
-Assert `x` has rank equal to `rank`.
+Assert that `x` has rank equal to `rank`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_rank"><code>tf.assert_rank</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_rank"><code>tf.compat.v1.assert_rank</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_rank"><code>tf.compat.v1.debugging.assert_rank</code></a>
+* `tf.assert_rank`
+* `tf.compat.v2.assert_rank`
+* `tf.compat.v2.debugging.assert_rank`
 
 
 ``` python
 tf.debugging.assert_rank(
     x,
     rank,
-    data=None,
-    summarize=None,
     message=None,
     name=None
 )
@@ -47,33 +39,37 @@ tf.debugging.assert_rank(
 
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+This Op checks that the rank of `x` is equal to `rank`.
 
-```python
-with tf.control_dependencies([tf.compat.v1.assert_rank(x, 2)]):
-  output = tf.reduce_sum(x)
-```
+If `x` has a different rank, `message`, as well as the shape of `x` are
+printed, and `InvalidArgumentError` is raised.
 
 #### Args:
 
 
-* <b>`x`</b>:  Numeric `Tensor`.
-* <b>`rank`</b>:  Scalar integer `Tensor`.
-* <b>`data`</b>:  The tensors to print out if the condition is False.  Defaults to
-  error message and the shape of `x`.
-* <b>`summarize`</b>: Print this many entries of each tensor.
+* <b>`x`</b>: `Tensor`.
+* <b>`rank`</b>: Scalar integer `Tensor`.
 * <b>`message`</b>: A string to prefix to the default message.
-* <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_rank".
+* <b>`name`</b>: A name for this operation (optional). Defaults to
+  "assert_rank".
 
 
 #### Returns:
 
 Op raising `InvalidArgumentError` unless `x` has specified rank.
 If static checks determine `x` has correct rank, a `no_op` is returned.
+This can be used with <a href="../../tf/control_dependencies"><code>tf.control_dependencies</code></a> inside of <a href="../../tf/function"><code>tf.function</code></a>s
+to block followup computation until the check has executed.
+
 
 
 
 #### Raises:
 
 
-* <b>`ValueError`</b>:  If static checks determine `x` has wrong rank.
+* <b>`InvalidArgumentError`</b>: if the check can be performed immediately and
+  `x` does not have rank `rank`. The check can be performed immediately
+  during eager execution or if the shape of `x` is statically known.
+
+#### Eager Compatibility
+returns None

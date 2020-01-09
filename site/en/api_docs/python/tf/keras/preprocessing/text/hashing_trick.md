@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/text/hashing_trick">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -22,8 +16,8 @@ Converts a text to a sequence of indexes in a fixed-size hashing space.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/text/hashing_trick"><code>tf.compat.v1.keras.preprocessing.text.hashing_trick</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/text/hashing_trick"><code>tf.compat.v2.keras.preprocessing.text.hashing_trick</code></a>
+* `tf.compat.v1.keras.preprocessing.text.hashing_trick`
+* `tf.compat.v2.keras.preprocessing.text.hashing_trick`
 
 
 ``` python

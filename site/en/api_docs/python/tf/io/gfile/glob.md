@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/gfile/glob">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L366-L393">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/file_io.py#L366-L393">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns a list of files that match the given pattern(s).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/gfile/glob"><code>tf.compat.v1.io.gfile.glob</code></a>
-* <a href="/api_docs/python/tf/io/gfile/glob"><code>tf.compat.v2.io.gfile.glob</code></a>
+* `tf.compat.v1.io.gfile.glob`
+* `tf.compat.v2.io.gfile.glob`
 
 
 ``` python
@@ -55,4 +49,4 @@ A list of strings containing filenames that match the given pattern(s).
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If there are filesystem / directory listing errors.
+* <b>`errors.OpError`</b>: If there are filesystem / directory listing errors.

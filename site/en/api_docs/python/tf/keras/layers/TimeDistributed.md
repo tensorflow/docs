@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/TimeDistributed">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L90-L335">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/wrappers.py#L90-L335">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Wrapper`](../../../tf/keras/layers/Wrapper)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/TimeDistributed"><code>tf.compat.v1.keras.layers.TimeDistributed</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/TimeDistributed"><code>tf.compat.v2.keras.layers.TimeDistributed</code></a>
+* Class `tf.compat.v1.keras.layers.TimeDistributed`
+* Class `tf.compat.v2.keras.layers.TimeDistributed`
 
 
 <!-- Placeholder for "Used in" -->
@@ -100,7 +94,7 @@ model.add(TimeDistributed(Conv2D(64, (3, 3)),
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/wrappers.py#L147-L159">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/wrappers.py#L147-L159">View source</a>
 
 ``` python
 __init__(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/SparseTensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L45-L251">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L45-L251">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,14 +25,19 @@ Represents a sparse tensor.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>
-* Class <a href="/api_docs/python/tf/sparse/SparseTensor"><code>tf.compat.v1.SparseTensor</code></a>
-* Class <a href="/api_docs/python/tf/sparse/SparseTensor"><code>tf.compat.v1.sparse.SparseTensor</code></a>
-* Class <a href="/api_docs/python/tf/sparse/SparseTensor"><code>tf.compat.v2.SparseTensor</code></a>
-* Class <a href="/api_docs/python/tf/sparse/SparseTensor"><code>tf.compat.v2.sparse.SparseTensor</code></a>
+* Class `tf.SparseTensor`
+* Class `tf.compat.v1.SparseTensor`
+* Class `tf.compat.v1.sparse.SparseTensor`
+* Class `tf.compat.v2.SparseTensor`
+* Class `tf.compat.v2.sparse.SparseTensor`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+
 
 TensorFlow represents a sparse tensor as three separate dense tensors:
 `indices`, `values`, and `dense_shape`.  In Python, the three tensors are
@@ -98,7 +97,7 @@ represents the dense tensor
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L115-L143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L115-L143">View source</a>
 
 ``` python
 __init__(
@@ -179,7 +178,7 @@ A 1-D Tensor of any data type.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
 
 ``` python
 __div__(
@@ -215,7 +214,7 @@ A `Tensor`. Has the same type as `sp_values`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
 
 ``` python
 __mul__(
@@ -255,7 +254,7 @@ A `Tensor`. Has the same type as `sp_values`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L914-L920">View source</a>
 
 ``` python
 __truediv__(
@@ -269,7 +268,7 @@ Internal helper function for 'sp_t / dense_t'.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L250-L251">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L250-L251">View source</a>
 
 ``` python
 consumers()
@@ -280,7 +279,7 @@ consumers()
 
 <h3 id="eval"><code>eval</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L205-L228">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L205-L228">View source</a>
 
 ``` python
 eval(
@@ -303,7 +302,7 @@ available, or `session` must be specified explicitly.
 
 
 * <b>`feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values. See
-  <a href="../../tf/Session#run"><code>tf.Session.run</code></a> for a description of the valid feed values.
+  `tf.Session.run` for a description of the valid feed values.
 * <b>`session`</b>: (Optional.) The `Session` to be used to evaluate this sparse
   tensor. If none, the default session will be used.
 
@@ -315,7 +314,7 @@ A `SparseTensorValue` object.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L105-L113">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L105-L113">View source</a>
 
 ``` python
 @classmethod
@@ -330,7 +329,7 @@ from_value(
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/sparse_tensor.py#L145-L151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/sparse_tensor.py#L145-L151">View source</a>
 
 ``` python
 get_shape()

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/utils/Progbar">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L311-L478">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/generic_utils.py#L311-L478">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Displays a progress bar.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/utils/Progbar"><code>tf.compat.v1.keras.utils.Progbar</code></a>
-* Class <a href="/api_docs/python/tf/keras/utils/Progbar"><code>tf.compat.v2.keras.utils.Progbar</code></a>
+* Class `tf.compat.v1.keras.utils.Progbar`
+* Class `tf.compat.v2.keras.utils.Progbar`
 
 
 <!-- Placeholder for "Used in" -->
@@ -53,7 +47,7 @@ Displays a progress bar.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L326-L349">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/generic_utils.py#L326-L349">View source</a>
 
 ``` python
 __init__(
@@ -75,7 +69,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="add"><code>add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L477-L478">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/generic_utils.py#L477-L478">View source</a>
 
 ``` python
 add(
@@ -89,7 +83,7 @@ add(
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/generic_utils.py#L351-L475">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/generic_utils.py#L351-L475">View source</a>
 
 ``` python
 update(

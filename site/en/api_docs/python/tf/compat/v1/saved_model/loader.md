@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/saved_model/loader">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -69,6 +63,6 @@ with tf.compat.v1.Session(graph=tf.Graph()) as sess:
 
 ## Functions
 
-[`load(...)`](../../../../tf/saved_model/load): Loads the model from a SavedModel as specified by tags. (deprecated)
+[`load(...)`](../../../../tf/compat/v1/saved_model/load): Loads the model from a SavedModel as specified by tags. (deprecated)
 
-[`maybe_saved_model_directory(...)`](../../../../tf/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.
+[`maybe_saved_model_directory(...)`](../../../../tf/compat/v1/saved_model/contains_saved_model): Checks whether the provided export directory could contain a SavedModel.

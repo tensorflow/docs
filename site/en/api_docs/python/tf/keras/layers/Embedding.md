@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Embedding">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/embeddings.py#L35-L202">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/embeddings.py#L35-L202">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,28 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Embedding"><code>tf.compat.v1.keras.layers.Embedding</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Embedding"><code>tf.compat.v2.keras.layers.Embedding</code></a>
+* Class `tf.compat.v1.keras.layers.Embedding`
+* Class `tf.compat.v2.keras.layers.Embedding`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Masking and padding with Keras](https://www.tensorflow.org/guide/keras/masking_and_padding)
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+
+### Used in the tutorials:
+
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Load text](https://www.tensorflow.org/tutorials/load_data/text)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Text classification with an RNN](https://www.tensorflow.org/tutorials/text/text_classification_rnn)
+* [Text classification with preprocessed text: Movie reviews](https://www.tensorflow.org/tutorials/keras/text_classification)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+* [Word embeddings](https://www.tensorflow.org/tutorials/text/word_embeddings)
+
+
 
 e.g. `[[4], [20]] -> [[0.25, 0.1], [0.6, -0.2]]`
 
@@ -101,7 +112,7 @@ assert output_array.shape == (32, 10, 64)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/embeddings.py#L91-L122">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/embeddings.py#L91-L122">View source</a>
 
 ``` python
 __init__(

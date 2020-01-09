@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/logm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_linalg_ops.py`
@@ -24,8 +18,8 @@ Computes the matrix logarithm of one or more square matrices:
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/logm"><code>tf.compat.v1.linalg.logm</code></a>
-* <a href="/api_docs/python/tf/linalg/logm"><code>tf.compat.v2.linalg.logm</code></a>
+* `tf.compat.v1.linalg.logm`
+* `tf.compat.v2.linalg.logm`
 
 
 ``` python

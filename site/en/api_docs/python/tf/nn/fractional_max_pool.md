@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/fractional_max_pool">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L4380-L4462">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L4465-L4546">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,11 +17,11 @@ page_type: reference
 
 
 
-Performs fractional max pooling on the input. (deprecated)
+Performs fractional max pooling on the input.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/fractional_max_pool"><code>tf.compat.v1.nn.fractional_max_pool</code></a>
+* `tf.compat.v2.nn.fractional_max_pool`
 
 
 ``` python
@@ -36,9 +30,7 @@ tf.nn.fractional_max_pool(
     pooling_ratio,
     pseudo_random=False,
     overlapping=False,
-    deterministic=False,
     seed=0,
-    seed2=0,
     name=None
 )
 ```
@@ -46,12 +38,6 @@ tf.nn.fractional_max_pool(
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-`seed2` and `deterministic` args are deprecated.  Use fractional_max_pool_v2.
-
-This is a deprecated version of `fractional_max_pool`.
 
 Fractional max pooling is slightly different than regular max pooling.  In
 regular max pooling, you downsize an input set by taking the maximum value of
@@ -86,12 +72,12 @@ Fractional Max-Pooling](http://arxiv.org/abs/1412.6071)
 
 
 * <b>`value`</b>: A `Tensor`. 4-D with shape `[batch, height, width, channels]`.
-* <b>`pooling_ratio`</b>: A list of `floats` that has length >= 4.  Pooling ratio for
-  each dimension of `value`, currently only supports row and col dimension
-  and should be >= 1.0. For example, a valid pooling ratio looks like [1.0,
-  1.44, 1.73, 1.0]. The first and last elements must be 1.0 because we don't
-  allow pooling on batch and channels dimensions.  1.44 and 1.73 are pooling
-  ratio on height and width dimensions respectively.
+* <b>`pooling_ratio`</b>: An int or list of `ints` that has length `1`, `2` or `4`.
+  Pooling ratio for each dimension of `value`, currently only supports row
+  and col dimension and should be >= 1.0. For example, a valid pooling ratio
+  looks like [1.0, 1.44, 1.73, 1.0]. The first and last elements must be 1.0
+  because we don't allow pooling on batch and channels dimensions.  1.44 and
+  1.73 are pooling ratio on height and width dimensions respectively.
 * <b>`pseudo_random`</b>: An optional `bool`.  Defaults to `False`. When set to `True`,
   generates the pooling sequence in a pseudorandom fashion, otherwise, in a
   random fashion. Check paper [Benjamin Graham, Fractional
@@ -104,12 +90,9 @@ Fractional Max-Pooling](http://arxiv.org/abs/1412.6071)
   `value  20 5  16 3  7`
   If the pooling sequence is [0, 2, 4], then 16, at index 2 will be used
   twice.  The result would be [20, 16] for fractional max pooling.
-* <b>`deterministic`</b>: An optional `bool`.  Deprecated; use `fractional_max_pool_v2`
-  instead.
 * <b>`seed`</b>: An optional `int`.  Defaults to `0`.  If set to be non-zero, the
   random number generator is seeded by the given seed.  Otherwise it is
   seeded by a random seed.
-* <b>`seed2`</b>: An optional `int`.  Deprecated; use `fractional_max_pool_v2` instead.
 * <b>`name`</b>: A name for the operation (optional).
 
 

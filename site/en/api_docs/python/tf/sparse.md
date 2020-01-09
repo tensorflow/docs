@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/sparse">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -25,13 +19,11 @@ See also <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 ## Classes
 
-[`class SparseConditionalAccumulator`](../tf/sparse/SparseConditionalAccumulator): A conditional accumulator for aggregating sparse gradients.
-
 [`class SparseTensor`](../tf/sparse/SparseTensor): Represents a sparse tensor.
 
 ## Functions
 
-[`add(...)`](../tf/sparse/add): Adds two tensors, at least one of each is a `SparseTensor`. (deprecated arguments)
+[`add(...)`](../tf/sparse/add): Adds two tensors, at least one of each is a `SparseTensor`.
 
 [`concat(...)`](../tf/sparse/concat): Concatenates a list of `SparseTensor` along the specified dimension. (deprecated arguments)
 
@@ -49,23 +41,13 @@ See also <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 [`mask(...)`](../tf/sparse/mask): Masks elements of `IndexedSlices`.
 
-[`matmul(...)`](../tf/sparse/sparse_dense_matmul): Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
-
 [`maximum(...)`](../tf/sparse/maximum): Returns the element-wise max of two SparseTensors.
-
-[`merge(...)`](../tf/sparse/merge): Combines a batch of feature ids and values into a single `SparseTensor`. (deprecated)
 
 [`minimum(...)`](../tf/sparse/minimum): Returns the element-wise min of two SparseTensors.
 
-[`placeholder(...)`](../tf/sparse/placeholder): Inserts a placeholder for a sparse tensor that will be always fed.
+[`reduce_max(...)`](../tf/sparse/reduce_max): Computes the max of elements across dimensions of a SparseTensor.
 
-[`reduce_max(...)`](../tf/sparse/reduce_max): Computes the max of elements across dimensions of a SparseTensor. (deprecated arguments) (deprecated arguments)
-
-[`reduce_max_sparse(...)`](../tf/sparse/reduce_max_sparse): Computes the max of elements across dimensions of a SparseTensor. (deprecated arguments)
-
-[`reduce_sum(...)`](../tf/sparse/reduce_sum): Computes the sum of elements across dimensions of a SparseTensor. (deprecated arguments) (deprecated arguments)
-
-[`reduce_sum_sparse(...)`](../tf/sparse/reduce_sum_sparse): Computes the sum of elements across dimensions of a SparseTensor. (deprecated arguments)
+[`reduce_sum(...)`](../tf/sparse/reduce_sum): Computes the sum of elements across dimensions of a SparseTensor.
 
 [`reorder(...)`](../tf/sparse/reorder): Reorders a `SparseTensor` into the canonical, row-major ordering.
 
@@ -87,7 +69,7 @@ See also <a href="../tf/sparse/SparseTensor"><code>tf.SparseTensor</code></a>.
 
 [`sparse_dense_matmul(...)`](../tf/sparse/sparse_dense_matmul): Multiply SparseTensor (of rank 2) "A" by dense matrix "B".
 
-[`split(...)`](../tf/sparse/split): Split a `SparseTensor` into `num_split` tensors along `axis`. (deprecated arguments)
+[`split(...)`](../tf/sparse/split): Split a `SparseTensor` into `num_split` tensors along `axis`.
 
 [`to_dense(...)`](../tf/sparse/to_dense): Converts a `SparseTensor` into a dense tensor.
 

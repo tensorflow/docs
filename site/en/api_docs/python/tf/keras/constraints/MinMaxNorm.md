@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/constraints/MinMaxNorm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L122-L171">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L122-L171">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/constraints/MinMaxNorm"><code>tf.compat.v1.keras.constraints.MinMaxNorm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/MinMaxNorm"><code>tf.compat.v1.keras.constraints.min_max_norm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/MinMaxNorm"><code>tf.compat.v2.keras.constraints.MinMaxNorm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/MinMaxNorm"><code>tf.compat.v2.keras.constraints.min_max_norm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/MinMaxNorm"><code>tf.keras.constraints.min_max_norm</code></a>
+* Class `tf.compat.v1.keras.constraints.MinMaxNorm`
+* Class `tf.compat.v1.keras.constraints.min_max_norm`
+* Class `tf.compat.v2.keras.constraints.MinMaxNorm`
+* Class `tf.compat.v2.keras.constraints.min_max_norm`
+* Class `tf.keras.constraints.min_max_norm`
 
 
 <!-- Placeholder for "Used in" -->
@@ -69,7 +63,7 @@ to have the norm between a lower bound and an upper bound.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L151-L155">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L151-L155">View source</a>
 
 ``` python
 __init__(
@@ -89,7 +83,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L157-L163">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L157-L163">View source</a>
 
 ``` python
 __call__(w)
@@ -100,7 +94,7 @@ Call self as a function.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L165-L171">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L165-L171">View source</a>
 
 ``` python
 get_config()

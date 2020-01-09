@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Dense">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L917-L1081">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L923-L1087">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,65 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Dense"><code>tf.compat.v1.keras.layers.Dense</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Dense"><code>tf.compat.v2.keras.layers.Dense</code></a>
+* Class `tf.compat.v1.keras.layers.Dense`
+* Class `tf.compat.v2.keras.layers.Dense`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Estimators](https://www.tensorflow.org/guide/estimator)
+* [Keras custom callbacks](https://www.tensorflow.org/guide/keras/custom_callback)
+* [Keras overview](https://www.tensorflow.org/guide/keras/overview)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Recurrent Neural Networks (RNN) with Keras](https://www.tensorflow.org/guide/keras/rnn)
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Basic classification: Predict an image of clothing](https://www.tensorflow.org/tutorials/keras/classification)
+* [Basic regression: Predict fuel efficiency](https://www.tensorflow.org/tutorials/keras/regression)
+* [Classification on imbalanced data](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)
+* [Classify structured data with feature columns](https://www.tensorflow.org/tutorials/structured_data/feature_columns)
+* [Convolutional Neural Network (CNN)](https://www.tensorflow.org/tutorials/images/cnn)
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Create an Estimator from a Keras model](https://www.tensorflow.org/tutorials/estimator/keras_model_to_estimator)
+* [Custom layers](https://www.tensorflow.org/tutorials/customization/custom_layers)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Distributed training with Keras](https://www.tensorflow.org/tutorials/distribute/keras)
+* [Explore overfit and underfit](https://www.tensorflow.org/tutorials/keras/overfit_and_underfit)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Image classification](https://www.tensorflow.org/tutorials/images/classification)
+* [Load CSV data](https://www.tensorflow.org/tutorials/load_data/csv)
+* [Load NumPy data](https://www.tensorflow.org/tutorials/load_data/numpy)
+* [Load a pandas.DataFrame](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe)
+* [Load text](https://www.tensorflow.org/tutorials/load_data/text)
+* [Multi-worker training with Estimator](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_estimator)
+* [Multi-worker training with Keras](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Save and load a model using a distribution strategy](https://www.tensorflow.org/tutorials/distribute/save_and_load)
+* [Save and load models](https://www.tensorflow.org/tutorials/keras/save_and_load)
+* [TensorFlow 2.0 quickstart for beginners](https://www.tensorflow.org/tutorials/quickstart/beginner)
+* [TensorFlow 2.0 quickstart for experts](https://www.tensorflow.org/tutorials/quickstart/advanced)
+* [Text classification with TensorFlow Hub: Movie reviews](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub)
+* [Text classification with an RNN](https://www.tensorflow.org/tutorials/text/text_classification_rnn)
+* [Text classification with preprocessed text: Movie reviews](https://www.tensorflow.org/tutorials/keras/text_classification)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Time series forecasting](https://www.tensorflow.org/tutorials/structured_data/time_series)
+* [Transfer learning with TensorFlow Hub](https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+* [Word embeddings](https://www.tensorflow.org/tutorials/text/word_embeddings)
+
+
 
 `Dense` implements the operation:
 `output = activation(dot(input, kernel) + bias)`
@@ -100,7 +148,7 @@ the output would have shape `(batch_size, units)`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/core.py#L972-L1000">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/core.py#L978-L1006">View source</a>
 
 ``` python
 __init__(

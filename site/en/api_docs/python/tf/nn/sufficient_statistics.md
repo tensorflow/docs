@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/sufficient_statistics">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1053-L1107">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L1118-L1144">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Calculate the sufficient statistics for the mean and variance of `x`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/sufficient_statistics"><code>tf.compat.v1.nn.sufficient_statistics</code></a>
+* `tf.compat.v2.nn.sufficient_statistics`
 
 
 ``` python
@@ -35,9 +29,8 @@ tf.nn.sufficient_statistics(
     x,
     axes,
     shift=None,
-    keep_dims=None,
-    name=None,
-    keepdims=None
+    keepdims=False,
+    name=None
 )
 ```
 
@@ -57,9 +50,8 @@ https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Computing_shif
 * <b>`shift`</b>: A `Tensor` containing the value by which to shift the data for
   numerical stability, or `None` if no shift is to be performed. A shift
   close to the true mean provides the most numerically stable results.
-* <b>`keep_dims`</b>: produce statistics with the same dimensionality as the input.
+* <b>`keepdims`</b>: produce statistics with the same dimensionality as the input.
 * <b>`name`</b>: Name used to scope the operations that compute the sufficient stats.
-* <b>`keepdims`</b>: Alias for keep_dims.
 
 
 #### Returns:

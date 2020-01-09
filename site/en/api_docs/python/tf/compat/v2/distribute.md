@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/distribute">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -113,11 +107,11 @@ reasonable default behavior.
 
 [`class InputReplicationMode`](../../../tf/distribute/InputReplicationMode): Replication mode for input function.
 
-[`class MirroredStrategy`](../../../tf/compat/v2/distribute/MirroredStrategy): Mirrors vars to distribute across multiple devices and machines.
+[`class MirroredStrategy`](../../../tf/distribute/MirroredStrategy): Mirrors vars to distribute across multiple devices and machines.
 
 [`class NcclAllReduce`](../../../tf/distribute/NcclAllReduce): Reduction using NCCL all-reduce.
 
-[`class OneDeviceStrategy`](../../../tf/compat/v2/distribute/OneDeviceStrategy): A distribution strategy for running on a single device.
+[`class OneDeviceStrategy`](../../../tf/distribute/OneDeviceStrategy): A distribution strategy for running on a single device.
 
 [`class ReduceOp`](../../../tf/distribute/ReduceOp): Indicates how a set of values should be reduced.
 
@@ -127,9 +121,9 @@ reasonable default behavior.
 
 [`class Server`](../../../tf/distribute/Server): An in-process TensorFlow server, for use in distributed training.
 
-[`class Strategy`](../../../tf/compat/v2/distribute/Strategy): A state & compute distribution policy on a list of devices.
+[`class Strategy`](../../../tf/distribute/Strategy): A state & compute distribution policy on a list of devices.
 
-[`class StrategyExtended`](../../../tf/compat/v2/distribute/StrategyExtended): Additional APIs for algorithms that need to be distribution-aware.
+[`class StrategyExtended`](../../../tf/distribute/StrategyExtended): Additional APIs for algorithms that need to be distribution-aware.
 
 ## Functions
 

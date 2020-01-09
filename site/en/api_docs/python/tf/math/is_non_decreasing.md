@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/is_non_decreasing">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1899-L1930">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L2011-L2042">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,12 +21,10 @@ Returns `True` if `x` is non-decreasing.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.compat.v1.debugging.is_non_decreasing</code></a>
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.compat.v1.is_non_decreasing</code></a>
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.compat.v1.math.is_non_decreasing</code></a>
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.compat.v2.math.is_non_decreasing</code></a>
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.debugging.is_non_decreasing</code></a>
-* <a href="/api_docs/python/tf/math/is_non_decreasing"><code>tf.is_non_decreasing</code></a>
+* `tf.compat.v1.debugging.is_non_decreasing`
+* `tf.compat.v1.is_non_decreasing`
+* `tf.compat.v1.math.is_non_decreasing`
+* `tf.compat.v2.math.is_non_decreasing`
 
 
 ``` python

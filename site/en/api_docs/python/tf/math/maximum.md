@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/maximum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Returns the max of x and y (i.e. x > y ? x : y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/maximum"><code>tf.compat.v1.math.maximum</code></a>
-* <a href="/api_docs/python/tf/math/maximum"><code>tf.compat.v1.maximum</code></a>
-* <a href="/api_docs/python/tf/math/maximum"><code>tf.compat.v2.math.maximum</code></a>
-* <a href="/api_docs/python/tf/math/maximum"><code>tf.compat.v2.maximum</code></a>
-* <a href="/api_docs/python/tf/math/maximum"><code>tf.maximum</code></a>
+* `tf.compat.v1.math.maximum`
+* `tf.compat.v1.maximum`
+* `tf.compat.v2.math.maximum`
+* `tf.compat.v2.maximum`
+* `tf.maximum`
 
 
 ``` python
@@ -40,7 +34,11 @@ tf.math.maximum(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 *NOTE*: <a href="../../tf/math/maximum"><code>math.maximum</code></a> supports broadcasting. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)

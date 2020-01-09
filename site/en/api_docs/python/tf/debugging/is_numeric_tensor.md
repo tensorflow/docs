@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/is_numeric_tensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1872-L1896">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1984-L2008">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns `True` if the elements of `tensor` are numbers.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/is_numeric_tensor"><code>tf.compat.v1.debugging.is_numeric_tensor</code></a>
-* <a href="/api_docs/python/tf/debugging/is_numeric_tensor"><code>tf.compat.v1.is_numeric_tensor</code></a>
-* <a href="/api_docs/python/tf/debugging/is_numeric_tensor"><code>tf.compat.v2.debugging.is_numeric_tensor</code></a>
-* <a href="/api_docs/python/tf/debugging/is_numeric_tensor"><code>tf.is_numeric_tensor</code></a>
+* `tf.compat.v1.debugging.is_numeric_tensor`
+* `tf.compat.v1.is_numeric_tensor`
+* `tf.compat.v2.debugging.is_numeric_tensor`
 
 
 ``` python

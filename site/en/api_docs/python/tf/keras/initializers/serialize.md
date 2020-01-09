@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/initializers/serialize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/initializers.py#L164-L166">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/initializers.py#L164-L166">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,10 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/initializers/serialize"><code>tf.compat.v1.keras.initializers.serialize</code></a>
-* <a href="/api_docs/python/tf/keras/initializers/serialize"><code>tf.compat.v2.initializers.serialize</code></a>
-* <a href="/api_docs/python/tf/keras/initializers/serialize"><code>tf.compat.v2.keras.initializers.serialize</code></a>
+* `tf.compat.v1.keras.initializers.serialize`
+* `tf.compat.v2.initializers.serialize`
+* `tf.compat.v2.keras.initializers.serialize`
+* `tf.initializers.serialize`
 
 
 ``` python

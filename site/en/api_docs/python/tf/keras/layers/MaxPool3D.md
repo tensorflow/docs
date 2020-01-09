@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/MaxPool3D">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L478-L524">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L478-L524">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Max pooling operation for 3D data (spatial or spatio-temporal).
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/MaxPool3D"><code>tf.compat.v1.keras.layers.MaxPool3D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/MaxPool3D"><code>tf.compat.v1.keras.layers.MaxPooling3D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/MaxPool3D"><code>tf.compat.v2.keras.layers.MaxPool3D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/MaxPool3D"><code>tf.compat.v2.keras.layers.MaxPooling3D</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/MaxPool3D"><code>tf.keras.layers.MaxPooling3D</code></a>
+* Class `tf.compat.v1.keras.layers.MaxPool3D`
+* Class `tf.compat.v1.keras.layers.MaxPooling3D`
+* Class `tf.compat.v2.keras.layers.MaxPool3D`
+* Class `tf.compat.v2.keras.layers.MaxPooling3D`
+* Class `tf.keras.layers.MaxPooling3D`
 
 
 <!-- Placeholder for "Used in" -->
@@ -84,7 +78,7 @@ Max pooling operation for 3D data (spatial or spatio-temporal).
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/pooling.py#L515-L524">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/pooling.py#L515-L524">View source</a>
 
 ``` python
 __init__(

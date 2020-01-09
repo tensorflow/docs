@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v1/gfile">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,7 +18,7 @@ Import router for file_io.
 
 ## Classes
 
-[`class FastGFile`](../../../tf/gfile/FastGFile): File I/O wrappers without thread locking.
+[`class FastGFile`](../../../tf/compat/v1/gfile/FastGFile): File I/O wrappers without thread locking.
 
 [`class GFile`](../../../tf/io/gfile/GFile): File I/O wrappers without thread locking.
 
@@ -32,26 +26,26 @@ Import router for file_io.
 
 ## Functions
 
-[`Copy(...)`](../../../tf/gfile/Copy): Copies data from `oldpath` to `newpath`.
+[`Copy(...)`](../../../tf/compat/v1/gfile/Copy): Copies data from `oldpath` to `newpath`.
 
-[`DeleteRecursively(...)`](../../../tf/gfile/DeleteRecursively): Deletes everything under dirname recursively.
+[`DeleteRecursively(...)`](../../../tf/compat/v1/gfile/DeleteRecursively): Deletes everything under dirname recursively.
 
-[`Exists(...)`](../../../tf/gfile/Exists): Determines whether a path exists or not.
+[`Exists(...)`](../../../tf/compat/v1/gfile/Exists): Determines whether a path exists or not.
 
-[`Glob(...)`](../../../tf/gfile/Glob): Returns a list of files that match the given pattern(s).
+[`Glob(...)`](../../../tf/compat/v1/gfile/Glob): Returns a list of files that match the given pattern(s).
 
-[`IsDirectory(...)`](../../../tf/gfile/IsDirectory): Returns whether the path is a directory or not.
+[`IsDirectory(...)`](../../../tf/compat/v1/gfile/IsDirectory): Returns whether the path is a directory or not.
 
-[`ListDirectory(...)`](../../../tf/gfile/ListDirectory): Returns a list of entries contained within a directory.
+[`ListDirectory(...)`](../../../tf/compat/v1/gfile/ListDirectory): Returns a list of entries contained within a directory.
 
-[`MakeDirs(...)`](../../../tf/gfile/MakeDirs): Creates a directory and all parent/intermediate directories.
+[`MakeDirs(...)`](../../../tf/compat/v1/gfile/MakeDirs): Creates a directory and all parent/intermediate directories.
 
-[`MkDir(...)`](../../../tf/gfile/MkDir): Creates a directory with the name 'dirname'.
+[`MkDir(...)`](../../../tf/compat/v1/gfile/MkDir): Creates a directory with the name 'dirname'.
 
-[`Remove(...)`](../../../tf/gfile/Remove): Deletes the file located at 'filename'.
+[`Remove(...)`](../../../tf/compat/v1/gfile/Remove): Deletes the file located at 'filename'.
 
-[`Rename(...)`](../../../tf/gfile/Rename): Rename or move a file / directory.
+[`Rename(...)`](../../../tf/compat/v1/gfile/Rename): Rename or move a file / directory.
 
-[`Stat(...)`](../../../tf/gfile/Stat): Returns file statistics for a given path.
+[`Stat(...)`](../../../tf/compat/v1/gfile/Stat): Returns file statistics for a given path.
 
-[`Walk(...)`](../../../tf/gfile/Walk): Recursive directory tree generator for directories.
+[`Walk(...)`](../../../tf/compat/v1/gfile/Walk): Recursive directory tree generator for directories.

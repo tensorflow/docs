@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/apply_brightness_shift">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,8 +15,8 @@ Performs a brightness shift.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/image/apply_brightness_shift"><code>tf.compat.v1.keras.preprocessing.image.apply_brightness_shift</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/image/apply_brightness_shift"><code>tf.compat.v2.keras.preprocessing.image.apply_brightness_shift</code></a>
+* `tf.compat.v1.keras.preprocessing.image.apply_brightness_shift`
+* `tf.compat.v2.keras.preprocessing.image.apply_brightness_shift`
 
 
 ``` python

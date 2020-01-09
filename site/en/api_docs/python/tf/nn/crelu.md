@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/crelu">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_ops.py#L2748-L2771">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_ops.py#L2774-L2776">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,14 +21,14 @@ Computes Concatenated ReLU.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/crelu"><code>tf.compat.v1.nn.crelu</code></a>
+* `tf.compat.v2.nn.crelu`
 
 
 ``` python
 tf.nn.crelu(
     features,
-    name=None,
-    axis=-1
+    axis=-1,
+    name=None
 )
 ```
 

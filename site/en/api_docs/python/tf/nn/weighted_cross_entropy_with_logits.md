@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/weighted_cross_entropy_with_logits">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L321-L382">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L243-L318">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,30 +17,29 @@ page_type: reference
 
 
 
-Computes a weighted cross entropy. (deprecated arguments)
+Computes a weighted cross entropy.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/weighted_cross_entropy_with_logits"><code>tf.compat.v1.nn.weighted_cross_entropy_with_logits</code></a>
+* `tf.compat.v2.nn.weighted_cross_entropy_with_logits`
 
 
 ``` python
 tf.nn.weighted_cross_entropy_with_logits(
-    labels=None,
-    logits=None,
-    pos_weight=None,
-    name=None,
-    targets=None
+    labels,
+    logits,
+    pos_weight,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(targets)`. They will be removed in a future version.
-Instructions for updating:
-targets is deprecated, use labels instead
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+
 
 This is like `sigmoid_cross_entropy_with_logits()` except that `pos_weight`,
 allows one to trade off recall and precision by up- or down-weighting the
@@ -92,7 +85,6 @@ the implementation uses
 * <b>`logits`</b>: A `Tensor` of type `float32` or `float64`.
 * <b>`pos_weight`</b>: A coefficient to use on the positive examples.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`targets`</b>: Deprecated alias for labels.
 
 
 #### Returns:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/init_scope">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5531-L5633">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L5534-L5636">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A context manager that lifts ops out of control-flow scopes and function-buildin
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/init_scope"><code>tf.compat.v1.init_scope</code></a>
-* <a href="/api_docs/python/tf/init_scope"><code>tf.compat.v2.init_scope</code></a>
+* `tf.compat.v1.init_scope`
+* `tf.compat.v2.init_scope`
 
 
 ``` python

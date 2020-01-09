@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/cast_to_floatx">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L150-L175">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L150-L180">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Cast a Numpy array to the default Keras float type.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/cast_to_floatx"><code>tf.compat.v1.keras.backend.cast_to_floatx</code></a>
-* <a href="/api_docs/python/tf/keras/backend/cast_to_floatx"><code>tf.compat.v2.keras.backend.cast_to_floatx</code></a>
+* `tf.compat.v1.keras.backend.cast_to_floatx`
+* `tf.compat.v2.keras.backend.cast_to_floatx`
 
 
 ``` python
@@ -43,12 +37,13 @@ tf.keras.backend.cast_to_floatx(x)
 #### Arguments:
 
 
-* <b>`x`</b>: Numpy array.
+* <b>`x`</b>: Numpy array or TensorFlow tensor.
 
 
 #### Returns:
 
-The same Numpy array, cast to its new type.
+The same array (Numpy array if `x` was a Numpy array, or TensorFlow tensor
+if `x` was a tensor), cast to its new type.
 
 
 

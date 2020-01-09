@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/gfile/remove">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L300-L311">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/file_io.py#L300-L311">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Deletes the path located at 'path'.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/gfile/remove"><code>tf.compat.v1.io.gfile.remove</code></a>
-* <a href="/api_docs/python/tf/io/gfile/remove"><code>tf.compat.v2.io.gfile.remove</code></a>
+* `tf.compat.v1.io.gfile.remove`
+* `tf.compat.v2.io.gfile.remove`
 
 
 ``` python
@@ -49,5 +43,5 @@ tf.io.gfile.remove(path)
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: Propagates any errors reported by the FileSystem API.  E.g.,
+* <b>`errors.OpError`</b>: Propagates any errors reported by the FileSystem API.  E.g.,
 NotFoundError if the path does not exist.

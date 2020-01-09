@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/greater_equal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,17 +17,17 @@ Returns the truth value of (x >= y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/RaggedTensor#__ge__"><code>tf.RaggedTensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__ge__"><code>tf.Tensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__ge__"><code>tf.compat.v1.RaggedTensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__ge__"><code>tf.compat.v1.Tensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/math/greater_equal"><code>tf.compat.v1.greater_equal</code></a>
-* <a href="/api_docs/python/tf/math/greater_equal"><code>tf.compat.v1.math.greater_equal</code></a>
-* <a href="/api_docs/python/tf/RaggedTensor#__ge__"><code>tf.compat.v2.RaggedTensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/Tensor#__ge__"><code>tf.compat.v2.Tensor.__ge__</code></a>
-* <a href="/api_docs/python/tf/math/greater_equal"><code>tf.compat.v2.greater_equal</code></a>
-* <a href="/api_docs/python/tf/math/greater_equal"><code>tf.compat.v2.math.greater_equal</code></a>
-* <a href="/api_docs/python/tf/math/greater_equal"><code>tf.greater_equal</code></a>
+* `tf.RaggedTensor.__ge__`
+* `tf.Tensor.__ge__`
+* `tf.compat.v1.RaggedTensor.__ge__`
+* `tf.compat.v1.Tensor.__ge__`
+* `tf.compat.v1.greater_equal`
+* `tf.compat.v1.math.greater_equal`
+* `tf.compat.v2.RaggedTensor.__ge__`
+* `tf.compat.v2.Tensor.__ge__`
+* `tf.compat.v2.greater_equal`
+* `tf.compat.v2.math.greater_equal`
+* `tf.greater_equal`
 
 
 ``` python

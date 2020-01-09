@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/make_parse_example_spec">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column.py#L755-L814">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L758-L816">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ Creates parsing spec dictionary from input feature_columns.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/make_parse_example_spec"><code>tf.compat.v1.feature_column.make_parse_example_spec</code></a>
+* `tf.compat.v2.feature_column.make_parse_example_spec`
 
 
 ``` python
@@ -36,7 +30,11 @@ tf.feature_column.make_parse_example_spec(feature_columns)
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+
 
 The returned dictionary can be used as arg 'features' in
 <a href="../../tf/io/parse_example"><code>tf.io.parse_example</code></a>.
@@ -74,7 +72,7 @@ For the above example, make_parse_example_spec would return the dict:
 
 
 * <b>`feature_columns`</b>: An iterable containing all feature columns. All items
-  should be instances of classes derived from `_FeatureColumn`.
+  should be instances of classes derived from `FeatureColumn`.
 
 
 #### Returns:
@@ -87,5 +85,5 @@ value.
 #### Raises:
 
 
-* <b>`ValueError`</b>: If any of the given `feature_columns` is not a `_FeatureColumn`
+* <b>`ValueError`</b>: If any of the given `feature_columns` is not a `FeatureColumn`
   instance.

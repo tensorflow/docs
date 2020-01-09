@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/datasets/mnist/load_data">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/datasets/mnist.py#L27-L55">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/datasets/mnist.py#L27-L55">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Loads the MNIST dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/datasets/mnist/load_data"><code>tf.compat.v1.keras.datasets.mnist.load_data</code></a>
-* <a href="/api_docs/python/tf/keras/datasets/mnist/load_data"><code>tf.compat.v2.keras.datasets.mnist.load_data</code></a>
+* `tf.compat.v1.keras.datasets.mnist.load_data`
+* `tf.compat.v2.keras.datasets.mnist.load_data`
 
 
 ``` python
@@ -37,7 +31,22 @@ tf.keras.datasets.mnist.load_data(path='mnist.npz')
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Keras custom callbacks](https://www.tensorflow.org/guide/keras/custom_callback)
+* [Save and serialize models with Keras](https://www.tensorflow.org/guide/keras/save_and_serialize)
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Convolutional Variational Autoencoder](https://www.tensorflow.org/tutorials/generative/cvae)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+
+
 
 
 #### Arguments:

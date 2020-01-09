@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/mean">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L1986-L2003">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2100-L2117">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Mean of a tensor, alongside the specified axis.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/mean"><code>tf.compat.v1.keras.backend.mean</code></a>
-* <a href="/api_docs/python/tf/keras/backend/mean"><code>tf.compat.v2.keras.backend.mean</code></a>
+* `tf.compat.v1.keras.backend.mean`
+* `tf.compat.v2.keras.backend.mean`
 
 
 ``` python

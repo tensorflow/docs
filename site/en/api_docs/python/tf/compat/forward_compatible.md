@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/compat/forward_compatible">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/compat/compat.py#L63-L120">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/compat/compat.py#L63-L120">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Return true if the forward compatibility window has expired.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/compat/forward_compatible"><code>tf.compat.v1.compat.forward_compatible</code></a>
-* <a href="/api_docs/python/tf/compat/forward_compatible"><code>tf.compat.v2.compat.forward_compatible</code></a>
+* `tf.compat.v1.compat.forward_compatible`
+* `tf.compat.v2.compat.forward_compatible`
 
 
 ``` python

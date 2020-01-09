@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental/get_device_policy">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L189-L212">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/config.py#L189-L212">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Gets the current device policy.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental/get_device_policy"><code>tf.compat.v1.config.experimental.get_device_policy</code></a>
-* <a href="/api_docs/python/tf/config/experimental/get_device_policy"><code>tf.compat.v2.config.experimental.get_device_policy</code></a>
+* `tf.compat.v1.config.experimental.get_device_policy`
+* `tf.compat.v2.config.experimental.get_device_policy`
 
 
 ``` python

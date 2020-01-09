@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/is_inf">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,12 +17,10 @@ Returns which elements of x are Inf.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.compat.v1.debugging.is_inf</code></a>
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.compat.v1.is_inf</code></a>
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.compat.v1.math.is_inf</code></a>
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.compat.v2.math.is_inf</code></a>
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.debugging.is_inf</code></a>
-* <a href="/api_docs/python/tf/math/is_inf"><code>tf.is_inf</code></a>
+* `tf.compat.v1.debugging.is_inf`
+* `tf.compat.v1.is_inf`
+* `tf.compat.v1.math.is_inf`
+* `tf.compat.v2.math.is_inf`
 
 
 ``` python

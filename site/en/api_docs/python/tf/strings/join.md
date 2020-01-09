@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/join">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,10 +17,9 @@ Joins the strings in the given list of string tensors into one tensor;
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v1.string_join</code></a>
-* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v1.strings.join</code></a>
-* <a href="/api_docs/python/tf/strings/join"><code>tf.compat.v2.strings.join</code></a>
-* <a href="/api_docs/python/tf/strings/join"><code>tf.string_join</code></a>
+* `tf.compat.v1.string_join`
+* `tf.compat.v1.strings.join`
+* `tf.compat.v2.strings.join`
 
 
 ``` python
@@ -39,7 +32,11 @@ tf.strings.join(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 with the given separator (default is an empty separator).
 

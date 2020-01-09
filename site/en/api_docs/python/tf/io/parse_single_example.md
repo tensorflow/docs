@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/parse_single_example">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/parsing_ops.py#L985-L1020">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/parsing_ops.py#L1025-L1072">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,23 +21,25 @@ Parses a single `Example` proto.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/parse_single_example"><code>tf.compat.v1.io.parse_single_example</code></a>
-* <a href="/api_docs/python/tf/io/parse_single_example"><code>tf.compat.v1.parse_single_example</code></a>
-* <a href="/api_docs/python/tf/io/parse_single_example"><code>tf.parse_single_example</code></a>
+* `tf.compat.v2.io.parse_single_example`
 
 
 ``` python
 tf.io.parse_single_example(
     serialized,
     features,
-    name=None,
-    example_names=None
+    example_names=None,
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+
+
 
 Similar to `parse_example`, except:
 
@@ -66,9 +62,9 @@ One might see performance advantages by batching `Example` protos with
   See `_parse_single_example_raw` documentation for more details.
 * <b>`features`</b>: A `dict` mapping feature keys to `FixedLenFeature` or
   `VarLenFeature` values.
-* <b>`name`</b>: A name for this operation (optional).
 * <b>`example_names`</b>: (Optional) A scalar string Tensor, the associated name.
   See `_parse_single_example_raw` documentation for more details.
+* <b>`name`</b>: A name for this operation (optional).
 
 
 #### Returns:

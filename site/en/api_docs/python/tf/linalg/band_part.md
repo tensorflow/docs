@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/band_part">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Copy a tensor setting everything outside a central band in each innermost matrix
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v1.linalg.band_part</code></a>
-* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v1.matrix_band_part</code></a>
-* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.compat.v2.linalg.band_part</code></a>
-* <a href="/api_docs/python/tf/linalg/band_part"><code>tf.matrix_band_part</code></a>
+* `tf.compat.v1.linalg.band_part`
+* `tf.compat.v1.matrix_band_part`
+* `tf.compat.v2.linalg.band_part`
 
 
 ``` python
@@ -40,7 +33,11 @@ tf.linalg.band_part(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 to zero.
 

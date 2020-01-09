@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/autograph/set_verbosity">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/autograph/utils/ag_logging.py#L40-L88">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/autograph/utils/ag_logging.py#L40-L88">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Sets the AutoGraph verbosity level.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/autograph/set_verbosity"><code>tf.compat.v1.autograph.set_verbosity</code></a>
-* <a href="/api_docs/python/tf/autograph/set_verbosity"><code>tf.compat.v2.autograph.set_verbosity</code></a>
+* `tf.compat.v1.autograph.set_verbosity`
+* `tf.compat.v2.autograph.set_verbosity`
 
 
 ``` python

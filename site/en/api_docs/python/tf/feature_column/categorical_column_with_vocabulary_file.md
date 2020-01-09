@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_file">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1474-L1562">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L1575-L1692">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +21,7 @@ A `CategoricalColumn` with a vocabulary file.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_file"><code>tf.compat.v1.feature_column.categorical_column_with_vocabulary_file</code></a>
+* `tf.compat.v2.feature_column.categorical_column_with_vocabulary_file`
 
 
 ``` python
@@ -35,9 +29,9 @@ tf.feature_column.categorical_column_with_vocabulary_file(
     key,
     vocabulary_file,
     vocabulary_size=None,
-    num_oov_buckets=0,
+    dtype=tf.dtypes.string,
     default_value=None,
-    dtype=tf.dtypes.string
+    num_oov_buckets=0
 )
 ```
 
@@ -56,7 +50,7 @@ For input dictionary `features`, `features[key]` is either `Tensor` or
 and `''` for string, which will be dropped by this feature column.
 
 Example with `num_oov_buckets`:
-File '/us/states.txt' contains 50 lines, each with a 2-character U.S. state
+File `'/us/states.txt'` contains 50 lines, each with a 2-character U.S. state
 abbreviation. All inputs with values in that file are assigned an ID 0-49,
 corresponding to its line number. All other values are hashed and assigned an
 ID 50-54.
@@ -71,10 +65,10 @@ linear_prediction = linear_model(features, columns)
 ```
 
 Example with `default_value`:
-File '/us/states.txt' contains 51 lines - the first line is 'XX', and the
-other 50 each have a 2-character U.S. state abbreviation. Both a literal 'XX'
-in input, and other values missing from the file, will be assigned ID 0. All
-others are assigned the corresponding line number 1-50.
+File `'/us/states.txt'` contains 51 lines - the first line is `'XX'`, and the
+other 50 each have a 2-character U.S. state abbreviation. Both a literal
+`'XX'` in input, and other values missing from the file, will be assigned
+ID 0. All others are assigned the corresponding line number 1-50.
 
 ```python
 states = categorical_column_with_vocabulary_file(
@@ -103,15 +97,15 @@ dense_tensor = input_layer(features, columns)
 * <b>`vocabulary_size`</b>: Number of the elements in the vocabulary. This must be no
   greater than length of `vocabulary_file`, if less than length, later
   values are ignored. If None, it is set to the length of `vocabulary_file`.
+* <b>`dtype`</b>: The type of features. Only string and integer types are supported.
+* <b>`default_value`</b>: The integer ID value to return for out-of-vocabulary feature
+  values, defaults to `-1`. This can not be specified with a positive
+  `num_oov_buckets`.
 * <b>`num_oov_buckets`</b>: Non-negative integer, the number of out-of-vocabulary
   buckets. All out-of-vocabulary inputs will be assigned IDs in the range
   `[vocabulary_size, vocabulary_size+num_oov_buckets)` based on a hash of
   the input value. A positive `num_oov_buckets` can not be specified with
   `default_value`.
-* <b>`default_value`</b>: The integer ID value to return for out-of-vocabulary feature
-  values, defaults to `-1`. This can not be specified with a positive
-  `num_oov_buckets`.
-* <b>`dtype`</b>: The type of features. Only string and integer types are supported.
 
 
 #### Returns:

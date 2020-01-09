@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/control_dependencies">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L5225-L5254">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L5228-L5257">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Wrapper for <a href="../tf/Graph#control_dependencies"><code>Graph.control_depen
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/control_dependencies"><code>tf.compat.v1.control_dependencies</code></a>
-* <a href="/api_docs/python/tf/control_dependencies"><code>tf.compat.v2.control_dependencies</code></a>
+* `tf.compat.v1.control_dependencies`
+* `tf.compat.v2.control_dependencies`
 
 
 ``` python

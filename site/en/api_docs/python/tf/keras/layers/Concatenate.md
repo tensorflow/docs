@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Concatenate">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L356-L443">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/merge.py#L356-L443">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,16 @@ Layer that concatenates a list of inputs.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Concatenate"><code>tf.compat.v1.keras.layers.Concatenate</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Concatenate"><code>tf.compat.v2.keras.layers.Concatenate</code></a>
+* Class `tf.compat.v1.keras.layers.Concatenate`
+* Class `tf.compat.v2.keras.layers.Concatenate`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 It takes as input a list of tensors,
 all of the same shape except for the concatenation axis,
@@ -49,7 +48,7 @@ and returns a single tensor, the concatenation of all inputs.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L368-L372">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/merge.py#L368-L372">View source</a>
 
 ``` python
 __init__(

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/reshape">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L59-L133">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L59-L133">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Reshapes a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v1.manip.reshape</code></a>
-* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v1.reshape</code></a>
-* <a href="/api_docs/python/tf/reshape"><code>tf.compat.v2.reshape</code></a>
-* <a href="/api_docs/python/tf/reshape"><code>tf.manip.reshape</code></a>
+* `tf.compat.v1.manip.reshape`
+* `tf.compat.v1.reshape`
+* `tf.compat.v2.reshape`
 
 
 ``` python
@@ -43,7 +36,18 @@ tf.reshape(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Train and evaluate with Keras](https://www.tensorflow.org/guide/keras/train_and_evaluate)
+
+### Used in the tutorials:
+
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 Given `tensor`, this operation returns a tensor that has the same values
 as `tensor` with shape `shape`.

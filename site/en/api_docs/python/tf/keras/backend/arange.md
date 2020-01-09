@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/arange">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L2848-L2883">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L2962-L2997">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a 1D tensor containing a sequence of integers.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/arange"><code>tf.compat.v1.keras.backend.arange</code></a>
-* <a href="/api_docs/python/tf/keras/backend/arange"><code>tf.compat.v2.keras.backend.arange</code></a>
+* `tf.compat.v1.keras.backend.arange`
+* `tf.compat.v2.keras.backend.arange`
 
 
 ``` python
@@ -68,9 +62,9 @@ An integer tensor.
 
 #### Example:
 
-```python
->>> tf.keras.backend.arange(start=0, stop=10, step=1.5)
-<tf.Tensor: id=96, shape=(7,), dtype=float32,
-    numpy=array([0. , 1.5, 3. , 4.5, 6. , 7.5, 9. ], dtype=float32)>
-
-```
+  <pre class="devsite-click-to-copy prettyprint lang-py">
+  <code class="devsite-terminal" data-terminal-prefix="&gt;&gt;&gt;">{% htmlescape %}tf.keras.backend.arange(start=0, stop=10, step=1.5){% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}  <tf.Tensor: id=96, shape=(7,), dtype=float32,{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}      numpy=array([0. , 1.5, 3. , 4.5, 6. , 7.5, 9. ], dtype=float32)>{% endhtmlescape %}</code>
+  <code class="no-select nocode">{% htmlescape %}{% endhtmlescape %}</code>
+  </pre>

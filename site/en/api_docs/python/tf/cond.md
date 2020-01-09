@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/cond">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/control_flow_ops.py#L1095-L1293">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/control_flow_ops.py#L1318-L1389">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,11 +17,11 @@ page_type: reference
 
 
 
-Return `true_fn()` if the predicate `pred` is true else `false_fn()`. (deprecated arguments)
+Return `true_fn()` if the predicate `pred` is true else `false_fn()`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/cond"><code>tf.compat.v1.cond</code></a>
+* `tf.compat.v2.cond`
 
 
 ``` python
@@ -35,20 +29,13 @@ tf.cond(
     pred,
     true_fn=None,
     false_fn=None,
-    strict=False,
-    name=None,
-    fn1=None,
-    fn2=None
+    name=None
 )
 ```
 
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(fn1, fn2)`. They will be removed in a future version.
-Instructions for updating:
-fn1/fn2 are deprecated in favor of the true_fn/false_fn arguments.
 
 `true_fn` and `false_fn` both return lists of output tensors. `true_fn` and
 `false_fn` must have the same non-zero number and type of outputs.
@@ -71,7 +58,7 @@ branch of the `cond`, the <a href="../tf/math/multiply"><code>tf.multiply</code>
 unconditionally.
 
 Note that `cond` calls `true_fn` and `false_fn` *exactly once* (inside the
-call to `cond`, and not at all during <a href="../tf/InteractiveSession#run"><code>Session.run()</code></a>). `cond`
+call to `cond`, and not at all during `Session.run()`). `cond`
 stitches together the graph fragments created during the `true_fn` and
 `false_fn` calls with some additional graph nodes to ensure that the right
 branch gets executed depending on the value of `pred`.
@@ -81,7 +68,12 @@ branch gets executed depending on the value of `pred`.
 same (possibly nested) value structure of lists, tuples, and/or named tuples.
 Singleton lists and tuples form the only exceptions to this: when returned by
 `true_fn` and/or `false_fn`, they are implicitly unpacked to single values.
-This behavior is disabled by passing `strict=True`.
+
+Note: It is illegal to "directly" use tensors created inside a cond branch
+outside it, e.g. by storing a reference to a branch tensor in the python
+state. If you need to use a tensor created in a branch function you should
+return it as an output of the branch function and use the output from
+<a href="../tf/cond"><code>tf.cond</code></a> instead.
 
 #### Args:
 
@@ -90,7 +82,6 @@ This behavior is disabled by passing `strict=True`.
   `false_fn`.
 * <b>`true_fn`</b>: The callable to be performed if pred is true.
 * <b>`false_fn`</b>: The callable to be performed if pred is false.
-* <b>`strict`</b>: A boolean that enables/disables 'strict' mode; see above.
 * <b>`name`</b>: Optional name prefix for the returned tensors.
 
 

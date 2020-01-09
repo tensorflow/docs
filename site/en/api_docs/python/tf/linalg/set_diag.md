@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/set_diag">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2189-L2288">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L2200-L2299">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns a batched matrix tensor with new batched diagonal values.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/set_diag"><code>tf.compat.v1.linalg.set_diag</code></a>
-* <a href="/api_docs/python/tf/linalg/set_diag"><code>tf.compat.v1.matrix_set_diag</code></a>
-* <a href="/api_docs/python/tf/linalg/set_diag"><code>tf.compat.v2.linalg.set_diag</code></a>
-* <a href="/api_docs/python/tf/linalg/set_diag"><code>tf.matrix_set_diag</code></a>
+* `tf.compat.v1.linalg.set_diag`
+* `tf.compat.v1.matrix_set_diag`
+* `tf.compat.v2.linalg.set_diag`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/convert_image_dtype">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L1728-L1818">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L1728-L1818">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Convert `image` to `dtype`, scaling its values if needed.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/convert_image_dtype"><code>tf.compat.v1.image.convert_image_dtype</code></a>
-* <a href="/api_docs/python/tf/image/convert_image_dtype"><code>tf.compat.v2.image.convert_image_dtype</code></a>
+* `tf.compat.v1.image.convert_image_dtype`
+* `tf.compat.v2.image.convert_image_dtype`
 
 
 ``` python
@@ -42,7 +36,16 @@ tf.image.convert_image_dtype(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Load images](https://www.tensorflow.org/tutorials/load_data/images)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 Images that are represented using floating point values are expected to have
 values in the range [0,1). Image data stored in integer data types are

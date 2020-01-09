@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::ResourceApplyKerasMomentum Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -16,19 +14,19 @@
   <p>want to use Nesterov momentum.</p>
   <p>accum = accum * momentum - lr * grad var += accum</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
       <li>var: Should be from a Variable().</li>
       <li>accum: Should be from a Variable().</li>
       <li>lr: Scaling factor. Must be a scalar.</li>
       <li>grad: The gradient.</li>
       <li>momentum: Momentum. Must be a scalar.</li>
     </ul></p>
-  <p>Optional attributes (see <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>):<ul>
+  <p>Optional attributes (see <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>):<ul>
       <li>use_locking: If <code>True</code>, updating of the var and accum tensors will be protected by a lock; otherwise the behavior is undefined, but may exhibit less contention.</li>
       <li>use_nesterov: If <code>True</code>, the tensor passed to compute grad will be var + momentum * accum, so in the end, the var you get is actually var + momentum * accum.</li>
     </ul></p>
   <p>Returns:<ul>
-      <li>the created <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
+      <li>the created <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code></li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -38,13 +36,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac7e58311613d0d165a44cc1fba9e5153">ResourceApplyKerasMomentum</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac7e58311613d0d165a44cc1fba9e5153">ResourceApplyKerasMomentum</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum)</code>
         <br />
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac39d343d2b0d0b400490c36c574218bc">ResourceApplyKerasMomentum</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">ResourceApplyKerasMomentum::Attrs</a> & attrs)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac39d343d2b0d0b400490c36c574218bc">ResourceApplyKerasMomentum</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum, const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">ResourceApplyKerasMomentum::Attrs</a> & attrs)</code>
         <br />
       </td>
     </tr>
@@ -61,7 +59,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -95,7 +93,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -105,7 +103,7 @@
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a></code>
         </div>
       </td>
     </tr>
@@ -118,42 +116,42 @@
     </tr>
     <tr>
       <td>
-        <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceApplyKerasMomentum::<wbr/>Attrs</a>
+        <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs">tensorflow::<wbr/>ops::<wbr/>ResourceApplyKerasMomentum::<wbr/>Attrs</a>
       </td>
       <td>
-        <p>Optional attribute setters for <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/resource-apply-keras-momentum.html#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum">ResourceApplyKerasMomentum</a>. </p>
+        <p>Optional attribute setters for <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/resource-apply-keras-momentum.html#classtensorflow_1_1ops_1_1_resource_apply_keras_momentum">ResourceApplyKerasMomentum</a>. </p>
       </td>
     </tr>
   </table>
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1aae1a5eea3a68d79bac0cd6e088e5ea20">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac7e58311613d0d165a44cc1fba9e5153">
     <h3>ResourceApplyKerasMomentum</h3>
     <pre class="prettyprint"> ResourceApplyKerasMomentum(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1ac39d343d2b0d0b400490c36c574218bc">
     <h3>ResourceApplyKerasMomentum</h3>
     <pre class="prettyprint"> ResourceApplyKerasMomentum(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
-  const <a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">ResourceApplyKerasMomentum::Attrs</a> & attrs
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> var,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> accum,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> lr,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> grad,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> momentum,
+  const <a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">ResourceApplyKerasMomentum::Attrs</a> & attrs
 )</pre>
     <div />
   </div>
@@ -165,14 +163,14 @@
   <h2>Public static functions</h2>
   <div id="classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1aeba0a5e74d532e896644494ed4152e67">
     <h3>UseLocking</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a> UseLocking(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a> UseLocking(
   bool x
 )</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1a6cac17bd849f55f2f12caf3f2d78ea85">
     <h3>UseNesterov</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a> UseNesterov(
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/struct/tensorflow/ops/resource-apply-keras-momentum/attrs.html#structtensorflow_1_1ops_1_1_resource_apply_keras_momentum_1_1_attrs">Attrs</a> UseNesterov(
   bool x
 )</pre>
     <div />

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/clip_by_value">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/clip_ops.py#L36-L93">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/clip_ops.py#L36-L93">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Clips tensor values to a specified min and max.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/clip_by_value"><code>tf.compat.v1.clip_by_value</code></a>
-* <a href="/api_docs/python/tf/clip_by_value"><code>tf.compat.v2.clip_by_value</code></a>
+* `tf.compat.v1.clip_by_value`
+* `tf.compat.v2.clip_by_value`
 
 
 ``` python
@@ -42,7 +36,13 @@ tf.clip_by_value(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 Given a tensor `t`, this operation returns a tensor of the same type and
 shape as `t` with its values clipped to `clip_value_min` and `clip_value_max`.

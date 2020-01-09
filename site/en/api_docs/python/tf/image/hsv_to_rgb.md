@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/image/hsv_to_rgb">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_image_ops.py`
@@ -23,8 +17,8 @@ Convert one or more images from HSV to RGB.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/hsv_to_rgb"><code>tf.compat.v1.image.hsv_to_rgb</code></a>
-* <a href="/api_docs/python/tf/image/hsv_to_rgb"><code>tf.compat.v2.image.hsv_to_rgb</code></a>
+* `tf.compat.v1.image.hsv_to_rgb`
+* `tf.compat.v2.image.hsv_to_rgb`
 
 
 ``` python

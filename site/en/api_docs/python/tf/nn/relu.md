@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/nn/relu">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_nn_ops.py`
@@ -23,8 +17,8 @@ Computes rectified linear: `max(features, 0)`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/relu"><code>tf.compat.v1.nn.relu</code></a>
-* <a href="/api_docs/python/tf/nn/relu"><code>tf.compat.v2.nn.relu</code></a>
+* `tf.compat.v1.nn.relu`
+* `tf.compat.v2.nn.relu`
 
 
 ``` python
@@ -36,7 +30,17 @@ tf.nn.relu(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Custom layers](https://www.tensorflow.org/tutorials/customization/custom_layers)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+
+
 
 
 #### Args:

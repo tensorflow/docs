@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/export/export.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ A return type for a serving_input_receiver_fn.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver"><code>tf.compat.v1.estimator.export.TensorServingInputReceiver</code></a>
-* Class <a href="/api_docs/python/tf/estimator/export/TensorServingInputReceiver"><code>tf.compat.v2.estimator.export.TensorServingInputReceiver</code></a>
+* Class `tf.compat.v1.estimator.export.TensorServingInputReceiver`
+* Class `tf.compat.v2.estimator.export.TensorServingInputReceiver`
 
 
 <!-- Placeholder for "Used in" -->
@@ -43,7 +37,7 @@ as an input feature, as opposed to a dict of features.
 The normal `ServingInputReceiver` always returns a feature dict, even if it
 contains only one entry, and so can be used only with models that accept such
 a dict.  For models that accept only a single raw feature, the
-`serving_input_receiver_fn` provided to <a href="../../../tf/estimator/Estimator#export_saved_model"><code>Estimator.export_saved_model()</code></a>
+`serving_input_receiver_fn` provided to <a href="../../../tf/compat/v1/estimator/Estimator#export_saved_model"><code>Estimator.export_saved_model()</code></a>
 should return this `TensorServingInputReceiver` instead.  See:
 https://github.com/tensorflow/tensorflow/issues/11674
 

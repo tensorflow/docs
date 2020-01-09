@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/categorical_column_with_identity">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1802-L1867">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L1812-L1877">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A `CategoricalColumn` that returns identity values.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/categorical_column_with_identity"><code>tf.compat.v1.feature_column.categorical_column_with_identity</code></a>
-* <a href="/api_docs/python/tf/feature_column/categorical_column_with_identity"><code>tf.compat.v2.feature_column.categorical_column_with_identity</code></a>
+* `tf.compat.v1.feature_column.categorical_column_with_identity`
+* `tf.compat.v2.feature_column.categorical_column_with_identity`
 
 
 ``` python

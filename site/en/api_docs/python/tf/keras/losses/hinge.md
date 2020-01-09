@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/hinge">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L843-L858">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L848-L863">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,15 @@ Computes the hinge loss between `y_true` and `y_pred`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v1.keras.losses.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v1.keras.metrics.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v2.keras.losses.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v2.keras.metrics.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v2.losses.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.compat.v2.metrics.hinge</code></a>
-* <a href="/api_docs/python/tf/keras/losses/hinge"><code>tf.keras.metrics.hinge</code></a>
+* `tf.compat.v1.keras.losses.hinge`
+* `tf.compat.v1.keras.metrics.hinge`
+* `tf.compat.v2.keras.losses.hinge`
+* `tf.compat.v2.keras.metrics.hinge`
+* `tf.compat.v2.losses.hinge`
+* `tf.compat.v2.metrics.hinge`
+* `tf.keras.metrics.hinge`
+* `tf.losses.hinge`
+* `tf.metrics.hinge`
 
 
 ``` python

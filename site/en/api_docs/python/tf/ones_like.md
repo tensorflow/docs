@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/ones_like">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L2455-L2483">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L2497-L2526">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,29 +17,34 @@ page_type: reference
 
 
 
-Creates a tensor with all elements set to 1.
+Creates a tensor with all elements set to one.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/ones_like"><code>tf.compat.v1.ones_like</code></a>
+* `tf.compat.v2.ones_like`
 
 
 ``` python
 tf.ones_like(
-    tensor,
+    input,
     dtype=None,
-    name=None,
-    optimize=True
+    name=None
 )
 ```
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
 
-Given a single tensor (`tensor`), this operation returns a tensor of the same
-type and shape as `tensor` with all elements set to 1. Optionally, you can
-specify a new type (`dtype`) for the returned tensor.
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
+
+Given a single tensor (`tensor`), this operation returns a tensor of the
+same type and shape as `tensor` with all elements set to 1. Optionally,
+you can use `dtype` to specify a new type for the returned tensor.
 
 #### For example:
 
@@ -59,15 +58,13 @@ tf.ones_like(tensor)  # [[1, 1, 1], [1, 1, 1]]
 #### Args:
 
 
-* <b>`tensor`</b>: A `Tensor`.
-* <b>`dtype`</b>: A type for the returned `Tensor`. Must be `float32`, `float64`,
-  `int8`, `uint8`, `int16`, `uint16`, `int32`, `int64`, `complex64`,
-  `complex128` or `bool`.
+* <b>`input`</b>: A `Tensor`.
+* <b>`dtype`</b>: A type for the returned `Tensor`. Must be `float16`, `float32`,
+  `float64`, `int8`, `uint8`, `int16`, `uint16`, `int32`, `int64`,
+  `complex64`, `complex128`, `bool` or `string`.
 * <b>`name`</b>: A name for the operation (optional).
-* <b>`optimize`</b>: if true, attempt to statically determine the shape of 'tensor' and
-  encode it as a constant.
 
 
 #### Returns:
 
-A `Tensor` with all elements set to 1.
+A `Tensor` with all elements set to one.

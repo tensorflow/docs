@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/stack">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L1099-L1154">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1110-L1165">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Stacks a list of rank-`R` tensors into one rank-`(R+1)` tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/stack"><code>tf.compat.v1.stack</code></a>
-* <a href="/api_docs/python/tf/stack"><code>tf.compat.v2.stack</code></a>
+* `tf.compat.v1.stack`
+* `tf.compat.v2.stack`
 
 
 ``` python
@@ -41,7 +35,19 @@ tf.stack(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [The Keras functional API in TensorFlow](https://www.tensorflow.org/guide/keras/functional)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [Load CSV data](https://www.tensorflow.org/tutorials/load_data/csv)
+* [Load a pandas.DataFrame](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+
+
 
 Packs the list of tensors in `values` into a tensor with rank one higher than
 each tensor in `values`, by packing them along the `axis` dimension.

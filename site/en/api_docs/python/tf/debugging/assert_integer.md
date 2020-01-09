@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_integer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L1438-L1474">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L1530-L1547">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,7 @@ Assert that `x` is of integer dtype.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_integer"><code>tf.assert_integer</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_integer"><code>tf.compat.v1.assert_integer</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_integer"><code>tf.compat.v1.debugging.assert_integer</code></a>
+* `tf.compat.v2.debugging.assert_integer`
 
 
 ``` python
@@ -44,27 +36,20 @@ tf.debugging.assert_integer(
 
 <!-- Placeholder for "Used in" -->
 
-Example of adding a dependency to an operation:
+If `x` has a non-integer type, `message`, as well as the dtype of `x` are
+printed, and `InvalidArgumentError` is raised.
 
-```python
-with tf.control_dependencies([tf.compat.v1.assert_integer(x)]):
-  output = tf.reduce_sum(x)
-```
+This can always be checked statically, so this method returns nothing.
 
 #### Args:
 
 
-* <b>`x`</b>: `Tensor` whose basetype is integer and is not quantized.
+* <b>`x`</b>: A `Tensor`.
 * <b>`message`</b>: A string to prefix to the default message.
-* <b>`name`</b>: A name for this operation (optional).  Defaults to "assert_integer".
+* <b>`name`</b>: A name for this operation (optional). Defaults to "assert_integer".
 
 
 #### Raises:
 
 
-* <b>`TypeError`</b>:  If `x.dtype` is anything other than non-quantized integer.
-
-
-#### Returns:
-
-A `no_op` that does nothing.  Type can be determined statically.
+* <b>`TypeError`</b>:  If `x.dtype` is not a non-quantized integer type.

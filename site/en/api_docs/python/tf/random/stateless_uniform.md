@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/stateless_uniform">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateless_random_ops.py#L36-L102">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateless_random_ops.py#L36-L102">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Outputs deterministic pseudorandom values from a uniform distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/stateless_uniform"><code>tf.compat.v1.random.stateless_uniform</code></a>
-* <a href="/api_docs/python/tf/random/stateless_uniform"><code>tf.compat.v2.random.stateless_uniform</code></a>
-* <a href="/api_docs/python/tf/random/stateless_uniform"><code>tf.contrib.stateless.stateless_random_uniform</code></a>
+* `tf.compat.v1.random.stateless_uniform`
+* `tf.compat.v2.random.stateless_uniform`
 
 
 ``` python

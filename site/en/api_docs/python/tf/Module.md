@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/Module">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L33-L294">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/module/module.py#L33-L294">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,15 +21,19 @@ page_type: reference
 
 Base neural network module class.
 
-Inherits From: [`Checkpointable`](../tf/contrib/checkpoint/Checkpointable)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/Module"><code>tf.compat.v1.Module</code></a>
-* Class <a href="/api_docs/python/tf/Module"><code>tf.compat.v2.Module</code></a>
+* Class `tf.compat.v1.Module`
+* Class `tf.compat.v2.Module`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+
 
 A module is a named container for <a href="../tf/Variable"><code>tf.Variable</code></a>s, other <a href="../tf/Module"><code>tf.Module</code></a>s and
 functions which apply to user input. For example a dense layer in a neural
@@ -101,7 +99,7 @@ class MLP(tf.Module):
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L107-L122">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/module/module.py#L107-L122">View source</a>
 
 ``` python
 __init__(name=None)
@@ -185,7 +183,7 @@ first).
 
 <h3 id="with_name_scope"><code>with_name_scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/module/module.py#L260-L294">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/module/module.py#L260-L294">View source</a>
 
 ``` python
 @classmethod

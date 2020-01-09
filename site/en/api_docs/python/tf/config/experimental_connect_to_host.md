@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental_connect_to_host">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/eager/remote.py#L36-L73">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/eager/remote.py#L38-L70">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Connects to a single machine to enable remote execution on it.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental_connect_to_host"><code>tf.compat.v1.config.experimental_connect_to_host</code></a>
-* <a href="/api_docs/python/tf/config/experimental_connect_to_host"><code>tf.compat.v2.config.experimental_connect_to_host</code></a>
-* <a href="/api_docs/python/tf/config/experimental_connect_to_host"><code>tf.contrib.eager.connect_to_remote_host</code></a>
+* `tf.compat.v1.config.experimental_connect_to_host`
+* `tf.compat.v2.config.experimental_connect_to_host`
 
 
 ``` python
@@ -42,11 +35,9 @@ tf.config.experimental_connect_to_host(
 
 
 <!-- Placeholder for "Used in" -->
-
 Will make devices on the remote host available to use. Note that calling this
 more than once will work, but will invalidate any tensor handles on the old
 remote devices.
-
 Using the default job_name of worker, you can schedule ops to run remotely as
 follows:
 
@@ -54,7 +45,6 @@ follows:
 # Enable eager execution, and connect to the remote host.
 tf.compat.v1.enable_eager_execution()
 tf.contrib.eager.connect_to_remote_host("exampleaddr.com:9876")
-
 with ops.device("job:worker/replica:0/task:1/device:CPU:0"):
   # The following tensors should be resident on the remote device, and the op
   # will also execute remotely.
@@ -62,15 +52,8 @@ with ops.device("job:worker/replica:0/task:1/device:CPU:0"):
   x2 = array_ops.ones([2, 2])
   y = math_ops.matmul(x1, x2)
 ```
-
-#### Args:
-
-
-* <b>`remote_host`</b>: a single or a list the remote server addr in host-port format.
-* <b>`job_name`</b>: The job name under which the new server will be accessible.
-
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if remote_host is None.
+Args:
+  remote_host: a single or a list the remote server addr in host-port format.
+  job_name: The job name under which the new server will be accessible.
+Raises:
+  ValueError: if remote_host is None.

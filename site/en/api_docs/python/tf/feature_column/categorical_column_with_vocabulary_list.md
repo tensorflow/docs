@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_list">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/feature_column/feature_column_v2.py#L1685-L1799">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/feature_column/feature_column_v2.py#L1695-L1809">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ A `CategoricalColumn` with in-memory vocabulary.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_list"><code>tf.compat.v1.feature_column.categorical_column_with_vocabulary_list</code></a>
-* <a href="/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_list"><code>tf.compat.v2.feature_column.categorical_column_with_vocabulary_list</code></a>
+* `tf.compat.v1.feature_column.categorical_column_with_vocabulary_list`
+* `tf.compat.v2.feature_column.categorical_column_with_vocabulary_list`
 
 
 ``` python
@@ -43,7 +37,18 @@ tf.feature_column.categorical_column_with_vocabulary_list(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Boosted trees using Estimators](https://www.tensorflow.org/tutorials/estimator/boosted_trees)
+* [Build a linear model with Estimators](https://www.tensorflow.org/tutorials/estimator/linear)
+* [Classify structured data with feature columns](https://www.tensorflow.org/tutorials/structured_data/feature_columns)
+* [Load CSV data](https://www.tensorflow.org/tutorials/load_data/csv)
+
+
 
 Use this when your inputs are in string or integer format, and you have an
 in-memory vocabulary mapping each value to an integer ID. By default,

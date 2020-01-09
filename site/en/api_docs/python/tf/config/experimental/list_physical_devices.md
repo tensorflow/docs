@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/config/experimental/list_physical_devices">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/config.py#L296-L318">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/config.py#L296-L318">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Return a list of physical devices visible to the runtime.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/config/experimental/list_physical_devices"><code>tf.compat.v1.config.experimental.list_physical_devices</code></a>
-* <a href="/api_docs/python/tf/config/experimental/list_physical_devices"><code>tf.compat.v2.config.experimental.list_physical_devices</code></a>
+* `tf.compat.v1.config.experimental.list_physical_devices`
+* `tf.compat.v2.config.experimental.list_physical_devices`
 
 
 ``` python
@@ -37,7 +31,17 @@ tf.config.experimental.list_physical_devices(device_type=None)
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Use a GPU](https://www.tensorflow.org/guide/gpu)
+
+### Used in the tutorials:
+
+* [Customization basics: tensors and operations](https://www.tensorflow.org/tutorials/customization/basics)
+* [Text classification with TensorFlow Hub: Movie reviews](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub)
+
+
 
 Physical devices are hardware devices locally present on the current machine.
 By default all discovered CPU and GPU devices are considered visible. The

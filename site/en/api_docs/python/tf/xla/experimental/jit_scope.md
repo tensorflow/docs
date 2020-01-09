@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/xla/experimental/jit_scope">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,8 +15,8 @@ Enable or disable JIT compilation of operators within the scope.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/xla/experimental/jit_scope"><code>tf.compat.v1.xla.experimental.jit_scope</code></a>
-* <a href="/api_docs/python/tf/xla/experimental/jit_scope"><code>tf.compat.v2.xla.experimental.jit_scope</code></a>
+* `tf.compat.v1.xla.experimental.jit_scope`
+* `tf.compat.v2.xla.experimental.jit_scope`
 
 
 ``` python

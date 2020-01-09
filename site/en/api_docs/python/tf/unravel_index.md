@@ -7,24 +7,18 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/unravel_index">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
 
 
 
-Converts an array of flat indices into a tuple of coordinate arrays.
+Converts a flat index or array of flat indices into a tuple of
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/unravel_index"><code>tf.compat.v1.unravel_index</code></a>
-* <a href="/api_docs/python/tf/unravel_index"><code>tf.compat.v2.unravel_index</code></a>
+* `tf.compat.v1.unravel_index`
+* `tf.compat.v2.unravel_index`
 
 
 ``` python
@@ -39,24 +33,7 @@ tf.unravel_index(
 
 <!-- Placeholder for "Used in" -->
 
-
-#### Example:
-
-
-
-```
-y = tf.unravel_index(indices=[2, 5, 7], dims=[3, 3])
-# 'dims' represent a hypothetical (3, 3) tensor of indices:
-# [[0, 1, *2*],
-#  [3, 4, *5*],
-#  [6, *7*, 8]]
-# For each entry from 'indices', this operation returns
-# its coordinates (marked with '*'), such as
-# 2 ==> (0, 2)
-# 5 ==> (1, 2)
-# 7 ==> (2, 1)
-y ==> [[0, 1, 2], [2, 2, 1]]
-```
+coordinate arrays.
 
 
 

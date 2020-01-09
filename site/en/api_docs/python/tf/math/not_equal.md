@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/not_equal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1309-L1325">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1309-L1325">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ Returns the truth value of (x != y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/not_equal"><code>tf.compat.v1.math.not_equal</code></a>
-* <a href="/api_docs/python/tf/math/not_equal"><code>tf.compat.v1.not_equal</code></a>
-* <a href="/api_docs/python/tf/math/not_equal"><code>tf.compat.v2.math.not_equal</code></a>
-* <a href="/api_docs/python/tf/math/not_equal"><code>tf.compat.v2.not_equal</code></a>
-* <a href="/api_docs/python/tf/math/not_equal"><code>tf.not_equal</code></a>
+* `tf.compat.v1.math.not_equal`
+* `tf.compat.v1.not_equal`
+* `tf.compat.v2.math.not_equal`
+* `tf.compat.v2.not_equal`
+* `tf.not_equal`
 
 
 ``` python
@@ -44,7 +38,16 @@ tf.math.not_equal(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Masking and padding with Keras](https://www.tensorflow.org/guide/keras/masking_and_padding)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Unicode strings](https://www.tensorflow.org/tutorials/load_data/unicode)
+
+
 
 **NOTE**: `NotEqual` supports broadcasting. More about broadcasting [here](
 https://docs.scipy.org/doc/numpy-1.13.0/user/basics.broadcasting.html)

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/test">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -34,11 +28,11 @@ Note: `tf.compat.v1.test.mock` is an alias to the python `mock` or
 
 ## Functions
 
-[`assert_equal_graph_def(...)`](../../../tf/compat/v2/test/assert_equal_graph_def): Asserts that two `GraphDef`s are (mostly) the same.
+[`assert_equal_graph_def(...)`](../../../tf/test/assert_equal_graph_def): Asserts that two `GraphDef`s are (mostly) the same.
 
 [`benchmark_config(...)`](../../../tf/test/benchmark_config): Returns a tf.compat.v1.ConfigProto for disabling the dependency optimizer.
 
-[`compute_gradient(...)`](../../../tf/compat/v2/test/compute_gradient): Computes the theoretical and numeric Jacobian of `f`.
+[`compute_gradient(...)`](../../../tf/test/compute_gradient): Computes the theoretical and numeric Jacobian of `f`.
 
 [`create_local_cluster(...)`](../../../tf/test/create_local_cluster): Create and start local servers and return the associated `Server` objects.
 

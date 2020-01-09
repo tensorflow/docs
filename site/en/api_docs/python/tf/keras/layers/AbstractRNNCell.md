@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/AbstractRNNCell">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L893-L977">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L893-L977">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Inherits From: [`Layer`](../../../tf/keras/layers/Layer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/AbstractRNNCell"><code>tf.compat.v1.keras.layers.AbstractRNNCell</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/AbstractRNNCell"><code>tf.compat.v2.keras.layers.AbstractRNNCell</code></a>
+* Class `tf.compat.v1.keras.layers.AbstractRNNCell`
+* Class `tf.compat.v2.keras.layers.AbstractRNNCell`
 
 
 <!-- Placeholder for "Used in" -->
@@ -89,7 +83,7 @@ for each `s` in `self.batch_size`.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/engine/base_layer.py#L284-L370">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/engine/base_layer.py#L277-L363">View source</a>
 
 ``` python
 __init__(
@@ -126,7 +120,7 @@ or TensorShapes.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/recurrent.py#L976-L977">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/recurrent.py#L976-L977">View source</a>
 
 ``` python
 get_initial_state(

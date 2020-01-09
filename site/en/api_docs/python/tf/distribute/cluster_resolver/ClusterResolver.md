@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L67-L178">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L67-L178">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,8 @@ Abstract class for all implementations of ClusterResolvers.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.compat.v1.distribute.cluster_resolver.ClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.compat.v2.distribute.cluster_resolver.ClusterResolver</code></a>
-* Class <a href="/api_docs/python/tf/distribute/cluster_resolver/ClusterResolver"><code>tf.contrib.cluster_resolver.ClusterResolver</code></a>
+* Class `tf.compat.v1.distribute.cluster_resolver.ClusterResolver`
+* Class `tf.compat.v2.distribute.cluster_resolver.ClusterResolver`
 
 
 <!-- Placeholder for "Used in" -->
@@ -82,7 +75,7 @@ in open-source TensorFlow, you do not need to implement this property.
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L91-L105">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L91-L105">View source</a>
 
 ``` python
 cluster_spec()
@@ -105,7 +98,7 @@ a cluster_spec, rather than attempting to cache anything.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L107-L123">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L107-L123">View source</a>
 
 ``` python
 master(
@@ -137,7 +130,7 @@ means retrieving the master every time this function is invoked.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L125-L160">View source</a>
 
 ``` python
 num_accelerators(

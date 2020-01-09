@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/save_img">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/preprocessing/image.py#L104-L131">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/preprocessing/image.py#L104-L131">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Saves an image stored as a Numpy array to a path or file object.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/image/save_img"><code>tf.compat.v1.keras.preprocessing.image.save_img</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/image/save_img"><code>tf.compat.v2.keras.preprocessing.image.save_img</code></a>
+* `tf.compat.v1.keras.preprocessing.image.save_img`
+* `tf.compat.v2.keras.preprocessing.image.save_img`
 
 
 ``` python

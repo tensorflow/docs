@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings/lower">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_string_ops.py`
@@ -23,8 +17,8 @@ TODO: add doc.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/lower"><code>tf.compat.v1.strings.lower</code></a>
-* <a href="/api_docs/python/tf/strings/lower"><code>tf.compat.v2.strings.lower</code></a>
+* `tf.compat.v1.strings.lower`
+* `tf.compat.v2.strings.lower`
 
 
 ``` python

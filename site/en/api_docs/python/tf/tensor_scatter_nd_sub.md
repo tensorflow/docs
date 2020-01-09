@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/tensor_scatter_nd_sub">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_array_ops.py`
@@ -23,10 +17,9 @@ Subtracts sparse `updates` from an existing tensor according to `indices`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v1.tensor_scatter_nd_sub</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v1.tensor_scatter_sub</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.compat.v2.tensor_scatter_nd_sub</code></a>
-* <a href="/api_docs/python/tf/tensor_scatter_nd_sub"><code>tf.tensor_scatter_sub</code></a>
+* `tf.compat.v1.tensor_scatter_nd_sub`
+* `tf.compat.v1.tensor_scatter_sub`
+* `tf.compat.v2.tensor_scatter_nd_sub`
 
 
 ``` python
@@ -44,7 +37,7 @@ tf.tensor_scatter_nd_sub(
 
 This operation creates a new tensor by subtracting sparse `updates` from the
 passed in `tensor`.
-This operation is very similar to <a href="../tf/scatter_nd_sub"><code>tf.scatter_nd_sub</code></a>, except that the updates
+This operation is very similar to `tf.scatter_nd_sub`, except that the updates
 are subtracted from an existing tensor (as opposed to a variable). If the memory
 for the existing tensor cannot be re-used, a copy is made and updated.
 

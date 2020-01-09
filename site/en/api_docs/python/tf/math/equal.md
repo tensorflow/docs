@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/math/equal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1278-L1306">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1278-L1306">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ Returns the truth value of (x == y) element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/equal"><code>tf.compat.v1.equal</code></a>
-* <a href="/api_docs/python/tf/math/equal"><code>tf.compat.v1.math.equal</code></a>
-* <a href="/api_docs/python/tf/math/equal"><code>tf.compat.v2.equal</code></a>
-* <a href="/api_docs/python/tf/math/equal"><code>tf.compat.v2.math.equal</code></a>
-* <a href="/api_docs/python/tf/math/equal"><code>tf.equal</code></a>
+* `tf.compat.v1.equal`
+* `tf.compat.v1.math.equal`
+* `tf.compat.v2.equal`
+* `tf.compat.v2.math.equal`
+* `tf.equal`
 
 
 ``` python
@@ -44,7 +38,14 @@ tf.math.equal(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 
 #### Usage:

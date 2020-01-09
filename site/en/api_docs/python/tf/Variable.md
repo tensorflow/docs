@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/Variable">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1366-L1572">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L266-L1358">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,14 +22,32 @@ page_type: reference
 
 See the [Variables Guide](https://tensorflow.org/guide/variables).
 
-Inherits From: [`Variable`](../tf/compat/v2/Variable)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/Variable"><code>tf.compat.v1.Variable</code></a>
+* Class `tf.compat.v2.Variable`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Better performance with tf.function and AutoGraph](https://www.tensorflow.org/guide/function)
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+* [Migrate your TensorFlow 1 code to TensorFlow 2](https://www.tensorflow.org/guide/migrate)
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+* [Writing custom layers and models with Keras](https://www.tensorflow.org/guide/keras/custom_layers_and_models)
+
+### Used in the tutorials:
+
+* [Automatic differentiation and gradient tape](https://www.tensorflow.org/tutorials/customization/autodiff)
+* [Better performance with tf.function](https://www.tensorflow.org/tutorials/customization/performance)
+* [Custom training with tf.distribute.Strategy](https://www.tensorflow.org/tutorials/distribute/custom_training)
+* [Custom training: basics](https://www.tensorflow.org/tutorials/customization/custom_training)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+
 
 A variable maintains state in the graph across calls to `run()`. You add a
 variable to the graph by constructing an instance of the class `Variable`.
@@ -107,7 +119,7 @@ variables are initialized in the right order.
 
 All variables are automatically collected in the graph where they are
 created. By default, the constructor adds the new variable to the graph
-collection <a href="../tf/GraphKeys#GLOBAL_VARIABLES"><code>GraphKeys.GLOBAL_VARIABLES</code></a>. The convenience function
+collection `GraphKeys.GLOBAL_VARIABLES`. The convenience function
 `global_variables()` returns the contents of that collection.
 
 When building a machine learning model it is often convenient to distinguish
@@ -115,60 +127,28 @@ between variables holding the trainable model parameters and other variables
 such as a `global step` variable used to count training steps. To make this
 easier, the variable constructor supports a `trainable=<bool>` parameter. If
 `True`, the new variable is also added to the graph collection
-<a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. The convenience function
+`GraphKeys.TRAINABLE_VARIABLES`. The convenience function
 `trainable_variables()` returns the contents of this collection. The
 various `Optimizer` classes use this collection as the default list of
 variables to optimize.
 
-WARNING: tf.Variable objects by default have a non-intuitive memory model. A
-Variable is represented internally as a mutable Tensor which can
-non-deterministically alias other Tensors in a graph. The set of operations
-which consume a Variable and can lead to aliasing is undetermined and can
-change across TensorFlow versions. Avoid writing code which relies on the
-value of a Variable either changing or not changing as other operations
-happen. For example, using Variable objects or simple functions thereof as
-predicates in a <a href="../tf/cond"><code>tf.cond</code></a> is dangerous and error-prone:
-
-```
-v = tf.Variable(True)
-tf.cond(v, lambda: v.assign(False), my_false_fn)  # Note: this is broken.
-```
-
-Here, adding `use_resource=True` when constructing the variable will
-fix any nondeterminism issues:
-
-```
-v = tf.Variable(True, use_resource=True)
-tf.cond(v, lambda: v.assign(False), my_false_fn)
-```
-
-To use the replacement for variables which does
-not have these issues:
-
-* Add `use_resource=True` when constructing <a href="../tf/Variable"><code>tf.Variable</code></a>;
-* Call `tf.compat.v1.get_variable_scope().set_use_resource(True)` inside a
-  <a href="../tf/variable_scope"><code>tf.compat.v1.variable_scope</code></a> before the <a href="../tf/get_variable"><code>tf.compat.v1.get_variable()</code></a> call.
-
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1481-L1570">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L353-L432">View source</a>
 
 ``` python
 __init__(
     initial_value=None,
     trainable=None,
-    collections=None,
     validate_shape=True,
     caching_device=None,
     name=None,
     variable_def=None,
     dtype=None,
-    expected_shape=None,
     import_scope=None,
     constraint=None,
-    use_resource=None,
     synchronization=tf.VariableSynchronization.AUTO,
-    aggregation=tf.VariableAggregation.NONE,
+    aggregation=tf.compat.v1.VariableAggregation.NONE,
     shape=None
 )
 ```
@@ -179,7 +159,7 @@ The new variable is added to the graph collections listed in `collections`,
 which defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
 
 If `trainable` is `True` the variable is also added to the graph collection
-<a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>.
+`GraphKeys.TRAINABLE_VARIABLES`.
 
 This constructor creates both a `variable` Op and an `assign` Op to set the
 variable to its initial value.
@@ -193,13 +173,9 @@ variable to its initial value.
   callable with no argument that returns the initial value when called. In
   that case, `dtype` must be specified. (Note that initializer functions
   from init_ops.py must first be bound to a shape before being used here.)
-* <b>`trainable`</b>: If `True`, also adds the variable to the graph collection
-  <a href="../tf/GraphKeys#TRAINABLE_VARIABLES"><code>GraphKeys.TRAINABLE_VARIABLES</code></a>. This collection is used as the default
-  list of variables to use by the `Optimizer` classes. Defaults to `True`,
-  unless `synchronization` is set to `ON_READ`, in which case it defaults
-  to `False`.
-* <b>`collections`</b>: List of graph collections keys. The new variable is added to
-  these collections. Defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
+* <b>`trainable`</b>: If `True`, GradientTapes automatically watch uses of this
+  variable. Defaults to `True`, unless `synchronization` is set to
+  `ON_READ`, in which case it defaults to `False`.
 * <b>`validate_shape`</b>: If `False`, allows the variable to be initialized with a
   value of unknown shape. If `True`, the default, the shape of
   `initial_value` must be known.
@@ -217,8 +193,6 @@ variable to its initial value.
 * <b>`dtype`</b>: If set, initial_value will be converted to the given type. If
   `None`, either the datatype will be kept (if `initial_value` is a
   Tensor), or `convert_to_tensor` will decide.
-* <b>`expected_shape`</b>: A TensorShape. If set, initial_value is expected to have
-  this shape.
 * <b>`import_scope`</b>: Optional `string`. Name scope to add to the `Variable.` Only
   used when initializing from protocol buffer.
 * <b>`constraint`</b>: An optional projection function to be applied to the variable
@@ -228,7 +202,6 @@ variable to its initial value.
   variable and return the Tensor for the projected value (which must have
   the same shape). Constraints are not safe to use when doing asynchronous
   distributed training.
-* <b>`use_resource`</b>: whether to use resource variables.
 * <b>`synchronization`</b>: Indicates when a distributed a variable will be
   aggregated. Accepted values are constants defined in the class
   <a href="../tf/VariableSynchronization"><code>tf.VariableSynchronization</code></a>. By default the synchronization is set to
@@ -344,7 +317,7 @@ A `TensorShape`.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
 
 ``` python
 __abs__(
@@ -387,7 +360,7 @@ Note, for `complex64` or `complex128` input, the returned `Tensor` will be
 
 <h3 id="__add__"><code>__add__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __add__(
@@ -402,7 +375,7 @@ Dispatches to add for strings and add_v2 for all other types.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __and__(
@@ -432,7 +405,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __div__(
@@ -461,7 +434,7 @@ Used for Tensor.__div__.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1092-L1101">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1092-L1101">View source</a>
 
 ``` python
 __eq__(other)
@@ -472,7 +445,7 @@ Compares two variables element-wise for equality.
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __floordiv__(
@@ -484,7 +457,7 @@ __floordiv__(
 
 Divides `x / y` elementwise, rounding toward the most negative integer.
 
-The same as <a href="../tf/div"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
+The same as <a href="../tf/RaggedTensor#__div__"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
 `tf.floor(tf.compat.v1.div(x,y))` for
 floating point arguments so that the result is always an integer (though
 possibly an integer represented as floating point).  This op is generated by
@@ -515,7 +488,7 @@ as well.
 
 <h3 id="__ge__"><code>__ge__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L4437-L4494">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L4437-L4494">View source</a>
 
 ``` python
 __ge__(
@@ -545,7 +518,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L999-L1042">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L1010-L1053">View source</a>
 
 ``` python
 __getitem__(
@@ -604,7 +577,7 @@ that can be used to generate an assignment operator.
 
 <h3 id="__gt__"><code>__gt__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L4354-L4411">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L4354-L4411">View source</a>
 
 ``` python
 __gt__(
@@ -634,7 +607,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5922-L5975">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L5922-L5975">View source</a>
 
 ``` python
 __invert__(
@@ -661,7 +634,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1116-L1128">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1116-L1128">View source</a>
 
 ``` python
 __iter__()
@@ -682,7 +655,7 @@ to infinity.  Declaring this method prevents this unintended behavior.
 
 <h3 id="__le__"><code>__le__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5419-L5476">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L5419-L5476">View source</a>
 
 ``` python
 __le__(
@@ -712,7 +685,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__lt__"><code>__lt__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L5336-L5393">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L5336-L5393">View source</a>
 
 ``` python
 __lt__(
@@ -742,7 +715,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __matmul__(
@@ -864,7 +837,7 @@ for all indices i, j.
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __mod__(
@@ -897,7 +870,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __mul__(
@@ -912,7 +885,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1104-L1114">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1104-L1114">View source</a>
 
 ``` python
 __ne__(other)
@@ -923,7 +896,7 @@ Compares two variables element-wise for equality.
 
 <h3 id="__neg__"><code>__neg__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L6802-L6857">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L6802-L6857">View source</a>
 
 ``` python
 __neg__(
@@ -951,7 +924,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __or__(
@@ -981,7 +954,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __pow__(
@@ -1019,7 +992,7 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __radd__(
@@ -1034,7 +1007,7 @@ Dispatches to add for strings and add_v2 for all other types.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rand__(
@@ -1064,7 +1037,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rdiv__(
@@ -1093,7 +1066,7 @@ Used for Tensor.__div__.
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rfloordiv__(
@@ -1105,7 +1078,7 @@ __rfloordiv__(
 
 Divides `x / y` elementwise, rounding toward the most negative integer.
 
-The same as <a href="../tf/div"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
+The same as <a href="../tf/RaggedTensor#__div__"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
 `tf.floor(tf.compat.v1.div(x,y))` for
 floating point arguments so that the result is always an integer (though
 possibly an integer represented as floating point).  This op is generated by
@@ -1136,7 +1109,7 @@ as well.
 
 <h3 id="__rmatmul__"><code>__rmatmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rmatmul__(
@@ -1258,7 +1231,7 @@ for all indices i, j.
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rmod__(
@@ -1291,7 +1264,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rmul__(
@@ -1306,7 +1279,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ror__"><code>__ror__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __ror__(
@@ -1336,7 +1309,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rpow__(
@@ -1374,7 +1347,7 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rsub__(
@@ -1404,7 +1377,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rtruediv__(
@@ -1419,7 +1392,7 @@ __rtruediv__(
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L922-L925">View source</a>
 
 ``` python
 __rxor__(
@@ -1461,7 +1434,7 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __sub__(
@@ -1491,7 +1464,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __truediv__(
@@ -1506,7 +1479,7 @@ __truediv__(
 
 <h3 id="__xor__"><code>__xor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L896-L912">View source</a>
 
 ``` python
 __xor__(
@@ -1548,7 +1521,7 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="assign"><code>assign</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L570-L586">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L570-L586">View source</a>
 
 ``` python
 assign(
@@ -1581,7 +1554,7 @@ the assignment has completed.
 
 <h3 id="assign_add"><code>assign_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L588-L604">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L588-L604">View source</a>
 
 ``` python
 assign_add(
@@ -1614,7 +1587,7 @@ the addition has completed.
 
 <h3 id="assign_sub"><code>assign_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L606-L622">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L606-L622">View source</a>
 
 ``` python
 assign_sub(
@@ -1647,7 +1620,7 @@ the subtraction has completed.
 
 <h3 id="batch_scatter_update"><code>batch_scatter_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L745-L790">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L745-L790">View source</a>
 
 ``` python
 batch_scatter_update(
@@ -1711,7 +1684,7 @@ the scattered assignment has completed.
 
 <h3 id="count_up_to"><code>count_up_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L967-L988">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L967-L988">View source</a>
 
 ``` python
 count_up_to(limit)
@@ -1747,7 +1720,7 @@ distinct.
 
 <h3 id="eval"><code>eval</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L487-L517">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L487-L517">View source</a>
 
 ``` python
 eval(session=None)
@@ -1759,7 +1732,7 @@ This is not a graph construction method, it does not add ops to the graph.
 
 This convenience method requires a session where the graph
 containing this variable has been launched. If no session is
-passed, the default session is used.  See <a href="../tf/Session"><code>tf.compat.v1.Session</code></a> for more
+passed, the default session is used.  See <a href="../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a> for more
 information on launching a graph and on sessions.
 
 ```python
@@ -1789,7 +1762,7 @@ A numpy `ndarray` with a copy of the value of this variable.
 
 <h3 id="experimental_ref"><code>experimental_ref</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1226-L1277">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1226-L1277">View source</a>
 
 ``` python
 experimental_ref()
@@ -1845,9 +1818,10 @@ print(x.experimental_ref().deref())
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1210-L1213">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1210-L1213">View source</a>
 
 ``` python
+@staticmethod
 from_proto(
     variable_def,
     import_scope=None
@@ -1859,7 +1833,7 @@ Returns a `Variable` object created from `variable_def`.
 
 <h3 id="gather_nd"><code>gather_nd</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L952-L965">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L952-L965">View source</a>
 
 ``` python
 gather_nd(
@@ -1887,18 +1861,18 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1190-L1192">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1190-L1192">View source</a>
 
 ``` python
 get_shape()
 ```
 
-Alias of <a href="../tf/compat/v2/Variable#shape"><code>Variable.shape</code></a>.
+Alias of <a href="../tf/Variable#shape"><code>Variable.shape</code></a>.
 
 
 <h3 id="initialized_value"><code>initialized_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L519-L544">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L519-L544">View source</a>
 
 ``` python
 initialized_value()
@@ -1930,7 +1904,7 @@ has run.
 
 <h3 id="load"><code>load</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L990-L1033">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L990-L1033">View source</a>
 
 ``` python
 load(
@@ -1949,7 +1923,7 @@ Writes new value to variable's memory. Doesn't add ops to the graph.
 
 This convenience method requires a session where the graph
 containing this variable has been launched. If no session is
-passed, the default session is used.  See <a href="../tf/Session"><code>tf.compat.v1.Session</code></a> for more
+passed, the default session is used.  See <a href="../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a> for more
 information on launching a graph and on sessions.
 
 ```python
@@ -1982,7 +1956,7 @@ with tf.compat.v1.Session() as sess:
 
 <h3 id="read_value"><code>read_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L456-L465">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L456-L465">View source</a>
 
 ``` python
 read_value()
@@ -2000,7 +1974,7 @@ A `Tensor` containing the value of the variable.
 
 <h3 id="scatter_add"><code>scatter_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L641-L656">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L641-L656">View source</a>
 
 ``` python
 scatter_add(
@@ -2035,7 +2009,7 @@ the scattered addition has completed.
 
 <h3 id="scatter_div"><code>scatter_div</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L711-L726">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L711-L726">View source</a>
 
 ``` python
 scatter_div(
@@ -2070,7 +2044,7 @@ the scattered division has completed.
 
 <h3 id="scatter_max"><code>scatter_max</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L658-L674">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L658-L674">View source</a>
 
 ``` python
 scatter_max(
@@ -2106,7 +2080,7 @@ the scattered maximization has completed.
 
 <h3 id="scatter_min"><code>scatter_min</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L676-L692">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L676-L692">View source</a>
 
 ``` python
 scatter_min(
@@ -2142,7 +2116,7 @@ the scattered minimization has completed.
 
 <h3 id="scatter_mul"><code>scatter_mul</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L694-L709">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L694-L709">View source</a>
 
 ``` python
 scatter_mul(
@@ -2177,7 +2151,7 @@ the scattered multiplication has completed.
 
 <h3 id="scatter_nd_add"><code>scatter_nd_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L840-L886">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L840-L886">View source</a>
 
 ``` python
 scatter_nd_add(
@@ -2239,7 +2213,7 @@ the scattered addition has completed.
 
 <h3 id="scatter_nd_sub"><code>scatter_nd_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L792-L838">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L792-L838">View source</a>
 
 ``` python
 scatter_nd_sub(
@@ -2301,7 +2275,7 @@ the scattered subtraction has completed.
 
 <h3 id="scatter_nd_update"><code>scatter_nd_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L888-L934">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L888-L934">View source</a>
 
 ``` python
 scatter_nd_update(
@@ -2363,7 +2337,7 @@ the scattered assignment has completed.
 
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L624-L639">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L624-L639">View source</a>
 
 ``` python
 scatter_sub(
@@ -2398,7 +2372,7 @@ the scattered subtraction has completed.
 
 <h3 id="scatter_update"><code>scatter_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L728-L743">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L728-L743">View source</a>
 
 ``` python
 scatter_update(
@@ -2433,7 +2407,7 @@ the scattered assignment has completed.
 
 <h3 id="set_shape"><code>set_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L467-L473">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L467-L473">View source</a>
 
 ``` python
 set_shape(shape)
@@ -2449,7 +2423,7 @@ Overrides the shape for this variable.
 
 <h3 id="sparse_read"><code>sparse_read</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L936-L950">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L936-L950">View source</a>
 
 ``` python
 sparse_read(
@@ -2478,7 +2452,7 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L1198-L1208">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L1198-L1208">View source</a>
 
 ``` python
 to_proto(export_scope=None)
@@ -2501,7 +2475,7 @@ in the specified name scope.
 
 <h3 id="value"><code>value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/variables.py#L437-L454">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/variables.py#L437-L454">View source</a>
 
 ``` python
 value()

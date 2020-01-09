@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/Tensor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L288-L851">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L288-L851">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -32,8 +26,8 @@ Represents one of the outputs of an `Operation`.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/Tensor"><code>tf.compat.v1.Tensor</code></a>
-* Class <a href="/api_docs/python/tf/Tensor"><code>tf.compat.v2.Tensor</code></a>
+* Class `tf.compat.v1.Tensor`
+* Class `tf.compat.v2.Tensor`
 
 
 <!-- Placeholder for "Used in" -->
@@ -41,7 +35,7 @@ Represents one of the outputs of an `Operation`.
 A `Tensor` is a symbolic handle to one of the outputs of an
 `Operation`. It does not hold the values of that operation's output,
 but instead provides a means of computing those values in a
-TensorFlow <a href="../tf/Session"><code>tf.compat.v1.Session</code></a>.
+TensorFlow <a href="../tf/compat/v1/Session"><code>tf.compat.v1.Session</code></a>.
 
 This class has two primary purposes:
 
@@ -52,7 +46,7 @@ This class has two primary purposes:
 
 2. After the graph has been launched in a session, the value of the
    `Tensor` can be computed by passing it to
-   <a href="../tf/Session#run"><code>tf.Session.run</code></a>.
+   `tf.Session.run`.
    `t.eval()` is a shortcut for calling
    `tf.compat.v1.get_default_session().run(t)`.
 
@@ -75,7 +69,7 @@ result = sess.run(e)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L370-L395">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L370-L395">View source</a>
 
 ``` python
 __init__(
@@ -187,7 +181,7 @@ The index of this tensor in the outputs of its `Operation`.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L245-L278">View source</a>
 
 ``` python
 __abs__(
@@ -233,7 +227,7 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__add__"><code>__add__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __add__(
@@ -247,7 +241,7 @@ Dispatches to add for strings and add_v2 for all other types.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __and__(
@@ -276,7 +270,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L747-L765">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L747-L765">View source</a>
 
 ``` python
 __bool__()
@@ -303,7 +297,7 @@ if tf.constant(5) < tf.constant(7):  # Will raise.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __div__(
@@ -331,7 +325,7 @@ Used for Tensor.__div__.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1328-L1339">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1328-L1339">View source</a>
 
 ``` python
 __eq__(other)
@@ -342,7 +336,7 @@ Compares two tensors element-wise for equality.
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __floordiv__(
@@ -353,7 +347,7 @@ __floordiv__(
 
 Divides `x / y` elementwise, rounding toward the most negative integer.
 
-The same as <a href="../tf/div"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
+The same as <a href="../tf/RaggedTensor#__div__"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
 `tf.floor(tf.compat.v1.div(x,y))` for
 floating point arguments so that the result is always an integer (though
 possibly an integer represented as floating point).  This op is generated by
@@ -414,7 +408,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/array_ops.py#L658-L802">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/array_ops.py#L669-L813">View source</a>
 
 ``` python
 __getitem__(
@@ -553,7 +547,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L545-L558">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L545-L558">View source</a>
 
 ``` python
 __iter__()
@@ -594,7 +588,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__len__"><code>__len__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L738-L741">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L738-L741">View source</a>
 
 ``` python
 __len__()
@@ -635,7 +629,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __matmul__(
@@ -756,7 +750,7 @@ for all indices i, j.
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __mod__(
@@ -788,7 +782,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __mul__(
@@ -802,7 +796,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L1342-L1351">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L1342-L1351">View source</a>
 
 ``` python
 __ne__(other)
@@ -843,7 +837,7 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L767-L775">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L767-L775">View source</a>
 
 ``` python
 __nonzero__()
@@ -860,7 +854,7 @@ This is the Python 2.x counterpart to `__bool__()` above.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __or__(
@@ -889,7 +883,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __pow__(
@@ -926,7 +920,7 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __radd__(
@@ -940,7 +934,7 @@ Dispatches to add for strings and add_v2 for all other types.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rand__(
@@ -969,7 +963,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rdiv__(
@@ -997,7 +991,7 @@ Used for Tensor.__div__.
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rfloordiv__(
@@ -1008,7 +1002,7 @@ __rfloordiv__(
 
 Divides `x / y` elementwise, rounding toward the most negative integer.
 
-The same as <a href="../tf/div"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
+The same as <a href="../tf/RaggedTensor#__div__"><code>tf.compat.v1.div(x,y)</code></a> for integers, but uses
 `tf.floor(tf.compat.v1.div(x,y))` for
 floating point arguments so that the result is always an integer (though
 possibly an integer represented as floating point).  This op is generated by
@@ -1039,7 +1033,7 @@ as well.
 
 <h3 id="__rmatmul__"><code>__rmatmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rmatmul__(
@@ -1160,7 +1154,7 @@ for all indices i, j.
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rmod__(
@@ -1192,7 +1186,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rmul__(
@@ -1206,7 +1200,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ror__"><code>__ror__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __ror__(
@@ -1235,7 +1229,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rpow__(
@@ -1272,7 +1266,7 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rsub__(
@@ -1301,7 +1295,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rtruediv__(
@@ -1315,7 +1309,7 @@ __rtruediv__(
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L922-L925">View source</a>
 
 ``` python
 __rxor__(
@@ -1356,7 +1350,7 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __sub__(
@@ -1385,7 +1379,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __truediv__(
@@ -1399,7 +1393,7 @@ __truediv__(
 
 <h3 id="__xor__"><code>__xor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/math_ops.py#L896-L912">View source</a>
 
 ``` python
 __xor__(
@@ -1440,7 +1434,7 @@ A `Tensor` of type bool with the same size as that of x or y.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L652-L664">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L652-L664">View source</a>
 
 ``` python
 consumers()
@@ -1456,7 +1450,7 @@ A list of `Operation`s.
 
 <h3 id="eval"><code>eval</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L777-L798">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L777-L798">View source</a>
 
 ``` python
 eval(
@@ -1479,7 +1473,7 @@ available, or `session` must be specified explicitly.
 
 
 * <b>`feed_dict`</b>: A dictionary that maps `Tensor` objects to feed values. See
-  <a href="../tf/Session#run"><code>tf.Session.run</code></a> for a description of the valid feed values.
+  `tf.Session.run` for a description of the valid feed values.
 * <b>`session`</b>: (Optional.) The `Session` to be used to evaluate this tensor. If
   none, the default session will be used.
 
@@ -1491,7 +1485,7 @@ A numpy array corresponding to the value of this tensor.
 
 <h3 id="experimental_ref"><code>experimental_ref</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L800-L851">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L800-L851">View source</a>
 
 ``` python
 experimental_ref()
@@ -1547,7 +1541,7 @@ print(x.experimental_ref().deref())
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L580-L582">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L580-L582">View source</a>
 
 ``` python
 get_shape()
@@ -1558,7 +1552,7 @@ Alias of Tensor.shape.
 
 <h3 id="set_shape"><code>set_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/ops.py#L584-L645">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/ops.py#L584-L645">View source</a>
 
 ``` python
 set_shape(shape)

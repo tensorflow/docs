@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/DataLossError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L475-L487">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L475-L487">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,20 +25,20 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/DataLossError"><code>tf.compat.v1.errors.DataLossError</code></a>
-* Class <a href="/api_docs/python/tf/errors/DataLossError"><code>tf.compat.v2.errors.DataLossError</code></a>
+* Class `tf.compat.v1.errors.DataLossError`
+* Class `tf.compat.v2.errors.DataLossError`
 
 
 <!-- Placeholder for "Used in" -->
 
 For example, this may be raised by running a
-<a href="../../tf/WholeFileReader#read"><code>tf.WholeFileReader.read</code></a>
+`tf.WholeFileReader.read`
 operation, if the file is truncated while it is being read.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L485-L487">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L485-L487">View source</a>
 
 ``` python
 __init__(

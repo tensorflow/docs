@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lookup/experimental/DenseHashTable">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1831-L2123">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1831-L2123">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,12 @@ page_type: reference
 
 A generic mutable hash table implementation using tensors as backing store.
 
-Inherits From: [`LookupInterface`](../../../tf/contrib/lookup/LookupInterface)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.compat.v1.lookup.experimental.DenseHashTable</code></a>
-* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.compat.v2.lookup.experimental.DenseHashTable</code></a>
-* Class <a href="/api_docs/python/tf/lookup/experimental/DenseHashTable"><code>tf.contrib.lookup.MutableDenseHashTable</code></a>
+* Class `tf.compat.v1.lookup.experimental.DenseHashTable`
+* Class `tf.compat.v2.lookup.experimental.DenseHashTable`
 
 
 <!-- Placeholder for "Used in" -->
@@ -65,7 +58,7 @@ print(out.eval())
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1860-L1922">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1860-L1922">View source</a>
 
 ``` python
 __init__(
@@ -144,7 +137,7 @@ The table value dtype.
 
 <h3 id="erase"><code>erase</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2033-L2058">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L2033-L2058">View source</a>
 
 ``` python
 erase(
@@ -178,7 +171,7 @@ The created Operation.
 
 <h3 id="export"><code>export</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2078-L2094">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L2078-L2094">View source</a>
 
 ``` python
 export(name=None)
@@ -201,7 +194,7 @@ A pair of tensors with the first tensor containing all keys and the
 
 <h3 id="insert"><code>insert</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2014-L2031">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L2014-L2031">View source</a>
 
 ``` python
 insert(
@@ -238,7 +231,7 @@ The created Operation.
 
 <h3 id="insert_or_assign"><code>insert_or_assign</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1987-L2012">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1987-L2012">View source</a>
 
 ``` python
 insert_or_assign(
@@ -275,7 +268,7 @@ The created Operation.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1961-L1985">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1961-L1985">View source</a>
 
 ``` python
 lookup(
@@ -310,7 +303,7 @@ A tensor containing the values in the same shape as `keys` using the
 
 <h3 id="remove"><code>remove</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L2060-L2076">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L2060-L2076">View source</a>
 
 ``` python
 remove(
@@ -344,7 +337,7 @@ The created Operation.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1948-L1959">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1948-L1959">View source</a>
 
 ``` python
 size(name=None)

@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/unsorted_segment_max">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -24,10 +18,9 @@ Computes the maximum along segments of a tensor.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/unsorted_segment_max"><code>tf.compat.v1.math.unsorted_segment_max</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_max"><code>tf.compat.v1.unsorted_segment_max</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_max"><code>tf.compat.v2.math.unsorted_segment_max</code></a>
-* <a href="/api_docs/python/tf/math/unsorted_segment_max"><code>tf.unsorted_segment_max</code></a>
+* `tf.compat.v1.math.unsorted_segment_max`
+* `tf.compat.v1.unsorted_segment_max`
+* `tf.compat.v2.math.unsorted_segment_max`
 
 
 ``` python

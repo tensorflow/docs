@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/losses/serialize">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/losses.py#L1146-L1148">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/losses.py#L1163-L1165">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,10 @@ page_type: reference
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/losses/serialize"><code>tf.compat.v1.keras.losses.serialize</code></a>
-* <a href="/api_docs/python/tf/keras/losses/serialize"><code>tf.compat.v2.keras.losses.serialize</code></a>
-* <a href="/api_docs/python/tf/keras/losses/serialize"><code>tf.compat.v2.losses.serialize</code></a>
+* `tf.compat.v1.keras.losses.serialize`
+* `tf.compat.v2.keras.losses.serialize`
+* `tf.compat.v2.losses.serialize`
+* `tf.losses.serialize`
 
 
 ``` python

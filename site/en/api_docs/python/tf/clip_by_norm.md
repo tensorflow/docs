@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/clip_by_norm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/clip_ops.py#L125-L184">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/clip_ops.py#L125-L184">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Clips tensor values to a maximum L2-norm.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/clip_by_norm"><code>tf.compat.v1.clip_by_norm</code></a>
-* <a href="/api_docs/python/tf/clip_by_norm"><code>tf.compat.v2.clip_by_norm</code></a>
+* `tf.compat.v1.clip_by_norm`
+* `tf.compat.v2.clip_by_norm`
 
 
 ``` python
@@ -42,7 +36,11 @@ tf.clip_by_norm(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Eager execution](https://www.tensorflow.org/guide/eager)
+
+
 
 Given a tensor `t`, and a maximum clip value `clip_norm`, this operation
 normalizes `t` so that its L2-norm is less than or equal to `clip_norm`,

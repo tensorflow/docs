@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/utils/Sequence">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L331-L406">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L331-L406">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Base object for fitting to a sequence of data, such as a dataset.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/utils/Sequence"><code>tf.compat.v1.keras.utils.Sequence</code></a>
-* Class <a href="/api_docs/python/tf/keras/utils/Sequence"><code>tf.compat.v2.keras.utils.Sequence</code></a>
+* Class `tf.compat.v1.keras.utils.Sequence`
+* Class `tf.compat.v2.keras.utils.Sequence`
 
 
 <!-- Placeholder for "Used in" -->
@@ -87,7 +81,7 @@ that the network will only train once
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L377-L387">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L377-L387">View source</a>
 
 ``` python
 __getitem__(index)
@@ -109,7 +103,7 @@ A batch
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L403-L406">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L403-L406">View source</a>
 
 ``` python
 __iter__()
@@ -120,7 +114,7 @@ Create a generator that iterate over the Sequence.
 
 <h3 id="__len__"><code>__len__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L389-L396">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L389-L396">View source</a>
 
 ``` python
 __len__()
@@ -136,7 +130,7 @@ The number of batches in the Sequence.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L398-L401">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L398-L401">View source</a>
 
 ``` python
 on_epoch_end()

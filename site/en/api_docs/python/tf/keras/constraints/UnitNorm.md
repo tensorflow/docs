@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/constraints/UnitNorm">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L91-L118">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L91-L118">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,11 +25,11 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/constraints/UnitNorm"><code>tf.compat.v1.keras.constraints.UnitNorm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/UnitNorm"><code>tf.compat.v1.keras.constraints.unit_norm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/UnitNorm"><code>tf.compat.v2.keras.constraints.UnitNorm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/UnitNorm"><code>tf.compat.v2.keras.constraints.unit_norm</code></a>
-* Class <a href="/api_docs/python/tf/keras/constraints/UnitNorm"><code>tf.keras.constraints.unit_norm</code></a>
+* Class `tf.compat.v1.keras.constraints.UnitNorm`
+* Class `tf.compat.v1.keras.constraints.unit_norm`
+* Class `tf.compat.v2.keras.constraints.UnitNorm`
+* Class `tf.compat.v2.keras.constraints.unit_norm`
+* Class `tf.keras.constraints.unit_norm`
 
 
 <!-- Placeholder for "Used in" -->
@@ -58,7 +52,7 @@ Inherits From: [`Constraint`](../../../tf/keras/constraints/Constraint)
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L108-L109">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L108-L109">View source</a>
 
 ``` python
 __init__(axis=0)
@@ -73,7 +67,7 @@ Initialize self.  See help(type(self)) for accurate signature.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L111-L115">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L111-L115">View source</a>
 
 ``` python
 __call__(w)
@@ -84,7 +78,7 @@ Call self as a function.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/constraints.py#L117-L118">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/constraints.py#L117-L118">View source</a>
 
 ``` python
 get_config()

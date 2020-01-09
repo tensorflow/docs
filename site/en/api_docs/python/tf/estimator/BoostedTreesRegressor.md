@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/BoostedTreesRegressor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/boosted_trees.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,11 +25,15 @@ A Regressor for Tensorflow Boosted Trees models.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/BoostedTreesRegressor"><code>tf.compat.v1.estimator.BoostedTreesRegressor</code></a>
-* Class <a href="/api_docs/python/tf/estimator/BoostedTreesRegressor"><code>tf.compat.v2.estimator.BoostedTreesRegressor</code></a>
+* Class `tf.compat.v1.estimator.BoostedTreesRegressor`
+* Class `tf.compat.v2.estimator.BoostedTreesRegressor`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the tutorials:
+
+* [Gradient Boosted Trees: Model understanding](https://www.tensorflow.org/tutorials/estimator/boosted_trees_model_understanding)
+
+
 
 
 
@@ -267,7 +265,7 @@ or
   of `model_fn` from inputs.
 * <b>`steps`</b>: Number of steps for which to evaluate model. If `None`, evaluates
   until `input_fn` raises an end-of-input exception.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -328,12 +326,12 @@ Only one of the modes is used for saving variables to the `SavedModel`
 For the variables and `tf.MetaGraphDefs`, a timestamped export directory
 below
 `export_dir_base`, and writes a `SavedModel` into it containing
-the <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> for the given mode and its associated signatures.
+the `tf.MetaGraphDef` for the given mode and its associated signatures.
 
 For prediction, the exported `MetaGraphDef` will provide one `SignatureDef`
 for each element of the `export_outputs` dict returned from the `model_fn`,
 named using the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -455,7 +453,7 @@ http://blog.datadive.net/interpreting-random-forests/ for more details.
   from the dictionary, with the exception of 'bias' and 'dfc', which will
   always be in the dictionary. If `None`, returns all keys in prediction
   dict, as well as two new keys 'dfc' and 'bias'.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -511,14 +509,14 @@ this `Estimator`'s `model_fn` to generate the model graph based on those
 features. It restores the given checkpoint (or, lacking that, the most
 recent checkpoint) into this graph in a fresh session.  Finally it creates
 a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
+a `SavedModel` into it containing a single `tf.MetaGraphDef` saved from this
 session.
 
 The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -597,14 +595,14 @@ this `Estimator`'s `model_fn` to generate the model graph based on those
 features. It restores the given checkpoint (or, lacking that, the most
 recent checkpoint) into this graph in a fresh session.  Finally it creates
 a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
+a `SavedModel` into it containing a single `tf.MetaGraphDef` saved from this
 session.
 
 The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -760,7 +758,7 @@ https://github.com/tensorflow/tensorflow/issues/20506#issuecomment-422208517)
   the <a href="../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is a `dict`. If
   `predict_keys` is used then rest of the predictions will be filtered
   from the dictionary. If `None`, returns all.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -819,7 +817,7 @@ Trains a model given training data `input_fn`.
       `Tensor` or a dictionary of string label name to `Tensor`. Both
       `features` and `labels` are consumed by `model_fn`. They should
       satisfy the expectation of `model_fn` from inputs.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train the model. If `None`, train
   forever or train until `input_fn` generates the `tf.errors.OutOfRange`

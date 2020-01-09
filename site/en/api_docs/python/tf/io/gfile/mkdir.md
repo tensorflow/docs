@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/io/gfile/mkdir">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/lib/io/file_io.py#L411-L423">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/lib/io/file_io.py#L411-L423">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a directory with the name given by 'path'.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/gfile/mkdir"><code>tf.compat.v1.io.gfile.mkdir</code></a>
-* <a href="/api_docs/python/tf/io/gfile/mkdir"><code>tf.compat.v2.io.gfile.mkdir</code></a>
+* `tf.compat.v1.io.gfile.mkdir`
+* `tf.compat.v2.io.gfile.mkdir`
 
 
 ``` python
@@ -50,4 +44,4 @@ Notes: The parent directories need to exist. Use recursive_create_dir instead
 #### Raises:
 
 
-* <b><a href="/api_docs/python/tf/errors/OpError"><code>errors.OpError</code></a></b>: If the operation fails.
+* <b>`errors.OpError`</b>: If the operation fails.

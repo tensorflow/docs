@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/CheckpointManager">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L496-L737">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/checkpoint_management.py#L496-L737">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,12 +25,21 @@ Deletes old checkpoints.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.compat.v1.train.CheckpointManager</code></a>
-* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.compat.v2.train.CheckpointManager</code></a>
-* Class <a href="/api_docs/python/tf/train/CheckpointManager"><code>tf.contrib.checkpoint.CheckpointManager</code></a>
+* Class `tf.compat.v1.train.CheckpointManager`
+* Class `tf.compat.v2.train.CheckpointManager`
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Training checkpoints](https://www.tensorflow.org/guide/checkpoint)
+
+### Used in the tutorials:
+
+* [CycleGAN](https://www.tensorflow.org/tutorials/generative/cyclegan)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Transformer model for language understanding](https://www.tensorflow.org/tutorials/text/transformer)
+
+
 
 
 #### Example usage:
@@ -60,7 +63,7 @@ particular directory at a time.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L517-L606">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/checkpoint_management.py#L517-L606">View source</a>
 
 ``` python
 __init__(
@@ -156,7 +159,7 @@ The checkpoint prefix. If there are no checkpoints, returns `None`.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/checkpoint_management.py#L679-L737">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/checkpoint_management.py#L679-L737">View source</a>
 
 ``` python
 save(checkpoint_number=None)

@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Keras layers API.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/layers"><code>tf.compat.v1.keras.layers</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 
@@ -91,10 +80,6 @@ Keras layers API.
 
 [`class Cropping3D`](../../tf/keras/layers/Cropping3D): Cropping layer for 3D data (e.g. spatial or spatio-temporal).
 
-[`class CuDNNGRU`](../../tf/keras/layers/CuDNNGRU): Fast GRU implementation backed by cuDNN.
-
-[`class CuDNNLSTM`](../../tf/keras/layers/CuDNNLSTM): Fast LSTM implementation backed by cuDNN.
-
 [`class Dense`](../../tf/keras/layers/Dense): Just your regular densely-connected NN layer.
 
 [`class DenseFeatures`](../../tf/keras/layers/DenseFeatures): A layer that produces a dense `Tensor` based on given `feature_columns`.
@@ -145,7 +130,7 @@ Keras layers API.
 
 [`class InputLayer`](../../tf/keras/layers/InputLayer): Layer to be used as an entry point into a Network (a graph of layers).
 
-[`class InputSpec`](../../tf/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
+[`class InputSpec`](../../tf/keras/layers/InputSpec): Specifies the ndim, dtype and shape of every input to a layer.
 
 [`class LSTM`](../../tf/keras/layers/LSTM): Long Short-Term Memory layer - Hochreiter 1997.
 

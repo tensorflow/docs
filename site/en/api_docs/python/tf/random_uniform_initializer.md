@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random_uniform_initializer">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L256-L291">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L219-L260">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +25,11 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/random_uniform_initializer"><code>tf.compat.v1.initializers.random_uniform</code></a>
-* Class <a href="/api_docs/python/tf/random_uniform_initializer"><code>tf.compat.v1.random_uniform_initializer</code></a>
-* Class <a href="/api_docs/python/tf/random_uniform_initializer"><code>tf.initializers.random_uniform</code></a>
+* Class `tf.compat.v2.initializers.RandomUniform`
+* Class `tf.compat.v2.keras.initializers.RandomUniform`
+* Class `tf.compat.v2.random_uniform_initializer`
+* Class `tf.initializers.RandomUniform`
+* Class `tf.keras.initializers.RandomUniform`
 
 
 <!-- Placeholder for "Used in" -->
@@ -42,33 +38,28 @@ Inherits From: [`Initializer`](../tf/keras/initializers/Initializer)
 #### Args:
 
 
-* <b>`minval`</b>: A python scalar or a scalar tensor. Lower bound of the range of
-  random values to generate.
-* <b>`maxval`</b>: A python scalar or a scalar tensor. Upper bound of the range of
-  random values to generate.  Defaults to 1 for float types.
+* <b>`minval`</b>: A python scalar or a scalar tensor. Lower bound of the range
+  of random values to generate.
+* <b>`maxval`</b>: A python scalar or a scalar tensor. Upper bound of the range
+  of random values to generate.  Defaults to 1 for float types.
 * <b>`seed`</b>: A Python integer. Used to create random seeds. See
-  <a href="../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a> for behavior.
-* <b>`dtype`</b>: Default data type, used if no `dtype` argument is provided when
-  calling the initializer.
+  <a href="../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  for behavior.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L270-L277">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L232-L236">View source</a>
 
 ``` python
 __init__(
-    minval=0,
-    maxval=None,
-    seed=None,
-    dtype=tf.dtypes.float32
+    minval=-0.05,
+    maxval=0.05,
+    seed=None
 )
 ```
 
-DEPRECATED FUNCTION ARGUMENTS
+Initialize self.  See help(type(self)) for accurate signature.
 
-Warning: SOME ARGUMENTS ARE DEPRECATED: `(dtype)`. They will be removed in a future version.
-Instructions for updating:
-Call initializer instance with the dtype argument instead of passing it to the constructor
 
 
 
@@ -76,13 +67,12 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L279-L283">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L238-L253">View source</a>
 
 ``` python
 __call__(
     shape,
-    dtype=None,
-    partition_info=None
+    dtype=tf.dtypes.float32
 )
 ```
 
@@ -93,14 +83,18 @@ Returns a tensor object initialized as specified by the initializer.
 
 
 * <b>`shape`</b>: Shape of the tensor.
-* <b>`dtype`</b>: Optional dtype of the tensor. If not provided use the initializer
-  dtype.
-* <b>`partition_info`</b>: Optional information about the possible partitioning of a
-  tensor.
+* <b>`dtype`</b>: Optional dtype of the tensor. Only floating point and integer
+types are supported.
+
+
+#### Raises:
+
+
+* <b>`ValueError`</b>: If the dtype is not numeric.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L78-L97">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L69-L89">View source</a>
 
 ``` python
 from_config(
@@ -125,8 +119,8 @@ initializer = RandomUniform.from_config(config)
 #### Args:
 
 
-* <b>`config`</b>: A Python dictionary. It will typically be the output of
-  `get_config`.
+* <b>`config`</b>: A Python dictionary.
+  It will typically be the output of `get_config`.
 
 
 #### Returns:
@@ -136,7 +130,7 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/init_ops.py#L285-L291">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/init_ops_v2.py#L255-L260">View source</a>
 
 ``` python
 get_config()

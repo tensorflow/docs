@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/nn/local_response_normalization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_nn_ops.py`
@@ -23,11 +17,11 @@ Local Response Normalization.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v1.nn.local_response_normalization</code></a>
-* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v1.nn.lrn</code></a>
-* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v2.nn.local_response_normalization</code></a>
-* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.compat.v2.nn.lrn</code></a>
-* <a href="/api_docs/python/tf/nn/local_response_normalization"><code>tf.nn.lrn</code></a>
+* `tf.compat.v1.nn.local_response_normalization`
+* `tf.compat.v1.nn.lrn`
+* `tf.compat.v2.nn.local_response_normalization`
+* `tf.compat.v2.nn.lrn`
+* `tf.nn.lrn`
 
 
 ``` python

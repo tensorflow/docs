@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/strings">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -32,19 +26,19 @@ Operations for working with string Tensors.
 
 [`join(...)`](../tf/strings/join): Joins the strings in the given list of string tensors into one tensor;
 
-[`length(...)`](../tf/strings/length): String lengths of `input`.
+[`length(...)`](../tf/strings/length)
 
 [`lower(...)`](../tf/strings/lower): TODO: add doc.
 
 [`ngrams(...)`](../tf/strings/ngrams): Create a tensor of n-grams based on `data`.
 
-[`reduce_join(...)`](../tf/strings/reduce_join): Joins a string Tensor across the given dimensions.
+[`reduce_join(...)`](../tf/strings/reduce_join)
 
 [`regex_full_match(...)`](../tf/strings/regex_full_match): Check if the input matches the regex pattern.
 
 [`regex_replace(...)`](../tf/strings/regex_replace): Replace elements of `input` matching regex `pattern` with `rewrite`.
 
-[`split(...)`](../tf/strings/split): Split elements of `input` based on `sep`.
+[`split(...)`](../tf/strings/split): Split elements of `input` based on `sep` into a `RaggedTensor`.
 
 [`strip(...)`](../tf/strings/strip): Strip leading and trailing whitespaces from the Tensor.
 

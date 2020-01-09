@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/signal/fft2d">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_spectral_ops.py`
@@ -23,12 +17,10 @@ Defined in generated file: `python/ops/gen_spectral_ops.py`
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.compat.v1.fft2d</code></a>
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.compat.v1.signal.fft2d</code></a>
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.compat.v1.spectral.fft2d</code></a>
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.compat.v2.signal.fft2d</code></a>
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.fft2d</code></a>
-* <a href="/api_docs/python/tf/signal/fft2d"><code>tf.spectral.fft2d</code></a>
+* `tf.compat.v1.fft2d`
+* `tf.compat.v1.signal.fft2d`
+* `tf.compat.v1.spectral.fft2d`
+* `tf.compat.v2.signal.fft2d`
 
 
 ``` python

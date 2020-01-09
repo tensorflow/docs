@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/sparse/maximum">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/sparse_ops.py#L2464-L2499">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/sparse_ops.py#L2448-L2483">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Returns the element-wise max of two SparseTensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/sparse/maximum"><code>tf.compat.v1.sparse.maximum</code></a>
-* <a href="/api_docs/python/tf/sparse/maximum"><code>tf.compat.v1.sparse_maximum</code></a>
-* <a href="/api_docs/python/tf/sparse/maximum"><code>tf.compat.v2.sparse.maximum</code></a>
-* <a href="/api_docs/python/tf/sparse/maximum"><code>tf.sparse_maximum</code></a>
+* `tf.compat.v1.sparse.maximum`
+* `tf.compat.v1.sparse_maximum`
+* `tf.compat.v2.sparse.maximum`
 
 
 ``` python

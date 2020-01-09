@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/image/load_img">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,8 +15,8 @@ Loads an image into PIL format.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/image/load_img"><code>tf.compat.v1.keras.preprocessing.image.load_img</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/image/load_img"><code>tf.compat.v2.keras.preprocessing.image.load_img</code></a>
+* `tf.compat.v1.keras.preprocessing.image.load_img`
+* `tf.compat.v2.keras.preprocessing.image.load_img`
 
 
 ``` python
@@ -37,7 +31,15 @@ tf.keras.preprocessing.image.load_img(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+
+### Used in the tutorials:
+
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+
+
 
 # Arguments
     path: Path to image file.

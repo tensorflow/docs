@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/experimental/create_rng_state">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/stateful_random_ops.py#L140-L151">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/stateful_random_ops.py#L140-L151">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Creates a RNG state.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/experimental/create_rng_state"><code>tf.compat.v1.random.experimental.create_rng_state</code></a>
-* <a href="/api_docs/python/tf/random/experimental/create_rng_state"><code>tf.compat.v2.random.experimental.create_rng_state</code></a>
+* `tf.compat.v1.random.experimental.create_rng_state`
+* `tf.compat.v2.random.experimental.create_rng_state`
 
 
 ``` python

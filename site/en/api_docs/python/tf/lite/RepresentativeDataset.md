@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lite/RepresentativeDataset">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L112-L130">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/lite.py#L112-L130">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Representative dataset to evaluate optimizations.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lite/RepresentativeDataset"><code>tf.compat.v1.lite.RepresentativeDataset</code></a>
-* Class <a href="/api_docs/python/tf/lite/RepresentativeDataset"><code>tf.compat.v2.lite.RepresentativeDataset</code></a>
+* Class `tf.compat.v1.lite.RepresentativeDataset`
+* Class `tf.compat.v2.lite.RepresentativeDataset`
 
 
 <!-- Placeholder for "Used in" -->
@@ -44,7 +38,7 @@ converted floating point model.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/python/lite.py#L121-L130">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/lite/python/lite.py#L121-L130">View source</a>
 
 ``` python
 __init__(input_gen)

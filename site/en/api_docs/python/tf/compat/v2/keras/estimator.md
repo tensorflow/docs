@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/keras/estimator">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -24,4 +18,4 @@ Keras estimator API.
 
 ## Functions
 
-[`model_to_estimator(...)`](../../../../tf/compat/v2/keras/estimator/model_to_estimator): Constructs an `Estimator` instance from given keras model.
+[`model_to_estimator(...)`](../../../../tf/keras/estimator/model_to_estimator): Constructs an `Estimator` instance from given keras model.

@@ -2,8 +2,6 @@
 <html devsite>
 <head>
   <title>tensorflow::ops::Where Class Reference</title>
-  <meta name="project_path" value="/versions/r1.15/api_docs/_project.yaml" />
-  <meta name="book_path" value="/versions/r1.15/api_docs/_book.yaml" />
   <meta name="hide_page_heading" value="true" />
 </head>
 <body>
@@ -17,7 +15,7 @@
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * shape: Defines the shape of the output tensor.
     * input_min: The minimum value of the input.
     * input_max: The maximum value of the input.</pre>
@@ -29,15 +27,15 @@
     * `Output` output_max: This value is copied from input_max. */
 class QuantizedReshape {
  public:
-  QuantizedReshape(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max);</pre>
+  QuantizedReshape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_min,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input_max);</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_min;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_max;
 };</pre>
   </p>
   <p>
@@ -64,7 +62,7 @@ class QuantizedReshape {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -77,8 +75,8 @@ class Rank {
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -162,7 +160,7 @@ class Rank {
   <p>reshape(t, []) ==> 7 <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * shape: Defines the shape of the output tensor.</pre>
   </p>
   <p>
@@ -170,19 +168,19 @@ class Rank {
     * `Output`: The output tensor. */
 class Reshape {
  public:
-  Reshape(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-        <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
+  Reshape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+        <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
-    <pre class="prettyprint">/** <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `ref`.</pre>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `ref`.</pre>
   </p>
   <p>
     <pre class="prettyprint">    The values of `value` are assigned to the positions in the variable
@@ -195,7 +193,7 @@ class Reshape {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -250,14 +248,14 @@ class ResourceStridedSliceAssign {
     int64 new_axis_mask_ = 0;
     int64 shrink_axis_mask_ = 0;
   };
-  ResourceStridedSliceAssign(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
-                           <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-                           <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                           strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
-  ResourceStridedSliceAssign(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
-                           <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
-                           <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                           strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const
+  ResourceStridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                           strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
+  ResourceStridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin,
+                           <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                           strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, const
                            ResourceStridedSliceAssign::Attrs& attrs);
   operator ::tensorflow::Operation() const { return operation; }</pre>
   </p>
@@ -279,7 +277,7 @@ class ResourceStridedSliceAssign {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
 };</pre>
   </p>
   <p>
@@ -333,7 +331,7 @@ class ResourceStridedSliceAssign {
   <p>output[7:, :, 0, :, ...] = input[7:, :, 0, :, ...] output[2:, :, 1, :, ...] = input[2:, :, 1, :, ...] output[3:, :, 2, :, ...] = input[3:, :, 2, :, ...] output[2:, :, 3, :, ...] = input[2:, :, 3, :, ...] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: The input to reverse.
     * seq_lengths: 1-D with length `input.dims(batch_dim)` and
     `max(seq_lengths) <= input.dims(seq_dim)`
@@ -363,10 +361,10 @@ class ReverseSequence {
   <p>
     <pre class="prettyprint">    int64 batch_dim_ = 0;
   };
-  ReverseSequence(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-                <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim);
-  ReverseSequence(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-                <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim, const
+  ReverseSequence(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+                <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim);
+  ReverseSequence(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+                <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim, const
                 ReverseSequence::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -378,8 +376,8 @@ class ReverseSequence {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -438,7 +436,7 @@ class ReverseSequence {
   <p>reverse(t, dims) ==> [[[[8, 9, 10, 11], [4, 5, 6, 7], [0, 1, 2, 3]] [[20, 21, 22, 23], [16, 17, 18, 19], [12, 13, 14, 15]]]] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * tensor: Up to 8-D.
     * axis: 1-D. The indices of the dimensions to reverse. Must be in the range
     `[-rank(tensor), rank(tensor))`.</pre>
@@ -448,15 +446,15 @@ class ReverseSequence {
     * `Output`: The same shape as `tensor`. */
 class Reverse {
  public:
-  Reverse(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-        <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  Reverse(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+        <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -504,7 +502,7 @@ class Reverse {
     tensor with 8 elements.</pre>
   </p>
   <p>
-    <pre class="prettyprint"><figure id="@name"><img src="/versions/r1.15/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
   </p>
   <p>
     <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
@@ -522,7 +520,7 @@ class Reverse {
     rank-3 tensor with two matrices of new values.</pre>
   </p>
   <p>
-    <pre class="prettyprint"><figure id="@name"><img src="/versions/r1.15/api_docs/cc/images/ScatterNd2.png" /></figure></pre>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd2.png" /></figure></pre>
   </p>
   <p>
     <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
@@ -543,7 +541,7 @@ class Reverse {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * indices: Index tensor.
     * updates: Updates to scatter into output.
     * shape: 1-D. The shape of the resulting tensor.</pre>
@@ -554,15 +552,15 @@ class Reverse {
     to the indices. */
 class ScatterNd {
  public:
-  ScatterNd(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-          <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
+  ScatterNd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+          <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -615,11 +613,11 @@ class ScatterNd {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * input: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
-    * indices: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: `int32`, `int64`.
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * input: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    * indices: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must be one of the following types: `int32`, `int64`.
     A tensor of indices into `input`.
-    * updates: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values
+    * updates: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Must have the same type as ref. A tensor of updated values
     to add to `input`.</pre>
   </p>
   <p>
@@ -628,16 +626,16 @@ class ScatterNd {
     updated with `updates`. */
 class ScatterNdNonAliasingAdd {
  public:
-  ScatterNdNonAliasingAdd(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                        input, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  ScatterNdNonAliasingAdd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                        input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                         updates);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -656,7 +654,7 @@ class ScatterNdNonAliasingAdd {
   <p>shape(t) ==> [2, 2, 3] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -676,7 +674,7 @@ class Shape {
     <pre class="prettyprint">    DataType out_type_ = DT_INT32;
   };
   Shape(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
-  Shape(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+  Shape(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
       Shape::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -688,8 +686,8 @@ class Shape {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -700,7 +698,7 @@ class Shape {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -720,9 +718,9 @@ class ShapeN {
     <pre class="prettyprint">    DataType out_type_ = DT_INT32;
   };
   ShapeN(const ::tensorflow::Scope& scope, ::tensorflow::InputList input);
-  ShapeN(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input, const
+  ShapeN(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input-list.html#classtensorflow_1_1_input_list">tensorflow::InputList</a> input, const
        ShapeN::Attrs& attrs);
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
   </p>
   <p>
     <pre class="prettyprint">  static Attrs OutType(DataType x) {
@@ -730,7 +728,7 @@ class ShapeN {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
   ::tensorflow::OutputList output;
 };</pre>
   </p>
@@ -751,7 +749,7 @@ class ShapeN {
   <p>size(t) ==> 12 <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -771,7 +769,7 @@ class Size {
     <pre class="prettyprint">    DataType out_type_ = DT_INT32;
   };
   Size(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
-  Size(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+  Size(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
      Size::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -783,8 +781,8 @@ class Size {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -801,7 +799,7 @@ class Size {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * begin: begin[i] specifies the offset into the 'i'th dimension of
     'input' to slice from.
     * size: size[i] specifies the number of elements of the 'i'th dimension
@@ -814,15 +812,15 @@ class Size {
     * `Output`: The output tensor. */
 class Slice {
  public:
-  Slice(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-      <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size);
+  Slice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+      <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -830,7 +828,7 @@ class Slice {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -843,8 +841,8 @@ class Snapshot {
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -862,7 +860,7 @@ class Snapshot {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: 4-D with shape `[batch, height, width, depth]`.
     * paddings: 2-D tensor of non-negative integers with shape `[2, 2]`. It specifies
       the padding of the input with zeros across the spatial dimensions as follows:</pre>
@@ -937,15 +935,15 @@ class Snapshot {
     * `Output`: The output tensor. */
 class SpaceToBatch {
  public:
-  SpaceToBatch(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, int64 block_size);
+  SpaceToBatch(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings, int64 block_size);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -963,7 +961,7 @@ class SpaceToBatch {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: N-D with shape `input_shape = [batch] + spatial_shape + remaining_shape`,
     where spatial_shape has `M` dimensions.
     * block_shape: 1-D with shape `[M]`, all values must be >= 1.
@@ -1062,15 +1060,15 @@ class SpaceToBatch {
     * `Output`: The output tensor. */
 class SpaceToBatchND {
  public:
-  SpaceToBatchND(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-               <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> block_shape, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings);
+  SpaceToBatchND(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+               <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> block_shape, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> paddings);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1099,7 +1097,7 @@ class SpaceToBatchND {
           `qint8 [ batch, channels / 4, height, width, 4 ]`</pre>
   </p>
   <p>
-    <pre class="prettyprint">    It is useful to consider the operation as transforming a 6-D <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
+    <pre class="prettyprint">    It is useful to consider the operation as transforming a 6-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>.
     e.g. for data_format = NHWC,
          Each element in the input tensor can be specified via 6 coordinates,
          ordered by decreasing memory layout significance as:
@@ -1148,7 +1146,7 @@ class SpaceToBatchND {
   <p><pre class="prettyprint" /> x = [[[[1, 2, 3, 4], [5, 6, 7, 8]], [[9, 10, 11, 12], [13, 14, 15, 16]]]] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * block_size: The size of the spatial block.</pre>
   </p>
   <p>
@@ -1168,9 +1166,9 @@ class SpaceToDepth {
   <p>
     <pre class="prettyprint">    StringPiece data_format_ = "NHWC";
   };
-  SpaceToDepth(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
+  SpaceToDepth(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
              block_size);
-  SpaceToDepth(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
+  SpaceToDepth(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, int64
              block_size, const SpaceToDepth::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -1182,8 +1180,8 @@ class SpaceToDepth {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1191,7 +1189,7 @@ class SpaceToDepth {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * axis: 0-D.  The dimension along which to split.  Must be in the range
     `[-rank(value), rank(value))`.
     * value: The tensor to split.
@@ -1205,12 +1203,12 @@ class SpaceToDepth {
     `values.shape[split_dim] / num_split`. */
 class Split {
  public:
-  Split(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
-      <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num_split);
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  Split(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis,
+      <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num_split);
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
   ::tensorflow::OutputList output;
 };</pre>
   </p>
@@ -1219,7 +1217,7 @@ class Split {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * value: The tensor to split.
     * size_splits: list containing the sizes of each output tensor along the split
     dimension. Must sum to the dimension of value along split_dim.
@@ -1234,13 +1232,13 @@ class Split {
     `size_splits[i]`. */
 class SplitV {
  public:
-  SplitV(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
-       <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size_splits, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, int64
+  SplitV(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+       <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> size_splits, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, int64
        num_split);
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
   ::tensorflow::OutputList output;
 };</pre>
   </p>
@@ -1271,7 +1269,7 @@ class SplitV {
   <p>shape(squeeze(t, [2, 4])) ==> [1, 2, 3, 1] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: The `input` to squeeze.</pre>
   </p>
   <p>
@@ -1304,7 +1302,7 @@ class Squeeze {
     <pre class="prettyprint">    gtl::ArraySlice<int> axis_ = {};
   };
   Squeeze(const ::tensorflow::Scope& scope, ::tensorflow::Input input);
-  Squeeze(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
+  Squeeze(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, const
         Squeeze::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -1316,8 +1314,8 @@ class Squeeze {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1349,7 +1347,7 @@ class Squeeze {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -1362,8 +1360,8 @@ class StopGradient {
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1432,7 +1430,7 @@ class StopGradient {
     also set the appropriate bit in <code>shrink_axis_mask</code>.</pre>
   </p>
   <p>
-    <pre class="prettyprint">    2. <code>2:4</code> is contributes 2, 4, 1 to begin, end, and stride. <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> masks have
+    <pre class="prettyprint">    2. <code>2:4</code> is contributes 2, 4, 1 to begin, end, and stride. <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> masks have
     zero bits contributed.</pre>
   </p>
   <p>
@@ -1464,7 +1462,7 @@ class StopGradient {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * begin: <code>begin[k]</code> specifies the offset into the <code>k</code>th range specification.
     The exact dimension this corresponds to will be determined by context.
     Out-of-bounds values will be silently clamped. If the <code>k</code>th bit of
@@ -1503,7 +1501,7 @@ class StopGradient {
   </p>
   <p>
     <pre class="prettyprint">    Returns:
-    * <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
 class StridedSlice {
  public:
   /// Optional attribute setters for StridedSlice
@@ -1584,12 +1582,12 @@ class StridedSlice {
     int64 new_axis_mask_ = 0;
     int64 shrink_axis_mask_ = 0;
   };
-  StridedSlice(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides);
-  StridedSlice(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, const StridedSlice::Attrs& attrs);
+  StridedSlice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides);
+  StridedSlice(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, const StridedSlice::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
@@ -1612,12 +1610,12 @@ class StridedSlice {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
-    <pre class="prettyprint">/** <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>.</pre>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a><code>value</code> to the sliced l-value reference of <code>ref</code>.</pre>
   </p>
   <p>
     <pre class="prettyprint">    The values of <code>value</code> are assigned to the positions in the variable
@@ -1630,11 +1628,11 @@ class StridedSlice {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
-    * <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output_ref tensor. */
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output_ref tensor. */
 class StridedSliceAssign {
  public:
   /// Optional attribute setters for StridedSliceAssign
@@ -1685,12 +1683,12 @@ class StridedSliceAssign {
     int64 new_axis_mask_ = 0;
     int64 shrink_axis_mask_ = 0;
   };
-  StridedSliceAssign(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
-  StridedSliceAssign(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
+  StridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value);
+  StridedSliceAssign(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> ref,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value,
                    const StridedSliceAssign::Attrs& attrs);
   operator ::tensorflow::Output() const { return output_ref; }
   operator ::tensorflow::Input() const { return output_ref; }
@@ -1714,8 +1712,8 @@ class StridedSliceAssign {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output_ref;
 };</pre>
   </p>
   <p>
@@ -1734,11 +1732,11 @@ class StridedSliceAssign {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
-    * <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
+    * <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The output tensor. */
 class StridedSliceGrad {
  public:
   /// Optional attribute setters for StridedSliceGrad
@@ -1789,12 +1787,12 @@ class StridedSliceGrad {
     int64 new_axis_mask_ = 0;
     int64 shrink_axis_mask_ = 0;
   };
-  StridedSliceGrad(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy);
-  StridedSliceGrad(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy, const
+  StridedSliceGrad(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy);
+  StridedSliceGrad(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> end,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dy, const
                  StridedSliceGrad::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -1818,8 +1816,8 @@ class StridedSliceGrad {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1887,8 +1885,8 @@ class StridedSliceGrad {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * tensor: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
     * indices: Index tensor.
     * updates: Updates to scatter into output.</pre>
   </p>
@@ -1897,15 +1895,15 @@ class StridedSliceGrad {
     * `Output`: A new tensor copied from tensor and updates added according to the indices. */
 class TensorScatterAdd {
  public:
-  TensorScatterAdd(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
+  TensorScatterAdd(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -1973,8 +1971,8 @@ class TensorScatterAdd {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * tensor: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
     * indices: Index tensor.
     * updates: Updates to scatter into output.</pre>
   </p>
@@ -1983,15 +1981,15 @@ class TensorScatterAdd {
     * `Output`: A new tensor copied from tensor and updates subtracted according to the indices. */
 class TensorScatterSub {
  public:
-  TensorScatterSub(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
-                 <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
+  TensorScatterSub(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> tensor,
+                 <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> updates);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -2035,7 +2033,7 @@ class TensorScatterSub {
     tensor with 8 elements.</pre>
   </p>
   <p>
-    <pre class="prettyprint"><figure id="@name"><img src="/versions/r1.15/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
+    <pre class="prettyprint"><figure id="@name"><img src="/versions/r2.0/api_docs/cc/images/ScatterNd1.png" /></figure></pre>
   </p>
   <p>
     <pre class="prettyprint">    In Python, this scatter operation would look like this:</pre>
@@ -2071,8 +2069,8 @@ class TensorScatterSub {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * tensor: <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * tensor: <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to copy/update.
     * indices: Index tensor.
     * updates: Updates to scatter into output.</pre>
   </p>
@@ -2082,20 +2080,20 @@ class TensorScatterSub {
     to the indices. */
 class TensorScatterUpdate {
  public:
-  TensorScatterUpdate(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                    tensor, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  TensorScatterUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                    tensor, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                     updates);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
-    <pre class="prettyprint">/** <a href="/versions/r1.15/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `input`.</pre>
+    <pre class="prettyprint">/** <a href="/versions/r2.0/api_docs/cc/class/tensorflow/ops/assign.html#classtensorflow_1_1ops_1_1_assign">Assign</a> `value` to the sliced l-value reference of `input`.</pre>
   </p>
   <p>
     <pre class="prettyprint">    The values of `value` are assigned to the positions in the tensor `input` that
@@ -2108,7 +2106,7 @@ class TensorScatterUpdate {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
@@ -2163,13 +2161,13 @@ class TensorStridedSliceUpdate {
     int64 new_axis_mask_ = 0;
     int64 shrink_axis_mask_ = 0;
   };
-  TensorStridedSliceUpdate(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                         input, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                         end, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  TensorStridedSliceUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                          value);
-  TensorStridedSliceUpdate(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                         input, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
-                         end, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+  TensorStridedSliceUpdate(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         input, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> begin, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
+                         end, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> strides, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a>
                          value, const TensorStridedSliceUpdate::Attrs& attrs);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
@@ -2193,8 +2191,8 @@ class TensorStridedSliceUpdate {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -2209,7 +2207,7 @@ class TensorStridedSliceUpdate {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * input: 1-D or higher.
     * multiples: 1-D. Length must be the same as the number of dimensions in `input`</pre>
   </p>
@@ -2218,15 +2216,15 @@ class TensorStridedSliceUpdate {
     * `Output`: The output tensor. */
 class Tile {
  public:
-  Tile(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
-     <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> multiples);
+  Tile(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+     <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> multiples);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -2238,22 +2236,22 @@ class Tile {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
     * `Output`: The y tensor. */
 class Transpose {
  public:
-  Transpose(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-          <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> perm);
+  Transpose(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+          <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> perm);
   operator ::tensorflow::Output() const { return y; }
   operator ::tensorflow::Input() const { return y; }
   ::tensorflow::Node* node() const { return y.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
 };</pre>
   </p>
   <p>
@@ -2278,7 +2276,7 @@ class Transpose {
   <p>y, idx = unique(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * x: 1-D.</pre>
   </p>
   <p>
@@ -2300,7 +2298,7 @@ class Unique {
     <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
   };
   Unique(const ::tensorflow::Scope& scope, ::tensorflow::Input x);
-  Unique(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
+  Unique(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
        Unique::Attrs& attrs);</pre>
   </p>
   <p>
@@ -2309,9 +2307,9 @@ class Unique {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
 };</pre>
   </p>
   <p>
@@ -2367,15 +2365,15 @@ class Unique {
   <p>y, idx = unique(x, axis=1) y ==> [[1, 0], [1, 0], [2, 0]] idx ==> [0, 1, 1] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * x: A `Tensor`.
-    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
+    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
     find the unique elements.</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
     * `Output` y: A `Tensor`. Unique elements along the `axis` of `Tensor` x.
-    * `Output` idx: A 1-D <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
+    * `Output` idx: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
     value of x in the output y. */
 class UniqueV2 {
  public:
@@ -2391,10 +2389,10 @@ class UniqueV2 {
   <p>
     <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
   };
-  UniqueV2(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-         <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
-  UniqueV2(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-         <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueV2::Attrs& attrs);</pre>
+  UniqueV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+         <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  UniqueV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+         <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueV2::Attrs& attrs);</pre>
   </p>
   <p>
     <pre class="prettyprint">  static Attrs OutIdx(DataType x) {
@@ -2402,9 +2400,9 @@ class UniqueV2 {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
 };</pre>
   </p>
   <p>
@@ -2430,7 +2428,7 @@ class UniqueV2 {
   <p>y, idx, count = unique_with_counts(x) y ==> [1, 2, 4, 7, 8] idx ==> [0, 0, 1, 2, 2, 2, 3, 4, 4] count ==> [2, 1, 3, 1, 2] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * x: 1-D.</pre>
   </p>
   <p>
@@ -2453,7 +2451,7 @@ class UniqueWithCounts {
     <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
   };
   UniqueWithCounts(const ::tensorflow::Scope& scope, ::tensorflow::Input x);
-  UniqueWithCounts(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
+  UniqueWithCounts(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x, const
                  UniqueWithCounts::Attrs& attrs);</pre>
   </p>
   <p>
@@ -2462,10 +2460,10 @@ class UniqueWithCounts {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
 };</pre>
   </p>
   <p>
@@ -2522,17 +2520,17 @@ class UniqueWithCounts {
   <p>y, idx, count = unique_with_counts(x, axis=1) y ==> [[1, 0], [1, 0], [2, 0]] idx ==> [0, 1, 1] count ==> [1, 2] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * x: A `Tensor`.
-    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
+    * axis: A `Tensor` of type `int32` (default: None). The axis of the <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> to
     find the unique elements.</pre>
   </p>
   <p>
     <pre class="prettyprint">    Returns:
     * `Output` y: A `Tensor`. Unique elements along the `axis` of `Tensor` x.
-    * `Output` idx: A 1-D <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
+    * `Output` idx: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. Has the same type as x that contains the index of each
     value of x in the output y.
-    * `Output` count: A 1-D <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The count of each value of x in the output y. */
+    * `Output` count: A 1-D <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The count of each value of x in the output y. */
 class UniqueWithCountsV2 {
  public:
   /// Optional attribute setters for UniqueWithCountsV2
@@ -2547,10 +2545,10 @@ class UniqueWithCountsV2 {
   <p>
     <pre class="prettyprint">    DataType out_idx_ = DT_INT32;
   };
-  UniqueWithCountsV2(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
-  UniqueWithCountsV2(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
-                   <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueWithCountsV2::Attrs&
+  UniqueWithCountsV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis);
+  UniqueWithCountsV2(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> x,
+                   <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> axis, const UniqueWithCountsV2::Attrs&
                    attrs);</pre>
   </p>
   <p>
@@ -2559,10 +2557,10 @@ class UniqueWithCountsV2 {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> y;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> idx;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> count;
 };</pre>
   </p>
   <p>
@@ -2587,7 +2585,7 @@ class UniqueWithCountsV2 {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
     * value: 1-D or higher, with `axis` dimension size equal to `num`.</pre>
   </p>
   <p>
@@ -2617,9 +2615,9 @@ class Unstack {
     <pre class="prettyprint">    int64 axis_ = 0;
   };
   Unstack(const ::tensorflow::Scope& scope, ::tensorflow::Input value, int64 num);
-  Unstack(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num,
+  Unstack(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> value, int64 num,
         const Unstack::Attrs& attrs);
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> operator[](size_t index) const { return output[index]; }</pre>
   </p>
   <p>
     <pre class="prettyprint">  static Attrs Axis(int64 x) {
@@ -2627,42 +2625,16 @@ class Unstack {
   }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
   ::tensorflow::OutputList output;
 };</pre>
   </p>
   <p>
-    <pre class="prettyprint">/** Converts an array of flat indices into a tuple of coordinate arrays.</pre>
+    <pre class="prettyprint">/** Converts a flat index or array of flat indices into a tuple of</pre>
   </p>
   <p>
-    <pre class="prettyprint">    Example:</pre>
+    <pre class="prettyprint">    coordinate arrays.</pre>
   </p>
-  <p><pre class="prettyprint" /> y = tf.unravel_index(indices=[2, 5, 7], dims=[3, 3]) <h1>'dims' represent a hypothetical (3, 3) tensor of indices:</h1></p>
-  <p>
-    <h1>[[0, 1, <i>2</i>],</h1>
-  </p>
-  <p>
-    <h1>[3, 4, <i>5</i>],</h1>
-  </p>
-  <p>
-    <h1>[6, <i>7</i>, 8]]</h1>
-  </p>
-  <p>
-    <h1>For each entry from 'indices', this operation returns</h1>
-  </p>
-  <p>
-    <h1>its coordinates (marked with '*'), such as</h1>
-  </p>
-  <p>
-    <h1>2 ==> (0, 2)</h1>
-  </p>
-  <p>
-    <h1>5 ==> (1, 2)</h1>
-  </p>
-  <p>
-    <h1>7 ==> (2, 1)</h1>
-  </p>
-  <p>y ==> [[0, 1, 2], [2, 2, 1]] <pre class="prettyprint" /></p>
   <p>
     <pre class="prettyprint">    (numpy)
     Equivalent to np.unravel_index
@@ -2670,10 +2642,10 @@ class Unstack {
   </p>
   <p>
     <pre class="prettyprint">    Arguments:
-    * scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
-    * indices: An 0-D or 1-D `int` <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> whose elements are indices into the
+    * scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object
+    * indices: An 0-D or 1-D `int` <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> whose elements are indices into the
     flattened version of an array of dimensions dims.
-    * dims: An 1-D `int` <a href="/versions/r1.15/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The shape of the array to use for unraveling
+    * dims: An 1-D `int` <a href="/versions/r2.0/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a>. The shape of the array to use for unraveling
     indices.</pre>
   </p>
   <p>
@@ -2682,15 +2654,15 @@ class Unstack {
     same shape as the indices array. */
 class UnravelIndex {
  public:
-  UnravelIndex(const <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
-             <a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims);
+  UnravelIndex(const <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a>& scope, <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> indices,
+             <a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> dims);
   operator ::tensorflow::Output() const { return output; }
   operator ::tensorflow::Input() const { return output; }
   ::tensorflow::Node* node() const { return output.node(); }</pre>
   </p>
   <p>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
-  <a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation;
+  <a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output;
 };</pre>
   </p>
   <p>
@@ -2797,10 +2769,10 @@ class UnravelIndex {
   </p>
   <p>where(input) ==> [[0, 0, 0], [0, 1, 0], [1, 0, 1], [1, 1, 1], [2, 1, 1]] ```</p>
   <p>Arguments:<ul>
-      <li>scope: A <a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>scope: A <a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
     </ul></p>
   <p>Returns:<ul>
-      <li><code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The index tensor. </li>
+      <li><code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The index tensor. </li>
     </ul></p>
   <table class="constructors responsive">
     <tr>
@@ -2810,7 +2782,7 @@ class UnravelIndex {
     </tr>
     <tr>
       <td colspan="2">
-        <code><a href="#classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">Where</a>(const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition)</code>
+        <code><a href="#classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">Where</a>(const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition)</code>
         <br />
       </td>
     </tr>
@@ -2827,7 +2799,7 @@ class UnravelIndex {
       </td>
       <td>
         <div>
-          <code>::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+          <code>::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
         </div>
       </td>
     </tr>
@@ -2837,7 +2809,7 @@ class UnravelIndex {
       </td>
       <td>
         <div>
-          <code><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+          <code><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
         </div>
       </td>
     </tr>
@@ -2882,20 +2854,20 @@ class UnravelIndex {
   <h2>Public attributes</h2>
   <div id="classtensorflow_1_1ops_1_1_where_1aa3b91b7d267d5cee38568a7d1f97647d">
     <h3>index</h3>
-    <pre class="prettyprint">::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> index</pre>
+    <pre class="prettyprint">::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> index</pre>
     <div />
   </div>
   <div id="classtensorflow_1_1ops_1_1_where_1ad713509ff4e38a2f5241d9b2cee7b296">
     <h3>operation</h3>
-    <pre class="prettyprint"><a href="/versions/r1.15/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <pre class="prettyprint"><a href="/versions/r2.0/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
     <div />
   </div>
   <h2>Public functions</h2>
   <div id="classtensorflow_1_1ops_1_1_where_1a3e4c07125f4b04d6f3a0f99a616273de">
     <h3>Where</h3>
     <pre class="prettyprint"> Where(
-  const ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
-  ::<a href="/versions/r1.15/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition
+  const ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r2.0/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> condition
 )</pre>
     <div />
   </div>

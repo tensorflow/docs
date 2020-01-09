@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/recompute_grad">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/custom_gradient.py#L363-L408">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/custom_gradient.py#L360-L405">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ An eager-compatible version of recompute_grad.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/recompute_grad"><code>tf.compat.v1.recompute_grad</code></a>
-* <a href="/api_docs/python/tf/recompute_grad"><code>tf.compat.v2.recompute_grad</code></a>
+* `tf.compat.v1.recompute_grad`
+* `tf.compat.v2.recompute_grad`
 
 
 ``` python

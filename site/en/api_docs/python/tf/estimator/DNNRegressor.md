@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/DNNRegressor">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/canned/dnn.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,7 +25,7 @@ Inherits From: [`Estimator`](../../tf/estimator/Estimator)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/DNNRegressor"><code>tf.compat.v1.estimator.DNNRegressor</code></a>
+* Class `tf.compat.v2.estimator.DNNRegressor`
 
 
 <!-- Placeholder for "Used in" -->
@@ -138,94 +132,65 @@ __init__(
     optimizer='Adagrad',
     activation_fn=tf.nn.relu,
     dropout=None,
-    input_layer_partitioner=None,
     config=None,
     warm_start_from=None,
-    loss_reduction=losses.Reduction.SUM,
+    loss_reduction=losses_utils.ReductionV2.SUM_OVER_BATCH_SIZE,
     batch_norm=False
 )
 ```
 
-Constructs an `Estimator` instance.
+Initializes a `DNNRegressor` instance.
 
-See [estimators](https://tensorflow.org/guide/estimators) for more
-information.
-
-To warm-start an `Estimator`:
-
-```python
-estimator = tf.estimator.DNNClassifier(
-    feature_columns=[categorical_feature_a_emb, categorical_feature_b_emb],
-    hidden_units=[1024, 512, 256],
-    warm_start_from="/path/to/checkpoint/dir")
-```
-
-For more details on warm-start configuration, see
-<a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>.
 
 #### Args:
 
 
-* <b>`model_fn`</b>: Model function. Follows the signature:
-
-  * Args:
-
-    * `features`: This is the first item returned from the `input_fn`
-           passed to `train`, `evaluate`, and `predict`. This should be a
-           single <a href="../../tf/Tensor"><code>tf.Tensor</code></a> or `dict` of same.
-    * `labels`: This is the second item returned from the `input_fn`
-           passed to `train`, `evaluate`, and `predict`. This should be a
-           single <a href="../../tf/Tensor"><code>tf.Tensor</code></a> or `dict` of same (for multi-head models).
-           If mode is <a href="../../tf/estimator/ModeKeys#PREDICT"><code>tf.estimator.ModeKeys.PREDICT</code></a>, `labels=None` will
-           be passed. If the `model_fn`'s signature does not accept
-           `mode`, the `model_fn` must still be able to handle
-           `labels=None`.
-    * `mode`: Optional. Specifies if this is training, evaluation or
-           prediction. See <a href="../../tf/estimator/ModeKeys"><code>tf.estimator.ModeKeys</code></a>.
-    * `params`: Optional `dict` of hyperparameters.  Will receive what
-           is passed to Estimator in `params` parameter. This allows
-           to configure Estimators from hyper parameter tuning.
-    * `config`: Optional <a href="../../tf/estimator/RunConfig"><code>estimator.RunConfig</code></a> object. Will receive what
-           is passed to Estimator as its `config` parameter, or a default
-           value. Allows setting up things in your `model_fn` based on
-           configuration such as `num_ps_replicas`, or `model_dir`.
-
-  * Returns:
-    <a href="../../tf/estimator/EstimatorSpec"><code>tf.estimator.EstimatorSpec</code></a>
-
+* <b>`hidden_units`</b>: Iterable of number hidden units per layer. All layers are
+  fully connected. Ex. `[64, 32]` means first layer has 64 nodes and
+  second one has 32.
+* <b>`feature_columns`</b>: An iterable containing all the feature columns used by
+  the model. All items in the set should be instances of classes derived
+  from `_FeatureColumn`.
 * <b>`model_dir`</b>: Directory to save model parameters, graph and etc. This can
-  also be used to load checkpoints from the directory into an estimator to
-  continue training a previously saved model. If `PathLike` object, the
-  path will be resolved. If `None`, the model_dir in `config` will be used
-  if set. If both are set, they must be same. If both are `None`, a
-  temporary directory will be used.
-* <b>`config`</b>: <a href="../../tf/estimator/RunConfig"><code>estimator.RunConfig</code></a> configuration object.
-* <b>`params`</b>: `dict` of hyper parameters that will be passed into `model_fn`.
-        Keys are names of parameters, values are basic python types.
-* <b>`warm_start_from`</b>: Optional string filepath to a checkpoint or SavedModel to
-                 warm-start from, or a <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>
-                 object to fully configure warm-starting.
-
-                 If None, only TRAINABLE variables are warm-started.
-
-                 If the string filepath is provided instead of a
-                 <a href="../../tf/estimator/WarmStartSettings"><code>tf.estimator.WarmStartSettings</code></a>, then all variables are
-                 warm-started, and it is assumed that vocabularies
-                 and <a href="../../tf/Tensor"><code>tf.Tensor</code></a> names are unchanged.
-
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: parameters of `model_fn` don't match `params`.
-* <b>`ValueError`</b>: if this is called via a subclass and if that class overrides
-  a member of `Estimator`.
+  also be used to load checkpoints from the directory into a estimator to
+  continue training a previously saved model.
+* <b>`label_dimension`</b>: Number of regression targets per example. This is the
+  size of the last dimension of the labels and logits `Tensor` objects
+  (typically, these have shape `[batch_size, label_dimension]`).
+* <b>`weight_column`</b>: A string or a `_NumericColumn` created by
+  <a href="../../tf/feature_column/numeric_column"><code>tf.feature_column.numeric_column</code></a> defining feature column representing
+  weights. It is used to down weight or boost examples during training. It
+  will be multiplied by the loss of the example. If it is a string, it is
+  used as a key to fetch weight tensor from the `features`. If it is a
+  `_NumericColumn`, raw tensor is fetched by key `weight_column.key`,
+  then weight_column.normalizer_fn is applied on it to get weight tensor.
+* <b>`optimizer`</b>: An instance of <a href="../../tf/keras/optimizers/Optimizer"><code>tf.keras.optimizers.Optimizer</code></a> used to train
+  the model. Can also be a string (one of 'Adagrad', 'Adam', 'Ftrl',
+  'RMSProp', 'SGD'), or callable. Defaults to Adagrad optimizer.
+* <b>`activation_fn`</b>: Activation function applied to each layer. If `None`, will
+  use <a href="../../tf/nn/relu"><code>tf.nn.relu</code></a>.
+* <b>`dropout`</b>: When not `None`, the probability we will drop out a given
+  coordinate.
+* <b>`config`</b>: `RunConfig` object to configure the runtime settings.
+* <b>`warm_start_from`</b>: A string filepath to a checkpoint to warm-start from, or
+  a `WarmStartSettings` object to fully configure warm-starting.  If the
+  string filepath is provided instead of a `WarmStartSettings`, then all
+  weights are warm-started, and it is assumed that vocabularies and Tensor
+  names are unchanged.
+* <b>`loss_reduction`</b>: One of <a href="../../tf/keras/losses/Reduction"><code>tf.losses.Reduction</code></a> except `NONE`. Describes how
+  to reduce training loss over batch. Defaults to `SUM_OVER_BATCH_SIZE`.
+* <b>`batch_norm`</b>: Whether to use batch normalization after each hidden layer.
 
 
 
 ## Properties
 
 <h3 id="config"><code>config</code></h3>
+
+
+
+
+<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
 
 
 
@@ -320,7 +285,7 @@ or
   of `model_fn` from inputs.
 * <b>`steps`</b>: Number of steps for which to evaluate model. If `None`, evaluates
   until `input_fn` raises an end-of-input exception.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the evaluation call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to evaluate. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -381,12 +346,12 @@ Only one of the modes is used for saving variables to the `SavedModel`
 For the variables and `tf.MetaGraphDefs`, a timestamped export directory
 below
 `export_dir_base`, and writes a `SavedModel` into it containing
-the <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> for the given mode and its associated signatures.
+the `tf.MetaGraphDef` for the given mode and its associated signatures.
 
 For prediction, the exported `MetaGraphDef` will provide one `SignatureDef`
 for each element of the `export_outputs` dict returned from the `model_fn`,
 named using the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -461,14 +426,14 @@ this `Estimator`'s `model_fn` to generate the model graph based on those
 features. It restores the given checkpoint (or, lacking that, the most
 recent checkpoint) into this graph in a fresh session.  Finally it creates
 a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
+a `SavedModel` into it containing a single `tf.MetaGraphDef` saved from this
 session.
 
 The exported `MetaGraphDef` will provide one `SignatureDef` for each
 element of the `export_outputs` dict returned from the `model_fn`, named
 using
 the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`,
 indicating which
 signature will be served when a serving request does not specify one.
 For each signature, the outputs are provided by the corresponding
@@ -503,90 +468,6 @@ See `experimental_export_all_saved_models` for full docs.
   the most recent checkpoint found within the model directory is chosen.
 * <b>`experimental_mode`</b>: <a href="../../tf/estimator/ModeKeys"><code>tf.estimator.ModeKeys</code></a> value indicating with mode
   will be exported. Note that this feature is experimental.
-
-
-#### Returns:
-
-The string path to the exported directory.
-
-
-
-#### Raises:
-
-
-* <b>`ValueError`</b>: if no `serving_input_receiver_fn` is provided, no
-`export_outputs` are provided, or no checkpoint can be found.
-
-<h3 id="export_savedmodel"><code>export_savedmodel</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/estimator.py">View source</a>
-
-``` python
-export_savedmodel(
-    export_dir_base,
-    serving_input_receiver_fn,
-    assets_extra=None,
-    as_text=False,
-    checkpoint_path=None,
-    strip_default_attrs=False
-)
-```
-
-Exports inference graph as a `SavedModel` into the given dir. (deprecated)
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-This function has been renamed, use `export_saved_model` instead.
-
-For a detailed guide, see
-[Using SavedModel with Estimators](https://tensorflow.org/guide/saved_model#using_savedmodel_with_estimators).
-
-This method builds a new graph by first calling the
-`serving_input_receiver_fn` to obtain feature `Tensor`s, and then calling
-this `Estimator`'s `model_fn` to generate the model graph based on those
-features. It restores the given checkpoint (or, lacking that, the most
-recent checkpoint) into this graph in a fresh session.  Finally it creates
-a timestamped export directory below the given `export_dir_base`, and writes
-a `SavedModel` into it containing a single <a href="../../tf/MetaGraphDef"><code>tf.MetaGraphDef</code></a> saved from this
-session.
-
-The exported `MetaGraphDef` will provide one `SignatureDef` for each
-element of the `export_outputs` dict returned from the `model_fn`, named
-using
-the same keys.  One of these keys is always
-<a href="../../tf/saved_model/signature_constants#DEFAULT_SERVING_SIGNATURE_DEF_KEY"><code>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</code></a>,
-indicating which
-signature will be served when a serving request does not specify one.
-For each signature, the outputs are provided by the corresponding
-<a href="../../tf/estimator/export/ExportOutput"><code>tf.estimator.export.ExportOutput</code></a>s, and the inputs are always the input
-receivers provided by
-the `serving_input_receiver_fn`.
-
-Extra assets may be written into the `SavedModel` via the `assets_extra`
-argument.  This should be a dict, where each key gives a destination path
-(including the filename) relative to the assets.extra directory.  The
-corresponding value gives the full path of the source file to be copied.
-For example, the simple case of copying a single file without renaming it
-is specified as `{'my_asset_file.txt': '/path/to/my_asset_file.txt'}`.
-
-#### Args:
-
-
-* <b>`export_dir_base`</b>: A string containing a directory in which to create
-  timestamped subdirectories containing exported `SavedModel`s.
-* <b>`serving_input_receiver_fn`</b>: A function that takes no argument and returns a
-  <a href="../../tf/estimator/export/ServingInputReceiver"><code>tf.estimator.export.ServingInputReceiver</code></a> or
-  <a href="../../tf/estimator/export/TensorServingInputReceiver"><code>tf.estimator.export.TensorServingInputReceiver</code></a>.
-* <b>`assets_extra`</b>: A dict specifying how to populate the assets.extra directory
-  within the exported `SavedModel`, or `None` if no extra assets are
-  needed.
-* <b>`as_text`</b>: whether to write the `SavedModel` proto in text format.
-* <b>`checkpoint_path`</b>: The checkpoint path to export.  If `None` (the default),
-  the most recent checkpoint found within the model directory is chosen.
-* <b>`strip_default_attrs`</b>: Boolean. If `True`, default-valued attributes will be
-  removed from the `NodeDef`s. For a detailed guide, see [Stripping
-  Default-Valued Attributes](
-  https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md#stripping-default-valued-attributes).
 
 
 #### Returns:
@@ -710,7 +591,7 @@ https://github.com/tensorflow/tensorflow/issues/20506#issuecomment-422208517)
   the <a href="../../tf/estimator/EstimatorSpec#predictions"><code>tf.estimator.EstimatorSpec.predictions</code></a> is a `dict`. If
   `predict_keys` is used then rest of the predictions will be filtered
   from the dictionary. If `None`, returns all.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the prediction call.
 * <b>`checkpoint_path`</b>: Path of a specific checkpoint to predict. If `None`, the
   latest checkpoint in `model_dir` is used.  If there are no checkpoints
@@ -769,7 +650,7 @@ Trains a model given training data `input_fn`.
       `Tensor` or a dictionary of string label name to `Tensor`. Both
       `features` and `labels` are consumed by `model_fn`. They should
       satisfy the expectation of `model_fn` from inputs.
-* <b>`hooks`</b>: List of <a href="../../tf/train/SessionRunHook"><code>tf.train.SessionRunHook</code></a> subclass instances. Used for
+* <b>`hooks`</b>: List of `tf.train.SessionRunHook` subclass instances. Used for
   callbacks inside the training loop.
 * <b>`steps`</b>: Number of steps for which to train the model. If `None`, train
   forever or train until `input_fn` generates the `tf.errors.OutOfRange`

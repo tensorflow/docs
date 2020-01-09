@@ -8,12 +8,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/math">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -91,9 +85,9 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`angle(...)`](../../../tf/math/angle): Returns the element-wise argument of a complex (or real) tensor.
 
-[`argmax(...)`](../../../tf/compat/v2/argmax): Returns the index with the largest value across axes of a tensor.
+[`argmax(...)`](../../../tf/math/argmax): Returns the index with the largest value across axes of a tensor.
 
-[`argmin(...)`](../../../tf/compat/v2/argmin): Returns the index with the smallest value across axes of a tensor.
+[`argmin(...)`](../../../tf/math/argmin): Returns the index with the smallest value across axes of a tensor.
 
 [`asin(...)`](../../../tf/math/asin): Computes the trignometric inverse sine of x element-wise.
 
@@ -115,11 +109,11 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`betainc(...)`](../../../tf/math/betainc): Compute the regularized incomplete beta integral \\(I_x(a, b)\\).
 
-[`bincount(...)`](../../../tf/compat/v2/math/bincount): Counts the number of occurrences of each value in an integer array.
+[`bincount(...)`](../../../tf/math/bincount): Counts the number of occurrences of each value in an integer array.
 
 [`ceil(...)`](../../../tf/math/ceil): Returns element-wise smallest integer not less than x.
 
-[`confusion_matrix(...)`](../../../tf/compat/v2/math/confusion_matrix): Computes the confusion matrix from predictions and labels.
+[`confusion_matrix(...)`](../../../tf/math/confusion_matrix): Computes the confusion matrix from predictions and labels.
 
 [`conj(...)`](../../../tf/math/conj): Returns the complex conjugate of a complex number.
 
@@ -127,7 +121,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`cosh(...)`](../../../tf/math/cosh): Computes hyperbolic cosine of x element-wise.
 
-[`count_nonzero(...)`](../../../tf/compat/v2/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor.
+[`count_nonzero(...)`](../../../tf/math/count_nonzero): Computes number of nonzero elements across dimensions of a tensor.
 
 [`cumprod(...)`](../../../tf/math/cumprod): Compute the cumulative product of the tensor `x` along `axis`.
 
@@ -167,7 +161,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`imag(...)`](../../../tf/math/imag): Returns the imaginary part of a complex (or real) tensor.
 
-[`in_top_k(...)`](../../../tf/compat/v2/math/in_top_k): Says whether the targets are in the top `K` predictions.
+[`in_top_k(...)`](../../../tf/math/in_top_k): Says whether the targets are in the top `K` predictions.
 
 [`invert_permutation(...)`](../../../tf/math/invert_permutation): Computes the inverse permutation of a tensor.
 
@@ -181,7 +175,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`is_strictly_increasing(...)`](../../../tf/math/is_strictly_increasing): Returns `True` if `x` is strictly increasing.
 
-[`l2_normalize(...)`](../../../tf/compat/v2/linalg/l2_normalize): Normalizes along dimension `axis` using an L2 norm.
+[`l2_normalize(...)`](../../../tf/math/l2_normalize): Normalizes along dimension `axis` using an L2 norm.
 
 [`lbeta(...)`](../../../tf/math/lbeta): Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
 
@@ -197,7 +191,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`log_sigmoid(...)`](../../../tf/math/log_sigmoid): Computes log sigmoid of `x` element-wise.
 
-[`log_softmax(...)`](../../../tf/compat/v2/math/log_softmax): Computes log softmax activations.
+[`log_softmax(...)`](../../../tf/nn/log_softmax): Computes log softmax activations.
 
 [`logical_and(...)`](../../../tf/math/logical_and): Returns the truth value of x AND y element-wise.
 
@@ -235,25 +229,25 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`reciprocal_no_nan(...)`](../../../tf/math/reciprocal_no_nan): Performs a safe reciprocal operation, element wise.
 
-[`reduce_all(...)`](../../../tf/compat/v2/reduce_all): Computes the "logical and" of elements across dimensions of a tensor.
+[`reduce_all(...)`](../../../tf/reduce_all): Computes the "logical and" of elements across dimensions of a tensor.
 
-[`reduce_any(...)`](../../../tf/compat/v2/reduce_any): Computes the "logical or" of elements across dimensions of a tensor.
+[`reduce_any(...)`](../../../tf/math/reduce_any): Computes the "logical or" of elements across dimensions of a tensor.
 
 [`reduce_euclidean_norm(...)`](../../../tf/math/reduce_euclidean_norm): Computes the Euclidean norm of elements across dimensions of a tensor.
 
-[`reduce_logsumexp(...)`](../../../tf/compat/v2/reduce_logsumexp): Computes log(sum(exp(elements across dimensions of a tensor))).
+[`reduce_logsumexp(...)`](../../../tf/math/reduce_logsumexp): Computes log(sum(exp(elements across dimensions of a tensor))).
 
-[`reduce_max(...)`](../../../tf/compat/v2/reduce_max): Computes the maximum of elements across dimensions of a tensor.
+[`reduce_max(...)`](../../../tf/math/reduce_max): Computes the maximum of elements across dimensions of a tensor.
 
-[`reduce_mean(...)`](../../../tf/compat/v2/reduce_mean): Computes the mean of elements across dimensions of a tensor.
+[`reduce_mean(...)`](../../../tf/math/reduce_mean): Computes the mean of elements across dimensions of a tensor.
 
-[`reduce_min(...)`](../../../tf/compat/v2/reduce_min): Computes the minimum of elements across dimensions of a tensor.
+[`reduce_min(...)`](../../../tf/math/reduce_min): Computes the minimum of elements across dimensions of a tensor.
 
-[`reduce_prod(...)`](../../../tf/compat/v2/reduce_prod): Computes the product of elements across dimensions of a tensor.
+[`reduce_prod(...)`](../../../tf/math/reduce_prod): Computes the product of elements across dimensions of a tensor.
 
 [`reduce_std(...)`](../../../tf/math/reduce_std): Computes the standard deviation of elements across dimensions of a tensor.
 
-[`reduce_sum(...)`](../../../tf/compat/v2/reduce_sum): Computes the sum of elements across dimensions of a tensor.
+[`reduce_sum(...)`](../../../tf/math/reduce_sum): Computes the sum of elements across dimensions of a tensor.
 
 [`reduce_variance(...)`](../../../tf/math/reduce_variance): Computes the variance of elements across dimensions of a tensor.
 
@@ -263,7 +257,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`rsqrt(...)`](../../../tf/math/rsqrt): Computes reciprocal of square root of x element-wise.
 
-[`scalar_mul(...)`](../../../tf/compat/v2/scalar_mul): Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
+[`scalar_mul(...)`](../../../tf/math/scalar_mul): Multiplies a scalar times a `Tensor` or `IndexedSlices` object.
 
 [`segment_max(...)`](../../../tf/math/segment_max): Computes the maximum along segments of a tensor.
 
@@ -283,7 +277,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`sinh(...)`](../../../tf/math/sinh): Computes hyperbolic sine of x element-wise.
 
-[`softmax(...)`](../../../tf/compat/v2/math/softmax): Computes softmax activations.
+[`softmax(...)`](../../../tf/nn/softmax): Computes softmax activations.
 
 [`softplus(...)`](../../../tf/math/softplus): Computes softplus: `log(exp(features) + 1)`.
 

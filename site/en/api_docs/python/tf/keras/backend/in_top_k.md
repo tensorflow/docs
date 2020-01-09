@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/backend/in_top_k">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/backend.py#L4569-L4583">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/backend.py#L4673-L4687">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Returns whether the `targets` are in the top `k` `predictions`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/backend/in_top_k"><code>tf.compat.v1.keras.backend.in_top_k</code></a>
-* <a href="/api_docs/python/tf/keras/backend/in_top_k"><code>tf.compat.v2.keras.backend.in_top_k</code></a>
+* `tf.compat.v1.keras.backend.in_top_k`
+* `tf.compat.v2.keras.backend.in_top_k`
 
 
 ``` python

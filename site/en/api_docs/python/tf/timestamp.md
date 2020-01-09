@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/timestamp">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_logging_ops.py`
@@ -23,8 +17,8 @@ Provides the time since epoch in seconds.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/timestamp"><code>tf.compat.v1.timestamp</code></a>
-* <a href="/api_docs/python/tf/timestamp"><code>tf.compat.v2.timestamp</code></a>
+* `tf.compat.v1.timestamp`
+* `tf.compat.v2.timestamp`
 
 
 ``` python

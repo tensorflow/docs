@@ -9,12 +9,6 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/estimator/BestExporter">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
   <a target="_blank" href="https://github.com/tensorflow/estimator/tree/master/tensorflow_estimator/python/estimator/exporter.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
@@ -31,8 +25,8 @@ Inherits From: [`Exporter`](../../tf/estimator/Exporter)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/estimator/BestExporter"><code>tf.compat.v1.estimator.BestExporter</code></a>
-* Class <a href="/api_docs/python/tf/estimator/BestExporter"><code>tf.compat.v2.estimator.BestExporter</code></a>
+* Class `tf.compat.v1.estimator.BestExporter`
+* Class `tf.compat.v2.estimator.BestExporter`
 
 
 <!-- Placeholder for "Used in" -->
@@ -174,7 +168,7 @@ Exports the given `Estimator` to a specific format.
 * <b>`estimator`</b>: the `Estimator` to export.
 * <b>`export_path`</b>: A string containing a directory where to write the export.
 * <b>`checkpoint_path`</b>: The checkpoint path to export.
-* <b>`eval_result`</b>: The output of <a href="../../tf/estimator/Estimator#evaluate"><code>Estimator.evaluate</code></a> on this checkpoint.
+* <b>`eval_result`</b>: The output of <a href="../../tf/compat/v1/estimator/Estimator#evaluate"><code>Estimator.evaluate</code></a> on this checkpoint.
 * <b>`is_the_final_export`</b>: This boolean is True when this is an export in the
   end of training.  It is False for the intermediate exports during
   the training.

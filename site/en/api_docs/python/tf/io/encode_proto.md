@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/encode_proto">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_encode_proto_ops.py`
@@ -23,9 +17,8 @@ The op serializes protobuf messages provided in the input tensors.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/encode_proto"><code>tf.compat.v1.io.encode_proto</code></a>
-* <a href="/api_docs/python/tf/io/encode_proto"><code>tf.compat.v2.io.encode_proto</code></a>
-* <a href="/api_docs/python/tf/io/encode_proto"><code>tf.contrib.proto.encode_proto</code></a>
+* `tf.compat.v1.io.encode_proto`
+* `tf.compat.v2.io.encode_proto`
 
 
 ``` python

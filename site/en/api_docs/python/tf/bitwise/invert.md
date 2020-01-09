@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/bitwise/invert">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_bitwise_ops.py`
@@ -23,8 +17,8 @@ Invert (flip) each bit of supported types; for example, type `uint8` value 01010
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/bitwise/invert"><code>tf.compat.v1.bitwise.invert</code></a>
-* <a href="/api_docs/python/tf/bitwise/invert"><code>tf.compat.v2.bitwise.invert</code></a>
+* `tf.compat.v1.bitwise.invert`
+* `tf.compat.v2.bitwise.invert`
 
 
 ``` python

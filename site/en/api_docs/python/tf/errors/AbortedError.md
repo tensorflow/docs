@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/errors/AbortedError">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L389-L403">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L389-L403">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,22 +25,22 @@ Inherits From: [`OpError`](../../tf/errors/OpError)
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/errors/AbortedError"><code>tf.compat.v1.errors.AbortedError</code></a>
-* Class <a href="/api_docs/python/tf/errors/AbortedError"><code>tf.compat.v2.errors.AbortedError</code></a>
+* Class `tf.compat.v1.errors.AbortedError`
+* Class `tf.compat.v2.errors.AbortedError`
 
 
 <!-- Placeholder for "Used in" -->
 
 For example, running a
-<a href="../../tf/queue/QueueBase#enqueue"><code>tf.QueueBase.enqueue</code></a>
+`tf.QueueBase.enqueue`
 operation may raise `AbortedError` if a
-<a href="../../tf/queue/QueueBase#close"><code>tf.QueueBase.close</code></a> operation
+`tf.QueueBase.close` operation
 previously ran.
 
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/errors_impl.py#L401-L403">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/framework/errors_impl.py#L401-L403">View source</a>
 
 ``` python
 __init__(

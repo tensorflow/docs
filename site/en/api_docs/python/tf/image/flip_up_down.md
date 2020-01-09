@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/flip_up_down">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L432-L450">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L432-L450">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Flip an image vertically (upside down).
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/flip_up_down"><code>tf.compat.v1.image.flip_up_down</code></a>
-* <a href="/api_docs/python/tf/image/flip_up_down"><code>tf.compat.v2.image.flip_up_down</code></a>
+* `tf.compat.v1.image.flip_up_down`
+* `tf.compat.v2.image.flip_up_down`
 
 
 ``` python

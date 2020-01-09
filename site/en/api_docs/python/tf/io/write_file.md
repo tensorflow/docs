@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/io/write_file">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_io_ops.py`
@@ -23,10 +17,9 @@ Writes contents to the file at input filename. Creates file and recursively
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/io/write_file"><code>tf.compat.v1.io.write_file</code></a>
-* <a href="/api_docs/python/tf/io/write_file"><code>tf.compat.v1.write_file</code></a>
-* <a href="/api_docs/python/tf/io/write_file"><code>tf.compat.v2.io.write_file</code></a>
-* <a href="/api_docs/python/tf/io/write_file"><code>tf.write_file</code></a>
+* `tf.compat.v1.io.write_file`
+* `tf.compat.v1.write_file`
+* `tf.compat.v2.io.write_file`
 
 
 ``` python

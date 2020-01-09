@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -38,8 +32,6 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class CsvDataset`](../../tf/data/experimental/CsvDataset): A Dataset comprising lines from one or more CSV files.
 
-[`class DatasetStructure`](../../tf/data/DatasetSpec): Type specification for <a href="../../tf/data/Dataset"><code>tf.data.Dataset</code></a>.
-
 [`class DistributeOptions`](../../tf/data/experimental/DistributeOptions): Represents options for distributed data processing.
 
 [`class MapVectorizationOptions`](../../tf/data/experimental/MapVectorizationOptions): Represents options for the MapVectorization optimization.
@@ -47,8 +39,6 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 [`class OptimizationOptions`](../../tf/data/experimental/OptimizationOptions): Represents options for dataset optimizations.
 
 [`class Optional`](../../tf/data/experimental/Optional): Wraps a value that may/may not be present at runtime.
-
-[`class OptionalStructure`](../../tf/OptionalSpec): Represents an optional potentially containing a structured value.
 
 [`class RandomDataset`](../../tf/data/experimental/RandomDataset): A `Dataset` of pseudorandom values.
 
@@ -60,8 +50,6 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`class StatsOptions`](../../tf/data/experimental/StatsOptions): Represents options for collecting dataset stats using `StatsAggregator`.
 
-[`class Structure`](../../tf/TypeSpec): Specifies a TensorFlow value type.
-
 [`class TFRecordWriter`](../../tf/data/experimental/TFRecordWriter): Writes data to a TFRecord file.
 
 [`class ThreadingOptions`](../../tf/data/experimental/ThreadingOptions): Represents options for dataset threading.
@@ -69,14 +57,6 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 ## Functions
 
 [`Counter(...)`](../../tf/data/experimental/Counter): Creates a `Dataset` that counts from `start` in steps of size `step`.
-
-[`RaggedTensorStructure(...)`](../../tf/data/experimental/RaggedTensorStructure): DEPRECATED FUNCTION
-
-[`SparseTensorStructure(...)`](../../tf/data/experimental/SparseTensorStructure): DEPRECATED FUNCTION
-
-[`TensorArrayStructure(...)`](../../tf/data/experimental/TensorArrayStructure): DEPRECATED FUNCTION
-
-[`TensorStructure(...)`](../../tf/data/experimental/TensorStructure): DEPRECATED FUNCTION
 
 [`bucket_by_sequence_length(...)`](../../tf/data/experimental/bucket_by_sequence_length): A transformation that buckets elements in a `Dataset` by length.
 
@@ -108,15 +88,13 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 [`latency_stats(...)`](../../tf/data/experimental/latency_stats): Records the latency of producing each element of the input dataset.
 
-[`make_batched_features_dataset(...)`](../../tf/data/experimental/make_batched_features_dataset): Returns a `Dataset` of feature dictionaries from `Example` protos.
+[`make_batched_features_dataset(...)`](../../tf/data/experimental/make_batched_features_dataset)
 
 [`make_csv_dataset(...)`](../../tf/data/experimental/make_csv_dataset): Reads CSV files into a dataset.
 
 [`make_saveable_from_iterator(...)`](../../tf/data/experimental/make_saveable_from_iterator): Returns a SaveableObject for saving/restoring iterator state using Saver.
 
 [`map_and_batch(...)`](../../tf/data/experimental/map_and_batch): Fused implementation of `map` and `batch`. (deprecated)
-
-[`map_and_batch_with_legacy_function(...)`](../../tf/data/experimental/map_and_batch_with_legacy_function): Fused implementation of `map` and `batch`. (deprecated)
 
 [`parallel_interleave(...)`](../../tf/data/experimental/parallel_interleave): A parallel version of the <a href="../../tf/data/Dataset#interleave"><code>Dataset.interleave()</code></a> transformation. (deprecated)
 

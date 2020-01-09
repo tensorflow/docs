@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/image/ssim_multiscale">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/image_ops_impl.py#L3295-L3419">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/image_ops_impl.py#L3295-L3419">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Computes the MS-SSIM between img1 and img2.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/image/ssim_multiscale"><code>tf.compat.v1.image.ssim_multiscale</code></a>
-* <a href="/api_docs/python/tf/image/ssim_multiscale"><code>tf.compat.v2.image.ssim_multiscale</code></a>
+* `tf.compat.v1.image.ssim_multiscale`
+* `tf.compat.v2.image.ssim_multiscale`
 
 
 ``` python

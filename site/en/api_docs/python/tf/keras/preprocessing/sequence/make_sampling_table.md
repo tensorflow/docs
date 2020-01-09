@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/preprocessing/sequence/make_sampling_table">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -21,8 +15,8 @@ Generates a word rank-based probabilistic sampling table.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/preprocessing/sequence/make_sampling_table"><code>tf.compat.v1.keras.preprocessing.sequence.make_sampling_table</code></a>
-* <a href="/api_docs/python/tf/keras/preprocessing/sequence/make_sampling_table"><code>tf.compat.v2.keras.preprocessing.sequence.make_sampling_table</code></a>
+* `tf.compat.v1.keras.preprocessing.sequence.make_sampling_table`
+* `tf.compat.v2.keras.preprocessing.sequence.make_sampling_table`
 
 
 ``` python

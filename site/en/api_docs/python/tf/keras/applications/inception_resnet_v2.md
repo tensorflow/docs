@@ -7,22 +7,11 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/keras/applications/inception_resnet_v2">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
 
 Inception-ResNet V2 model for Keras.
-
-### Aliases:
-
-* Module <a href="/api_docs/python/tf/keras/applications/inception_resnet_v2"><code>tf.compat.v1.keras.applications.inception_resnet_v2</code></a>
-
 
 <!-- Placeholder for "Used in" -->
 

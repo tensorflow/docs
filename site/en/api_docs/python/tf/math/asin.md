@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/asin">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes the trignometric inverse sine of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/asin"><code>tf.asin</code></a>
-* <a href="/api_docs/python/tf/math/asin"><code>tf.compat.v1.asin</code></a>
-* <a href="/api_docs/python/tf/math/asin"><code>tf.compat.v1.math.asin</code></a>
-* <a href="/api_docs/python/tf/math/asin"><code>tf.compat.v2.asin</code></a>
-* <a href="/api_docs/python/tf/math/asin"><code>tf.compat.v2.math.asin</code></a>
+* `tf.asin`
+* `tf.compat.v1.asin`
+* `tf.compat.v1.math.asin`
+* `tf.compat.v2.asin`
+* `tf.compat.v2.math.asin`
 
 
 ``` python

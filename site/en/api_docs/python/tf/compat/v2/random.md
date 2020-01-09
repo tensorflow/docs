@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/compat/v2/random">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 
@@ -42,9 +36,9 @@ Public API for tf.random namespace.
 
 [`normal(...)`](../../../tf/random/normal): Outputs random values from a normal distribution.
 
-[`poisson(...)`](../../../tf/compat/v2/random/poisson): Draws `shape` samples from each of the given Poisson distribution(s).
+[`poisson(...)`](../../../tf/random/poisson): Draws `shape` samples from each of the given Poisson distribution(s).
 
-[`set_seed(...)`](../../../tf/compat/v2/random/set_seed): Sets the graph-level random seed.
+[`set_seed(...)`](../../../tf/random/set_seed): Sets the graph-level random seed.
 
 [`shuffle(...)`](../../../tf/random/shuffle): Randomly shuffles a tensor along its first dimension.
 

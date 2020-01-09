@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/train/experimental/PythonState">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/python_state.py#L31-L92">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/tracking/python_state.py#L31-L92">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,13 +21,12 @@ page_type: reference
 
 A mixin for putting Python state in an object-based checkpoint.
 
-Inherits From: [`CheckpointableBase`](../../../tf/contrib/checkpoint/CheckpointableBase)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/train/experimental/PythonState"><code>tf.compat.v1.train.experimental.PythonState</code></a>
-* Class <a href="/api_docs/python/tf/train/experimental/PythonState"><code>tf.compat.v2.train.experimental.PythonState</code></a>
-* Class <a href="/api_docs/python/tf/train/experimental/PythonState"><code>tf.contrib.checkpoint.PythonStateWrapper</code></a>
+* Class `tf.compat.v1.train.experimental.PythonState`
+* Class `tf.compat.v2.train.experimental.PythonState`
 
 
 <!-- Placeholder for "Used in" -->
@@ -84,7 +77,7 @@ assert [1.] == root.numpy.array
 
 <h3 id="deserialize"><code>deserialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/python_state.py#L81-L83">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/tracking/python_state.py#L81-L83">View source</a>
 
 ``` python
 deserialize(string_value)
@@ -95,7 +88,7 @@ Callback to deserialize the object.
 
 <h3 id="serialize"><code>serialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training/tracking/python_state.py#L77-L79">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/training/tracking/python_state.py#L77-L79">View source</a>
 
 ``` python
 serialize()

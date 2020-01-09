@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/data/experimental/latency_stats">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/experimental/ops/stats_ops.py#L74-L94">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/data/experimental/ops/stats_ops.py#L74-L94">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Records the latency of producing each element of the input dataset.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/data/experimental/latency_stats"><code>tf.compat.v1.data.experimental.latency_stats</code></a>
-* <a href="/api_docs/python/tf/data/experimental/latency_stats"><code>tf.compat.v2.data.experimental.latency_stats</code></a>
+* `tf.compat.v1.data.experimental.latency_stats`
+* `tf.compat.v2.data.experimental.latency_stats`
 
 
 ``` python

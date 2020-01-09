@@ -10,13 +10,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/linalg/svd">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/linalg_ops.py#L355-L422">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/linalg_ops.py#L355-L422">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -28,10 +22,9 @@ Computes the singular value decompositions of one or more matrices.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v1.linalg.svd</code></a>
-* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v1.svd</code></a>
-* <a href="/api_docs/python/tf/linalg/svd"><code>tf.compat.v2.linalg.svd</code></a>
-* <a href="/api_docs/python/tf/linalg/svd"><code>tf.svd</code></a>
+* `tf.compat.v1.linalg.svd`
+* `tf.compat.v1.svd`
+* `tf.compat.v2.linalg.svd`
 
 
 ``` python

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/random/truncated_normal">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/random_ops.py#L138-L179">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/random_ops.py#L138-L179">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Outputs random values from a truncated normal distribution.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/random/truncated_normal"><code>tf.compat.v1.random.truncated_normal</code></a>
-* <a href="/api_docs/python/tf/random/truncated_normal"><code>tf.compat.v1.truncated_normal</code></a>
-* <a href="/api_docs/python/tf/random/truncated_normal"><code>tf.compat.v2.random.truncated_normal</code></a>
-* <a href="/api_docs/python/tf/random/truncated_normal"><code>tf.truncated_normal</code></a>
+* `tf.compat.v1.random.truncated_normal`
+* `tf.compat.v1.truncated_normal`
+* `tf.compat.v2.random.truncated_normal`
 
 
 ``` python
@@ -46,7 +39,11 @@ tf.random.truncated_normal(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Ragged tensors](https://www.tensorflow.org/guide/ragged_tensor)
+
+
 
 The generated values follow a normal distribution with specified mean and
 standard deviation, except that values whose magnitude is more than 2 standard
@@ -63,7 +60,7 @@ deviations from the mean are dropped and re-picked.
 * <b>`dtype`</b>: The type of the output.
 * <b>`seed`</b>: A Python integer. Used to create a random seed for the distribution.
   See
-  <a href="../../tf/random/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
+  <a href="../../tf/compat/v1/set_random_seed"><code>tf.compat.v1.set_random_seed</code></a>
   for behavior.
 * <b>`name`</b>: A name for the operation (optional).
 

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/strings/regex_replace">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/string_ops.py#L78-L111">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/string_ops.py#L78-L111">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,10 +21,9 @@ Replace elements of `input` matching regex `pattern` with `rewrite`.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/strings/regex_replace"><code>tf.compat.v1.regex_replace</code></a>
-* <a href="/api_docs/python/tf/strings/regex_replace"><code>tf.compat.v1.strings.regex_replace</code></a>
-* <a href="/api_docs/python/tf/strings/regex_replace"><code>tf.compat.v2.strings.regex_replace</code></a>
-* <a href="/api_docs/python/tf/strings/regex_replace"><code>tf.regex_replace</code></a>
+* `tf.compat.v1.regex_replace`
+* `tf.compat.v1.strings.regex_replace`
+* `tf.compat.v2.strings.regex_replace`
 
 
 ``` python

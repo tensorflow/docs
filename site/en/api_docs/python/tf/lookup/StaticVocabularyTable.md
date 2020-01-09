@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/lookup/StaticVocabularyTable">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1211-L1218">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1037-L1207">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,11 +21,11 @@ page_type: reference
 
 String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
 
-Inherits From: [`StaticVocabularyTable`](../../tf/compat/v2/lookup/StaticVocabularyTable)
+
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/lookup/StaticVocabularyTable"><code>tf.compat.v1.lookup.StaticVocabularyTable</code></a>
+* Class `tf.compat.v2.lookup.StaticVocabularyTable`
 
 
 <!-- Placeholder for "Used in" -->
@@ -76,7 +70,7 @@ Fingerprint64.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1077-L1136">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1077-L1136">View source</a>
 
 ``` python
 __init__(
@@ -115,11 +109,6 @@ Construct a `StaticVocabularyTable` object.
 
 ## Properties
 
-<h3 id="initializer"><code>initializer</code></h3>
-
-
-
-
 <h3 id="key_dtype"><code>key_dtype</code></h3>
 
 The table key dtype.
@@ -146,7 +135,7 @@ The table value dtype.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1168-L1207">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1168-L1207">View source</a>
 
 ``` python
 lookup(
@@ -179,7 +168,7 @@ A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/lookup_ops.py#L1159-L1166">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/lookup_ops.py#L1159-L1166">View source</a>
 
 ``` python
 size(name=None)

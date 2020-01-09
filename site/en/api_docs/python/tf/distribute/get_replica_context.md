@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/distribute/get_replica_context">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/distribute/distribution_strategy_context.py#L89-L135">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/distribute/distribution_strategy_context.py#L89-L135">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,9 +21,8 @@ Returns the current <a href="../../tf/distribute/ReplicaContext"><code>tf.distri
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/distribute/get_replica_context"><code>tf.compat.v1.distribute.get_replica_context</code></a>
-* <a href="/api_docs/python/tf/distribute/get_replica_context"><code>tf.compat.v2.distribute.get_replica_context</code></a>
-* <a href="/api_docs/python/tf/distribute/get_replica_context"><code>tf.contrib.distribute.get_replica_context</code></a>
+* `tf.compat.v1.distribute.get_replica_context`
+* `tf.compat.v2.distribute.get_replica_context`
 
 
 ``` python

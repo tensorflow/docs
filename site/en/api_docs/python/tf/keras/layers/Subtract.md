@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/layers/Subtract">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L253-L288">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/merge.py#L253-L288">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,8 +25,8 @@ Layer that subtracts two inputs.
 
 ### Aliases:
 
-* Class <a href="/api_docs/python/tf/keras/layers/Subtract"><code>tf.compat.v1.keras.layers.Subtract</code></a>
-* Class <a href="/api_docs/python/tf/keras/layers/Subtract"><code>tf.compat.v2.keras.layers.Subtract</code></a>
+* Class `tf.compat.v1.keras.layers.Subtract`
+* Class `tf.compat.v2.keras.layers.Subtract`
 
 
 <!-- Placeholder for "Used in" -->
@@ -61,7 +55,7 @@ also of the same shape.
 
 <h2 id="__init__"><code>__init__</code></h2>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/layers/merge.py#L41-L43">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/layers/merge.py#L41-L43">View source</a>
 
 ``` python
 __init__(**kwargs)

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/nn/batch_norm_with_global_normalization">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nn_impl.py#L1521-L1565">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/nn_impl.py#L1577-L1618">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,22 +21,19 @@ Batch normalization.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/nn/batch_norm_with_global_normalization"><code>tf.compat.v1.nn.batch_norm_with_global_normalization</code></a>
+* `tf.compat.v2.nn.batch_norm_with_global_normalization`
 
 
 ``` python
 tf.nn.batch_norm_with_global_normalization(
-    t=None,
-    m=None,
-    v=None,
-    beta=None,
-    gamma=None,
-    variance_epsilon=None,
-    scale_after_normalization=None,
-    name=None,
-    input=None,
-    mean=None,
-    variance=None
+    input,
+    mean,
+    variance,
+    beta,
+    gamma,
+    variance_epsilon,
+    scale_after_normalization,
+    name=None
 )
 ```
 
@@ -55,11 +46,11 @@ This op is deprecated. See <a href="../../tf/nn/batch_normalization"><code>tf.nn
 #### Args:
 
 
-* <b>`t`</b>: A 4D input Tensor.
-* <b>`m`</b>: A 1D mean Tensor with size matching the last dimension of t.
+* <b>`input`</b>: A 4D input Tensor.
+* <b>`mean`</b>: A 1D mean Tensor with size matching the last dimension of t.
   This is the first output from tf.nn.moments,
   or a saved moving average thereof.
-* <b>`v`</b>: A 1D variance Tensor with size matching the last dimension of t.
+* <b>`variance`</b>: A 1D variance Tensor with size matching the last dimension of t.
   This is the second output from tf.nn.moments,
   or a saved moving average thereof.
 * <b>`beta`</b>: A 1D beta Tensor with size matching the last dimension of t.
@@ -71,9 +62,6 @@ This op is deprecated. See <a href="../../tf/nn/batch_normalization"><code>tf.nn
 * <b>`scale_after_normalization`</b>: A bool indicating whether the resulted tensor
   needs to be multiplied with gamma.
 * <b>`name`</b>: A name for this operation (optional).
-* <b>`input`</b>: Alias for t.
-* <b>`mean`</b>: Alias for m.
-* <b>`variance`</b>: Alias for v.
 
 
 #### Returns:

@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/debugging/assert_scalar">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/check_ops.py#L2071-L2102">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/ops/check_ops.py#L2161-L2180">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,21 +17,18 @@ page_type: reference
 
 
 
-Asserts that the given `tensor` is a scalar (i.e. zero-dimensional).
+Asserts that the given `tensor` is a scalar.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.assert_scalar</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.compat.v1.assert_scalar</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.compat.v1.debugging.assert_scalar</code></a>
-* <a href="/api_docs/python/tf/debugging/assert_scalar"><code>tf.contrib.framework.assert_scalar</code></a>
+* `tf.compat.v2.debugging.assert_scalar`
 
 
 ``` python
 tf.debugging.assert_scalar(
     tensor,
-    name=None,
-    message=None
+    message=None,
+    name=None
 )
 ```
 
@@ -49,18 +40,14 @@ This function raises `ValueError` unless it can be certain that the given
 `tensor` is a scalar. `ValueError` is also raised if the shape of `tensor` is
 unknown.
 
+This is always checked statically, so this method returns nothing.
+
 #### Args:
 
 
 * <b>`tensor`</b>: A `Tensor`.
-* <b>`name`</b>:  A name for this operation. Defaults to "assert_scalar"
 * <b>`message`</b>: A string to prefix to the default message.
-
-
-#### Returns:
-
-The input tensor (potentially converted to a `Tensor`).
-
+* <b>`name`</b>:  A name for this operation. Defaults to "assert_scalar"
 
 
 #### Raises:

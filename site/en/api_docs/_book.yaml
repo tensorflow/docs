@@ -10,12 +10,12 @@ upper_tabs:
     - name: Overview
       contents:
       - title: Overview
-        path: {VERSION_ROOT}/
+        path: /versions/r2.0/api_docs/
 
       - heading: Implementations
       - title: "TensorFlow.js"
         path: https://js.tensorflow.org/api/latest/
-      - title: "Swift"
+      - title: Swift
         path: /swift/api_docs/
       - title: "Go"
         path: https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go
@@ -40,51 +40,22 @@ upper_tabs:
           path: https://github.com/eaplatanios/tensorflow_scala
           status: external
 
-      - heading: "Resources"
-      - title: "Addons"
-        path: /addons/api_docs/python/tfa
-      - title: "Datasets"
-        path: /datasets/api_docs/python/tfds
-      - title: "Federated"
-        path: /federated/api_docs/python/tff
-      - title: "Graphics"
-        path: /graphics/api_docs/python/tgf
-      - title: "Hub"
+      - heading: Resources
+      - title: Hub
         path: /hub/api_docs/python/hub
-      - title: "Model Optimization"
-        path: /model_optimization/api_docs/python/tfmot
-      - title: "Neural Structured Learning"
-        path: /neural_structured_learning/api_docs/python/nsl
-      - title: "Probability"
+      - title: Probability
         path: /probability/api_docs/python/tfp
-
-      - heading: "Lite"
-      - title: "Python"
-        path: /api_docs/python/tf/lite
-      - title: "C++"
-        path: /lite/api_docs/cc
-
-      - heading: "TFX"
-      - title: "TFX"
-        path: /tfx/api_docs/python/tfx
-      - title: "Data Validation"
-        path: /tfx/data_validation/api_docs/python/tfdv
-      - title: "Model Analysis"
-        path: /tfx/model_analysis/api_docs/python/tfma
-      - title: "Transform"
-        path: /tfx/transform/api_docs/python/tft
       - title: Serving
         path: /tfx/serving/api_docs/cc
-
+      - title: TFX
+        path: /tfx/api_docs/
     - name: Python
       skip_translation: true
       contents:
-      - title: Overview
-        path: {VERSION_ROOT}/python/tf
+      - title: Python r2.0
+      - include: /versions/r2.0/api_docs/python/_toc.yaml
       - title: All Symbols
-        path: {VERSION_ROOT}/python/
-      - title: Python {VERSION}
-      - include: {VERSION_ROOT}/python/_toc.yaml
+        path: /versions/r2.0/api_docs/python/
 
     - name: JavaScript
       contents:
@@ -95,15 +66,15 @@ upper_tabs:
       skip_translation: true
       contents:
       - title: C++
-        path: {VERSION_ROOT}/cc/
-      - include: {VERSION_ROOT}/cc/_doxygen.yaml
+        path: /versions/r2.0/api_docs/cc/
+      - include: /versions/r2.0/api_docs/cc/_doxygen.yaml
 
     - name: Java
       skip_translation: true
       contents:
       - title: Java
-        path: {VERSION_ROOT}/java/reference/org/tensorflow/package-summary.html
-      - include: {VERSION_ROOT}/java/reference/_toc.yaml
+        path: /versions/r2.0/api_docs/java/reference/org/tensorflow/package-summary.html
+      - include: /versions/r2.0/api_docs/java/reference/_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml
 - include: /_upper_tabs_right.yaml

@@ -7,12 +7,6 @@ page_type: reference
 
 
 <table class="tfo-notebook-buttons tfo-api" align="left">
-
-<td>
-  <a target="_blank" href="/api_docs/python/tf/math/acosh">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
 </table>
 
 Defined in generated file: `python/ops/gen_math_ops.py`
@@ -23,11 +17,11 @@ Computes inverse hyperbolic cosine of x element-wise.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/math/acosh"><code>tf.acosh</code></a>
-* <a href="/api_docs/python/tf/math/acosh"><code>tf.compat.v1.acosh</code></a>
-* <a href="/api_docs/python/tf/math/acosh"><code>tf.compat.v1.math.acosh</code></a>
-* <a href="/api_docs/python/tf/math/acosh"><code>tf.compat.v2.acosh</code></a>
-* <a href="/api_docs/python/tf/math/acosh"><code>tf.compat.v2.math.acosh</code></a>
+* `tf.acosh`
+* `tf.compat.v1.acosh`
+* `tf.compat.v1.math.acosh`
+* `tf.compat.v2.acosh`
+* `tf.compat.v2.math.acosh`
 
 
 ``` python

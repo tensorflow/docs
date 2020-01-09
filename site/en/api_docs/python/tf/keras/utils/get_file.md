@@ -9,13 +9,7 @@ page_type: reference
 <table class="tfo-notebook-buttons tfo-api" align="left">
 
 <td>
-  <a target="_blank" href="/api_docs/python/tf/keras/utils/get_file">
-  <img src="https://www.tensorflow.org/images/tf_logo_32px.png" />
-  TensorFlow 2 version</a>
-</td>
-
-<td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/keras/utils/data_utils.py#L150-L270">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/tree/r2.0/tensorflow/python/keras/utils/data_utils.py#L150-L270">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,8 +21,8 @@ Downloads a file from a URL if it not already in the cache.
 
 ### Aliases:
 
-* <a href="/api_docs/python/tf/keras/utils/get_file"><code>tf.compat.v1.keras.utils.get_file</code></a>
-* <a href="/api_docs/python/tf/keras/utils/get_file"><code>tf.compat.v2.keras.utils.get_file</code></a>
+* `tf.compat.v1.keras.utils.get_file`
+* `tf.compat.v2.keras.utils.get_file`
 
 
 ``` python
@@ -48,7 +42,35 @@ tf.keras.utils.get_file(
 
 
 
-<!-- Placeholder for "Used in" -->
+### Used in the guide:
+
+* [Using the SavedModel format](https://www.tensorflow.org/guide/saved_model)
+* [tf.data: Build TensorFlow input pipelines](https://www.tensorflow.org/guide/data)
+
+### Used in the tutorials:
+
+* [Adversarial example using FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [Basic classification: Predict an image of clothing](https://www.tensorflow.org/tutorials/keras/classification)
+* [Basic regression: Predict fuel efficiency](https://www.tensorflow.org/tutorials/keras/regression)
+* [Custom training: walkthrough](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)
+* [DeepDream](https://www.tensorflow.org/tutorials/generative/deepdream)
+* [Image captioning with visual attention](https://www.tensorflow.org/tutorials/text/image_captioning)
+* [Image classification](https://www.tensorflow.org/tutorials/images/classification)
+* [Load CSV data](https://www.tensorflow.org/tutorials/load_data/csv)
+* [Load NumPy data](https://www.tensorflow.org/tutorials/load_data/numpy)
+* [Load a pandas.DataFrame](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe)
+* [Load images](https://www.tensorflow.org/tutorials/load_data/images)
+* [Load text](https://www.tensorflow.org/tutorials/load_data/text)
+* [Neural machine translation with attention](https://www.tensorflow.org/tutorials/text/nmt_with_attention)
+* [Neural style transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+* [Pix2Pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+* [Premade Estimators](https://www.tensorflow.org/tutorials/estimator/premade)
+* [TFRecord and tf.Example](https://www.tensorflow.org/tutorials/load_data/tfrecord)
+* [Text generation with an RNN](https://www.tensorflow.org/tutorials/text/text_generation)
+* [Time series forecasting](https://www.tensorflow.org/tutorials/structured_data/time_series)
+* [Transfer learning with TensorFlow Hub](https://www.tensorflow.org/tutorials/images/transfer_learning_with_hub)
+
+
 
 By default the file at the url `origin` is downloaded to the
 cache_dir `~/.keras`, placed in the cache_subdir `datasets`,
