@@ -10,7 +10,7 @@ and the easiest to use, but other language APIs may be easier to integrate
 into projects and may offer some performance advantages in graph execution.
 
 A word of caution: the APIs in languages other than Python are not yet
-covered by the [API stability promises](../programmers_guide/version_semantics).
+covered by the [API stability promises](/guide/versions).
 
 * [Python](python)
 * [JavaScript](https://js.tensorflow.org/api/latest/)
