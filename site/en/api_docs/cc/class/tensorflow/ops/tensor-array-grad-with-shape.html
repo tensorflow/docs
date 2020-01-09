@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::TensorArrayGradWithShape Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>TensorArrayGradWithShape</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>Creates a <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> for storing multiple gradients of values in the given handle. </p>
+  <h2>Summary</h2>
+  <p>Similar to TensorArrayGradV3. However it creates an accumulator with an expanded shape compared to the input <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> whose gradient is being computed. This enables multiple gradients for the same <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> to be calculated using the same accumulator.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>handle: The handle to the forward <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a>.</li>
+      <li>flow_in: A float scalar that enforces proper chaining of operations.</li>
+      <li>shape_to_prepend: An int32 vector representing a shape. Elements in the gradient accumulator will have shape which is this shape_to_prepend value concatenated with shape of the elements in the <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> corresponding to the input handle.</li>
+      <li>source: The gradient source string, used to decide which gradient <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/tensor-array.html#classtensorflow_1_1ops_1_1_tensor_array">TensorArray</a> to return.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> grad_handle</li>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code> flow_out </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1ae957f3234c62f254b88ced73dd452371">TensorArrayGradWithShape</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_to_prepend, StringPiece source)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a7e66bafef678a0c4a661598e8d61c4a3">flow_out</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a732338604dc6b1ce0db860e97a5df6ec">grad_handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a0430f64eabb7fa21eac6b06e3e01ec04">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a7e66bafef678a0c4a661598e8d61c4a3">
+    <h3>flow_out</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> flow_out</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a732338604dc6b1ce0db860e97a5df6ec">
+    <h3>grad_handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> grad_handle</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1a0430f64eabb7fa21eac6b06e3e01ec04">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_tensor_array_grad_with_shape_1ae957f3234c62f254b88ced73dd452371">
+    <h3>TensorArrayGradWithShape</h3>
+    <pre class="prettyprint"> TensorArrayGradWithShape(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> handle,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> flow_in,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> shape_to_prepend,
+  StringPiece source
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

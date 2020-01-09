@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::SparseConditionalAccumulator Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>SparseConditionalAccumulator</h1>
+  <code>#include &lt;data_flow_ops.h&gt;</code>
+  <p>A conditional accumulator for aggregating sparse gradients. </p>
+  <h2>Summary</h2>
+  <p>The accumulator accepts gradients marked with local_step greater or equal to the most recent global_step known to the accumulator. The average can be extracted from the accumulator, provided sufficient gradients have been accumulated. Extracting the average automatically resets the aggregate to 0, and increments the global_step recorded by the accumulator.</p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>dtype: The type of the value being accumulated.</li>
+      <li>shape: The shape of the values.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a></code>):<ul>
+      <li>container: If non-empty, this accumulator is placed in the given container. Otherwise, a default container is used.</li>
+      <li>shared_name: If non-empty, this accumulator will be shared under the given name across multiple sessions.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The handle to the accumulator. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a4133d47c6e15c4a9aeefec18ecdcec8e">SparseConditionalAccumulator</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype, PartialTensorShape shape)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1accae7d9bc21410b017b23f3274a9bb5c">SparseConditionalAccumulator</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, DataType dtype, PartialTensorShape shape, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">SparseConditionalAccumulator::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1ae254a334398940972605109db3c7954d">handle</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1ad8d5c853cb09f54c21878ddca9b9f600">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1aba524ddfd366dcef3f9dd99bcb7b5c7d">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a5e355e5910304b5edd44ef6a51abd472">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a39a61597615354b5d7b73dd9a23cdc8b">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a1600abd8fa3fea5d2d36ccd67de401c7">Container</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a280e4c1312be92c2d72875d9cbb6bb80">ReductionType</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1aa7defbdbb0837b0af6dc7fb714603e50">SharedName</a>(StringPiece x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs">tensorflow::<wbr/>ops::<wbr/>SparseConditionalAccumulator::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/sparse-conditional-accumulator.html#classtensorflow_1_1ops_1_1_sparse_conditional_accumulator">SparseConditionalAccumulator</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1ae254a334398940972605109db3c7954d">
+    <h3>handle</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> handle</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1ad8d5c853cb09f54c21878ddca9b9f600">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a4133d47c6e15c4a9aeefec18ecdcec8e">
+    <h3>SparseConditionalAccumulator</h3>
+    <pre class="prettyprint"> SparseConditionalAccumulator(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype,
+  PartialTensorShape shape
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1accae7d9bc21410b017b23f3274a9bb5c">
+    <h3>SparseConditionalAccumulator</h3>
+    <pre class="prettyprint"> SparseConditionalAccumulator(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  DataType dtype,
+  PartialTensorShape shape,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">SparseConditionalAccumulator::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1aba524ddfd366dcef3f9dd99bcb7b5c7d">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a5e355e5910304b5edd44ef6a51abd472">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a39a61597615354b5d7b73dd9a23cdc8b">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a1600abd8fa3fea5d2d36ccd67de401c7">
+    <h3>Container</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a> Container(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1a280e4c1312be92c2d72875d9cbb6bb80">
+    <h3>ReductionType</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a> ReductionType(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1aa7defbdbb0837b0af6dc7fb714603e50">
+    <h3>SharedName</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/sparse-conditional-accumulator/attrs.html#structtensorflow_1_1ops_1_1_sparse_conditional_accumulator_1_1_attrs">Attrs</a> SharedName(
+  StringPiece x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

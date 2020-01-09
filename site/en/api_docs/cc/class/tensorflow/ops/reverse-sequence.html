@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::ReverseSequence Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>ReverseSequence</h1>
+  <code>#include &lt;array_ops.h&gt;</code>
+  <p>Reverses variable length slices. </p>
+  <h2>Summary</h2>
+  <p>This op first slices <code>input</code> along the dimension <code>batch_dim</code>, and for each slice <code>i</code>, reverses the first <code>seq_lengths[i]</code> elements along the dimension <code>seq_dim</code>.</p>
+  <p>The elements of <code>seq_lengths</code> must obey <code>seq_lengths[i] <= input.dims[seq_dim]</code>, and <code>seq_lengths</code> must be a vector of length <code>input.dims[batch_dim]</code>.</p>
+  <p>The output slice <code>i</code> along dimension <code>batch_dim</code> is then given by input slice <code>i</code>, with the first <code>seq_lengths[i]</code> slices along dimension <code>seq_dim</code> reversed.</p>
+  <p>For example:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; Given this:
+batch_dim = 0
+seq_dim = 1
+input.dims = (4, 8, ...)
+seq_lengths = [7, 2, 3, 5]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; then slices of input are reversed on seq_dim, but only up to seq_lengths:
+output[0, 0:7, :, ...] = input[0, 7:0:-1, :, ...]
+output[1, 0:2, :, ...] = input[1, 2:0:-1, :, ...]
+output[2, 0:3, :, ...] = input[2, 3:0:-1, :, ...]
+output[3, 0:5, :, ...] = input[3, 5:0:-1, :, ...]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; while entries past seq_lens are copied through:
+output[0, 7:, :, ...] = input[0, 7:, :, ...]
+output[1, 2:, :, ...] = input[1, 2:, :, ...]
+output[2, 3:, :, ...] = input[2, 3:, :, ...]
+output[3, 2:, :, ...] = input[3, 2:, :, ...]
+</pre>
+  </p>
+  <p>In contrast, if:</p>
+  <p>
+    <pre class="prettyprint">
+&#35; Given this:
+batch_dim = 2
+seq_dim = 0
+input.dims = (8, ?, 4, ...)
+seq_lengths = [7, 2, 3, 5]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; then slices of input are reversed on seq_dim, but only up to seq_lengths:
+output[0:7, :, 0, :, ...] = input[7:0:-1, :, 0, :, ...]
+output[0:2, :, 1, :, ...] = input[2:0:-1, :, 1, :, ...]
+output[0:3, :, 2, :, ...] = input[3:0:-1, :, 2, :, ...]
+output[0:5, :, 3, :, ...] = input[5:0:-1, :, 3, :, ...]</pre>
+  </p>
+  <p>
+    <pre class="prettyprint">&#35; while entries past seq_lens are copied through:
+output[7:, :, 0, :, ...] = input[7:, :, 0, :, ...]
+output[2:, :, 1, :, ...] = input[2:, :, 1, :, ...]
+output[3:, :, 2, :, ...] = input[3:, :, 2, :, ...]
+output[2:, :, 3, :, ...] = input[2:, :, 3, :, ...]
+</pre>
+  </p>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>input: The input to reverse.</li>
+      <li>seq_lengths: 1-D with length <code>input.dims(batch_dim)</code> and <code>max(seq_lengths) <= input.dims(seq_dim)</code></li>
+      <li>seq_dim: The dimension which is partially reversed.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs.html#structtensorflow_1_1ops_1_1_reverse_sequence_1_1_attrs">Attrs</a></code>):<ul>
+      <li>batch_dim: The dimension along which reversal is performed.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: The partially reversed input. It has the same shape as <code>input</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1aa58d6c456d56ab6a8de8272be313bfb6">ReverseSequence</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a4eaf37f3a1f940188c5c0036d99d1bbf">ReverseSequence</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths, int64 seq_dim, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs.html#structtensorflow_1_1ops_1_1_reverse_sequence_1_1_attrs">ReverseSequence::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a72f44b314665a629e3e0cce33b604bc6">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1ac76ef125643819f0da243ad343598703">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a736eadcc4a35eaf10eed0146949f6c6c">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a213f08036c4ef7a30a54626841c26c50">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a99b56c7e9b0f58c0421ea2ccb8265b78">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_reverse_sequence_1a226faa6d0904a8e79a4ef9a33915f223">BatchDim</a>(int64 x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs.html#structtensorflow_1_1ops_1_1_reverse_sequence_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs">tensorflow::<wbr/>ops::<wbr/>ReverseSequence::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/reverse-sequence.html#classtensorflow_1_1ops_1_1_reverse_sequence">ReverseSequence</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a72f44b314665a629e3e0cce33b604bc6">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1ac76ef125643819f0da243ad343598703">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1aa58d6c456d56ab6a8de8272be313bfb6">
+    <h3>ReverseSequence</h3>
+    <pre class="prettyprint"> ReverseSequence(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths,
+  int64 seq_dim
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a4eaf37f3a1f940188c5c0036d99d1bbf">
+    <h3>ReverseSequence</h3>
+    <pre class="prettyprint"> ReverseSequence(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> input,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> seq_lengths,
+  int64 seq_dim,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs.html#structtensorflow_1_1ops_1_1_reverse_sequence_1_1_attrs">ReverseSequence::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a736eadcc4a35eaf10eed0146949f6c6c">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a213f08036c4ef7a30a54626841c26c50">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a99b56c7e9b0f58c0421ea2ccb8265b78">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_reverse_sequence_1a226faa6d0904a8e79a4ef9a33915f223">
+    <h3>BatchDim</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/reverse-sequence/attrs.html#structtensorflow_1_1ops_1_1_reverse_sequence_1_1_attrs">Attrs</a> BatchDim(
+  int64 x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html devsite>
+<head>
+  <title>tensorflow::ops::DecodeRaw Class Reference</title>
+  <meta name="project_path" value="/versions/r1.12/api_docs/_project.yaml" />
+  <meta name="book_path" value="/versions/r1.12/api_docs/_book.yaml" />
+  <meta name="hide_page_heading" value="true" />
+</head>
+<body>
+  <div id="top"><!-- do not remove this div --></div>
+  <h1>tensorflow::<wbr/>ops::<wbr/>DecodeRaw</h1>
+  <code>#include &lt;parsing_ops.h&gt;</code>
+  <p>Reinterpret the bytes of a string as a vector of numbers. </p>
+  <h2>Summary</h2>
+  <p>Arguments:<ul>
+      <li>scope: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">Scope</a> object</li>
+      <li>bytes: <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/all.html#classtensorflow_1_1ops_1_1_all">All</a> the elements must have the same length.</li>
+    </ul></p>
+  <p>Optional attributes (see <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs.html#structtensorflow_1_1ops_1_1_decode_raw_1_1_attrs">Attrs</a></code>):<ul>
+      <li>little_endian: Whether the input <code>bytes</code> are in little-endian order. Ignored for <code>out_type</code> values that are stored in a single byte like <code>uint8</code>.</li>
+    </ul></p>
+  <p>Returns:<ul>
+      <li><code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">Output</a></code>: A <a href="/versions/r1.12/api_docs/cc/class/tensorflow/tensor.html#classtensorflow_1_1_tensor">Tensor</a> with one more dimension than the input <code>bytes</code>. The added dimension will have size equal to the length of the elements of <code>bytes</code> divided by the number of bytes to represent <code>out_type</code>. </li>
+    </ul></p>
+  <table class="constructors responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Constructors and Destructors</h3>
+      </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a009ee569ceb10dfe18f4cbc635c6b0f8">DecodeRaw</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes, DataType out_type)</code>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a2755ef7795b3379d5129b8a878bca31c">DecodeRaw</a>(const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope, ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes, DataType out_type, const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs.html#structtensorflow_1_1ops_1_1_decode_raw_1_1_attrs">DecodeRaw::Attrs</a> & attrs)</code>
+        <br />
+      </td>
+    </tr>
+  </table>
+  <table class="properties responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public attributes</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1ab6e42efe2dca3f3d827475cf62437053">operation</a></code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a></code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a23cf767ae870fefb89c30052498a0df6">output</a></code>
+      </td>
+      <td>
+        <div>
+          <code>::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a7a6eccc4ac856a21aff11f122297916d">node</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code>::tensorflow::Node *</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a0eefc98977cc8232c00bc060f54ee941">operator::tensorflow::Input</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a6d67d85b527ffa9d1d9598bc5388f3d2">operator::tensorflow::Output</a>() const </code>
+      </td>
+      <td>
+        <div>
+          <code />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="methods responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Public static functions</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="#classtensorflow_1_1ops_1_1_decode_raw_1a07817a63502629cb34ff94dadaaaceac">LittleEndian</a>(bool x)</code>
+      </td>
+      <td>
+        <div>
+          <code><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs.html#structtensorflow_1_1ops_1_1_decode_raw_1_1_attrs">Attrs</a></code>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="constants responsive">
+    <tr>
+      <th colspan="2">
+        <h3>Structs</h3>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs">tensorflow::<wbr/>ops::<wbr/>DecodeRaw::<wbr/>Attrs</a>
+      </td>
+      <td>
+        <p>Optional attribute setters for <a href="/versions/r1.12/api_docs/cc/class/tensorflow/ops/decode-raw.html#classtensorflow_1_1ops_1_1_decode_raw">DecodeRaw</a>. </p>
+      </td>
+    </tr>
+  </table>
+  <h2>Public attributes</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1ab6e42efe2dca3f3d827475cf62437053">
+    <h3>operation</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/class/tensorflow/operation.html#classtensorflow_1_1_operation">Operation</a> operation</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a23cf767ae870fefb89c30052498a0df6">
+    <h3>output</h3>
+    <pre class="prettyprint">::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/output.html#classtensorflow_1_1_output">tensorflow::Output</a> output</pre>
+    <div />
+  </div>
+  <h2>Public functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a009ee569ceb10dfe18f4cbc635c6b0f8">
+    <h3>DecodeRaw</h3>
+    <pre class="prettyprint"> DecodeRaw(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes,
+  DataType out_type
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a2755ef7795b3379d5129b8a878bca31c">
+    <h3>DecodeRaw</h3>
+    <pre class="prettyprint"> DecodeRaw(
+  const ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/scope.html#classtensorflow_1_1_scope">tensorflow::Scope</a> & scope,
+  ::<a href="/versions/r1.12/api_docs/cc/class/tensorflow/input.html#classtensorflow_1_1_input">tensorflow::Input</a> bytes,
+  DataType out_type,
+  const <a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs.html#structtensorflow_1_1ops_1_1_decode_raw_1_1_attrs">DecodeRaw::Attrs</a> & attrs
+)</pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a7a6eccc4ac856a21aff11f122297916d">
+    <h3>node</h3>
+    <pre class="prettyprint">::tensorflow::Node * node() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a0eefc98977cc8232c00bc060f54ee941">
+    <h3>operator::tensorflow::Input</h3>
+    <pre class="prettyprint"> operator::tensorflow::Input() const </pre>
+    <div />
+  </div>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a6d67d85b527ffa9d1d9598bc5388f3d2">
+    <h3>operator::tensorflow::Output</h3>
+    <pre class="prettyprint"> operator::tensorflow::Output() const </pre>
+    <div />
+  </div>
+  <h2>Public static functions</h2>
+  <div id="classtensorflow_1_1ops_1_1_decode_raw_1a07817a63502629cb34ff94dadaaaceac">
+    <h3>LittleEndian</h3>
+    <pre class="prettyprint"><a href="/versions/r1.12/api_docs/cc/struct/tensorflow/ops/decode-raw/attrs.html#structtensorflow_1_1ops_1_1_decode_raw_1_1_attrs">Attrs</a> LittleEndian(
+  bool x
+)</pre>
+    <div />
+  </div>
+</body>
+</html>
