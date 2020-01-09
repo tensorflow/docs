@@ -105,6 +105,12 @@ read_file_contents() {
     fi
 
     contents="$($NBCONVERT_BIN $opts --stdout $fp 2>/dev/null)"
+    # Check that nbconvert ran. Virtualenvs get hosed on Python upgrades, etc.
+    if [[ $? != 0 ]]; then
+      echo "[$(basename ${NBCONVERT_BIN})] Error: " >&2
+      $NBCONVERT_BIN $opts --stdout "$fp" >&2
+      exit 1
+    fi
 
   else
     echo "${LOG_NAME} Error: File format not supported: ${fp}" >&2

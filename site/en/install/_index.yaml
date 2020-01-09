@@ -46,9 +46,9 @@ landing_page:
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
         # Requires the latest pip
         <code class="devsite-terminal">pip install --upgrade pip</code><br/>
-        # Current stable release for CPU-only
+        # Current stable release for CPU and GPU
         <code class="devsite-terminal">pip install tensorflow</code><br/>
-        # Or preview build for CPU/GPU (unstable)
+        # Or try the preview build (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
 
   - classname:
@@ -65,8 +65,8 @@ landing_page:
           support</a>.
         </p>
         <pre class="prettyprint lang-bsh">
-        <code class="devsite-terminal">docker pull tensorflow/tensorflow                  # Download latest image</code><br/>
-        <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow  # Start a Jupyter notebook server</code>
+        <code class="devsite-terminal">docker pull tensorflow/tensorflow  # Download latest stable image</code><br/>
+        <code class="devsite-terminal">docker run -it -p 8888:8888 tensorflow/tensorflow:latest-gpu-jupyter  # Start Jupyter server</code>
         </pre>
       buttons:
       - label: Read the Docker install guide
