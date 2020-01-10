@@ -61,7 +61,7 @@ TensorFlow has communities around the world.
 * [TensorFlow User Group Coimbatore](https://www.meetup.com/TFUGCbe/)
 * [TensorFlow UserGroup Kolkata](https://www.meetup.com/TFUG-Kol/)
 * [TensorFlow UserGroup Kozhikode](https://www.meetup.com/Tensorflow-User-Group-Kozhikode/)
-* [TensorFlow UserGroup Mumbai](https://t.me/tfugmumbai/)
+* [TensorFlow UserGroup Mumbai](https://www.meetup.com/Tensorflow-Mumbai-Group/)
 * [TensorFlow UserGroup Mysuru] (https://www.meetup.com/TFUG-Mysuru/)
 * [TensorFlow User Group Pune](https://www.meetup.com/Tensorflow-User-Group-Pune/)
 
