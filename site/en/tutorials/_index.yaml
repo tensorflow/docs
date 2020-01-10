@@ -248,8 +248,8 @@ landing_page:
       - description: >
           <a href="https://github.com/tensorflow/agents"><h3 class="tfo-landing-page-heading no-link">TensorFlow Agents</h3></a>
           <ul class="tfo-landing-page-resources-ul">
-          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
-          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
+          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
+          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
           </ul>
         path: https://github.com/tensorflow/agents
         icon:
