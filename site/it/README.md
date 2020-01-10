@@ -40,3 +40,7 @@ Alcune parole fanno parte di un vocabolario tecnico inglese e pertanto non hanno
 *   tutorials(s)
 *   underfit(ting)
 *   white paper(s)
+*   host
+*   placement
+*   pipeline
+*   dataset
