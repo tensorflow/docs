@@ -50,7 +50,10 @@ def is_free_function(py_object, full_name, index):
     True if the object is a stand-alone function, and not part of a class
     definition.
   """
-  if not tf_inspect.isfunction(py_object):
+  if tf_inspect.isclass(py_object):
+    return False
+
+  if not callable(py_object):
     return False
 
   parent_name = full_name.rsplit('.', 1)[0]
@@ -793,18 +796,8 @@ def _generate_signature(func, reverse_index):
       source = _remove_first_line_indent(tf_inspect.getsource(func))
       func_ast = ast.parse(source)
       ast_defaults = func_ast.body[0].args.defaults
-    except IOError:  # If this is a builtin, getsource fails with IOError
-      # If we cannot get the source, assume the AST would be equal to the repr
-      # of the defaults.
-      ast_defaults = [None] * len(argspec.defaults)
-    except SyntaxError:
-      # You may get a SyntaxError using pytype in python 2.
-      ast_defaults = [None] * len(argspec.defaults)
-    except IndexError:
-      # Some python3 signatures fail in tf_inspect.getsource with IndexError
-      ast_defaults = [None] * len(argspec.defaults)
-    except AttributeError:
-      # Some objects in tfp throw attribute errors here.
+    except Exception as e:
+      # A variaey of errors can be thrown here.
       ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
@@ -901,138 +894,34 @@ _MethodInfo = collections.namedtuple('_MethodInfo', [
 ])
 
 
-class _FunctionPageInfo(object):
-  """Collects docs For a function Page."""
+class PageInfo(object):
+  """Base-class for api_pages objects.
 
-  def __init__(self, full_name):
-    self._full_name = full_name
-    self._defined_in = None
-    self._aliases = None
-    self._doc = None
-
-    self._signature = None
-    self._decorators = []
-
-  def for_function(self):
-    return True
-
-  def for_class(self):
-    return False
-
-  def for_module(self):
-    return False
-
-  @property
-  def full_name(self):
-    return self._full_name
-
-  @property
-  def short_name(self):
-    return self._full_name.split('.')[-1]
-
-  @property
-  def defined_in(self):
-    return self._defined_in
-
-  def set_defined_in(self, defined_in):
-    assert self.defined_in is None
-    self._defined_in = defined_in
-
-  @property
-  def aliases(self):
-    return self._aliases
-
-  def set_aliases(self, aliases):
-    assert self.aliases is None
-    self._aliases = aliases
-
-  @property
-  def doc(self):
-    return self._doc
-
-  def set_doc(self, doc):
-    assert self.doc is None
-    self._doc = doc
-
-  @property
-  def signature(self):
-    return self._signature
-
-  def set_signature(self, function, reverse_index):
-    """Attach the function's signature.
-
-    Args:
-      function: The python function being documented.
-      reverse_index: A map from object ids in the index to full names.
-    """
-
-    assert self.signature is None
-    self._signature = _generate_signature(function, reverse_index)
-
-  @property
-  def decorators(self):
-    return list(self._decorators)
-
-  def add_decorator(self, dec):
-    self._decorators.append(dec)
-
-  def get_metadata_html(self):
-    return Metadata(self.full_name).build_html()
-
-
-class _ClassPageInfo(object):
-  """Collects docs for a class page.
+  Converted to markdown by pretty_docs.py.
 
   Attributes:
-    full_name: The fully qualified name of the object at the master
-      location. Aka `master_name`. For example: `tf.nn.sigmoid`.
-    short_name: The last component of the `full_name`. For example: `sigmoid`.
-    defined_in: The path to the file where this object is defined.
-    aliases: The list of all fully qualified names for the locations where the
-      object is visible in the public api. This includes the master location.
-    doc: A `_DocstringInfo` object representing the object's docstring (can be
-      created with `_parse_md_docstring`).
-   bases: A list of `_LinkInfo` objects pointing to the docs for the parent
-      classes.
-    properties: A list of `_PropertyInfo` objects documenting the class'
-      properties (attributes that use `@property`).
-    methods: A list of `_MethodInfo` objects documenting the class' methods.
-    classes: A list of `_LinkInfo` objects pointing to docs for any nested
-      classes.
-    other_members: A list of `_OtherMemberInfo` objects documenting any other
-      object's defined inside the class object (mostly enum style fields).
-    namedtuplefields: a list of the namedtuple fields in the class.
+    full_name: The full, master name, of the object being documented.
+    short_name: The last part of the full name.
+    py_object: The object being documented.
+    defined_in: A _FileLocation describing where the object wqas defined.
+    aliases: A list of full-name for all aliases for this object.
+    doc: A list of objects representing the docstring. These can all be
+      converted to markdown using str().
   """
 
-  def __init__(self, full_name):
-    self._full_name = full_name
+  def __init__(self, full_name, py_object):
+    """Initialize a PageInfo.
+
+    Args:
+      full_name: The full, master name, of the object being documented.
+      py_object: The object being documented.
+    """
+    self.full_name = full_name
+    self.py_object = py_object
+
     self._defined_in = None
     self._aliases = None
     self._doc = None
-    self._namedtuplefields = None
-
-    self._bases = None
-    self._properties = []
-    self._methods = []
-    self._classes = []
-    self._other_members = []
-
-  def for_function(self):
-    """Returns true if this object documents a function."""
-    return False
-
-  def for_class(self):
-    """Returns true if this object documents a class."""
-    return True
-
-  def for_module(self):
-    """Returns true if this object documents a module."""
-    return False
-
-  @property
-  def full_name(self):
-    """Returns the documented object's fully qualified name."""
-    return self._full_name
 
   @property
   def short_name(self):
@@ -1077,16 +966,105 @@ class _ClassPageInfo(object):
     assert self.doc is None
     self._doc = doc
 
-  @property
-  def namedtuplefields(self):
-    return self._namedtuplefields
 
-  def set_namedtuplefields(self, py_class):
-    if issubclass(py_class, tuple):
-      if all(
-          hasattr(py_class, attr)
-          for attr in ('_asdict', '_fields', '_make', '_replace')):
-        self._namedtuplefields = py_class._fields
+class FunctionPageInfo(PageInfo):
+  """Collects docs For a function Page.
+
+  Attributes:
+    full_name: The full, master name, of the object being documented.
+    short_name: The last part of the full name.
+    py_object: The object being documented.
+    defined_in: A _FileLocation describing where the object wqas defined.
+    aliases: A list of full-name for all aliases for this object.
+    doc: A list of objects representing the docstring. These can all be
+      converted to markdown using str().
+    signature: the parsed signature (see:_generate_signature)
+  """
+
+  def __init__(self, full_name, py_object):
+    """Initialize a FunctionPageInfo.
+
+    Args:
+      full_name: The full, master name, of the object being documented.
+      py_object: The object being documented.
+    """
+    super(FunctionPageInfo, self).__init__(full_name, py_object)
+
+    self._signature = None
+    self._decorators = []
+
+  @property
+  def signature(self):
+    return self._signature
+
+  def collect_docs(self, parser_config):
+    """Collect all information necessary to genertate the function page.
+
+    Mainly this is details about the function signature.
+
+    Args:
+      function: The python function being documented.
+      reverse_index: A map from object ids in the index to full names.
+    """
+
+    assert self.signature is None
+    self._signature = _generate_signature(self.py_object,
+                                          parser_config.reverse_index)
+
+  @property
+  def decorators(self):
+    return list(self._decorators)
+
+  def add_decorator(self, dec):
+    self._decorators.append(dec)
+
+  def get_metadata_html(self):
+    return Metadata(self.full_name).build_html()
+
+
+class ClassPageInfo(PageInfo):
+  """Collects docs for a class page.
+
+  Attributes:
+    full_name: The full, master name, of the object being documented.
+    short_name: The last part of the full name.
+    py_object: The object being documented.
+    defined_in: A _FileLocation describing where the object wqas defined.
+    aliases: A list of full-name for all aliases for this object.
+    doc: A list of objects representing the docstring. These can all be
+      converted to markdown using str().
+    bases: A list of `_LinkInfo` objects pointing to the docs for the parent
+      classes.
+    properties: A list of `_PropertyInfo` objects documenting the class'
+      properties (attributes that use `@property`).
+    methods: A list of `_MethodInfo` objects documenting the class' methods.
+    classes: A list of `_LinkInfo` objects pointing to docs for any nested
+      classes.
+    other_members: A list of `_OtherMemberInfo` objects documenting any other
+      object's defined inside the class object (mostly enum style fields).
+    namedtuplefields: a list of the namedtuple fields in the class.
+  """
+
+  def __init__(self, full_name, py_object):
+    """Initialize a ClassPageInfo.
+
+    Args:
+      full_name: The full, master name, of the object being documented.
+      py_object: The object being documented.
+    """
+    super(ClassPageInfo, self).__init__(full_name, py_object)
+
+    self.namedtuplefields = None
+    if issubclass(py_object, tuple):
+      namedtuple_attrs = ('_asdict', '_fields', '_make', '_replace')
+      if all(hasattr(py_object, attr) for attr in namedtuple_attrs):
+        self.namedtuplefields = py_object._fields
+
+    self._bases = None
+    self._properties = []
+    self._methods = []
+    self._classes = []
+    self._other_members = []
 
   @property
   def bases(self):
@@ -1213,22 +1191,21 @@ class _ClassPageInfo(object):
     Args:
       short_name: The class' short name.
       full_name: The class' fully qualified name.
-      obj: The class object itself
-      doc: The class' parsed docstring, a `_DocstringInfo`
+      obj: The object
+      doc: The object's docstring, a `_DocstringInfo`
     """
     other_member_info = _OtherMemberInfo(short_name, full_name, obj, doc)
     self._other_members.append(other_member_info)
 
-  def collect_docs_for_class(self, py_class, parser_config):
+  def collect_docs(self, parser_config):
     """Collects information necessary specifically for a class's doc page.
 
     Mainly, this is details about the class's members.
 
     Args:
-      py_class: The class object being documented
       parser_config: An instance of ParserConfig.
     """
-    self.set_namedtuplefields(py_class)
+    py_class = self.py_object
     doc_path = documentation_path(self.full_name)
     relative_path = os.path.relpath(
         path='.', start=os.path.dirname(doc_path) or '.')
@@ -1320,60 +1297,37 @@ class _ClassPageInfo(object):
         self._add_other_member(short_name, child_name, child, child_doc)
 
 
-class _ModulePageInfo(object):
-  """Collects docs for a module page."""
+class ModulePageInfo(PageInfo):
+  """Collects docs for a module page.
 
-  def __init__(self, full_name):
-    self._full_name = full_name
-    self._defined_in = None
-    self._aliases = None
-    self._doc = None
+  Args:
+    full_name: The full, master name, of the object being documented.
+    py_object: The object being documented.
+  Attributes:
+    full_name: The full, master name, of the object being documented.
+    short_name: The last part of the full name.
+    py_object: The object being documented.
+    defined_in: A _FileLocation describing where the object wqas defined.
+    aliases: A list of full-name for all aliases for this object.
+    doc: A list of objects representing the docstring. These can all be
+      converted to markdown using str().
+    classes: A list of `_LinkInfo` objects pointing to docs for the classes in
+      this module.
+    functions: A list of `_LinkInfo` objects pointing to docs for the functions
+      in this module
+    modules: A list of `_LinkInfo` objects pointing to docs for the modules in
+      this module.
+    other_members: A list of `_OtherMemberInfo` objects documenting any other
+      object's defined on the module object (mostly enum style fields).
+  """
+
+  def __init__(self, full_name, py_object):
+    super(ModulePageInfo, self).__init__(full_name, py_object)
 
     self._modules = []
     self._classes = []
     self._functions = []
     self._other_members = []
-
-  def for_function(self):
-    return False
-
-  def for_class(self):
-    return False
-
-  def for_module(self):
-    return True
-
-  @property
-  def full_name(self):
-    return self._full_name
-
-  @property
-  def short_name(self):
-    return self._full_name.split('.')[-1]
-
-  @property
-  def defined_in(self):
-    return self._defined_in
-
-  def set_defined_in(self, defined_in):
-    assert self.defined_in is None
-    self._defined_in = defined_in
-
-  @property
-  def aliases(self):
-    return self._aliases
-
-  def set_aliases(self, aliases):
-    assert self.aliases is None
-    self._aliases = aliases
-
-  @property
-  def doc(self):
-    return self._doc
-
-  def set_doc(self, doc):
-    assert self.doc is None
-    self._doc = doc
 
   @property
   def modules(self):
@@ -1414,7 +1368,7 @@ class _ModulePageInfo(object):
 
     return meta_data.build_html()
 
-  def collect_docs_for_module(self, parser_config):
+  def collect_docs(self, parser_config):
     """Collect information necessary specifically for a module's doc page.
 
     Mainly this is information about the members of the module.
@@ -1529,24 +1483,17 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  # TODO(wicke): Once other pieces are ready, enable this also for partials.
-  if (tf_inspect.ismethod(py_object) or tf_inspect.isfunction(py_object) or
-      # Some methods in classes from extensions come in as routines.
-      tf_inspect.isroutine(py_object)):
-    page_info = _FunctionPageInfo(master_name)
-    page_info.set_signature(py_object, parser_config.reverse_index)
-
-  elif tf_inspect.isclass(py_object):
-    page_info = _ClassPageInfo(master_name)
-    page_info.collect_docs_for_class(py_object, parser_config)
-
+  if tf_inspect.isclass(py_object):
+    page_info = ClassPageInfo(master_name, py_object)
+  elif callable(py_object):
+    page_info = FunctionPageInfo(master_name, py_object)
   elif tf_inspect.ismodule(py_object):
-    page_info = _ModulePageInfo(master_name)
-    page_info.collect_docs_for_module(parser_config)
-
+    page_info = ModulePageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object %s: %r' % (full_name,
                                                                py_object))
+
+  page_info.collect_docs(parser_config)
 
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')

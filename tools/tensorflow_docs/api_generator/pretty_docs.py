@@ -30,6 +30,8 @@ from __future__ import print_function
 import textwrap
 
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import tf_inspect
+from tensorflow_docs.api_generator import parser
 
 
 def build_md_page(page_info):
@@ -45,13 +47,13 @@ def build_md_page(page_info):
   Raises:
     ValueError: if `page_info` is an instance of an unrecognized class
   """
-  if page_info.for_function():
-    return _build_function_page(page_info)
-
-  if page_info.for_class():
+  if isinstance(page_info, parser.ClassPageInfo):
     return _build_class_page(page_info)
 
-  if page_info.for_module():
+  if isinstance(page_info, parser.FunctionPageInfo):
+    return _build_function_page(page_info)
+
+  if isinstance(page_info, parser.ModulePageInfo):
     return _build_module_page(page_info)
 
   raise ValueError('Unknown Page Info Type: %s' % type(page_info))
