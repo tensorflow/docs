@@ -10,4 +10,3 @@ O guia contém estas seções:
 * [Conversão de Modelo](conversion.md) —Veja o panorama dos tipos de modelos disponíveis no        ecossistema TensorFlow.js e os detalhes por trás da conversão de modelos.
 * [Diferenças do Python tf.keras](layers_for_keras_users.md) —Conheça as maiores diferenças e      capacidades entre TensorFlow.js e Python `tf.keras` e as convenções da API usada em JavaScript.
 * [Usando TensorFlow.js no Node.js](nodejs.md) —Entendendo as vantagens/desvantagens entre as      três ligações disponíveis para Node.js e os requesitos do sistema que possuem.
-* [Deploy de projeto TensorFlow.js Node na nuvem](node_in_cloud.md) —Como fazer o deploy de um     processo Node.js com o pacote tfjs-node em plataformas de nuvem.
