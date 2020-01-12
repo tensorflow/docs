@@ -124,8 +124,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Add NVIDIA package repositories
 # Add HTTPS support for apt-key
 <code class="devsite-terminal">sudo apt-get install gnupg-curl</code>
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_10.1.243-1_amd64.deb</code>
-<code class="devsite-terminal">sudo dpkg -i cuda-repo-ubuntu1604_10.1.243-1_amd64.deb</code>
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_10.0.130-1_amd64.deb</code>
+<code class="devsite-terminal">sudo dpkg -i cuda-repo-ubuntu1604_10.0.130-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 <code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
