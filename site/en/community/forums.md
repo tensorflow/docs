@@ -16,7 +16,9 @@ initial places to look. For more information, see
 *   [developers](https://groups.google.com/a/tensorflow.org/d/forum/developers) -
     Discussion for developers contributing to TensorFlow.
 *   [documentation](https://groups.google.com/a/tensorflow.org/d/forum/docs) -
-    Discussion for contributing to TensorFlow documentation.
+    Discussion for contributing to TensorFlow documentation. See
+    [community translations](https://www.tensorflow.org/community/contribute/docs#community_translations)
+    for language-specific docs lists.
 *   [testing](https://groups.google.com/a/tensorflow.org/d/forum/testing) -
     Discussion and questions on TensorFlow 2 testing.
 
