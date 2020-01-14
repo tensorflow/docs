@@ -17,47 +17,47 @@ TensorFlow, как видно из названия, является платф
  * тип данных (`float32`, `int32`, или `string`, например)
  * размеры (shape)
 
-Each element in the Tensor has the same data type, and the data type is always
-known. The shape (that is, the number of dimensions it has and the size of each
-dimension) might be only partially known. Most operations produce tensors of
-fully-known shapes if the shapes of their inputs are also fully known, but in
-some cases it's only possible to find the shape of a tensor at graph execution
-time.
+Все элементы Tensor-а имеют одинаковый тип данных, и он всегда известен. 
+Размеры (количество измерений и размер каждого измерения) 
+могут быть известны только частично. Большинство операций производятся тензорами
+с известными размерами, если размеры их входов также полностью известны, но в некоторых
+случаях узнать размеры тензора можно только во время исполнения графа.
 
-Some types of tensors are special, and these will be covered in other
-units of the TensorFlow guide. The main ones are:
+Есть несколько специальных видов тензоров, они будут рассмотрены в других 
+разделах руководства TensorFlow. Основные виды тензоров следующие:
 
   * `tf.Variable`
   * `tf.constant`
   * `tf.placeholder`
   * `tf.SparseTensor`
 
-With the exception of `tf.Variable`, the value of a tensor is immutable, which
-means that in the context of a single execution tensors only have a single
-value. However, evaluating the same tensor twice can return different values;
-for example that tensor can be the result of reading data from disk, or
-generating a random number.
+За исключением `tf.Variable`, значение тензора неизменяемо, т.е.
+в контексте одного выполнения тензором может иметь только одно значение.
+Однако вычисление одного и того же тензора дважды может вернуть различные значения;
+например, тот тензор может быть результатом чтения данных с диска, или 
+генерации случайного числа.
 
-## Rank
+## Ранг
 
-The **rank** of a `tf.Tensor` object is its number of dimensions. Synonyms for
-rank include **order** or **degree** or **n-dimension**.
-Note that rank in TensorFlow is not the same as matrix rank in mathematics.
-As the following table shows, each rank in TensorFlow corresponds to a
-different mathematical entity:
+**Ранг** объекта `tf.Tensor` это количество его измерений. Синонимы ранга
+включают **порядок**, **степень**, **размерность**.
+Обратите внимание, что ранг в TensorFlow это не то же самое, что 
+и ранг матрицы в математике.
+Как показывает следующая таблица, каждый ранг в Tensorflow соотвествует
+некоторой математической сущности:
 
-Rank | Math entity
+Ранг | Математическая сущность
 --- | ---
-0 | Scalar (magnitude only)
-1 | Vector (magnitude and direction)
-2 | Matrix (table of numbers)
-3 | 3-Tensor (cube of numbers)
-n | n-Tensor (you get the idea)
+0 | Скаляр (только величина)
+1 | Вектор (величина и направление)
+2 | Матрица (таблица чисел)
+3 | 3-Тензор (куб чисел)
+n | n-Тензор (ну вы поняли идею)
 
 
-### Rank 0
+### Ранг 0
 
-The following snippet demonstrates creating a few rank 0 variables:
+Следующий фрагмент демонстрирует создание нескольких переменных ранга 0:
 
 ```python
 mammal = tf.Variable("Elephant", tf.string)
@@ -66,13 +66,13 @@ floating = tf.Variable(3.14159265359, tf.float64)
 its_complicated = tf.Variable(12.3 - 4.85j, tf.complex64)
 ```
 
-Note: A string is treated as a single object in TensorFlow, not as a sequence of
-characters. It is possible to have scalar strings, vectors of strings, etc.
+Замечание: Строка считается единым объектом в TensorFlow, не последовательностью
+символов. Возможно иметь строковые скаляры, векторы строк и т.д..
 
-### Rank 1
+### Ранг 1
 
-To create a rank 1 `tf.Tensor` object, you can pass a list of items as the
-initial value. For example:
+Для создания объекта `tf.Tensor` ранга 1, вы можете передать список элементов
+в качестве начальных значений. Например:
 
 ```python
 mystr = tf.Variable(["Hello"], tf.string)
@@ -82,10 +82,10 @@ its_very_complicated = tf.Variable([12.3 - 4.85j, 7.5 - 6.23j], tf.complex64)
 ```
 
 
-### Higher ranks
+### Ранги более высокого порядка
 
-A rank 2 `tf.Tensor` object consists of at least one row and at least
-one column:
+Ранг 2 объекта `tf.Tensor` состоит как минимум из одной 
+строки и одного столбца:
 
 ```python
 mymat = tf.Variable([[7],[11]], tf.int16)
@@ -96,12 +96,12 @@ rank_of_squares = tf.rank(squarish_squares)
 mymatC = tf.Variable([[7],[11]], tf.int32)
 ```
 
-Higher-rank Tensors, similarly, consist of an n-dimensional array. For example,
-during image processing, many tensors of rank 4 are used, with dimensions
-corresponding to example-in-batch, image height, image width, and color channel.
+Тензоры более высокого ранга, аналогично, состоят из n-мерных массивов. Например,
+при обработке изображений используется много тензоров ранга 4, с размерностями
+соответствующими номеру примера в пакете, высоте изображения, ширине изображения, и цветовому каналу.
 
 ``` python
-my_image = tf.zeros([10, 299, 299, 3])  # batch x height x width x color
+my_image = tf.zeros([10, 299, 299, 3])  # размер пакета x высота x ширина x количество цветовых каналов
 ```
 
 ### Getting a `tf.Tensor` object's rank
