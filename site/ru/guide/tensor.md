@@ -1,22 +1,21 @@
 # TensorFlow tensors
 
-TensorFlow, as the name indicates, is a framework to define and run computations
-involving tensors. A *tensor* is a generalization of vectors and matrices to
-potentially higher dimensions. Internally, TensorFlow represents tensors as
-n-dimensional arrays of base datatypes.
+TensorFlow, как видно из названия, является платформой для определения и выполнения вычислений 
+с использованием тензоров. *Тензор* - это обобщение векторов и матриц на более высокие 
+измерения. Внутри TensorFlow тензоры представлены в виде n-мерных массивов 
+базовых типов данных.
 
-When writing a TensorFlow program, the main object you manipulate and pass
-around is the `tf.Tensor`. A `tf.Tensor` object represents a partially defined
-computation that will eventually produce a value. TensorFlow programs work by
-first building a graph of `tf.Tensor` objects, detailing how each tensor is
-computed based on the other available tensors and then by running parts of this
-graph to achieve the desired results.
+При написании программы TensorFlow основным объектом, которым вы манипулируете и передаете, 
+является `tf.Tensor`. Объект `tf.Tensor` представляет собой частично определенное 
+вычисление, которое в итоге дает результат вычислений. Программы TensorFlow работают,
+сначала создавая граф объектов `tf.Tensor` и подробно описывая, как вычисляется каждый 
+тензор  на основе других доступных тензоров, а затем запуская части этого 
+графа для получения результатов вычисления.
 
-A `tf.Tensor` has the following properties:
+`tf.Tensor` обладает следующими свойствами:
 
- * a data type (`float32`, `int32`, or `string`, for example)
- * a shape
-
+ * тип данных (`float32`, `int32`, или `string`, например)
+ * размеры (shape)
 
 Each element in the Tensor has the same data type, and the data type is always
 known. The shape (that is, the number of dimensions it has and the size of each
