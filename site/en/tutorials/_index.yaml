@@ -96,21 +96,21 @@ landing_page:
 
   - classname: devsite-landing-row-cards
     items:
-    - heading: "TensorFlow 2.0 is now available"
-      path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
+    - heading: "Looking Back at 2019"
+      path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
-    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2.0"
-      path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+        path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
+    - heading: "TensorFlow 2 is now available"
+      path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
-    - heading: "Contribute to TensorFlow: SIGs, RFCs, Testing, Docs"
-      path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+        path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
+    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2"
+      path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+        path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
 
   - classname: devsite-landing-row-100
     items:
