@@ -251,15 +251,14 @@ float_tensor = tf.cast(tf.constant([1, 2, 3]), dtype=tf.float32)
 а числа с плавающей запятой в `tf.float32`. В других случаях TensorFlow использует те же правила
 что и numpy при конвертации массивов.
 
-## Evaluate tensors
+## Оценка тензоров
 
-Once the computation graph has been built, you can run the computation that
-produces a particular `tf.Tensor` and fetch the value assigned to it. This is
-often useful for debugging as well as being required for much of TensorFlow to
-work.
+Как только был построен вычислительный граф, вы можете запустить вычисление, которое 
+сгенерирует определенный `tf.Tensor` и извлечь присвоенное ему значение. Это часто 
+полезно для отладки, а также для работы большей части TensorFlow. 
 
-The simplest way to evaluate a Tensor is using the `Tensor.eval` method. For
-example:
+Самый простой способ оценить Tensor - использовать метод `Tensor.eval`. 
+Например:
 
 ```python
 constant = tf.constant([1, 2, 3])
@@ -267,29 +266,29 @@ tensor = constant * constant
 print(tensor.eval())
 ```
 
-The `eval` method only works when a default `tf.Session` is active (see
-[Graphs and Sessions](./graphs.md) for more information).
+Метод `eval` работает только когда активнасессия по умолчанию `tf.Session` 
+ (см. [Графы и сессии](./graphs.md) для дополнительной информации).
 
-`Tensor.eval` returns a numpy array with the same contents as the tensor.
+`Tensor.eval` возвращает массив numpy с тем же содержанием что и тензор.
 
-Sometimes it is not possible to evaluate a `tf.Tensor` with no context because
-its value might depend on dynamic information that is not available. For
-example, tensors that depend on `placeholder`s can't be evaluated without
-providing a value for the `placeholder`.
+Иногда невозможно оценить `tf.Tensor` без контекста, 
+потому что его значение может зависеть от динамической информации, которая недоступна. 
+Например, тензоры, зависящие от `placeholder`, не могут быть оценены 
+без предоставления значения для `placeholder`.
 
 ``` python
 p = tf.placeholder(tf.float32)
 t = p + 1.0
-t.eval()  # This will fail, since the placeholder did not get a value.
-t.eval(feed_dict={p:2.0})  # This will succeed because we're feeding a value
-                           # to the placeholder.
+t.eval()  # Это не сработает, потому что  placeholder не получил значение.
+t.eval(feed_dict={p:2.0})  # Это сработает, потому что мы передает
+                           # значение в placeholder.
 ```
 
-Note that it is possible to feed any `tf.Tensor`, not just placeholders.
+Обратите внимание, что можно использовать любой `tf.Tensor`, не только placeholder.
 
-Other model constructs might make evaluating a `tf.Tensor`
-complicated. TensorFlow can't directly evaluate `tf.Tensor`s defined inside
-functions or inside control flow constructs. If a `tf.Tensor` depends on a value
-from a queue, evaluating the `tf.Tensor` will only work once something has been
-enqueued; otherwise, evaluating it will hang. When working with queues, remember
-to call `tf.train.start_queue_runners` before evaluating any `tf.Tensor`s.
+Конструкции других моделей могут усложнить оценивание `tf.Tensor`. 
+TensorFlow не может оценить напрямую `tf.Tensor` определеннные внутри
+функций или внутри конструкций потока управления. Если `tf.Tensor` зависит от значения
+из очереди, оценка `tf.Tensor` сработает только когда что-то поместят в очередь; 
+в противном случае, оценка тензора зависнет. При работае с очередьми, не забывайте
+вызвать `tf.train.start_queue_runners` перед оценкой любого `tf.Tensor`.
