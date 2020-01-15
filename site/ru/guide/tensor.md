@@ -104,37 +104,37 @@ mymatC = tf.Variable([[7],[11]], tf.int32)
 my_image = tf.zeros([10, 299, 299, 3])  # размер пакета x высота x ширина x количество цветовых каналов
 ```
 
-### Getting a `tf.Tensor` object's rank
+### Получение ранга объекта `tf.Tensor` 
 
-To determine the rank of a `tf.Tensor` object, call the `tf.rank` method.
-For example, the following method programmatically determines the rank
-of the `tf.Tensor` defined in the previous section:
+Для определения ранга объекта `tf.Tensor`, вызовите метод `tf.rank`.
+Например, следующий метод программно определяет ранг
+ `tf.Tensor` заданного выше:
 
 ```python
 r = tf.rank(my_image)
-# After the graph runs, r will hold the value 4.
+# После запуска графа, r станет равным 4.
 ```
 
-### Referring to `tf.Tensor` slices
+### Ссылки на слои `tf.Tensor`
 
-Since a `tf.Tensor` is an n-dimensional array of cells, to access a single cell
-in a `tf.Tensor` you need to specify n indices.
+Поскольку `tf.Tensor` это n-мерный массив ячеек, для получения доступа к одной ячейке
+в `tf.Tensor` вам нужно указать n индексов.
 
-For a rank 0 tensor (a scalar), no indices are necessary, since it is already a
-single number.
+Для тензоров ранга 0 (скаляров), индексы не нужны, поскольку это уже
+просто число.
 
-For a rank 1 tensor (a vector), passing a single index allows you to access a
-number:
+Для тензора ранга 1 (вектор), передача единственного индекса даст вам доступ
+к числу:
 
 ```python
 my_scalar = my_vector[2]
 ```
 
-Note that the index passed inside the `[]` can itself be a scalar `tf.Tensor`, if
-you want to dynamically choose an element from the vector.
+Заметьте что индекс передаваемый в `[]` может сам быть скаляром `tf.Tensor`, если
+вы хотите динамически выбрать элемент из вектора.
 
-For tensors of rank 2 or higher, the situation is more interesting. For a
-`tf.Tensor` of rank 2, passing two numbers returns a scalar, as expected:
+Для тензоров ранга 2 или выше ситуация интереснее. Для
+`tf.Tensor` ранга 2, передача двух чисел возвращает как и ожидалось скаляр:
 
 
 ```python
@@ -142,7 +142,7 @@ my_scalar = my_matrix[1, 2]
 ```
 
 
-Passing a single number, however, returns a subvector of a matrix, as follows:
+Передача одного числа, однако, возвращает подвектор матрицы следующим образом:
 
 
 ```python
@@ -150,34 +150,34 @@ my_row_vector = my_matrix[2]
 my_column_vector = my_matrix[:, 3]
 ```
 
-The `:` notation is python slicing syntax for "leave this dimension alone". This
-is useful in higher-rank Tensors, as it allows you to access its subvectors,
-submatrices, and even other subtensors.
+Нотация `:` в синтаксисе выделения подмассива в python используется как "оставьте это измерение в покое". 
+Это полезно в тензорах высокого ранга, поскольку позволяет получить доступ к подвекторам,
+подматрицам и даже другим подтензорам.
 
 
-## Shape
+## Размеры
 
-The **shape** of a tensor is the number of elements in each dimension.
-TensorFlow automatically infers shapes during graph construction. These inferred
-shapes might have known or unknown rank. If the rank is known, the sizes of each
-dimension might be known or unknown.
+**Размеры** тензора это количество элементов в каждом измерении.
+TensorFlow автоматически выводит размеры по ходу построения графа. Эти выведенные
+размеры могут иметь известный или неизвестный ранг. Если ранг известен, размеры тензора
+по каждому измерению могут быть известны или неизвестны.
 
-The TensorFlow documentation uses three notational conventions to describe
-tensor dimensionality: rank, shape, and dimension number. The following table
-shows how these relate to one another:
+Документация TensorFlow использует три условных обозначения для описания
+размерности тензора: ранг, размеры и количество измерений. Следующая таблица
+показывает как они соотносятся друг с другом:
 
-Rank | Shape | Dimension number | Example
+Ранг | Размеры | Количество измерений | Пример
 --- | --- | --- | ---
-0 | [] | 0-D | A 0-D tensor.  A scalar.
-1 | [D0] | 1-D | A 1-D tensor with shape [5].
-2 | [D0, D1] | 2-D | A 2-D tensor with shape [3, 4].
-3 | [D0, D1, D2] | 3-D | A 3-D tensor with shape [1, 4, 3].
-n | [D0, D1, ... Dn-1] | n-D | A tensor with shape [D0, D1, ... Dn-1].
+0 | [] | 0-D | 0-D тензор.  Скаляр.
+1 | [D0] | 1-D | 1-D тензор размера [5].
+2 | [D0, D1] | 2-D | 2-D тензор размера [3, 4].
+3 | [D0, D1, D2] | 3-D | 3-D тензор размера [1, 4, 3].
+n | [D0, D1, ... Dn-1] | n-D | Тензор размера [D0, D1, ... Dn-1].
 
-Shapes can be represented via Python lists / tuples of ints, or with the
+Размеры могут быть представлены в виде списковPython / кортежей целых чисел, или с
 `tf.TensorShape`.
 
-### Getting a `tf.Tensor` object's shape
+### Получение размера объекта `tf.Tensor`
 
 There are two ways of accessing the shape of a `tf.Tensor`. While building the
 graph, it is often useful to ask what is already known about a tensor's
