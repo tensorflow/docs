@@ -179,77 +179,77 @@ n | [D0, D1, ... Dn-1] | n-D | Тензор размера [D0, D1, ... Dn-1].
 
 ### Получение размера объекта `tf.Tensor`
 
-There are two ways of accessing the shape of a `tf.Tensor`. While building the
-graph, it is often useful to ask what is already known about a tensor's
-shape. This can be done by reading the `shape` property of a `tf.Tensor` object.
-This method returns a `TensorShape` object, which is a convenient way of
-representing partially-specified shapes (since, when building the graph, not all
-shapes will be fully known).
+Есть два способа получить размеры `tf.Tensor`. При построении 
+графа часто полезно спросить, что уже известно о размерах тензора. 
+Это можно сделать, прочитав свойство `shape` объекта` tf.Tensor`. 
+Этот метод возвращает объект `TensorShape`, который является удобным способом 
+представления частично определенных размеров (поскольку при построении графа 
+не все размеры могут быть полностью известны).
 
-It is also possible to get a `tf.Tensor` that will represent the fully-defined
-shape of another `tf.Tensor` at runtime. This is done by calling the `tf.shape`
-operation. This way, you can build a graph that manipulates the shapes of
-tensors by building other tensors that depend on the dynamic shape of the input
-`tf.Tensor`.
+Также можно получить `tf.Tensor` который представляет полностью определенные
+размеры другого `tf.Tensor` во время выполнения. Это делается вызовом
+операции `tf.shape`. Этим способом вы можете построить граф, который
+манипулирует размерами тензоров строя другие тензоры зависящие от 
+динамических размеров входных `tf.Tensor`.
 
-For example, here is how to make a vector of zeros with the same size as the
-number of columns in a given matrix:
+Например, так можно сделать векто нулей того же размера,
+что и число столбцов данной матрицы:
 
 ``` python
 zeros = tf.zeros(my_matrix.shape[1])
 ```
 
-### Changing the shape of a `tf.Tensor`
+### Изменение размеров `tf.Tensor`
 
-The **number of elements** of a tensor is the product of the sizes of all its
-shapes. The number of elements of a scalar is always `1`. Since there are often
-many different shapes that have the same number of elements, it's often
-convenient to be able to change the shape of a `tf.Tensor`, keeping its elements
-fixed. This can be done with `tf.reshape`.
+**Количество элементов** тензора это произведение всех его
+измерений. Колисество эелементов тензора всегда равно `1`. Так как много
+разных размеров могут давать одно и то же число элементов
+часто удобно менять размеры `tf.Tensor`, не изменяя его 
+элементы. Это может быть сделано с помощью `tf.reshape`.
 
-The following examples demonstrate how to reshape tensors:
+Следующие примеры показывают как изменить размеры тензора:
 
 ```python
 rank_three_tensor = tf.ones([3, 4, 5])
-matrix = tf.reshape(rank_three_tensor, [6, 10])  # Reshape existing content into
-                                                 # a 6x10 matrix
-matrixB = tf.reshape(matrix, [3, -1])  #  Reshape existing content into a 3x20
-                                       # matrix. -1 tells reshape to calculate
-                                       # the size of this dimension.
-matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # Reshape existing content into a
-                                             #4x3x5 tensor
+matrix = tf.reshape(rank_three_tensor, [6, 10])  # Преобразование существущих данных
+                                                 # в матрицу 6x10 
+matrixB = tf.reshape(matrix, [3, -1])  # Преобразование существующих данных в 
+                                       # матрицу 3x20. -1 говорит reshape что нужно
+                                       # посчитать размер этого измерения.
+matrixAlt = tf.reshape(matrixB, [4, 3, -1])  # Преобразование существующих данных в
+                                             # тензор 4x3x5
 
-# Note that the number of elements of the reshaped Tensors has to match the
-# original number of elements. Therefore, the following example generates an
-# error because no possible value for the last dimension will match the number
-# of elements.
+# Отметим, что число элементов в преобразованных тензорах  должно совпадать
+# с изначальным количеством. Поэтому следующий пример породит
+# ошибку поскольку нет такого значения для последнего измерения
+# при котором совпадет количество элементов.
 yet_another = tf.reshape(matrixAlt, [13, 2, -1])  # ERROR!
 ```
 
-## Data types
+## Типы данных
 
-In addition to dimensionality, Tensors have a data type. Refer to the
-`tf.DType` page for a complete list of the data types.
+В дополнеение к размерностям, у тензоров есть тип данных. Обратитесь к странице
+`tf.DType` для полного списка типов данных.
 
-It is not possible to have a `tf.Tensor` with more than one data type. It is
-possible, however, to serialize arbitrary data structures as `string`s and store
-those in `tf.Tensor`s.
+У конкретного `tf.Tensor` не может быть более одного типа данных. Однако,
+возможно сериализовать произвольные структуры данных в  `string` и хранить их 
+в `tf.Tensor`.
 
-It is possible to cast `tf.Tensor`s from one datatype to another using
-`tf.cast`:
+Можно преобразовать `tf.Tensor` из одного типа данных в другой
+используя `tf.cast`:
 
 ``` python
-# Cast a constant integer tensor into floating point.
+# Преобразование констатного целочисленного тензора в тензор с плавающей запятой.
 float_tensor = tf.cast(tf.constant([1, 2, 3]), dtype=tf.float32)
 ```
 
-To inspect a `tf.Tensor`'s data type use the `Tensor.dtype` property.
+Чтобы посмотреть тип данных `tf.Tensor` используйте свойство `Tensor.dtype`.
 
-When creating a `tf.Tensor` from a python object you may optionally specify the
-datatype. If you don't, TensorFlow chooses a datatype that can represent your
-data. TensorFlow converts Python integers to `tf.int32` and python floating
-point numbers to `tf.float32`. Otherwise TensorFlow uses the same rules numpy
-uses when converting to arrays.
+При создании `tf.Tensor` из объекта python вы можете опционально указать
+тип данных. Если вы этого не сделаете, TensorFlow выберет тип данных который 
+может представлять ваши данные. TensorFlow преобраазует целые числа Python в `tf.int32`, 
+а числа с плавающей запятой в `tf.float32`. В других случаях TensorFlow использует те же правила
+что и numpy при конвертации массивов.
 
 ## Evaluate tensors
 
