@@ -119,7 +119,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 </pre>
 
 
-#### Ubuntu 16.04 (CUDA 10)
+#### Ubuntu 16.04 (CUDA 10.1)
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repositories
@@ -141,7 +141,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
-    cuda-10-0 \
+    cuda-10-1 \
     libcudnn7=7.6.4.38-1+cuda10.1  \
     libcudnn7-dev=7.6.4.38-1+cuda10.1
 </code>
