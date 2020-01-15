@@ -59,6 +59,7 @@ TensorFlow has communities around the world.
 * [TensorFlow Việt Nam](https://www.facebook.com/gdgtensorflowvietnam)
 * [TF Nepal](https://www.facebook.com/groups/tfnepal/)
 * [TensorFlow User Group Coimbatore](https://www.meetup.com/TFUGCbe/)
+* [TensorFlow User Group Gurugram](https://twitter.com/GurugramTfug)
 * [TensorFlow UserGroup Kolkata](https://www.meetup.com/TFUG-Kol/)
 * [TensorFlow UserGroup Kozhikode](https://www.meetup.com/Tensorflow-User-Group-Kozhikode/)
 * [TensorFlow UserGroup Mumbai](https://t.me/tfugmumbai/)
