@@ -264,11 +264,13 @@ for
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
-The [official TensorFlow packages](./pip.md) are built with GCC 4 and use the
-older ABI. For GCC 5 and later, make your build compatible with the older ABI
-using: `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that
-custom ops built against the official TensorFlow package continue to work with
-the GCC 5 built package.
+The [official TensorFlow packages](./pip.html) are built with a GCC 7.3
+toolchain that complies with the manylinux2010 package standard.
+
+For GCC 5 and later, compatibility with the older ABI can be built using:
+`--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`. ABI compatibility ensures that custom
+ops built against the official TensorFlow package continue to work with the
+GCC 5 built package.
 
 ### Build the package
 
