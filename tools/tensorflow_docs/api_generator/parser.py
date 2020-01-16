@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +15,9 @@
 # ==============================================================================
 """Turn Python docstrings into Markdown for TensorFlow documentation."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import ast
 import collections
-
+import inspect
 import itertools
 import json
 import os
@@ -30,10 +27,10 @@ import textwrap
 from absl import logging
 
 import astor
-import six
+
 
 from tensorflow_docs.api_generator import doc_controls
-from tensorflow_docs.api_generator import tf_inspect
+
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -50,14 +47,14 @@ def is_free_function(py_object, full_name, index):
     True if the object is a stand-alone function, and not part of a class
     definition.
   """
-  if tf_inspect.isclass(py_object):
+  if inspect.isclass(py_object):
     return False
 
   if not callable(py_object):
     return False
 
   parent_name = full_name.rsplit('.', 1)[0]
-  if tf_inspect.isclass(index[parent_name]):
+  if inspect.isclass(index[parent_name]):
     return False
 
   return True
@@ -109,12 +106,12 @@ def _get_raw_docstring(py_object):
   Returns:
     The docstring, or the empty string if no docstring was found.
   """
-  # For object instances, tf_inspect.getdoc does give us the docstring of their
+  # For object instances, inspect.getdoc does give us the docstring of their
   # type, which is not what we want. Only return the docstring if it is useful.
-  if (tf_inspect.isclass(py_object) or tf_inspect.ismethod(py_object) or
-      tf_inspect.isfunction(py_object) or tf_inspect.ismodule(py_object) or
+  if (inspect.isclass(py_object) or inspect.ismethod(py_object) or
+      inspect.isfunction(py_object) or inspect.ismodule(py_object) or
       isinstance(py_object, property)):
-    result = tf_inspect.getdoc(py_object) or ''
+    result = inspect.getdoc(py_object) or ''
   else:
     result = ''
 
@@ -219,7 +216,7 @@ class ReferenceResolver(object):
     is_fragment = {}
     for name, obj in visitor.index.items():
       has_page = (
-          tf_inspect.isclass(obj) or tf_inspect.ismodule(obj) or
+          inspect.isclass(obj) or inspect.ismodule(obj) or
           is_free_function(obj, name, visitor.index))
 
       is_fragment[name] = not has_page
@@ -755,7 +752,7 @@ def _generate_signature(func, reverse_index):
   """Given a function, returns a list of strings representing its args.
 
   This function produces a list of strings representing the arguments to a
-  python function. It uses tf_inspect.getfullargspec, which
+  python function. It uses inspect.getfullargspec, which
   does not generalize well to Python 3.x, which is more flexible in how *args
   and **kwargs are handled. This is not a problem in TF, since we have to remain
   compatible to Python 2.7 anyway.
@@ -777,7 +774,7 @@ def _generate_signature(func, reverse_index):
 
   args_list = []
 
-  argspec = tf_inspect.getfullargspec(func)
+  argspec = inspect.getfullargspec(func)
   first_arg_with_default = (
       len(argspec.args or []) - len(argspec.defaults or []))
 
@@ -793,7 +790,7 @@ def _generate_signature(func, reverse_index):
   # Add all args with defaults.
   if argspec.defaults:
     try:
-      source = _remove_first_line_indent(tf_inspect.getsource(func))
+      source = _remove_first_line_indent(inspect.getsource(func))
       func_ast = ast.parse(source)
       ast_defaults = func_ast.body[0].args.defaults
     except Exception as e:
@@ -825,7 +822,7 @@ def _generate_signature(func, reverse_index):
           match = re.match(full_name_re, default_text)
           if match:
             lookup_text = default_text
-            for internal_name, public_name in six.iteritems(internal_names):
+            for internal_name, public_name in internal_names.items():
               if match.group(0).startswith(internal_name):
                 lookup_text = public_name + default_text[len(internal_name):]
                 break
@@ -854,7 +851,7 @@ def _generate_signature(func, reverse_index):
 
 
 def _get_defining_class(py_class, name):
-  for cls in tf_inspect.getmro(py_class):
+  for cls in inspect.getmro(py_class):
     if name in cls.__dict__:
       return cls
   return None
@@ -1235,15 +1232,15 @@ class ClassPageInfo(PageInfo):
       if isinstance(child, property):
         self._add_property(short_name, child_name, child, child_doc)
 
-      elif tf_inspect.isclass(child):
+      elif inspect.isclass(child):
         if defining_class is None:
           continue
         url = parser_config.reference_resolver.reference_to_url(
             child_name, relative_path)
         self._add_class(short_name, child_name, child, child_doc, url)
 
-      elif (tf_inspect.ismethod(child) or tf_inspect.isfunction(child) or
-            tf_inspect.isroutine(child)):
+      elif (inspect.ismethod(child) or inspect.isfunction(child) or
+            inspect.isroutine(child)):
         if defining_class is None:
           continue
 
@@ -1265,7 +1262,7 @@ class ClassPageInfo(PageInfo):
           child_signature = _generate_signature(child,
                                                 parser_config.reverse_index)
         except TypeError:
-          # If this is a (dynamically created) slot wrapper, tf_inspect will
+          # If this is a (dynamically created) slot wrapper, inspect will
           # raise typeerror when trying to get to the code. Ignore such
           # functions.
           continue
@@ -1398,13 +1395,13 @@ class ModulePageInfo(PageInfo):
       url = parser_config.reference_resolver.reference_to_url(
           member_full_name, relative_path)
 
-      if tf_inspect.ismodule(member):
+      if inspect.ismodule(member):
         self._add_module(name, member_full_name, member, member_doc, url)
 
-      elif tf_inspect.isclass(member):
+      elif inspect.isclass(member):
         self._add_class(name, member_full_name, member, member_doc, url)
 
-      elif tf_inspect.isfunction(member):
+      elif inspect.isfunction(member):
         self._add_function(name, member_full_name, member, member_doc, url)
 
       else:
@@ -1483,11 +1480,11 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  if tf_inspect.isclass(py_object):
+  if inspect.isclass(py_object):
     page_info = ClassPageInfo(master_name, py_object)
   elif callable(py_object):
     page_info = FunctionPageInfo(master_name, py_object)
-  elif tf_inspect.ismodule(py_object):
+  elif inspect.ismodule(py_object):
     page_info = ModulePageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object %s: %r' % (full_name,
@@ -1549,7 +1546,7 @@ def _get_defined_in(py_object, parser_config):
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
     try:
-      obj_path = tf_inspect.getfile(py_object)
+      obj_path = inspect.getfile(py_object)
     except TypeError:  # getfile throws TypeError if py_object is a builtin.
       continue
 
@@ -1564,7 +1561,7 @@ def _get_defined_in(py_object, parser_config):
       break
 
   try:
-    lines, start_line = tf_inspect.getsourcelines(py_object)
+    lines, start_line = inspect.getsourcelines(py_object)
     end_line = start_line + len(lines) - 1
   except IOError:
     # The source is not available.
@@ -1633,16 +1630,16 @@ def generate_global_index(library_name, index, reference_resolver):
     A string containing an index page as Markdown.
   """
   symbol_links = []
-  for full_name, py_object in six.iteritems(index):
-    if (tf_inspect.ismodule(py_object) or tf_inspect.isfunction(py_object) or
-        tf_inspect.isclass(py_object)):
+  for full_name, py_object in index.items():
+    if (inspect.ismodule(py_object) or inspect.isfunction(py_object) or
+        inspect.isclass(py_object)):
       # In Python 3, unbound methods are functions, so eliminate those.
-      if tf_inspect.isfunction(py_object):
+      if inspect.isfunction(py_object):
         if full_name.count('.') == 0:
           parent_name = ''
         else:
           parent_name = full_name[:full_name.rfind('.')]
-        if parent_name in index and tf_inspect.isclass(index[parent_name]):
+        if parent_name in index and inspect.isclass(index[parent_name]):
           # Skip methods (=functions with class parents).
           continue
       symbol_links.append((

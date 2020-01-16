@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,15 +23,9 @@ This module contains one public function, which handels the conversion of these
 
     md_page = build_md_page(page_info)
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import textwrap
 
 from tensorflow_docs.api_generator import doc_generator_visitor
-from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import parser
 
 
