@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2017 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +14,6 @@
 # limitations under the License.
 # ==============================================================================
 """Tests for py_guide_parser."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import os
 import tempfile
@@ -52,6 +49,7 @@ class PyGuideParserTest(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
 
   def setUp(self):
+    super().setUp()
     self.workdir = os.path.join(self._BASE_DIR, self.id())
     os.makedirs(self.workdir)
 

@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,27 +15,22 @@
 # ==============================================================================
 """Generate docs for the TensorFlow Python API."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import collections
 import fnmatch
+import inspect
 import operator
 import os
+import pathlib
 import shutil
 import subprocess
 import tempfile
 
-import pathlib2 as pathlib
-import six
 
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import py_guide_parser
-from tensorflow_docs.api_generator import tf_inspect
 from tensorflow_docs.api_generator import traverse
 
 import yaml
@@ -47,7 +43,7 @@ _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
 
 
 def dict_representer(dumper, data):
-  return dumper.represent_dict(six.iteritems(data))
+  return dumper.represent_dict(data.items())
 
 
 def dict_constructor(loader, node):
@@ -444,13 +440,14 @@ def write_docs(output_dir,
   Raises:
     ValueError: if `output_dir` is not an absolute path
   """
+  output_dir = pathlib.Path(output_dir)
+  site_path = pathlib.Path('/', site_path)
+
   # Make output_dir.
-  if not os.path.isabs(output_dir):
+  if not output_dir.is_absolute():
     raise ValueError("'output_dir' must be an absolute path.\n"
                      "    output_dir='%s'" % output_dir)
-
-  if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+  output_dir.mkdir(parents=True, exist_ok=True)
 
   # These dictionaries are used for table-of-contents generation below
   # They will contain, after the for-loop below::
@@ -468,7 +465,7 @@ def write_docs(output_dir,
       continue
 
     # Methods and some routines are documented only as part of their class.
-    if not (tf_inspect.ismodule(py_object) or tf_inspect.isclass(py_object) or
+    if not (inspect.ismodule(py_object) or inspect.isclass(py_object) or
             parser.is_free_function(py_object, full_name, parser_config.index)):
       continue
 
@@ -476,12 +473,12 @@ def write_docs(output_dir,
     docpath, _ = os.path.splitext(parser.documentation_path(full_name))
 
     # For a module, remember the module for the table-of-contents
-    if tf_inspect.ismodule(py_object):
+    if inspect.ismodule(py_object):
       if full_name in parser_config.tree:
         mod_obj = Module(
             module=full_name,
             py_object=py_object,
-            path=os.path.join('/', site_path, docpath))
+            path=str(site_path / docpath))
         module_children[full_name] = mod_obj
     # For something else that's documented,
     # figure out what module it lives in
@@ -489,13 +486,13 @@ def write_docs(output_dir,
       subname = str(full_name)
       while True:
         subname = subname[:subname.rindex('.')]
-        if tf_inspect.ismodule(parser_config.index[subname]):
+        if inspect.ismodule(parser_config.index[subname]):
           module_name = parser_config.duplicate_of.get(subname, subname)
           child_mod = ModuleChild(
               name=full_name,
               py_object=py_object,
               parent=module_name,
-              path=os.path.join('/', site_path, docpath))
+              path=str(site_path / docpath))
           module_children[module_name].add_children(child_mod)
           break
 
@@ -506,11 +503,9 @@ def write_docs(output_dir,
       raise ValueError(
           'Failed to generate docs for symbol: `{}`'.format(full_name))
 
-    path = os.path.join(output_dir, parser.documentation_path(full_name))
-    directory = os.path.dirname(path)
+    path = output_dir / parser.documentation_path(full_name)
     try:
-      if not os.path.exists(directory):
-        os.makedirs(directory)
+      path.parent.mkdir(exist_ok=True, parents=True)
       # This function returns raw bytes in PY2 or unicode in PY3.
       if search_hints:
         content = [page_info.get_metadata_html()]
@@ -519,13 +514,10 @@ def write_docs(output_dir,
 
       content.append(pretty_docs.build_md_page(page_info))
       text = '\n'.join(content)
-      if six.PY3:
-        text = text.encode('utf-8')
-      with open(path, 'wb') as f:
-        f.write(text)
+      path.write_text(text)
     except OSError:
       raise OSError('Cannot write documentation for %s to %s' %
-                    (full_name, directory))
+                    (full_name, path.parent))
 
     duplicates = parser_config.duplicates.get(full_name, [])
     if not duplicates:
@@ -534,27 +526,9 @@ def write_docs(output_dir,
     duplicates = [item for item in duplicates if item != full_name]
 
     for dup in duplicates:
-      from_path = os.path.join(site_path, dup.replace('.', '/'))
-      to_path = os.path.join(site_path, full_name.replace('.', '/'))
-      redirects.append({
-          'from': os.path.join('/', from_path),
-          'to': os.path.join('/', to_path)
-      })
-
-  if redirects:
-    if yaml_toc:
-      redirects.append({
-          'from': os.path.join('/', site_path, 'tf_overview'),
-          'to': os.path.join('/', site_path, 'tf')
-      })
-
-    redirects_dict = {
-        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
-    }
-
-    api_redirects_path = os.path.join(output_dir, '_redirects.yaml')
-    with open(api_redirects_path, 'w') as redirect_file:
-      yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
+      from_path = site_path / dup.replace('.', '/')
+      to_path = site_path / full_name.replace('.', '/')
+      redirects.append({'from': str(from_path), 'to': str(to_path)})
 
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
@@ -566,14 +540,28 @@ def write_docs(output_dir,
     toc_values = toc_dict['toc'][0]
     if toc_values['title'] == 'tf':
       section = toc_values['section'][0]
-      section['path'] = os.path.join('/', site_path, 'tf_overview')
+      section['path'] = str(site_path / 'tf_overview')
 
-    leftnav_toc = os.path.join(output_dir, '_toc.yaml')
+    leftnav_toc = output_dir / '_toc.yaml'
     with open(leftnav_toc, 'w') as toc_file:
       yaml.dump(toc_dict, toc_file, default_flow_style=False)
 
+  if redirects:
+    if yaml_toc and toc_values['title'] == 'tf':
+      redirects.append({
+          'from': str(site_path / 'tf_overview'),
+          'to': str(site_path / 'tf'),
+      })
+    redirects_dict = {
+        'redirects': sorted(redirects, key=lambda redirect: redirect['from'])
+    }
+
+    api_redirects_path = output_dir / '_redirects.yaml'
+    with open(api_redirects_path, 'w') as redirect_file:
+      yaml.dump(redirects_dict, redirect_file, default_flow_style=False)
+
   # Write a global index containing all full names with links.
-  with open(os.path.join(output_dir, 'index.md'), 'w') as f:
+  with open(output_dir / 'index.md', 'w') as f:
     f.write(
         parser.generate_global_index(root_title, parser_config.index,
                                      parser_config.reference_resolver))

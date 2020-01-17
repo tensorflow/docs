@@ -1312,14 +1312,10 @@ def _zero_out_grad(op, grad):
 Details about registering gradient functions with
 `tf.RegisterGradient`:
 
-* For an op with one output, the gradient function will take an
-  `tf.Operation` `op` and a
-  `tf.Tensor` `grad` and build new ops
-  out of the tensors
-  [`op.inputs[i]`](../../api_docs/python/framework.md#Operation.inputs),
-  [`op.outputs[i]`](../../api_docs/python/framework.md#Operation.outputs), and `grad`.  Information
-  about any attrs can be found via
-  `tf.Operation.get_attr`.
+* For an op with one output, the gradient function will take an `tf.Operation`,
+  `op`, and a `tf.Tensor` `grad` and build new ops out of the tensors
+  `op.inputs[i]`, `op.outputs[i]`, and `grad`. Information about any attrs can
+  be found via `tf.Operation.get_attr`.
 
 * If the op has multiple outputs, the gradient function will take `op` and
   `grads`, where `grads` is a list of gradients with respect to each output.

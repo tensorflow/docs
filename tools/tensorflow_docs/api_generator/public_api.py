@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,22 +14,13 @@
 # limitations under the License.
 # ==============================================================================
 """Visitor restricting traversal to only the public tensorflow API."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import inspect
 
 
 from tensorflow_docs.api_generator import doc_controls
 
-try:
-  import typing  # pylint: disable=g-import-not-at-top
-  _TYPING = {id(value) for value in typing.__dict__.values()}
-  del typing
-except ImportError:
-  _TYPING = {}
+import typing
+_TYPING = frozenset(id(value) for value in typing.__dict__.values())
 
 
 def ignore_typing(path, parent, children):

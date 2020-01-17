@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2018 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +14,6 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 _DO_NOT_DOC = "_tf_docs_do_not_document"
 
@@ -267,6 +264,7 @@ def should_skip(obj):
 
   return hasattr(obj, _DO_NOT_DOC) or hasattr(obj, _DO_NOT_DOC_INHERITABLE)
 
+
 def _unwrap_func(obj):
   # Unwrap fget if the object is a property or static method or classmethod.
   if isinstance(obj, property):
@@ -276,6 +274,7 @@ def _unwrap_func(obj):
     return obj.__func__
 
   return obj
+
 
 def should_skip_class_attr(cls, name):
   """Returns true if docs should be skipped for this class attribute.
