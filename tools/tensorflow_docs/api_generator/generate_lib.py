@@ -506,7 +506,7 @@ def write_docs(output_dir,
     path = output_dir / parser.documentation_path(full_name)
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
-      # This function returns raw bytes in PY2 or unicode in PY3.
+      # This function returns unicode in PY3.
       if search_hints:
         content = [page_info.get_metadata_html()]
       else:
@@ -514,7 +514,7 @@ def write_docs(output_dir,
 
       content.append(pretty_docs.build_md_page(page_info))
       text = '\n'.join(content)
-      path.write_text(text)
+      path.write_text(text, encoding='utf-8')
     except OSError:
       raise OSError('Cannot write documentation for %s to %s' %
                     (full_name, path.parent))
