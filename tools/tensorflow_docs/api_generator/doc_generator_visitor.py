@@ -269,8 +269,8 @@ class DocGeneratorVisitor(object):
       self._api_tree[parent_path] = parent
 
     if not (inspect.ismodule(parent) or inspect.isclass(parent)):
-      raise RuntimeError('Unexpected type in visitor -- %s: %r' % (parent_name,
-                                                                   parent))
+      raise RuntimeError('Unexpected type in visitor -- '
+                         f'{parent_name}: {parent!r}')
 
     for (name, child) in children:
       self._api_tree[parent_path + (name,)] = child

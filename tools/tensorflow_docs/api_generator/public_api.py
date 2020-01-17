@@ -181,9 +181,9 @@ class PublicAPIFilter(object):
 
     # Avoid long waits in cases of pretty unambiguous failure.
     if inspect.ismodule(parent) and len(path) > 10:
-      raise RuntimeError(
-          'Modules nested too deep:\n\n%s\n\nThis is likely a '
-          'problem with an accidental public import.' % ('.'.join(path)))
+      raise RuntimeError('Modules nested too deep:\n\n{}\n\nThis is likely a '
+                         'problem with an accidental public import.'.format(
+                             '.'.join(path)))
 
     # No children if "do_not_descend" is set.
     parent_path = '.'.join(path[:-1])

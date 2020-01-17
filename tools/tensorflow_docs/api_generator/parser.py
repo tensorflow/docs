@@ -129,7 +129,7 @@ class _AddDoctestFences(object):
 
   def _sub(self, match):
     groups = match.groupdict()
-    fence = '\n{}```\n'.format(groups['indent'])
+    fence = f"\n{groups['indent']}```\n"
 
     content = groups['indent'] + groups['content']
     return ''.join([fence, content, fence])
@@ -386,7 +386,7 @@ class ReferenceResolver(object):
     else:
       link_text = self._link_text_to_html(link_text)
 
-    return '<a href="{}">{}</a>'.format(url, link_text)
+    return f'<a href="{url}">{link_text}</a>'
 
   @staticmethod
   def _link_text_to_html(link_text):
@@ -432,8 +432,7 @@ class ReferenceResolver(object):
 
     # Check whether this link exists
     if master_name not in self._all_names:
-      raise TFDocsError(
-          'Cannot make link to "%s": Not in index.' % master_name)
+      raise TFDocsError(f'Cannot make link to {master_name!r}: Not in index.')
 
     ref_path = documentation_path(master_name, self._is_fragment[master_name])
     return os.path.join(relative_path_to_root, ref_path)
@@ -494,15 +493,14 @@ class ReferenceResolver(object):
     elif string == 'tensorflow::ops::Const':
       ret = 'namespace/tensorflow/ops.md#const'
     else:
-      raise TFDocsError('C++ reference not understood: "%s"' % string)
+      raise TFDocsError(f'C++ reference not understood: "{string}"')
 
     # relative_path_to_root gets you to api_docs/python, we go from there
     # to api_docs/cc, and then add ret.
     cc_relative_path = os.path.normpath(os.path.join(
         relative_path_to_root, '../cc', ret))
 
-    return '<a href="{}"><code>{}</code></a>'.format(cc_relative_path,
-                                                     link_text)
+    return f'<a href="{cc_relative_path}"><code>{link_text}</code></a>'
 
 
 # TODO(aselle): Collect these into a big list for all modules and functions
@@ -590,7 +588,7 @@ class TitleBlock(object):
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
     for name, description in self.items:
-      sub.append('* <b>`{}`</b>: {}'.format(name, description))
+      sub.append(f'* <b>`{name}`</b>: {description}')
     return ''.join(sub)
 
   # This regex matches an entire title-block.
@@ -818,7 +816,7 @@ def _generate_signature(func, reverse_index):
               'init_ops.ones_initializer': 'tf.ones_initializer',
               'saver_pb2.SaverDef': 'tf.train.SaverDef',
           }
-          full_name_re = '^%s(.%s)+' % (IDENTIFIER_RE, IDENTIFIER_RE)
+          full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
           match = re.match(full_name_re, default_text)
           if match:
             lookup_text = default_text
@@ -827,9 +825,8 @@ def _generate_signature(func, reverse_index):
                 lookup_text = public_name + default_text[len(internal_name):]
                 break
             if default_text is lookup_text:
-              logging.warn(
-                  'WARNING: Using default arg, failed lookup: %s, repr: %r',
-                  default_text, default)
+              logging.warn('WARNING: Using default arg, failed lookup: '
+                           f'{default_text}, repr: {default!r}')
             else:
               default_text = lookup_text
       else:
@@ -839,7 +836,7 @@ def _generate_signature(func, reverse_index):
         # unnecessary doc churn between invocations.
         default_text = OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
 
-      args_list.append('%s=%s' % (arg, default_text))
+      args_list.append(f'{arg}={default_text}')
 
   # Add *args and *kwargs.
   if argspec.varargs:
@@ -1487,8 +1484,7 @@ def docs_for_object(full_name, py_object, parser_config):
   elif inspect.ismodule(py_object):
     page_info = ModulePageInfo(master_name, py_object)
   else:
-    raise RuntimeError('Cannot make docs for object %s: %r' % (full_name,
-                                                               py_object))
+    raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
 
   page_info.collect_docs(parser_config)
 
@@ -1645,7 +1641,7 @@ def generate_global_index(library_name, index, reference_resolver):
       symbol_links.append((
           full_name, reference_resolver.python_link(full_name, full_name, '.')))
 
-  lines = ['# All symbols in %s' % library_name, '']
+  lines = [f'# All symbols in {library_name}', '']
 
   # Sort all the symbols once, so that the ordering is preserved when its broken
   # up into master symbols and compat symbols and sorting the sublists is not
@@ -1666,17 +1662,17 @@ def generate_global_index(library_name, index, reference_resolver):
 
   lines.append('## Primary symbols')
   for link in primary_symbol_links:
-    lines.append('*  %s' % link)
+    lines.append(f'*  {link}')
 
   if compat_v2_symbol_links:
     lines.append('\n## Compat v2 symbols\n')
     for link in compat_v2_symbol_links:
-      lines.append('*  %s' % link)
+      lines.append(f'*  {link}')
 
   if compat_v1_symbol_links:
     lines.append('\n## Compat v1 symbols\n')
     for link in compat_v1_symbol_links:
-      lines.append('*  %s' % link)
+      lines.append(f'*  {link}')
 
   # TODO(markdaoust): use a _ModulePageInfo -> prety_docs.build_md_page()
   return '\n'.join(lines)
@@ -1721,12 +1717,12 @@ class Metadata(object):
     """Returns the Metadata block as an Html string."""
     # Note: A schema is not a URL. It is defined with http: but doesn't resolve.
     schema = 'http://developers.google.com/ReferenceObject'
-    parts = ['<div itemscope itemtype="%s">' % schema]
+    parts = [f'<div itemscope itemtype="{schema}">']
 
-    parts.append('<meta itemprop="name" content="%s" />' % self.name)
-    parts.append('<meta itemprop="path" content="%s" />' % self.version)
+    parts.append(f'<meta itemprop="name" content="{self.name}" />')
+    parts.append(f'<meta itemprop="path" content="{self.version}" />')
     for item in self._content:
-      parts.append('<meta itemprop="property" content="%s"/>' % item)
+      parts.append(f'<meta itemprop="property" content="{item}"/>')
 
     parts.extend(['</div>', ''])
 

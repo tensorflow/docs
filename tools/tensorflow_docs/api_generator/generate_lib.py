@@ -446,7 +446,7 @@ def write_docs(output_dir,
   # Make output_dir.
   if not output_dir.is_absolute():
     raise ValueError("'output_dir' must be an absolute path.\n"
-                     "    output_dir='%s'" % output_dir)
+                     f"    output_dir='{output_dir}'")
   output_dir.mkdir(parents=True, exist_ok=True)
 
   # These dictionaries are used for table-of-contents generation below
@@ -500,8 +500,7 @@ def write_docs(output_dir,
     try:
       page_info = parser.docs_for_object(full_name, py_object, parser_config)
     except:
-      raise ValueError(
-          'Failed to generate docs for symbol: `{}`'.format(full_name))
+      raise ValueError(f'Failed to generate docs for symbol: `{full_name}`')
 
     path = output_dir / parser.documentation_path(full_name)
     try:
@@ -516,8 +515,8 @@ def write_docs(output_dir,
       text = '\n'.join(content)
       path.write_text(text, encoding='utf-8')
     except OSError:
-      raise OSError('Cannot write documentation for %s to %s' %
-                    (full_name, path.parent))
+      raise OSError('Cannot write documentation for '
+                    f'{full_name} to {path.parent}')
 
     duplicates = parser_config.duplicates.get(full_name, [])
     if not duplicates:
@@ -851,6 +850,6 @@ class DocGenerator(object):
         raise
 
     subprocess.check_call([
-        'rsync', '--recursive', '--quiet', '--delete',
-        '{}/'.format(work_py_dir), output_dir
+        'rsync', '--recursive', '--quiet', '--delete', f'{work_py_dir}/',
+        output_dir
     ])

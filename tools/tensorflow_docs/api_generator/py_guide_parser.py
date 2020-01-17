@@ -63,7 +63,7 @@ class PyGuideParser(object):
           if tag in seen:
             suffix = 0
             while True:
-              candidate = '%s_%d' % (tag, suffix)
+              candidate = f'{tag}_{suffix}'
               if candidate not in seen:
                 tag = candidate
                 break
