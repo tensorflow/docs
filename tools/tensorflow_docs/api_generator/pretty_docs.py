@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,14 +23,10 @@ This module contains one public function, which handels the conversion of these
 
     md_page = build_md_page(page_info)
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import textwrap
 
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import parser
 
 
 def build_md_page(page_info):
@@ -45,26 +42,28 @@ def build_md_page(page_info):
   Raises:
     ValueError: if `page_info` is an instance of an unrecognized class
   """
-  if page_info.for_function():
-    return _build_function_page(page_info)
-
-  if page_info.for_class():
+  if isinstance(page_info, parser.ClassPageInfo):
     return _build_class_page(page_info)
 
-  if page_info.for_module():
+  if isinstance(page_info, parser.FunctionPageInfo):
+    return _build_function_page(page_info)
+
+  if isinstance(page_info, parser.ModulePageInfo):
     return _build_module_page(page_info)
 
-  raise ValueError('Unknown Page Info Type: %s' % type(page_info))
+  raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
 
 def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
-  parts = ['# %s\n\n' % page_info.full_name]
+  parts = [f'# {page_info.full_name}\n\n']
 
   parts.append('<!-- Insert buttons and diff -->\n')
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
+
+  parts.append('<!-- Equality marker -->\n')
 
   parts.append(page_info.doc.brief + '\n\n')
 
@@ -95,7 +94,9 @@ def _build_class_page(page_info):
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
-  parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
+  parts.append('<!-- Equality marker -->\n')
+
+  parts.append('## Class `{}`\n\n'.format(page_info.full_name.split('.')[-1]))
 
   parts.append(page_info.doc.brief + '\n\n')
 
@@ -144,8 +145,9 @@ def _build_class_page(page_info):
   if page_info.properties:
     parts.append('## Properties\n\n')
     for prop_info in page_info.properties:
-      h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-      parts.append(h3.format(short_name=prop_info.short_name))
+      h3 = (f'<h3 id="{prop_info.short_name}"><code>{prop_info.short_name}'
+            '</code></h3>\n\n')
+      parts.append(h3)
 
       parts.append(prop_info.doc.brief + '\n')
       parts.extend(str(item) for item in prop_info.doc.docstring_parts)
@@ -231,7 +233,7 @@ def _build_method_section(method_info, heading_level=3):
 
 def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
-  parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
+  parts = [f'# Module: {page_info.full_name}\n\n']
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
@@ -336,7 +338,7 @@ def _build_compatibility(compatibility):
     value = compatibility[key]
     # Dedent so that it does not trigger markdown code formatting.
     value = textwrap.dedent(value)
-    parts.append('\n\n#### %s Compatibility\n%s\n' % (key.title(), value))
+    parts.append(f'\n\n#### {key.title()} Compatibility\n{value}\n')
 
   return ''.join(parts)
 

@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +24,7 @@ _ALLOWED_EXCEPTIONS = (ImportError, AttributeError, NotImplementedError)
 
 
 def _onerror(name):
-  logging.exception('Failed to load package: %r', name)
+  logging.exception(f'Failed to load package: {name!r}')
   errortype, error, _ = sys.exc_info()
 
   if not issubclass(errortype, _ALLOWED_EXCEPTIONS):
@@ -58,6 +59,6 @@ def recursive_import(root, strict=False):
       if strict:
         raise
       else:
-        logging.exception('Failed to load module: %r', name)
+        logging.exception(f'Failed to load module: {name!r}')
 
   return modules

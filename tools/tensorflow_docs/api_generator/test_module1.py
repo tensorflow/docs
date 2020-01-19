@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2018 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,11 +14,6 @@
 # limitations under the License.
 # ==============================================================================
 """A module target for TraverseTest.test_module."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 from tensorflow_docs.api_generator import test_module2
 
 
