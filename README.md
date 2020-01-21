@@ -4,6 +4,8 @@
   <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png"><br><br>
 </div>
 
+DO NOT MERGE
+
 This is the TensorFlow documentation for [tensorflow.org](https://www.tensorflow.org).
 To contribute, see [CONTRIBUTING.md](CONTRIBUTING.md) and the
 [docs contributor guide](https://www.tensorflow.org/community/contribute/docs).
