@@ -63,8 +63,6 @@ def _build_function_page(page_info):
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
-  parts.append('<!-- Equality marker -->\n')
-
   parts.append(page_info.doc.brief + '\n\n')
 
   parts.append(_build_main_aliases(page_info.aliases))
@@ -93,8 +91,6 @@ def _build_class_page(page_info):
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
-
-  parts.append('<!-- Equality marker -->\n')
 
   parts.append('## Class `{}`\n\n'.format(page_info.full_name.split('.')[-1]))
 
