@@ -158,13 +158,15 @@
 <section>
 <h3>Windows</h3><!--python3-->
 <p>
-  Install the <em>Microsoft Visual C++ 2015 Redistributable Update 3</em>. This
-  comes with <em>Visual Studio 2015</em> but can be installed separately:
+  Install the <em>Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019</em>
+  (Note: TensorFlow versions greater than <code>2.1.0</code> require <code>msvcp140_1.dll</code> from
+  this package, which older redistributable packages may not provide).
+  The redistributable comes with <em>Visual Studio 2019</em> but can be installed separately:
 </p>
 <ol>
-<li>Go to the <a href="https://visualstudio.microsoft.com/vs/older-downloads/" class="external">Visual Studio downloads</a>,</li>
-<li>Select <em>Redistributables and Build Tools</em>,</li>
-<li>Download and install the <em>Microsoft Visual C++ 2015 Redistributable Update 3</em>.</li>
+<li>Go to the <a href="https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads/" class="external">Microsoft Visual C++ downloads</a>,</li>
+<li>Scroll down the page to the <em>Visual Studio 2015, 2017 and 2019</em> section.</li>
+<li>Download and install the <em>Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019</em> for your platform.</li>
 </ol>
 <p>Make sure <a href="https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing" class="external">long paths are enabled</a> on Windows.</p>
 <p>Install the <em>64-bit</em> <a href="https://www.python.org/downloads/windows/" class="external">Python 3 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
