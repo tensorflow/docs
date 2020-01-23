@@ -509,7 +509,7 @@ def write_docs(output_dir,
       if search_hints:
         content = [page_info.get_metadata_html()]
       else:
-        content = ['']
+        content = ['<meta name="robots" content="noindex">']
 
       content.append(pretty_docs.build_md_page(page_info))
       text = '\n'.join(content)
