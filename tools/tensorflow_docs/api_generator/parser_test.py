@@ -25,7 +25,6 @@ import unittest
 
 from absl.testing import absltest
 from absl.testing import parameterized
-
 import attr
 
 from tensorflow_docs.api_generator import doc_controls
@@ -76,6 +75,14 @@ class TestClass(ParentClass):
   @property
   def a_property(self):
     """Docstring for a property."""
+    pass
+
+  @staticmethod
+  def static_method(arg):
+    pass
+
+  @classmethod
+  def class_method(cls):
     pass
 
   CLASS_MEMBER = 'a class member'
@@ -163,7 +170,9 @@ class ParserTest(parameterized.TestCase):
         'TestClass.a_method': TestClass.a_method,
         'TestClass.a_property': TestClass.a_property,
         'TestClass.ChildClass': TestClass.ChildClass,
-        'TestClass.CLASS_MEMBER': TestClass.CLASS_MEMBER
+        'TestClass.static_method': TestClass.static_method,
+        'TestClass.class_method': TestClass.class_method,
+        'TestClass.CLASS_MEMBER': TestClass.CLASS_MEMBER,
     }
 
     visitor = DummyVisitor(index=index, duplicate_of={})
@@ -172,7 +181,10 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
-        'TestClass': ['a_method', 'a_property', 'ChildClass', 'CLASS_MEMBER']
+        'TestClass': [
+            'a_method', 'class_method', 'static_method', 'a_property',
+            'ChildClass', 'CLASS_MEMBER'
+        ]
     }
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
@@ -192,10 +204,18 @@ class ParserTest(parameterized.TestCase):
         inspect.getdoc(TestClass).split('\n')[0], page_info.doc.brief)
 
     # Make sure the method is present
-    self.assertEqual(TestClass.a_method, page_info.methods[0].obj)
+    method_infos = {
+        method_info.short_name: method_info for method_info in page_info.methods
+    }
+
+    self.assertIs(method_infos['a_method'].obj, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
-    self.assertEqual(["arg='default'"], page_info.methods[0].signature)
+    self.assertEqual(["arg='default'"], method_infos['a_method'].signature)
+
+    self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
+    self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
+
 
     # Make sure the property is present
     self.assertIs(TestClass.a_property, page_info.properties[0].obj)
@@ -1025,6 +1045,7 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(sig, ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
+
 
 if __name__ == '__main__':
   absltest.main()

@@ -294,6 +294,14 @@ def _build_module_page(page_info):
   return ''.join(parts)
 
 
+DECORATOR_WHITELIST = {
+    'classmethod',
+    'staticmethod',
+    'contextmanager',
+    'tf.function',
+}
+
+
 def _build_signature(obj_info, use_full_name=True):
   """Returns a md code block showing the function signature."""
   # Special case tf.range, since it has an optional first argument
@@ -304,7 +312,8 @@ def _build_signature(obj_info, use_full_name=True):
             '```\n\n')
 
   parts = ['``` python']
-  parts.extend(['@' + dec for dec in obj_info.decorators])
+  parts.extend(
+      ['@' + dec for dec in obj_info.decorators if dec in DECORATOR_WHITELIST])
   signature_template = '{name}({sig})'
 
   if not obj_info.signature:
