@@ -847,7 +847,7 @@ REGISTER_KERNEL_BUILDER(
 ```
 
 > To preserve [backwards compatibility](#backwards-compatibility), you should
-> specify a [default value](#default-values-constraints) when adding an attr to
+> specify a [default value](#default-values-and-constraints) when adding an attr to
 > an existing op:
 >
 > ```c++
