@@ -1559,15 +1559,7 @@ def _get_defined_in(py_object, parser_config):
   try:
     lines, start_line = inspect.getsourcelines(py_object)
     end_line = start_line + len(lines) - 1
-  except IOError:
-    # The source is not available.
-    start_line = None
-    end_line = None
-  except TypeError:
-    # This is a builtin, with no python-source.
-    start_line = None
-    end_line = None
-  except IndexError:
+  except (IOError, TypeError, IndexError):
     start_line = None
     end_line = None
 
