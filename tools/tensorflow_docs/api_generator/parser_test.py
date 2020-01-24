@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +15,9 @@
 # ==============================================================================
 """Tests for documentation parser."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import collections
 import functools
+import inspect
 import os
 import tempfile
 import textwrap
@@ -27,11 +25,10 @@ import unittest
 
 from absl.testing import absltest
 from absl.testing import parameterized
-import six
+import attr
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import tf_inspect
 
 # The test needs a real module. `types.ModuleType()` doesn't work, as the result
 # is a `builtin` module. Using "parser" here is arbitraty. The tests don't
@@ -80,6 +77,14 @@ class TestClass(ParentClass):
     """Docstring for a property."""
     pass
 
+  @staticmethod
+  def static_method(arg):
+    pass
+
+  @classmethod
+  def class_method(cls):
+    pass
+
   CLASS_MEMBER = 'a class member'
 
 
@@ -91,7 +96,7 @@ class DummyVisitor(object):
 
 
 class ConcreteMutableMapping(collections.MutableMapping):
-  """MutableMapping subclass to repro tf_inspect.getsource() IndexError."""
+  """MutableMapping subclass to repro inspect.getsource() IndexError."""
 
   def __init__(self):
     self._map = {}
@@ -113,6 +118,11 @@ class ConcreteMutableMapping(collections.MutableMapping):
 
 
 ConcreteNamedTuple = collections.namedtuple('ConcreteNamedTuple', ['a', 'b'])
+
+
+@attr.s
+class ClassUsingAttrs(object):
+  member = attr.ib(type=int)
 
 
 class ParserTest(parameterized.TestCase):
@@ -160,7 +170,9 @@ class ParserTest(parameterized.TestCase):
         'TestClass.a_method': TestClass.a_method,
         'TestClass.a_property': TestClass.a_property,
         'TestClass.ChildClass': TestClass.ChildClass,
-        'TestClass.CLASS_MEMBER': TestClass.CLASS_MEMBER
+        'TestClass.static_method': TestClass.static_method,
+        'TestClass.class_method': TestClass.class_method,
+        'TestClass.CLASS_MEMBER': TestClass.CLASS_MEMBER,
     }
 
     visitor = DummyVisitor(index=index, duplicate_of={})
@@ -169,7 +181,10 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
-        'TestClass': ['a_method', 'a_property', 'ChildClass', 'CLASS_MEMBER']
+        'TestClass': [
+            'a_method', 'class_method', 'static_method', 'a_property',
+            'ChildClass', 'CLASS_MEMBER'
+        ]
     }
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
@@ -186,13 +201,21 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the brief docstring is present
     self.assertEqual(
-        tf_inspect.getdoc(TestClass).split('\n')[0], page_info.doc.brief)
+        inspect.getdoc(TestClass).split('\n')[0], page_info.doc.brief)
 
     # Make sure the method is present
-    self.assertEqual(TestClass.a_method, page_info.methods[0].obj)
+    method_infos = {
+        method_info.short_name: method_info for method_info in page_info.methods
+    }
+
+    self.assertIs(method_infos['a_method'].obj, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
-    self.assertEqual(["arg='default'"], page_info.methods[0].signature)
+    self.assertEqual(["arg='default'"], method_infos['a_method'].signature)
+
+    self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
+    self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
+
 
     # Make sure the property is present
     self.assertIs(TestClass.a_property, page_info.properties[0].obj)
@@ -385,7 +408,7 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the brief docstring is present
     self.assertEqual(
-        tf_inspect.getdoc(test_module).split('\n')[0], page_info.doc.brief)
+        inspect.getdoc(test_module).split('\n')[0], page_info.doc.brief)
 
     # Make sure that the members are there
     funcs = {f_info.obj for f_info in page_info.functions}
@@ -429,7 +452,7 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the brief docstring is present
     self.assertEqual(
-        tf_inspect.getdoc(test_function).split('\n')[0], page_info.doc.brief)
+        inspect.getdoc(test_function).split('\n')[0], page_info.doc.brief)
 
     # Make sure the extracted signature is good.
     self.assertEqual(['unused_arg', "unused_kwarg='default'"],
@@ -469,7 +492,7 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the brief docstring is present
     self.assertEqual(
-        tf_inspect.getdoc(test_function_with_args_kwargs).split('\n')[0],
+        inspect.getdoc(test_function_with_args_kwargs).split('\n')[0],
         page_info.doc.brief)
 
     # Make sure the extracted signature is good.
@@ -583,147 +606,11 @@ class ParserTest(parameterized.TestCase):
     # This depends on formatting, but should be stable.
     self.assertIn('<code>tf.test_function', docs)
 
-  def test_argspec_for_functools_partial(self):
-    # pylint: disable=unused-argument
-    def test_function_for_partial1(arg1, arg2, kwarg1=1, kwarg2=2):
-      pass
-    # pylint: enable=unused-argument
-
-    # pylint: disable=protected-access
-    # Make sure everything works for regular functions.
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2', 'kwarg1', 'kwarg2'],
-        varargs=None,
-        varkw=None,
-        defaults=(1, 2),
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    self.assertEqual(expected,
-                     tf_inspect.getfullargspec(test_function_for_partial1))
-
-    # Make sure doing nothing works.
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2', 'kwarg1', 'kwarg2'],
-        varargs=None,
-        varkw=None,
-        defaults=(1, 2),
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial1)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    # Make sure setting args from the front works.
-    expected = tf_inspect.FullArgSpec(
-        args=['arg2', 'kwarg1', 'kwarg2'],
-        varargs=None,
-        varkw=None,
-        defaults=(1, 2),
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial1, 1)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    expected = tf_inspect.FullArgSpec(
-        args=['kwarg2'],
-        varargs=None,
-        varkw=None,
-        defaults=(2,),
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial1, 1, 2, 3)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    # Make sure setting kwargs works.
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2'],
-        varargs=None,
-        varkw=None,
-        defaults=None,
-        kwonlyargs=['kwarg1', 'kwarg2'],
-        kwonlydefaults={
-            'kwarg1': 0,
-            'kwarg2': 2
-        },
-        annotations={})
-    partial = functools.partial(test_function_for_partial1, kwarg1=0)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2', 'kwarg1'],
-        varargs=None,
-        varkw=None,
-        defaults=(1,),
-        kwonlyargs=['kwarg2'],
-        kwonlydefaults={'kwarg2': 0},
-        annotations={})
-    partial = functools.partial(test_function_for_partial1, kwarg2=0)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1'],
-        varargs=None,
-        varkw=None,
-        defaults=None,
-        kwonlyargs=['arg2', 'kwarg1', 'kwarg2'],
-        kwonlydefaults={
-            'arg2': 0,
-            'kwarg1': 0,
-            'kwarg2': 0
-        },
-        annotations={})
-    partial = functools.partial(test_function_for_partial1,
-                                arg2=0, kwarg1=0, kwarg2=0)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-  def test_argspec_for_functools_partial_starargs(self):
-    # pylint: disable=unused-argument
-    def test_function_for_partial2(arg1, arg2, *my_args, **my_kwargs):
-      pass
-    # pylint: enable=unused-argument
-    # Make sure *args, *kwargs is accounted for.
-    expected = tf_inspect.FullArgSpec(
-        args=[],
-        varargs='my_args',
-        varkw='my_kwargs',
-        defaults=None,
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial2, 0, 1)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    # Make sure *args, *kwargs is accounted for.
-    expected = tf_inspect.FullArgSpec(
-        args=[],
-        varargs='my_args',
-        varkw='my_kwargs',
-        defaults=None,
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial2, 0, 1, 2, 3, 4, 5)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
-
-    # Make sure *args, *kwargs is accounted for.
-    expected = tf_inspect.FullArgSpec(
-        args=['arg1', 'arg2'],
-        varargs='my_args',
-        varkw='my_kwargs',
-        defaults=None,
-        kwonlyargs=[],
-        kwonlydefaults=None,
-        annotations={})
-    partial = functools.partial(test_function_for_partial2, a=1, b=2, c=3)
-    self.assertEqual(expected, tf_inspect.getfullargspec(partial))
 
   def test_getsource_indexerror_resilience(self):
     """Validates that parser gracefully handles IndexErrors.
 
-    tf_inspect.getsource() can raise an IndexError in some cases. It's unclear
+    inspect.getsource() can raise an IndexError in some cases. It's unclear
     why this happens, but it consistently repros on the `get` method of
     collections.MutableMapping subclasses.
     """
@@ -771,7 +658,6 @@ class ParserTest(parameterized.TestCase):
     self.assertIn(ConcreteMutableMapping.get,
                   [m.obj for m in page_info.methods])
 
-  @unittest.skipIf(six.PY2, "Haven't found a repro for this under PY2.")
   def test_strips_default_arg_memory_address(self):
     """Validates that parser strips memory addresses out out default argspecs.
 
@@ -813,12 +699,25 @@ class ParserTest(parameterized.TestCase):
        ConcreteMutableMapping.__contains__),
       ('namedtuple', 'ConcreteNamedTuple', '__new__',
        ConcreteNamedTuple.__new__),
+      ('ClassUsingAttrs_eq', 'ClassUsingAttrs', '__eq__',
+       ClassUsingAttrs.__eq__),
+      ('ClassUsingAttrs_init', 'ClassUsingAttrs', '__init__',
+       ClassUsingAttrs.__init__),
   )
-  def test_builtins_defined_in(self, cls, method, py_object):
-    """Validates that the parser omits the defined_in location for built-ins.
+  def test_empty_defined_in(self, cls, method, py_object):
+    """Validates that the parser omits the defined_in location properly.
 
-    Without special handling, the defined-in URL ends up like:
+    This test covers two cases where the parser should omit the defined_in
+    location:
+      1. built-ins.
+      2. methods automatically generated by python attr library.
+
+    For built-ins, if without special handling, the defined-in URL ends up like:
       http://prefix/<embedded stdlib>/_collections_abc.py
+
+    For methods automatically generated by python attr library, if without
+    special handling, the defined-in URL ends up like:
+      http://prefix/<attrs generated eq ...>
 
     Args:
       cls: The class name to generate docs for.
@@ -1146,6 +1045,7 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(sig, ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
+
 
 if __name__ == '__main__':
   absltest.main()

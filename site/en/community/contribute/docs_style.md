@@ -102,24 +102,29 @@ following:
 *   MathJax renders properly on [tensorflow.org](https://www.tensorflow.org).
 *   MathJax does not render properly on GitHub.
 *   This notation can be off-putting to unfamiliar developers.
+*   For consistency [tensorflow.org](https://www.tensorflow.org) follows the
+    same  rules as Jupyter/Colab.
 
 Use <code>&#36;&#36;</code> around a block of MathJax:
 
-<pre><code>$$
+<pre><code>&#36;&#36;
 E=\frac{1}{2n}\sum_x\lVert (y(x)-y'(x)) \rVert^2
-$$</code></pre>
+&#36;&#36;</code></pre>
 
 $$
 E=\frac{1}{2n}\sum_x\lVert (y(x)-y'(x)) \rVert^2
 $$
 
-Wrap inline MathJax expressions with <code>&#92;&#92;( ... &#92;&#92;)</code>:
+Wrap inline MathJax expressions with <code>&#36; ... &#36;</code>:
 
 <pre><code>
-This is an example of an inline MathJax expression: &#92;&#92;( 2 \times 2 = 4 &#92;&#92;)
+This is an example of an inline MathJax expression: &#36; 2 \times 2 = 4 &#36;
 </code></pre>
 
-This is an example of an inline MathJax expression: \\( 2 \times 2 = 4 \\)
+This is an example of an inline MathJax expression: $ 2 \times 2 = 4 $
+
+<code>&#92;&#92;( ... &#92;&#92;)</code> delimiters also work for inline math,
+but the \$ form is sometimes more readable.
 
 Note: If you need to use a dollar sign in text or MathJax expressions, escape it
 with a leading slash: `\$`. Dollar signs within code blocks (such as Bash
