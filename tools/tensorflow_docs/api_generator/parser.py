@@ -14,10 +14,8 @@
 # limitations under the License.
 # ==============================================================================
 """Turn Python docstrings into Markdown for TensorFlow documentation."""
-
 import ast
 import collections
-import inspect
 import itertools
 import json
 import os
@@ -30,7 +28,7 @@ import astor
 
 
 from tensorflow_docs.api_generator import doc_controls
-
+from tensorflow_docs.api_generator import tf_inspect
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -47,14 +45,14 @@ def is_free_function(py_object, full_name, index):
     True if the object is a stand-alone function, and not part of a class
     definition.
   """
-  if inspect.isclass(py_object):
+  if tf_inspect.isclass(py_object):
     return False
 
   if not callable(py_object):
     return False
 
   parent_name = full_name.rsplit('.', 1)[0]
-  if inspect.isclass(index[parent_name]):
+  if tf_inspect.isclass(index[parent_name]):
     return False
 
   return True
@@ -108,10 +106,10 @@ def _get_raw_docstring(py_object):
   """
   # For object instances, inspect.getdoc does give us the docstring of their
   # type, which is not what we want. Only return the docstring if it is useful.
-  if (inspect.isclass(py_object) or inspect.ismethod(py_object) or
-      inspect.isfunction(py_object) or inspect.ismodule(py_object) or
+  if (tf_inspect.isclass(py_object) or tf_inspect.ismethod(py_object) or
+      tf_inspect.isfunction(py_object) or tf_inspect.ismodule(py_object) or
       isinstance(py_object, property)):
-    result = inspect.getdoc(py_object) or ''
+    result = tf_inspect.getdoc(py_object) or ''
   else:
     result = ''
 
@@ -216,7 +214,7 @@ class ReferenceResolver(object):
     is_fragment = {}
     for name, obj in visitor.index.items():
       has_page = (
-          inspect.isclass(obj) or inspect.ismodule(obj) or
+          tf_inspect.isclass(obj) or tf_inspect.ismodule(obj) or
           is_free_function(obj, name, visitor.index))
 
       is_fragment[name] = not has_page
@@ -750,7 +748,7 @@ def _generate_signature(func, reverse_index):
   """Given a function, returns a list of strings representing its args.
 
   This function produces a list of strings representing the arguments to a
-  python function. It uses inspect.getfullargspec, which
+  python function. It uses tf_inspect.getfullargspec, which
   does not generalize well to Python 3.x, which is more flexible in how *args
   and **kwargs are handled. This is not a problem in TF, since we have to remain
   compatible to Python 2.7 anyway.
@@ -769,10 +767,11 @@ def _generate_signature(func, reverse_index):
     A list of strings representing the argument signature of `func` as python
     code.
   """
-
   args_list = []
+  # If the py_object doesn't have `_tf_decorator` as an attribute, then the
+  # original py_object will be returned.
+  argspec = tf_inspect.getfullargspec(func)
 
-  argspec = inspect.getfullargspec(func)
   first_arg_with_default = (
       len(argspec.args or []) - len(argspec.defaults or []))
 
@@ -788,11 +787,11 @@ def _generate_signature(func, reverse_index):
   # Add all args with defaults.
   if argspec.defaults:
     try:
-      source = _remove_first_line_indent(inspect.getsource(func))
+      source = _remove_first_line_indent(tf_inspect.getsource(func))
       func_ast = ast.parse(source)
       ast_defaults = func_ast.body[0].args.defaults
-    except Exception as e:
-      # A variaey of errors can be thrown here.
+    except Exception:  # pylint: disable=broad-except
+      # A wide-variety of errors can be thrown here.
       ast_defaults = [None] * len(argspec.defaults)
 
     for arg, default, ast_default in zip(
@@ -848,7 +847,7 @@ def _generate_signature(func, reverse_index):
 
 
 def _get_defining_class(py_class, name):
-  for cls in inspect.getmro(py_class):
+  for cls in tf_inspect.getmro(py_class):
     if name in cls.__dict__:
       return cls
   return None
@@ -973,6 +972,7 @@ class FunctionPageInfo(PageInfo):
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
     signature: the parsed signature (see:_generate_signature)
+    decorators: A list of decorator names.
   """
 
   def __init__(self, full_name, py_object):
@@ -997,13 +997,14 @@ class FunctionPageInfo(PageInfo):
     Mainly this is details about the function signature.
 
     Args:
-      function: The python function being documented.
-      reverse_index: A map from object ids in the index to full names.
+      parser_config: The ParserConfig for the module being documented.
     """
 
     assert self.signature is None
     self._signature = _generate_signature(self.py_object,
                                           parser_config.reverse_index)
+    decorators, _ = tf_inspect.unwrap_tf_decorator(self.py_object)
+    self._decorators = [dec.decorator_name for dec in decorators]
 
   @property
   def decorators(self):
@@ -1229,15 +1230,15 @@ class ClassPageInfo(PageInfo):
       if isinstance(child, property):
         self._add_property(short_name, child_name, child, child_doc)
 
-      elif inspect.isclass(child):
+      elif tf_inspect.isclass(child):
         if defining_class is None:
           continue
         url = parser_config.reference_resolver.reference_to_url(
             child_name, relative_path)
         self._add_class(short_name, child_name, child, child_doc, url)
 
-      elif (inspect.ismethod(child) or inspect.isfunction(child) or
-            inspect.isroutine(child)):
+      elif (tf_inspect.ismethod(child) or tf_inspect.isfunction(child) or
+            tf_inspect.isroutine(child)):
         if defining_class is None:
           continue
 
@@ -1266,16 +1267,20 @@ class ClassPageInfo(PageInfo):
 
         child_decorators = []
         try:
-          if isinstance(py_class.__dict__[short_name], classmethod):
+          if isinstance(original_method, classmethod):
             child_decorators.append('classmethod')
         except KeyError:
           pass
 
         try:
-          if isinstance(py_class.__dict__[short_name], staticmethod):
+          if isinstance(original_method, staticmethod):
             child_decorators.append('staticmethod')
         except KeyError:
           pass
+
+        tf_decorators, _ = tf_inspect.unwrap_tf_decorator(child)
+        child_decorators.extend(
+            [tf_dec.decorator_name for tf_dec in tf_decorators])
 
         defined_in = _get_defined_in(child, parser_config)
         self._add_method(short_name, child_name, child, child_doc,
@@ -1294,9 +1299,6 @@ class ClassPageInfo(PageInfo):
 class ModulePageInfo(PageInfo):
   """Collects docs for a module page.
 
-  Args:
-    full_name: The full, master name, of the object being documented.
-    py_object: The object being documented.
   Attributes:
     full_name: The full, master name, of the object being documented.
     short_name: The last part of the full name.
@@ -1316,6 +1318,12 @@ class ModulePageInfo(PageInfo):
   """
 
   def __init__(self, full_name, py_object):
+    """Initialize a `ModulePageInfo`.
+
+    Args:
+      full_name: The full, master name, of the object being documented.
+      py_object: The object being documented.
+    """
     super(ModulePageInfo, self).__init__(full_name, py_object)
 
     self._modules = []
@@ -1392,13 +1400,13 @@ class ModulePageInfo(PageInfo):
       url = parser_config.reference_resolver.reference_to_url(
           member_full_name, relative_path)
 
-      if inspect.ismodule(member):
+      if tf_inspect.ismodule(member):
         self._add_module(name, member_full_name, member, member_doc, url)
 
-      elif inspect.isclass(member):
+      elif tf_inspect.isclass(member):
         self._add_class(name, member_full_name, member, member_doc, url)
 
-      elif inspect.isfunction(member):
+      elif tf_inspect.isfunction(member):
         self._add_function(name, member_full_name, member, member_doc, url)
 
       else:
@@ -1477,11 +1485,11 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  if inspect.isclass(py_object):
+  if tf_inspect.isclass(py_object):
     page_info = ClassPageInfo(master_name, py_object)
   elif callable(py_object):
     page_info = FunctionPageInfo(master_name, py_object)
-  elif inspect.ismodule(py_object):
+  elif tf_inspect.ismodule(py_object):
     page_info = ModulePageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
@@ -1542,7 +1550,7 @@ def _get_defined_in(py_object, parser_config):
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
     try:
-      obj_path = inspect.getfile(py_object)
+      obj_path = tf_inspect.getfile(py_object)
     except TypeError:  # getfile throws TypeError if py_object is a builtin.
       continue
 
@@ -1557,17 +1565,9 @@ def _get_defined_in(py_object, parser_config):
       break
 
   try:
-    lines, start_line = inspect.getsourcelines(py_object)
+    lines, start_line = tf_inspect.getsourcelines(py_object)
     end_line = start_line + len(lines) - 1
-  except IOError:
-    # The source is not available.
-    start_line = None
-    end_line = None
-  except TypeError:
-    # This is a builtin, with no python-source.
-    start_line = None
-    end_line = None
-  except IndexError:
+  except (IOError, TypeError, IndexError):
     start_line = None
     end_line = None
 
@@ -1590,6 +1590,8 @@ def _get_defined_in(py_object, parser_config):
     return None
   if re.search(r'<[\w\s]+>', rel_path):
     # Built-ins emit paths like <embedded stdlib>, <string>, etc.
+    return None
+  if '<attrs generated' in rel_path:
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
@@ -1627,15 +1629,15 @@ def generate_global_index(library_name, index, reference_resolver):
   """
   symbol_links = []
   for full_name, py_object in index.items():
-    if (inspect.ismodule(py_object) or inspect.isfunction(py_object) or
-        inspect.isclass(py_object)):
+    if (tf_inspect.ismodule(py_object) or tf_inspect.isfunction(py_object) or
+        tf_inspect.isclass(py_object)):
       # In Python 3, unbound methods are functions, so eliminate those.
-      if inspect.isfunction(py_object):
+      if tf_inspect.isfunction(py_object):
         if full_name.count('.') == 0:
           parent_name = ''
         else:
           parent_name = full_name[:full_name.rfind('.')]
-        if parent_name in index and inspect.isclass(index[parent_name]):
+        if parent_name in index and tf_inspect.isclass(index[parent_name]):
           # Skip methods (=functions with class parents).
           continue
       symbol_links.append((
