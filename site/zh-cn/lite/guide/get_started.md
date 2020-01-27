@@ -81,9 +81,9 @@ open("converted_model.tflite", "wb").write(tflite_model)
 
 当转换[ TensorFlow 2.x 模型](../convert/python_api.md)时，这些输入类型有：
 
-*	[SavedModel 文件夹](https://www.tensorflow.org/guide/saved_model)
-*	[`tf.keras` 模型](https://www.tensorflow.org/guide/keras/overview)
-*	[具体函数（Concrete functions）](../convert/concrete_function.md)
+*   [SavedModel 文件夹](https://www.tensorflow.org/guide/saved_model)
+*   [`tf.keras` 模型](https://www.tensorflow.org/guide/keras/overview)
+*   [具体函数（Concrete functions）](https://tensorflow.org/guide/concrete_function)
 
 转换器可以配置为应用各种优化措施（optimizations），这些优化措施可以提高性能，减少文件大小。这将在第四节[优化您的模型](#4_optimize_your_model_optional)中介绍。
 

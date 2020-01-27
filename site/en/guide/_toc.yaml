@@ -51,6 +51,10 @@ toc:
   path: /guide/ragged_tensor
 - title: "Create an op"
   path: /guide/create_op
+- title: "Graph optimization"
+  path: /guide/graph_optimization
+- title: "Random number generation"
+  path: /guide/random_numbers
 
 - heading: "Data input pipelines"
 - title: "tf.data"
@@ -63,12 +67,17 @@ toc:
   path: /guide/checkpoint
 - title: "SavedModel"
   path: /guide/saved_model
+- title: "Concrete functions"
+  path: /guide/concrete_function
+
 
 - heading: "Accelerators"
 - title: "Distributed training"
   path: /guide/distributed_training
 - title: "GPU"
   path: /guide/gpu
+- title: "TPU"
+  path: /guide/tpu
 
 - heading: "Appendix"
 - title: "Version compatibility"

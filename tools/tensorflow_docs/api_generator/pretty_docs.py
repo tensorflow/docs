@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,13 +24,12 @@ This module contains one public function, which handels the conversion of these
     md_page = build_md_page(page_info)
 """
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import textwrap
 
+from typing import List
+
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import parser
 
 
 def build_md_page(page_info):
@@ -45,21 +45,21 @@ def build_md_page(page_info):
   Raises:
     ValueError: if `page_info` is an instance of an unrecognized class
   """
-  if page_info.for_function():
-    return _build_function_page(page_info)
-
-  if page_info.for_class():
+  if isinstance(page_info, parser.ClassPageInfo):
     return _build_class_page(page_info)
 
-  if page_info.for_module():
+  if isinstance(page_info, parser.FunctionPageInfo):
+    return _build_function_page(page_info)
+
+  if isinstance(page_info, parser.ModulePageInfo):
     return _build_module_page(page_info)
 
-  raise ValueError('Unknown Page Info Type: %s' % type(page_info))
+  raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
 
 def _build_function_page(page_info):
   """Given a FunctionPageInfo object Return the page as an md string."""
-  parts = ['# %s\n\n' % page_info.full_name]
+  parts = [f'# {page_info.full_name}\n\n']
 
   parts.append('<!-- Insert buttons and diff -->\n')
 
@@ -68,7 +68,7 @@ def _build_function_page(page_info):
 
   parts.append(page_info.doc.brief + '\n\n')
 
-  parts.append(_build_main_aliases(page_info.aliases))
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
   if page_info.signature is not None:
     parts.append(_build_signature(page_info))
@@ -79,9 +79,6 @@ def _build_function_page(page_info):
 
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
-
-  parts.append('\n\n')
-  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -95,7 +92,7 @@ def _build_class_page(page_info):
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
-  parts.append('## Class `%s`\n\n' % page_info.full_name.split('.')[-1])
+  parts.append('## Class `{}`\n\n'.format(page_info.full_name.split('.')[-1]))
 
   parts.append(page_info.doc.brief + '\n\n')
 
@@ -108,7 +105,7 @@ def _build_class_page(page_info):
 
   parts.append('\n\n')
 
-  parts.append(_build_main_aliases(page_info.aliases))
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
@@ -144,8 +141,9 @@ def _build_class_page(page_info):
   if page_info.properties:
     parts.append('## Properties\n\n')
     for prop_info in page_info.properties:
-      h3 = '<h3 id="{short_name}"><code>{short_name}</code></h3>\n\n'
-      parts.append(h3.format(short_name=prop_info.short_name))
+      h3 = (f'<h3 id="{prop_info.short_name}"><code>{prop_info.short_name}'
+            '</code></h3>\n\n')
+      parts.append(h3)
 
       parts.append(prop_info.doc.brief + '\n')
       parts.extend(str(item) for item in prop_info.doc.docstring_parts)
@@ -166,9 +164,6 @@ def _build_class_page(page_info):
     parts.append('## Class Members\n\n')
 
     parts.append(_other_members(page_info.other_members))
-
-  parts.append('\n\n')
-  parts.append(_build_compat_aliases(page_info.aliases))
 
   return ''.join(parts)
 
@@ -231,7 +226,7 @@ def _build_method_section(method_info, heading_level=3):
 
 def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
-  parts = ['# Module: {full_name}\n\n'.format(full_name=page_info.full_name)]
+  parts = [f'# Module: {page_info.full_name}\n\n']
 
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
@@ -239,7 +234,7 @@ def _build_module_page(page_info):
   # First line of the docstring i.e. a brief introduction about the symbol.
   parts.append(page_info.doc.brief + '\n\n')
 
-  parts.append(_build_main_aliases(page_info.aliases))
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
   # All lines in the docstring, expect the brief introduction.
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
@@ -290,10 +285,15 @@ def _build_module_page(page_info):
 
     parts.append(_other_members(page_info.other_members))
 
-  parts.append('\n\n')
-  parts.append(_build_compat_aliases(page_info.aliases))
-
   return ''.join(parts)
+
+
+DECORATOR_WHITELIST = {
+    'classmethod',
+    'staticmethod',
+    'contextmanager',
+    'tf.function',
+}
 
 
 def _build_signature(obj_info, use_full_name=True):
@@ -306,7 +306,8 @@ def _build_signature(obj_info, use_full_name=True):
             '```\n\n')
 
   parts = ['``` python']
-  parts.extend(['@' + dec for dec in obj_info.decorators])
+  parts.extend(
+      ['@' + dec for dec in obj_info.decorators if dec in DECORATOR_WHITELIST])
   signature_template = '{name}({sig})'
 
   if not obj_info.signature:
@@ -336,7 +337,7 @@ def _build_compatibility(compatibility):
     value = compatibility[key]
     # Dedent so that it does not trigger markdown code formatting.
     value = textwrap.dedent(value)
-    parts.append('\n\n#### %s Compatibility\n%s\n' % (key.title(), value))
+    parts.append(f'\n\n#### {key.title()} Compatibility\n{value}\n')
 
   return ''.join(parts)
 
@@ -378,29 +379,53 @@ def _small_source_link(location):
   return template.format(url=location.url)
 
 
-def _build_main_aliases(aliases):
+def _build_collapsable_aliases(aliases: List[str]) -> str:
   """Returns the top "Aliases" line."""
-  aliases = [name for name in aliases if '__' not in name]
-  aliases = [name for name in aliases if 'compat.v' not in name]
 
-  parts = []
-  if aliases:
-    parts.append('**Aliases**: ')
-    parts.append(', '.join('`{}`'.format(name) for name in aliases))
-    parts.append('\n\n')
+  def join_aliases(aliases: List[str]) -> str:
+    return ', '.join('`{}`'.format(name) for name in aliases)
 
-  return ''.join(parts)
+  collapsable_template = textwrap.dedent("""\
+    <section class="expandable">
+      <h4 class="showalways"><b>{title}</b></h4>
+      <p>{content}</p>
+    </section>
+    """)
 
+  main_alias_template = textwrap.dedent("""
+    <b>Main aliases</b>
+    <p>{content}</p>
+    """)
 
-def _build_compat_aliases(aliases):
-  """Returns the "Compat Aliases" block."""
-  aliases = [name for name in aliases if '__' not in name]
-  aliases = [name for name in aliases if 'compat.v' in name]
+  compat_alias_template = textwrap.dedent("""
+    <b>Compat aliases for migration</b>
+    <p>See
+    <a href="https://www.tensorflow.org/guide/migrate">Migration guide</a> for
+    more details.</p>
+    <p>{content}</p>
+    """)
 
-  parts = []
-  if aliases:
-    parts.append('## Compat aliases\n\n')
-    parts.extend(['* `{}`\n'.format(name) for name in aliases])
-    parts.append('\n')
+  main_aliases = []
+  compat_aliases = []
 
-  return ''.join(parts)
+  for alias in aliases:
+    if '__' in alias:
+      continue
+    elif 'compat.v' in alias:
+      compat_aliases.append(alias)
+    else:
+      main_aliases.append(alias)
+
+  alias_content = ''
+  if main_aliases:
+    alias_content += main_alias_template.format(
+        content=join_aliases(main_aliases))
+  if compat_aliases:
+    alias_content += compat_alias_template.format(
+        content=join_aliases(compat_aliases))
+
+  if alias_content:
+    return collapsable_template.format(
+        title='View aliases', content=alias_content) + '\n'
+
+  return alias_content

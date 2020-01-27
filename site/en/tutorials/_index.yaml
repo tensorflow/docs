@@ -96,21 +96,21 @@ landing_page:
 
   - classname: devsite-landing-row-cards
     items:
-    - heading: "TensorFlow 2.0 is now available"
-      path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
+    - heading: "Looking Back at 2019"
+      path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: http://blog.tensorflow.org/tensorflow-2-0-is-now-available-57d706c2a9ab
-    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2.0"
-      path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
+        path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
+    - heading: "TensorFlow 2 is now available"
+      path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a
-    - heading: "Contribute to TensorFlow: SIGs, RFCs, Testing, Docs"
-      path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+        path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
+    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2"
+      path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
       buttons:
       - label: "Read on the TensorFlow blog"
-        path: https://medium.com/tensorflow/contributing-to-tensorflow-sigs-rfcs-testing-and-docs-1c0f8240166c
+        path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
 
   - classname: devsite-landing-row-100
     items:
@@ -238,7 +238,7 @@ landing_page:
           <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
           <ul class="tfo-landing-page-resources-ul">
           <li><a href="/xla/tutorials/autoclustering_xla">Classifying CIFAR-10 with XLA</a></li>
-          <li><a href="/xla/tutorials/xla_compile">XLA compile API</a></li>
+          <li><a href="/xla/tutorials/compile">Use XLA with tf.function</a></li>
           </ul>
         path: /xla
         icon:
@@ -248,8 +248,8 @@ landing_page:
       - description: >
           <a href="https://github.com/tensorflow/agents"><h3 class="tfo-landing-page-heading no-link">TensorFlow Agents</h3></a>
           <ul class="tfo-landing-page-resources-ul">
-          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
-          <li><a href="https://github.com/tensorflow/agents/blob/master/tf_agents/colabs/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
+          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
+          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
           </ul>
         path: https://github.com/tensorflow/agents
         icon:

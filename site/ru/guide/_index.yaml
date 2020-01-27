@@ -1,0 +1,200 @@
+book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
+description: <!--no description-->
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  nav: left
+  rows:
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
+    items:
+    - description: >
+        <p>
+        TensorFlow 2 фокусируется на простоте и удобстве использования, с такими обновлениями, 
+        как eager execution, интуитивно понятные высокоуровневые API и гибкое построение 
+        моделей на любой платформе.        
+        </p>
+        <p>
+        Многие руководства написаны в виде ноутбуков Jupyter и запускаются непосредственно 
+        в Google Colab - среде для ноутбуков, которая не требует установки. 
+        Используйте в руководствах кнопку <em>«Запустить в Google Colab»</em>.
+        </p>
+
+  - heading: Необходимая документация
+    classname: tfo-landing-page-heading
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/install"><h3 class="no-link">Установка TensorFlow</h3></a>
+        Установите пакет или соберите из исходников. 
+        Поддержка GPU для карт с поддержкой CUDA®.
+      path: /install
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/effective_tf2"><h3 class="no-link">TensorFlow 2</h3></a>
+        Лучшие практики и инструменты TensorFlow 2 для переноса вашего кода.
+      path: /guide/effective_tf2
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/keras/overview"><h3 class="no-link">Keras</h3></a>
+        Keras это более легкий для ML новичков высокоуровневый API
+        подходящий и для исследователей.
+      path: /guide/keras/overview
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/eager"><h3 class="no-link">Настройка</h3></a>
+        TensorFlow для исследований и экспериментов. Напишите пользовательские слои и модели, прямой проход и обучающие циклы.
+      path: /guide/eager
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/data"><h3 class="no-link">Конвейеры ввода данных</h3></a>
+        API <code>tf.data</code> позволяют вам построить сложные конвейеры ввода
+        данных из простых переиспользуемых частей.
+      path: /guide/data
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/estimator"><h3 class="no-link">Оценщики</h3></a>
+        Высокоуровневый API, представляющий законченную модель, спроектирован 
+        для масштабирования и асинхронного обучения.
+      path: /guide/estimator
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/checkpoint"><h3 class="no-link">Соханение модели</h3></a>
+        Сохраняйте модели TensorFlow используя контрольные точки или формат SavedModel.
+      path: /guide/checkpoint
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/distributed_training"><h3 class="no-link">Акселераторы</h3></a>
+        Распределите обучение между несколькими GPU, компьютерами или TPU.
+      path: /guide/distributed_training
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">Библиотеки и расширения</h2>
+        Изучите <a href="/resources">дополнительные ресурсы</a> для создания сложных
+        моделей или методов с использованием TensorFlow, получения доступа к специализированным
+        пакетам приложений, расширяющих функционал TensorFlow.
+
+  - classname: devsite-landing-row-100
+    items:
+    - list:
+      - description: >
+          <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
+          Набор инструментов визуализации для понимания, отладки и оптимизации
+          программ TensorFlow.
+        path: /tensorboard
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/hub"><h3 class="tfo-landing-page-heading no-link">TensorFlow Hub</h3></a>
+          Библиотека для публикации, изучения и использования переиспользуемых 
+          частей моделей машинного обучения.
+        path: /hub
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
+          TensorFlow Model Optimization Toolkit представляет собой набор инструментов 
+          оптимизации моделей ML для использования в продакшне.
+        path: /model_optimization
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/federated"><h3 class="tfo-landing-page-heading no-link">TensorFlow Federated</h3></a>
+          Фреймворк для машинного обучения и других вычислений на децентрализованных
+          данных.
+        path: /federated
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/neural_structured_learning"><h3 class="tfo-landing-page-heading no-link">Нейронное структурированное обучение</h3></a>
+          Учебная парадигма для обучения нейронных сетей путем использования структурированных 
+          сигналов в дополнение к входным параметрам.
+        path: /neural_structured_learning
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
+          Библиотека функций компьютерной графики, начиная от камер, источников света и материалов до рендеров.
+        path: /graphics
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+    - list:
+      - description: >
+          <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Датасеты</h3></a>
+          Коллекция датасетов готовых к использованию с TensorFlow.
+        path: /datasets
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
+          Система обслуживания TFX для моделей машинного обучения, предназначенная для достижения высокой 
+          производительности в продакшене.
+        path: /tfx/guide/serving
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/probability"><h3 class="tfo-landing-page-heading no-link">Probability</h3></a>
+          TensorFlow Probability это библиотека для вероятностных рассуждений и
+          статистического анализа.
+        path: /probability
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/mlir"><h3 class="tfo-landing-page-heading no-link">MLIR</h3></a>
+          MLIR унифицирует инфраструктуру для высокопроизводительных моделей ML в
+          TensorFlow.
+        path: /mlir
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="/xla"><h3 class="tfo-landing-page-heading no-link">XLA</h3></a>
+          Компилятор линейной алгебры для различных областей применения, ускоряющий
+          модели TensorFlow потенциально без изменений исходного кода.
+        path: /xla
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG&nbsp;Addons</h3></a>
+          Дополнительная функциональность для TensorFlow, поддерживаемая SIG&nbsp;Addons.
+        path: https://github.com/tensorflow/addons
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/io"><h3 class="tfo-landing-page-heading no-link">SIG IO</h3></a>
+          Расширения баз данных, потоковых передач и файловых систем поддерживаемых SIG&nbsp;IO.
+        path: https://github.com/tensorflow/io
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
