@@ -36,7 +36,7 @@ C++のカスタムオペレーションを作りたいと思う理由は、い�
 TensorFlowのシステムを使って、オペレーションのインターフェースを登録して定義します。
 登録にあたり、オペレーションの名前と入出力（型と名前）、オペレーションが必要とする場合があるdocstringsと [アトリビュート](#attrs) を指定します。
 
-どのように取り組むのかを見るために、`int32` のテンソルを受け取り、最初以外の要素がすべて0であるコピーされたテンソルを出力するオペレーションを作ることを考えます。
+どのように取り組むのかを見るために、`int32` のテンソルを受け取り、最初以外のすべての要素が0であるコピーされたテンソルを出力するオペレーションを作ることを考えます。
 これを行うために、`zero_out.cc` と命名されたファイルを作成します。
 続いて、オペレーションのインターフェースを定義するための `REGISTER_OP` マクロ呼び出しを追加します。
 
@@ -54,3 +54,63 @@ REGISTER_OP("ZeroOut")
       return Status::OK();
     });
 ```
+
+この `ZeroOut` オペレーションは、入力として32bit整数のテンソル `to_zero` を受け取り、32bit整数のテンソル `zeroed` を出力します。
+このオペレーションは、出力テンソルが入力テンソルと同じシェイプであることを保証するために、シェイプ関数を使っています。
+例えば、入力テンソルのシェイプが [10, 20] であるならば、このシェイプ関数は出力のシェイプも [10, 20] であることを明示します。
+
+> 命名に関する注釈: オペレーションの名前はCamelCaseで、かつバイナリに登録されている全てのオペレーションの中で唯一のものである必要があります。
+
+
+## オペレーションのカーネルお実装する
+
+インターフェースを定義したあとは、1つ以上のオペレーションの実装を提供する必要があります。
+これらのカーネルを作成するためには、`OpKernel` を継承したクラスを作成し、`Compute` メソッドをオーバーライドします。
+`Compute` メソッドは、`OpKernelContext*` 型である1つの `context` 引数を提供し、ここから入力や出力テンソルのような便利なものにアクセスできます。
+
+上記で作成したファイルにカーネルを追加します。
+カーネルは例えば次のようなものになるかもしれません。
+
+```c++
+#include "tensorflow/core/framework/op_kernel.h"
+
+using namespace tensorflow;
+
+class ZeroOutOp : public OpKernel {
+ public:
+  explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
+
+  void Compute(OpKernelContext* context) override {
+    // 入力テンソルを取得する。
+    const Tensor& input_tensor = context->input(0);
+    auto input = input_tensor.flat<int32>();
+
+    // 出力テンソルを作成する。
+    Tensor* output_tensor = NULL;
+    OP_REQUIRES_OK(context, context->allocate_output(0, input_tensor.shape(),
+                                                     &output_tensor));
+    auto output_flat = output_tensor->flat<int32>();
+
+    // 最初以外のすべての要素を0にする。
+    const int N = input.size();
+    for (int i = 1; i < N; i++) {
+      output_flat(i) = 0;
+    }
+
+    // 可能なら、最初の入力値は維持する。
+    if (N > 0) output_flat(0) = input(0);
+  }
+};
+```
+
+カーネルを実装したあと、TensorFlowのシステムに登録します。
+登録時には、このカーネルが動作するいろいろな制約を指定します。
+例えば、CPU向けに作成した1つのカーネルと、GPU向けの別のカーネルがあるとしましょう。
+
+これを `ZeroOut` オペレーションで実現するためには、次を `zero_out.cc` に追加します。
+
+```c++
+REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
+```
+
+> 重要: OpKernelのインスタンスは、同時にアクセスされることがあります。`Compute` メソッドは、スレッドセーフにしなければなりません。クラスメンバへのアクセスはmutexでガードしてください。いっそのこと、クラスメンバ経由で状態を共有しないようにしてください！オペレーションの状態を追跡するためには、[`ResourceMgr](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h) を使用することを検討してください。
