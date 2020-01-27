@@ -15,6 +15,7 @@ landing_page:
         <table class="columns">
           <tr><td>
             <ul>
+              <li>Python 3.4–3.7</li>
               <li>Ubuntu 16.04 or later</li>
               <li>Windows 7 or later</li>
             </ul>
