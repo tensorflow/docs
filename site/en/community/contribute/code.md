@@ -85,7 +85,7 @@ Code contributions—bug fixes, new development, test improvement—all follow a
 
 5.  Commit your changes.
 
-    `$ git add -a`
+    `$ git add -A`
 
     `$ git commit -m "commit message here"`
 
