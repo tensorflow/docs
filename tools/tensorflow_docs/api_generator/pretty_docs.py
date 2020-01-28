@@ -107,6 +107,16 @@ def _build_class_page(page_info):
 
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
+  method_info_dict = {method.short_name: method for method in page_info.methods}
+
+  constructor = method_info_dict.pop('__init__', None)
+  if constructor is None:
+    constructor = method_info_dict.pop('__new__', None)
+
+  if constructor is not None and not constructor.doc.brief:
+    parts.append(_build_method_section(constructor, heading_level=2))
+    parts.append('\n\n')
+
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -115,16 +125,8 @@ def _build_class_page(page_info):
 
   parts.append('\n\n')
 
-  # Sort the methods list, but make sure constructors come first.
-  constructor_names = ['__init__', '__new__']
-  constructors = sorted(method for method in page_info.methods
-                        if method.short_name in constructor_names)
-  other_methods = sorted(method for method in page_info.methods
-                         if method.short_name not in constructor_names)
-
-  if constructors:
-    for method_info in constructors:
-      parts.append(_build_method_section(method_info, heading_level=2))
+  if constructor is not None and constructor.doc.brief:
+    parts.append(_build_method_section(constructor, heading_level=2))
     parts.append('\n\n')
 
   if page_info.classes:
@@ -153,10 +155,10 @@ def _build_class_page(page_info):
 
     parts.append('\n\n')
 
-  if other_methods:
+  if method_info_dict:
     parts.append('## Methods\n\n')
 
-    for method_info in other_methods:
+    for _, method_info in sorted(method_info_dict.items()):
       parts.append(_build_method_section(method_info))
     parts.append('\n\n')
 
@@ -387,7 +389,7 @@ def _build_collapsable_aliases(aliases: List[str]) -> str:
 
   collapsable_template = textwrap.dedent("""\
     <section class="expandable">
-      <h4 class="showalways"><b>{title}</b></h4>
+      <h4 class="showalways">{title}</h4>
       <p>{content}</p>
     </section>
     """)
