@@ -1,9 +1,14 @@
 project_path: /_project.yaml
 book_path: /_book.yaml
-description: <!--no description-->
+title: Install TensorFlow 2
 landing_page:
   custom_css_path: /site-assets/css/style.css
   nav: both
+  meta_tags:
+  - name: description
+    content: >
+      Learn how to install TensorFlow on your system. Download a pip package, run in a Docker
+      container, or build from source. Enable the GPU on supported cards.
   rows:
   - classname:
       devsite-landing-row-large-headings
