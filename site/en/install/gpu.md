@@ -25,17 +25,11 @@ GPU support, choose a stable or development package:
 
 ### Older versions of TensorFlow
 
-For the 1.15 release, CPU and GPU support are included in a single package:
+For releases 1.15 and older, CPU and GPU packages are separate:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install --pre "tensorflow==1.15.*"</code>
-</pre>
-
-For releases 1.14 and older, CPU and GPU packages are separate:
-
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow==1.14      # CPU</code>
-<code class="devsite-terminal">pip install tensorflow-gpu==1.14  # GPU</code>
+<code class="devsite-terminal">pip install tensorflow==1.15      # CPU</code>
+<code class="devsite-terminal">pip install tensorflow-gpu==1.15  # GPU</code>
 </pre>
 
 ## Hardware requirements
