@@ -1,9 +1,14 @@
 book_path: /overview/_book.yaml
 project_path: /overview/_project.yaml
-description: <!--no description-->
+title: Guide
 landing_page:
   custom_css_path: /site-assets/css/style.css
   nav: left
+  meta_tags:
+  - name: description
+    content: >
+      Learn basic and advanced concepts of TensorFlow such as eager execution, Keras
+      high-level APIs and flexible model building.
   rows:
   - classname:
       devsite-landing-row-100

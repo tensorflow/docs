@@ -30,13 +30,14 @@ file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
 
-[Install Bazel 0.24.1](https://docs.bazel.build/versions/master/install-windows.html){:.external},
-the build tool used to compile TensorFlow. Set up Bazel to
-[build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}.
+[Install Bazel](./source.md#install-bazel), the build tool used to compile
+TensorFlow. For Bazel version, see the
+[tested build configurations](#tested-build-configurations) for Windows.
+Configure Bazel to
+<a href="https://docs.bazel.build/versions/master/windows.html#build-c" class="external">build
+C++</a>.
 
 Add the location of the Bazel executable to your `%PATH%` environment variable.
-
-Ensure that your version of Bazel uses a [tested build configuration](#tested_build_configurations) of TensorFlow.
 
 ### Install MSYS2
 
@@ -49,19 +50,19 @@ run:
 pacman -S git patch unzip
 </pre>
 
-### Install Visual C++ Build Tools 2017
+### Install Visual C++ Build Tools 2019
 
-Install the *Visual C++ build tools 2017*. This comes with *Visual Studio 2017*
+Install the *Visual C++ build tools 2019*. This comes with *Visual Studio 2019*
 but can be installed separately:
 
 1.  Go to the
-    [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external},
+    [Visual Studio downloads](https://visualstudio.microsoft.com/downloads/){:.external},
 2.  Select *Redistributables and Build Tools*,
 3.  Download and install:
-    -   *Microsoft Visual C++ 2017 Redistributable*
-    -   *Microsoft Build Tools 2017*
+    -   *Microsoft Visual C++ 2019 Redistributable*
+    -   *Microsoft Build Tools 2019*
 
-Note: TensorFlow is tested against the *Visual Studio 2017*.
+Note: TensorFlow is tested against the *Visual Studio 2019*.
 
 ### Install GPU support (optional)
 

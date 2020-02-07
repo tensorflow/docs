@@ -1,9 +1,14 @@
 book_path: /overview/_book.yaml
 project_path: /overview/_project.yaml
-description: <!--no description-->
+title: Tutorials
 landing_page:
   custom_css_path: /site-assets/css/style.css
   nav: left
+  meta_tags:
+  - name: description
+    content: >
+      Complete, end-to-end examples to learn how to use TensorFlow for ML beginners and experts. Try
+      tutorials in Google Colab - no setup required.
   rows:
   - classname:
       devsite-landing-row-100

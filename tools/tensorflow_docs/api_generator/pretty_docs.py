@@ -107,16 +107,6 @@ def _build_class_page(page_info):
 
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
-  method_info_dict = {method.short_name: method for method in page_info.methods}
-
-  constructor = method_info_dict.pop('__init__', None)
-  if constructor is None:
-    constructor = method_info_dict.pop('__new__', None)
-
-  if constructor is not None and not constructor.doc.brief:
-    parts.append(_build_method_section(constructor, heading_level=2))
-    parts.append('\n\n')
-
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -125,7 +115,17 @@ def _build_class_page(page_info):
 
   parts.append('\n\n')
 
-  if constructor is not None and constructor.doc.brief:
+  method_info_dict = {method.short_name: method for method in page_info.methods}
+  init_constructor = method_info_dict.pop('__init__', None)
+  new_constructor = method_info_dict.pop('__new__', None)
+
+  constructor = None
+  if init_constructor is not None:
+    constructor = init_constructor
+  elif new_constructor is not None:
+    constructor = new_constructor
+
+  if constructor is not None:
     parts.append(_build_method_section(constructor, heading_level=2))
     parts.append('\n\n')
 
@@ -389,7 +389,7 @@ def _build_collapsable_aliases(aliases: List[str]) -> str:
 
   collapsable_template = textwrap.dedent("""\
     <section class="expandable">
-      <h4 class="showalways">{title}</h4>
+      <h4 class="showalways">View aliases</h4>
       <p>{content}</p>
     </section>
     """)
@@ -427,7 +427,6 @@ def _build_collapsable_aliases(aliases: List[str]) -> str:
         content=join_aliases(compat_aliases))
 
   if alias_content:
-    return collapsable_template.format(
-        title='View aliases', content=alias_content) + '\n'
+    return collapsable_template.format(content=alias_content) + '\n'
 
   return alias_content
