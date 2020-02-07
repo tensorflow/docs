@@ -1581,7 +1581,11 @@ def _get_defined_in(py_object, parser_config):
 
   # In case this is compiled, point to the original
   if rel_path.endswith('.pyc'):
-    rel_path = rel_path[:-1]
+    # If a PY3 __pycache__/ subdir is being used, omit it.
+    rel_path = rel_path.replace('__pycache__' + os.sep, '')
+    # Strip everything after the first . so that variants such as .pyc and
+    # .cpython-3x.pyc or similar are all handled.
+    rel_path = rel_path.partition('.')[0] + '.py'
 
   # Never include links outside this code base.
   if re.search(r'\b_api\b', rel_path):
