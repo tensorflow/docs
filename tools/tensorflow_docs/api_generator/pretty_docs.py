@@ -230,6 +230,8 @@ def _build_module_page(page_info):
   """Given a ClassPageInfo object Return the page as an md string."""
   parts = [f'# Module: {page_info.full_name}\n\n']
 
+  parts.append('<!-- Insert buttons and diff -->\n')
+
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
