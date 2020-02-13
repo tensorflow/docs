@@ -53,7 +53,12 @@ landing_page:
         # Requires the latest pip
         <code class="devsite-terminal">pip install --upgrade pip</code><br/>
         # Current stable release for CPU and GPU
+        # For TensorFlow 1.14,
         <code class="devsite-terminal">pip install tensorflow</code><br/>
+        # For TensorFlow2,
+        <code class="devsite-terminal">pip install tensorflow==2</code><br/>
+        # Or you can specify the specific verison that you want to install, after the "==" as follows,
+        <code class="devsite-terminal">pip install tensorflow==[verison i.e., 2.1.0, 2.0.0, etc]</code><br/>
         # Or try the preview build (unstable)
         <code class="devsite-terminal">pip install tf-nightly</code><br/>
 
