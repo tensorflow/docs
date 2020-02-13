@@ -29,6 +29,7 @@ import tempfile
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import traverse
@@ -506,7 +507,8 @@ def write_docs(output_dir,
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
       # This function returns unicode in PY3.
-      if search_hints:
+      hidden = doc_controls.should_hide_from_search(page_info.py_object)
+      if search_hints and not hidden:
         content = [page_info.get_metadata_html()]
       else:
         content = ['<meta name="robots" content="noindex">\n']

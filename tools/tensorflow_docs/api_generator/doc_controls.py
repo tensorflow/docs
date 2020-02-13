@@ -15,6 +15,45 @@
 # ==============================================================================
 """Documentation control decorators."""
 
+_NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
+
+
+def hide_from_search(obj):
+  """Marks an object so metadata search hints will not be included on it's page.
+
+  The page is set to "noindex" to hide it from search.
+
+  Note: This only makes sense to apply to functions, classes and modules.
+  Constants, and methods do not get their own pages.
+
+  Args:
+    obj: the object to hide.
+
+  Returns:
+    The object.
+  """
+  setattr(obj, _NO_SEARCH_HINTS, None)
+  return obj
+
+
+def should_hide_from_search(obj):
+  """ Returns true if metadata search hints should be included on this page."""
+  return hasattr(obj, _NO_SEARCH_HINTS)
+
+
+_CUSTOM_PAGE_CONTENT = "_tf_docs_custom_page_content"
+
+
+def set_custom_page_content(obj, content):
+  """Replace most of the generated page with custom content."""
+  setattr(obj, _CUSTOM_PAGE_CONTENT, content)
+
+
+def get_custom_page_content(object):
+  """Gets custom page content if available."""
+  return getattr(object, _CUSTOM_PAGE_CONTENT, None)
+
+
 _DO_NOT_DOC = "_tf_docs_do_not_document"
 
 

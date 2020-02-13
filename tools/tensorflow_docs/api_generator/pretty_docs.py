@@ -29,6 +29,7 @@ import textwrap
 from typing import List
 
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 
 
@@ -80,6 +81,11 @@ def _build_function_page(page_info):
   parts.extend(str(item) for item in page_info.doc.docstring_parts)
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
+    return ''.join(parts)
+
   return ''.join(parts)
 
 
@@ -114,6 +120,11 @@ def _build_class_page(page_info):
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
+
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
+    return ''.join(parts)
 
   method_info_dict = {method.short_name: method for method in page_info.methods}
   init_constructor = method_info_dict.pop('__init__', None)
@@ -245,6 +256,11 @@ def _build_module_page(page_info):
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
+
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
+    return ''.join(parts)
 
   if page_info.modules:
     parts.append('## Modules\n\n')
