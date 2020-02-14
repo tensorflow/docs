@@ -53,6 +53,13 @@ flags.DEFINE_string('site_path', '/api_docs/python',
 
 def gen_api_docs():
   """Generates api docs for the tensorflow docs package."""
+
+  # The below `del`'s are to avoid the api_gen_test to not document these.
+  # Please remove these lines from your build_docs.py files when you create
+  # them.
+  del tensorflow_docs.google
+  del tensorflow_docs.api_generator.tf_inspect
+
   doc_generator = generate_lib.DocGenerator(
       root_title=PROJECT_FULL_NAME,
       # Replace `tensorflow_docs` with your module, here.
