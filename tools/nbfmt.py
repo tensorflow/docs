@@ -15,7 +15,9 @@
 # ==============================================================================
 """Format notebooks using the TensorFlow docs style.
 
-Usage: nbfmt.py [options] notebook.ipynb [...]
+Usage:
+$ nbfmt.py [options] notebook.ipynb [...]
+$ find . -name "*\.ipynb" | xargs ./tools/nbfmt.py [--ignore_warn]
 
 See the TensorFlow notebook template:
 https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
@@ -25,6 +27,7 @@ https://www.tensorflow.org/community/contribute/docs
 import collections
 import json
 import os
+import pathlib
 import re
 import sys
 from absl import app
@@ -98,7 +101,7 @@ def has_license_and_update(data):
       data["cells"][idx]["metadata"] = metadata
 
   if not has_license:
-    print(f"Missing license: {license_header}", file=sys.stderr)
+    print(f"  Missing license: {license_header}", file=sys.stderr)
 
   return has_license
 
@@ -125,7 +128,7 @@ def has_required_regexps(data):
         break  # Found this match so skip the rest of the notebook.
 
     if not has_pattern:
-      print(f"Missing {desc}: {pattern}", file=sys.stderr)
+      print(f"  Missing {desc}: {pattern}", file=sys.stderr)
       has_all_patterns = False
       return False
 
@@ -160,9 +163,26 @@ def main(argv, ignore_warn=None, ignore_outputs=None):
         file=sys.stderr)
     sys.exit(1)
 
-  for fp in argv[1:]:
+  did_skip = False  # Track errors for final return code.
+
+  for arg in argv[1:]:
+    fp = pathlib.Path(arg)
+
+    print(f"Notebook: {fp}", file=sys.stderr)
+
+    if fp.suffix != ".ipynb":
+      print("  Not an '.ipynb' file, skipping.", file=sys.stderr)
+      did_skip = True
+      continue
+
     with open(fp, "r", encoding="utf-8") as f:
-      data = json.load(f)
+      try:
+        data = json.load(f)
+      except ValueError as err:
+        print(f"  {err.__class__.__name__}: {err}", file=sys.stderr)
+        print("  Unable to load JSON, skipping.", file=sys.stderr)
+        did_skip = True
+        continue
 
     delete_cells(data)
     update_metadata(data, filepath=fp)
@@ -171,8 +191,11 @@ def main(argv, ignore_warn=None, ignore_outputs=None):
 
     if not FLAGS.ignore_warn:
       if not has_license or not has_patterns:
-        print("Notebook not written.", file=sys.stderr)
-        sys.exit(1)
+        print(
+            "  Found warnings. Notebook not written, skipping.",
+            file=sys.stderr)
+        did_skip = True
+        continue
 
     data = sort_notebook(data)
     json_str = json.dumps(data, indent=INDENT_STYLE)
@@ -180,6 +203,9 @@ def main(argv, ignore_warn=None, ignore_outputs=None):
     with open(fp, "w", encoding="utf-8") as f:
       f.write(json_str)
       f.write("\n")
+
+  if did_skip:
+    sys.exit(1)
 
 
 if __name__ == "__main__":
