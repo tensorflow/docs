@@ -40,7 +40,7 @@ FLAGS = flags.FLAGS
 INDENT_STYLE = 2  # Same as Colab downloads
 # description : regexp
 REQUIRED_REGEXPS = {
-    "copyright": "Copyright 20[1-9][0-9] The TensorFlow.*? Authors\.?$",
+    "copyright": "Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
     "TF2 Colab magic": "%tensorflow_version 2.x"
 }
 
@@ -198,7 +198,7 @@ def main(argv, ignore_warn=None, ignore_outputs=None):
         continue
 
     data = sort_notebook(data)
-    json_str = json.dumps(data, indent=INDENT_STYLE)
+    json_str = json.dumps(data, ensure_ascii=False, indent=INDENT_STYLE)
 
     with open(fp, "w", encoding="utf-8") as f:
       f.write(json_str)
