@@ -33,7 +33,7 @@ import sys
 from absl import app
 from absl import flags
 
-flags.DEFINE_bool("ignore_outputs", False, "Do not remove output cells.")
+flags.DEFINE_bool("preserve_outputs", False, "Keep existing output cells.")
 flags.DEFINE_bool("ignore_warn", False, "Overwrite notebook despite warnings.")
 
 FLAGS = flags.FLAGS
@@ -53,11 +53,19 @@ def delete_cells(data):
   """
   # remove empty cells
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
+
   # strip output cells
-  if not FLAGS.ignore_outputs:
+  if not FLAGS.preserve_outputs:
+    has_outputs = False
     for idx, _ in enumerate(data["cells"]):
       data["cells"][idx].pop("execution_count", None)
-      data["cells"][idx].pop("outputs", None)
+      # Sometimes no outputs are saved as an empty list.
+      output_src = data["cells"][idx].pop("outputs", None)
+      if output_src and not has_outputs:
+        has_outputs = True
+
+    if has_outputs:
+      print("  Removed the existing output cells.", file=sys.stderr)
 
 
 def update_metadata(data, filepath=None):
@@ -150,13 +158,7 @@ def sort_notebook(data):
   return sorted_data
 
 
-def main(argv, ignore_warn=None, ignore_outputs=None):
-  # Update flags when calling nbfmt.main() directly.
-  if ignore_warn is not None:
-    FLAGS.ignore_warn = ignore_warn
-  if ignore_outputs is not None:
-    FLAGS.ignore_outputs = ignore_outputs
-
+def main(argv):
   if len(argv) <= 1:
     print(
         f"Usage: {os.path.basename(__file__)} [options] notebook.ipynb [...]",
