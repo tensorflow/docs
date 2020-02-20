@@ -877,7 +877,7 @@ class _OtherMemberInfo(
 _PropertyInfo = collections.namedtuple(
     '_PropertyInfo', ['short_name', 'full_name', 'obj', 'doc'])
 
-_MethodInfo = collections.namedtuple('_MethodInfo', [
+MethodInfo = collections.namedtuple('MethodInfo', [
     'short_name',
     'full_name',
     'obj',
@@ -1033,7 +1033,7 @@ class ClassPageInfo(PageInfo):
       classes.
     properties: A list of `_PropertyInfo` objects documenting the class'
       properties (attributes that use `@property`).
-    methods: A list of `_MethodInfo` objects documenting the class' methods.
+    methods: A list of `MethodInfo` objects documenting the class' methods.
     classes: A list of `_LinkInfo` objects pointing to docs for any nested
       classes.
     other_members: A list of `_OtherMemberInfo` objects documenting any other
@@ -1128,12 +1128,12 @@ class ClassPageInfo(PageInfo):
 
   @property
   def methods(self):
-    """Returns a list of `_MethodInfo` describing the class' methods."""
+    """Returns a list of `MethodInfo` describing the class' methods."""
     return self._methods
 
   def _add_method(self, short_name, full_name, obj, doc, signature, decorators,
                   defined_in):
-    """Adds a `_MethodInfo` entry to the `methods` list.
+    """Adds a `MethodInfo` entry to the `methods` list.
 
     Args:
       short_name: The method's short name.
@@ -1145,8 +1145,8 @@ class ClassPageInfo(PageInfo):
         mentioned on the object's docs page.
       defined_in: A `_FileLocation` object pointing to the object source.
     """
-    method_info = _MethodInfo(short_name, full_name, obj, doc, signature,
-                              decorators, defined_in)
+    method_info = MethodInfo(short_name, full_name, obj, doc, signature,
+                             decorators, defined_in)
     self._methods.append(method_info)
 
   @property

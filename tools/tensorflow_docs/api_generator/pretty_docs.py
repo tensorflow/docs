@@ -1,5 +1,5 @@
 # Lint as: python3
-# Copyright 2015 The TensorFlow Authors. All Rights Reserved.
+# Copyright 2017 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,14 +26,14 @@ This module contains one public function, which handels the conversion of these
 
 import textwrap
 
-from typing import List
+from typing import Dict, List, NamedTuple
 
-from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 
 
-def build_md_page(page_info):
+def build_md_page(page_info: parser.PageInfo) -> str:
   """Given a PageInfo object, return markdown for the page.
 
   Args:
@@ -58,8 +58,18 @@ def build_md_page(page_info):
   raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
 
-def _build_function_page(page_info):
-  """Given a FunctionPageInfo object Return the page as an md string."""
+def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
+  """Constructs a markdown page given a `FunctionPageInfo` object.
+
+  Args:
+    page_info: A `FunctionPageInfo` object containing information that's used to
+      create a function page.
+      For example, see https://www.tensorflow.org/api_docs/python/tf/concat
+
+  Returns:
+    The function markdown page.
+  """
+
   parts = [f'# {page_info.full_name}\n\n']
 
   parts.append('<!-- Insert buttons and diff -->\n')
@@ -72,7 +82,7 @@ def _build_function_page(page_info):
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
   if page_info.signature is not None:
-    parts.append(_build_signature(page_info))
+    parts.append(_build_signature(page_info, obj_name=page_info.full_name))
     parts.append('\n\n')
 
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
@@ -89,36 +99,175 @@ def _build_function_page(page_info):
   return ''.join(parts)
 
 
-def _build_class_page(page_info):
-  """Given a ClassPageInfo object Return the page as an md string."""
+class _Methods(NamedTuple):
+  info_dict: Dict[str, parser.MethodInfo]
+  constructor: parser.MethodInfo
+
+
+def _split_methods(methods: List[parser.MethodInfo]) -> _Methods:
+  """Splits the given methods list into constructors and the remaining methods.
+
+  If both `__init__` and `__new__` exist on the class, then prefer `__init__`
+  as the constructor over `__new__` to document.
+
+  Args:
+    methods: List of all the methods on the `ClassPageInfo` object.
+
+  Returns:
+    A `DocumentMethods` object containing a {method_name: method object}
+    dictionary and a constructor object.
+  """
+
+  # Create a method_name to methods object dictionary.
+  method_info_dict = {method.short_name: method for method in methods}
+
+  # Pop the constructors from the dictionary.
+  init_constructor = method_info_dict.pop('__init__', None)
+  new_constructor = method_info_dict.pop('__new__', None)
+
+  constructor = None
+  # Prefers `__init__` over `__new__` as the constructor to document.
+  if init_constructor is not None:
+    constructor = init_constructor
+  elif new_constructor is not None:
+    constructor = new_constructor
+
+  return _Methods(info_dict=method_info_dict, constructor=constructor)
+
+
+def _merge_class_and_constructor_docstring(
+    class_page_info: parser.ClassPageInfo,
+    ctor_info: parser.MethodInfo) -> List[str]:
+  """Merges the class and the constructor docstrings.
+
+  While merging, the following rules are followed:
+
+  * Only `Arguments` and `Raises` blocks from constructor are uplifted to the
+    class docstring. Rest of the stuff is ignored since it doesn't add much
+    value and in some cases the information is repeated.
+
+  * The `Raises` block is added to the end of the classes docstring.
+
+  * The `Arguments` or `Args` block is inserted before the `Attributes` section.
+    If `Attributes` section does not exist in the class docstring then add it
+    to the end.
+
+  * If the constructor does not exist on the class, then the class docstring
+    is returned as it is.
+
+  Args:
+    class_page_info: Object containing information about the class.
+    ctor_info: Object containing information about the constructor of the class.
+
+  Returns:
+    A list of strings containing the merged docstring.
+  """
+
+  # Get the class docstring. `.doc.docstring_parts` contain the entire
+  # docstring except for the one-line docstring that's compulsory.
+  class_doc = class_page_info.doc.docstring_parts
+
+  # If constructor doesn't exist, return the class docstring as it is.
+  if ctor_info is None:
+    return [str(item) for item in class_doc]
+
+  # Get the constructor's docstring parts.
+  constructor_doc = ctor_info.doc.docstring_parts
+
+  # Extract the `Arguments`/`Args` from the constructor's docstring.
+  # A constructor won't contain `Args` and `Arguments` section at once.
+  # It can contain either one of these so check for both.
+  ctor_args_block = None
+  ctor_raise_block = None
+  for block in constructor_doc:
+    if isinstance(block, parser.TitleBlock):
+      if block.title.startswith(('Args', 'Arguments')):
+        ctor_args_block = block
+      elif block.title.startswith('Raises'):
+        ctor_raise_block = block
+
+  # Insert the `Args`/`Arguments` section before `Attributes` in the class
+  # docstring.
+  if ctor_args_block is not None:
+    added_args_to_class_doc = False
+    for index, block in enumerate(class_doc):
+      if isinstance(block,
+                    parser.TitleBlock) and block.title.startswith('Attributes'):
+        class_doc.insert(index, ctor_args_block)
+        added_args_to_class_doc = True
+        break
+    # If the class docstring didn't have an `Attributes` section, then add the
+    # arguments section to the end of the class docstring.
+    if not added_args_to_class_doc:
+      class_doc.append(ctor_args_block)
+
+  # If constructor had a 'Raises' block, add it to the end of the
+  # class docstring.
+  if ctor_raise_block is not None:
+    class_doc.append(ctor_raise_block)
+
+  # Cast the items in class_doc to string and return the list.
+  return [str(item) for item in class_doc]
+
+
+def _build_class_page(page_info: parser.ClassPageInfo) -> str:
+  """Constructs a markdown page given a `ClassPageInfo` object.
+
+  Args:
+    page_info: A `ClassPageInfo` object containing information that's used to
+      create a class page. For example, see
+      https://www.tensorflow.org/api_docs/python/tf/data/Dataset
+
+  Returns:
+    The class markdown page.
+  """
+
+  # Add the full_name of the symbol to the page.
   parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
+  # This is used as a marker to initiate the diffing process later down in the
+  # pipeline.
   parts.append('<!-- Insert buttons and diff -->\n')
 
+  # Add the github button.
   parts.append(_top_source_link(page_info.defined_in))
   parts.append('\n\n')
 
-  parts.append('## Class `{}`\n\n'.format(page_info.full_name.split('.')[-1]))
-
+  # Add the one line docstring of the class.
   parts.append(page_info.doc.brief + '\n\n')
 
+  # If a class is a child class, add which classes it inherits from.
   if page_info.bases:
     parts.append('Inherits From: ')
 
     link_template = '[`{short_name}`]({url})'
     parts.append(', '.join(
         link_template.format(**base._asdict()) for base in page_info.bases))
+    parts.append('\n\n')
 
-  parts.append('\n\n')
-
+  # Build the aliases section and keep it collapses by default.
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
-  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  # Split the methods into constructor and other methods.
+  methods = _split_methods(page_info.methods)
+
+  # If the class has a constructor, build its signature.
+  # The signature will contain the class name followed by the arguments it
+  # takes.
+  if methods.constructor is not None:
+    parts.append(
+        _build_signature(methods.constructor, obj_name=page_info.full_name))
+    parts.append('\n\n')
+
+  # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.extend(str(item) for item in page_info.doc.docstring_parts)
-  parts.append(_build_compatibility(page_info.doc.compatibility))
+  # Merge the class and constructor docstring.
+  parts.extend(
+      _merge_class_and_constructor_docstring(page_info, methods.constructor))
 
+  # Add the compatibility section to the page.
+  parts.append(_build_compatibility(page_info.doc.compatibility))
   parts.append('\n\n')
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
@@ -126,20 +275,7 @@ def _build_class_page(page_info):
     parts.append(custom_content)
     return ''.join(parts)
 
-  method_info_dict = {method.short_name: method for method in page_info.methods}
-  init_constructor = method_info_dict.pop('__init__', None)
-  new_constructor = method_info_dict.pop('__new__', None)
-
-  constructor = None
-  if init_constructor is not None:
-    constructor = init_constructor
-  elif new_constructor is not None:
-    constructor = new_constructor
-
-  if constructor is not None:
-    parts.append(_build_method_section(constructor, heading_level=2))
-    parts.append('\n\n')
-
+  # If the class has child classes, add that information to the page.
   if page_info.classes:
     parts.append('## Child Classes\n')
 
@@ -151,31 +287,30 @@ def _build_class_page(page_info):
 
     parts.extend(class_links)
 
+  # Add properties information to the page.
+  # TODO(b/148687129): Merge properties into attributes.
   if page_info.properties:
     parts.append('## Properties\n\n')
     for prop_info in page_info.properties:
       h3 = (f'<h3 id="{prop_info.short_name}"><code>{prop_info.short_name}'
             '</code></h3>\n\n')
       parts.append(h3)
-
       parts.append(prop_info.doc.brief + '\n')
       parts.extend(str(item) for item in prop_info.doc.docstring_parts)
       parts.append(_build_compatibility(prop_info.doc.compatibility))
-
       parts.append('\n\n')
 
-    parts.append('\n\n')
-
-  if method_info_dict:
+  # If the class contains methods other than the constructor, then add them
+  # to the page.
+  if methods.info_dict:
     parts.append('## Methods\n\n')
-
-    for _, method_info in sorted(method_info_dict.items()):
+    for _, method_info in sorted(methods.info_dict.items()):
       parts.append(_build_method_section(method_info))
     parts.append('\n\n')
 
+  # Add class variables/members if they exist to the page.
   if page_info.other_members:
-    parts.append('## Class Members\n\n')
-
+    parts.append('## Class Variables\n\n')
     parts.append(_other_members(page_info.other_members))
 
   return ''.join(parts)
@@ -228,7 +363,7 @@ def _build_method_section(method_info, heading_level=3):
     parts.append(_small_source_link(method_info.defined_in))
 
   if method_info.signature is not None:
-    parts.append(_build_signature(method_info, use_full_name=False))
+    parts.append(_build_signature(method_info, obj_name=method_info.short_name))
 
   parts.append(method_info.doc.brief + '\n')
   parts.extend(str(item) for item in method_info.doc.docstring_parts)
@@ -237,8 +372,18 @@ def _build_method_section(method_info, heading_level=3):
   return ''.join(parts)
 
 
-def _build_module_page(page_info):
-  """Given a ClassPageInfo object Return the page as an md string."""
+def _build_module_page(page_info: parser.ModulePageInfo) -> str:
+  """Constructs a markdown page given a `ModulePageInfo` object.
+
+  Args:
+    page_info: A `ModulePageInfo` object containing information that's used to
+      create a module page.
+      For example, see https://www.tensorflow.org/api_docs/python/tf/data
+
+  Returns:
+    The module markdown page.
+  """
+
   parts = [f'# Module: {page_info.full_name}\n\n']
 
   parts.append('<!-- Insert buttons and diff -->\n')
@@ -316,33 +461,46 @@ DECORATOR_WHITELIST = {
 }
 
 
-def _build_signature(obj_info, use_full_name=True):
-  """Returns a md code block showing the function signature."""
+def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
+  """Returns a markdown code block containing the function signature.
+
+  Wraps the signature and limits it to 80 characters.
+
+  Args:
+    obj_info: Object containing information about the class/method/function for
+      which a signature will be created.
+    obj_name: The name to use to build the signature.
+
+  Returns:
+    The signature of the object.
+  """
+
   # Special case tf.range, since it has an optional first argument
   if obj_info.full_name == 'tf.range':
-    return ('``` python\n'
-            "tf.range(limit, delta=1, dtype=None, name='range')\n"
-            "tf.range(start, limit, delta=1, dtype=None, name='range')\n"
-            '```\n\n')
+    return textwrap.dedent("""
+      ```python
+      tf.range(limit, delta=1, dtype=None, name='range')
+      tf.range(start, limit, delta=1, dtype=None, name='range')
+      ```
+      """)
 
-  parts = ['``` python']
+  full_signature = ''
+  if obj_info.signature:
+    str_signature = ', '.join(sig_item for sig_item in obj_info.signature)
+    wrapped_signature = '\n'.join(textwrap.wrap(str_signature, width=80))
+    full_signature = '\n' + textwrap.indent(
+        wrapped_signature, prefix='    ') + '\n'
+
+  # Create the signature. For example it will look like:
+  # ```python
+  # tf.concat(
+  #     values, axis, name='concat'
+  # )
+  # ```
+  parts = ['```python']
   parts.extend(
       ['@' + dec for dec in obj_info.decorators if dec in DECORATOR_WHITELIST])
-  signature_template = '{name}({sig})'
-
-  if not obj_info.signature:
-    sig = ''
-  elif len(obj_info.signature) == 1:
-    sig = obj_info.signature[0]
-  else:
-    sig = ',\n'.join('    %s' % sig_item for sig_item in obj_info.signature)
-    sig = '\n' + sig + '\n'
-
-  if use_full_name:
-    obj_name = obj_info.full_name
-  else:
-    obj_name = obj_info.short_name
-  parts.append(signature_template.format(name=obj_name, sig=sig))
+  parts.append(f'{obj_name}({full_signature})')
   parts.append('```\n\n')
 
   return '\n'.join(parts)
