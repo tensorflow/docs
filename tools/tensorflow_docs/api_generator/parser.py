@@ -21,6 +21,7 @@ import json
 import os
 import re
 import textwrap
+from typing import Any, Optional
 
 from absl import logging
 
@@ -1534,7 +1535,8 @@ class _FileLocation(object):
         self.url = self.url + suffix
 
 
-def _get_defined_in(py_object, parser_config):
+def _get_defined_in(py_object: Any,
+                    parser_config: ParserConfig) -> Optional[_FileLocation]:
   """Returns a description of where the passed in python object was defined.
 
   Args:
@@ -1547,12 +1549,13 @@ def _get_defined_in(py_object, parser_config):
   # Every page gets a note about where this object is defined
   base_dirs_and_prefixes = zip(parser_config.base_dir,
                                parser_config.code_url_prefix)
+  try:
+    obj_path = tf_inspect.getfile(py_object)
+  except TypeError:  # getfile throws TypeError if py_object is a builtin.
+    return None
+
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
-    try:
-      obj_path = tf_inspect.getfile(py_object)
-    except TypeError:  # getfile throws TypeError if py_object is a builtin.
-      continue
 
     rel_path = os.path.relpath(
         path=obj_path, start=base_dir)
@@ -1564,16 +1567,16 @@ def _get_defined_in(py_object, parser_config):
       code_url_prefix = temp_prefix
       break
 
+  # No link if the file was not found in a `base_dir`, or the prefix is None.
+  if code_url_prefix is None:
+    return None
+
   try:
     lines, start_line = tf_inspect.getsourcelines(py_object)
     end_line = start_line + len(lines) - 1
   except (IOError, TypeError, IndexError):
     start_line = None
     end_line = None
-
-  # No link if the file was not found in a `base_dir`, or the prefix is None.
-  if code_url_prefix is None:
-    return None
 
   # TODO(wicke): If this is a generated file, link to the source instead.
   # TODO(wicke): Move all generated files to a generated/ directory.
