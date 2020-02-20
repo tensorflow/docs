@@ -45,6 +45,16 @@ REQUIRED_REGEXPS = {
 }
 
 
+def warn(msg):
+  """Print highlighted warning message to stderr.
+
+  Args:
+    msg: String to print to console.
+  """
+  # Use terminal codes to print color output to console.
+  print(f" \033[33m {msg}\033[00m", file=sys.stderr)
+
+
 def delete_cells(data):
   """Remove empty cells and strip outputs from `data` object.
 
@@ -58,14 +68,15 @@ def delete_cells(data):
   if not FLAGS.preserve_outputs:
     has_outputs = False
     for idx, _ in enumerate(data["cells"]):
-      data["cells"][idx].pop("execution_count", None)
-      # Sometimes no outputs are saved as an empty list.
-      output_src = data["cells"][idx].pop("outputs", None)
-      if output_src and not has_outputs:
+      cell = data["cells"][idx]
+      if cell["cell_type"] == "code" and cell.get("outputs"):
         has_outputs = True
+        # Clear code outputs
+        data["cells"][idx]["execution_count"] = 0
+        data["cells"][idx]["outputs"] = []
 
     if has_outputs:
-      print("  Removed the existing output cells.", file=sys.stderr)
+      warn("Removed the existing output cells.")
 
 
 def update_metadata(data, filepath=None):
@@ -109,7 +120,7 @@ def has_license_and_update(data):
       data["cells"][idx]["metadata"] = metadata
 
   if not has_license:
-    print(f"  Missing license: {license_header}", file=sys.stderr)
+    warn(f"Missing license: {license_header}")
 
   return has_license
 
@@ -136,7 +147,7 @@ def has_required_regexps(data):
         break  # Found this match so skip the rest of the notebook.
 
     if not has_pattern:
-      print(f"  Missing {desc}: {pattern}", file=sys.stderr)
+      warn(f"Missing {desc}: {pattern}")
       has_all_patterns = False
       return False
 
@@ -173,7 +184,7 @@ def main(argv):
     print(f"Notebook: {fp}", file=sys.stderr)
 
     if fp.suffix != ".ipynb":
-      print("  Not an '.ipynb' file, skipping.", file=sys.stderr)
+      warn("Not an '.ipynb' file, skipping.")
       did_skip = True
       continue
 
@@ -182,7 +193,7 @@ def main(argv):
         data = json.load(f)
       except ValueError as err:
         print(f"  {err.__class__.__name__}: {err}", file=sys.stderr)
-        print("  Unable to load JSON, skipping.", file=sys.stderr)
+        warn("Unable to load JSON, skipping.")
         did_skip = True
         continue
 
