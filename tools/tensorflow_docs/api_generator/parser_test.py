@@ -55,7 +55,11 @@ class ParentClass(object):
 
 
 class TestClass(ParentClass):
-  """Docstring for TestClass itself."""
+  """Docstring for TestClass itself.
+
+  Attributes:
+    hello: hello
+  """
 
   def a_method(self, arg='default'):
     """Docstring for a method."""
@@ -218,7 +222,9 @@ class ParserTest(parameterized.TestCase):
 
 
     # Make sure the property is present
-    self.assertIs(TestClass.a_property, page_info.properties[0].obj)
+    attrs = page_info.doc.docstring_parts[-1]
+    self.assertIsInstance(attrs, parser.TitleBlock)
+    self.assertIn('a_property', [name for name, desc in attrs.items])
 
     # Make sure there is a link to the child class and it points the right way.
     self.assertIs(TestClass.ChildClass, page_info.classes[0].obj)
@@ -268,8 +274,8 @@ class ParserTest(parameterized.TestCase):
     def sort_key(prop_info):
       return int(prop_info.obj.__doc__.split(' ')[-1])
 
-    self.assertSequenceEqual(page_info.properties,
-                             sorted(page_info.properties, key=sort_key))
+    self.assertSequenceEqual(page_info._properties,
+                             sorted(page_info._properties, key=sort_key))
 
   def test_docs_for_class_should_skip(self):
 

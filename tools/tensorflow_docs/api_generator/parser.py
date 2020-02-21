@@ -23,6 +23,8 @@ import re
 import textwrap
 from typing import Any, Optional
 
+from typing import List, Tuple, Iterable
+
 from absl import logging
 
 import astor
@@ -574,20 +576,27 @@ class TitleBlock(object):
     items: A list of (name, value) string pairs. All items must have the same
       indentation.
   """
+  WHITESPACE_RE = re.compile(r'[ \n]+')
 
-  def __init__(self, title, text, items):
+  def __init__(self, title: str, text: str, items: Iterable[Tuple[str, str]]):
     self.title = title
     self.text = text
     self.items = items
 
-  def __str__(self):
+  def __str__(self) -> str:
     """Returns a markdown compatible version of the TitleBlock."""
     sub = []
     sub.append('\n\n#### ' + self.title + ':\n')
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
     for name, description in self.items:
-      sub.append(f'* <b>`{name}`</b>: {description}')
+      # Skip description if it's just whitespace
+      if self.WHITESPACE_RE.fullmatch(description):
+        # Don't include the description if it's just whitespace.
+        sub.append(f'* <b>`{name}`</b>\n')
+      else:
+        sub.append(f'* <b>`{name}`</b>: {description}')
+
     return ''.join(sub)
 
   # This regex matches an entire title-block.
@@ -735,12 +744,6 @@ def _parse_md_docstring(py_object, relative_path_to_root, full_name,
 
   return _DocstringInfo(brief, docstring_parts, compatibility)
 
-
-def _remove_first_line_indent(string):
-  indent = len(re.match(r'^\s*', string).group(0))
-  return '\n'.join([line[indent:] for line in string.split('\n')])
-
-
 PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
 OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
@@ -788,9 +791,9 @@ def _generate_signature(func, reverse_index):
   # Add all args with defaults.
   if argspec.defaults:
     try:
-      source = _remove_first_line_indent(tf_inspect.getsource(func))
+      source = textwrap.dedent(tf_inspect.getsource(func))
       func_ast = ast.parse(source)
-      ast_defaults = func_ast.body[0].args.defaults
+      ast_defaults = func_ast.body[0].args.defaults  # pytype: disable=attribute-error
     except Exception:  # pylint: disable=broad-except
       # A wide-variety of errors can be thrown here.
       ast_defaults = [None] * len(argspec.defaults)
@@ -873,9 +876,6 @@ class _OtherMemberInfo(
   def is_link(self):
     return False
 
-
-_PropertyInfo = collections.namedtuple(
-    '_PropertyInfo', ['short_name', 'full_name', 'obj', 'doc'])
 
 MethodInfo = collections.namedtuple('MethodInfo', [
     'short_name',
@@ -1029,16 +1029,14 @@ class ClassPageInfo(PageInfo):
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
+    attributes: A dict mapping from "name" to a docstring
     bases: A list of `_LinkInfo` objects pointing to the docs for the parent
       classes.
-    properties: A list of `_PropertyInfo` objects documenting the class'
-      properties (attributes that use `@property`).
     methods: A list of `MethodInfo` objects documenting the class' methods.
     classes: A list of `_LinkInfo` objects pointing to docs for any nested
       classes.
     other_members: A list of `_OtherMemberInfo` objects documenting any other
       object's defined inside the class object (mostly enum style fields).
-    namedtuplefields: a list of the namedtuple fields in the class.
   """
 
   def __init__(self, full_name, py_object):
@@ -1050,14 +1048,15 @@ class ClassPageInfo(PageInfo):
     """
     super(ClassPageInfo, self).__init__(full_name, py_object)
 
-    self.namedtuplefields = None
+    self._namedtuplefields = collections.OrderedDict()
     if issubclass(py_object, tuple):
       namedtuple_attrs = ('_asdict', '_fields', '_make', '_replace')
       if all(hasattr(py_object, attr) for attr in namedtuple_attrs):
-        self.namedtuplefields = py_object._fields
+        for name in py_object._fields:
+          self._namedtuplefields[name] = None
 
+    self._properties = collections.OrderedDict()
     self._bases = None
-    self._properties = []
     self._methods = []
     self._classes = []
     self._other_members = []
@@ -1096,35 +1095,35 @@ class ClassPageInfo(PageInfo):
 
     self._bases = bases
 
-  @property
-  def properties(self):
-    """Returns a list of `_PropertyInfo` describing the class' properties."""
-    props_dict = {prop.short_name: prop for prop in self._properties}
-    props = []
-    if self.namedtuplefields:
-      for field in self.namedtuplefields:
-        field_prop = props_dict.pop(field, None)
-        if field_prop is not None:
-          props.append(field_prop)
-
-    props.extend(sorted(props_dict.values()))
-
-    return props
-
-  def _add_property(self, short_name, full_name, obj, doc):
-    """Adds a `_PropertyInfo` entry to the `properties` list.
+  def _add_property(self, name: str, obj: property, doc: _DocstringInfo):
+    """Adds an entry to the `properties` list.
 
     Args:
-      short_name: The property's short name.
-      full_name: The property's fully qualified name.
-      obj: The property object itself
+      name: The property's name.
+      obj: The property object.
       doc: The property's parsed docstring, a `_DocstringInfo`.
     """
+    del obj
+
     # Hide useless namedtuple docs-trings.
     if re.match('Alias for field number [0-9]+', doc.brief):
       doc = doc._replace(docstring_parts=[], brief='')
-    property_info = _PropertyInfo(short_name, full_name, obj, doc)
-    self._properties.append(property_info)
+
+    new_parts = [doc.brief]
+    # Strip args/returns/raises from property
+    new_parts.extend([
+        str(part)
+        for part in doc.docstring_parts
+        if not isinstance(part, TitleBlock)
+    ])
+    new_parts = [textwrap.indent(part, '  ') for part in new_parts]
+    new_parts.append('')
+    desc = '\n'.join(new_parts)
+
+    if name in self._namedtuplefields:
+      self._namedtuplefields[name] = desc
+    else:
+      self._properties[name] = desc
 
   @property
   def methods(self):
@@ -1154,10 +1153,9 @@ class ClassPageInfo(PageInfo):
     """Returns a list of `_LinkInfo` pointing to any nested classes."""
     return self._classes
 
-  def get_metadata_html(self):
+  def get_metadata_html(self) -> str:
     meta_data = Metadata(self.full_name)
-    for item in itertools.chain(self.classes, self.properties, self.methods,
-                                self.other_members):
+    for item in itertools.chain(self.classes, self.methods, self.other_members):
       meta_data.append(item)
 
     return meta_data.build_html()
@@ -1229,7 +1227,8 @@ class ClassPageInfo(PageInfo):
                                       parser_config.reference_resolver)
 
       if isinstance(child, property):
-        self._add_property(short_name, child_name, child, child_doc)
+        self._add_property(short_name, child, child_doc)
+        continue
 
       elif tf_inspect.isclass(child):
         if defining_class is None:
@@ -1293,8 +1292,48 @@ class ClassPageInfo(PageInfo):
               short_name in ['__slots__', 'DESCRIPTOR']):
             continue
 
-        # TODO(wicke): We may want to also remember the object itself.
         self._add_other_member(short_name, child_name, child, child_doc)
+
+    self._augment_attributes_inplace(self.doc.docstring_parts)
+
+  def _augment_attributes_inplace(self, docstring_parts: List[Any]) -> None:
+    """Augments the "Attr" block of the docstring.
+
+    The block is added to the end if it is not found.
+
+    Merges `namedtuple` fields and properties into the attrs block.
+
+    + `namedtuple` fields first, in order.
+    + Then the docstring `Attr:` block.
+    + Then any `properties` not mentioned above.
+
+    Args:
+      docstring_parts: A list of docstring parts. Edited in-place.
+    """
+    for attr_block_index, part in enumerate(docstring_parts):
+      if isinstance(part, TitleBlock) and part.title.startswith('Attr'):
+        raw_attrs = collections.OrderedDict(part.items)
+        break
+    else:
+      raw_attrs = collections.OrderedDict()
+      attr_block_index = len(docstring_parts)
+      docstring_parts.append(None)
+
+    attrs = collections.OrderedDict()
+    # namedtuple fields first.
+    attrs.update(self._namedtuplefields)
+    # the contents of the `Attrs:` block from the docstring
+    attrs.update(raw_attrs)
+    # properties last.
+    for name, desc in self._properties.items():
+      # Don't overwrite existing items
+      attrs.setdefault(name, desc)
+
+    if attrs:
+      docstring_parts[attr_block_index] = TitleBlock(
+          title='Attributes', text='', items=attrs.items())
+    else:
+      del docstring_parts[attr_block_index]
 
 
 class ModulePageInfo(PageInfo):
@@ -1495,14 +1534,14 @@ def docs_for_object(full_name, py_object, parser_config):
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
 
-  page_info.collect_docs(parser_config)
-
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
 
   page_info.set_doc(
       _parse_md_docstring(py_object, relative_path, full_name,
                           parser_config.reference_resolver))
+
+  page_info.collect_docs(parser_config)
 
   page_info.set_aliases(duplicate_names)
 

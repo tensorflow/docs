@@ -287,18 +287,6 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
 
     parts.extend(class_links)
 
-  # Add properties information to the page.
-  # TODO(b/148687129): Merge properties into attributes.
-  if page_info.properties:
-    parts.append('## Properties\n\n')
-    for prop_info in page_info.properties:
-      h3 = (f'<h3 id="{prop_info.short_name}"><code>{prop_info.short_name}'
-            '</code></h3>\n\n')
-      parts.append(h3)
-      parts.append(prop_info.doc.brief + '\n')
-      parts.extend(str(item) for item in prop_info.doc.docstring_parts)
-      parts.append(_build_compatibility(prop_info.doc.compatibility))
-      parts.append('\n\n')
 
   # If the class contains methods other than the constructor, then add them
   # to the page.
