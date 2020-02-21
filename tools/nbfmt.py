@@ -91,7 +91,11 @@ def update_metadata(data, filepath=None):
   # Set preferred metadata for notebook docs.
   if filepath is not None:
     metadata["colab"]["name"] = os.path.basename(filepath)
-  metadata["colab"]["private_outputs"] = True
+  # Colab's private output setting will erase output cells when saved.
+  if FLAGS.preserve_outputs:
+    metadata["colab"]["private_outputs"] = False
+  else:
+    metadata["colab"]["private_outputs"] = True
   metadata["colab"]["provenance"] = []
   metadata["colab"]["toc_visible"] = True
   data["metadata"] = metadata
