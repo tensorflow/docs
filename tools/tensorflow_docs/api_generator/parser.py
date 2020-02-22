@@ -591,7 +591,7 @@ class TitleBlock(object):
     sub.append('\n')
     for name, description in self.items:
       # Skip description if it's just whitespace
-      if self.WHITESPACE_RE.fullmatch(description):
+      if self.WHITESPACE_RE.fullmatch(str(description)):
         # Don't include the description if it's just whitespace.
         sub.append(f'* <b>`{name}`</b>\n')
       else:
