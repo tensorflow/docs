@@ -394,7 +394,6 @@ is configured to build a Python 3 *pip* package with GPU support:
 <code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu-py3</var></code>
 <code class="devsite-terminal">docker run --gpus all -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
     tensorflow/tensorflow<var>:devel-gpu-py3</var> bash</code>
-    
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
 
