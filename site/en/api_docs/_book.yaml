@@ -18,7 +18,7 @@ upper_tabs:
       - title: "Swift"
         path: /swift/api_docs/
       - title: "Go"
-        path: https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go
+        path: https://pkg.go.dev/github.com/tensorflow/tensorflow/tensorflow/go
         status: external
       - title: "Haskell"
         path: https://github.com/tensorflow/haskell

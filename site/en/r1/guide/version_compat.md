@@ -81,7 +81,7 @@ backward incompatible ways between minor releases. These include:
   - [C++](./extend/cc.md) (exposed through header files in
     [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
   - [Java](../api_docs/java/reference/org/tensorflow/package-summary),
-  - [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
+  - [Go](https://pkg.go.dev/github.com/tensorflow/tensorflow/tensorflow/go)
   - [JavaScript](https://js.tensorflow.org)
 
 *   **Details of composite ops:** Many public functions in Python expand to
