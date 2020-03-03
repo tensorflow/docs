@@ -355,10 +355,6 @@ def should_skip_class_attr(cls, name):
 
   # for each parent class
   for parent in getattr(cls, "__mro__", [])[1:]:
-    # if the class should be skipped, don't doc this object.
-    if should_skip(parent):
-      return True
-
     obj = getattr(parent, name, None)
 
     if obj is None:

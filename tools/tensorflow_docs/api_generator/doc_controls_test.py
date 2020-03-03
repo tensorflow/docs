@@ -234,7 +234,7 @@ class DocControlsTest(absltest.TestCase):
     self.assertFalse(
         doc_controls.should_skip_class_attr(GrandParent, 'my_method'))
     self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
-    self.assertTrue(doc_controls.should_skip_class_attr(Child, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child, 'my_method'))
 
 
 if __name__ == '__main__':
