@@ -80,5 +80,5 @@ archives are public, different SIGs have their own membership policies.
     SIG Rust, for the Rust language bindings.
 *   [swift](https://groups.google.com/a/tensorflow.org/d/forum/swift) -
     Supporting SIG Swift, developing Swift for TensorFlow.
-*   [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard) -
+*   [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/tensorboard) -
     Supporting SIG TensorBoard, for plugin development and other contribution.
