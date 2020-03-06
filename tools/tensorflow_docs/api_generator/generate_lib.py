@@ -511,7 +511,7 @@ def write_docs(output_dir,
       if search_hints and not hidden:
         content = [page_info.get_metadata_html()]
       else:
-        content = ['<meta name="robots" content="noindex">\n']
+        content = ['robots: noindex\n']
 
       content.append(pretty_docs.build_md_page(page_info))
       text = '\n'.join(content)
