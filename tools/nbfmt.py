@@ -35,9 +35,10 @@ from absl import flags
 
 flags.DEFINE_bool("preserve_outputs", False, "Keep existing output cells.")
 flags.DEFINE_bool("ignore_warn", False, "Overwrite notebook despite warnings.")
-
+flags.DEFINE_integer(
+    "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 FLAGS = flags.FLAGS
-INDENT_STYLE = 2  # Same as Colab downloads
+
 # description : regexp
 REQUIRED_REGEXPS = {
     "copyright": "Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
@@ -158,27 +159,41 @@ def has_required_regexps(data):
   return has_all_patterns
 
 
-def sort_notebook(data):
-  """Begin with metadata and end with content.
+def sort_dict(source_dict):
+  """Recursive alphabetical sort a nested dict.
+
+  Sorts a direct dict child, as well list of dicts.
 
   Args:
-    data: object representing a parsed JSON notebook.
+    source_dict: Nested dict
 
   Returns:
-    OrderedDict: Sorted notebook object.
+    OrderedDict: Sorted alphabetically by key name.
   """
-  sorted_data = collections.OrderedDict(data)
-  sorted_data.move_to_end("metadata", last=False)  # move to front
-  sorted_data.move_to_end("cells")
-  return sorted_data
+  sorted_dict = collections.OrderedDict()
+  # Alphabetical sort on key.
+  for key, val in sorted(source_dict.items(), key=lambda t: t[0]):
+    if isinstance(val, dict):
+      sorted_dict[key] = sort_dict(val)  # Create new OrderedDict
+
+    elif isinstance(val, list):
+      # Sort any child dicts, otherwise skip.
+      lst = []
+      for item in val:
+        if isinstance(item, dict):
+          item = sort_dict(item)
+        lst.append(item)
+      sorted_dict[key] = lst
+
+    else:
+      sorted_dict[key] = val
+
+  return sorted_dict
 
 
 def main(argv):
   if len(argv) <= 1:
-    print(
-        f"Usage: {os.path.basename(__file__)} [options] notebook.ipynb [...]",
-        file=sys.stderr)
-    sys.exit(1)
+    raise app.UsageError("Missing arguments.")
 
   did_skip = False  # Track errors for final return code.
 
@@ -214,8 +229,8 @@ def main(argv):
         did_skip = True
         continue
 
-    data = sort_notebook(data)
-    json_str = json.dumps(data, ensure_ascii=False, indent=INDENT_STYLE)
+    data = sort_dict(data)
+    json_str = json.dumps(data, ensure_ascii=False, indent=FLAGS.indent)
 
     with open(fp, "w", encoding="utf-8") as f:
       f.write(json_str)
