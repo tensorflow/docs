@@ -1,5 +1,9 @@
 # Optimize TensorFlow performance using the Profiler
 
+Note: See the end-to-end
+[TensorBoard profiler tutorial](https://www.tensorflow.org/tensorboard/tensorboard_profiling_keras)
+to implement the advice in this guide.
+
 [TOC]
 
 Use the tools available with the Profiler to track the performance of your
