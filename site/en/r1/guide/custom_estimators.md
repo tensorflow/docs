@@ -16,7 +16,7 @@ cd models/samples/core/get_started
 ```
 
 In this document we will be looking at
-[`custom_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/custom_estimator.py).
+[`custom_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/custom_estimator.py).
 You can run it with the following command:
 
 ```bsh
@@ -24,9 +24,9 @@ python custom_estimator.py
 ```
 
 If you are feeling impatient, feel free to compare and contrast
-[`custom_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/custom_estimator.py)
+[`custom_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/custom_estimator.py)
 with
-[`premade_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/premade_estimator.py).
+[`premade_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/premade_estimator.py).
 (which is in the same directory).
 
 
@@ -85,7 +85,7 @@ and a logits output layer.
 
 Our custom Estimator implementation uses the same input function as our
 [pre-made Estimator implementation](../guide/premade_estimators.md), from
-[`iris_data.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/iris_data.py).
+[`iris_data.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/iris_data.py).
 Namely:
 
 ```python
@@ -142,7 +142,7 @@ requesting training, predicting, or evaluation.
 
 The caller may pass `params` to an Estimator's constructor. Any `params` passed
 to the constructor are in turn passed on to the `model_fn`. In
-[`custom_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/custom_estimator.py)
+[`custom_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/custom_estimator.py)
 the following lines create the estimator and set the params to configure the
 model. This configuration step is similar to how we configured the `tf.estimator.DNNClassifier` in
 [Premade Estimators](../guide/premade_estimators.md).

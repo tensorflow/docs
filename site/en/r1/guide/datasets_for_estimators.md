@@ -16,7 +16,7 @@ Taking slices from an array is the simplest way to get started with `tf.data`.
 
 The [Premade Estimators](../guide/premade_estimators.md) chapter describes
 the following `train_input_fn`, from
-[`iris_data.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/iris_data.py),
+[`iris_data.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/iris_data.py),
 to pipe the data into the Estimator:
 
 ``` python
@@ -50,7 +50,7 @@ which, as we will see, has special meaning for `Datasets`.
   for each example.
 * `batch_size` : An integer indicating the desired batch size.
 
-In [`premade_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/premade_estimator.py)
+In [`premade_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/premade_estimator.py)
 we retrieved the Iris data using the `iris_data.load_data()` function.
 You can run it, and unpack the results as follows:
 
@@ -249,7 +249,7 @@ import iris_data
 train_path, test_path = iris_data.maybe_download()
 ```
 
-The [`iris_data.csv_input_fn`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/iris_data.py)
+The [`iris_data.csv_input_fn`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/iris_data.py)
 function contains an alternative implementation that parses the csv files using
 a `Dataset`.
 

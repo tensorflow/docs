@@ -30,9 +30,9 @@ Take the following steps to get the sample code we'll be going through:
         cd models/samples/core/get_started/
 
 The program described in this document is
-[`premade_estimator.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/premade_estimator.py).
+[`premade_estimator.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/premade_estimator.py).
 This program uses
-[`iris_data.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/iris_data.py)
+[`iris_data.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/iris_data.py)
 to fetch its training data.
 
 ### Running the program
@@ -253,7 +253,7 @@ To keep things simple in this example we are going to load the data with
 in-memory data.
 
 Here is the input function used for training in this program, which is available
-in [`iris_data.py`](https://github.com/tensorflow/models/blob/master/samples/core/get_started/iris_data.py):
+in [`iris_data.py`](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/iris_data.py):
 
 ``` python
 def train_input_fn(features, labels, batch_size):
