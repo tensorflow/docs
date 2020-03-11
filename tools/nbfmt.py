@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Format notebooks using the TensorFlow docs style.
+r"""Format notebooks using the TensorFlow docs style.
 
 Usage:
 $ nbfmt.py [options] notebook.ipynb [...]
@@ -30,23 +30,35 @@ import os
 import pathlib
 import re
 import sys
+from typing import Any, Dict, Optional
+
 from absl import app
 from absl import flags
 
-flags.DEFINE_bool("preserve_outputs", False, "Keep existing output cells.")
+flags.DEFINE_bool(
+    "preserve_outputs", None,
+    "Configures the notebook to either preserve, or clear outputs."
+    "- If `True`: Set the notebook to keep outputs.\n"
+    "- If `False`: Set the notebook to clear outputs.\n"
+    "- If unset (`None`): keep the notebook's current setting.\n"
+    "  - If it's not set in the notebook, set the notebook to perserve outputs "
+    "(to match the colab default).\n"
+    "If a notebook is configured to clear outputs, this script will clear them "
+    "when run.\n"
+    "Colab respects this setting. Juptyer does not.")
 flags.DEFINE_bool("ignore_warn", False, "Overwrite notebook despite warnings.")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
+
 FLAGS = flags.FLAGS
 
-# description : regexp
-REQUIRED_REGEXPS = {
-    "copyright": "Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
-    "TF2 Colab magic": "%tensorflow_version 2.x"
+_REQUIRED_REGEXPS = {
+    "copyright": r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
+    "TF2 Version": r"(%tensorflow_version 2.x|tensorflow.compat.v2)"
 }
 
 
-def warn(msg):
+def warn(msg: str) -> None:
   """Print highlighted warning message to stderr.
 
   Args:
@@ -56,7 +68,7 @@ def warn(msg):
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
-def delete_cells(data):
+def delete_cells(data) -> None:
   """Remove empty cells and strip outputs from `data` object.
 
   Args:
@@ -65,22 +77,28 @@ def delete_cells(data):
   # remove empty cells
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
 
-  # strip output cells
-  if not FLAGS.preserve_outputs:
-    has_outputs = False
-    for idx, _ in enumerate(data["cells"]):
-      cell = data["cells"][idx]
-      if cell["cell_type"] == "code" and cell.get("outputs"):
-        has_outputs = True
-        # Clear code outputs
-        data["cells"][idx]["execution_count"] = 0
-        data["cells"][idx]["outputs"] = []
+  # `private_outputs` will default to False. If `private_outputs` is True, then
+  # the output will be removed from the notebook.
+  private_outputs = (
+      data.get("metadata", {}).get("colab", {}).get("private_outputs", False))
+  if not private_outputs:
+    return
 
-    if has_outputs:
-      warn("Removed the existing output cells.")
+  has_outputs = False
+  for idx, _ in enumerate(data["cells"]):
+    cell = data["cells"][idx]
+    if cell["cell_type"] == "code" and cell.get("outputs"):
+      has_outputs = True
+      # Clear code outputs
+      data["cells"][idx]["execution_count"] = 0
+      data["cells"][idx]["outputs"] = []
+
+  if has_outputs:
+    warn("Removed the existing output cells.")
 
 
-def update_metadata(data, filepath=None):
+def update_metadata(data: Dict[str, Any],
+                    filepath: Optional[pathlib.Path] = None) -> None:
   """Set notebook metadata on `data` object using TF docs style.
 
   Args:
@@ -92,17 +110,13 @@ def update_metadata(data, filepath=None):
   # Set preferred metadata for notebook docs.
   if filepath is not None:
     metadata["colab"]["name"] = os.path.basename(filepath)
-  # Colab's private output setting will erase output cells when saved.
-  if FLAGS.preserve_outputs:
-    metadata["colab"]["private_outputs"] = False
-  else:
-    metadata["colab"]["private_outputs"] = True
+
   metadata["colab"]["provenance"] = []
   metadata["colab"]["toc_visible"] = True
   data["metadata"] = metadata
 
 
-def has_license_and_update(data):
+def has_license_and_update(data: Dict[str, Any]) -> bool:
   """Check if license header exists anywhere in notebook and format.
 
   Args:
@@ -130,7 +144,7 @@ def has_license_and_update(data):
   return has_license
 
 
-def has_required_regexps(data):
+def has_required_regexps(data: Dict[str, Any]) -> bool:
   """Check if all regexp patterns are found in a notebook.
 
   Args:
@@ -141,7 +155,7 @@ def has_required_regexps(data):
   """
   has_all_patterns = True
 
-  for desc, pattern in REQUIRED_REGEXPS.items():
+  for desc, pattern in _REQUIRED_REGEXPS.items():
     regexp = re.compile(pattern)
     has_pattern = False
 
@@ -157,38 +171,6 @@ def has_required_regexps(data):
       return False
 
   return has_all_patterns
-
-
-def sort_dict(source_dict):
-  """Recursive alphabetical sort a nested dict.
-
-  Sorts a direct dict child, as well list of dicts.
-
-  Args:
-    source_dict: Nested dict
-
-  Returns:
-    OrderedDict: Sorted alphabetically by key name.
-  """
-  sorted_dict = collections.OrderedDict()
-  # Alphabetical sort on key.
-  for key, val in sorted(source_dict.items(), key=lambda t: t[0]):
-    if isinstance(val, dict):
-      sorted_dict[key] = sort_dict(val)  # Create new OrderedDict
-
-    elif isinstance(val, list):
-      # Sort any child dicts, otherwise skip.
-      lst = []
-      for item in val:
-        if isinstance(item, dict):
-          item = sort_dict(item)
-        lst.append(item)
-      sorted_dict[key] = lst
-
-    else:
-      sorted_dict[key] = val
-
-  return sorted_dict
 
 
 def main(argv):
@@ -216,6 +198,12 @@ def main(argv):
         did_skip = True
         continue
 
+    if FLAGS.preserve_outputs is not None:
+      # Overwrite the value of `private_outputs`
+      colab = data.get("metadata", {}).get("colab", {})
+      colab["private_outputs"] = not FLAGS.preserve_outputs
+      data["metadata"]["colab"] = colab
+
     delete_cells(data)
     update_metadata(data, filepath=fp)
     has_license = has_license_and_update(data)
@@ -229,11 +217,9 @@ def main(argv):
         did_skip = True
         continue
 
-    data = sort_dict(data)
-    json_str = json.dumps(data, ensure_ascii=False, indent=FLAGS.indent)
-
     with open(fp, "w", encoding="utf-8") as f:
-      f.write(json_str)
+      json.dump(
+          data, f, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
       f.write("\n")
 
   if did_skip:
