@@ -51,8 +51,6 @@ toc:
   path: /guide/ragged_tensor
 - title: "Create an op"
   path: /guide/create_op
-- title: "Graph optimization"
-  path: /guide/graph_optimization
 - title: "Random number generation"
   path: /guide/random_numbers
 
@@ -78,6 +76,12 @@ toc:
   path: /guide/gpu
 - title: "TPU"
   path: /guide/tpu
+
+- heading: "Performance"
+- title: "Profile TensorFlow performance"
+  path: /guide/profiler
+- title: "Graph optimization"
+  path: /guide/graph_optimization
 
 - heading: "Appendix"
 - title: "Version compatibility"
