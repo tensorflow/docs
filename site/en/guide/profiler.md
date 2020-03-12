@@ -29,8 +29,10 @@ script from the [GitHub repository](https://github.com/tensorflow/profiler).
 
 To profile on the GPU, you must:
 
-1.  Install CUDA 10.2.89 or newer
-1.  Install CUPTI and ensure that it exists on the path.
+1.  Install CUDA® Toolkit 10.1 or newer. To profile multiple GPUs, install CUDA®
+    Toolkit 10.2 or later. CUDA® Toolkit 10.1 supports only single GPU
+    profiling.
+1.  Ensure CUPTI exists on the path:
 
     *   Run `ldconfig -p | grep libcupti`
 
