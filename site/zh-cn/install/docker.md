@@ -4,9 +4,9 @@
 [TensorFlow Docker 镜像](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
 已经为每个发行版做了相关测试。
 
-Docker 是在Linux上启用 TensorFlow [GPU 支持](./gpu.md) 最简单的方式，仅需。on Linux since only the
-[NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-is required on the *host* machine (无需安装 *NVIDIA® CUDA® Toolkit* ).
+Docker 是在Linux上启用 TensorFlow [GPU 支持](./gpu.md) 最简单的方式，仅需在主机上安装
+[NVIDIA® GPU 驱动](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+ (无需安装 *NVIDIA® CUDA® Toolkit* ).
 
 
 ## TensorFlow Docker 环境需求
@@ -34,117 +34,108 @@ Docker Hub 仓库. 镜像发行版本的 [标签](https://hub.docker.com/r/tenso
 
 每个基础 *tag* 含有多个新增或变更的功能：
 
-| 其他标签          | 描述                                                                       |
-| ---               | ---                                                                               |
-| *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
-| *`tag`*`-py3`     | The specified *tag* release with Python 3 support.                                |
-| *`tag`*`-jupyter` | The specified *tag* release with Jupyter (includes TensorFlow tutorial notebooks) |
+| 其他变量标签      | 描述                                                              |
+| ---               | ---                                                               |
+| *`tag`*`-gpu`     | 指定 GPU 支持的 *tag* 发行版本。([See below](#gpu_support))       |
+| *`tag`*`-py3`     | 指定支持 Python 3 的 *tag* 发行版本。                             |
+| *`tag`*`-jupyter` | 指定包含 Jupyter 的*tag* 发行版本。（包含 TensorFlow 教程笔记本） |
 
-You can use multiple variants at once. For example, the following downloads
-TensorFlow release images to your machine:
+您可以同时使用多个变量标签。如下命令将下载TensorFlow发行版本的镜像：
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal">docker pull tensorflow/tensorflow                     # 最新稳定发行版</code>
 <code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # 每日开发版，包含GPU 致辞</code>
-<code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU support and Jupyter</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # 最新支持 GPU 并包含 Jupyter 的发行版l</code>
 </pre>
 
 
-## Start a TensorFlow Docker container
+## 启动 TensorFlow Docker 容器
 
-To start a TensorFlow-configured container, use the following command form:
+使用如下命令，将启动预配置 TensorFlow容器：
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run [-it] [--rm] [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow/tensorflow[:<em>tag</em>] [<em>command</em>]
 </pre>
 
-For details, see the [docker run reference](https://docs.docker.com/engine/reference/run/){:.external}.
+更多详情，请查阅 [docker run 命令参考](https://docs.docker.com/engine/reference/run/){:.external}.
 
-### Examples using CPU-only images
+### 示例：使用 仅CPU 镜像
 
-Let's verify the TensorFlow installation using the `latest` tagged image. Docker
-downloads a new TensorFlow image the first time it is run:
+让我们来验证使用 `latest` 标签镜像的安装吧。Docker将在第一次运行时下载新的 TensorFlow 镜像：
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm tensorflow/tensorflow \
    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 </pre>
 
-Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+成功：TensorFlow 已经安装完成。阅读 [教程](../tutorials) 开始使用。
 
-Let's demonstrate some more TensorFlow Docker recipes. Start a `bash` shell
-session within a TensorFlow-configured container:
+让我们展示一些 TensorFlow Docker 方法。在配置了 TensorFlow 的容器中启动 `bash` shell 会话：
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it tensorflow/tensorflow bash
 </pre>
 
-Within the container, you can start a `python` session and import TensorFlow.
+在容器中，您可以启动 `python` 会话并导入 TensorFlow。
 
-To run a TensorFlow program developed on the *host* machine within a container,
-mount the host directory and change the container's working directory
+如需在容器中运行本机开发的 TensorFlow 程序，可以通过挂载本机目录并变更容器的工作目录
 (`-v hostDir:containerDir -w workDir`):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.py
 </pre>
 
-Permission issues can arise when files created within a container are exposed to
-the host. It's usually best to edit files on the host system.
+在容器中创建并暴露给主机的文件会存在权限问题。通常的做法是在主机上编辑文件。
 
-Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
-TensorFlow's nightly build with Python 3 support:
+使用支持 Python 3 的 TensorFlow 每日版构建，启动[Jupyter 笔记本](https://jupyter.org/){:.external} ：
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3-jupyter
 </pre>
 
-Follow the instructions and open the URL in your host web browser:
+根据如下提示，在主机浏览器中打开该URL：
 `http://127.0.0.1:8888/?token=...`
 
 
-## GPU support
+## GPU 支持
 
-Docker is the easiest way to run TensorFlow on a GPU since the *host* machine
-only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-(the *NVIDIA® CUDA® Toolkit* is not required).
+Docker 是在主机的GPU上运行 TensorFlow 最简易的方式，仅在主机上需要 [NVIDIA® 驱动](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+（无需 *NVIDIA® CUDA® Toolkit* ）。
 
-Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} to
-launch a Docker container with NVIDIA® GPU support. `nvidia-docker` is only
-available for Linux, see their
-[platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
-for details.
+安装 [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} 并加载支持 NVIDIA® GPU 的容器。
+`nvidia-docker` 仅可以在Linux上使用，查阅
+[支持平台FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
+获取更多信息。
 
-Check if a GPU is available:
+检查 GPU 的状态是否可用：
 
 <pre class="devsite-terminal devsite-click-to-copy">
 lspci | grep -i nvidia
 </pre>
 
-Verify your `nvidia-docker` installation:
+验证 `nvidia-docker` 的安装：
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 </pre>
 
-Note: `nvidia-docker` v1 uses the `nvidia-docker` alias, where v2 uses `docker --runtime=nvidia`.
+提示： `nvidia-docker` v1版使用 `nvidia-docker` 命令别名， v2 版使用 `docker --runtime=nvidia` 命令。
 
-### Examples using GPU-enabled images
+### 示范：使用启用GPU支持的镜像
 
-Download and run a GPU-enabled TensorFlow image (may take a few minutes):
+下载和运行启用 GPU 支持的 TensorFlow 镜像 （可能需要几分钟）：
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 </pre>
 
-It can take a while to set up the GPU-enabled image. If repeatably running
-GPU-based scripts, you can use `docker exec` to reuse a container.
+需要花费数分钟设置启用GPU支持的镜像。 如需重复运行基于GPU的脚本，可以使用 `docker exec` 命令来重复使用容器。
 
-Use the latest TensorFlow GPU image to start a `bash` shell session in the container:
+使用最新 TensorFlow GPU 进行并在容器中启动 `bash` shell 会话:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 docker run --runtime=nvidia -it tensorflow/tensorflow:latest-gpu bash
 </pre>
 
-Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+成功：TensorFlow 已经安装完成。阅读 [教程](../tutorials) 开始使用。
