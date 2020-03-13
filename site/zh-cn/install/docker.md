@@ -12,30 +12,29 @@ is required on the *host* machine (无需安装 *NVIDIA® CUDA® Toolkit* ).
 ## TensorFlow Docker 环境需求
 
 1. 在你的宿主机上[安装 Docker ](https://docs.docker.com/install/){:.external} 。
-2. For GPU support on Linux, [install nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
+2. 在Linux上开启支持, [安装 nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}.
 
-Note: To run the `docker` command without `sudo`, create the `docker` group and
-add your user. For details, see the
-[post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/){:.external}.
+注: 如需不通过 `sudo` 运行命令 `docker` , 请创建 `docker` 用户组并将您的用户添加进改组。详情请查看：
+[Linux下安装后续步骤](https://docs.docker.com/install/linux/linux-postinstall/){:.external}.
 
 
-## Download a TensorFlow Docker image
+## 下载 TensorFlow Docker 镜像
 
-The official TensorFlow Docker images are located in the 
+官方 TensorFlow Docker 镜像位于 
 [tensorflow/tensorflow](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
-using the following format:
+Docker Hub 仓库. 镜像发行版本的 [标签](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
+格式如下:
 
-| 标记         | 描述                                                                                       |
-| ---         | ---                                                                                               |
-| `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
-| `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *1.14.0*                       |
-| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
+| 标记        | 描述                                                                   |
+| ---         | ---                                                                    |
+| `latest`    | 最新 TensorFlow CPU 二进制发行版镜像。默认。                           |
+| `nightly`   | TensorFlow 每日版的镜像。（不稳定）                                    |
+| *`version`* | 指定版本的 TensorFlow 二进制镜像，例如：  *1.14.0*                     |
+| `devel`     | TensorFlow `master` 分支开发环境的每日版。包含了 TensorFlow 源码。     |
 
-Each base *tag* has variants that add or change functionality:
+每个基础 *tag* 含有多个新增或变更的功能：
 
-| Tag Variants      | Description                                                                       |
+| 其他标签          | 描述                                                                       |
 | ---               | ---                                                                               |
 | *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
 | *`tag`*`-py3`     | The specified *tag* release with Python 3 support.                                |
@@ -45,8 +44,8 @@ You can use multiple variants at once. For example, the following downloads
 TensorFlow release images to your machine:
 
 <pre class="devsite-click-to-copy prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow                     # latest stable release</code>
-<code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # nightly dev release w/ GPU support</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow                     # 最新稳定发行版</code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow:devel-gpu           # 每日开发版，包含GPU 致辞</code>
 <code class="devsite-terminal">docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU support and Jupyter</code>
 </pre>
 
