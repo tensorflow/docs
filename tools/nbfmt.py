@@ -35,6 +35,8 @@ from typing import Any, Dict, Optional
 from absl import app
 from absl import flags
 
+OSS = True
+
 flags.DEFINE_bool(
     "preserve_outputs", None,
     "Configures the notebook to either preserve, or clear outputs."
@@ -217,9 +219,13 @@ def main(argv):
         did_skip = True
         continue
 
+    nbjson = json.dumps(
+        data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
+    if not OSS:
+      nbjson = nbjson.replace("<", r"\u003c").replace(">", r"\u003e")
+
     with open(fp, "w", encoding="utf-8") as f:
-      json.dump(
-          data, f, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
+      f.write(nbjson)
       f.write("\n")
 
   if did_skip:
