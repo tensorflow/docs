@@ -24,7 +24,6 @@ https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
 And the TensorFlow docs contributor guide:
 https://www.tensorflow.org/community/contribute/docs
 """
-import collections
 import json
 import os
 import pathlib
@@ -70,7 +69,7 @@ def warn(msg: str) -> None:
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
-def delete_cells(data) -> None:
+def clean_cells(data) -> None:
   """Remove empty cells and strip outputs from `data` object.
 
   Args:
@@ -83,17 +82,25 @@ def delete_cells(data) -> None:
   # the output will be removed from the notebook.
   private_outputs = (
       data.get("metadata", {}).get("colab", {}).get("private_outputs", False))
-  if not private_outputs:
-    return
 
   has_outputs = False
-  for idx, _ in enumerate(data["cells"]):
-    cell = data["cells"][idx]
-    if cell["cell_type"] == "code" and cell.get("outputs"):
+  for cell in data["cells"]:
+    if cell["cell_type"] != "code":
+      continue
+
+    # Always remove the metadata "executionInfo" block, this is what adds the
+    # little user photos in colab.
+    cell_meta = cell.get("metadata", {})
+    # If this becomes a recurring problem use a whitelist based on:
+    # https://nbformat.readthedocs.io/en/latest/format_description.html#metadata
+    cell_meta.pop("executionInfo", None)
+    cell["metadata"] = cell_meta
+
+    if private_outputs and cell.get("outputs"):
       has_outputs = True
       # Clear code outputs
-      data["cells"][idx]["execution_count"] = 0
-      data["cells"][idx]["outputs"] = []
+      cell["execution_count"] = 0
+      cell["outputs"] = []
 
   if has_outputs:
     warn("Removed the existing output cells.")
@@ -108,13 +115,17 @@ def update_metadata(data: Dict[str, Any],
     filepath: String of notebook filepath passed to the command-line.
   """
   metadata = data.get("metadata", {})
-  metadata["colab"] = metadata.get("colab", {})
+  colab = metadata.get("colab", {})
   # Set preferred metadata for notebook docs.
   if filepath is not None:
-    metadata["colab"]["name"] = os.path.basename(filepath)
+    colab["name"] = os.path.basename(filepath)
 
-  metadata["colab"]["provenance"] = []
-  metadata["colab"]["toc_visible"] = True
+  colab["provenance"] = []
+  colab["toc_visible"] = True
+  # Always remove "last_runtime".
+  colab.pop("last_runtime", None)
+
+  metadata["colab"] = colab
   data["metadata"] = metadata
 
 
@@ -179,16 +190,25 @@ def main(argv):
   if len(argv) <= 1:
     raise app.UsageError("Missing arguments.")
 
-  did_skip = False  # Track errors for final return code.
+  found_error = False  # Track errors for final return code.
 
-  for arg in argv[1:]:
-    fp = pathlib.Path(arg)
+  files = []
+  for path in argv[1:]:
+    path = pathlib.Path(path)
+    if path.is_file():
+      files.append(path)
+    elif path.is_dir():
+      files.extend(path.rglob("*.ipynb"))
+    else:
+      found_error = True
+      warn("Bad arg: {str(path)}")
 
+  for fp in files:
     print(f"Notebook: {fp}", file=sys.stderr)
 
     if fp.suffix != ".ipynb":
       warn("Not an '.ipynb' file, skipping.")
-      did_skip = True
+      found_error = True
       continue
 
     with open(fp, "r", encoding="utf-8") as f:
@@ -197,7 +217,7 @@ def main(argv):
       except ValueError as err:
         print(f"  {err.__class__.__name__}: {err}", file=sys.stderr)
         warn("Unable to load JSON, skipping.")
-        did_skip = True
+        found_error = True
         continue
 
     if FLAGS.preserve_outputs is not None:
@@ -206,7 +226,7 @@ def main(argv):
       colab["private_outputs"] = not FLAGS.preserve_outputs
       data["metadata"]["colab"] = colab
 
-    delete_cells(data)
+    clean_cells(data)
     update_metadata(data, filepath=fp)
     has_license = has_license_and_update(data)
     has_patterns = has_required_regexps(data)
@@ -216,7 +236,7 @@ def main(argv):
         print(
             "  Found warnings. Notebook not written, skipping.",
             file=sys.stderr)
-        did_skip = True
+        found_error = True
         continue
 
     nbjson = json.dumps(
@@ -228,7 +248,7 @@ def main(argv):
       f.write(nbjson)
       f.write("\n")
 
-  if did_skip:
+  if found_error:
     sys.exit(1)
 
 
