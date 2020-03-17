@@ -195,6 +195,8 @@ time spent on `tf.data` API ops) on the host into several categories:
 Expand the **Input Op Statistics** to see the statistics for individual input
 ops and their categories broken down by execution time.
 
+![image](./images/tf_profiler/input_op_stats.png)
+
 A source data table appears with each entry containing the following
 information:
 
@@ -387,7 +389,7 @@ through either the programmatic mode or the sampling mode.
 *   Programmatic mode using the context manager
 
     ```python
-    with tf.python.eager.profiler.Profiler('logdir_path'):
+    with tf.profiler.experimental.Profile('logdir'):
         # Train the model here
         pass
     ```
@@ -396,7 +398,7 @@ Note that running the profiler for too long can cause it to run out of memory.
 It is recommended to profile no more than 10 steps at a time.
 
 *   Sampling mode - Perform on-demand profiling by using
-    `tf.python.experimental.server.start()` to start a gRPC server with your
+    `tf.profiler.experimental.server.start()` to start a gRPC server with your
     TensorFlow model run. After starting the gRPC server and running your model,
     you can capture a profile through the **Capture Profile** button in the
     TensorBoard profile plugin. Use the script in the Install profiler section
@@ -406,7 +408,7 @@ It is recommended to profile no more than 10 steps at a time.
 
     ```python
     # Start a gRPC server at port 6009
-    tf.python.profiler.experimental.server.start(6009)
+    tf.profiler.experimental.server.start(6009)
     # ... TensorFlow program ...
     ```
 
