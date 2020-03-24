@@ -196,12 +196,12 @@ landing_page:
           foreground: theme
           background: grey
       - description: >
-          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          <a href="https://www.tensorflow.org/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
           <ul class="tfo-landing-page-resources-ul">
-          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/image_ops.ipynb" class="external">Image operations in TensorFlow Addons</a></li>
-          <li><a href="https://github.com/tensorflow/addons/blob/master/docs/tutorials/layers_normalizations.ipynb" class="external">Normalization layers in TensorFlow Addons.</a></li>
+          <li><a href="https://www.tensorflow.org/addons/tutorials/image_ops" class="external">Image operations in TensorFlow Addons</a></li>
+          <li><a href="https://www.tensorflow.org/addons/tutorials/layers_normalizations" class="external">Normalization layers in TensorFlow Addons.</a></li>
           </ul>
-        path: https://github.com/tensorflow/addons
+        path: https://www.tensorflow.org/addons
         icon:
           icon_name: chevron_right
           foreground: theme
@@ -253,8 +253,8 @@ landing_page:
       - description: >
           <a href="https://github.com/tensorflow/agents"><h3 class="tfo-landing-page-heading no-link">TensorFlow Agents</h3></a>
           <ul class="tfo-landing-page-resources-ul">
-          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/1_dqn_tutorial.ipynb" class="external">Train a deep-Q network with TF Agents</a></li>
-          <li><a href="https://github.com/tensorflow/agents/blob/master/docs/tutorials/2_environments_tutorial.ipynb" class="external">Reinforcement learning environments</a></li>
+          <li><a href="https://www.tensorflow.org/agents/tutorials/1_dqn_tutorial" class="external">Train a deep-Q network with TF Agents</a></li>
+          <li><a href="https://www.tensorflow.org/agents/tutorials/2_environments_tutorial" class="external">Reinforcement learning environments</a></li>
           </ul>
         path: https://github.com/tensorflow/agents
         icon:
