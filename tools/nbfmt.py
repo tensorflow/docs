@@ -55,7 +55,6 @@ FLAGS = flags.FLAGS
 
 _REQUIRED_REGEXPS = {
     "copyright": r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
-    "TF2 Version": r"(%tensorflow_version 2.x|tensorflow.compat.v2)"
 }
 
 
@@ -75,6 +74,15 @@ def clean_cells(data) -> None:
   Args:
     data: object representing a parsed JSON notebook.
   """
+  # Clear leading and trailing newlines.
+  for cell in data["cells"]:
+    source = cell["source"]
+    while source and source[0] == "\n":
+      source.pop(0)
+    while source and source[-1] == "\n":
+      source.pop()
+    cell["source"] = source
+
   # remove empty cells
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
 
