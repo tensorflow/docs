@@ -37,7 +37,7 @@ def hide_from_search(obj):
 
 
 def should_hide_from_search(obj):
-  """ Returns true if metadata search hints should be included on this page."""
+  """Returns true if metadata search hints should be included on this page."""
   return hasattr(obj, _NO_SEARCH_HINTS)
 
 
@@ -49,9 +49,9 @@ def set_custom_page_content(obj, content):
   setattr(obj, _CUSTOM_PAGE_CONTENT, content)
 
 
-def get_custom_page_content(object):
+def get_custom_page_content(obj):
   """Gets custom page content if available."""
-  return getattr(object, _CUSTOM_PAGE_CONTENT, None)
+  return getattr(obj, _CUSTOM_PAGE_CONTENT, None)
 
 
 _DO_NOT_DOC = "_tf_docs_do_not_document"

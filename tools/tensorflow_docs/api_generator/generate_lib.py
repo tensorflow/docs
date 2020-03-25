@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Generate docs for the TensorFlow Python API."""
+"""Generate tensorflow.org style API Reference docs for a Python module."""
 
 import collections
 import fnmatch
@@ -26,10 +26,10 @@ import subprocess
 import tempfile
 
 
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
-from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import traverse

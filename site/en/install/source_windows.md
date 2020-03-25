@@ -246,9 +246,9 @@ below, then follow the previous instructions for the Windows native command line
 
 ### Disable MSYS path conversion {:.hide-from-toc}
 
-MSYS automatically converts arguments that look like Unix paths to Windows paths,
-and this doesn't work with `bazel`. (The label `//foo/bar:bin` is considered a
-Unix absolute path since it starts with a slash.)
+MSYS automatically converts arguments that look like Unix paths to Windows
+paths, and this doesn't work with `bazel`. (The label `//path/to:bin` is
+considered a Unix absolute path since it starts with a slash.)
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">export MSYS_NO_PATHCONV=1</code>

@@ -106,6 +106,8 @@ toc:
     path: /tutorials/images/transfer_learning_with_hub
   - title: "Transfer learning with pretrained CNN"
     path: /tutorials/images/transfer_learning
+  - title: "Data Augmentation"
+    path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
   - title: "Object detection with TF Hub"
