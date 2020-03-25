@@ -37,6 +37,7 @@ This guide provides everything you need to get started. Our most common
 contributions include *code*, *documentation*, and *community support*.
 
 - [Write code](code.md).
+- [Improve tests](tests.md).
 - [Improve documentation](docs.md).
 - Answer questions on
   [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow).
