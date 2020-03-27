@@ -9,8 +9,6 @@ toc:
   path: /guide/migrate
 - title: "Convert with the upgrade script"
   path: /guide/upgrade
-- title: "Performance with tf.function"
-  path: /guide/function
 - title: "Community testing FAQ"
   path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
   status: external
@@ -32,9 +30,6 @@ toc:
   path: /guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /guide/keras/custom_callback
-- title: "Mixed precision"
-  path: /guide/keras/mixed_precision
-  status: experimental
 
 - heading: "Estimators"
 - title: "Estimator overview"
@@ -78,10 +73,15 @@ toc:
   path: /guide/tpu
 
 - heading: "Performance"
+- title: "Performance with tf.function"
+  path: /guide/function
 - title: "Profile TensorFlow performance"
   path: /guide/profiler
 - title: "Graph optimization"
   path: /guide/graph_optimization
+- title: "Mixed precision"
+  path: /guide/keras/mixed_precision
+  status: experimental
 
 - heading: "Appendix"
 - title: "Version compatibility"

@@ -77,6 +77,11 @@ landing_page:
         <a href="/guide/distributed_training"><h3 class="no-link">Accelerators</h3></a>
         Distribute training across multiple GPUs, multiple machines or TPUs.
       path: /guide/distributed_training
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/function"><h3 class="no-link">Performance</h3></a>
+        Best practices and optimization techniques for optimal TensorFlow performance.
+      path: /guide/function
 
   - classname: devsite-landing-row-100
     items:
