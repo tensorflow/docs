@@ -101,6 +101,8 @@ upper_tabs:
     - name: Java
       skip_translation: true
       contents:
+      - title: Java
+        path: {VERSION_ROOT}/java/reference/org/tensorflow/package-summary.html
       - include: {VERSION_ROOT}/java/reference/_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml
