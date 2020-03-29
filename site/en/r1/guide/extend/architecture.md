@@ -8,7 +8,7 @@ This document describes the system architecture that makes this
 combination of scale and flexibility possible. It assumes that you have basic familiarity
 with TensorFlow programming concepts such as the computation graph, operations,
 and sessions. See [this document](../low_level_intro.md) for an introduction to
-these topics. Some familiarity with [distributed TensorFlow](../../deploy/distributed.md)
+these topics. Some familiarity with [distributed TensorFlow](../distribute_strategy.ipynb)
 will also be helpful.
 
 This document is for developers who want to extend TensorFlow in some way not
