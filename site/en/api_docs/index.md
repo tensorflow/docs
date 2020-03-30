@@ -24,6 +24,7 @@ For example, see the bindings for:
 * [Haskell](https://github.com/tensorflow/haskell),
 * [Julia](https://github.com/malmaud/TensorFlow.jl),
 * [MATLAB](https://github.com/asteinh/tensorflow.m),
+* [R](https://github.com/rstudio/tensorflow),
 * [Ruby](https://github.com/somaticio/tensorflow.rb),
 * [Rust](https://github.com/tensorflow/rust), and
 * [Scala](https://github.com/eaplatanios/tensorflow_scala).
