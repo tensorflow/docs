@@ -27,8 +27,12 @@ upper_tabs:
         section:
         - title: "C#"
           path: https://github.com/migueldeicaza/TensorFlowSharp
+          status: external
         - title: "Julia"
           path: https://github.com/malmaud/TensorFlow.jl
+          status: external
+        - title: "R"
+          path: https://github.com/rstudio/tensorflow
           status: external
         - title: "Ruby"
           path: https://github.com/somaticio/tensorflow.rb
