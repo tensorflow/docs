@@ -29,6 +29,8 @@ import os
 import pathlib
 import re
 import sys
+import textwrap
+
 from typing import Any, Dict, Optional
 
 from absl import app
@@ -50,6 +52,8 @@ flags.DEFINE_bool(
 flags.DEFINE_bool("ignore_warn", False, "Overwrite notebook despite warnings.")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
+flags.DEFINE_bool("test", False,
+                  "Test if the notebook is formatted (useful for CI).")
 
 FLAGS = flags.FLAGS
 
@@ -199,6 +203,7 @@ def main(argv):
     raise app.UsageError("Missing arguments.")
 
   found_error = False  # Track errors for final return code.
+  test_fail_notebooks = []
 
   files = []
   for path in argv[1:]:
@@ -249,12 +254,33 @@ def main(argv):
 
     nbjson = json.dumps(
         data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
+
     if not OSS:
       nbjson = nbjson.replace("<", r"\u003c").replace(">", r"\u003e")
 
-    with open(fp, "w", encoding="utf-8") as f:
-      f.write(nbjson)
-      f.write("\n")
+    if FLAGS.test:
+      # Compare formatted contents with original file contents.
+      src_str = fp.read_text(encoding="utf-8").rstrip()
+      if nbjson != src_str:
+        test_fail_notebooks.append(fp)
+    else:
+      with open(fp, "w", encoding="utf-8") as f:
+        f.write(nbjson)
+        f.write("\n")
+
+  if FLAGS.test:
+    if test_fail_notebooks:
+      error_template = textwrap.dedent("""
+      [test] The following notebooks are not formatted:
+      {notebooks}
+      Format with: nbfmt.py --ignore_warn notebook.ipynb [...]
+      """)
+      notebooks = "\n".join([f"- {str(fp)}" for fp in test_fail_notebooks])
+      print(error_template.format(notebooks=notebooks), file=sys.stderr)
+      sys.exit(1)
+    else:
+      print("[test] Notebooks are formatted", file=sys.stderr)
+      sys.exit(0)
 
   if found_error:
     sys.exit(1)
