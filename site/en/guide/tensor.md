@@ -41,11 +41,10 @@ generating a random number.
 
 ## Rank
 
-The **rank** of a `tf.Tensor` object is its number of dimensions. Synonyms for
-rank include **order** or **degree** or **n-dimension**.
-Note that rank in TensorFlow is not the same as matrix rank in mathematics.
-As the following table shows, each rank in TensorFlow corresponds to a
-different mathematical entity:
+The *rank* of a `tf.Tensor` object is its number of dimensions. Be aware that a
+rank in TensorFlow is not the same as matrix rank in mathematics—where the
+mathematics community prefers the term *valence*. As the following table shows,
+each rank in TensorFlow corresponds to a different mathematical entity:
 
 Rank | Math entity
 --- | ---
