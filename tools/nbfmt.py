@@ -254,19 +254,17 @@ def main(argv):
 
     nbjson = json.dumps(
         data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
-
     if not OSS:
       nbjson = nbjson.replace("<", r"\u003c").replace(">", r"\u003e")
+    expected_output = (nbjson + "\n").encode("utf-8")
 
     if FLAGS.test:
       # Compare formatted contents with original file contents.
-      src_str = fp.read_text(encoding="utf-8").rstrip()
-      if nbjson != src_str:
+      src_bytes = fp.read_bytes()
+      if expected_output != src_bytes:
         test_fail_notebooks.append(fp)
     else:
-      with open(fp, "w", encoding="utf-8") as f:
-        f.write(nbjson)
-        f.write("\n")
+      fp.write_bytes(expected_output)
 
   if FLAGS.test:
     if test_fail_notebooks:
