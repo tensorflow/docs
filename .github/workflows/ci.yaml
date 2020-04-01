@@ -1,0 +1,24 @@
+name: CI
+on: pull_request
+
+jobs:
+  notebook_format:
+    name: Notebook format
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v1
+    - uses: actions/checkout@v2
+    - name: Fetch master branch
+      run: git fetch -u origin master:master
+    - name: Set up environment
+      run: pip install --upgrade absl-py
+    - name: Check notebook formatting
+      run: |
+        # Only check notebooks modified in this pull request.
+        notebooks="$(git diff --name-only master | grep '\.ipynb$' || true)"
+        if [[ -n "$notebooks" ]]; then
+          echo "Check formatting with nbfmt:"
+          python ./tools/nbfmt.py --test $notebooks
+        else
+          echo "No notebooks modified in this pull request."
+        fi
