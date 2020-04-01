@@ -132,7 +132,7 @@ These include:
     convergence. We will note such changes in the release notes.
 
 *   **Error behavior:** We may replace errors with non-error behavior. For
-    instance, we may change a function to compute a result instead or raising
+    instance, we may change a function to compute a result instead of raising
     an error, even if that error is documented. We also reserve the right to
     change the text of error messages. In addition, the type of an error may
     change unless the exception type for a specific error condition is specified
