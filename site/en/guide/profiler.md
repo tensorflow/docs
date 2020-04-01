@@ -1,9 +1,5 @@
 # Optimize TensorFlow performance using the Profiler
 
-Note: See the end-to-end
-[TensorBoard profiler tutorial](https://www.tensorflow.org/tensorboard/tensorboard_profiling_keras)
-to implement the advice in this guide.
-
 [TOC]
 
 Use the tools available with the Profiler to track the performance of your
@@ -466,3 +462,12 @@ pipeline is a performance bottleneck.
 *   When training on GPUs, make use of the TensorCore. GPU kernels use the
     TensorCore when the precision is fp16 and input/output dimensions are
     divisible by 8 or 16 (for int8)
+
+## Additional resources
+
+*   See the end-to-end
+    [TensorBoard profiler tutorial](https://www.tensorflow.org/tensorboard/tensorboard_profiling_keras)
+    to implement the advice in this guide.
+*   Watch the
+    [Performance profiling in TF 2](https://www.youtube.com/watch?v=pXHAQIhhMhI)
+    talk from the TensorFlow Dev Summit 2020.
