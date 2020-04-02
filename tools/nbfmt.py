@@ -15,6 +15,9 @@
 # ==============================================================================
 r"""Format notebooks using the TensorFlow docs style.
 
+Install dependencies:
+$ pip3 install -U [--user] absl-py
+
 Usage:
 $ nbfmt.py [options] notebook.ipynb [...]
 $ find . -name "*\.ipynb" | xargs ./tools/nbfmt.py [--ignore_warn]
@@ -72,12 +75,36 @@ def warn(msg: str) -> None:
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
+def remove_extra_fields(data) -> None:
+  """Deletes extra notebook fields.
+
+  Jupyter format spec:
+  https://nbformat.readthedocs.io/en/latest/format_description.html
+
+  Args:
+    data: object representing a parsed JSON notebook.
+  """
+
+  def filter_keys(data, keep_list) -> None:
+    to_delete = set(data.keys()) - frozenset(keep_list)
+    for key in to_delete:
+      del data[key]
+
+  # These top-level fields are required:
+  filter_keys(data, ["cells", "metadata", "nbformat_minor", "nbformat"])
+  # All metadata is optional according to spec, but we use some of it.
+  # For example, this removes "language_info" and other editor-specific fields.
+  filter_keys(data["metadata"], ["accelerator", "colab", "kernelspec"])
+
+
 def clean_cells(data) -> None:
   """Remove empty cells and strip outputs from `data` object.
 
   Args:
     data: object representing a parsed JSON notebook.
   """
+  remove_extra_fields(data)
+
   # Clear leading and trailing newlines.
   for cell in data["cells"]:
     source = cell["source"]
@@ -100,11 +127,9 @@ def clean_cells(data) -> None:
     if cell["cell_type"] != "code":
       continue
 
-    # Always remove the metadata "executionInfo" block, this is what adds the
-    # little user photos in colab.
+    # Clean cell metadata: remove the "executionInfo" block, this is what adds
+    # the little user photos in Colab.
     cell_meta = cell.get("metadata", {})
-    # If this becomes a recurring problem use a whitelist based on:
-    # https://nbformat.readthedocs.io/en/latest/format_description.html#metadata
     cell_meta.pop("executionInfo", None)
     cell["metadata"] = cell_meta
 
@@ -238,6 +263,10 @@ def main(argv):
       colab = data.get("metadata", {}).get("colab", {})
       colab["private_outputs"] = not FLAGS.preserve_outputs
       data["metadata"]["colab"] = colab
+
+    # Set top-level notebook defaults.
+    data["nbformat"] = 4
+    data["nbformat_minor"] = 0
 
     clean_cells(data)
     update_metadata(data, filepath=fp)
