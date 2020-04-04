@@ -417,7 +417,8 @@ def write_docs(output_dir,
                yaml_toc,
                root_title='TensorFlow',
                search_hints=True,
-               site_path='api_docs/python'):
+               site_path='api_docs/python',
+               gen_redirects=True):
   """Write previously extracted docs to disk.
 
   Write a docs page for each symbol included in the indices of parser_config to
@@ -437,6 +438,8 @@ def write_docs(output_dir,
       output file.
     site_path: The output path relative to the site root. Used in the
       `_toc.yaml` and `_redirects.yaml` files.
+    gen_redirects: Bool which decides whether to generate _redirects.yaml
+        file or not.
 
   Raises:
     ValueError: if `output_dir` is not an absolute path
@@ -526,10 +529,11 @@ def write_docs(output_dir,
 
     duplicates = [item for item in duplicates if item != full_name]
 
-    for dup in duplicates:
-      from_path = site_path / dup.replace('.', '/')
-      to_path = site_path / full_name.replace('.', '/')
-      redirects.append({'from': str(from_path), 'to': str(to_path)})
+    if gen_redirects:
+      for dup in duplicates:
+        from_path = site_path / dup.replace('.', '/')
+        to_path = site_path / full_name.replace('.', '/')
+        redirects.append({'from': str(from_path), 'to': str(to_path)})
 
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
@@ -547,7 +551,7 @@ def write_docs(output_dir,
     with open(leftnav_toc, 'w') as toc_file:
       yaml.dump(toc_dict, toc_file, default_flow_style=False)
 
-  if redirects:
+  if redirects and gen_redirects:
     if yaml_toc and toc_values['title'] == 'tf':
       redirects.append({
           'from': str(site_path / 'tf_overview'),
@@ -719,7 +723,9 @@ class DocGenerator(object):
                do_not_descend_map=None,
                visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
                api_cache=True,
-               callbacks=None):
+               callbacks=None,
+               yaml_toc=True,
+               gen_redirects=True):
     """Creates a doc-generator.
 
     Args:
@@ -746,6 +752,9 @@ class DocGenerator(object):
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
         primary use case for these is to filter the listy of children (see:
           `public_api.local_definitions_filter`)
+      yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
+      gen_redirects: Bool which decides whether to generate _redirects.yaml
+        file or not.
     """
     self._root_title = root_title
     self._py_modules = py_modules
@@ -779,6 +788,8 @@ class DocGenerator(object):
     if callbacks is None:
       callbacks = []
     self._callbacks = callbacks
+    self._yaml_toc = yaml_toc
+    self._gen_redirects = gen_redirects
 
   def make_reference_resolver(self, visitor):
     return parser.ReferenceResolver.from_visitor(
@@ -836,10 +847,11 @@ class DocGenerator(object):
     write_docs(
         output_dir=str(work_py_dir),
         parser_config=parser_config,
-        yaml_toc=True,
+        yaml_toc=self._yaml_toc,
         root_title=self._root_title,
         search_hints=self._search_hints,
-        site_path=self._site_path)
+        site_path=self._site_path,
+        gen_redirects=self._gen_redirects)
 
     if self.api_cache:
       reference_resolver.to_json_file(
