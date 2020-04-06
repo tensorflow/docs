@@ -53,8 +53,27 @@ code testable with DocTest:
 *   Add a newline to separate DocTest snippets from Markdown text to
     render properly on tensorflow.org.
 
+### Customizations
+
+TensorFlow uses a few customizations to the builtin doctest logic:
+
+*   It does not compare float values as text: Float values are extracted from
+    the text and compared using `allclose` with _liberal `atol` and `rtol`
+    tolerences_. This allows :
+    *   Clearer docs - Authors don't need to include all decimal places.
+    *   More robust tests - Numerical changes in the underlying implementation
+        should never cause a doctest to fail.
+*   It only checks the output if the author includes output for a line. This
+    allows for clearer docs because authors usually don't need to capture
+    irrelevant intermediate values to prevent them from being printed.
+
 ### Docstring considerations
 
+*   *Overall*: The goal of doctest is to provide documentation, and confirm that
+    the documentation works. This is different from unit-testing. So:
+    *   Keep examples simple.
+    *   Avoid long or complicated outputs.
+    *   Use round numbers if possible.
 *   *Output format*: The output of the snippet needs to be directly beneath the
     code that’s generating the output. Also, the output in the docstring has to
     be exactly equal to what the output would be after the code is executed. See
