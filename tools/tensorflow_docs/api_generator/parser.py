@@ -29,7 +29,6 @@ from absl import logging
 
 import astor
 
-
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import tf_inspect
 
@@ -82,6 +81,7 @@ def documentation_path(full_name, is_fragment=False):
     is_fragment: If `False` produce a direct markdown link (`tf.a.b.c` -->
       `tf/a/b/c.md`). If `True` produce fragment link, `tf.a.b.c` -->
       `tf/a/b.md#c`
+
   Returns:
     The file path to which to write the documentation for `full_name`.
   """
@@ -172,6 +172,7 @@ class IgnoreLineInBlock(object):
 
     return self._in_block
 
+
 # ?P<...> helps to find the match by entering the group name instead of the
 # index. For example, instead of doing match.group(1) we can do
 # match.group('brackets')
@@ -211,6 +212,7 @@ class ReferenceResolver(object):
     Args:
       visitor: an instance of `DocGeneratorVisitor`
       **kwargs: all remaining args are passed to the constructor
+
     Returns:
       an instance of `ReferenceResolver` ()
     """
@@ -223,9 +225,7 @@ class ReferenceResolver(object):
       is_fragment[name] = not has_page
 
     return cls(
-        duplicate_of=visitor.duplicate_of,
-        is_fragment=is_fragment,
-        **kwargs)
+        duplicate_of=visitor.duplicate_of, is_fragment=is_fragment, **kwargs)
 
   @classmethod
   def from_json_file(cls, filepath):
@@ -255,8 +255,8 @@ class ReferenceResolver(object):
 
     split_symbol = symbol.split('.')
     partials = [
-        '.'.join(split_symbol[i:])
-        for i in range(1, len(split_symbol) - 1)
+        '.'.join(split_symbol[i:]) for i in range(1,
+                                                  len(split_symbol) - 1)
     ]
     return partials
 
@@ -334,8 +334,8 @@ class ReferenceResolver(object):
       string: A string in which "`tf.symbol`" references should be replaced.
       relative_path_to_root: The relative path from the containing document to
         the root of the API documentation that is being linked to.
-      full_name: (optional) The full name of current object, so replacements
-        can depend on context.
+      full_name: (optional) The full name of current object, so replacements can
+        depend on context.
 
     Returns:
       `string`, with "`tf.symbol`" references replaced by Markdown links.
@@ -359,7 +359,10 @@ class ReferenceResolver(object):
 
     return '\n'.join(fixed_lines)
 
-  def python_link(self, link_text, ref_full_name, relative_path_to_root,
+  def python_link(self,
+                  link_text,
+                  ref_full_name,
+                  relative_path_to_root,
                   code_ref=True):
     """Resolve a "`tf.symbol`" reference to a Markdown link.
 
@@ -498,8 +501,8 @@ class ReferenceResolver(object):
 
     # relative_path_to_root gets you to api_docs/python, we go from there
     # to api_docs/cc, and then add ret.
-    cc_relative_path = os.path.normpath(os.path.join(
-        relative_path_to_root, '../cc', ret))
+    cc_relative_path = os.path.normpath(
+        os.path.join(relative_path_to_root, '../cc', ret))
 
     return f'<a href="{cc_relative_path}"><code>{link_text}</code></a>'
 
@@ -712,7 +715,7 @@ def _parse_md_docstring(py_object, relative_path_to_root, full_name,
       document to the root of the Python API documentation. This is used to
       compute links for "`tf.symbol`" references.
     full_name: (optional) The api path to the current object, so replacements
-        can depend on context.
+      can depend on context.
     reference_resolver: An instance of ReferenceResolver.
 
   Returns:
@@ -744,18 +747,82 @@ def _parse_md_docstring(py_object, relative_path_to_root, full_name,
 
   return _DocstringInfo(brief, docstring_parts, compatibility)
 
-PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
-OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
+
+_PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+_OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
+
+
+def _kwargs_text_representation(func, kwargs, default_value_of_all_kwargs,
+                                reverse_index):
+  """Creates a text representation of the kwargs in a method/function."""
+
+  text_representation = []
+
+  try:
+    source = textwrap.dedent(tf_inspect.getsource(func))
+    func_ast = ast.parse(source)
+    ast_args = func_ast.body[0].args  # pytype: disable=attribute-error
+    ast_defaults = ast_args.defaults + ast_args.kw_defaults
+    if len(ast_defaults) != len(kwargs):
+      ast_defaults = [None] * len(kwargs)
+  # A wide-variety of errors can be thrown here.
+  except Exception:  # pylint: disable=broad-except
+    ast_defaults = [None] * len(kwargs)
+
+  for kwarg, ast_default in zip(kwargs, ast_defaults):
+    default_val_exists = kwarg in default_value_of_all_kwargs
+    default_val = default_value_of_all_kwargs.get(kwarg, None)
+
+    if id(default_val) in reverse_index:
+      default_text = reverse_index[id(default_val)]
+    elif ast_default is not None:
+      default_text = (
+          astor.to_source(ast_default).rstrip('\n').replace(
+              '\t', '\\t').replace('\n', '\\n').replace('"""', "'"))
+      default_text = _PAREN_NUMBER_RE.sub('\\1', default_text)
+
+      if default_text != repr(default_val):
+        # This may be an internal name. If so, handle the ones we know about.
+        internal_names = {
+            'ops.GraphKeys': 'tf.GraphKeys',
+            '_ops.GraphKeys': 'tf.GraphKeys',
+            'init_ops.zeros_initializer': 'tf.zeros_initializer',
+            'init_ops.ones_initializer': 'tf.ones_initializer',
+            'saver_pb2.SaverDef': 'tf.train.SaverDef',
+        }
+        full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
+        match = re.match(full_name_re, default_text)
+        if match:
+          lookup_text = default_text
+          for internal_name, public_name in internal_names.items():
+            if match.group(0).startswith(internal_name):
+              lookup_text = public_name + default_text[len(internal_name):]
+              break
+          if default_text is lookup_text:
+            logging.warn(
+                'WARNING: Using default arg, failed lookup: '
+                '%s, repr: %r', default_text, repr(default_val))
+          else:
+            default_text = lookup_text
+    # This is a kwarg without any default value. Add it to the list as is and
+    # continue.
+    elif not default_val_exists:
+      text_representation.append(kwarg)
+      continue
+    else:
+      default_text = repr(default_val)
+      # argspec.defaults can contain object memory addresses, i.e.
+      # containers.MutableMapping.pop. Strip these out to avoid
+      # unnecessary doc churn between invocations.
+      default_text = _OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
+
+    text_representation.append(f'{kwarg}={default_text}')
+
+  return text_representation
 
 
 def _generate_signature(func, reverse_index):
   """Given a function, returns a list of strings representing its args.
-
-  This function produces a list of strings representing the arguments to a
-  python function. It uses tf_inspect.getfullargspec, which
-  does not generalize well to Python 3.x, which is more flexible in how *args
-  and **kwargs are handled. This is not a problem in TF, since we have to remain
-  compatible to Python 2.7 anyway.
 
   This function uses `__name__` for callables if it is available. This can lead
   to poor results for functools.partial and other callable objects.
@@ -771,83 +838,89 @@ def _generate_signature(func, reverse_index):
     A list of strings representing the argument signature of `func` as python
     code.
   """
-  args_list = []
+
+  all_args_list = []
+  only_args = []
+  kwargs_with_defaults = []
+  default_value_of_all_kwargs = {}
+
+  #############################################################################
+  # The following conditions are handled below in code.
+  # In Py3, there can be kwargs only arguments without any default value.
+  # This is the syntax for kwargs with defaults:
+  # ```
+  # def temp(a, b=False, *, c, d=True, e):
+  #  return True
+  # ```
+  # In the above function, `c`, `d` and `e` are kwargs only arguments.
+  # In `inspect.getfullargspec`,
+  #   * `kwonlyargs` and `kwonlydefaults` are used for `c`, `d` and `e`.
+  #   * `argspec.defaults` is used for `b`'s default values which is False.
+  #   * `b` and `a` are in `argspec.args`.
+  #############################################################################
+
   # If the py_object doesn't have `_tf_decorator` as an attribute, then the
   # original py_object will be returned.
   argspec = tf_inspect.getfullargspec(func)
+  arguments = argspec.args
 
-  first_arg_with_default = (
-      len(argspec.args or []) - len(argspec.defaults or []))
+  #############################################################################
+  # Process the information about the func.
+  #############################################################################
 
-  # Python documentation skips `self` when printing method signatures.
-  # Note we cannot test for ismethod here since unbound methods do not register
-  # as methods (in Python 3).
-  first_arg = 1 if 'self' in argspec.args[:1] else 0
+  # Remove `self` from the signature of a method.
+  if 'self' in arguments:
+    arguments = arguments[1:]
+  # Assign arguments as the default value to only_args
+  only_args = arguments
 
-  # Add all args without defaults.
-  for arg in argspec.args[first_arg:first_arg_with_default]:
-    args_list.append(arg)
+  # This `if` condition, deals with the `a` and `b` args from the example above.
+  if argspec.defaults is not None:
+    kd_length = len(argspec.defaults)
+    only_args = arguments[:-kd_length]
+    kwargs_with_defaults = arguments[-kd_length:]
+    # update the default values for kwargs_with_defaults.
+    for kwarg, val in zip(kwargs_with_defaults, argspec.defaults):
+      default_value_of_all_kwargs[kwarg] = val
 
-  # Add all args with defaults.
-  if argspec.defaults:
-    try:
-      source = textwrap.dedent(tf_inspect.getsource(func))
-      func_ast = ast.parse(source)
-      ast_defaults = func_ast.body[0].args.defaults  # pytype: disable=attribute-error
-    except Exception:  # pylint: disable=broad-except
-      # A wide-variety of errors can be thrown here.
-      ast_defaults = [None] * len(argspec.defaults)
+  # This deals with adding the default values for `c`, `d` and `e` in the
+  # example above.
+  if argspec.kwonlydefaults is not None:
+    default_value_of_all_kwargs.update(argspec.kwonlydefaults)
 
-    for arg, default, ast_default in zip(
-        argspec.args[first_arg_with_default:], argspec.defaults, ast_defaults):
-      if id(default) in reverse_index:
-        default_text = reverse_index[id(default)]
-      elif ast_default is not None:
-        default_text = (
-            astor.to_source(ast_default).rstrip('\n').replace('\t', '\\t')
-            .replace('\n', '\\n').replace('"""', "'"))
-        default_text = PAREN_NUMBER_RE.sub('\\1', default_text)
+  #############################################################################
+  # Build the text representation of Args and Kwargs.
+  #############################################################################
 
-        if default_text != repr(default):
-          # This may be an internal name. If so, handle the ones we know about.
-          # TODO(wicke): This should be replaced with a lookup in the index.
-          # TODO(wicke): (replace first ident with tf., check if in index)
-          internal_names = {
-              'ops.GraphKeys': 'tf.GraphKeys',
-              '_ops.GraphKeys': 'tf.GraphKeys',
-              'init_ops.zeros_initializer': 'tf.zeros_initializer',
-              'init_ops.ones_initializer': 'tf.ones_initializer',
-              'saver_pb2.SaverDef': 'tf.train.SaverDef',
-          }
-          full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
-          match = re.match(full_name_re, default_text)
-          if match:
-            lookup_text = default_text
-            for internal_name, public_name in internal_names.items():
-              if match.group(0).startswith(internal_name):
-                lookup_text = public_name + default_text[len(internal_name):]
-                break
-            if default_text is lookup_text:
-              logging.warn('WARNING: Using default arg, failed lookup: '
-                           f'{default_text}, repr: {default!r}')
-            else:
-              default_text = lookup_text
-      else:
-        default_text = repr(default)
-        # argspec.defaults can contain object memory addresses, i.e.
-        # containers.MutableMapping.pop. Strip these out to avoid
-        # unnecessary doc churn between invocations.
-        default_text = OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
+  # Only add the Args. Kwargs are added below.
+  for arg in only_args:
+    all_args_list.append(f'{arg}')
 
-      args_list.append(f'{arg}={default_text}')
+  # Add the kwargs with defaults (`b`) in the example above.
+  if kwargs_with_defaults:
+    all_args_list.extend(
+        _kwargs_text_representation(func, kwargs_with_defaults,
+                                    default_value_of_all_kwargs, reverse_index))
+
+  # Add the compulsory kwargs (`c, `d, `e`) in the example above.
+  # Also, add `*` since that's the syntax for compulsory kwargs in Py3.
+  if argspec.kwonlyargs:
+    if argspec.varargs:
+      all_args_list.append('*' + argspec.varargs)
+    else:
+      all_args_list.append('*')
+
+    all_args_list.extend(
+        _kwargs_text_representation(func, argspec.kwonlyargs,
+                                    default_value_of_all_kwargs, reverse_index))
 
   # Add *args and *kwargs.
-  if argspec.varargs:
-    args_list.append('*' + argspec.varargs)
+  if argspec.varargs and not argspec.kwonlyargs:
+    all_args_list.append('*' + argspec.varargs)
   if argspec.varkw:
-    args_list.append('**' + argspec.varkw)
+    all_args_list.append('**' + argspec.varkw)
 
-  return args_list
+  return all_args_list
 
 
 def _get_defining_class(py_class, name):
@@ -858,8 +931,8 @@ def _get_defining_class(py_class, name):
 
 
 class _LinkInfo(
-    collections.namedtuple(
-        '_LinkInfo', ['short_name', 'full_name', 'obj', 'doc', 'url'])):
+    collections.namedtuple('_LinkInfo',
+                           ['short_name', 'full_name', 'obj', 'doc', 'url'])):
 
   __slots__ = []
 
@@ -1073,8 +1146,8 @@ class ClassPageInfo(PageInfo):
     doc pages for the class' parents.
 
     Args:
-      relative_path: The relative path from the doc this object describes to
-        the documentation root.
+      relative_path: The relative path from the doc this object describes to the
+        documentation root.
       parser_config: An instance of `ParserConfig`.
     """
     bases = []
@@ -1088,9 +1161,12 @@ class ClassPageInfo(PageInfo):
       base_url = parser_config.reference_resolver.reference_to_url(
           base_full_name, relative_path)
 
-      link_info = _LinkInfo(short_name=base_full_name.split('.')[-1],
-                            full_name=base_full_name, obj=base,
-                            doc=base_doc, url=base_url)
+      link_info = _LinkInfo(
+          short_name=base_full_name.split('.')[-1],
+          full_name=base_full_name,
+          obj=base,
+          doc=base_doc,
+          url=base_url)
       bases.append(link_info)
 
     self._bases = bases
@@ -1425,10 +1501,11 @@ class ModulePageInfo(PageInfo):
     member_names = parser_config.tree.get(self.full_name, [])
     for name in member_names:
 
-      if name in ['__builtins__', '__doc__', '__file__',
-                  '__name__', '__path__', '__package__',
-                  '__cached__', '__loader__', '__spec__', 'absolute_import',
-                  'division', 'print_function', 'unicode_literals']:
+      if name in [
+          '__builtins__', '__doc__', '__file__', '__name__', '__path__',
+          '__package__', '__cached__', '__loader__', '__spec__',
+          'absolute_import', 'division', 'print_function', 'unicode_literals'
+      ]:
         continue
 
       member_full_name = self.full_name + '.' + name if self.full_name else name
@@ -1462,9 +1539,9 @@ class ParserConfig(object):
 
     Args:
       reference_resolver: An instance of ReferenceResolver.
-      duplicates: A `dict` mapping fully qualified names to a set of all
-        aliases of this name. This is used to automatically generate a list of
-        all aliases for each name.
+      duplicates: A `dict` mapping fully qualified names to a set of all aliases
+        of this name. This is used to automatically generate a list of all
+        aliases for each name.
       duplicate_of: A map from duplicate names to preferred names of API
         symbols.
       tree: A `dict` mapping a fully qualified name to the names of all its
@@ -1504,8 +1581,7 @@ def docs_for_object(full_name, py_object, parser_config):
   documentation are resolvable.
 
   Args:
-    full_name: The fully qualified name of the symbol to be
-      documented.
+    full_name: The fully qualified name of the symbol to be documented.
     py_object: The Python object to be documented. Its documentation is sourced
       from `py_object`'s docstring.
     parser_config: A ParserConfig object.
@@ -1596,8 +1672,7 @@ def _get_defined_in(py_object: Any,
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
 
-    rel_path = os.path.relpath(
-        path=obj_path, start=base_dir)
+    rel_path = os.path.relpath(path=obj_path, start=base_dir)
     # A leading ".." indicates that the file is not inside `base_dir`, and
     # the search should continue.
     if rel_path.startswith('..'):
@@ -1686,8 +1761,9 @@ def generate_global_index(library_name, index, reference_resolver):
         if parent_name in index and tf_inspect.isclass(index[parent_name]):
           # Skip methods (=functions with class parents).
           continue
-      symbol_links.append((
-          full_name, reference_resolver.python_link(full_name, full_name, '.')))
+      symbol_links.append(
+          (full_name, reference_resolver.python_link(full_name, full_name,
+                                                     '.')))
 
   lines = [f'# All symbols in {library_name}', '']
 

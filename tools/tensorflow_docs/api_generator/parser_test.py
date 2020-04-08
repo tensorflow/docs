@@ -16,12 +16,10 @@
 """Tests for documentation parser."""
 
 import collections
-import functools
 import inspect
 import os
 import tempfile
 import textwrap
-import unittest
 
 from absl.testing import absltest
 from absl.testing import parameterized
@@ -136,6 +134,7 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual('test/module.md', parser.documentation_path('test.module'))
 
   def test_replace_references(self):
+
     class HasOneMember(object):
 
       def foo(self):
@@ -146,10 +145,12 @@ class ParserTest(parameterized.TestCase):
         'This is `not a symbol`, and this is `tf.not.a.real.symbol`')
 
     duplicate_of = {'tf.third': 'tf.fourth'}
-    index = {'tf.reference': HasOneMember,
-             'tf.reference.foo': HasOneMember.foo,
-             'tf.third': HasOneMember,
-             'tf.fourth': HasOneMember}
+    index = {
+        'tf.reference': HasOneMember,
+        'tf.reference.foo': HasOneMember.foo,
+        'tf.third': HasOneMember,
+        'tf.fourth': HasOneMember
+    }
 
     visitor = DummyVisitor(index, duplicate_of)
 
@@ -157,15 +158,15 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     result = reference_resolver.replace_references(string, '../..')
-    self.assertEqual('A <a href="../../tf/reference.md">'
-                     '<code>tf.reference</code></a>, '
-                     'a member <a href="../../tf/reference.md#foo">'
-                     '<code>tf.reference.foo</code></a>, '
-                     'and a <a href="../../tf/fourth.md">'
-                     '<code>tf.third</code></a>. '
-                     'This is `not a symbol`, and this is '
-                     '`tf.not.a.real.symbol`',
-                     result)
+    self.assertEqual(
+        'A <a href="../../tf/reference.md">'
+        '<code>tf.reference</code></a>, '
+        'a member <a href="../../tf/reference.md#foo">'
+        '<code>tf.reference.foo</code></a>, '
+        'and a <a href="../../tf/fourth.md">'
+        '<code>tf.third</code></a>. '
+        'This is `not a symbol`, and this is '
+        '`tf.not.a.real.symbol`', result)
 
   def test_docs_for_class(self):
 
@@ -219,7 +220,6 @@ class ParserTest(parameterized.TestCase):
 
     self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
     self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
-
 
     # Make sure the property is present
     attrs = page_info.doc.docstring_parts[-1]
@@ -394,8 +394,9 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
-        'TestModule': ['TestClass', 'test_function',
-                       'test_function_with_args_kwargs']
+        'TestModule': [
+            'TestClass', 'test_function', 'test_function_with_args_kwargs'
+        ]
     }
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
@@ -429,18 +430,14 @@ class ParserTest(parameterized.TestCase):
         page_info.defined_in.rel_path)
 
   def test_docs_for_function(self):
-    index = {
-        'test_function': test_function
-    }
+    index = {'test_function': test_function}
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    tree = {
-        '': ['test_function']
-    }
+    tree = {'': ['test_function']}
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
@@ -469,18 +466,14 @@ class ParserTest(parameterized.TestCase):
         os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
-    index = {
-        'test_function_with_args_kwargs': test_function_with_args_kwargs
-    }
+    index = {'test_function_with_args_kwargs': test_function_with_args_kwargs}
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    tree = {
-        '': ['test_function_with_args_kwargs']
-    }
+    tree = {'': ['test_function_with_args_kwargs']}
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
@@ -598,8 +591,8 @@ class ParserTest(parameterized.TestCase):
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
-    docs = parser.generate_global_index('TestLibrary', index=index,
-                                        reference_resolver=reference_resolver)
+    docs = parser.generate_global_index(
+        'TestLibrary', index=index, reference_resolver=reference_resolver)
 
     # Make sure duplicates and non-top-level symbols are in the index, but
     # methods and properties are not.
@@ -611,7 +604,6 @@ class ParserTest(parameterized.TestCase):
     # Leading backtick to make sure it's included top-level.
     # This depends on formatting, but should be stable.
     self.assertIn('<code>tf.test_function', docs)
-
 
   def test_getsource_indexerror_resilience(self):
     """Validates that parser gracefully handles IndexErrors.
@@ -838,6 +830,7 @@ class TestReferenceResolver(absltest.TestCase):
     result = reference_resolver.reference_to_url('tf.sub.Class2', '')
     self.assertEqual('tf/Class2.md', result)
 
+
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
 RELU is an activation
@@ -939,25 +932,17 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
 class TestIgnoreLineInBlock(parameterized.TestCase):
 
   @parameterized.named_parameters(
-      ('ignore_backticks',
-       ['```'],
-       ['```'],
+      ('ignore_backticks', ['```'], ['```'],
        '```\nFiller\n```\n```Same line```\n```python\nDowner\n```'),
-
-      ('ignore_code_cell_output',
-       ['<pre>{% html %}'],
-       ['{% endhtml %}</pre>'],
+      ('ignore_code_cell_output', ['<pre>{% html %}'], ['{% endhtml %}</pre>'],
        '<pre>{% html %}\nOutput\nmultiline{% endhtml %}</pre>'),
-
-      ('ignore_backticks_and_cell_output',
-       ['<pre>{% html %}', '```'],
-       ['{% endhtml %}</pre>', '```'],
+      ('ignore_backticks_and_cell_output', ['<pre>{% html %}', '```'
+                                           ], ['{% endhtml %}</pre>', '```'],
        ('```\nFiller\n```\n```Same line```\n<pre>{% html %}\nOutput\nmultiline'
-        '{% endhtml %}</pre>\n```python\nDowner\n```'))
-      )
+        '{% endhtml %}</pre>\n```python\nDowner\n```')))
   def test_ignore_lines(self, block_start, block_end, expected_ignored_lines):
 
-    text = textwrap.dedent('''\
+    text = textwrap.dedent("""\
     ```
     Filler
     ```
@@ -971,10 +956,12 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     ```python
     Downer
     ```
-    ''')
+    """)
 
-    filters = [parser.IgnoreLineInBlock(start, end)
-               for start, end in zip(block_start, block_end)]
+    filters = [
+        parser.IgnoreLineInBlock(start, end)
+        for start, end in zip(block_start, block_end)
+    ]
 
     ignored_lines = []
     for line in text.splitlines():
@@ -984,7 +971,7 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     self.assertEqual('\n'.join(ignored_lines), expected_ignored_lines)
 
   def test_clean_text(self):
-    text = textwrap.dedent('''\
+    text = textwrap.dedent("""\
     ```
     Ignore lines here.
     ```
@@ -995,7 +982,7 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     ```
     Stuff.
     ```Not useful.```
-    ''')
+    """)
 
     filters = [parser.IgnoreLineInBlock('```', '```')]
 
@@ -1022,6 +1009,7 @@ class TestGenerateSignature(absltest.TestCase):
     self.assertEqual(sig, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
+
     def example_fun(a=5, b=5.0, c=None, d=True, e='hello', f=(1, (2, 3))):  # pylint: disable=g-bad-name, unused-argument
       pass
 
@@ -1042,6 +1030,7 @@ class TestGenerateSignature(absltest.TestCase):
 
             def __init__(self, *args):
               pass
+
     # pylint: enable=g-bad-name
 
     e = {'f': 1}
@@ -1051,6 +1040,25 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(sig, ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
+
+  def test_compulsory_kwargs_without_defaults(self):
+
+    def example_fun(x, z, a=True, b='test', *, y=None, c, **kwargs):  # pylint: disable=unused-argument
+      return True
+
+    sig = parser._generate_signature(example_fun, reverse_index={})
+    self.assertEqual(
+        sig, ['x', 'z', 'a=True', "b='test'", '*', 'y=None', 'c', '**kwargs'])
+
+  def test_compulsory_kwargs_without_defaults_with_args(self):
+
+    def example_fun(x, z, *args, a=True, b='test', y=None, c, **kwargs):  # pylint: disable=unused-argument
+      return True
+
+    sig = parser._generate_signature(example_fun, reverse_index={})
+    self.assertEqual(
+        sig,
+        ['x', 'z', '*args', 'a=True', "b='test'", 'y=None', 'c', '**kwargs'])
 
 
 if __name__ == '__main__':
