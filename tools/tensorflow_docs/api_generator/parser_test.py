@@ -21,6 +21,8 @@ import os
 import tempfile
 import textwrap
 
+from typing import Union, List
+
 from absl.testing import absltest
 from absl.testing import parameterized
 import attr
@@ -216,7 +218,8 @@ class ParserTest(parameterized.TestCase):
     self.assertIs(method_infos['a_method'].obj, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
-    self.assertEqual(["arg='default'"], method_infos['a_method'].signature)
+    self.assertEqual(["arg='default'"],
+                     method_infos['a_method'].signature.arguments)
 
     self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
     self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
@@ -459,7 +462,7 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the extracted signature is good.
     self.assertEqual(['unused_arg', "unused_kwarg='default'"],
-                     page_info.signature)
+                     page_info.signature.arguments)
 
     # Make sure this file is contained as the definition location.
     self.assertEqual(
@@ -496,7 +499,7 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure the extracted signature is good.
     self.assertEqual(['unused_arg', '*unused_args', '**unused_kwargs'],
-                     page_info.signature)
+                     page_info.signature.arguments)
 
   def test_parse_md_docstring(self):
 
@@ -688,7 +691,7 @@ class ParserTest(parameterized.TestCase):
         py_object=ConcreteMutableMapping,
         parser_config=parser_config)
 
-    pop_default_arg = page_info.methods[0].signature[1]
+    pop_default_arg = page_info.methods[0].signature.arguments[1]
     self.assertNotIn('object at 0x', pop_default_arg)
     self.assertIn('<object>', pop_default_arg)
 
@@ -1006,7 +1009,7 @@ class TestGenerateSignature(absltest.TestCase):
       pass
 
     sig = parser._generate_signature(example_fun, reverse_index)
-    self.assertEqual(sig, ['arg=location.of.object.in.api'])
+    self.assertEqual(sig.arguments, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
 
@@ -1015,7 +1018,8 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(
-        sig, ['a=5', 'b=5.0', 'c=None', 'd=True', "e='hello'", 'f=(1, (2, 3))'])
+        sig.arguments,
+        ['a=5', 'b=5.0', 'c=None', 'd=True', "e='hello'", 'f=(1, (2, 3))'])
 
   def test_dotted_name(self):
     # pylint: disable=g-bad-name
@@ -1039,16 +1043,21 @@ class TestGenerateSignature(absltest.TestCase):
       pass
 
     sig = parser._generate_signature(example_fun, reverse_index={})
-    self.assertEqual(sig, ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
+    self.assertEqual(sig.arguments,
+                     ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
 
   def test_compulsory_kwargs_without_defaults(self):
 
-    def example_fun(x, z, a=True, b='test', *, y=None, c, **kwargs):  # pylint: disable=unused-argument
+    def example_fun(x, z, a=True, b='test', *, y=None, c, **kwargs) -> bool:  # pylint: disable=unused-argument
       return True
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(
-        sig, ['x', 'z', 'a=True', "b='test'", '*', 'y=None', 'c', '**kwargs'])
+        sig.arguments,
+        ['x', 'z', 'a=True', "b='test'", '*', 'y=None', 'c', '**kwargs'])
+    self.assertEqual(sig.return_type, 'bool')
+    self.assertEqual(sig.arguments_typehint_exists, False)
+    self.assertEqual(sig.return_typehint_exists, True)
 
   def test_compulsory_kwargs_without_defaults_with_args(self):
 
@@ -1057,8 +1066,34 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(
-        sig,
+        sig.arguments,
         ['x', 'z', '*args', 'a=True', "b='test'", 'y=None', 'c', '**kwargs'])
+    self.assertEqual(sig.arguments_typehint_exists, False)
+    self.assertEqual(sig.return_typehint_exists, False)
+
+  def test_type_annotations(self):
+    # pylint: disable=unused-argument
+
+    def example_fun(x: List[str],
+                    z: int,
+                    a: Union[List[str], str, int] = None,
+                    b: str = 'test',
+                    *,
+                    y: bool = False,
+                    c: int,
+                    **kwargs) -> None:
+      pass
+
+    # pylint: enable=unused-argument
+
+    sig = parser._generate_signature(example_fun, reverse_index={})
+    self.assertEqual(sig.arguments, [
+        'x: List[str]', 'z: int', 'a: Union[List[str], str, int] = None',
+        "b: str = 'test'", '*', 'y: bool = False', 'c: int', '**kwargs'
+    ])
+    self.assertEqual(sig.return_type, 'None')
+    self.assertEqual(sig.arguments_typehint_exists, True)
+    self.assertEqual(sig.return_typehint_exists, True)
 
 
 if __name__ == '__main__':

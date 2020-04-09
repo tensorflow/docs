@@ -21,9 +21,8 @@ import json
 import os
 import re
 import textwrap
-from typing import Any, Optional
 
-from typing import List, Tuple, Iterable
+from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional
 
 from absl import logging
 
@@ -748,80 +747,180 @@ def _parse_md_docstring(py_object, relative_path_to_root, full_name,
   return _DocstringInfo(brief, docstring_parts, compatibility)
 
 
-_PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
-_OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
+class TypeAnnotationExtractor(ast.NodeVisitor):
+  """Extracts the type annotations by parsing the AST of a function."""
+
+  def __init__(self):
+    self.annotation_dict = {}
+    self.arguments_typehint_exists = False
+    self.return_typehint_exists = False
+
+  def visit_FunctionDef(self, node):  # pylint: disable=invalid-name
+    """Visits the `FunctionDef` node in AST tree and extracts the typehints."""
+
+    # Capture the return type annotation.
+    if node.returns:
+      self.annotation_dict['return'] = astor.to_source(
+          node.returns).strip().replace('"""', '"')
+      self.return_typehint_exists = True
+
+    # Capture the args type annotation.
+    for arg in node.args.args:
+      if arg.annotation:
+        self.annotation_dict[arg.arg] = astor.to_source(
+            arg.annotation).strip().replace('"""', '"')
+        self.arguments_typehint_exists = True
+
+    # Capture the kwarg only args type annotation.
+    for kwarg in node.args.kwonlyargs:
+      if kwarg.annotation:
+        self.annotation_dict[kwarg.arg] = astor.to_source(
+            kwarg.annotation).strip().replace('"""', '"')
+        self.arguments_typehint_exists = True
 
 
-def _kwargs_text_representation(func, kwargs, default_value_of_all_kwargs,
-                                reverse_index):
-  """Creates a text representation of the kwargs in a method/function."""
+class FormatArguments(object):
+  """Formats the arguments and adds type annotations if they exist."""
 
-  text_representation = []
+  _PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+  _OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
-  try:
-    source = textwrap.dedent(tf_inspect.getsource(func))
-    func_ast = ast.parse(source)
-    ast_args = func_ast.body[0].args  # pytype: disable=attribute-error
-    ast_defaults = ast_args.defaults + ast_args.kw_defaults
-    if len(ast_defaults) != len(kwargs):
-      ast_defaults = [None] * len(kwargs)
-  # A wide-variety of errors can be thrown here.
-  except Exception:  # pylint: disable=broad-except
+  def __init__(
+      self,
+      func_ast: Any,
+      default_value_of_all_kwargs: Dict[str, Any],
+      type_annotations: Dict[str, str],
+      reverse_index: Dict[Any, str],
+  ) -> None:
+    self._func_ast = func_ast
+    self._default_value_of_all_kwargs = default_value_of_all_kwargs
+    self._type_annotations = type_annotations
+    self._reverse_index = reverse_index
+
+  def format_args(self, args: List[str]) -> List[str]:
+    """Creates a text representation of the args in a method/function.
+
+    Args:
+      args: List of args to format.
+
+    Returns:
+      Formatted args with type annotations if they exist.
+    """
+
+    args_text_representation = []
+
+    for arg in args:
+      if arg in self._type_annotations:
+        args_text_representation.append(f'{arg}: {self._type_annotations[arg]}')
+      else:
+        args_text_representation.append(f'{arg}')
+
+    return args_text_representation
+
+  def format_kwargs(self, kwargs: List[str]) -> List[str]:
+    """Creates a text representation of the kwargs in a method/function.
+
+    Args:
+      kwargs: List of kwargs to format.
+
+    Returns:
+      Formatted kwargs with type annotations if they exist.
+    """
+
+    kwargs_text_representation = []
+
     ast_defaults = [None] * len(kwargs)
+    if self._func_ast is not None:
+      ast_args = self._func_ast.body[0].args  # pytype: disable=attribute-error
+      ast_defaults = ast_args.defaults + ast_args.kw_defaults
+      if len(ast_defaults) != len(kwargs):
+        ast_defaults = [None] * len(kwargs)
 
-  for kwarg, ast_default in zip(kwargs, ast_defaults):
-    default_val_exists = kwarg in default_value_of_all_kwargs
-    default_val = default_value_of_all_kwargs.get(kwarg, None)
+    for kwarg, ast_default in zip(kwargs, ast_defaults):
+      default_val_exists = kwarg in self._default_value_of_all_kwargs
+      default_val = self._default_value_of_all_kwargs.get(kwarg, None)
 
-    if id(default_val) in reverse_index:
-      default_text = reverse_index[id(default_val)]
-    elif ast_default is not None:
-      default_text = (
-          astor.to_source(ast_default).rstrip('\n').replace(
-              '\t', '\\t').replace('\n', '\\n').replace('"""', "'"))
-      default_text = _PAREN_NUMBER_RE.sub('\\1', default_text)
+      if id(default_val) in self._reverse_index:
+        default_text = self._reverse_index[id(default_val)]
+      elif ast_default is not None:
+        default_text = (
+            astor.to_source(ast_default).rstrip('\n').replace(
+                '\t', '\\t').replace('\n', '\\n').replace('"""', "'"))
+        default_text = self._PAREN_NUMBER_RE.sub('\\1', default_text)
 
-      if default_text != repr(default_val):
-        # This may be an internal name. If so, handle the ones we know about.
-        internal_names = {
-            'ops.GraphKeys': 'tf.GraphKeys',
-            '_ops.GraphKeys': 'tf.GraphKeys',
-            'init_ops.zeros_initializer': 'tf.zeros_initializer',
-            'init_ops.ones_initializer': 'tf.ones_initializer',
-            'saver_pb2.SaverDef': 'tf.train.SaverDef',
-        }
-        full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
-        match = re.match(full_name_re, default_text)
-        if match:
-          lookup_text = default_text
-          for internal_name, public_name in internal_names.items():
-            if match.group(0).startswith(internal_name):
-              lookup_text = public_name + default_text[len(internal_name):]
-              break
-          if default_text is lookup_text:
-            logging.warn(
-                'WARNING: Using default arg, failed lookup: '
-                '%s, repr: %r', default_text, repr(default_val))
-          else:
-            default_text = lookup_text
-    # This is a kwarg without any default value. Add it to the list as is and
-    # continue.
-    elif not default_val_exists:
-      text_representation.append(kwarg)
-      continue
-    else:
-      default_text = repr(default_val)
-      # argspec.defaults can contain object memory addresses, i.e.
-      # containers.MutableMapping.pop. Strip these out to avoid
-      # unnecessary doc churn between invocations.
-      default_text = _OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', default_text)
+        if default_text != repr(default_val):
+          # This may be an internal name. If so, handle the ones we know about.
+          internal_names = {
+              'ops.GraphKeys': 'tf.GraphKeys',
+              '_ops.GraphKeys': 'tf.GraphKeys',
+              'init_ops.zeros_initializer': 'tf.zeros_initializer',
+              'init_ops.ones_initializer': 'tf.ones_initializer',
+              'saver_pb2.SaverDef': 'tf.train.SaverDef',
+          }
+          full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
+          match = re.match(full_name_re, default_text)
+          if match:
+            lookup_text = default_text
+            for internal_name, public_name in internal_names.items():
+              if match.group(0).startswith(internal_name):
+                lookup_text = public_name + default_text[len(internal_name):]
+                break
+            if default_text is lookup_text:
+              logging.warn(
+                  'WARNING: Using default arg, failed lookup: '
+                  '%s, repr: %r', default_text, repr(default_val))
+            else:
+              default_text = lookup_text
+      # This is a kwarg without any default value. Add it to the list as an arg
+      # and continue.
+      elif not default_val_exists:
+        kwargs_text_representation.extend(self.format_args([kwarg]))
+        continue
+      else:
+        default_text = repr(default_val)
+        # argspec.defaults can contain object memory addresses, i.e.
+        # containers.MutableMapping.pop. Strip these out to avoid
+        # unnecessary doc churn between invocations.
+        default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
+            r'<\g<type>>', default_text)
 
-    text_representation.append(f'{kwarg}={default_text}')
+      if kwarg in self._type_annotations:
+        kwargs_text_representation.append(
+            f'{kwarg}: {self._type_annotations[kwarg]} = {default_text}')
+      else:
+        kwargs_text_representation.append(f'{kwarg}={default_text}')
 
-  return text_representation
+    return kwargs_text_representation
 
 
-def _generate_signature(func, reverse_index):
+class _SignatureComponents(NamedTuple):
+  """Contains the components that make up the signature of a function/method."""
+
+  arguments: List[str]
+  arguments_typehint_exists: bool
+  return_typehint_exists: bool
+  return_type: Optional[str] = None
+
+  def __str__(self):
+    arguments_signature = ''
+    if self.arguments:
+      str_signature = ',\n'.join(self.arguments)
+      # If there is no type annotation on arguments, then wrap the entire
+      # signature to width 80.
+      if not self.arguments_typehint_exists:
+        str_signature = textwrap.fill(str_signature, width=80)
+      arguments_signature = '\n' + textwrap.indent(
+          str_signature, prefix='    ') + '\n'
+
+    full_signature = f'({arguments_signature})'
+    if self.return_typehint_exists:
+      full_signature += f' -> {self.return_type}'
+
+    return full_signature
+
+
+def _generate_signature(func: Any,
+                        reverse_index: Dict[int, str]) -> _SignatureComponents:
   """Given a function, returns a list of strings representing its args.
 
   This function uses `__name__` for callables if it is available. This can lead
@@ -835,8 +934,7 @@ def _generate_signature(func, reverse_index):
     reverse_index: A map from object ids to canonical full names to use.
 
   Returns:
-    A list of strings representing the argument signature of `func` as python
-    code.
+    A `_SignatureComponents` NamedTuple.
   """
 
   all_args_list = []
@@ -863,6 +961,20 @@ def _generate_signature(func, reverse_index):
   # original py_object will be returned.
   argspec = tf_inspect.getfullargspec(func)
   arguments = argspec.args
+  visitor = TypeAnnotationExtractor()
+
+  try:
+    func_source = textwrap.dedent(tf_inspect.getsource(func))
+    func_ast = ast.parse(func_source)
+    # Extract the type annotation from the parsed ast.
+    visitor.visit(func_ast)
+  except Exception:  # pylint: disable=broad-except
+    # A wide-variety of errors can be thrown here.
+    func_ast = None
+
+  type_annotations = visitor.annotation_dict
+  arguments_typehint_exists = visitor.arguments_typehint_exists
+  return_typehint_exists = visitor.return_typehint_exists
 
   #############################################################################
   # Process the information about the func.
@@ -892,15 +1004,16 @@ def _generate_signature(func, reverse_index):
   # Build the text representation of Args and Kwargs.
   #############################################################################
 
+  formatter = FormatArguments(func_ast, default_value_of_all_kwargs,
+                              type_annotations, reverse_index)
+
   # Only add the Args. Kwargs are added below.
-  for arg in only_args:
-    all_args_list.append(f'{arg}')
+  if only_args:
+    all_args_list.extend(formatter.format_args(only_args))
 
   # Add the kwargs with defaults (`b`) in the example above.
   if kwargs_with_defaults:
-    all_args_list.extend(
-        _kwargs_text_representation(func, kwargs_with_defaults,
-                                    default_value_of_all_kwargs, reverse_index))
+    all_args_list.extend(formatter.format_kwargs(kwargs_with_defaults))
 
   # Add the compulsory kwargs (`c, `d, `e`) in the example above.
   # Also, add `*` since that's the syntax for compulsory kwargs in Py3.
@@ -910,9 +1023,7 @@ def _generate_signature(func, reverse_index):
     else:
       all_args_list.append('*')
 
-    all_args_list.extend(
-        _kwargs_text_representation(func, argspec.kwonlyargs,
-                                    default_value_of_all_kwargs, reverse_index))
+    all_args_list.extend(formatter.format_kwargs(argspec.kwonlyargs))
 
   # Add *args and *kwargs.
   if argspec.varargs and not argspec.kwonlyargs:
@@ -920,7 +1031,11 @@ def _generate_signature(func, reverse_index):
   if argspec.varkw:
     all_args_list.append('**' + argspec.varkw)
 
-  return all_args_list
+  return _SignatureComponents(
+      arguments=all_args_list,
+      arguments_typehint_exists=arguments_typehint_exists,
+      return_typehint_exists=return_typehint_exists,
+      return_type=type_annotations.get('return', None))
 
 
 def _get_defining_class(py_class, name):

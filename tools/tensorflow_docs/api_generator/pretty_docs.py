@@ -287,7 +287,6 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
 
     parts.extend(class_links)
 
-
   # If the class contains methods other than the constructor, then add them
   # to the page.
   if methods.info_dict:
@@ -472,12 +471,7 @@ def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
       ```
       """)
 
-  full_signature = ''
-  if obj_info.signature:
-    str_signature = ', '.join(sig_item for sig_item in obj_info.signature)
-    wrapped_signature = '\n'.join(textwrap.wrap(str_signature, width=80))
-    full_signature = '\n' + textwrap.indent(
-        wrapped_signature, prefix='    ') + '\n'
+  full_signature = str(obj_info.signature)
 
   # Create the signature. For example it will look like:
   # ```python
@@ -488,7 +482,7 @@ def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
   parts = ['```python']
   parts.extend(
       ['@' + dec for dec in obj_info.decorators if dec in DECORATOR_WHITELIST])
-  parts.append(f'{obj_name}({full_signature})')
+  parts.append(f'{obj_name}{full_signature}')
   parts.append('```\n\n')
 
   return '\n'.join(parts)
