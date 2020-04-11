@@ -602,7 +602,7 @@ def extract(py_modules,
       locations where the children should not be listed.
     visitor_cls: A class, typically a subclass of
       `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
-      obejcts to document.
+      objects to document.
     callbacks: Additional callbacks passed to `traverse`. Executed between the
       `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
       primary use case for these is to filter the listy of children (see:

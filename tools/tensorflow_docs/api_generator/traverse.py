@@ -157,7 +157,6 @@ def _traverse_internal(root, visitors, stack, path):
   for name, child in children:
     if any(child is item for item in new_stack):  # `in`, but using `is`
       continue
-
     filtered_children.append((name, child))
   children = filtered_children
 
@@ -211,4 +210,4 @@ def traverse(root, visitors, root_name):
       _add_proto_fields,
       _filter_builtin_modules
   ]
-  _traverse_internal(root, base_visitors+visitors, [], (root_name,))
+  _traverse_internal(root, base_visitors + visitors, [], (root_name,))

@@ -192,8 +192,8 @@ class PublicAPIFilter(object):
       del children[:]
 
     # Remove things that are not visible.
-    for child_name, child in list(children):
-      if self._is_private(path, child_name, child):
-        children.remove((child_name, child))
+    children = [(child_name, child_obj)
+                for child_name, child_obj in list(children)
+                if not self._is_private(path, child_name, child_obj)]
 
     return children
