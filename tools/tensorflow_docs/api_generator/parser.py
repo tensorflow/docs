@@ -1076,6 +1076,38 @@ MethodInfo = collections.namedtuple('MethodInfo', [
 ])
 
 
+def extract_decorators(func: Any) -> List[str]:
+  """Extracts the decorators on top of functions/methods.
+
+  Args:
+    func: The function to extract the decorators from.
+
+  Returns:
+    A List of decorators.
+  """
+
+  class ASTDecoratorExtractor(ast.NodeVisitor):
+
+    def __init__(self):
+      self.decorator_list = []
+
+    def visit_FunctionDef(self, node):  # pylint: disable=invalid-name
+      for dec in node.decorator_list:
+        self.decorator_list.append(astor.to_source(dec).strip())
+
+  visitor = ASTDecoratorExtractor()
+
+  try:
+    func_source = textwrap.dedent(tf_inspect.getsource(func))
+    func_ast = ast.parse(func_source)
+    visitor.visit(func_ast)
+  except Exception:  # pylint: disable=broad-except
+    # A wide-variety of errors can be thrown here.
+    pass
+
+  return visitor.decorator_list
+
+
 class PageInfo(object):
   """Base-class for api_pages objects.
 
@@ -1192,8 +1224,7 @@ class FunctionPageInfo(PageInfo):
     assert self.signature is None
     self._signature = _generate_signature(self.py_object,
                                           parser_config.reverse_index)
-    decorators, _ = tf_inspect.unwrap_tf_decorator(self.py_object)
-    self._decorators = [dec.decorator_name for dec in decorators]
+    self._decorators = extract_decorators(self.py_object)
 
   @property
   def decorators(self):
@@ -1456,22 +1487,7 @@ class ClassPageInfo(PageInfo):
           # functions.
           continue
 
-        child_decorators = []
-        try:
-          if isinstance(original_method, classmethod):
-            child_decorators.append('classmethod')
-        except KeyError:
-          pass
-
-        try:
-          if isinstance(original_method, staticmethod):
-            child_decorators.append('staticmethod')
-        except KeyError:
-          pass
-
-        tf_decorators, _ = tf_inspect.unwrap_tf_decorator(child)
-        child_decorators.extend(
-            [tf_dec.decorator_name for tf_dec in tf_decorators])
+        child_decorators = extract_decorators(child)
 
         defined_in = _get_defined_in(child, parser_config)
         self._add_method(short_name, child_name, child, child_doc,

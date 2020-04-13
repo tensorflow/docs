@@ -38,9 +38,8 @@ def unwrap_tf_decorator(py_object):
     py_object: A python object.
 
   Returns:
-    A tuple: (decorators, unwraped_object)
+    The unwraped_object.
   """
-  decorators = []
 
   while True:
     decorator = getattr(py_object, '_tf_decorator', None)
@@ -50,14 +49,13 @@ def unwrap_tf_decorator(py_object):
     if unwrapped_py_obj is None:
       break
     py_object = unwrapped_py_obj
-    decorators.append(decorator)
 
-  return decorators, py_object
+  return py_object
 
 
 def _undecorate_and_apply(inspect_fun, obj, *args, **kwargs):
   """Unwrap `tf_decorators` from obj before applying `inspect_fun`."""
-  _, unwraped_obj = unwrap_tf_decorator(obj)
+  unwraped_obj = unwrap_tf_decorator(obj)
   return inspect_fun(unwraped_obj, *args, **kwargs)
 
 

@@ -443,8 +443,10 @@ def _build_module_page(page_info: parser.ModulePageInfo) -> str:
 DECORATOR_WHITELIST = {
     'classmethod',
     'staticmethod',
-    'contextmanager',
+    'tf_contextlib.contextmanager',
+    'contextlib.contextmanager',
     'tf.function',
+    'types.method',
 }
 
 
