@@ -981,8 +981,9 @@ def _generate_signature(func: Any,
   #############################################################################
 
   # Remove `self` from the signature of a method.
-  if 'self' in arguments:
-    arguments = arguments[1:]
+  if arguments:
+    if arguments[0] == 'self' or arguments[0] == 'cls':
+      arguments = arguments[1:]
   # Assign arguments as the default value to only_args
   only_args = arguments
 
