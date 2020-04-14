@@ -14,12 +14,13 @@
 # limitations under the License.
 # ==============================================================================
 """Visitor restricting traversal to only the public tensorflow API."""
-import inspect
 
+import ast
+import inspect
+import typing
 
 from tensorflow_docs.api_generator import doc_controls
 
-import typing
 _TYPING = frozenset(id(value) for value in typing.__dict__.values())
 
 
@@ -118,6 +119,77 @@ def local_definitions_filter(path, parent, children):
 
     filtered_children.append(pair)
 
+  return filtered_children
+
+
+def _get_imported_symbols(obj):
+  """Returns a list of symbol names imported by the given `obj`."""
+
+  class ImportNodeVisitor(ast.NodeVisitor):
+    """An `ast.Visitor` that collects the names of imported symbols."""
+
+    def __init__(self):
+      self.imported_symbols = []
+
+    def _add_imported_symbol(self, node):
+      self.imported_symbols.extend([alias.name for alias in node.names])
+
+    def visit_Import(self, node):  # pylint: disable=invalid-name
+      self._add_imported_symbol(node)
+
+    def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
+      self._add_imported_symbol(node)
+
+  source = inspect.getsource(obj)
+  tree = ast.parse(source)
+  visitor = ImportNodeVisitor()
+  visitor.visit(tree)
+  return visitor.imported_symbols
+
+
+def explicit_package_contents_filter(path, parent, children):
+  """Filter modules to only include explicit contents.
+
+  This function returns the children explicitly included by this module, meaning
+  that it will exclude:
+
+  *   Modules in a package not explicitly imported by the package (submodules
+      are implicitly injected into their parent's namespace).
+  *   Modules imported by a module that is not a package.
+
+  This filter is useful if you explicitly define your API in the packages of
+  your library, but do not expliticly define that API in the `__all__` variable
+  of each module. The purpose is to make it easier to maintain that API.
+
+  Note: This filter does work with wildcard imports, however it is generally not
+  recommended to use wildcard imports.
+
+  Args:
+    path: A tuple of names forming the path to the object.
+    parent: The parent object.
+    children: A list of (name, value) tuples describing the attributes of the
+      patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path  # Unused
+  is_parent_module = inspect.ismodule(parent)
+  is_parent_package = is_parent_module and hasattr(parent, '__path__')
+  if is_parent_package:
+    imported_symbols = _get_imported_symbols(parent)
+  filtered_children = []
+  for child in children:
+    name, obj = child
+    if inspect.ismodule(obj):
+      # Do not include modules in a package not explicitly imported by the
+      # package.
+      if is_parent_package and name not in imported_symbols:
+        continue
+      # Do not include modules imported by a module that is not a package.
+      if is_parent_module and not is_parent_package:
+        continue
+    filtered_children.append(child)
   return filtered_children
 
 
