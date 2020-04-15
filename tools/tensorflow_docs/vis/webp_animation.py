@@ -40,7 +40,7 @@ anim
 import numpy as np
 import PIL.Image
 
-import tensorflow_docs.vis.embed as embed
+from tensorflow_docs.vis import embed
 import webp
 
 

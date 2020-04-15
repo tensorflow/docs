@@ -18,7 +18,4 @@
 Use this module for plotting and visualization code that is too long to inline
 into a notebook.
 """
-from tensorflow_docs.vis.embed import embed_data
-from tensorflow_docs.vis.embed import embed_file
 
-from tensorflow_docs.vis.webp_animation import Webp
