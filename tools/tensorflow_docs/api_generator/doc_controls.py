@@ -37,7 +37,7 @@ def hide_from_search(obj):
 
 
 def should_hide_from_search(obj):
-  """Returns true if metadata search hints should be included on this page."""
+  """Returns true if metadata search hints should not be included."""
   return hasattr(obj, _NO_SEARCH_HINTS)
 
 

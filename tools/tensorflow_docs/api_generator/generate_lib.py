@@ -18,7 +18,6 @@
 import collections
 import fnmatch
 import inspect
-import operator
 import os
 import pathlib
 import shutil
@@ -119,9 +118,8 @@ class TocNode(object):
       # Instead of only checking the docstring, checking for the decorator
       # provides an additional level of certainty about the correctness of the
       # the application of `status: deprecated`.
-      decorator = operator.attrgetter('_tf_decorator.decorator_name')(
-          self.py_object)
-      if decorator == 'deprecated':
+      decorator_list = parser.extract_decorators(self.py_object)
+      if any('deprecat' in dec for dec in decorator_list):
         return self._check_docstring()
     except AttributeError:
       pass

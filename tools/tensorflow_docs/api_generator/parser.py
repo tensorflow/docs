@@ -14,8 +14,10 @@
 # limitations under the License.
 # ==============================================================================
 """Turn Python docstrings into Markdown for TensorFlow documentation."""
+
 import ast
 import collections
+import inspect
 import itertools
 import json
 import os
@@ -24,12 +26,9 @@ import textwrap
 
 from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional
 
-from absl import logging
-
 import astor
 
 from tensorflow_docs.api_generator import doc_controls
-from tensorflow_docs.api_generator import tf_inspect
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -46,21 +45,17 @@ def is_free_function(py_object, full_name, index):
     True if the object is a stand-alone function, and not part of a class
     definition.
   """
-  if tf_inspect.isclass(py_object):
+  if inspect.isclass(py_object):
     return False
 
   if not callable(py_object):
     return False
 
   parent_name = full_name.rsplit('.', 1)[0]
-  if tf_inspect.isclass(index[parent_name]):
+  if inspect.isclass(index[parent_name]):
     return False
 
   return True
-
-
-# A regular expression capturing a python identifier.
-IDENTIFIER_RE = r'[a-zA-Z_]\w*'
 
 
 class TFDocsError(Exception):
@@ -106,12 +101,13 @@ def _get_raw_docstring(py_object):
   Returns:
     The docstring, or the empty string if no docstring was found.
   """
+
   # For object instances, inspect.getdoc does give us the docstring of their
   # type, which is not what we want. Only return the docstring if it is useful.
-  if (tf_inspect.isclass(py_object) or tf_inspect.ismethod(py_object) or
-      tf_inspect.isfunction(py_object) or tf_inspect.ismodule(py_object) or
-      isinstance(py_object, property)):
-    result = tf_inspect.getdoc(py_object) or ''
+  if (inspect.isclass(py_object) or inspect.ismethod(py_object) or
+      inspect.isfunction(py_object) or inspect.ismodule(py_object) or
+      isinstance(py_object, property) or inspect.isroutine(py_object)):
+    result = inspect.getdoc(py_object) or ''
   else:
     result = ''
 
@@ -218,7 +214,7 @@ class ReferenceResolver(object):
     is_fragment = {}
     for name, obj in visitor.index.items():
       has_page = (
-          tf_inspect.isclass(obj) or tf_inspect.ismodule(obj) or
+          inspect.isclass(obj) or inspect.ismodule(obj) or
           is_free_function(obj, name, visitor.index))
 
       is_fragment[name] = not has_page
@@ -779,25 +775,64 @@ class TypeAnnotationExtractor(ast.NodeVisitor):
         self.arguments_typehint_exists = True
 
 
+class ASTDefaultValueExtractor(ast.NodeVisitor):
+  """Extracts the default values by parsing the AST of a function."""
+
+  _PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+
+  def __init__(self):
+    self.ast_args_defaults = []
+    self.ast_kw_only_defaults = []
+
+  def _preprocess(self, val: str) -> str:
+    text_default_val = astor.to_source(val).strip().replace(
+        '\t', '\\t').replace('\n', '\\n').replace('"""', "'")
+    text_default_val = self._PAREN_NUMBER_RE.sub('\\1', text_default_val)
+    return text_default_val
+
+  def visit_FunctionDef(self, node):  # pylint: disable=invalid-name
+    """Visits the `FunctionDef` node and extracts the default values."""
+
+    for default_val in node.args.defaults:
+      if default_val is not None:
+        text_default_val = self._preprocess(default_val)
+        self.ast_args_defaults.append(text_default_val)
+
+    for default_val in node.args.kw_defaults:
+      if default_val is not None:
+        text_default_val = self._preprocess(default_val)
+        self.ast_kw_only_defaults.append(text_default_val)
+
+
 class FormatArguments(object):
   """Formats the arguments and adds type annotations if they exist."""
 
-  _PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+  _INTERNAL_NAMES = {
+      'ops.GraphKeys': 'tf.GraphKeys',
+      '_ops.GraphKeys': 'tf.GraphKeys',
+      'init_ops.zeros_initializer': 'tf.zeros_initializer',
+      'init_ops.ones_initializer': 'tf.ones_initializer',
+      'saver_pb2.SaverDef': 'tf.train.SaverDef',
+  }
   _OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
+  # A regular expression capturing a python identifier.
+  _IDENTIFIER_RE = r'[a-zA-Z_]\w*'
 
-  def __init__(
-      self,
-      func_ast: Any,
-      default_value_of_all_kwargs: Dict[str, Any],
-      type_annotations: Dict[str, str],
-      reverse_index: Dict[Any, str],
-  ) -> None:
-    self._func_ast = func_ast
-    self._default_value_of_all_kwargs = default_value_of_all_kwargs
+  def __init__(self, type_annotations: Dict[str, str],
+               reverse_index: Dict[Any, str]) -> None:
     self._type_annotations = type_annotations
     self._reverse_index = reverse_index
 
-  def format_args(self, args: List[str]) -> List[str]:
+  def _replace_internal_names(self, default_text: str) -> str:
+    full_name_re = f'^{self._IDENTIFIER_RE}(.{self._IDENTIFIER_RE})+'
+    match = re.match(full_name_re, default_text)
+    if match:
+      for internal_name, public_name in self._INTERNAL_NAMES.items():
+        if match.group(0).startswith(internal_name):
+          return public_name + default_text[len(internal_name):]
+    return default_text
+
+  def format_args(self, args: List[inspect.Parameter]) -> List[str]:
     """Creates a text representation of the args in a method/function.
 
     Args:
@@ -810,18 +845,22 @@ class FormatArguments(object):
     args_text_representation = []
 
     for arg in args:
-      if arg in self._type_annotations:
-        args_text_representation.append(f'{arg}: {self._type_annotations[arg]}')
+      arg_name = arg.name
+      if arg_name in self._type_annotations:
+        args_text_representation.append(
+            f'{arg_name}: {self._type_annotations[arg_name]}')
       else:
-        args_text_representation.append(f'{arg}')
+        args_text_representation.append(f'{arg_name}')
 
     return args_text_representation
 
-  def format_kwargs(self, kwargs: List[str]) -> List[str]:
+  def format_kwargs(self, kwargs: List[inspect.Parameter],
+                    ast_defaults: List[str]) -> List[str]:
     """Creates a text representation of the kwargs in a method/function.
 
     Args:
       kwargs: List of kwargs to format.
+      ast_defaults: Default values extracted from the function's AST tree.
 
     Returns:
       Formatted kwargs with type annotations if they exist.
@@ -829,66 +868,34 @@ class FormatArguments(object):
 
     kwargs_text_representation = []
 
-    ast_defaults = [None] * len(kwargs)
-    if self._func_ast is not None:
-      ast_args = self._func_ast.body[0].args  # pytype: disable=attribute-error
-      ast_defaults = ast_args.defaults + ast_args.kw_defaults
-      if len(ast_defaults) != len(kwargs):
-        ast_defaults = [None] * len(kwargs)
+    if len(ast_defaults) < len(kwargs):
+      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))
 
     for kwarg, ast_default in zip(kwargs, ast_defaults):
-      default_val_exists = kwarg in self._default_value_of_all_kwargs
-      default_val = self._default_value_of_all_kwargs.get(kwarg, None)
+      kname = kwarg.name
+      default_val = kwarg.default
 
       if id(default_val) in self._reverse_index:
         default_text = self._reverse_index[id(default_val)]
       elif ast_default is not None:
-        default_text = (
-            astor.to_source(ast_default).rstrip('\n').replace(
-                '\t', '\\t').replace('\n', '\\n').replace('"""', "'"))
-        default_text = self._PAREN_NUMBER_RE.sub('\\1', default_text)
-
+        default_text = ast_default
         if default_text != repr(default_val):
-          # This may be an internal name. If so, handle the ones we know about.
-          internal_names = {
-              'ops.GraphKeys': 'tf.GraphKeys',
-              '_ops.GraphKeys': 'tf.GraphKeys',
-              'init_ops.zeros_initializer': 'tf.zeros_initializer',
-              'init_ops.ones_initializer': 'tf.ones_initializer',
-              'saver_pb2.SaverDef': 'tf.train.SaverDef',
-          }
-          full_name_re = f'^{IDENTIFIER_RE}(.{IDENTIFIER_RE})+'
-          match = re.match(full_name_re, default_text)
-          if match:
-            lookup_text = default_text
-            for internal_name, public_name in internal_names.items():
-              if match.group(0).startswith(internal_name):
-                lookup_text = public_name + default_text[len(internal_name):]
-                break
-            if default_text is lookup_text:
-              logging.warn(
-                  'WARNING: Using default arg, failed lookup: '
-                  '%s, repr: %r', default_text, repr(default_val))
-            else:
-              default_text = lookup_text
-      # This is a kwarg without any default value. Add it to the list as an arg
-      # and continue.
-      elif not default_val_exists:
+          default_text = self._replace_internal_names(default_text)
+      # Kwarg without default value.
+      elif default_val is kwarg.empty:
         kwargs_text_representation.extend(self.format_args([kwarg]))
         continue
       else:
-        default_text = repr(default_val)
-        # argspec.defaults can contain object memory addresses, i.e.
-        # containers.MutableMapping.pop. Strip these out to avoid
-        # unnecessary doc churn between invocations.
+        # Strip object memory addresses to avoid unnecessary doc churn.
         default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
-            r'<\g<type>>', default_text)
+            r'<\g<type>>', repr(default_val))
 
-      if kwarg in self._type_annotations:
+      # Format the kwargs to add the type annotation and default values.
+      if kname in self._type_annotations:
         kwargs_text_representation.append(
-            f'{kwarg}: {self._type_annotations[kwarg]} = {default_text}')
+            f'{kname}: {self._type_annotations[kname]} = {default_text}')
       else:
-        kwargs_text_representation.append(f'{kwarg}={default_text}')
+        kwargs_text_representation.append(f'{kname}={default_text}')
 
     return kwargs_text_representation
 
@@ -938,99 +945,91 @@ def _generate_signature(func: Any,
   """
 
   all_args_list = []
-  only_args = []
-  kwargs_with_defaults = []
-  default_value_of_all_kwargs = {}
-
-  #############################################################################
-  # The following conditions are handled below in code.
-  # In Py3, there can be kwargs only arguments without any default value.
-  # This is the syntax for kwargs with defaults:
-  # ```
-  # def temp(a, b=False, *, c, d=True, e):
-  #  return True
-  # ```
-  # In the above function, `c`, `d` and `e` are kwargs only arguments.
-  # In `inspect.getfullargspec`,
-  #   * `kwonlyargs` and `kwonlydefaults` are used for `c`, `d` and `e`.
-  #   * `argspec.defaults` is used for `b`'s default values which is False.
-  #   * `b` and `a` are in `argspec.args`.
-  #############################################################################
-
-  # If the py_object doesn't have `_tf_decorator` as an attribute, then the
-  # original py_object will be returned.
-  argspec = tf_inspect.getfullargspec(func)
-  arguments = argspec.args
-  visitor = TypeAnnotationExtractor()
 
   try:
-    func_source = textwrap.dedent(tf_inspect.getsource(func))
+    sig_values = inspect.signature(func).parameters.values()
+  except (ValueError, TypeError):
+    sig_values = []
+
+  type_annotation_visitor = TypeAnnotationExtractor()
+  ast_defaults_visitor = ASTDefaultValueExtractor()
+
+  try:
+    func_source = textwrap.dedent(inspect.getsource(func))
     func_ast = ast.parse(func_source)
     # Extract the type annotation from the parsed ast.
-    visitor.visit(func_ast)
+    type_annotation_visitor.visit(func_ast)
+    ast_defaults_visitor.visit(func_ast)
   except Exception:  # pylint: disable=broad-except
     # A wide-variety of errors can be thrown here.
-    func_ast = None
+    pass
 
-  type_annotations = visitor.annotation_dict
-  arguments_typehint_exists = visitor.arguments_typehint_exists
-  return_typehint_exists = visitor.return_typehint_exists
+  type_annotations = type_annotation_visitor.annotation_dict
+  arguments_typehint_exists = type_annotation_visitor.arguments_typehint_exists
+  return_typehint_exists = type_annotation_visitor.return_typehint_exists
 
   #############################################################################
   # Process the information about the func.
   #############################################################################
 
-  # Remove `self` from the signature of a method.
-  if arguments:
-    if arguments[0] == 'self' or arguments[0] == 'cls':
-      arguments = arguments[1:]
-  # Assign arguments as the default value to only_args
-  only_args = arguments
+  pos_only_args = []
+  args = []
+  kwargs = []
+  only_kwargs = []
+  varargs = None
+  varkwargs = None
+  skip_self_cls = True
 
-  # This `if` condition, deals with the `a` and `b` args from the example above.
-  if argspec.defaults is not None:
-    kd_length = len(argspec.defaults)
-    only_args = arguments[:-kd_length]
-    kwargs_with_defaults = arguments[-kd_length:]
-    # update the default values for kwargs_with_defaults.
-    for kwarg, val in zip(kwargs_with_defaults, argspec.defaults):
-      default_value_of_all_kwargs[kwarg] = val
+  for index, param in enumerate(sig_values):
+    kind = param.kind
+    default = param.default
 
-  # This deals with adding the default values for `c`, `d` and `e` in the
-  # example above.
-  if argspec.kwonlydefaults is not None:
-    default_value_of_all_kwargs.update(argspec.kwonlydefaults)
+    if skip_self_cls and (param.name == 'self' or param.name == 'cls'):
+      # Only skip the first parameter. If the function contains both
+      # `self` and `cls`, skip only the first one.
+      skip_self_cls = False
+    elif kind == param.POSITIONAL_ONLY:
+      pos_only_args.append(param)
+    elif default is param.empty and kind == param.POSITIONAL_OR_KEYWORD:
+      args.append(param)
+    elif default is not param.empty and kind == param.POSITIONAL_OR_KEYWORD:
+      kwargs.append(param)
+    elif kind == param.VAR_POSITIONAL:
+      varargs = (index, param)
+    elif kind == param.KEYWORD_ONLY:
+      only_kwargs.append(param)
+    elif kind == param.VAR_KEYWORD:
+      varkwargs = param
 
   #############################################################################
   # Build the text representation of Args and Kwargs.
   #############################################################################
 
-  formatter = FormatArguments(func_ast, default_value_of_all_kwargs,
-                              type_annotations, reverse_index)
+  formatter = FormatArguments(type_annotations, reverse_index)
 
-  # Only add the Args. Kwargs are added below.
-  if only_args:
-    all_args_list.extend(formatter.format_args(only_args))
+  if pos_only_args:
+    all_args_list.extend(formatter.format_args(pos_only_args))
+    all_args_list.append('/')
 
-  # Add the kwargs with defaults (`b`) in the example above.
-  if kwargs_with_defaults:
-    all_args_list.extend(formatter.format_kwargs(kwargs_with_defaults))
+  if args:
+    all_args_list.extend(formatter.format_args(args))
 
-  # Add the compulsory kwargs (`c, `d, `e`) in the example above.
-  # Also, add `*` since that's the syntax for compulsory kwargs in Py3.
-  if argspec.kwonlyargs:
-    if argspec.varargs:
-      all_args_list.append('*' + argspec.varargs)
-    else:
+  if kwargs:
+    all_args_list.extend(
+        formatter.format_kwargs(kwargs, ast_defaults_visitor.ast_args_defaults))
+
+  if only_kwargs:
+    if varargs is None:
       all_args_list.append('*')
+    all_args_list.extend(
+        formatter.format_kwargs(only_kwargs,
+                                ast_defaults_visitor.ast_kw_only_defaults))
 
-    all_args_list.extend(formatter.format_kwargs(argspec.kwonlyargs))
+  if varargs is not None:
+    all_args_list.insert(varargs[0], '*' + varargs[1].name)
 
-  # Add *args and *kwargs.
-  if argspec.varargs and not argspec.kwonlyargs:
-    all_args_list.append('*' + argspec.varargs)
-  if argspec.varkw:
-    all_args_list.append('**' + argspec.varkw)
+  if varkwargs is not None:
+    all_args_list.append('**' + varkwargs.name)
 
   return _SignatureComponents(
       arguments=all_args_list,
@@ -1040,7 +1039,7 @@ def _generate_signature(func: Any,
 
 
 def _get_defining_class(py_class, name):
-  for cls in tf_inspect.getmro(py_class):
+  for cls in inspect.getmro(py_class):
     if name in cls.__dict__:
       return cls
   return None
@@ -1099,7 +1098,7 @@ def extract_decorators(func: Any) -> List[str]:
   visitor = ASTDecoratorExtractor()
 
   try:
-    func_source = textwrap.dedent(tf_inspect.getsource(func))
+    func_source = textwrap.dedent(inspect.getsource(func))
     func_ast = ast.parse(func_source)
     visitor.visit(func_ast)
   except Exception:  # pylint: disable=broad-except
@@ -1453,15 +1452,15 @@ class ClassPageInfo(PageInfo):
         self._add_property(short_name, child, child_doc)
         continue
 
-      elif tf_inspect.isclass(child):
+      elif inspect.isclass(child):
         if defining_class is None:
           continue
         url = parser_config.reference_resolver.reference_to_url(
             child_name, relative_path)
         self._add_class(short_name, child_name, child, child_doc, url)
 
-      elif (tf_inspect.ismethod(child) or tf_inspect.isfunction(child) or
-            tf_inspect.isroutine(child)):
+      elif (inspect.ismethod(child) or inspect.isfunction(child) or
+            inspect.isroutine(child)):
         if defining_class is None:
           continue
 
@@ -1649,13 +1648,13 @@ class ModulePageInfo(PageInfo):
       url = parser_config.reference_resolver.reference_to_url(
           member_full_name, relative_path)
 
-      if tf_inspect.ismodule(member):
+      if inspect.ismodule(member):
         self._add_module(name, member_full_name, member, member_doc, url)
 
-      elif tf_inspect.isclass(member):
+      elif inspect.isclass(member):
         self._add_class(name, member_full_name, member, member_doc, url)
 
-      elif tf_inspect.isfunction(member):
+      elif inspect.isfunction(member):
         self._add_function(name, member_full_name, member, member_doc, url)
 
       else:
@@ -1733,11 +1732,11 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  if tf_inspect.isclass(py_object):
+  if inspect.isclass(py_object):
     page_info = ClassPageInfo(master_name, py_object)
   elif callable(py_object):
     page_info = FunctionPageInfo(master_name, py_object)
-  elif tf_inspect.ismodule(py_object):
+  elif inspect.ismodule(py_object):
     page_info = ModulePageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
@@ -1782,6 +1781,15 @@ class _FileLocation(object):
         self.url = self.url + suffix
 
 
+def _unwrap_obj(obj):
+  while True:
+    unwrapped_obj = getattr(obj, '__wrapped__', None)
+    if unwrapped_obj is None:
+      break
+    obj = unwrapped_obj
+  return obj
+
+
 def _get_defined_in(py_object: Any,
                     parser_config: ParserConfig) -> Optional[_FileLocation]:
   """Returns a description of where the passed in python object was defined.
@@ -1797,7 +1805,7 @@ def _get_defined_in(py_object: Any,
   base_dirs_and_prefixes = zip(parser_config.base_dir,
                                parser_config.code_url_prefix)
   try:
-    obj_path = tf_inspect.getfile(py_object)
+    obj_path = inspect.getfile(_unwrap_obj(py_object))
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
     return None
 
@@ -1818,7 +1826,7 @@ def _get_defined_in(py_object: Any,
     return None
 
   try:
-    lines, start_line = tf_inspect.getsourcelines(py_object)
+    lines, start_line = inspect.getsourcelines(py_object)
     end_line = start_line + len(lines) - 1
   except (IOError, TypeError, IndexError):
     start_line = None
@@ -1882,15 +1890,15 @@ def generate_global_index(library_name, index, reference_resolver):
   """
   symbol_links = []
   for full_name, py_object in index.items():
-    if (tf_inspect.ismodule(py_object) or tf_inspect.isfunction(py_object) or
-        tf_inspect.isclass(py_object)):
+    if (inspect.ismodule(py_object) or inspect.isfunction(py_object) or
+        inspect.isclass(py_object)):
       # In Python 3, unbound methods are functions, so eliminate those.
-      if tf_inspect.isfunction(py_object):
+      if inspect.isfunction(py_object):
         if full_name.count('.') == 0:
           parent_name = ''
         else:
           parent_name = full_name[:full_name.rfind('.')]
-        if parent_name in index and tf_inspect.isclass(index[parent_name]):
+        if parent_name in index and inspect.isclass(index[parent_name]):
           # Skip methods (=functions with class parents).
           continue
       symbol_links.append(

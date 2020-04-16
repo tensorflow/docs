@@ -272,7 +272,7 @@ class DocGeneratorVisitor(object):
       raise RuntimeError('Unexpected type in visitor -- '
                          f'{parent_name}: {parent!r}')
 
-    for (name, child) in children:
+    for name, child in children:
       self._api_tree[parent_path + (name,)] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name

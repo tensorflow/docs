@@ -19,9 +19,6 @@ import os
 import pathlib
 import sys
 import tempfile
-import textwrap
-
-import yaml
 
 from absl import flags
 from absl.testing import absltest
@@ -29,24 +26,22 @@ from absl.testing import absltest
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 
+import yaml
+
 FLAGS = flags.FLAGS
 
 
-def _tf_decorator():
-  return True
+def deprecated(func):
+  return func
 
 
+@deprecated
 def test_function():
   """Docstring for test_function.
 
   THIS FUNCTION IS DEPRECATED and will be removed after some time.
   """
   pass
-
-# Set the _tf_decorator.decorator_name attributes on test_function
-# so as to mark it as deprecated and activate that part of the logic.
-setattr(_tf_decorator, 'decorator_name', 'deprecated')
-setattr(test_function, '_tf_decorator', _tf_decorator)
 
 
 class TestClass(object):
@@ -153,7 +148,7 @@ class GenerateTest(absltest.TestCase):
     toc_list = yaml.safe_load(toc_file.read_text())['toc']
 
     # Number of sections in the toc should be 2.
-    self.assertEqual(len([item for item in toc_list if 'section' in item]), 2)
+    self.assertLen([item for item in toc_list if 'section' in item], 2)
 
     # The last path in the TOC must be the ground truth below.
     # This will check if the symbols are being sorted in case-insensitive

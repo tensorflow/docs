@@ -1074,7 +1074,9 @@ class TestGenerateSignature(absltest.TestCase):
   def test_type_annotations(self):
     # pylint: disable=unused-argument
 
-    def example_fun(x: List[str],
+    def example_fun(self,
+                    cls,
+                    x: List[str],
                     z: int,
                     a: Union[List[str], str, int] = None,
                     b: str = 'test',
@@ -1088,7 +1090,7 @@ class TestGenerateSignature(absltest.TestCase):
 
     sig = parser._generate_signature(example_fun, reverse_index={})
     self.assertEqual(sig.arguments, [
-        'x: List[str]', 'z: int', 'a: Union[List[str], str, int] = None',
+        'cls', 'x: List[str]', 'z: int', 'a: Union[List[str], str, int] = None',
         "b: str = 'test'", '*', 'y: bool = False', 'c: int', '**kwargs'
     ])
     self.assertEqual(sig.return_type, 'None')

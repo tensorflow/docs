@@ -58,7 +58,6 @@ def gen_api_docs():
   # Please remove these lines from your build_docs.py files when you create
   # them.
   del tensorflow_docs.google
-  del tensorflow_docs.api_generator.tf_inspect
 
   doc_generator = generate_lib.DocGenerator(
       root_title=PROJECT_FULL_NAME,

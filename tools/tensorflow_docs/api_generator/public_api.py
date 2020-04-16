@@ -196,18 +196,15 @@ def explicit_package_contents_filter(path, parent, children):
 class PublicAPIFilter(object):
   """Visitor to use with `traverse` to filter just the public API."""
 
-  def __init__(self,
-               base_dir,
-               do_not_descend_map=None,
-               private_map=None):
+  def __init__(self, base_dir, do_not_descend_map=None, private_map=None):
     """Constructor.
 
     Args:
       base_dir: The directory to take source file paths relative to.
       do_not_descend_map: A mapping from dotted path like "tf.symbol" to a list
         of names. Included names will have no children listed.
-      private_map: A mapping from dotted path like "tf.symbol" to a list
-        of names. Included names will not be listed at that location.
+      private_map: A mapping from dotted path like "tf.symbol" to a list of
+        names. Included names will not be listed at that location.
     """
     self._base_dir = base_dir
     self._do_not_descend_map = do_not_descend_map or {}
