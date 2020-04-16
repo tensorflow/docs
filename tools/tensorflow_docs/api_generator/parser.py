@@ -1650,13 +1650,10 @@ class ModulePageInfo(PageInfo):
 
       if inspect.ismodule(member):
         self._add_module(name, member_full_name, member, member_doc, url)
-
       elif inspect.isclass(member):
         self._add_class(name, member_full_name, member, member_doc, url)
-
-      elif inspect.isfunction(member):
+      elif callable(member):
         self._add_function(name, member_full_name, member, member_doc, url)
-
       else:
         self._add_other_member(name, member_full_name, member, member_doc)
 
