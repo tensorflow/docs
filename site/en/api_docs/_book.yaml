@@ -18,7 +18,7 @@ upper_tabs:
       - title: "Swift"
         path: /swift/api_docs/
       - title: "Go"
-        path: https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go
+        path: https://pkg.go.dev/github.com/tensorflow/tensorflow/tensorflow/go
         status: external
       - title: "Haskell"
         path: https://github.com/tensorflow/haskell
@@ -27,8 +27,12 @@ upper_tabs:
         section:
         - title: "C#"
           path: https://github.com/migueldeicaza/TensorFlowSharp
+          status: external
         - title: "Julia"
           path: https://github.com/malmaud/TensorFlow.jl
+          status: external
+        - title: "R"
+          path: https://github.com/rstudio/tensorflow
           status: external
         - title: "Ruby"
           path: https://github.com/somaticio/tensorflow.rb
@@ -79,10 +83,12 @@ upper_tabs:
     - name: Python
       skip_translation: true
       contents:
-      - title: Python {VERSION}
-      - include: {VERSION_ROOT}/python/_toc.yaml
+      - title: Overview
+        path: {VERSION_ROOT}/python/tf
       - title: All Symbols
         path: {VERSION_ROOT}/python/
+      - title: Python {VERSION}
+      - include: {VERSION_ROOT}/python/_toc.yaml
 
     - name: JavaScript
       contents:
@@ -99,8 +105,6 @@ upper_tabs:
     - name: Java
       skip_translation: true
       contents:
-      - title: Java
-        path: {VERSION_ROOT}/java/reference/org/tensorflow/package-summary.html
       - include: {VERSION_ROOT}/java/reference/_toc.yaml
 
 - include: /resources/_upper_tabs_resources.yaml

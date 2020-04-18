@@ -165,7 +165,9 @@ path2 = tf.keras.Sequential([trunk, head2])
 # Train on primary dataset
 for x, y in main_dataset:
   with tf.GradientTape() as tape:
-    prediction = path1(x)
+    # training=True is only needed if there are layers with different
+    # behavior during training versus inference (e.g. Dropout).
+    prediction = path1(x, training=True)
     loss = loss_fn_head1(prediction, y)
   # Simultaneously optimize trunk and head1 weights.
   gradients = tape.gradient(loss, path1.trainable_variables)
@@ -174,7 +176,9 @@ for x, y in main_dataset:
 # Fine-tune second head, reusing the trunk
 for x, y in small_dataset:
   with tf.GradientTape() as tape:
-    prediction = path2(x)
+    # training=True is only needed if there are layers with different
+    # behavior during training versus inference (e.g. Dropout).
+    prediction = path2(x, training=True)
     loss = loss_fn_head2(prediction, y)
   # Only optimize head2 weights, not trunk weights
   gradients = tape.gradient(loss, head2.trainable_variables)
@@ -200,7 +204,9 @@ operations using AutoGraph.
 def train(model, dataset, optimizer):
   for x, y in dataset:
     with tf.GradientTape() as tape:
-      prediction = model(x)
+      # training=True is only needed if there are layers with different
+      # behavior during training versus inference (e.g. Dropout).
+      prediction = model(x, training=True)
       loss = loss_fn(prediction, y)
     gradients = tape.gradient(loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
@@ -274,7 +280,9 @@ def train(model, optimizer, dataset, log_freq=10):
       avg_loss.reset_states()
 
 def test(model, test_x, test_y, step_num):
-  loss = loss_fn(model(test_x), test_y)
+  # training=False is only needed if there are layers with different
+  # behavior during training versus inference (e.g. Dropout).
+  loss = loss_fn(model(test_x, training=False), test_y)
   tf.summary.scalar('loss', loss, step=step_num)
 
 train_summary_writer = tf.summary.create_file_writer('/tmp/summaries/train')

@@ -9,8 +9,6 @@ toc:
   path: /guide/migrate
 - title: "Convert with the upgrade script"
   path: /guide/upgrade
-- title: "Performance with tf.function"
-  path: /guide/function
 - title: "Community testing FAQ"
   path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
   status: external
@@ -48,24 +46,42 @@ toc:
   path: /guide/ragged_tensor
 - title: "Create an op"
   path: /guide/create_op
+- title: "Random number generation"
+  path: /guide/random_numbers
 
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
-- title: "Performance"
+- title: "Optimize pipeline performance"
   path: /guide/data_performance
 
 - heading: "Save a model"
 - title: "Checkpoint"
   path: /guide/checkpoint
-- title: "Saved model"
+- title: "SavedModel"
   path: /guide/saved_model
+- title: "Concrete functions"
+  path: /guide/concrete_function
+
 
 - heading: "Accelerators"
 - title: "Distributed training"
   path: /guide/distributed_training
 - title: "GPU"
   path: /guide/gpu
+- title: "TPU"
+  path: /guide/tpu
+
+- heading: "Performance"
+- title: "Performance with tf.function"
+  path: /guide/function
+- title: "Profile TensorFlow performance"
+  path: /guide/profiler
+- title: "Graph optimization"
+  path: /guide/graph_optimization
+- title: "Mixed precision"
+  path: /guide/keras/mixed_precision
+  status: experimental
 
 - heading: "Appendix"
 - title: "Version compatibility"

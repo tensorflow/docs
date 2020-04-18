@@ -33,12 +33,14 @@ The official TensorFlow Docker images are located in the
 Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
 using the following format:
 
-| Tag         | Description                                                                                       |
-| ---         | ---                                                                                               |
-| `latest`    | The latest release of TensorFlow CPU binary image. Default.                                       |
-| `nightly`   | Nightly builds of the TensorFlow image. (unstable)                                                |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example: *2.0.0*                       |
-| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code. |
+| Tag         | Description                                                 |
+| ----------- | ----------------------------------------------------------- |
+| `latest`    | The latest release of TensorFlow CPU binary image. Default. |
+| `nightly`   | Nightly builds of the TensorFlow image. (unstable)          |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for   |
+:             : example\: *2.1.0*                                           :
+| `devel`     | Nightly builds of a TensorFlow `master` development         |
+:             : environment. Includes TensorFlow source code.               :
 
 Each base *tag* has variants that add or change functionality:
 
@@ -75,7 +77,7 @@ downloads a new TensorFlow image the first time it is run:
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run -it --rm tensorflow/tensorflow \
-   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+   python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 </pre>
 
 Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
@@ -144,7 +146,7 @@ Download and run a GPU-enabled TensorFlow image (may take a few minutes):
 
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">
 docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu \
-   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+   python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 </pre>
 
 It can take a while to set up the GPU-enabled image. If repeatably running
@@ -156,4 +158,5 @@ Use the latest TensorFlow GPU image to start a `bash` shell session in the conta
 docker run --gpus all -it tensorflow/tensorflow:latest-gpu bash
 </pre>
 
-Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get started.
+Success: TensorFlow is now installed. Read the [tutorials](../tutorials) to get
+started.

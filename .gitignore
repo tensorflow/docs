@@ -1,4 +1,5 @@
 **/*.pyc
+**/*.rws
 **/.DS_Store
 **/.idea
 **/.ipynb_checkpoints

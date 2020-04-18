@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,9 +21,7 @@ $> pip install -U git+https://github.com/tensorflow/docs
 $> python build_docs.py
 """
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+import os
 
 from absl import app
 from absl import flags
@@ -33,7 +32,6 @@ from tensorflow_docs.api_generator import public_api
 
 PROJECT_SHORT_NAME = 'tfdocs'
 PROJECT_FULL_NAME = 'TensorFlow Docs'
-CODE_URL_PREFIX = 'https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs'
 
 FLAGS = flags.FLAGS
 
@@ -41,23 +39,49 @@ flags.DEFINE_string(
     'output_dir',
     default='/tmp/generated_docs',
     help='Where to write the resulting docs to.')
+flags.DEFINE_string(
+    'code_url_prefix',
+    ('https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs'),
+    'The url prefix for links to code.')
+
+flags.DEFINE_bool('search_hints', True,
+                  'Include metadata search hints in the generated files')
+
+flags.DEFINE_string('site_path', '/api_docs/python',
+                    'Path prefix in the _toc.yaml')
 
 
-def main(argv):
-  if argv[1:]:
-    raise ValueError('Unrecognized arguments: {}'.format(argv[1:]))
+def gen_api_docs():
+  """Generates api docs for the tensorflow docs package."""
+
+  # The below `del`'s are to avoid the api_gen_test to not document these.
+  # Please remove these lines from your build_docs.py files when you create
+  # them.
+  del tensorflow_docs.google
 
   doc_generator = generate_lib.DocGenerator(
       root_title=PROJECT_FULL_NAME,
       # Replace `tensorflow_docs` with your module, here.
       py_modules=[(PROJECT_SHORT_NAME, tensorflow_docs)],
-      code_url_prefix=CODE_URL_PREFIX,
+      # Replace `tensorflow_docs` with your module, here.
+      base_dir=os.path.dirname(tensorflow_docs.__file__),
+      code_url_prefix=FLAGS.code_url_prefix,
+      search_hints=FLAGS.search_hints,
+      site_path=FLAGS.site_path,
+      private_map={},
       # This callback cleans up a lot of aliases caused by internal imports.
       callbacks=[public_api.local_definitions_filter])
 
   doc_generator.build(FLAGS.output_dir)
 
   print('Output docs to: ', FLAGS.output_dir)
+
+
+def main(argv):
+  if argv[1:]:
+    raise ValueError('Unrecognized arguments: {}'.format(argv[1:]))
+
+  gen_api_docs()
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2017 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +15,6 @@
 # ==============================================================================
 
 """Library for operating on Python API Guide files."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import os
 import re
@@ -66,7 +63,7 @@ class PyGuideParser(object):
           if tag in seen:
             suffix = 0
             while True:
-              candidate = '%s_%d' % (tag, suffix)
+              candidate = f'{tag}_{suffix}'
               if candidate not in seen:
                 tag = candidate
                 break

@@ -1,9 +1,14 @@
 book_path: /overview/_book.yaml
 project_path: /overview/_project.yaml
-description: <!--no description-->
+title: Guide
 landing_page:
   custom_css_path: /site-assets/css/style.css
   nav: left
+  meta_tags:
+  - name: description
+    content: >
+      Learn basic and advanced concepts of TensorFlow such as eager execution, Keras
+      high-level APIs and flexible model building.
   rows:
   - classname:
       devsite-landing-row-100
@@ -72,6 +77,11 @@ landing_page:
         <a href="/guide/distributed_training"><h3 class="no-link">Accelerators</h3></a>
         Distribute training across multiple GPUs, multiple machines or TPUs.
       path: /guide/distributed_training
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/function"><h3 class="no-link">Performance</h3></a>
+        Best practices and optimization techniques for optimal TensorFlow performance.
+      path: /guide/function
 
   - classname: devsite-landing-row-100
     items:
@@ -131,7 +141,7 @@ landing_page:
           background: grey
       - description: >
           <a href="/graphics"><h3 class="tfo-landing-page-heading no-link">TensorFlow Graphics</h3></a>
-          Computer graphics meets machine learning.
+          A library of computer graphics functionalities ranging from cameras, lights, and materials to renderers.
         path: /graphics
         icon:
           icon_name: chevron_right

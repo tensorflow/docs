@@ -2,14 +2,16 @@ toc:
 - column:
   - heading: API
     links:
-    - label: r2.0 (stable)
+    - label: r2.1 (stable)
       path: /api/stable
+    - label: r2.2 (rc)
+      path: /api/r2.2
+    - label: r2.0
+      path: /api/r2.0
 - column:
   - heading: API r1
     links:
-    - label: r1.15 (rc)
+    - label: r1.15
       path: /api/r1.15
-    - label: r1.14
-      path: /api/r1.14
     - label: More…
       path: /versions/

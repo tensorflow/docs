@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2018 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +15,44 @@
 # ==============================================================================
 """Documentation control decorators."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+_NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
+
+
+def hide_from_search(obj):
+  """Marks an object so metadata search hints will not be included on it's page.
+
+  The page is set to "noindex" to hide it from search.
+
+  Note: This only makes sense to apply to functions, classes and modules.
+  Constants, and methods do not get their own pages.
+
+  Args:
+    obj: the object to hide.
+
+  Returns:
+    The object.
+  """
+  setattr(obj, _NO_SEARCH_HINTS, None)
+  return obj
+
+
+def should_hide_from_search(obj):
+  """Returns true if metadata search hints should not be included."""
+  return hasattr(obj, _NO_SEARCH_HINTS)
+
+
+_CUSTOM_PAGE_CONTENT = "_tf_docs_custom_page_content"
+
+
+def set_custom_page_content(obj, content):
+  """Replace most of the generated page with custom content."""
+  setattr(obj, _CUSTOM_PAGE_CONTENT, content)
+
+
+def get_custom_page_content(obj):
+  """Gets custom page content if available."""
+  return getattr(obj, _CUSTOM_PAGE_CONTENT, None)
+
 
 _DO_NOT_DOC = "_tf_docs_do_not_document"
 
@@ -267,6 +303,7 @@ def should_skip(obj):
 
   return hasattr(obj, _DO_NOT_DOC) or hasattr(obj, _DO_NOT_DOC_INHERITABLE)
 
+
 def _unwrap_func(obj):
   # Unwrap fget if the object is a property or static method or classmethod.
   if isinstance(obj, property):
@@ -276,6 +313,7 @@ def _unwrap_func(obj):
     return obj.__func__
 
   return obj
+
 
 def should_skip_class_attr(cls, name):
   """Returns true if docs should be skipped for this class attribute.
@@ -317,10 +355,6 @@ def should_skip_class_attr(cls, name):
 
   # for each parent class
   for parent in getattr(cls, "__mro__", [])[1:]:
-    # if the class should be skipped, don't doc this object.
-    if should_skip(parent):
-      return True
-
     obj = getattr(parent, name, None)
 
     if obj is None:

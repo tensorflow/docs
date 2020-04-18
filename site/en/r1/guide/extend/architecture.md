@@ -8,7 +8,7 @@ This document describes the system architecture that makes this
 combination of scale and flexibility possible. It assumes that you have basic familiarity
 with TensorFlow programming concepts such as the computation graph, operations,
 and sessions. See [this document](../low_level_intro.md) for an introduction to
-these topics. Some familiarity with [distributed TensorFlow](../../deploy/distributed.md)
+these topics. Some familiarity with [distributed TensorFlow](../distribute_strategy.ipynb)
 will also be helpful.
 
 This document is for developers who want to extend TensorFlow in some way not
@@ -24,7 +24,7 @@ The TensorFlow runtime is a cross-platform library. Figure 1 illustrates its
 general architecture. A C API separates user level code in different languages
 from the core runtime.
 
-![TensorFlow Layers](https://www.tensorflow.org/images/layers.png){: width="300"}
+<img src="https://www.tensorflow.org/images/layers.png" alt="TensorFlow Layers" width="300">
 
 **Figure 1**
 
@@ -56,7 +56,7 @@ Other tasks send updates to these parameters as they work on optimizing the
 parameters. This particular division of labor between tasks is not required, but
  is common for distributed training.
 
-![TensorFlow Architecture Diagram](https://www.tensorflow.org/images/diag1.svg){: width="500"}
+<img src="https://www.tensorflow.org/images/diag1.svg" alt="TensorFlow Architecture Diagram" width="500">
 
 **Figure 2**
 
@@ -90,7 +90,7 @@ In Figure 3, the client has built a graph that applies weights (w) to a
 feature vector (x), adds a bias term (b) and saves the result in a variable
 (s).
 
-![TensorFlow Architecture Diagram: Client](https://www.tensorflow.org/images/graph_client.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_client.svg" alt="TensorFlow Architecture Diagram: Client" width="700">
 
 **Figure 3**
 
@@ -113,7 +113,7 @@ a step, it applies standard optimizations such as common subexpression
 elimination and constant folding. It then coordinates execution of the
 optimized subgraphs across a set of tasks.
 
-![TensorFlow Architecture Diagram: Master](https://www.tensorflow.org/images/graph_master_cln.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_master_cln.svg" alt="TensorFlow Architecture Diagram: Master" width="700">
 
 **Figure 4**
 
@@ -122,7 +122,7 @@ Figure 5 shows a possible partition of our example graph. The distributed
 master has grouped the model parameters in order to place them together on the
 parameter server.
 
-![Partitioned Graph](https://www.tensorflow.org/images/graph_split1.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_split1.svg" alt="Partitioned Graph" width="700">
 
 **Figure 5**
 
@@ -131,14 +131,14 @@ Where graph edges are cut by the partition, the distributed master inserts
 send and receive nodes to pass information between the distributed tasks
 (Figure 6).
 
-![Partitioned Graph](https://www.tensorflow.org/images/graph_split2.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_split2.svg" alt="Partitioned Graph" width="700">
 
 **Figure 6**
 
 
 The distributed master then ships the graph pieces to the distributed tasks.
 
-![Partitioned Graph](https://www.tensorflow.org/images/graph_workers_cln.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_workers_cln.svg" alt="Partitioned Graph" width="700">
 
 **Figure 7**
 
@@ -180,7 +180,7 @@ We also have preliminary support for NVIDIA's NCCL library for multi-GPU
 communication, see:
 [`tf.contrib.nccl`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nccl_ops.py).
 
-![Partitioned Graph](https://www.tensorflow.org/images/graph_send_recv.svg){: width="700"}
+<img src="https://www.tensorflow.org/images/graph_send_recv.svg" alt="Partitioned Graph" width="700">
 
 **Figure 8**
 
@@ -199,7 +199,7 @@ Many of the operation kernels are implemented using Eigen::Tensor, which uses
 C++ templates to generate efficient parallel code for multicore CPUs and GPUs;
 however, we liberally use libraries like cuDNN where a more efficient kernel
 implementation is possible. We have also implemented
-[quantization](../../lite/performance/post_training_quantization.md), which enables
+[quantization](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/g3doc/performance/post_training_quantization.md), which enables
 faster inference in environments such as mobile devices and high-throughput
 datacenter applications, and use the
 [gemmlowp](https://github.com/google/gemmlowp) low-precision matrix library to
@@ -209,7 +209,7 @@ If it is difficult or inefficient to represent a subcomputation as a composition
 of operations, users can register additional kernels that provide an efficient
 implementation written in C++. For example, we recommend registering your own
 fused kernels for some performance critical operations, such as the ReLU and
-Sigmoid activation functions and their corresponding gradients. The [XLA Compiler](../../xla/) has an
+Sigmoid activation functions and their corresponding gradients. The [XLA Compiler](../../../xla/README.md) has an
 experimental implementation of automatic kernel fusion.
 
 

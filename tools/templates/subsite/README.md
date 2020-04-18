@@ -34,12 +34,14 @@ tensorflow/docs repo. Guides can be Markdown files or Colab/Jupyter notebooks.
 
 ## Update the configuration files
 
-1. Update the `_project.yaml` file with your project metadata.
-2. The `_book.yaml` file configures the lower tabs and left navigation for
+1. The `_book.yaml` file configures the lower tabs and left navigation for
    files. Each page must have an entry in `_book.yaml` to be navigable on
    [tensorflow.org](https://www.tensorflow.org).
+2. The TensorFlow docs team must set up a project file.
 
 Changes to `.yaml` files must be approved by the TensorFlow docs team.
+
+
 
 ## Set up the API generator for reference docs
 

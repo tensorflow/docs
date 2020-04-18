@@ -96,7 +96,7 @@ As of January 2019, the current TF-SIGs are:
    </td>
   </tr>
   <tr>
-   <td><a href="https://groups.google.com/a/tensorflow.org/d/forum/sig-tensorboard">SIG TensorBoard</a>
+   <td><a href="https://groups.google.com/a/tensorflow.org/d/forum/tensorboard">SIG TensorBoard</a>
    </td>
    <td>Furthers the development and direction of TensorBoard and its plug-ins.
    </td>

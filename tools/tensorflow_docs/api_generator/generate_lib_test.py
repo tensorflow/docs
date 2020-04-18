@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +15,10 @@
 # ==============================================================================
 """Tests for doc generator traversal."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import os
+import pathlib
 import sys
 import tempfile
-import textwrap
 
 from absl import flags
 from absl.testing import absltest
@@ -29,24 +26,22 @@ from absl.testing import absltest
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 
+import yaml
+
 FLAGS = flags.FLAGS
 
 
-def _tf_decorator():
-  return True
+def deprecated(func):
+  return func
 
 
+@deprecated
 def test_function():
   """Docstring for test_function.
 
   THIS FUNCTION IS DEPRECATED and will be removed after some time.
   """
   pass
-
-# Set the _tf_decorator.decorator_name attributes on test_function
-# so as to mark it as deprecated and activate that part of the logic.
-setattr(_tf_decorator, 'decorator_name', 'deprecated')
-setattr(test_function, '_tf_decorator', _tf_decorator)
 
 
 class TestClass(object):
@@ -129,47 +124,39 @@ class GenerateTest(absltest.TestCase):
   def test_write(self):
     _, parser_config = self.get_test_objects()
 
-    output_dir = self.workdir
+    output_dir = pathlib.Path(self.workdir)
 
     generate_lib.write_docs(output_dir, parser_config, yaml_toc=True)
 
     # Check redirects
-    redirects_file = os.path.join(output_dir, '_redirects.yaml')
-    self.assertTrue(os.path.exists(redirects_file))
-    with open(redirects_file) as f:
-      redirects = f.read()
-    self.assertEqual(redirects.split(), [
-        'redirects:', '-', 'from:', '/api_docs/python/tf/test_function', 'to:',
-        '/api_docs/python/tf/TestModule/test_function'
-    ])
+    redirects_file = output_dir / '_redirects.yaml'
+    self.assertTrue(redirects_file.exists())
+    redirects = yaml.safe_load(redirects_file.read_text())
+    self.assertEqual(
+        redirects, {
+            'redirects': [{
+                'from': '/api_docs/python/tf/test_function',
+                'to': '/api_docs/python/tf/TestModule/test_function'
+            }, {
+                'from': '/api_docs/python/tf_overview',
+                'to': '/api_docs/python/tf'
+            }]
+        })
 
-    toc_file = os.path.join(output_dir, '_toc.yaml')
-    self.assertTrue(os.path.exists(toc_file))
-    with open(toc_file) as f:
-      toc = f.read()
-    toc_list = toc.split()
+    toc_file = output_dir / '_toc.yaml'
+    self.assertTrue(toc_file.exists())
+    toc_list = yaml.safe_load(toc_file.read_text())['toc']
 
     # Number of sections in the toc should be 2.
-    self.assertEqual(toc_list.count('section:'), 2)
-
-    # TOC should always begin with `toc:`
-    self.assertEqual(toc_list[0], 'toc:')
+    self.assertLen([item for item in toc_list if 'section' in item], 2)
 
     # The last path in the TOC must be the ground truth below.
     # This will check if the symbols are being sorted in case-insensitive
     # alphabetical order too, spanning across submodules and children.
-    self.assertEqual(toc_list[-1],
+    test_function_toc = toc_list[1]['section'][-1]
+    self.assertEqual(test_function_toc['path'],
                      '/api_docs/python/tf/TestModule/test_function')
-
-    # The last module (`test_function`) should have its status marked as
-    # deprecated.
-    toc_line_split = toc.splitlines()
-    output = textwrap.dedent('\n'.join(toc_line_split[-3:]))
-    expected_output = textwrap.dedent("""\
-    - title: test_function
-      status: deprecated
-      path: /api_docs/python/tf/TestModule/test_function""")
-    self.assertEqual(output, expected_output)
+    self.assertEqual(test_function_toc['status'], 'deprecated')
 
     # Make sure that the right files are written to disk.
     self.assertTrue(os.path.exists(os.path.join(output_dir, 'index.md')))

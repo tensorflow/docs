@@ -25,7 +25,7 @@ Cloud TPU is to define the model's inference phase (from inputs to predictions)
 outside of the `model_fn`. Then maintain separate implementations of the
 `Estimator` setup and `model_fn`, both wrapping this inference step. For an
 example of this pattern compare the `mnist.py` and `mnist_tpu.py` implementation in
-[tensorflow/models](https://github.com/tensorflow/models/tree/master/official/mnist).
+[tensorflow/models](https://github.com/tensorflow/models/tree/master/official/r1/mnist).
 
 ### Run a TPUEstimator locally
 

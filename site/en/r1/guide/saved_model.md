@@ -672,7 +672,7 @@ If you built TensorFlow from source code, you must run the following
 additional command to build `saved_model_cli`:
 
 ```
-$ bazel build tensorflow/python/tools:saved_model_cli
+$ bazel build third_party/tensorflow/python/tools:saved_model_cli
 ```
 
 ### Overview of commands

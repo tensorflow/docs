@@ -5,3 +5,5 @@ toc:
       path: /about/
     - label: "Case studies"
       path: /about/case-studies/
+    - label: "Trusted Partner Program"
+      path: /trusted-partners/

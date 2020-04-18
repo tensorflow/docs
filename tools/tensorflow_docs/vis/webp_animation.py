@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,10 +37,10 @@ anim
 ```
 """
 
-import base64
-
 import numpy as np
 import PIL.Image
+
+from tensorflow_docs.vis import embed
 import webp
 
 
@@ -50,7 +51,7 @@ class Webp(object):
     frame_rate: The default frame rate for appended images.
     shape: The shape of the animation frames. Will default to the size of the
       first image if not set.
-    result: The binary image datya string. Once the animation has been used, it
+    result: The binary image data string. Once the animation has been used, it
       can no longer updated. And the result field contains the webp encoded
       data.
   """
@@ -148,11 +149,7 @@ class Webp(object):
     if self._empty:
       return "Empty Animation"
 
-    # convert raw binary data to base64
-    img_data = base64.b64encode(self.result).decode("utf-8")
-
-    img_html = "<img src='data:image/webp;base64,%s'/>" % img_data
-    return img_html
+    return embed.embed_data("image/webp", self.result)._repr_html_()  # pylint: disable=protected-access,
 
   def save(self, filename):
     """Write the webp data to a file."""

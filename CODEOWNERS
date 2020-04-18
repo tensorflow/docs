@@ -2,9 +2,12 @@
 # Last matching pattern takes preecedence.
 
 # Default owners for everything in repo.
-*  @lamberta @MarkDaoust
+*  @lamberta @MarkDaoust @yashk2810
+
+# Docs
+/site/en/guide/ @lamberta @MarkDaoust @yashk2810
+/site/en/guide/keras/ @fchollet @lamberta @MarkDaoust @yashk2810
+/site/en/tutorials/ @lamberta @MarkDaoust @yashk2810
 
 # Community
-/site/en/community/ @dynamicwebpaige @ewilderj
-
-/site/en/r2/ @lamberta @MarkDaoust @brilee
+/site/en/community/ @ewilderj @lamberta

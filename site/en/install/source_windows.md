@@ -30,13 +30,14 @@ file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
 
-[Install Bazel 0.24.1](https://docs.bazel.build/versions/master/install-windows.html){:.external},
-the build tool used to compile TensorFlow. Set up Bazel to
-[build C++](https://docs.bazel.build/versions/master/windows.html#build-c){:.external}.
+[Install Bazel](./source.md#install-bazel), the build tool used to compile
+TensorFlow. For Bazel version, see the
+[tested build configurations](#tested-build-configurations) for Windows.
+Configure Bazel to
+<a href="https://docs.bazel.build/versions/master/windows.html#build-c" class="external">build
+C++</a>.
 
 Add the location of the Bazel executable to your `%PATH%` environment variable.
-
-Ensure you install Bazel 0.23.0 or lower.
 
 ### Install MSYS2
 
@@ -49,19 +50,19 @@ run:
 pacman -S git patch unzip
 </pre>
 
-### Install Visual C++ Build Tools 2017
+### Install Visual C++ Build Tools 2019
 
-Install the *Visual C++ build tools 2017*. This comes with *Visual Studio 2017*
+Install the *Visual C++ build tools 2019*. This comes with *Visual Studio 2019*
 but can be installed separately:
 
 1.  Go to the
-    [Visual Studio downloads](https://visualstudio.microsoft.com/vs/older-downloads/){:.external},
+    [Visual Studio downloads](https://visualstudio.microsoft.com/downloads/){:.external},
 2.  Select *Redistributables and Build Tools*,
 3.  Download and install:
-    -   *Microsoft Visual C++ 2017 Redistributable*
-    -   *Microsoft Build Tools 2017*
+    -   *Microsoft Visual C++ 2019 Redistributable*
+    -   *Microsoft Build Tools 2019*
 
-Note: TensorFlow is tested against the *Visual Studio 2017*.
+Note: TensorFlow is tested against the *Visual Studio 2019*.
 
 ### Install GPU support (optional)
 
@@ -112,7 +113,7 @@ python ./configure.py
 Starting local Bazel server and connecting to it...
 ................
 You have bazel 0.15.0 installed.
-Please specify the location of python. [Default is C:\python36\python.exe]: 
+Please specify the location of python. [Default is C:\python36\python.exe]:
 
 Found possible Python library paths:
   C:\python36\lib\site-packages
@@ -133,7 +134,7 @@ Please specify a list of comma-separated Cuda compute capabilities you want to b
 You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
 Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0]: <b>3.7</b>
 
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]: 
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]:
 
 Would you like to override eigen strong inline for some C++ compilation to reduce the compilation time? [Y/n]:
 Eigen strong inline overridden.
@@ -195,7 +196,7 @@ bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //ten
 #### Bazel build options
 
 Use this option when building to avoid issue with package creation:
-https://github.com/tensorflow/tensorflow/issues/22390
+[tensorflow:issue#22390](https://github.com/tensorflow/tensorflow/issues/22390)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 --define=no_tensorflow_py_deps=true
@@ -245,9 +246,9 @@ below, then follow the previous instructions for the Windows native command line
 
 ### Disable MSYS path conversion {:.hide-from-toc}
 
-MSYS automatically converts arguments that look like Unix paths to Windows paths,
-and this doesn't work with `bazel`. (The label `//foo/bar:bin` is considered a
-Unix absolute path since it starts with a slash.)
+MSYS automatically converts arguments that look like Unix paths to Windows
+paths, and this doesn't work with `bazel`. (The label `//path/to:bin` is
+considered a Unix absolute path since it starts with a slash.)
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">export MSYS_NO_PATHCONV=1</code>
@@ -275,6 +276,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </pre>
 
 
+<a name="tested_build_configurations"></a>
 ## Tested build configurations
 
 ### CPU

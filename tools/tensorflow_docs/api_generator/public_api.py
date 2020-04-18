@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +15,17 @@
 # ==============================================================================
 """Visitor restricting traversal to only the public tensorflow API."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
+import ast
 import inspect
-
+import typing
 
 from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
 
-try:
-  import typing  # pylint: disable=g-import-not-at-top
-  _TYPING = {id(value) for value in typing.__dict__.values()}
-  del typing
-except ImportError:
-  _TYPING = {}
+_TYPING = frozenset(
+    id(obj)
+    for obj in typing.__dict__.values()
+    if not doc_generator_visitor.maybe_singleton(obj))
 
 
 def ignore_typing(path, parent, children):
@@ -46,9 +43,11 @@ def ignore_typing(path, parent, children):
   """
   del path
   del parent
-  children = [
-      (name, value) for (name, value) in children if id(value) not in _TYPING
-  ]
+
+  children = [(name, child_obj)
+              for (name, child_obj) in children
+              if id(child_obj) not in _TYPING]
+
   return children
 
 
@@ -60,7 +59,7 @@ def local_definitions_filter(path, parent, children):
   This follows the API for visitors defined by `traverse.traverse`.
 
   This is a much tighter constraint than the default "base_dir" filter which
-  ensures that that only objects defined within the package root are documented.
+  ensures that only objects defined within the package root are documented.
   This applies a similar constraint, to each submodule.
 
   in the api-tree below, `Dense` is defined in `tf.keras.layers`, but imported
@@ -129,21 +128,89 @@ def local_definitions_filter(path, parent, children):
   return filtered_children
 
 
+def _get_imported_symbols(obj):
+  """Returns a list of symbol names imported by the given `obj`."""
+
+  class ImportNodeVisitor(ast.NodeVisitor):
+    """An `ast.Visitor` that collects the names of imported symbols."""
+
+    def __init__(self):
+      self.imported_symbols = []
+
+    def _add_imported_symbol(self, node):
+      self.imported_symbols.extend([alias.name for alias in node.names])
+
+    def visit_Import(self, node):  # pylint: disable=invalid-name
+      self._add_imported_symbol(node)
+
+    def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
+      self._add_imported_symbol(node)
+
+  source = inspect.getsource(obj)
+  tree = ast.parse(source)
+  visitor = ImportNodeVisitor()
+  visitor.visit(tree)
+  return visitor.imported_symbols
+
+
+def explicit_package_contents_filter(path, parent, children):
+  """Filter modules to only include explicit contents.
+
+  This function returns the children explicitly included by this module, meaning
+  that it will exclude:
+
+  *   Modules in a package not explicitly imported by the package (submodules
+      are implicitly injected into their parent's namespace).
+  *   Modules imported by a module that is not a package.
+
+  This filter is useful if you explicitly define your API in the packages of
+  your library, but do not expliticly define that API in the `__all__` variable
+  of each module. The purpose is to make it easier to maintain that API.
+
+  Note: This filter does work with wildcard imports, however it is generally not
+  recommended to use wildcard imports.
+
+  Args:
+    path: A tuple of names forming the path to the object.
+    parent: The parent object.
+    children: A list of (name, value) tuples describing the attributes of the
+      patent.
+
+  Returns:
+    A filtered list of children `(name, value)` pairs.
+  """
+  del path  # Unused
+  is_parent_module = inspect.ismodule(parent)
+  is_parent_package = is_parent_module and hasattr(parent, '__path__')
+  if is_parent_package:
+    imported_symbols = _get_imported_symbols(parent)
+  filtered_children = []
+  for child in children:
+    name, obj = child
+    if inspect.ismodule(obj):
+      # Do not include modules in a package not explicitly imported by the
+      # package.
+      if is_parent_package and name not in imported_symbols:
+        continue
+      # Do not include modules imported by a module that is not a package.
+      if is_parent_module and not is_parent_package:
+        continue
+    filtered_children.append(child)
+  return filtered_children
+
+
 class PublicAPIFilter(object):
   """Visitor to use with `traverse` to filter just the public API."""
 
-  def __init__(self,
-               base_dir,
-               do_not_descend_map=None,
-               private_map=None):
+  def __init__(self, base_dir, do_not_descend_map=None, private_map=None):
     """Constructor.
 
     Args:
       base_dir: The directory to take source file paths relative to.
       do_not_descend_map: A mapping from dotted path like "tf.symbol" to a list
         of names. Included names will have no children listed.
-      private_map: A mapping from dotted path like "tf.symbol" to a list
-        of names. Included names will not be listed at that location.
+      private_map: A mapping from dotted path like "tf.symbol" to a list of
+        names. Included names will not be listed at that location.
     """
     self._base_dir = base_dir
     self._do_not_descend_map = do_not_descend_map or {}
@@ -189,9 +256,9 @@ class PublicAPIFilter(object):
 
     # Avoid long waits in cases of pretty unambiguous failure.
     if inspect.ismodule(parent) and len(path) > 10:
-      raise RuntimeError(
-          'Modules nested too deep:\n\n%s\n\nThis is likely a '
-          'problem with an accidental public import.' % ('.'.join(path)))
+      raise RuntimeError('Modules nested too deep:\n\n{}\n\nThis is likely a '
+                         'problem with an accidental public import.'.format(
+                             '.'.join(path)))
 
     # No children if "do_not_descend" is set.
     parent_path = '.'.join(path[:-1])
@@ -200,8 +267,8 @@ class PublicAPIFilter(object):
       del children[:]
 
     # Remove things that are not visible.
-    for child_name, child in list(children):
-      if self._is_private(path, child_name, child):
-        children.remove((child_name, child))
+    children = [(child_name, child_obj)
+                for child_name, child_obj in list(children)
+                if not self._is_private(path, child_name, child_obj)]
 
     return children

@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,16 +15,14 @@
 # ==============================================================================
 """Tests for tensorflow.tools.common.public_api."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import inspect
 import types
 
 import typing
 
 from absl.testing import absltest
+# This import is using to test
+from tensorflow_docs import api_generator
 from tensorflow_docs.api_generator import public_api
 
 
@@ -152,6 +151,45 @@ class PublicApiTest(absltest.TestCase):
     filtered_names = [name for name, _ in filtered_children]
 
     self.assertCountEqual([], filtered_names)
+
+  def test_explicit_package_contents_filter_removes_modules_not_explicitly_imported(
+      self):
+    path = ('tensorflow_docs', 'api_generator')
+    parent = api_generator
+    members = inspect.getmembers(parent)
+    members.append(('inspect', inspect))
+
+    # Assert that parent is a module and is a package, and that the members of
+    # parent include a module named `inspect`.
+    self.assertTrue(inspect.ismodule(parent))
+    self.assertTrue(hasattr(parent, '__path__'))
+    self.assertIn('inspect', [name for name, _ in members])
+    self.assertTrue(inspect.ismodule(inspect))
+
+    filtered_members = public_api.explicit_package_contents_filter(
+        path, parent, members)
+
+    # Assert that the filtered_members do not include a module named `inspect`.
+    self.assertNotIn('inspect', [name for name, _ in filtered_members])
+
+  def test_explicit_package_contents_filter_removes_modules_imported_by_modules(
+      self):
+    path = ('tensorflow_docs', 'api_generator', 'public_api')
+    parent = public_api
+    members = inspect.getmembers(parent)
+
+    # Assert that parent is a module and not a package, and that the members of
+    # parent include a module named `inspect`.
+    self.assertTrue(inspect.ismodule(parent))
+    self.assertFalse(hasattr(parent, '__path__'))
+    self.assertIn('inspect', [name for name, _ in members])
+    self.assertTrue(inspect.ismodule(inspect))
+
+    filtered_members = public_api.explicit_package_contents_filter(
+        path, parent, members)
+
+    # Assert that the filtered_members do not include a module named `inspect`.
+    self.assertNotIn('inspect', [name for name, _ in filtered_members])
 
   def test_ignore_typing(self):
     children_before = [('a', 1), ('b', 3), ('c', typing.List)]

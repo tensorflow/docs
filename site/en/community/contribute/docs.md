@@ -25,7 +25,6 @@ To participate in the TensorFlow docs community:
 * Watch the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub
   repository.
 * Subscribe to [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
-* Join the [Gitter chat room](https://gitter.im/tensorflow/docs).
 
 ## API reference
 
@@ -41,7 +40,7 @@ and can be (approximately) previewed using any
 
 For reference documentation quality and how to get involved with doc sprints and
 the community, see the
-[TensorFlow 2.0 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
+[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
 
 ### Versions and branches
 
@@ -77,7 +76,7 @@ install:
 <code class="devsite-terminal">pip install git+https://github.com/tensorflow/docs</code>
 </pre>
 
-To generate the TensorFlow 2.0 reference docs, use the
+To generate the TensorFlow 2 reference docs, use the
 `tensorflow/tools/docs/generate2.py` script:
 
 <pre class="prettyprint lang-bsh">
@@ -257,7 +256,7 @@ is a hosted notebook environment that makes it easy to edit—and run—notebook
 documentation. Notebooks in GitHub are loaded in Google Colab by passing the
 path to the Colab URL, for example,
 the notebook located in GitHub here:
-<a href="https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https&#58;//github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a><br/>
+<a href="https://   &#103;ithub.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://  &#103;ithub.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a><br/>
 can be loaded into Google Colab at this URL:
 <a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a>
 
@@ -320,6 +319,7 @@ contributors to organize. Please join if you're an author, reviewer, or just
 interested in building out TensorFlow.org content for the community:
 
 * Chinese (Simplified): [docs-zh-cn@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-zh-cn)
+* Italian: [docs-it@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-it)
 * Japanese: [docs-ja@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)
 * Korean: [docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
 * Russian: [docs-ru@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru)
@@ -358,11 +358,3 @@ English version. After stripping the comments, it compares the code blocks and
 updates the language notebook if they are different. This tool is particularly
 useful with an interactive git workflow to selectively add hunks of the file to
 the commit using: `git add --patch site/lang/notebook.ipynb`
-
-## Docs sprint
-
-Attend one of the
-[TensorFlow 2.0 Global Docs Sprint](https://www.google.com/maps/d/viewer?mid=1FmxIWZBXi4cvSy6gJUW9WRPfvVRbievf)
-events near you, or join remotely. Follow along with this
-[blog post](https://medium.com/tensorflow/https-medium-com-margaretmz-tf-docs-sprint-cheatsheet-7cb1dfd3e8b5?linkId=68384164).
-These events are a great way to get started contributing to the TensorFlow documentation.

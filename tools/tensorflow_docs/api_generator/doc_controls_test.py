@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2018 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -233,7 +234,7 @@ class DocControlsTest(absltest.TestCase):
     self.assertFalse(
         doc_controls.should_skip_class_attr(GrandParent, 'my_method'))
     self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
-    self.assertTrue(doc_controls.should_skip_class_attr(Child, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child, 'my_method'))
 
 
 if __name__ == '__main__':

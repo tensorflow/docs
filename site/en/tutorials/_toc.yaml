@@ -14,7 +14,7 @@ toc:
   section:
   - title: "Basic image classification"
     path: /tutorials/keras/classification
-  - title: "Text classification with TF.Hub"
+  - title: "Text classification with TF Hub"
     path: /tutorials/keras/text_classification_with_hub
   - title: "Text classification with preprocessed text"
     path: /tutorials/keras/text_classification
@@ -102,14 +102,19 @@ toc:
     path: /tutorials/images/cnn
   - title: "Image classification"
     path: /tutorials/images/classification
-  - title: "Transfer learning with TF.Hub"
+  - title: "Transfer learning with TF Hub"
     path: /tutorials/images/transfer_learning_with_hub
   - title: "Transfer learning with pretrained CNN"
     path: /tutorials/images/transfer_learning
+  - title: "Data Augmentation"
+    path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
-  - title: "Object detection with TFHub"
+  - title: "Object detection with TF Hub"
     path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    status: external
+  - title: "Object detection API"
+    path: https://github.com/tensorflow/models/blob/master/research/object_detection/object_detection_tutorial.ipynb
     status: external
 
 - title: "Text"

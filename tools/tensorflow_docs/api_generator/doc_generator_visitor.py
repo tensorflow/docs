@@ -1,3 +1,4 @@
+# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +15,8 @@
 # ==============================================================================
 """A `traverse` visitor for processing documentation."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import collections
-
-import six
-
-from tensorflow_docs.api_generator import tf_inspect
+import inspect
 
 
 def maybe_singleton(py_object):
@@ -43,9 +37,8 @@ def maybe_singleton(py_object):
     A bool, True if the object might be a singleton.
   """
   # isinstance accepts nested tuples of types.
-  is_immutable_type = isinstance(
-      py_object, (six.integer_types, six.string_types, six.binary_type,
-                  six.text_type, float, complex, bool, type(None)))
+  immutable_types = (int, str, bytes, float, complex, bool, type(None))
+  is_immutable_type = isinstance(py_object, immutable_types)
 
   # Check if the object is the empty tuple.
   return is_immutable_type or py_object is ()  # pylint: disable=literal-comparison
@@ -259,7 +252,7 @@ class DocGeneratorVisitor(object):
         found during traversal.
       parent: The Python object referenced by `parent_name`.
       children: A list of `(name, py_object)` pairs enumerating, in alphabetical
-        order, the children (as determined by `tf_inspect.getmembers`) of
+        order, the children (as determined by `inspect.getmembers`) of
           `parent`. `name` is the local name of `py_object` in `parent`.
 
     Returns:
@@ -275,11 +268,11 @@ class DocGeneratorVisitor(object):
     if parent_path not in self._api_tree:
       self._api_tree[parent_path] = parent
 
-    if not (tf_inspect.ismodule(parent) or tf_inspect.isclass(parent)):
-      raise RuntimeError('Unexpected type in visitor -- %s: %r' % (parent_name,
-                                                                   parent))
+    if not (inspect.ismodule(parent) or inspect.isclass(parent)):
+      raise RuntimeError('Unexpected type in visitor -- '
+                         f'{parent_name}: {parent!r}')
 
-    for (name, child) in children:
+    for name, child in children:
       self._api_tree[parent_path + (name,)] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
@@ -318,7 +311,7 @@ class DocGeneratorVisitor(object):
     container = self._index['.'.join(parts[:-1])]
 
     defining_class_score = 1
-    if tf_inspect.isclass(container):
+    if inspect.isclass(container):
       if short_name in container.__dict__:
         # prefer the defining class
         defining_class_score = -1
@@ -333,7 +326,7 @@ class DocGeneratorVisitor(object):
 
     while parts:
       container = self._index['.'.join(parts)]
-      if tf_inspect.ismodule(container):
+      if inspect.ismodule(container):
         break
       parts.pop()
 
@@ -381,7 +374,7 @@ class DocGeneratorVisitor(object):
     # symbol (incl. itself).
     duplicates = {}
 
-    for path, node in six.iteritems(self._api_tree.index):
+    for path, node in self._api_tree.index.items():
       if not path:
         continue
       full_name = node.full_name

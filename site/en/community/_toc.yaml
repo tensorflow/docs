@@ -9,8 +9,6 @@ toc:
   - heading: "Community resources"
   - title: "SIG playbook"
     path: /community/sig_playbook
-  - title: "Roadmap"
-    path: /community/roadmap
 
 - name: "Contribute"
   contents:
@@ -20,6 +18,8 @@ toc:
   - heading: "Code"
   - title: "Contribute to code"
     path: /community/contribute/code
+  - title: "Contribute tests"
+    path: /community/contribute/tests
   - title: "Code style"
     path: /community/contribute/code_style
 

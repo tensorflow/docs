@@ -92,9 +92,8 @@ to ensure that the output tensor is the same shape as the input tensor. For
 example, if the input is a tensor of shape [10, 20], then this shape function
 specifies that the output shape is also [10, 20].
 
-
->   A note on naming: The op name must be in CamelCase and it must be unique
->   among all other ops that are registered in the binary.
+Note: The op name must be in CamelCase and it must be unique among all other ops
+that are registered in the binary.
 
 ## Implement the kernel for the op
 
@@ -374,8 +373,9 @@ Run the following command to build `zero_out.so`.
 ```bash
 $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 ```
->   As explained above, if you are compiling with gcc>=5 add `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"`
->   to the bazel command line.
+
+Note: As explained above, if you are compiling with gcc>=5 add
+`--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"` to the Bazel command line arguments.
 
 >   Note: Although you can create a shared library (a `.so` file) with the
 >   standard `cc_library` rule, we strongly recommend that you use the
@@ -524,10 +524,11 @@ using the `Attr` method, which expects a spec of the form:
 
 where `<name>` begins with a letter and can be composed of alphanumeric
 characters and underscores, and `<attr-type-expr>` is a type expression of the
-form [described below](#attr_types).
+form [described below](#attr-types).
 
 For example, if you'd like the `ZeroOut` op to preserve a user-specified index,
 instead of only the 0th element, you can register the op like so:
+
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("preserve_index: int")
@@ -535,11 +536,12 @@ REGISTER_OP("ZeroOut")
     .Output("zeroed: int32");
 ```
 
-(Note that the set of [attribute types](#attr_types) is different from the
+(Note that the set of [attribute types](#attr-types) is different from the
 `tf.DType` used for inputs and outputs.)
 
 Your kernel can then access this attr in its constructor via the `context`
 parameter:
+
 ```c++
 class ZeroOutOp : public OpKernel {
  public:
@@ -561,6 +563,7 @@ class ZeroOutOp : public OpKernel {
 ```
 
 which can then be used in the `Compute` method:
+
 ```c++
   void Compute(OpKernelContext* context) override {
     // ...
@@ -693,6 +696,13 @@ REGISTER_OP("AttrDefaultExample")
     .Attr("i: int = 0");
 ```
 
+Additionally, both a constraint and a default value can be specified:
+
+```c++
+REGISTER_OP("AttrConstraintAndDefaultExample")
+    .Attr("i: int >= 1 = 1");
+```
+
 The supported syntax of the default value is what would be used in the proto
 representation of the resulting GraphDef definition.
 
@@ -725,6 +735,7 @@ you would then register an `OpKernel` for each supported type.
 
 For instance, if you'd like the `ZeroOut` op to work on `float`s
 in addition to `int32`s, your op registration might look like:
+
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("T: {float, int32}")
@@ -735,60 +746,62 @@ REGISTER_OP("ZeroOut")
 Your op registration now specifies that the input's type must be `float`, or
 `int32`, and that its output will be the same type, since both have type `T`.
 
-> <a id="naming"></a>A note on naming: Inputs, outputs, and attrs generally should be
-> given snake\_case names.  The one exception is attrs that are used as the type
-> of an input or in the type of an input. Those attrs can be inferred when the
-> op is added to the graph and so don't appear in the op's function.  For
-> example, this last definition of ZeroOut will generate a Python function that
-> looks like:
->
-> ```python
-> def zero_out(to_zero, name=None):
->   """...
->   Args:
->     to_zero: A `Tensor`. Must be one of the following types:
->         `float32`, `int32`.
->     name: A name for the operation (optional).
->
->   Returns:
->     A `Tensor`. Has the same type as `to_zero`.
->   """
-> ```
->
-> If `to_zero` is passed an `int32` tensor, then `T` is automatically set to
-> `int32` (well, actually `DT_INT32`). Those inferred attrs are given
-> Capitalized or CamelCase names.
->
-> Compare this with an op that has a type attr that determines the output
-> type:
->
-> ```c++
-> REGISTER_OP("StringToNumber")
->     .Input("string_tensor: string")
->     .Output("output: out_type")
->     .Attr("out_type: {float, int32} = DT_FLOAT");
->     .Doc(R"doc(
-> Converts each string in the input Tensor to the specified numeric type.
-> )doc");
-> ```
->
-> In this case, the user has to specify the output type, as in the generated
-> Python:
->
-> ```python
-> def string_to_number(string_tensor, out_type=None, name=None):
->   """Converts each string in the input Tensor to the specified numeric type.
->
->   Args:
->     string_tensor: A `Tensor` of type `string`.
->     out_type: An optional `tf.DType` from: `tf.float32, tf.int32`.
->       Defaults to `tf.float32`.
->     name: A name for the operation (optional).
->
->   Returns:
->     A `Tensor` of type `out_type`.
->   """
-> ```
+###### Naming
+
+Inputs, outputs, and attrs generally should be given snake\_case names. The one
+exception is attrs that are used as the type of an input or in the type of an
+output. Those attrs can be inferred when the op is added to the graph and so
+don't appear in the op's function. For example, this last definition of ZeroOut
+will generate a Python function that looks like:
+
+```python
+def zero_out(to_zero, name=None):
+  """...
+  Args:
+    to_zero: A `Tensor`. Must be one of the following types:
+        `float32`, `int32`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor`. Has the same type as `to_zero`.
+  """
+```
+
+If `to_zero` is passed an `int32` tensor, then `T` is automatically set to
+`int32` (well, actually `DT_INT32`). Those inferred attrs are given Capitalized
+or CamelCase names.
+
+Compare this with an op that has a type attr that determines the output type:
+
+```c++
+REGISTER_OP("StringToNumber")
+    .Input("string_tensor: string")
+    .Output("output: out_type")
+    .Attr("out_type: {float, int32} = DT_FLOAT");
+    .Doc(R"doc(
+Converts each string in the input Tensor to the specified numeric type.
+)doc");
+```
+
+In this case, the user has to specify the output type, as in the generated
+Python:
+
+```python
+def string_to_number(string_tensor, out_type=None, name=None):
+  """Converts each string in the input Tensor to the specified numeric type.
+
+  Args:
+    string_tensor: A `Tensor` of type `string`.
+    out_type: An optional `tf.DType` from: `tf.float32, tf.int32`.
+      Defaults to `tf.float32`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` of type `out_type`.
+  """
+```
+
+###### Type polymorphism example
 
 ```c++
 #include "tensorflow/core/framework/op_kernel.h"
@@ -839,18 +852,19 @@ REGISTER_KERNEL_BUILDER(
     ZeroOutFloatOp);
 ```
 
-> To preserve [backwards compatibility](#backwards-compatibility), you should
-> specify a [default value](#default-values-constraints) when adding an attr to
-> an existing op:
->
-> ```c++
-> REGISTER_OP("ZeroOut")
->   .Attr("T: {float, int32} = DT_INT32")
->   .Input("to_zero: T")
->   .Output("zeroed: T")
-> ```
+To preserve [backwards compatibility](#backwards-compatibility), you should
+specify a [default value](#default-values-and-constraints) when adding an attr
+to an existing op:
+
+```c++
+REGISTER_OP("ZeroOut")
+  .Attr("T: {float, int32} = DT_INT32")
+  .Input("to_zero: T")
+  .Output("zeroed: T")
+```
 
 Let's say you wanted to add more types, say `double`:
+
 ```c++
 REGISTER_OP("ZeroOut")
     .Attr("T: {float, double, int32}")
@@ -861,29 +875,30 @@ REGISTER_OP("ZeroOut")
 Instead of writing another `OpKernel` with redundant code as above, often you
 will be able to use a C++ template instead.  You will still have one kernel
 registration (`REGISTER_KERNEL_BUILDER` call) per overload.
+
 ```c++
 template <typename T>
 class ZeroOutOp : public OpKernel {
  public:
   explicit ZeroOutOp(OpKernelConstruction* context) : OpKernel(context) {}
-  
+
   void Compute(OpKernelContext* context) override {
     // Grab the input tensor
     const Tensor& input_tensor = context->input(0);
     auto input = input_tensor.flat<T>();
-    
+
     // Create an output tensor
     Tensor* output = NULL;
     OP_REQUIRES_OK(context,
                    context->allocate_output(0, input_tensor.shape(), &output));
     auto output_flat = output->template flat<T>();
-    
+
     // Set all the elements of the output tensor to 0
     const int N = input.size();
     for (int i = 0; i < N; i++) {
       output_flat(i) = 0;
     }
-    
+
     // Preserve the first input value
     if (N > 0) output_flat(0) = input(0);
   }
@@ -1009,7 +1024,7 @@ REGISTER_OP("SameListInputExample")
 
 By default, tensor lists have a minimum length of 1. You can change that default
 using
-[a `">="` constraint on the corresponding attr](#default-values-constraints).
+[a `">="` constraint on the corresponding attr](#default-values-and-constraints).
 In this next example, the input is a list of at least 2 `int32` tensors:
 
 ```c++
@@ -1119,11 +1134,10 @@ expressions:
 * For a reference to a tensor: `Ref(<type>)`, where `<type>` is one of the
   previous types.
 
-> A note on naming: Any attr used in the type of an input will be inferred.  By
-> convention those inferred attrs use capital names (like `T` or `N`).
-> Otherwise inputs, outputs, and attrs have names like function parameters
-> (e.g. `num_outputs`).  For more details, see the
-> [earlier note on naming](#naming).
+Any attr used in the type of an input will be inferred. By convention those
+inferred attrs use capital names (like `T` or `N`). Otherwise inputs, outputs,
+and attrs have names like function parameters (e.g. `num_outputs`). For more
+details, see the [earlier section on naming](#naming).
 
 For more details, see
 [`tensorflow/core/framework/op_def_builder.h`][op_def_builder].
@@ -1142,40 +1156,44 @@ The details of `GraphDef` compatibility are
 
 There are several ways to preserve backwards-compatibility.
 
-1. Any new attrs added to an operation must have default values defined, and
-   with that default value the op must have the original behavior. To change an
-   operation from not polymorphic to polymorphic, you *must* give a default
-   value to the new type attr to preserve the original signature by default. For
-   example, if your operation was:
+1.  Any new attrs added to an operation must have default values defined, and
+    with that default value the op must have the original behavior. To change an
+    operation from not polymorphic to polymorphic, you *must* give a default
+    value to the new type attr to preserve the original signature by default.
+    For example, if your operation was:
 
-       REGISTER_OP("MyGeneralUnaryOp")
-           .Input("in: float")
-           .Output("out: float");
+    ```c++
+    REGISTER_OP("MyGeneralUnaryOp")
+        .Input("in: float")
+        .Output("out: float");
+    ```
 
-   you can make it polymorphic in a backwards-compatible way using:
+    you can make it polymorphic in a backwards-compatible way using:
 
-       REGISTER_OP("MyGeneralUnaryOp")
-           .Input("in: T")
-           .Output("out: T")
-           .Attr("T: numerictype = DT_FLOAT");
+    ```c++
+    REGISTER_OP("MyGeneralUnaryOp")
+        .Input("in: T")
+        .Output("out: T")
+        .Attr("T: numerictype = DT_FLOAT");
+    ```
 
-2. You can safely make a constraint on an attr less restrictive.  For example,
-   you can change from `{int32, int64}` to `{int32, int64, float}` or `type`.
-   Or you may change from `{"apple", "orange"}` to `{"apple", "banana",
-   "orange"}` or `string`.
+2.  You can safely make a constraint on an attr less restrictive. For example,
+    you can change from `{int32, int64}` to `{int32, int64, float}` or `type`.
+    Or you may change from `{"apple", "orange"}` to `{"apple", "banana",
+    "orange"}` or `string`.
 
-3. You can change single inputs / outputs into list inputs / outputs, as long as
-   the default for the list type matches the old signature.
+3.  You can change single inputs / outputs into list inputs / outputs, as long
+    as the default for the list type matches the old signature.
 
-4. You can add a new list input / output, if it defaults to empty.
+4.  You can add a new list input / output, if it defaults to empty.
 
-5. Namespace any new ops you create, by prefixing the op names with something
-   unique to your project. This avoids having your op colliding with any ops
-   that might be included in future versions of TensorFlow.
+5.  Namespace any new ops you create, by prefixing the op names with something
+    unique to your project. This avoids having your op colliding with any ops
+    that might be included in future versions of TensorFlow.
 
-6. Plan ahead! Try to anticipate future uses for the op. Some signature changes
-   can't be done in a compatible way (for example, making a list of the same
-   type into a list of varying types).
+6.  Plan ahead! Try to anticipate future uses for the op. Some signature changes
+    can't be done in a compatible way (for example, making a list of the same
+    type into a list of varying types).
 
 The full list of safe and unsafe changes can be found in
 [`tensorflow/core/framework/op_compatibility_test.cc`](https://www.tensorflow.org/code/tensorflow/core/framework/op_compatibility_test.cc).
@@ -1253,7 +1271,9 @@ you'll need to specify the path explicitly in the second (g++) command above.
 For example, add `-L /usr/local/cuda-8.0/lib64/` if your CUDA is installed in
 `/usr/local/cuda-8.0`.
 
->   Note in some linux settings, additional options to `nvcc` compiling step are needed. Add `-D_MWAITXINTRIN_H_INCLUDED` to the `nvcc` command line to avoid errors from `mwaitxintrin.h`.
+Note: In some Linux settings, additional options to `nvcc` compiling step are
+needed. Add `-D_MWAITXINTRIN_H_INCLUDED` to the `nvcc` command line to avoid
+errors from `mwaitxintrin.h`.
 
 ### Implement the gradient in Python
 
@@ -1305,14 +1325,10 @@ def _zero_out_grad(op, grad):
 Details about registering gradient functions with
 `tf.RegisterGradient`:
 
-* For an op with one output, the gradient function will take an
-  `tf.Operation` `op` and a
-  `tf.Tensor` `grad` and build new ops
-  out of the tensors
-  [`op.inputs[i]`](../../api_docs/python/framework.md#Operation.inputs),
-  [`op.outputs[i]`](../../api_docs/python/framework.md#Operation.outputs), and `grad`.  Information
-  about any attrs can be found via
-  `tf.Operation.get_attr`.
+* For an op with one output, the gradient function will take an `tf.Operation`,
+  `op`, and a `tf.Tensor` `grad` and build new ops out of the tensors
+  `op.inputs[i]`, `op.outputs[i]`, and `grad`. Information about any attrs can
+  be found via `tf.Operation.get_attr`.
 
 * If the op has multiple outputs, the gradient function will take `op` and
   `grads`, where `grads` is a list of gradients with respect to each output.
@@ -1369,7 +1385,7 @@ REGISTER_OP("ZeroOut")
 ```
 
 A shape function can also constrain the shape of an input. For the version of
-[`ZeroOut` with a vector shape constraint](#validation), the shape function
+[`ZeroOut` with a vector shape constraint](#conditional-checks-and-validation), the shape function
 would be as follows:
 
 ```c++

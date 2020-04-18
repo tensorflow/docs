@@ -15,7 +15,7 @@ This document focuses on checkpoints. For details on `SavedModel`, see the
 ## Sample code
 
 This document relies on the same
-[Iris classification example](https://github.com/tensorflow/models/blob/master/samples/core/get_started/premade_estimator.py) detailed in [Getting Started with TensorFlow](../guide/premade_estimators.md).
+[Iris classification example](https://github.com/tensorflow/models/blob/r1.13.0/samples/core/get_started/premade_estimator.py) detailed in [Getting Started with TensorFlow](../guide/premade_estimators.md).
 To download and access the example, invoke the following two commands:
 
 ```shell
@@ -65,7 +65,7 @@ adds checkpoints and other files to the `model_dir` directory:
 
 <div style="width:80%; margin:auto; margin-bottom:10px; margin-top:20px;">
 <img style="width:100%" src="https://www.tensorflow.org/images/first_train_calls.png">
-<div>
+</div>
 <div style="text-align: center">
 The first call to train().
 </div>

@@ -28,7 +28,7 @@ and `PATCH` version 3. Changes to each number have the following meaning:
 For example, release 1.0.0 introduced backwards *incompatible* changes from
 release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 1.0.0.
-
+<a name="what_is_covered"></a>
 ## What is covered
 
 Only the public APIs of TensorFlow are backwards compatible across minor and
@@ -91,11 +91,11 @@ These include:
 *   **Other languages**: TensorFlow APIs in languages other than Python and C,
     such as:
 
-  - [C++](../api_guides/cc/guide.md) (exposed through header files in
+  - [C++](../install/lang_c.md) (exposed through header files in
     [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
-  - [Java](../api_docs/java/reference/org/tensorflow/package-summary),
-  - [Go](https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go)
-  - [JavaScript](https://js.tensorflow.org)
+  - [Java](../install/lang_java.md),
+  - [Go](../install/lang_go.md)
+  - [JavaScript](https://www.tensorflow.org/js)
 
 *   **Details of composite ops:** Many public functions in Python expand to
     several primitive ops in the graph, and these details will be part of any
@@ -113,12 +113,10 @@ These include:
     learning improved accuracy of specific formulas may result in decreased
     accuracy for the overall system.
 
-*   **Random numbers:** The specific random numbers computed by the
-    [random ops](../api_guides/python/constant_op.md#Random_Tensors) may change
+*   **Random numbers:** The specific random numbers computed may change
     at any time. Users should rely only on approximately correct distributions
-    and statistical strength, not the specific bits computed. However, we will
-    make changes to random bits rarely (or perhaps never) for patch releases. We
-    will, of course, document all such changes.
+    and statistical strength, not the specific bits computed. See the
+    [random number generation](random_numbers.ipynb) guide for details.
 
 *   **Version skew in distributed Tensorflow:** Running two different versions
     of TensorFlow in a single cluster is unsupported. There are no guarantees
@@ -134,12 +132,12 @@ These include:
     convergence. We will note such changes in the release notes.
 
 *   **Error behavior:** We may replace errors with non-error behavior. For
-    instance, we may change a function to compute a result instead or raising
+    instance, we may change a function to compute a result instead of raising
     an error, even if that error is documented. We also reserve the right to
     change the text of error messages. In addition, the type of an error may
     change unless the exception type for a specific error condition is specified
     in the documentation.
-
+<a name="compatibility_of_graphs_and_checkpoints"></a>
 ## Compatibility of SavedModels, graphs and checkpoints
 
 SavedModel is the preferred serialization format to use in TensorFlow programs.

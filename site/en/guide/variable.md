@@ -14,7 +14,7 @@ guide covers how to create, update, and manage `tf.Variable`s in TensorFlow.
 To create a variable, simply provide the initial value
 
 ``` python
-my_variable = tf.Variable(tf.zeros([1., 2., 3.]))
+my_variable = tf.Variable(tf.zeros([1, 2, 3]))
 ```
 
 This creates a variable which is a three-dimensional tensor with shape `[1, 2,
