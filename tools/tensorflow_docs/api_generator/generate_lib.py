@@ -564,9 +564,11 @@ def write_docs(output_dir,
 
   # Write a global index containing all full names with links.
   with open(output_dir / 'index.md', 'w') as f:
-    f.write(
-        parser.generate_global_index(root_title, parser_config.index,
-                                     parser_config.reference_resolver))
+    global_index = parser.generate_global_index(
+        root_title, parser_config.index, parser_config.reference_resolver)
+    if not search_hints:
+      global_index = 'robots: noindex\n' + global_index
+    f.write(global_index)
 
 
 def add_dict_to_dict(add_from, add_to):
