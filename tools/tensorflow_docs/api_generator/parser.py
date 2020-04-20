@@ -17,6 +17,7 @@
 
 import ast
 import collections
+import enum
 import inspect
 import itertools
 import json
@@ -33,29 +34,104 @@ from tensorflow_docs.api_generator import doc_controls
 from google.protobuf.message import Message as ProtoMessage
 
 
-def is_free_function(py_object, full_name, index):
-  """Check if input is a free function (and not a class- or static method).
+class ObjType(enum.Enum):
+  """Enum to standardize object type checks."""
+  MODULE = 'module'
+  CLASS = 'class'
+  CALLABLE = 'callable'
+  PROPERTY = 'property'
+  OTHER = 'other'
+
+
+def get_obj_type(py_obj: Any) -> ObjType:
+  """Get the `ObjType` for the `py_object`."""
+  if inspect.ismodule(py_obj):
+    return ObjType.MODULE
+  elif inspect.isclass(py_obj):
+    return ObjType.CLASS
+  elif callable(py_obj):
+    return ObjType.CALLABLE
+  elif isinstance(py_obj, property):
+    return ObjType.PROPERTY
+  else:
+    return ObjType.OTHER
+
+
+class ParserConfig(object):
+  """Stores all indexes required to parse the docs."""
+
+  def __init__(self, reference_resolver, duplicates, duplicate_of, tree, index,
+               reverse_index, base_dir, code_url_prefix):
+    """Object with the common config for docs_for_object() calls.
+
+    Args:
+      reference_resolver: An instance of ReferenceResolver.
+      duplicates: A `dict` mapping fully qualified names to a set of all aliases
+        of this name. This is used to automatically generate a list of all
+        aliases for each name.
+      duplicate_of: A map from duplicate names to preferred names of API
+        symbols.
+      tree: A `dict` mapping a fully qualified name to the names of all its
+        members. Used to populate the members section of a class or module page.
+      index: A `dict` mapping full names to objects.
+      reverse_index: A `dict` mapping object ids to full names.
+      base_dir: A base path that is stripped from file locations written to the
+        docs.
+      code_url_prefix: A Url to pre-pend to the links to file locations.
+    """
+    self.reference_resolver = reference_resolver
+    self.duplicates = duplicates
+    self.duplicate_of = duplicate_of
+    self.tree = tree
+    self.reverse_index = reverse_index
+    self.index = index
+    self.base_dir = base_dir
+    self.code_url_prefix = code_url_prefix
+
+  def py_name_to_object(self, full_name):
+    """Return the Python object for a Python symbol name."""
+    return self.index[full_name]
+
+
+class _FileLocation(object):
+  """This class indicates that the object is defined in a regular file.
+
+  This can be used for the `defined_in` slot of the `PageInfo` objects.
+  """
+  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
+
+  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
+    self.rel_path = rel_path
+    self.url = url
+    self.start_line = start_line
+    self.end_line = end_line
+
+    github_master_re = 'github.com.*?(blob|tree)/master'
+    suffix = ''
+    # Only attach a line number for github URLs that are not using "master"
+    if self.start_line and not re.search(github_master_re, self.url):
+      if 'github.com' in self.url:
+        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
+            start_line=self.start_line, end_line=self.end_line)
+
+        self.url = self.url + suffix
+
+
+def is_class_attr(full_name, index):
+  """Check if the object's parent is a class.
 
   Args:
-    py_object: The object in question.
     full_name: The full name of the object, like `tf.module.symbol`.
     index: The {full_name:py_object} dictionary for the public API.
 
   Returns:
-    True if the object is a stand-alone function, and not part of a class
-    definition.
+    True if the object is a class attribute.
   """
-  if inspect.isclass(py_object):
-    return False
-
-  if not callable(py_object):
-    return False
-
   parent_name = full_name.rsplit('.', 1)[0]
   if inspect.isclass(index[parent_name]):
-    return False
+    return True
 
-  return True
+  return False
 
 
 class TFDocsError(Exception):
@@ -104,9 +180,7 @@ def _get_raw_docstring(py_object):
 
   # For object instances, inspect.getdoc does give us the docstring of their
   # type, which is not what we want. Only return the docstring if it is useful.
-  if (inspect.isclass(py_object) or inspect.ismethod(py_object) or
-      inspect.isfunction(py_object) or inspect.ismodule(py_object) or
-      isinstance(py_object, property) or inspect.isroutine(py_object)):
+  if get_obj_type(py_object) is not ObjType.OTHER:
     result = inspect.getdoc(py_object) or ''
   else:
     result = ''
@@ -221,15 +295,24 @@ class ReferenceResolver(object):
       an instance of `ReferenceResolver` ()
     """
     is_fragment = {}
-    for name, obj in visitor.index.items():
-      has_page = (
-          inspect.isclass(obj) or inspect.ismodule(obj) or
-          is_free_function(obj, name, visitor.index))
-
-      is_fragment[name] = not has_page
+    for full_name, obj in visitor.index.items():
+      obj_type = get_obj_type(obj)
+      if obj_type in (ObjType.CLASS, ObjType.MODULE):
+        is_fragment[full_name] = False
+      elif obj_type is ObjType.CALLABLE:
+        if is_class_attr(full_name, visitor.index):
+          is_fragment[full_name] = True
+        else:
+          is_fragment[full_name] = False
+      else:
+        is_fragment[full_name] = True
 
     return cls(
         duplicate_of=visitor.duplicate_of, is_fragment=is_fragment, **kwargs)
+
+  def is_fragment(self, full_name: str):
+    """Returns True if the object's doc is a subsection of another page."""
+    return self._is_fragment[full_name]
 
   @classmethod
   def from_json_file(cls, filepath):
@@ -1054,35 +1137,36 @@ def _get_defining_class(py_class, name):
   return None
 
 
-class _LinkInfo(
-    collections.namedtuple('_LinkInfo',
-                           ['short_name', 'full_name', 'obj', 'doc', 'url'])):
-
-  __slots__ = []
-
-  def is_link(self):
-    return True
-
-
-class _OtherMemberInfo(
-    collections.namedtuple('_OtherMemberInfo',
-                           ['short_name', 'full_name', 'obj', 'doc'])):
-
-  __slots__ = []
-
-  def is_link(self):
-    return False
+class MemberInfo(NamedTuple):
+  """Describes an attribute of a class or module."""
+  short_name: str
+  full_name: str
+  obj: Any
+  doc: _DocstringInfo
+  url: str
 
 
-MethodInfo = collections.namedtuple('MethodInfo', [
-    'short_name',
-    'full_name',
-    'obj',
-    'doc',
-    'signature',
-    'decorators',
-    'defined_in',
-])
+class MethodInfo(NamedTuple):
+  """Described a method."""
+  short_name: str
+  full_name: str
+  obj: Any
+  doc: _DocstringInfo
+  url: str
+  signature: _SignatureComponents
+  decorators: List[str]
+  defined_in: Optional[_FileLocation]
+
+  @classmethod
+  def from_member_info(cls, method_info: MemberInfo,
+                       signature: _SignatureComponents, decorators: List[str],
+                       defined_in: Optional[_FileLocation]):
+    """Upgrades a `MemberInfo` to a `MethodInfo`."""
+    return cls(
+        **method_info._asdict(),
+        signature=signature,
+        decorators=decorators,
+        defined_in=defined_in)
 
 
 def extract_decorators(func: Any) -> List[str]:
@@ -1258,12 +1342,12 @@ class ClassPageInfo(PageInfo):
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
     attributes: A dict mapping from "name" to a docstring
-    bases: A list of `_LinkInfo` objects pointing to the docs for the parent
+    bases: A list of `MemberInfo` objects pointing to the docs for the parent
       classes.
     methods: A list of `MethodInfo` objects documenting the class' methods.
-    classes: A list of `_LinkInfo` objects pointing to docs for any nested
+    classes: A list of `MemberInfo` objects pointing to docs for any nested
       classes.
-    other_members: A list of `_OtherMemberInfo` objects documenting any other
+    other_members: A list of `MemberInfo` objects documenting any other
       object's defined inside the class object (mostly enum style fields).
   """
 
@@ -1291,13 +1375,13 @@ class ClassPageInfo(PageInfo):
 
   @property
   def bases(self):
-    """Returns a list of `_LinkInfo` objects pointing to the class' parents."""
+    """Returns a list of `MemberInfo` objects pointing to the class' parents."""
     return self._bases
 
   def _set_bases(self, relative_path, parser_config):
     """Builds the `bases` attribute, to document this class' parent-classes.
 
-    This method sets the `bases` to a list of `_LinkInfo` objects point to the
+    This method sets the `bases` to a list of `MemberInfo` objects point to the
     doc pages for the class' parents.
 
     Args:
@@ -1316,7 +1400,7 @@ class ClassPageInfo(PageInfo):
       base_url = parser_config.reference_resolver.reference_to_url(
           base_full_name, relative_path)
 
-      link_info = _LinkInfo(
+      link_info = MemberInfo(
           short_name=base_full_name.split('.')[-1],
           full_name=base_full_name,
           obj=base,
@@ -1326,16 +1410,13 @@ class ClassPageInfo(PageInfo):
 
     self._bases = bases
 
-  def _add_property(self, name: str, obj: property, doc: _DocstringInfo):
+  def _add_property(self, member_info: MemberInfo):
     """Adds an entry to the `properties` list.
 
     Args:
-      name: The property's name.
-      obj: The property object.
-      doc: The property's parsed docstring, a `_DocstringInfo`.
+      member_info: a `MemberInfo` describing the property.
     """
-    del obj
-
+    doc = member_info.doc
     # Hide useless namedtuple docs-trings.
     if re.match('Alias for field number [0-9]+', doc.brief):
       doc = doc._replace(docstring_parts=[], brief='')
@@ -1351,37 +1432,58 @@ class ClassPageInfo(PageInfo):
     new_parts.append('')
     desc = '\n'.join(new_parts)
 
-    if name in self._namedtuplefields:
-      self._namedtuplefields[name] = desc
+    if member_info.short_name in self._namedtuplefields:
+      self._namedtuplefields[member_info.short_name] = desc
     else:
-      self._properties[name] = desc
+      self._properties[member_info.short_name] = desc
 
   @property
   def methods(self):
     """Returns a list of `MethodInfo` describing the class' methods."""
     return self._methods
 
-  def _add_method(self, short_name, full_name, obj, doc, signature, decorators,
-                  defined_in):
+  def _add_method(
+      self,
+      member_info: MemberInfo,
+      defining_class: Optional[type],  # pylint: disable=g-bare-generic
+      parser_config: ParserConfig) -> None:
     """Adds a `MethodInfo` entry to the `methods` list.
 
     Args:
-      short_name: The method's short name.
-      full_name: The method's fully qualified name.
-      obj: The method object itself
-      doc: The method's parsed docstring, a `_DocstringInfo`
-      signature: The method's parsed signature (see: `_generate_signature`)
-      decorators: A list of strings describing the decorators that should be
-        mentioned on the object's docs page.
-      defined_in: A `_FileLocation` object pointing to the object source.
+      member_info: a `MemberInfo` describing the method.
+      defining_class: The `type` object where this method is defined.
+      parser_config: A `ParserConfig`.
     """
-    method_info = MethodInfo(short_name, full_name, obj, doc, signature,
-                             decorators, defined_in)
+    if defining_class is None:
+      return
+
+    # Omit methods defined by namedtuple.
+    original_method = defining_class.__dict__[member_info.short_name]
+    if (hasattr(original_method, '__module__') and
+        (original_method.__module__ or '').startswith('namedtuple')):
+      return
+
+    # Some methods are often overridden without documentation. Because it's
+    # obvious what they do, don't include them in the docs if there's no
+    # docstring.
+    if (not member_info.doc.brief.strip() and
+        member_info.short_name in ['__del__', '__copy__']):
+      return
+
+    signature = _generate_signature(member_info.obj,
+                                    parser_config.reverse_index)
+
+    decorators = extract_decorators(member_info.obj)
+
+    defined_in = _get_defined_in(member_info.obj, parser_config)
+
+    method_info = MethodInfo.from_member_info(member_info, signature,
+                                              decorators, defined_in)
     self._methods.append(method_info)
 
   @property
   def classes(self):
-    """Returns a list of `_LinkInfo` pointing to any nested classes."""
+    """Returns a list of `MemberInfo` pointing to any nested classes."""
     return self._classes
 
   def get_metadata_html(self) -> str:
@@ -1391,36 +1493,51 @@ class ClassPageInfo(PageInfo):
 
     return meta_data.build_html()
 
-  def _add_class(self, short_name, full_name, obj, doc, url):
-    """Adds a `_LinkInfo` for a nested class to `classes` list.
+  def _add_class(self, member_info):
+    """Adds a `MemberInfo` for a nested class to `classes` list.
 
     Args:
-      short_name: The class' short name.
-      full_name: The class' fully qualified name.
-      obj: The class object itself
-      doc: The class' parsed docstring, a `_DocstringInfo`
-      url: A url pointing to where the nested class is documented.
+      member_info: a `MemberInfo` describing the class.
     """
-    page_info = _LinkInfo(short_name, full_name, obj, doc, url)
-
-    self._classes.append(page_info)
+    self._classes.append(member_info)
 
   @property
   def other_members(self):
-    """Returns a list of `_OtherMemberInfo` describing any other contents."""
+    """Returns a list of `MemberInfo` describing any other contents."""
     return self._other_members
 
-  def _add_other_member(self, short_name, full_name, obj, doc):
-    """Adds an `_OtherMemberInfo` entry to the `other_members` list.
+  def _add_other_member(self, member_info: MemberInfo):
+    """Adds an `MemberInfo` entry to the `other_members` list.
 
     Args:
-      short_name: The class' short name.
-      full_name: The class' fully qualified name.
-      obj: The object
-      doc: The object's docstring, a `_DocstringInfo`
+      member_info: a `MemberInfo` describing the object.
     """
-    other_member_info = _OtherMemberInfo(short_name, full_name, obj, doc)
-    self._other_members.append(other_member_info)
+    self._other_members.append(member_info)
+
+  def _add_member(
+      self,
+      member_info: MemberInfo,
+      defining_class: Optional[type],  # pylint: disable=g-bare-generic
+      parser_config: ParserConfig) -> None:
+    """Adds a member to the class page."""
+    obj_type = get_obj_type(member_info.obj)
+
+    if obj_type is ObjType.PROPERTY:
+      self._add_property(member_info)
+    elif obj_type is ObjType.CLASS:
+      if defining_class is None:
+        return
+      self._add_class(member_info)
+    elif obj_type is ObjType.CALLABLE:
+      self._add_method(member_info, defining_class, parser_config)
+    else:
+      # Exclude members defined by protobuf that are useless
+      if issubclass(self.py_object, ProtoMessage):
+        if (member_info.short_name.endswith('_FIELD_NUMBER') or
+            member_info.short_name in ['__slots__', 'DESCRIPTOR']):
+          return
+
+      self._add_other_member(member_info)
 
   def collect_docs(self, parser_config):
     """Collects information necessary specifically for a class's doc page.
@@ -1437,12 +1554,12 @@ class ClassPageInfo(PageInfo):
 
     self._set_bases(relative_path, parser_config)
 
-    for short_name in parser_config.tree[self.full_name]:
-      child_name = '.'.join([self.full_name, short_name])
-      child = parser_config.py_name_to_object(child_name)
+    for child_short_name in parser_config.tree[self.full_name]:
+      child_full_name = '.'.join([self.full_name, child_short_name])
+      child = parser_config.py_name_to_object(child_full_name)
 
       # Don't document anything that is defined in object or by protobuf.
-      defining_class = _get_defining_class(py_class, short_name)
+      defining_class = _get_defining_class(py_class, child_short_name)
       if defining_class in [object, type, tuple, BaseException, Exception]:
         continue
 
@@ -1451,64 +1568,18 @@ class ClassPageInfo(PageInfo):
           defining_class.__name__ in ['CMessage', 'Message', 'MessageMeta']):
         continue
 
-      if doc_controls.should_skip_class_attr(py_class, short_name):
+      if doc_controls.should_skip_class_attr(py_class, child_short_name):
         continue
 
       child_doc = _parse_md_docstring(child, relative_path, self.full_name,
                                       parser_config.reference_resolver)
 
-      if isinstance(child, property):
-        self._add_property(short_name, child, child_doc)
-        continue
+      child_url = parser_config.reference_resolver.reference_to_url(
+          child_full_name, relative_path)
 
-      elif inspect.isclass(child):
-        if defining_class is None:
-          continue
-        url = parser_config.reference_resolver.reference_to_url(
-            child_name, relative_path)
-        self._add_class(short_name, child_name, child, child_doc, url)
-
-      elif (inspect.ismethod(child) or inspect.isfunction(child) or
-            inspect.isroutine(child)):
-        if defining_class is None:
-          continue
-
-        # Omit methods defined by namedtuple.
-        original_method = defining_class.__dict__[short_name]
-        if (hasattr(original_method, '__module__') and
-            (original_method.__module__ or '').startswith('namedtuple')):
-          continue
-
-        # Some methods are often overridden without documentation. Because it's
-        # obvious what they do, don't include them in the docs if there's no
-        # docstring.
-        if not child_doc.brief.strip() and short_name in [
-            '__del__', '__copy__'
-        ]:
-          continue
-
-        try:
-          child_signature = _generate_signature(child,
-                                                parser_config.reverse_index)
-        except TypeError:
-          # If this is a (dynamically created) slot wrapper, inspect will
-          # raise typeerror when trying to get to the code. Ignore such
-          # functions.
-          continue
-
-        child_decorators = extract_decorators(child)
-
-        defined_in = _get_defined_in(child, parser_config)
-        self._add_method(short_name, child_name, child, child_doc,
-                         child_signature, child_decorators, defined_in)
-      else:
-        # Exclude members defined by protobuf that are useless
-        if issubclass(py_class, ProtoMessage):
-          if (short_name.endswith('_FIELD_NUMBER') or
-              short_name in ['__slots__', 'DESCRIPTOR']):
-            continue
-
-        self._add_other_member(short_name, child_name, child, child_doc)
+      member_info = MemberInfo(child_short_name, child_full_name, child,
+                               child_doc, child_url)
+      self._add_member(member_info, defining_class, parser_config)
 
     self._augment_attributes_inplace(self.doc.docstring_parts)
 
@@ -1563,13 +1634,13 @@ class ModulePageInfo(PageInfo):
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
-    classes: A list of `_LinkInfo` objects pointing to docs for the classes in
+    classes: A list of `MemberInfo` objects pointing to docs for the classes in
       this module.
-    functions: A list of `_LinkInfo` objects pointing to docs for the functions
+    functions: A list of `MemberInfo` objects pointing to docs for the functions
       in this module
-    modules: A list of `_LinkInfo` objects pointing to docs for the modules in
+    modules: A list of `MemberInfo` objects pointing to docs for the modules in
       this module.
-    other_members: A list of `_OtherMemberInfo` objects documenting any other
+    other_members: A list of `MemberInfo` objects documenting any other
       object's defined on the module object (mostly enum style fields).
   """
 
@@ -1591,30 +1662,29 @@ class ModulePageInfo(PageInfo):
   def modules(self):
     return self._modules
 
-  def _add_module(self, short_name, full_name, obj, doc, url):
-    self._modules.append(_LinkInfo(short_name, full_name, obj, doc, url))
+  def _add_module(self, member_info: MemberInfo):
+    self._modules.append(member_info)
 
   @property
   def classes(self):
     return self._classes
 
-  def _add_class(self, short_name, full_name, obj, doc, url):
-    self._classes.append(_LinkInfo(short_name, full_name, obj, doc, url))
+  def _add_class(self, member_info: MemberInfo):
+    self._classes.append(member_info)
 
   @property
   def functions(self):
     return self._functions
 
-  def _add_function(self, short_name, full_name, obj, doc, url):
-    self._functions.append(_LinkInfo(short_name, full_name, obj, doc, url))
+  def _add_function(self, member_info: MemberInfo):
+    self._functions.append(member_info)
 
   @property
   def other_members(self):
     return self._other_members
 
-  def _add_other_member(self, short_name, full_name, obj, doc):
-    self._other_members.append(
-        _OtherMemberInfo(short_name, full_name, obj, doc))
+  def _add_other_member(self, member_info: MemberInfo):
+    self._other_members.append(member_info)
 
   def get_metadata_html(self):
     meta_data = Metadata(self.full_name)
@@ -1625,6 +1695,17 @@ class ModulePageInfo(PageInfo):
       meta_data.append(item)
 
     return meta_data.build_html()
+
+  def _add_member(self, member_info: MemberInfo) -> None:
+    obj_type = get_obj_type(member_info.obj)
+    if obj_type is ObjType.MODULE:
+      self._add_module(member_info)
+    elif obj_type is ObjType.CLASS:
+      self._add_class(member_info)
+    elif obj_type is ObjType.CALLABLE:
+      self._add_function(member_info)
+    else:
+      self._add_other_member(member_info)
 
   def collect_docs(self, parser_config):
     """Collect information necessary specifically for a module's doc page.
@@ -1639,16 +1720,20 @@ class ModulePageInfo(PageInfo):
         start=os.path.dirname(documentation_path(self.full_name)) or '.')
 
     member_names = parser_config.tree.get(self.full_name, [])
-    for name in member_names:
+    for member_short_name in member_names:
 
-      if name in [
+      if member_short_name in [
           '__builtins__', '__doc__', '__file__', '__name__', '__path__',
           '__package__', '__cached__', '__loader__', '__spec__',
           'absolute_import', 'division', 'print_function', 'unicode_literals'
       ]:
         continue
 
-      member_full_name = self.full_name + '.' + name if self.full_name else name
+      if self.full_name:
+        member_full_name = self.full_name + '.' + member_short_name
+      else:
+        member_full_name = member_short_name
+
       member = parser_config.py_name_to_object(member_full_name)
 
       member_doc = _parse_md_docstring(member, relative_path, self.full_name,
@@ -1657,50 +1742,9 @@ class ModulePageInfo(PageInfo):
       url = parser_config.reference_resolver.reference_to_url(
           member_full_name, relative_path)
 
-      if inspect.ismodule(member):
-        self._add_module(name, member_full_name, member, member_doc, url)
-      elif inspect.isclass(member):
-        self._add_class(name, member_full_name, member, member_doc, url)
-      elif callable(member):
-        self._add_function(name, member_full_name, member, member_doc, url)
-      else:
-        self._add_other_member(name, member_full_name, member, member_doc)
-
-
-class ParserConfig(object):
-  """Stores all indexes required to parse the docs."""
-
-  def __init__(self, reference_resolver, duplicates, duplicate_of, tree, index,
-               reverse_index, base_dir, code_url_prefix):
-    """Object with the common config for docs_for_object() calls.
-
-    Args:
-      reference_resolver: An instance of ReferenceResolver.
-      duplicates: A `dict` mapping fully qualified names to a set of all aliases
-        of this name. This is used to automatically generate a list of all
-        aliases for each name.
-      duplicate_of: A map from duplicate names to preferred names of API
-        symbols.
-      tree: A `dict` mapping a fully qualified name to the names of all its
-        members. Used to populate the members section of a class or module page.
-      index: A `dict` mapping full names to objects.
-      reverse_index: A `dict` mapping object ids to full names.
-      base_dir: A base path that is stripped from file locations written to the
-        docs.
-      code_url_prefix: A Url to pre-pend to the links to file locations.
-    """
-    self.reference_resolver = reference_resolver
-    self.duplicates = duplicates
-    self.duplicate_of = duplicate_of
-    self.tree = tree
-    self.reverse_index = reverse_index
-    self.index = index
-    self.base_dir = base_dir
-    self.code_url_prefix = code_url_prefix
-
-  def py_name_to_object(self, full_name):
-    """Return the Python object for a Python symbol name."""
-    return self.index[full_name]
+      member_info = MemberInfo(member_short_name, member_full_name, member,
+                               member_doc, url)
+      self._add_member(member_info)
 
 
 def docs_for_object(full_name, py_object, parser_config):
@@ -1738,11 +1782,12 @@ def docs_for_object(full_name, py_object, parser_config):
   if master_name in duplicate_names:
     duplicate_names.remove(master_name)
 
-  if inspect.isclass(py_object):
+  obj_type = get_obj_type(py_object)
+  if obj_type is ObjType.CLASS:
     page_info = ClassPageInfo(master_name, py_object)
-  elif callable(py_object):
+  elif obj_type is ObjType.CALLABLE:
     page_info = FunctionPageInfo(master_name, py_object)
-  elif inspect.ismodule(py_object):
+  elif obj_type is ObjType.MODULE:
     page_info = ModulePageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
@@ -1761,30 +1806,6 @@ def docs_for_object(full_name, py_object, parser_config):
   page_info.set_defined_in(_get_defined_in(py_object, parser_config))
 
   return page_info
-
-
-class _FileLocation(object):
-  """This class indicates that the object is defined in a regular file.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
-
-  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
-    self.rel_path = rel_path
-    self.url = url
-    self.start_line = start_line
-    self.end_line = end_line
-
-    github_master_re = 'github.com.*?(blob|tree)/master'
-    suffix = ''
-    # Only attach a line number for github URLs that are not using "master"
-    if self.start_line and not re.search(github_master_re, self.url):
-      if 'github.com' in self.url:
-        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
-            start_line=self.start_line, end_line=self.end_line)
-
-        self.url = self.url + suffix
 
 
 def _unwrap_obj(obj):
@@ -1896,20 +1917,15 @@ def generate_global_index(library_name, index, reference_resolver):
   """
   symbol_links = []
   for full_name, py_object in index.items():
-    if (inspect.ismodule(py_object) or inspect.isfunction(py_object) or
-        inspect.isclass(py_object)):
-      # In Python 3, unbound methods are functions, so eliminate those.
-      if inspect.isfunction(py_object):
-        if full_name.count('.') == 0:
-          parent_name = ''
-        else:
-          parent_name = full_name[:full_name.rfind('.')]
-        if parent_name in index and inspect.isclass(index[parent_name]):
-          # Skip methods (=functions with class parents).
-          continue
-      symbol_links.append(
-          (full_name, reference_resolver.python_link(full_name, full_name,
-                                                     '.')))
+    obj_type = get_obj_type(py_object)
+    if obj_type in (ObjType.OTHER, ObjType.PROPERTY):
+      continue
+    # In Python 3, unbound methods are functions, so eliminate those.
+    if obj_type is ObjType.CALLABLE:
+      if is_class_attr(full_name, index):
+        continue
+    symbol_links.append(
+        (full_name, reference_resolver.python_link(full_name, full_name, '.')))
 
   lines = [f'# All symbols in {library_name}', '']
 

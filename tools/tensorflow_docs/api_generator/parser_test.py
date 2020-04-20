@@ -782,21 +782,14 @@ class TestReferenceResolver(absltest.TestCase):
     # There are no __slots__, so all fields are visible in __dict__.
     self.assertEqual(resolver.__dict__, resolver2.__dict__)
 
-  def testIsFreeFunction(self):
+  def testIsClasssAttr(self):
+    result = parser.is_class_attr('test_module.test_function',
+                                  {'test_module': test_module})
+    self.assertFalse(result)
 
-    result = parser.is_free_function(test_function, 'test_module.test_function',
-                                     {'test_module': test_module})
+    result = parser.is_class_attr('TestClass.test_function',
+                                  {'TestClass': TestClass})
     self.assertTrue(result)
-
-    result = parser.is_free_function(test_function, 'TestClass.test_function',
-                                     {'TestClass': TestClass})
-    self.assertFalse(result)
-
-    result = parser.is_free_function(TestClass, 'TestClass', {})
-    self.assertFalse(result)
-
-    result = parser.is_free_function(test_module, 'test_module', {})
-    self.assertFalse(result)
 
   def test_duplicate_fragment(self):
     duplicate_of = {

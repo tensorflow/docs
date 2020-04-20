@@ -466,9 +466,8 @@ def write_docs(output_dir,
     if full_name in parser_config.duplicate_of:
       continue
 
-    # Methods and some routines are documented only as part of their class.
-    if not (inspect.ismodule(py_object) or inspect.isclass(py_object) or
-            parser.is_free_function(py_object, full_name, parser_config.index)):
+    # Methods constants are only documented only as part of their parent's page.
+    if parser_config.reference_resolver.is_fragment(full_name):
       continue
 
     # Remove the extension from the path.
