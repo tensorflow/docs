@@ -111,7 +111,9 @@ def _get_raw_docstring(py_object):
   else:
     result = ''
 
-  return _AddDoctestFences()(result + '\n')
+  result = _StripTODOs()(result)
+  result = _AddDoctestFences()(result + '\n')
+  return result
 
 
 class _AddDoctestFences(object):
@@ -132,6 +134,13 @@ class _AddDoctestFences(object):
 
   def __call__(self, content):
     return self.CARET_BLOCK_RE.sub(self._sub, content)
+
+
+class _StripTODOs(object):
+  TODO_RE = re.compile('#? *TODO.*')
+
+  def __call__(self, content: str) -> str:
+    return self.TODO_RE.sub('', content)
 
 
 class IgnoreLineInBlock(object):

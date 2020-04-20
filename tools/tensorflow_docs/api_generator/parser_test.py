@@ -998,6 +998,23 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
 
     self.assertEqual('\n'.join(clean_text), expected_clean_text)
 
+  def test_strip_todos(self):
+    input_str = ("""#  TODO(blah) blah
+
+        hello    TODO: more stuff
+        middle
+        goodbye  TODO
+        """)
+
+    expected = ("""
+
+        hello
+        middle
+        goodbye
+        """)
+    strip_todos = parser._StripTODOs()
+    self.assertEqual(expected, strip_todos(input_str))
+
 
 class TestGenerateSignature(absltest.TestCase):
 
