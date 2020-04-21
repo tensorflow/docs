@@ -466,9 +466,8 @@ def write_docs(output_dir,
     if full_name in parser_config.duplicate_of:
       continue
 
-    # Methods and some routines are documented only as part of their class.
-    if not (inspect.ismodule(py_object) or inspect.isclass(py_object) or
-            parser.is_free_function(py_object, full_name, parser_config.index)):
+    # Methods constants are only documented only as part of their parent's page.
+    if parser_config.reference_resolver.is_fragment(full_name):
       continue
 
     # Remove the extension from the path.
@@ -565,9 +564,11 @@ def write_docs(output_dir,
 
   # Write a global index containing all full names with links.
   with open(output_dir / 'index.md', 'w') as f:
-    f.write(
-        parser.generate_global_index(root_title, parser_config.index,
-                                     parser_config.reference_resolver))
+    global_index = parser.generate_global_index(
+        root_title, parser_config.index, parser_config.reference_resolver)
+    if not search_hints:
+      global_index = 'robots: noindex\n' + global_index
+    f.write(global_index)
 
 
 def add_dict_to_dict(add_from, add_to):

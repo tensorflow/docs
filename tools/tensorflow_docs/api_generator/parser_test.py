@@ -782,21 +782,14 @@ class TestReferenceResolver(absltest.TestCase):
     # There are no __slots__, so all fields are visible in __dict__.
     self.assertEqual(resolver.__dict__, resolver2.__dict__)
 
-  def testIsFreeFunction(self):
+  def testIsClasssAttr(self):
+    result = parser.is_class_attr('test_module.test_function',
+                                  {'test_module': test_module})
+    self.assertFalse(result)
 
-    result = parser.is_free_function(test_function, 'test_module.test_function',
-                                     {'test_module': test_module})
+    result = parser.is_class_attr('TestClass.test_function',
+                                  {'TestClass': TestClass})
     self.assertTrue(result)
-
-    result = parser.is_free_function(test_function, 'TestClass.test_function',
-                                     {'TestClass': TestClass})
-    self.assertFalse(result)
-
-    result = parser.is_free_function(TestClass, 'TestClass', {})
-    self.assertFalse(result)
-
-    result = parser.is_free_function(test_module, 'test_module', {})
-    self.assertFalse(result)
 
   def test_duplicate_fragment(self):
     duplicate_of = {
@@ -997,6 +990,23 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     expected_clean_text = 'Useful information.\nDon\'t ignore.\nStuff.'
 
     self.assertEqual('\n'.join(clean_text), expected_clean_text)
+
+  def test_strip_todos(self):
+    input_str = ("""#  TODO(blah) blah
+
+        hello    TODO: more stuff
+        middle
+        goodbye  TODO
+        """)
+
+    expected = ("""
+
+        hello
+        middle
+        goodbye
+        """)
+    strip_todos = parser._StripTODOs()
+    self.assertEqual(expected, strip_todos(input_str))
 
 
 class TestGenerateSignature(absltest.TestCase):
