@@ -239,7 +239,7 @@ def main(argv):
       files.extend(path.rglob("*.ipynb"))
     else:
       found_error = True
-      warn("Bad arg: {str(path)}")
+      warn(f"Bad arg: {str(path)}")
 
   for fp in files:
     print(f"Notebook: {fp}", file=sys.stderr)
