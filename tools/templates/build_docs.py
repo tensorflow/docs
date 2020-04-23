@@ -39,10 +39,9 @@ flags.DEFINE_string(
     'output_dir',
     default='/tmp/generated_docs',
     help='Where to write the resulting docs to.')
-flags.DEFINE_string(
-    'code_url_prefix',
-    ('https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs'),
-    'The url prefix for links to code.')
+flags.DEFINE_string('code_url_prefix',
+                    ('https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs'),
+                    'The url prefix for links to code.')
 
 flags.DEFINE_bool('search_hints', True,
                   'Include metadata search hints in the generated files')
