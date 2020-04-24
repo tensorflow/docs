@@ -594,7 +594,6 @@ The following types are supported in an attr:
 * `bool`: True or false.
 * `type`: One of the (non-ref) values of [`DataType`][DataTypeString].
 * `shape`: A [`TensorShapeProto`][TensorShapeProto].
-* `tensor`: A [`TensorProto`][TensorProto].
 * `list(<type>)`: A list of `<type>`, where `<type>` is one of the above types.
   Note that `list(list(<type>))` is invalid.
 
