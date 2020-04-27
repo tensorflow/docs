@@ -186,6 +186,7 @@ def _get_raw_docstring(py_object):
     result = ''
 
   result = _StripTODOs()(result)
+  result = _StripPylints()(result)
   result = _AddDoctestFences()(result + '\n')
   return result
 
@@ -215,6 +216,13 @@ class _StripTODOs(object):
 
   def __call__(self, content: str) -> str:
     return self.TODO_RE.sub('', content)
+
+
+class _StripPylints(object):
+  PYLINT_RE = re.compile('# *?pylint:.*')
+
+  def __call__(self, content: str) -> str:
+    return self.PYLINT_RE.sub('', content)
 
 
 class IgnoreLineInBlock(object):
