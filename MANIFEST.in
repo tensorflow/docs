@@ -1,0 +1,1 @@
+recursive-include tools/tensorflow_docs/api_generator/gen_java/ *
