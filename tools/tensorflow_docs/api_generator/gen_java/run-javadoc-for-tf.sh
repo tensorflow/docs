@@ -44,7 +44,7 @@ rm -rf "${OUTPUT_DIR}/org"
   -templatedir "${TEMPLATES}" \
   -public \
   -devsite \
-  org.tensorflow
+  -subpackages "${PACKAGE}"
 )
 
 

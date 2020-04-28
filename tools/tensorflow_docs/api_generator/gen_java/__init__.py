@@ -27,8 +27,9 @@ TEMPLATES = GEN_JAVA_DIR / 'templates'
 DOCLAVA_FOR_TF = GEN_JAVA_DIR / 'run-javadoc-for-tf.sh'
 
 
-def gen_java_docs(source_path: pathlib.Path, output_dir: pathlib.Path,
-                  site_path: pathlib.Path) -> None:
+def gen_java_docs(package: str, source_path: pathlib.Path,
+                  output_dir: pathlib.Path, site_path: pathlib.Path) -> None:
+  os.environ['PACKAGE'] = package
   os.environ['SOURCE_PATH'] = str(source_path)
   os.environ['OUTPUT_DIR'] = str(output_dir)
   os.environ['SITE_PATH'] = str(pathlib.Path('/') / site_path)
