@@ -1,6 +1,7 @@
 book_path: /PROJECT_NAME/_book.yaml
 project_path: /PROJECT_NAME/_project.yaml
-description: <!--no description-->
+description: >
+ Page description used for search and social.
 landing_page:
   custom_css_path: /site-assets/css/style.css
   rows:
