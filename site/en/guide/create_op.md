@@ -604,88 +604,84 @@ See also: [`op_def_builder.cc:FinalizeAttr`][FinalizeAttr] for a definitive list
 Attrs may have default values, and some types of attrs can have constraints. To
 define an attr with constraints, you can use the following `<attr-type-expr>`s:
 
-* `{'<string1>', '<string2>'}`: The value must be a string that has either the
-  value `<string1>` or `<string2>`.  The name of the type, `string`, is implied
-  when you use this syntax.  This emulates an enum:
+`{'<string1>', '<string2>'}`: The value must be a string that has either the
+value `<string1>` or `<string2>`. The name of the type, `string`, is implied
+when you use this syntax. This emulates an enum:
 
-  ```c++
-  REGISTER_OP("EnumExample")
-      .Attr("e: {'apple', 'orange'}");
-  ```
+```c++
+REGISTER_OP("EnumExample")
+    .Attr("e: {'apple', 'orange'}");
+```
 
-* `{<type1>, <type2>}`: The value is of type `type`, and must be one of
-  `<type1>` or `<type2>`, where `<type1>` and `<type2>` are supported
-  `tf.DType`.  You don't specify
-  that the type of the attr is `type`. This is implied when you have a list of
-  types in `{...}`.  For example, in this case the attr `t` is a type that must
-  be an `int32`, a `float`, or a `bool`:
+`{<type1>, <type2>}`: The value is of type `type`, and must be one of `<type1>`
+or `<type2>`, where `<type1>` and `<type2>` are supported `tf.DType`. You don't
+specify that the type of the attr is `type`. This is implied when you have a
+list of types in `{...}`. For example, in this case the attr `t` is a type that
+must be an `int32`, a `float`, or a `bool`:
 
-  ```c++
-  REGISTER_OP("RestrictedTypeExample")
-      .Attr("t: {int32, float, bool}");
-  ```
+```c++
+REGISTER_OP("RestrictedTypeExample")
+    .Attr("t: {int32, float, bool}");
+```
 
-* There are shortcuts for common type constraints:
-    * `numbertype`: Type `type` restricted to the numeric (non-string and
-      non-bool) types.
-    * `realnumbertype`: Like `numbertype` without complex types.
-    * `quantizedtype`: Like `numbertype` but just the quantized number types.
+There are shortcuts for common type constraints:
 
-    The specific lists of types allowed by these are defined by the functions
-    (like `NumberTypes()`) in
-    [`tensorflow/core/framework/types.h`](https://www.tensorflow.org/code/tensorflow/core/framework/types.h).
-    In this example the attr `t` must be one of the numeric types:
+*   `numbertype`: Type `type` restricted to the numeric (non-string and
+    non-bool) types.
+*   `realnumbertype`: Like `numbertype` without complex types.
+*   `quantizedtype`: Like `numbertype` but just the quantized number types.
 
-    ```c++
-    REGISTER_OP("NumberType")
-        .Attr("t: numbertype");
-    ```
+The specific lists of types allowed by these are defined by the functions (like
+`NumberTypes()`) in
+[`tensorflow/core/framework/types.h`](https://www.tensorflow.org/code/tensorflow/core/framework/types.h).
+In this example the attr `t` must be one of the numeric types:
 
-    For this op:
+```c++
+REGISTER_OP("NumberType")
+    .Attr("t: numbertype");
+```
 
-    ```python
-    tf.number_type(t=tf.int32)  # Valid
-    tf.number_type(t=tf.bool)   # Invalid
-    ```
+For this op:
 
-    Lists can be combined with other lists and single types.  The following
-    op allows attr `t` to be any of the numeric types, or the bool type:
+```python
+tf.number_type(t=tf.int32)  # Valid
+tf.number_type(t=tf.bool)   # Invalid
+```
 
-    ```c++
-    REGISTER_OP("NumberOrBooleanType")
-        .Attr("t: {numbertype, bool}");
-    ```
+Lists can be combined with other lists and single types. The following op allows
+attr `t` to be any of the numeric types, or the bool type:
 
-    For this op:
+```c++
+REGISTER_OP("NumberOrBooleanType")
+    .Attr("t: {numbertype, bool}");
+```
 
-    ```python
-    tf.number_or_boolean_type(t=tf.int32)  # Valid
-    tf.number_or_boolean_type(t=tf.bool)   # Valid
-    tf.number_or_boolean_type(t=tf.string) # Invalid
-    ```
+For this op:
 
-* `int >= <n>`: The value must be an int whose value is greater than or equal to
-  `<n>`, where `<n>` is a natural number.
+```python
+tf.number_or_boolean_type(t=tf.int32)  # Valid
+tf.number_or_boolean_type(t=tf.bool)   # Valid
+tf.number_or_boolean_type(t=tf.string) # Invalid
+```
 
-  For example, the following op registration specifies that the attr `a` must
-  have a value that is at least `2`:
+`int >= <n>`: The value must be an int whose value is greater than or equal to
+`<n>`, where `<n>` is a natural number. For example, the following op
+registration specifies that the attr `a` must have a value that is at least `2`:
 
-  ```c++
-  REGISTER_OP("MinIntExample")
-      .Attr("a: int >= 2");
-  ```
+```c++
+REGISTER_OP("MinIntExample")
+    .Attr("a: int >= 2");
+```
 
-* `list(<type>) >= <n>`: A list of type `<type>` whose length is greater than
-  or equal to `<n>`.
+`list(<type>) >= <n>`: A list of type `<type>` whose length is greater than or
+equal to `<n>`. For example, the following op registration specifies that the
+attr `a` is a list of types (either `int32` or `float`), and that there must be
+at least 3 of them:
 
-  For example, the following op registration specifies that the attr `a` is a
-  list of types (either `int32` or `float`), and that there must be at least 3
-  of them:
-
-  ```c++
-  REGISTER_OP("TypeListExample")
-      .Attr("a: list({int32, float}) >= 3");
-  ```
+```c++
+REGISTER_OP("TypeListExample")
+    .Attr("a: list({int32, float}) >= 3");
+```
 
 To set a default value for an attr (making it optional in the generated code),
 add `= <default>` to the end, as in:
