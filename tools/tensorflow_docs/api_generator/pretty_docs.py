@@ -475,17 +475,16 @@ def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
 
   full_signature = str(obj_info.signature)
 
-  # Create the signature. For example it will look like:
-  # ```python
-  # tf.concat(
-  #     values, axis, name='concat'
-  # )
-  # ```
-  parts = ['```python']
-  parts.extend(
-      ['@' + dec for dec in obj_info.decorators if dec in DECORATOR_WHITELIST])
-  parts.append(f'{obj_name}{full_signature}')
-  parts.append('```\n\n')
+  parts = [
+      '<pre class="devsite-click-to-copy prettyprint lang-py '
+      'tfo-signature-link">'
+  ]
+  parts.extend([
+      f'<code>@{dec}</code>' for dec in obj_info.decorators
+      if dec in DECORATOR_WHITELIST
+  ])
+  parts.append(f'<code>{obj_name}{full_signature}')
+  parts.append('</code></pre>\n\n')
 
   return '\n'.join(parts)
 

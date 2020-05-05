@@ -1011,14 +1011,28 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
 
 class TestGenerateSignature(absltest.TestCase):
 
-  def test_known_object(self):
-    known_object = object()
-    reverse_index = {id(known_object): 'location.of.object.in.api'}
+  def setUp(self):
+    super().setUp()
+    self.known_object = object()
+    reference_resolver = parser.ReferenceResolver(
+        duplicate_of={}, is_fragment={}, py_module_names=[''])
+    self.parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={id(self.known_object): 'location.of.object.in.api'},
+        base_dir='/',
+        code_url_prefix='/')
 
-    def example_fun(arg=known_object):  # pylint: disable=unused-argument
+  def test_known_object(self):
+
+    def example_fun(arg=self.known_object):  # pylint: disable=unused-argument
       pass
 
-    sig = parser._generate_signature(example_fun, reverse_index)
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(sig.arguments, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
@@ -1026,7 +1040,8 @@ class TestGenerateSignature(absltest.TestCase):
     def example_fun(a=5, b=5.0, c=None, d=True, e='hello', f=(1, (2, 3))):  # pylint: disable=g-bad-name, unused-argument
       pass
 
-    sig = parser._generate_signature(example_fun, reverse_index={})
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(
         sig.arguments,
         ['a=5', 'b=5.0', 'c=None', 'd=True', "e='hello'", 'f=(1, (2, 3))'])
@@ -1052,7 +1067,8 @@ class TestGenerateSignature(absltest.TestCase):
     def example_fun(arg1=a.b.c.d, arg2=a.b.c.d(1, 2), arg3=e['f']):  # pylint: disable=unused-argument
       pass
 
-    sig = parser._generate_signature(example_fun, reverse_index={})
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(sig.arguments,
                      ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
 
@@ -1061,7 +1077,8 @@ class TestGenerateSignature(absltest.TestCase):
     def example_fun(x, z, a=True, b='test', *, y=None, c, **kwargs) -> bool:  # pylint: disable=unused-argument
       return True
 
-    sig = parser._generate_signature(example_fun, reverse_index={})
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(
         sig.arguments,
         ['x', 'z', 'a=True', "b='test'", '*', 'y=None', 'c', '**kwargs'])
@@ -1074,7 +1091,8 @@ class TestGenerateSignature(absltest.TestCase):
     def example_fun(x, z, *args, a=True, b='test', y=None, c, **kwargs):  # pylint: disable=unused-argument
       return True
 
-    sig = parser._generate_signature(example_fun, reverse_index={})
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(
         sig.arguments,
         ['x', 'z', '*args', 'a=True', "b='test'", 'y=None', 'c', '**kwargs'])
@@ -1098,7 +1116,8 @@ class TestGenerateSignature(absltest.TestCase):
 
     # pylint: enable=unused-argument
 
-    sig = parser._generate_signature(example_fun, reverse_index={})
+    sig = parser.generate_signature(
+        example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(sig.arguments, [
         'cls', 'x: List[str]', 'z: int', 'a: Union[List[str], str, int] = None',
         "b: str = 'test'", '*', 'y: bool = False', 'c: int', '**kwargs'
