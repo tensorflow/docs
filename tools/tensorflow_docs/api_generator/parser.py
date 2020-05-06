@@ -1806,6 +1806,8 @@ class ClassPageInfo(PageInfo):
         raw_attrs = collections.OrderedDict(part.items)
         break
     else:
+      # Didn't find the attributes block, there may still be attributes so
+      # add a placeholder for them at the end.
       raw_attrs = collections.OrderedDict()
       attr_block_index = len(docstring_parts)
       docstring_parts.append(None)
@@ -1821,9 +1823,12 @@ class ClassPageInfo(PageInfo):
       attrs.setdefault(name, desc)
 
     if attrs:
+      # If attributes block didn't exist, then the placeholder will be
+      # replaced with the other attributes.
       docstring_parts[attr_block_index] = TitleBlock(
           title='Attributes', text='', items=attrs.items())
     else:
+      # No attributes at all, remove the placeholder.
       del docstring_parts[attr_block_index]
 
 
