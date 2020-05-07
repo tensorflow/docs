@@ -678,7 +678,11 @@ class TitleBlock(object):
   """
   WHITESPACE_RE = re.compile(r'[ \n]+')
 
-  def __init__(self, title: str, text: str, items: Iterable[Tuple[str, str]]):
+  def __init__(self,
+               *,
+               title: Optional[str] = None,
+               text: str,
+               items: Iterable[Tuple[str, str]]):
     self.title = title
     self.text = text
     self.items = items
@@ -686,7 +690,8 @@ class TitleBlock(object):
   def __str__(self) -> str:
     """Returns a markdown compatible version of the TitleBlock."""
     sub = []
-    sub.append('\n\n#### ' + self.title + ':\n')
+    if self.title is not None:
+      sub.append('\n\n#### ' + self.title + ':\n')
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
     for name, description in self.items:
@@ -780,7 +785,7 @@ class TitleBlock(object):
       text = split.pop(0)
       items = _pairs(split)
 
-      title_block = cls(title, text, items)
+      title_block = cls(title=title, text=text, items=items)
       parts.append(title_block)
 
     return parts
@@ -1553,6 +1558,8 @@ class ClassPageInfo(PageInfo):
       classes.
     other_members: A list of `MemberInfo` objects documenting any other object's
       defined inside the class object (mostly enum style fields).
+    attr_block: A `TitleBlock` containing information about the Attributes of
+      the class.
   """
 
   def __init__(self, full_name, py_object):
@@ -1576,11 +1583,16 @@ class ClassPageInfo(PageInfo):
     self._methods = []
     self._classes = []
     self._other_members = []
+    self.attr_block = None
 
   @property
   def bases(self):
     """Returns a list of `MemberInfo` objects pointing to the class' parents."""
     return self._bases
+
+  def set_attr_block(self, attr_block):
+    assert self.attr_block is None
+    self.attr_block = attr_block
 
   def _set_bases(self, relative_path, parser_config):
     """Builds the `bases` attribute, to document this class' parent-classes.
@@ -1785,12 +1797,14 @@ class ClassPageInfo(PageInfo):
                                child_doc, child_url)
       self._add_member(member_info, defining_class, parser_config)
 
-    self._augment_attributes_inplace(self.doc.docstring_parts)
+    self.set_attr_block(self._augment_attributes(self.doc.docstring_parts))
 
-  def _augment_attributes_inplace(self, docstring_parts: List[Any]) -> None:
-    """Augments the "Attr" block of the docstring.
+  def _augment_attributes(self,
+                          docstring_parts: List[Any]) -> Optional[TitleBlock]:
+    """Augments and deletes the "Attr" block of the docstring.
 
-    The block is added to the end if it is not found.
+    The augmented block is returned and then added to the markdown page by
+    pretty_docs.py. The existing Attribute block is deleted from the docstring.
 
     Merges `namedtuple` fields and properties into the attrs block.
 
@@ -1799,8 +1813,14 @@ class ClassPageInfo(PageInfo):
     + Then any `properties` not mentioned above.
 
     Args:
-      docstring_parts: A list of docstring parts. Edited in-place.
+      docstring_parts: A list of docstring parts.
+
+    Returns:
+      Augmented "Attr" block.
     """
+
+    attribute_block = None
+
     for attr_block_index, part in enumerate(docstring_parts):
       if isinstance(part, TitleBlock) and part.title.startswith('Attr'):
         raw_attrs = collections.OrderedDict(part.items)
@@ -1823,13 +1843,13 @@ class ClassPageInfo(PageInfo):
       attrs.setdefault(name, desc)
 
     if attrs:
-      # If attributes block didn't exist, then the placeholder will be
-      # replaced with the other attributes.
-      docstring_parts[attr_block_index] = TitleBlock(
-          title='Attributes', text='', items=attrs.items())
-    else:
-      # No attributes at all, remove the placeholder.
-      del docstring_parts[attr_block_index]
+      # Title is added in pretty_docs.py
+      attribute_block = TitleBlock(text='', items=attrs.items())
+
+    # Delete the Attrs block if it exists or delete the placeholder.
+    del docstring_parts[attr_block_index]
+
+    return attribute_block
 
 
 class ModulePageInfo(PageInfo):

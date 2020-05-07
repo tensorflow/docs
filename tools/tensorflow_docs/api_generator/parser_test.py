@@ -225,7 +225,7 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
 
     # Make sure the property is present
-    attrs = page_info.doc.docstring_parts[-1]
+    attrs = page_info.attr_block
     self.assertIsInstance(attrs, parser.TitleBlock)
     self.assertIn('a_property', [name for name, desc in attrs.items])
 

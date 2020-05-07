@@ -177,34 +177,10 @@ def _merge_class_and_constructor_docstring(
   # Extract the `Arguments`/`Args` from the constructor's docstring.
   # A constructor won't contain `Args` and `Arguments` section at once.
   # It can contain either one of these so check for both.
-  ctor_args_block = None
-  ctor_raise_block = None
   for block in constructor_doc:
     if isinstance(block, parser.TitleBlock):
-      if block.title.startswith(('Args', 'Arguments')):
-        ctor_args_block = block
-      elif block.title.startswith('Raises'):
-        ctor_raise_block = block
-
-  # Insert the `Args`/`Arguments` section before `Attributes` in the class
-  # docstring.
-  if ctor_args_block is not None:
-    added_args_to_class_doc = False
-    for index, block in enumerate(class_doc):
-      if isinstance(block,
-                    parser.TitleBlock) and block.title.startswith('Attributes'):
-        class_doc.insert(index, ctor_args_block)
-        added_args_to_class_doc = True
-        break
-    # If the class docstring didn't have an `Attributes` section, then add the
-    # arguments section to the end of the class docstring.
-    if not added_args_to_class_doc:
-      class_doc.append(ctor_args_block)
-
-  # If constructor had a 'Raises' block, add it to the end of the
-  # class docstring.
-  if ctor_raise_block is not None:
-    class_doc.append(ctor_raise_block)
+      if block.title.startswith(('Args', 'Arguments', 'Raises')):
+        class_doc.append(block)
 
   # Cast the items in class_doc to string and return the list.
   return [str(item) for item in class_doc]
@@ -274,6 +250,11 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   if custom_content is not None:
     parts.append(custom_content)
     return ''.join(parts)
+
+  if page_info.attr_block is not None:
+    parts.append('## Attributes\n')
+    parts.append(str(page_info.attr_block))
+    parts.append('\n\n')
 
   # If the class has child classes, add that information to the page.
   if page_info.classes:
