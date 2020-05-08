@@ -78,8 +78,6 @@ toc:
     path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
     path: /tutorials/customization/custom_training_walkthrough
-  - title: "Performance with tf.function"
-    path: /tutorials/customization/performance
 
 - title: "Distributed training"
   style: accordion
