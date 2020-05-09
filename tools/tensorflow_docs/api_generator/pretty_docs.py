@@ -428,6 +428,7 @@ DECORATOR_WHITELIST = {
     'contextlib.contextmanager',
     'tf.function',
     'types.method',
+    'abc.abstractmethod',
 }
 
 
