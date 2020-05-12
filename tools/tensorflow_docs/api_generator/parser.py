@@ -676,7 +676,33 @@ class TitleBlock(object):
     items: A list of (name, value) string pairs. All items must have the same
       indentation.
   """
-  WHITESPACE_RE = re.compile(r'[ \n]+')
+
+  _INDENTATION_REMOVAL_RE = re.compile(r'( *)(.+)')
+
+  _TABLE_TEMPLATE = textwrap.dedent("""
+     <table class="properties responsive orange">
+    <tr><th colspan="2">{title}</th></tr>
+    {text}
+    {items}
+    </table>
+    """)
+
+  _ITEMS_TEMPLATE = textwrap.dedent("""\
+    <tr>
+    <td>
+    {name}
+    </td>
+    <td>
+    {description}
+    </td>
+    </tr>""")
+
+  _TEXT_TEMPLATE = textwrap.dedent("""\
+    <tr class="alt">
+    <td colspan="3">
+    {text}
+    </td>
+    </tr>""")
 
   def __init__(self,
                *,
@@ -687,20 +713,61 @@ class TitleBlock(object):
     self.text = text
     self.items = items
 
-  def __str__(self) -> str:
-    """Returns a markdown compatible version of the TitleBlock."""
+  def table_view(self, title_template: Optional[str] = None) -> str:
+    """Returns a tabular markdown version of the TitleBlock.
+
+    Tabular view is only for `Args`, `Returns`, `Raises` and `Attributes`. If
+    anything else is encountered, redirect to list view.
+
+    Args:
+      title_template: Template for title detailing how to display it.
+
+    Returns:
+      Table containing the content to display.
+    """
+
+    if title_template is not None:
+      title = title_template.format(title=self.title)
+    else:
+      title = self.title
+
+    text = self.text.strip()
+    if text:
+      text = self._TEXT_TEMPLATE.format(text=text)
+      text = self._INDENTATION_REMOVAL_RE.sub(r'\2', text)
+
+    items = []
+    for name, description in self.items:
+      description = description.strip()
+      item_table = self._ITEMS_TEMPLATE.format(
+          name=f'`{name}`', description=description)
+      item_table = self._INDENTATION_REMOVAL_RE.sub(r'\2', item_table)
+      items.append(item_table)
+
+    return '\n' + self._TABLE_TEMPLATE.format(
+        title=title, text=text, items=''.join(items)) + '\n'
+
+  def list_view(self, title_template: str) -> str:
+    """Returns a List markdown version of the TitleBlock.
+
+    Args:
+      title_template: Template for title detailing how to display it.
+
+    Returns:
+      Markdown list containing the content to display.
+    """
+
     sub = []
-    if self.title is not None:
-      sub.append('\n\n#### ' + self.title + ':\n')
+    sub.append(title_template.format(title=self.title))
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
+
     for name, description in self.items:
-      # Skip description if it's just whitespace
-      if self.WHITESPACE_RE.fullmatch(str(description)):
-        # Don't include the description if it's just whitespace.
+      description = description.strip()
+      if not description:
         sub.append(f'* <b>`{name}`</b>\n')
       else:
-        sub.append(f'* <b>`{name}`</b>: {description}')
+        sub.append(f'* <b>`{name}`</b>: {description}\n')
 
     return ''.join(sub)
 
@@ -1843,8 +1910,8 @@ class ClassPageInfo(PageInfo):
       attrs.setdefault(name, desc)
 
     if attrs:
-      # Title is added in pretty_docs.py
-      attribute_block = TitleBlock(text='', items=attrs.items())
+      attribute_block = TitleBlock(
+          title='Attributes', text='', items=attrs.items())
 
     # Delete the Attrs block if it exists or delete the placeholder.
     del docstring_parts[attr_block_index]

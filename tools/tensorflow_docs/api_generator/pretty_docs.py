@@ -26,19 +26,24 @@ This module contains one public function, which handels the conversion of these
 
 import textwrap
 
-from typing import Dict, List, NamedTuple
+from typing import Dict, List, Optional, NamedTuple, Union
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 
+_TABLE_ITEMS = ('arg', 'return', 'raise', 'attr')
 
-def build_md_page(page_info: parser.PageInfo) -> str:
+
+def build_md_page(page_info: parser.PageInfo, table_view: bool) -> str:
   """Given a PageInfo object, return markdown for the page.
 
   Args:
     page_info: must be a `parser.FunctionPageInfo`, `parser.ClassPageInfo`, or
       `parser.ModulePageInfo`
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     Markdown for the page
@@ -47,24 +52,59 @@ def build_md_page(page_info: parser.PageInfo) -> str:
     ValueError: if `page_info` is an instance of an unrecognized class
   """
   if isinstance(page_info, parser.ClassPageInfo):
-    return _build_class_page(page_info)
+    return _build_class_page(page_info, table_view)
 
   if isinstance(page_info, parser.FunctionPageInfo):
-    return _build_function_page(page_info)
+    return _build_function_page(page_info, table_view)
 
   if isinstance(page_info, parser.ModulePageInfo):
-    return _build_module_page(page_info)
+    return _build_module_page(page_info, table_view)
 
   raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
 
-def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
+def _format_docstring(item,
+                      table_view: bool,
+                      *,
+                      table_title_template: Optional[str] = None) -> str:
+  """Formats TitleBlock into a table or list or a normal string.
+
+  Args:
+    item: A TitleBlock instance or a normal string.
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
+    table_title_template: Template for title detailing how to display it in the
+      table.
+
+  Returns:
+    A formatted docstring.
+  """
+
+  if isinstance(item, parser.TitleBlock):
+    lower_title = item.title.lower()
+    if table_view and lower_title.startswith(_TABLE_ITEMS):
+      return item.table_view(title_template=table_title_template)
+    else:
+      if 'attr' in lower_title:
+        return item.list_view(title_template='\n\n## {title}\n')
+      else:
+        return item.list_view(title_template='\n\n#### {title}:\n')
+  else:
+    return str(item)
+
+
+def _build_function_page(page_info: parser.FunctionPageInfo,
+                         table_view: bool) -> str:
   """Constructs a markdown page given a `FunctionPageInfo` object.
 
   Args:
     page_info: A `FunctionPageInfo` object containing information that's used to
       create a function page.
       For example, see https://www.tensorflow.org/api_docs/python/tf/concat
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     The function markdown page.
@@ -88,7 +128,13 @@ def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
-  parts.extend(str(item) for item in page_info.doc.docstring_parts)
+  for item in page_info.doc.docstring_parts:
+    parts.append(
+        _format_docstring(
+            item,
+            table_view,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
+
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
@@ -136,8 +182,8 @@ def _split_methods(methods: List[parser.MethodInfo]) -> _Methods:
 
 
 def _merge_class_and_constructor_docstring(
-    class_page_info: parser.ClassPageInfo,
-    ctor_info: parser.MethodInfo) -> List[str]:
+    class_page_info: parser.ClassPageInfo, ctor_info: parser.MethodInfo,
+    table_view: bool) -> List[str]:
   """Merges the class and the constructor docstrings.
 
   While merging, the following rules are followed:
@@ -158,10 +204,23 @@ def _merge_class_and_constructor_docstring(
   Args:
     class_page_info: Object containing information about the class.
     ctor_info: Object containing information about the constructor of the class.
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     A list of strings containing the merged docstring.
   """
+
+  def _create_class_doc(doc):
+    updated_doc = []
+    for item in doc:
+      updated_doc.append(
+          _format_docstring(
+              item,
+              table_view,
+              table_title_template='<h2 class="add-link">{title}</h2>'))
+    return updated_doc
 
   # Get the class docstring. `.doc.docstring_parts` contain the entire
   # docstring except for the one-line docstring that's compulsory.
@@ -169,7 +228,7 @@ def _merge_class_and_constructor_docstring(
 
   # If constructor doesn't exist, return the class docstring as it is.
   if ctor_info is None:
-    return [str(item) for item in class_doc]
+    return _create_class_doc(class_doc)
 
   # Get the constructor's docstring parts.
   constructor_doc = ctor_info.doc.docstring_parts
@@ -182,17 +241,19 @@ def _merge_class_and_constructor_docstring(
       if block.title.startswith(('Args', 'Arguments', 'Raises')):
         class_doc.append(block)
 
-  # Cast the items in class_doc to string and return the list.
-  return [str(item) for item in class_doc]
+  return _create_class_doc(class_doc)
 
 
-def _build_class_page(page_info: parser.ClassPageInfo) -> str:
+def _build_class_page(page_info: parser.ClassPageInfo, table_view: bool) -> str:
   """Constructs a markdown page given a `ClassPageInfo` object.
 
   Args:
     page_info: A `ClassPageInfo` object containing information that's used to
       create a class page. For example, see
       https://www.tensorflow.org/api_docs/python/tf/data/Dataset
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     The class markdown page.
@@ -240,7 +301,8 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
 
   # Merge the class and constructor docstring.
   parts.extend(
-      _merge_class_and_constructor_docstring(page_info, methods.constructor))
+      _merge_class_and_constructor_docstring(page_info, methods.constructor,
+                                             table_view))
 
   # Add the compatibility section to the page.
   parts.append(_build_compatibility(page_info.doc.compatibility))
@@ -252,8 +314,11 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
     return ''.join(parts)
 
   if page_info.attr_block is not None:
-    parts.append('## Attributes\n')
-    parts.append(str(page_info.attr_block))
+    parts.append(
+        _format_docstring(
+            page_info.attr_block,
+            table_view,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
     parts.append('\n\n')
 
   # If the class has child classes, add that information to the page.
@@ -273,7 +338,7 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   if methods.info_dict:
     parts.append('## Methods\n\n')
     for _, method_info in sorted(methods.info_dict.items()):
-      parts.append(_build_method_section(method_info))
+      parts.append(_build_method_section(method_info, table_view))
     parts.append('\n\n')
 
   # Add class variables/members if they exist to the page.
@@ -310,11 +375,14 @@ def _other_members(other_members):
   return ''.join(parts)
 
 
-def _build_method_section(method_info, heading_level=3):
+def _build_method_section(method_info, table_view, heading_level=3):
   """Generates a markdown section for a method.
 
   Args:
     method_info: A `MethodInfo` object.
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
     heading_level: An Int, which HTML heading level to use.
 
   Returns:
@@ -334,19 +402,26 @@ def _build_method_section(method_info, heading_level=3):
     parts.append(_build_signature(method_info, obj_name=method_info.short_name))
 
   parts.append(method_info.doc.brief + '\n')
-  parts.extend(str(item) for item in method_info.doc.docstring_parts)
+
+  for item in method_info.doc.docstring_parts:
+    parts.append(_format_docstring(item, table_view, table_title_template=None))
+
   parts.append(_build_compatibility(method_info.doc.compatibility))
   parts.append('\n\n')
   return ''.join(parts)
 
 
-def _build_module_page(page_info: parser.ModulePageInfo) -> str:
+def _build_module_page(page_info: parser.ModulePageInfo,
+                       table_view: bool) -> str:
   """Constructs a markdown page given a `ModulePageInfo` object.
 
   Args:
     page_info: A `ModulePageInfo` object containing information that's used to
       create a module page.
       For example, see https://www.tensorflow.org/api_docs/python/tf/data
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     The module markdown page.
@@ -365,7 +440,9 @@ def _build_module_page(page_info: parser.ModulePageInfo) -> str:
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
   # All lines in the docstring, expect the brief introduction.
-  parts.extend(str(item) for item in page_info.doc.docstring_parts)
+  for item in page_info.doc.docstring_parts:
+    parts.append(_format_docstring(item, table_view, table_title_template=None))
+
   parts.append(_build_compatibility(page_info.doc.compatibility))
 
   parts.append('\n\n')
