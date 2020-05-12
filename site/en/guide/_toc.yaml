@@ -54,6 +54,8 @@ toc:
   path: /guide/data
 - title: "Optimize pipeline performance"
   path: /guide/data_performance
+- title: "Analyze pipeline performance"
+  path: /guide/data_performance_analysis
 
 - heading: "Save a model"
 - title: "Checkpoint"
