@@ -247,6 +247,7 @@ def main(argv):
     if fp.suffix != ".ipynb":
       warn("Not an '.ipynb' file, skipping.")
       found_error = True
+      test_fail_notebooks.append(fp)
       continue
 
     with open(fp, "r", encoding="utf-8") as f:
@@ -256,6 +257,7 @@ def main(argv):
         print(f"  {err.__class__.__name__}: {err}", file=sys.stderr)
         warn("Unable to load JSON, skipping.")
         found_error = True
+        test_fail_notebooks.append(fp)
         continue
 
     if FLAGS.preserve_outputs is not None:
@@ -279,6 +281,7 @@ def main(argv):
             "  Found warnings. Notebook not written, skipping.",
             file=sys.stderr)
         found_error = True
+        test_fail_notebooks.append(fp)
         continue
 
     nbjson = json.dumps(
