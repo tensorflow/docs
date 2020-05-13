@@ -566,7 +566,8 @@ def _top_source_link(location):
   """Retrns a source link with Github image, like the notebook butons."""
   table_template = textwrap.dedent("""
     <table class="tfo-notebook-buttons tfo-api" align="left">
-    {}</table>
+    {}
+    </table>
 
     """)
 
