@@ -30,7 +30,6 @@ toc:
   path: /guide/keras/masking_and_padding
 - title: "Write custom callbacks"
   path: /guide/keras/custom_callback
-
 - heading: "Estimators"
 - title: "Estimator overview"
   path: /guide/estimator
@@ -42,6 +41,8 @@ toc:
   path: /guide/variable
 - title: "Tensor"
   path: /guide/tensor
+- title: "Automatic differentiation"
+  path: /guide/autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Create an op"

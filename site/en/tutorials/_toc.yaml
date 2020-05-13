@@ -72,8 +72,6 @@ toc:
     path: /tutorials/customization/basics
   - title: "Custom layers"
     path: /tutorials/customization/custom_layers
-  - title: "Automatic differentiation"
-    path: /tutorials/customization/autodiff
   - title: "Custom training"
     path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
