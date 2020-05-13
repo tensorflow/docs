@@ -680,6 +680,7 @@ class TitleBlock(object):
   _INDENTATION_REMOVAL_RE = re.compile(r'( *)(.+)')
 
   _TABLE_TEMPLATE = textwrap.dedent("""
+    <!-- Tabular view -->
      <table class="properties responsive orange">
     <tr><th colspan="2">{title}</th></tr>
     {text}

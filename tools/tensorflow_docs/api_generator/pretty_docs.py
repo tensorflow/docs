@@ -26,7 +26,7 @@ This module contains one public function, which handels the conversion of these
 
 import textwrap
 
-from typing import Dict, List, Optional, NamedTuple, Union
+from typing import Dict, List, Optional, NamedTuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -140,7 +140,6 @@ def _build_function_page(page_info: parser.FunctionPageInfo,
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
   if custom_content is not None:
     parts.append(custom_content)
-    return ''.join(parts)
 
   return ''.join(parts)
 
