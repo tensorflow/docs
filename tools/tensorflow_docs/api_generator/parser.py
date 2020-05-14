@@ -739,7 +739,10 @@ class TitleBlock(object):
 
     items = []
     for name, description in self.items:
-      description = description.strip()
+      if not description:
+        description = ''
+      else:
+        description = description.strip()
       item_table = self._ITEMS_TEMPLATE.format(
           name=f'`{name}`', description=description)
       item_table = self._INDENTATION_REMOVAL_RE.sub(r'\2', item_table)
