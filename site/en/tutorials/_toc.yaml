@@ -26,6 +26,7 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
+    status: new
 
 - title: "Load and preprocess data"
   style: accordion

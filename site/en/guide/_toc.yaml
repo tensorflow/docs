@@ -56,6 +56,7 @@ toc:
 - title: "Optimize pipeline performance"
   path: /guide/data_performance
 - title: "Analyze pipeline performance"
+  status: new
   path: /guide/data_performance_analysis
 
 - heading: "Save a model"
