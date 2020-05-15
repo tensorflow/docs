@@ -86,23 +86,10 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 
 ## TensorFlow conventions and special uses
 
-### Tensors
-
-*   Operations that deal with batches may assume that the **first dimension** of
-    a Tensor is the batch dimension.
-*   In most models, the **last dimension** is the number of _channels_.
-*   Dimensions excluding the first and last usually make up the _space_
-    dimensions: sequence-length, or image-size.
-*   When possible, use a Tensor's overloaded operators rather than TensorFlow
-    functions. For example, we prefer `**`, `+`, `/`, `*`, `-`, `and/or` over
-    `tf.pow`, `tf.add`, `tf.divide`, `tf.multiply`, `tf.subtract`, and `tf.logical_*` —
-    unless a specific name for the operation is desired.
-
-
 ### Python operations
 
-A _Python operation_ is a function that, given input tensors and parameters,
-creates a part of the graph and returns output tensors.
+A TensorFlow _operation_ is a function that, given input tensors returns output
+tensors (or adds a op to a graph when building graphs).
 
 *   The first argument should be tensors, followed by basic Python parameters.
     The last argument is `name` with a default value of `None`.
