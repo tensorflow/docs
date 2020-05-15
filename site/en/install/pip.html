@@ -285,8 +285,7 @@
   is available.
 </aside>
 <p>
-  Create a new virtual environment by choosing a Python interpreter and making a
-  <code>./venv</code> directory to hold it:
+  Create a new conda environment, <code>venv<code>, including a Python interpreter and pip for installing the TensorFlow pip package:
 </p>
 {% dynamic if request.query_string.lang == "python2" %}
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
@@ -294,15 +293,15 @@
 <pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.7  # select python version</pre>
 {% dynamic endif %}
 <p>Activate the virtual environment:</p>
-<pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
+<pre class="devsite-terminal devsite-click-to-copy">conda activate <var>venv</var></pre>
 <p>
-  Within the virtual environment, install the TensorFlow pip package using its <a href="#package-location">complete URL</a>:
+  Within the conda environment, install the TensorFlow pip package using its <a href="#package-location">complete URL</a>:
 </p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">pip install --ignore-installed --upgrade <var>packageURL</var></pre>
 <p>
-  And to exit virtualenv later:
+  And to exit the conda environment later:
 </p>
-<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">source deactivate</pre>
+<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">conda deactivate</pre>
 </section>
 </div><!--/ds-selector-tabs-->
 
