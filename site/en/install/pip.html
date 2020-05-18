@@ -26,11 +26,11 @@
 
 <h3>System requirements</h3>
 <ul>
-  <li>Python 3.5–3.7</li>
+  <li>Python 3.5–3.8</li>
   <li>pip 19.0 or later (requires <code>manylinux2010</code> support)</li>
   <li>Ubuntu 16.04 or later (64-bit)</li>
   <li>macOS 10.12.6 (Sierra) or later (64-bit) <em>(no GPU support)</em></li>
-  <li>Windows 7 or later (64-bit) <em>(Python 3 only)</em>
+  <li>Windows 7 or later (64-bit)
     <ul>
       <li><a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads">Microsoft Visual C++
           Redistributable for Visual Studio 2015, 2017 and 2019</a></li>
@@ -53,32 +53,17 @@
 
 <h2>1. Install the Python development environment on your system</h2>
 
-<devsite-nav-buttons name="lang">
-  <button value="python3" default>Python 3</button>
-  <button value="python2">Python 2.7</button>
-</devsite-nav-buttons>
-
 <p>
   Check if your Python environment is already configured:
 </p>
 
-{% dynamic if request.query_string.lang == "python2" %}
-<aside class="note">Requires Python == 2.7 and pip &gt;= 19.0</aside>
-
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">python --version</code>
-<code class="devsite-terminal">pip --version</code>
-<code class="devsite-terminal">virtualenv --version</code>
-</pre>
-{% dynamic else %}<!-- python3 -->
-<aside class="note">Requires Python 3.5–3.7 and pip &gt;= 19.0</aside>
+<aside class="note">Requires Python 3.5–3.8 and pip &gt;= 19.0</aside>
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
 <code class="devsite-terminal">pip3 --version</code>
 <code class="devsite-terminal">virtualenv --version</code>
 </pre>
-{% dynamic endif %}
 
 <p>
   If these packages are already installed, skip to the next step.<br/>
@@ -87,56 +72,9 @@
   and <a href="https://virtualenv.pypa.io/en/stable/" class="external">Virtualenv</a>:
 </p>
 
-{% dynamic if request.query_string.lang == "python2" %}
-
 <div class="ds-selector-tabs">
 <section>
 <h3>Ubuntu</h3>
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt update</code>
-<code class="devsite-terminal">sudo apt install python-dev python-pip</code>
-<code class="devsite-terminal">sudo pip install -U virtualenv  # system-wide install</code>
-</pre>
-</section>
-
-<section>
-<h3>mac OS</h3>
-<p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
-<code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
-<code class="devsite-terminal">brew update</code>
-<code class="devsite-terminal">brew install python@2  # Python 2</code>
-<code class="devsite-terminal">sudo pip install -U virtualenv  # system-wide install</code>
-</pre>
-</section>
-
-<section>
-<h3>Raspberry Pi</h3>
-<p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt update</code>
-<code class="devsite-terminal">sudo apt install python-dev python-pip</code>
-<code class="devsite-terminal">sudo apt install libatlas-base-dev     # required for numpy</code>
-<code class="devsite-terminal">sudo pip install -U virtualenv         # system-wide install</code>
-</pre>
-</section>
-
-<section>
-<h3>Other</h3>
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
-<code class="devsite-terminal">python get-pip.py</code>
-<code class="devsite-terminal">sudo pip install -U virtualenv  # system-wide install</code>
-</pre>
-</section>
-</div><!--/ds-selector-tabs-->
-
-{% dynamic else %}<!-- python3 -->
-
-<div class="ds-selector-tabs">
-<section>
-<h3>Ubuntu</h3><!--python3-->
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
 <code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
@@ -145,7 +83,7 @@
 </section>
 
 <section>
-<h3>mac OS</h3><!--python3-->
+<h3>mac OS</h3>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
@@ -157,7 +95,7 @@
 </section>
 
 <section>
-<h3>Windows</h3><!--python3-->
+<h3>Windows</h3>
 <p>
   Install the <em>Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017,
   and 2019</em>. Starting with the TensorFlow 2.1.0 version, the <code>msvcp140_1.dll</code>
@@ -186,7 +124,7 @@
 </section>
 
 <section>
-<h3>Other</h3><!--python3-->
+<h3>Other</h3>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
@@ -194,8 +132,6 @@
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
-
-{% dynamic endif %}
 
 <aside class="caution"><b>Caution:</b> Upgrading the <em>system pip</em> can cause
   <a href="https://github.com/pypa/pip/issues/5599" class="external">problems</a>.<br/>
@@ -218,11 +154,7 @@
   Create a new virtual environment by choosing a Python interpreter and making a
   <code>./venv</code> directory to hold it:
 </p>
-{% dynamic if request.query_string.lang == "python2" %}
-<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python2.7 <var>./venv</var></pre>
-{% dynamic else %}
 <pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
-{% dynamic endif %}
 <p>
   Activate the virtual environment using a shell-specific command:
 </p>
@@ -252,11 +184,7 @@
   Create a new virtual environment by choosing a Python interpreter and making a
   <code>.\venv</code> directory to hold it:
 </p>
-{% dynamic if request.query_string.lang == "python2" %}
-<aside class="warning">TensorFlow is not supported on Windows with Python 2.7</aside>
-{% dynamic else %}
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
-{% dynamic endif %}
 <p>
   Activate the virtual environment:
 </p>
@@ -279,30 +207,11 @@
 
 <section>
 <h3>Conda</h3>
-<aside class="note">
-  While we recommend the TensorFlow-provided <em>pip</em> package, a
-  <em>community-supported</em> <a href="https://anaconda.org/conda-forge/tensorflow" class="external">Anaconda package</a>
-  is available.
-</aside>
 <p>
-  Create a new virtual environment by choosing a Python interpreter and making a
-  <code>./venv</code> directory to hold it:
+While the TensorFlow provided <em>pip</em> package is recommended, a
+<em>community-supported</em> <a href="https://anaconda.org/anaconda/tensorflow" class="external">Anaconda package</a>
+is available. To install, read the <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/" class="external">Anaconda TensorFlow guide</a>.
 </p>
-{% dynamic if request.query_string.lang == "python2" %}
-<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=2.7</pre>
-{% dynamic else %}
-<pre class="devsite-terminal devsite-click-to-copy">conda create -n <var>venv</var> pip python=3.7  # select python version</pre>
-{% dynamic endif %}
-<p>Activate the virtual environment:</p>
-<pre class="devsite-terminal devsite-click-to-copy">source activate <var>venv</var></pre>
-<p>
-  Within the virtual environment, install the TensorFlow pip package using its <a href="#package-location">complete URL</a>:
-</p>
-<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">pip install --ignore-installed --upgrade <var>packageURL</var></pre>
-<p>
-  And to exit virtualenv later:
-</p>
-<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">source deactivate</pre>
 </section>
 </div><!--/ds-selector-tabs-->
 
@@ -335,15 +244,9 @@
 
 <section>
 <h3>System install</h3>
-{% dynamic if request.query_string.lang == "python2" %}
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip install --user --upgrade tensorflow  # install in $HOME</pre>
-<p>Verify the install:</p>
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"</pre>
-{% dynamic else %}<!--python3-->
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip3 install --user --upgrade tensorflow  # install in $HOME</pre>
 <p>Verify the install:</p>
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"</pre>
-{% dynamic endif %}
 </section>
 </div><!--/ds-selector-tabs-->
 
