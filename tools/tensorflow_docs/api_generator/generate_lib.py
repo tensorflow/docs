@@ -872,7 +872,24 @@ class DocGenerator(object):
       if e.strerror != 'File exists':
         raise
 
-    subprocess.check_call([
-        'rsync', '--recursive', '--quiet', '--delete', f'{work_py_dir}/',
-        output_dir
-    ])
+    # Typical results are something like:
+    #
+    # out_dir/
+    #    {short_name}/
+    #    _redirects.yaml
+    #    _toc.yaml
+    #    index.md
+    #    {short_name}.md
+    #
+    # Copy the top level files to the `{output_dir}/`, delete and replace the
+    # `{output_dir}/{short_name}/` directory.
+
+    for work_path in work_py_dir.glob('*'):
+      out_path = pathlib.Path(output_dir) / work_path.name
+      out_path.parent.mkdir(exist_ok=True, parents=True)
+
+      if work_path.is_file():
+        shutil.copy2(work_path, out_path)
+      elif work_path.is_dir():
+        shutil.rmtree(out_path, ignore_errors=True)
+        shutil.copytree(work_path, out_path)
