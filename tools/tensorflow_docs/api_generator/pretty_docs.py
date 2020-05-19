@@ -336,8 +336,9 @@ def _build_class_page(page_info: parser.ClassPageInfo, table_view: bool) -> str:
   # to the page.
   if methods.info_dict:
     parts.append('## Methods\n\n')
-    for _, method_info in sorted(methods.info_dict.items()):
-      parts.append(_build_method_section(method_info, table_view))
+    for method_name in sorted(methods.info_dict, key=_method_sort):
+      parts.append(
+          _build_method_section(methods.info_dict[method_name], table_view))
     parts.append('\n\n')
 
   # Add class variables/members if they exist to the page.
@@ -346,6 +347,15 @@ def _build_class_page(page_info: parser.ClassPageInfo, table_view: bool) -> str:
     parts.append(_other_members(page_info.other_members))
 
   return ''.join(parts)
+
+
+def _method_sort(method_name):
+  # All dunder methods will be at the end of the list in an alphabetically
+  # sorted order. Rest of the methods will be promoted to the top in an
+  # alphabetically sorted order.
+  if method_name.startswith('__'):
+    return (1, method_name)
+  return (-1, method_name)
 
 
 def _other_members(other_members):
