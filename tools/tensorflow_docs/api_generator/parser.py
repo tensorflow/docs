@@ -445,7 +445,7 @@ class ReferenceResolver(object):
 
     filters = [
         IgnoreLineInBlock('<pre class="tfo-notebook-code-cell-output">',
-                          '{% endhtmlescape %}</pre>'),
+                          '</pre>'),
         IgnoreLineInBlock('```', '```')
     ]
 
