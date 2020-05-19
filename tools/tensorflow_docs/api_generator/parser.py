@@ -2240,7 +2240,8 @@ def generate_global_index(library_name, index, reference_resolver):
 
   for symbol, link in symbol_links:
     if symbol.startswith('tf.compat.v1'):
-      compat_v1_symbol_links.append(link)
+      if 'raw_ops' not in symbol:
+        compat_v1_symbol_links.append(link)
     elif symbol.startswith('tf.compat.v2'):
       compat_v2_symbol_links.append(link)
     else:
