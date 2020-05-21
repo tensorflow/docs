@@ -1,0 +1,18 @@
+# linkchecker config for tensorflow.org
+# Usage (include trailing slash):
+#  $ linkchecker -f tools/linkcheckerrc https://www.tensorflow.org/{subsite}/
+# Docs:
+#  - https://wummel.github.io/linkchecker/man5/linkcheckerrc.5.html
+#  - https://github.com/wummel/linkchecker/blob/master/config/linkcheckerrc
+
+[checking]
+#pause=1
+
+[filtering]
+
+# Check external URLs
+checkextern=1
+
+ignore =
+  .*?(fonts|gstatic|medium).*
+  http://developers.google.com/ReferenceObject
