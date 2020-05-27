@@ -61,7 +61,10 @@ def _add_proto_fields(path, root, children):
   if not inspect.isclass(root) or not issubclass(root, ProtoMessage):
     return children
 
-  fields = root.DESCRIPTOR.fields
+  descriptor = getattr(root, 'DESCRIPTOR', None)
+  if descriptor is None:
+    return children
+  fields = descriptor.fields
   if not fields:
     return children
 

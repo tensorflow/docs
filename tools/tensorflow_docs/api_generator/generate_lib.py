@@ -21,7 +21,6 @@ import inspect
 import os
 import pathlib
 import shutil
-import subprocess
 import tempfile
 
 
@@ -769,7 +768,12 @@ class DocGenerator(object):
     self._py_module = py_modules[0][1]
 
     if base_dir is None:
-      base_dir = os.path.dirname(self._py_module.__file__)
+      # If the user passes a single-file module, only document code defined in
+      # that file.
+      base_dir = self._py_module.__file__
+      if base_dir.endswith('__init__.py'):
+        # If they passed a package, document anything defined in that directory.
+        base_dir = os.path.dirname(base_dir)
     if isinstance(base_dir, str):
       base_dir = (base_dir,)
     self._base_dir = tuple(base_dir)

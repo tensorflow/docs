@@ -237,7 +237,11 @@ class PublicAPIFilter(object):
     # Skip modules outside of the package root.
     if inspect.ismodule(obj):
       if hasattr(obj, '__file__'):
-        # `startswith` will match any item in a tuple.
+        # `startswith` will match any item in a tuple if a tuple of base_dir
+        # are passed.
+        # It's important that this is a string comparison not a `relpath`,
+        # because in some cases `base_dir` may not a directory but a single
+        # file path.
         if not obj.__file__.startswith(self._base_dir):
           return True
 
