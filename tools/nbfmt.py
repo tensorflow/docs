@@ -20,7 +20,7 @@ $ pip3 install -U [--user] absl-py
 
 Usage:
 $ nbfmt.py [options] notebook.ipynb [...]
-$ find . -name "*\.ipynb" | xargs ./tools/nbfmt.py [--ignore_warn]
+$ find . -name "*\.ipynb" | xargs ./tools/nbfmt.py
 
 See the TensorFlow notebook template:
 https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
@@ -52,17 +52,12 @@ flags.DEFINE_bool(
     "If a notebook is configured to clear outputs, this script will clear them "
     "when run.\n"
     "Colab respects this setting. Juptyer does not.")
-flags.DEFINE_bool("ignore_warn", False, "Overwrite notebook despite warnings.")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 flags.DEFINE_bool("test", False,
                   "Test if the notebook is formatted (useful for CI).")
 
 FLAGS = flags.FLAGS
-
-_REQUIRED_REGEXPS = {
-    "copyright": r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
-}
 
 
 def warn(msg: str) -> None:
@@ -166,61 +161,23 @@ def update_metadata(data: Dict[str, Any],
   data["metadata"] = metadata
 
 
-def has_license_and_update(data: Dict[str, Any]) -> bool:
-  """Check if license header exists anywhere in notebook and format.
+def update_license_cell(data: Dict[str, Any]) -> None:
+  """Format license cell to hide code pane from the Colab form.
 
   Args:
     data: object representing a parsed JSON notebook.
-
-  Returns:
-    Boolean: True if notebook contains the license header, False if it doesn't.
   """
-  has_license = False
-  license_header = "#@title Licensed under the Apache License"
+  # This pattern in Apache and MIT license boilerplate.
+  license_re = re.compile(r"#@title.*License")
 
   for idx, cell in enumerate(data["cells"]):
     src_text = "".join(cell["source"])
 
-    if license_header in src_text:
-      has_license = True
+    if license_re.search(src_text):
       # Hide code pane from license form
       metadata = cell.get("metadata", {})
       metadata["cellView"] = "form"
       data["cells"][idx]["metadata"] = metadata
-
-  if not has_license:
-    warn(f"Missing license: {license_header}")
-
-  return has_license
-
-
-def has_required_regexps(data: Dict[str, Any]) -> bool:
-  """Check if all regexp patterns are found in a notebook.
-
-  Args:
-    data: object representing a parsed JSON notebook.
-
-  Returns:
-    Boolean: True if notebook contains all the patterns, False if it doesn't.
-  """
-  has_all_patterns = True
-
-  for desc, pattern in _REQUIRED_REGEXPS.items():
-    regexp = re.compile(pattern)
-    has_pattern = False
-
-    for cell in data["cells"]:
-      src_text = "".join(cell["source"])
-      if regexp.search(src_text):
-        has_pattern = True
-        break  # Found this match so skip the rest of the notebook.
-
-    if not has_pattern:
-      warn(f"Missing {desc}: {pattern}")
-      has_all_patterns = False
-      return False
-
-  return has_all_patterns
 
 
 def main(argv):
@@ -272,17 +229,7 @@ def main(argv):
 
     clean_cells(data)
     update_metadata(data, filepath=fp)
-    has_license = has_license_and_update(data)
-    has_patterns = has_required_regexps(data)
-
-    if not FLAGS.ignore_warn:
-      if not has_license or not has_patterns:
-        print(
-            "  Found warnings. Notebook not written, skipping.",
-            file=sys.stderr)
-        found_error = True
-        test_fail_notebooks.append(fp)
-        continue
+    update_license_cell(data)
 
     nbjson = json.dumps(
         data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
@@ -303,7 +250,7 @@ def main(argv):
       error_template = textwrap.dedent("""
       [test] The following notebooks are not formatted:
       {notebooks}
-      Format with: nbfmt.py --ignore_warn notebook.ipynb [...]
+      Format with: nbfmt.py notebook.ipynb [...]
       """)
       notebooks = "\n".join([f"- {str(fp)}" for fp in test_fail_notebooks])
       print(error_template.format(notebooks=notebooks), file=sys.stderr)
