@@ -112,6 +112,10 @@ def add_styles(styles, verbose):
 
   Args:
     styles: A list of short names for style modules to import.
+    verbose: Bool, to print more details to console. Default is False.
+
+  Returns:
+    A dictionary containing all the lint styles.
   """
 
   lint_dict = {

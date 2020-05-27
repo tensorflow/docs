@@ -125,6 +125,7 @@ class Linter:
 
     Args:
       path: `pathlib.Path` of notebook to run lints against.
+      lint_dict: A dictionary containing the lint styles.
 
     Returns:
       LinterStatus: Provides status and reporting of lint tests for a notebook.
