@@ -74,6 +74,7 @@ toc:
 - title: "GPU"
   path: /guide/gpu
 - title: "TPU"
+  status: new
   path: /guide/tpu
 
 - heading: "Performance"
