@@ -17,7 +17,7 @@
 r"""Check notebook conformance with documentation styles.
 
 Install the tensorflow-docs package:
-$ pip3 install -U [--user] git+https://github.com/tensorflow/docs
+$ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
 Usage:
 $ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
