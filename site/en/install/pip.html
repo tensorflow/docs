@@ -66,14 +66,12 @@
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
 <code class="devsite-terminal">pip3 --version</code>
-<code class="devsite-terminal">virtualenv --version</code>
 </pre>
 
 <p>
   If these packages are already installed, skip to the next step.<br/>
-  Otherwise, install <a href="https://www.python.org/" class="external">Python</a>, the
-  <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>,
-  and <a href="https://virtualenv.pypa.io/en/stable/" class="external">Virtualenv</a>:
+  Otherwise, install <a href="https://www.python.org/" class="external">Python</a> and the
+  <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>:
 </p>
 
 <div class="ds-selector-tabs">
@@ -82,7 +80,6 @@
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
 <code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
-<code class="devsite-terminal">sudo pip3 install -U virtualenv  # system-wide install</code>
 </pre>
 </section>
 
@@ -94,7 +91,6 @@
 <code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
 <code class="devsite-terminal">brew update</code>
 <code class="devsite-terminal">brew install python  # Python 3</code>
-<code class="devsite-terminal">sudo pip3 install -U virtualenv  # system-wide install</code>
 </pre>
 </section>
 
@@ -113,7 +109,6 @@
 </ol>
 <p>Make sure <a href="https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing" class="external">long paths are enabled</a> on Windows.</p>
 <p>Install the <em>64-bit</em> <a href="https://www.python.org/downloads/windows/" class="external">Python 3 release for Windows</a> (select <code>pip</code> as an optional feature).</p>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">pip3 install -U pip virtualenv</pre>
 </section>
 
 <section>
@@ -123,7 +118,6 @@
 <code class="devsite-terminal">sudo apt update</code>
 <code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
 <code class="devsite-terminal">sudo apt install libatlas-base-dev        # required for numpy</code>
-<code class="devsite-terminal">sudo pip3 install -U virtualenv           # system-wide install</code>
 </pre>
 </section>
 
@@ -132,7 +126,6 @@
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code>
 <code class="devsite-terminal">python get-pip.py</code>
-<code class="devsite-terminal">sudo pip3 install -U virtualenv  # system-wide install</code>
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
@@ -158,13 +151,16 @@
   Create a new virtual environment by choosing a Python interpreter and making a
   <code>./venv</code> directory to hold it:
 </p>
-<pre class="devsite-terminal devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
+<pre class="devsite-terminal devsite-click-to-copy">python3 -m venv --system-site-packages <var>./venv</var></pre>
 <p>
   Activate the virtual environment using a shell-specific command:
 </p>
-<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate  # sh, bash, ksh, or zsh</pre>
+<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate  # sh, bash, or zsh</pre>
+<pre class="devsite-terminal prettyprint lang-bsh">. <var>./venv</var>/bin/activate.fish  # fish</pre>
+<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate.csh  # csh or tcsh</pre>
+
 <p>
-  When virtualenv is active, your shell prompt is prefixed with <code>(venv)</code>.
+  When the virtual environment is active, your shell prompt is prefixed with <code>(venv)</code>.
 </p>
 <p>
   Install packages within a virtual environment without affecting the host system
@@ -176,7 +172,7 @@
 <code class="devsite-terminal tfo-terminal-venv">pip list  # show packages installed within the virtual environment</code>
 </pre>
 <p>
-  And to exit virtualenv later:
+  And to exit the virtual environment later:
 </p>
 <pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
 </section>
@@ -188,7 +184,7 @@
   Create a new virtual environment by choosing a Python interpreter and making a
   <code>.\venv</code> directory to hold it:
 </p>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">virtualenv --system-site-packages -p python3 <var>./venv</var></pre>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">python -m venv --system-site-packages <var>.\venv</var></pre>
 <p>
   Activate the virtual environment:
 </p>
@@ -203,7 +199,7 @@
 <code class="devsite-terminal tfo-terminal-windows-venv">pip list  # show packages installed within the virtual environment</code>
 </pre>
 <p>
-  And to exit virtualenv later:
+  And to exit virtual environment later:
 </p>
 <pre class="devsite-terminal tfo-terminal-windows-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
 </section>
@@ -240,7 +236,7 @@ is available. To install, read the <a href="https://docs.anaconda.com/anaconda/u
 
 <div class="ds-selector-tabs">
 <section>
-<h3>Virtualenv install</h3>
+<h3>Virtual environment install</h3>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade tensorflow</pre>
 <p>Verify the install:</p>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"</pre>
