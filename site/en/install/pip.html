@@ -61,7 +61,7 @@
   Check if your Python environment is already configured:
 </p>
 
-<aside class="note">Requires Python 3.5–3.8 and pip &gt;= 19.0</aside>
+<aside class="note">Requires Python 3.5–3.8, pip and venv &gt;= 19.0</aside>
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">python3 --version</code>
@@ -70,7 +70,8 @@
 
 <p>
   If these packages are already installed, skip to the next step.<br/>
-  Otherwise, install <a href="https://www.python.org/" class="external">Python</a> and the
+  Otherwise, install <a href="https://www.python.org/" class="external">Python</a>, 
+  <a href="https://docs.python.org/3/library/venv.html" class="external">Venv</a>, and the
   <a href="https://pip.pypa.io/en/stable/installing/" class="external">pip package manager</a>:
 </p>
 
@@ -79,7 +80,7 @@
 <h3>Ubuntu</h3>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
-<code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
+<code class="devsite-terminal">sudo apt install python3-dev python3-pip python3-venv</code>
 </pre>
 </section>
 
@@ -116,7 +117,7 @@
 <p>Requirements for the <a href="https://www.raspberrypi.org/downloads/raspbian/" class="external">Raspbian</a> operating system:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">sudo apt update</code>
-<code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
+<code class="devsite-terminal">sudo apt install python3-dev python3-pip python3-venv</code>
 <code class="devsite-terminal">sudo apt install libatlas-base-dev        # required for numpy</code>
 </pre>
 </section>
