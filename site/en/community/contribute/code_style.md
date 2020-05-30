@@ -28,30 +28,12 @@ $ pylint --rcfile=/tmp/pylintrc myfile.py
 
 ### Supported Python versions
 
-TensorFlow supports Python 2.7 and Python >= 3.4. See the
+TensorFlow supports Python >= 3.5. Note that Python 3.8 support requires TensorFlow 2.2 or later. See the
 [installation guide](https://www.tensorflow.org/install) for details.
 
 See the TensorFlow
 [continuous build status](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
 for official and community supported builds.
-
-#### Legacy Python compatibility
-
-TensorFlow will support Legacy Python (Python 2.7) until
-[January 1, 2020](https://groups.google.com/a/tensorflow.org/forum/#!searchin/announce/python$202.7%7Csort:date/announce/gVwS5RC8mds/dCt1ka2XAAAJ).
-Until that time, all code will need to be compatible with the Python versions
-listed above.
-
-These lines should be present in every Python file:
-
-
-```python
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-```
-
-Use `six` to write compatible code (for example, `six.moves.range`).
 
 
 ## C++ coding style
