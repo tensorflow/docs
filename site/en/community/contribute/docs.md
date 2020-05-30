@@ -385,7 +385,7 @@ tool for the translated notebooks:
 <code class="devsite-terminal">./tools/nb_code_sync.py [--lang=en] site/<var>lang</var>/notebook.ipynb</code>
 </pre>
 
-This script reads the code cells of a language notebook and check it against the
+This script reads the code cells of a language notebook and checks it against the
 English version. After stripping the comments, it compares the code blocks and
 updates the language notebook if they are different. This tool is particularly
 useful with an interactive git workflow to selectively add hunks of the file to
