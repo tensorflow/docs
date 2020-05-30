@@ -303,8 +303,7 @@ code and dependencies required to build TensorFlow. See the TensorFlow
 
 ### CPU-only
 
-The following example uses the `:devel` image to build a CPU-only
-Python&nbsp;2 package from the latest TensorFlow source code. See the
+The following example uses the `:devel` image to build a CPU-only package from the latest TensorFlow source code. See the
 [Docker guide](./docker.md) for available TensorFlow `-devel` tags.
 
 Download the latest development image and start a Docker container that we'll
@@ -373,14 +372,14 @@ machine only requires the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
 to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
 
-The following example downloads the TensorFlow `:devel-gpu-py3` image
+The following example downloads the TensorFlow `:devel-gpu` image
 and uses `nvidia-docker` to run the GPU-enabled container. This development image
-is configured to build a Python 3 *pip* package with GPU support:
+is configured to build a *pip* package with GPU support:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu-py3</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu</var></code>
 <code class="devsite-terminal">docker run --gpus all -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:devel-gpu-py3</var> bash</code>
+    tensorflow/tensorflow<var>:devel-gpu</var> bash</code>
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
 
@@ -404,7 +403,7 @@ Install and verify the package within the container and check for a GPU:
 
 <code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
-<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"</code>
+<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.experimental.list_physical_devices('GPU')))"</code>
 </pre>
 
 Success: TensorFlow is now installed.
