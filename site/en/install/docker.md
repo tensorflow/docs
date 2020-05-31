@@ -41,14 +41,17 @@ using the following format:
 :             : example\: *2.1.0*                                           :
 | `devel`     | Nightly builds of a TensorFlow `master` development         |
 :             : environment. Includes TensorFlow source code.               :
+| `custom-op` | Special experimental image for developing TF custom ops.    |
+:             : More info here: https://github.com/tensorflow/custom-op.    :
 
 Each base *tag* has variants that add or change functionality:
 
 | Tag Variants      | Description                                                                       |
 | ---               | ---                                                                               |
 | *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
-| *`tag`*`-py3`     | The specified *tag* release with Python 3 support.                                |
 | *`tag`*`-jupyter` | The specified *tag* release with Jupyter (includes TensorFlow tutorial notebooks) |
+
+Versioned images <= 1.15.0 (1.x) and <= 2.1.0 (2.x) have Python 3 (3.5 for Ubuntu 16-based images; 3.6 for Ubuntu 18-based images) in images tagged "-py3" and Python 2.7 in images without "py" in the tag. Newer images have Python 3 in both tags. If you are using these containers for the first time, use the tags without "-py3" in them.
 
 You can use multiple variants at once. For example, the following downloads
 TensorFlow release images to your machine:
@@ -103,10 +106,10 @@ Permission issues can arise when files created within a container are exposed to
 the host. It's usually best to edit files on the host system.
 
 Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
-TensorFlow's nightly build with Python 3 support:
+TensorFlow's nightly build:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-py3-jupyter
+docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-jupyter
 </pre>
 
 Follow the instructions and open the URL in your host web browser:
@@ -149,7 +152,7 @@ docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu \
    python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 </pre>
 
-It can take a while to set up the GPU-enabled image. If repeatably running
+It can take a while to set up the GPU-enabled image. If repeatedly running
 GPU-based scripts, you can use `docker exec` to reuse a container.
 
 Use the latest TensorFlow GPU image to start a `bash` shell session in the container:
