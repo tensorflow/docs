@@ -13,7 +13,7 @@ in a future release.
 TensorFlow for C is supported on the following systems:
 
 * Linux, 64-bit, x86
-* macOS X, Version 10.12.6 (Sierra) or higher
+* macOS, Version 10.12.6 (Sierra) or higher
 * Windows, 64-bit x86
 
 ## Setup
@@ -79,7 +79,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib
 </pre>
 </section>
 <section>
-<h3>mac OS</h3>
+<h3>macOS</h3>
 <pre class="prettyprint lang-bsh">
 export LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/mydir/lib

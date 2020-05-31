@@ -296,7 +296,7 @@ The Timeline pane contains the following elements:
 1.  **Tool selector -** Contains various tools for interacting with the trace
     viewer such as Zoom, Pan, Select, and Timing. Use the Timing tool to mark a
     time interval.
-1.  **Events -** These show the time during which a op was executed or the
+1.  **Events -** These show the time during which an op was executed or the
     duration of meta-events, such as training steps
 
 ##### Sections and tracks

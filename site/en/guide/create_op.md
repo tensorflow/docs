@@ -329,9 +329,9 @@ Here are the outputs of these functions on an Ubuntu machine.
 $ python
 >>> import tensorflow as tf
 >>> tf.sysconfig.get_include()
-'/usr/local/lib/python2.7/site-packages/tensorflow/include'
+'/usr/local/lib/python3.6/site-packages/tensorflow/include'
 >>> tf.sysconfig.get_lib()
-'/usr/local/lib/python2.7/site-packages/tensorflow'
+'/usr/local/lib/python3.6/site-packages/tensorflow'
 ```
 
 Assuming you have `g++` installed, here is the sequence of commands you can use
@@ -343,7 +343,7 @@ TF_LFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.ge
 g++ -std=c++11 -shared zero_out.cc -o zero_out.so -fPIC ${TF_CFLAGS[@]} ${TF_LFLAGS[@]} -O2
 ```
 
-On Mac OS X, the additional flag "-undefined dynamic_lookup" is required when
+On macOS, the additional flag "-undefined dynamic_lookup" is required when
 building the `.so` file.
 
 >   Note on `gcc` version `>=5`: gcc uses the new C++
@@ -1200,7 +1200,7 @@ generated Python code may change in a way that isn't compatible with old
 callers.  The Python API may be kept compatible by careful changes in a
 hand-written Python wrapper, by keeping the old signature except possibly adding
 new optional arguments to the end.  Generally incompatible changes may only be
-made when TensorFlow's changes major versions, and must conform to the
+made when TensorFlow changes major versions, and must conform to the
 [`GraphDef` version semantics](./versions.md#compatibility_of_graphs_and_checkpoints).
 
 ### GPU support

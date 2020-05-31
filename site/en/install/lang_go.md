@@ -14,7 +14,7 @@ Caution: The TensorFlow Go API is *not* covered by the TensorFlow
 TensorFlow for Go is supported on the following systems:
 
 * Linux, 64-bit, x86
-* macOS X, Version 10.12.6 (Sierra) or higher
+* macOS, Version 10.12.6 (Sierra) or higher
 
 
 ## Setup

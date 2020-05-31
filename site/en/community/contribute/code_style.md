@@ -71,7 +71,7 @@ $ diff <my_cc_file> /tmp/my_cc_file.cc
 ### Python operations
 
 A TensorFlow _operation_ is a function that, given input tensors returns output
-tensors (or adds a op to a graph when building graphs).
+tensors (or adds an op to a graph when building graphs).
 
 *   The first argument should be tensors, followed by basic Python parameters.
     The last argument is `name` with a default value of `None`.
