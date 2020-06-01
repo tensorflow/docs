@@ -371,7 +371,7 @@ through either the programmatic mode or the sampling mode.
     model.fit(train_data,
               steps_per_epoch=20,
               epochs=5,
-              callbacks=[tensorboard_callback])
+              callbacks=[tb_callback])
     ```
 
 *   Programmatic mode using the `tf.profiler` Function API
