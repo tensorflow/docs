@@ -257,9 +257,10 @@ is a hosted notebook environment that makes it easy to edit—and run—notebook
 documentation. Notebooks in GitHub are loaded in Google Colab by passing the
 path to the Colab URL, for example,
 the notebook located in GitHub here:
-<a href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a><br/>
+<a href="https://&#103;ithub.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://&#103;ithub.com/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a><br/>
 can be loaded into Google Colab at this URL:
 <a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb">https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/classification.ipynb</a>
+<!-- github.com path intentionally formatted to hide from import script. -->
 
 There is an
 <a href="https://chrome.google.com/webstore/detail/open-in-colab/iogfkhleblhcpcekbiedikdehleodpjo" class="external">Open in Colab</a>
