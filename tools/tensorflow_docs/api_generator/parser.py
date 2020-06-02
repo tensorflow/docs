@@ -679,9 +679,11 @@ class TitleBlock(object):
 
   _INDENTATION_REMOVAL_RE = re.compile(r'( *)(.+)')
 
+  # Don't change the width="214px" without consulting with the devsite-team.
   _TABLE_TEMPLATE = textwrap.dedent("""
     <!-- Tabular view -->
-     <table class="properties responsive orange">
+     <table class="responsive fixed orange">
+    <colgroup><col width="214px"><col></colgroup>
     <tr><th colspan="2">{title}</th></tr>
     {text}
     {items}
@@ -700,7 +702,7 @@ class TitleBlock(object):
 
   _TEXT_TEMPLATE = textwrap.dedent("""\
     <tr class="alt">
-    <td colspan="3">
+    <td colspan="2">
     {text}
     </td>
     </tr>""")
