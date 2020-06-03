@@ -1,0 +1,16 @@
+# Query: stateful=True
+# Flags: IgnoreExcludeSettings
+
+6 results - 3 files
+
+site\en\guide\keras\rnn.ipynb:
+  323:         "You can do this by setting `stateful=True` in the constructor.\n",
+  337:         "lstm_layer = layers.LSTM(64, stateful=True)\n",
+  367:         "lstm_layer = layers.LSTM(64, stateful=True)\n",
+  415:         "lstm_layer = layers.LSTM(64, stateful=True)\n",
+
+site\en\r1\tutorials\sequences\text_generation.ipynb:
+  628:         "        stateful=True),\n",
+
+site\en\tutorials\text\text_generation.ipynb:
+  585:         "                        stateful=False,\n",
