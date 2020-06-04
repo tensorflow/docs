@@ -1062,7 +1062,9 @@ class FormatArguments(object):
     full_name = self._reference_resolver._duplicate_of.get(full_name, full_name)  # pylint: disable=protected-access
     relative_path = self._calc_relative_path(ast_typehint)
     url = os.path.join(relative_path, full_name.replace('.', '/')) + '.md'
-    return f'<a href="{url}"><code>{ast_typehint}</code></a>'
+    # Use `full_name` for the text in the link since its available over
+    # `ast_typehint`.
+    return f'<a href="{url}"><code>{full_name}</code></a>'
 
   def _extract_non_builtin_types(self, arg_obj: Any,
                                  non_builtin_types: List[Any]) -> List[Any]:
@@ -1158,8 +1160,7 @@ class FormatArguments(object):
       Linked type annotation if the type annotation object exists.
     """
     # If the object annotations exists in the reverse_index, get the link
-    # directly for the entire annotation. The text used for the link, will be
-    # the AST extracted type annotation.
+    # directly for the entire annotation.
     obj_anno_full_name = self._reverse_index.get(id(obj_anno), None)
     if obj_anno_full_name is not None:
       return self._get_link(obj_anno_full_name, ast_typehint)
