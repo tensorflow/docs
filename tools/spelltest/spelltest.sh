@@ -14,7 +14,7 @@
 ## Count also also includes code cells:
 ##   $ spelltest -c -C notebook.ipynb [...]
 ##
-## Print notebook as Markdown to stdout and save to clipoard (OSX):
+## Print notebook as Markdown to stdout and save to clipboard (OSX):
 ##   $ spelltest -p [-C] notebook.ipynb | pbcopy
 ##
 set -e
@@ -56,7 +56,7 @@ done
 shift $((OPTIND - 1))
 
 
-## Check requirmeents: aspell and nbconvert
+## Check requirements: aspell and nbconvert
 
 if [[ ! -x "$(which aspell)" ]]; then
   echo "${LOG_NAME} Error: Requires the 'aspell' command" >&2
