@@ -47,11 +47,11 @@ flags.DEFINE_bool(
     "- If `True`: Set the notebook to keep outputs.\n"
     "- If `False`: Set the notebook to clear outputs.\n"
     "- If unset (`None`): keep the notebook's current setting.\n"
-    "  - If it's not set in the notebook, set the notebook to perserve outputs "
+    "  - If it's not set in the notebook, set the notebook to preserve outputs "
     "(to match the colab default).\n"
     "If a notebook is configured to clear outputs, this script will clear them "
     "when run.\n"
-    "Colab respects this setting. Juptyer does not.")
+    "Colab respects this setting. Jupyter does not.")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 flags.DEFINE_bool("test", False,
