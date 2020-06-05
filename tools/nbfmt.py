@@ -128,15 +128,15 @@ def clean_cells(data) -> None:
     cell_meta.pop("executionInfo", None)
     cell["metadata"] = cell_meta
 
-    # Add `outputs` field to code cells if it doesn't exist since its a required
-    # property.
-    if cell.get("outputs", None) is None:
-      cell["outputs"] = []
-
-    if private_outputs:
+    # Clear any code cell outputs if notebook set to private outputs.
+    if private_outputs and cell.get("outputs"):
       has_outputs = True
       # Clear code outputs
       cell["execution_count"] = 0
+      cell["outputs"] = []
+
+    # Ensure outputs field exists since part of the nbformat spec.
+    if cell.get("outputs", None) is None:
       cell["outputs"] = []
 
   if has_outputs:
