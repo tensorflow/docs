@@ -51,8 +51,6 @@ Each base *tag* has variants that add or change functionality:
 | *`tag`*`-gpu`     | The specified *tag* release with GPU support. ([See below](#gpu_support))         |
 | *`tag`*`-jupyter` | The specified *tag* release with Jupyter (includes TensorFlow tutorial notebooks) |
 
-Versioned images <= 1.15.0 (1.x) and <= 2.1.0 (2.x) have Python 3 (3.5 for Ubuntu 16-based images; 3.6 for Ubuntu 18-based images) in images tagged "-py3" and Python 2.7 in images without "py" in the tag. Newer images have Python 3 in both tags. If you are using these containers for the first time, use the tags without "-py3" in them.
-
 You can use multiple variants at once. For example, the following downloads
 TensorFlow release images to your machine:
 
