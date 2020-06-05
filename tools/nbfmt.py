@@ -128,7 +128,12 @@ def clean_cells(data) -> None:
     cell_meta.pop("executionInfo", None)
     cell["metadata"] = cell_meta
 
-    if private_outputs and cell.get("outputs"):
+    # Add `outputs` field to code cells if it doesn't exist since its a required
+    # property.
+    if cell.get("outputs", None) is None:
+      cell["outputs"] = []
+
+    if private_outputs:
       has_outputs = True
       # Clear code outputs
       cell["execution_count"] = 0
