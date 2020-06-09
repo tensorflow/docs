@@ -60,6 +60,9 @@ def build_md_page(page_info: parser.PageInfo, table_view: bool) -> str:
   if isinstance(page_info, parser.ModulePageInfo):
     return _build_module_page(page_info, table_view)
 
+  if isinstance(page_info, parser.TypeAliasPageInfo):
+    return _build_type_alias_page(page_info, table_view)
+
   raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
 
@@ -142,6 +145,35 @@ def _build_function_page(page_info: parser.FunctionPageInfo,
     parts.append(custom_content)
 
   return ''.join(parts)
+
+
+def _build_type_alias_page(page_info: parser.TypeAliasPageInfo,
+                           table_view: bool) -> str:
+  """Constructs a markdown page given a `TypeAliasPageInfo` object.
+
+  Args:
+    page_info: A `TypeAliasPageInfo` object containing information that's used
+      to create a type alias page.
+    table_view: Unused for this function.
+
+  Returns:
+    The type alias's markdown page.
+  """
+
+  del table_view
+
+  parts = []
+  parts.append(page_info.doc.brief)
+  parts.append('\n\n')
+
+  if page_info.signature is not None:
+    parts.append('Source:\n\n')
+    parts.append(
+        _build_signature(
+            page_info, obj_name=page_info.short_name, type_alias=True))
+    parts.append('\n\n')
+
+  return '\n'.join(parts)
 
 
 class _Methods(NamedTuple):
@@ -420,6 +452,17 @@ def _build_method_section(method_info, table_view, heading_level=3):
   return ''.join(parts)
 
 
+def _build_module_parts(module_parts: List[parser.MemberInfo],
+                        template: str) -> List[str]:
+  mod_str_parts = []
+  for item in module_parts:
+    mod_str_parts.append(template.format(**item._asdict()))
+    if item.doc.brief:
+      mod_str_parts.append(': ' + item.doc.brief)
+    mod_str_parts.append('\n\n')
+  return mod_str_parts
+
+
 def _build_module_page(page_info: parser.ModulePageInfo,
                        table_view: bool) -> str:
   """Constructs a markdown page given a `ModulePageInfo` object.
@@ -463,45 +506,35 @@ def _build_module_page(page_info: parser.ModulePageInfo,
 
   if page_info.modules:
     parts.append('## Modules\n\n')
-    template = '[`{short_name}`]({url}) module'
-
-    for item in page_info.modules:
-      parts.append(template.format(**item._asdict()))
-
-      if item.doc.brief:
-        parts.append(': ' + item.doc.brief)
-
-      parts.append('\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.modules,
+            template='[`{short_name}`]({url}) module'))
 
   if page_info.classes:
     parts.append('## Classes\n\n')
-    template = '[`class {short_name}`]({url})'
-
-    for item in page_info.classes:
-      parts.append(template.format(**item._asdict()))
-
-      if item.doc.brief:
-        parts.append(': ' + item.doc.brief)
-
-      parts.append('\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.classes,
+            template='[`class {short_name}`]({url})'))
 
   if page_info.functions:
     parts.append('## Functions\n\n')
-    template = '[`{short_name}(...)`]({url})'
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.functions,
+            template='[`{short_name}(...)`]({url})'))
 
-    for item in page_info.functions:
-      parts.append(template.format(**item._asdict()))
-
-      if item.doc.brief:
-        parts.append(': ' + item.doc.brief)
-
-      parts.append('\n\n')
+  if page_info.type_alias:
+    parts.append('## Type Aliases\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.type_alias,
+            template='[`{short_name}`]({url})'))
 
   if page_info.other_members:
-    # TODO(markdaoust): Document the value of the members,
-    #                   at least for basic types.
+    # TODO(markdaoust): Document the value of the members, for basic types.
     parts.append('## Other Members\n\n')
-
     parts.append(_other_members(page_info.other_members))
 
   return ''.join(parts)
@@ -518,7 +551,9 @@ DECORATOR_WHITELIST = {
 }
 
 
-def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
+def _build_signature(obj_info: parser.PageInfo,
+                     obj_name: str,
+                     type_alias: bool = False) -> str:
   """Returns a markdown code block containing the function signature.
 
   Wraps the signature and limits it to 80 characters.
@@ -527,6 +562,9 @@ def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
     obj_info: Object containing information about the class/method/function for
       which a signature will be created.
     obj_name: The name to use to build the signature.
+    type_alias: If True, uses an `=` instead of `()` for the signature.
+      For example: `TensorLike = (Union[str, tf.Tensor, int])`.
+      Defaults to `False`.
 
   Returns:
     The signature of the object.
@@ -547,11 +585,17 @@ def _build_signature(obj_info: parser.PageInfo, obj_name: str) -> str:
       '<pre class="devsite-click-to-copy prettyprint lang-py '
       'tfo-signature-link">'
   ]
-  parts.extend([
-      f'<code>@{dec}</code>' for dec in obj_info.decorators
-      if dec in DECORATOR_WHITELIST
-  ])
-  parts.append(f'<code>{obj_name}{full_signature}')
+
+  if hasattr(obj_info, 'decorators'):
+    parts.extend([
+        f'<code>@{dec}</code>' for dec in obj_info.decorators
+        if dec in DECORATOR_WHITELIST
+    ])
+
+  if type_alias:
+    parts.append(f'<code>{obj_name} = {full_signature}')
+  else:
+    parts.append(f'<code>{obj_name}{full_signature}')
   parts.append('</code></pre>\n\n')
 
   return '\n'.join(parts)

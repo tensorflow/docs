@@ -27,7 +27,7 @@ import re
 import textwrap
 import typing
 
-from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional
+from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
 
@@ -38,6 +38,7 @@ from google.protobuf.message import Message as ProtoMessage
 
 class ObjType(enum.Enum):
   """Enum to standardize object type checks."""
+  TYPE_ALIAS = 'type_alias'
   MODULE = 'module'
   CLASS = 'class'
   CALLABLE = 'callable'
@@ -47,7 +48,9 @@ class ObjType(enum.Enum):
 
 def get_obj_type(py_obj: Any) -> ObjType:
   """Get the `ObjType` for the `py_object`."""
-  if inspect.ismodule(py_obj):
+  if hasattr(py_obj, '__args__') and hasattr(py_obj, '__origin__'):
+    return ObjType.TYPE_ALIAS
+  elif inspect.ismodule(py_obj):
     return ObjType.MODULE
   elif inspect.isclass(py_obj):
     return ObjType.CLASS
@@ -182,7 +185,7 @@ def _get_raw_docstring(py_object):
 
   # For object instances, inspect.getdoc does give us the docstring of their
   # type, which is not what we want. Only return the docstring if it is useful.
-  if get_obj_type(py_object) is not ObjType.OTHER:
+  if get_obj_type(py_object) not in (ObjType.TYPE_ALIAS, ObjType.OTHER):
     result = inspect.getdoc(py_object) or ''
   else:
     result = ''
@@ -309,7 +312,7 @@ class ReferenceResolver(object):
       obj_type = get_obj_type(obj)
       if obj_type in (ObjType.CLASS, ObjType.MODULE):
         is_fragment[full_name] = False
-      elif obj_type is ObjType.CALLABLE:
+      elif obj_type in (ObjType.CALLABLE, ObjType.TYPE_ALIAS):
         if is_class_attr(full_name, visitor.index):
           is_fragment[full_name] = True
         else:
@@ -604,16 +607,14 @@ class ReferenceResolver(object):
     return f'<a href="{cc_relative_path}"><code>{link_text}</code></a>'
 
 
-# TODO(aselle): Collect these into a big list for all modules and functions
-# and make a rosetta stone page.
-def _handle_compatibility(doc):
+def _handle_compatibility(doc) -> Tuple[str, Dict[str, str]]:
   """Parse and remove compatibility blocks from the main docstring.
 
   Args:
-    doc: The docstring that contains compatibility notes"
+    doc: The docstring that contains compatibility notes.
 
   Returns:
-    a tuple of the modified doc string and a hash that maps from compatibility
+    A tuple of the modified doc string and a hash that maps from compatibility
     note type to the text of the note.
   """
   compatibility_notes = {}
@@ -798,7 +799,7 @@ class TitleBlock(object):
       re.MULTILINE | re.VERBOSE)
 
   @classmethod
-  def split_string(cls, docstring):
+  def split_string(cls, docstring: str):
     r"""Given a docstring split it into a list of `str` or `TitleBlock` chunks.
 
     For example the docstring of `tf.nn.relu`:
@@ -864,12 +865,14 @@ class TitleBlock(object):
     return parts
 
 
-_DocstringInfo = collections.namedtuple(
-    '_DocstringInfo', ['brief', 'docstring_parts', 'compatibility'])
+class _DocstringInfo(typing.NamedTuple):
+  brief: str
+  docstring_parts: List[Union[TitleBlock, str]]
+  compatibility: Dict[str, str]
 
 
 def _parse_md_docstring(py_object, relative_path_to_root, full_name,
-                        reference_resolver):
+                        reference_resolver) -> _DocstringInfo:
   """Parse the object's docstring and return a `_DocstringInfo`.
 
   This function clears @@'s from the docstring, and replaces `` references
@@ -1493,7 +1496,7 @@ class PageInfo(object):
     full_name: The full, master name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
-    defined_in: A _FileLocation describing where the object wqas defined.
+    defined_in: A _FileLocation describing where the object was defined.
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
@@ -1516,7 +1519,7 @@ class PageInfo(object):
   @property
   def short_name(self):
     """Returns the documented object's short name."""
-    return self._full_name.split('.')[-1]
+    return self.full_name.split('.')[-1]
 
   @property
   def defined_in(self):
@@ -1564,7 +1567,7 @@ class FunctionPageInfo(PageInfo):
     full_name: The full, master name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
-    defined_in: A _FileLocation describing where the object wqas defined.
+    defined_in: A _FileLocation describing where the object was defined.
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
@@ -1613,6 +1616,61 @@ class FunctionPageInfo(PageInfo):
     return Metadata(self.full_name).build_html()
 
 
+class TypeAliasPageInfo(PageInfo):
+  """Collects docs For a type alias page.
+
+  Attributes:
+    full_name: The full, master name, of the object being documented.
+    short_name: The last part of the full name.
+    py_object: The object being documented.
+    defined_in: A _FileLocation describing where the object was defined.
+    aliases: A list of full-name for all aliases for this object.
+    doc: A list of objects representing the docstring. These can all be
+      converted to markdown using str().
+    signature: the parsed signature (see: generate_signature)
+    decorators: A list of decorator names.
+  """
+
+  def __init__(self, full_name: str, py_object: Any) -> None:
+    """Initialize a `TypeAliasPageInfo`.
+
+    Args:
+      full_name: The full, master name, of the object being documented.
+      py_object: The object being documented.
+    """
+
+    super().__init__(full_name, py_object)
+    self._signature = None
+
+  @property
+  def signature(self) -> None:
+    return self._signature
+
+  def set_doc(self, doc: _DocstringInfo) -> None:
+    """Overrides base class's method and sets the `doc` field."""
+    self._doc = _DocstringInfo(
+        brief='This symbol is a Type Alias.',
+        docstring_parts=[],
+        compatibility={})
+
+  def collect_docs(self, parser_config) -> None:
+    """Collect all information necessary to genertate the function page.
+
+    Mainly this is details about the function signature.
+
+    Args:
+      parser_config: The ParserConfig for the module being documented.
+    """
+    del parser_config
+
+    assert self.signature is None
+    wrapped_sig = textwrap.fill(repr(self.py_object), width=80)
+    self._signature = textwrap.indent(wrapped_sig, '  ').strip()
+
+  def get_metadata_html(self) -> str:
+    return Metadata(self.full_name).build_html()
+
+
 class ClassPageInfo(PageInfo):
   """Collects docs for a class page.
 
@@ -1620,7 +1678,7 @@ class ClassPageInfo(PageInfo):
     full_name: The full, master name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
-    defined_in: A _FileLocation describing where the object wqas defined.
+    defined_in: A _FileLocation describing where the object was defined.
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
@@ -1808,7 +1866,8 @@ class ClassPageInfo(PageInfo):
       self,
       member_info: MemberInfo,
       defining_class: Optional[type],  # pylint: disable=g-bare-generic
-      parser_config: ParserConfig) -> None:
+      parser_config: ParserConfig,
+  ) -> None:
     """Adds a member to the class page."""
     obj_type = get_obj_type(member_info.obj)
 
@@ -1933,7 +1992,7 @@ class ModulePageInfo(PageInfo):
     full_name: The full, master name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
-    defined_in: A _FileLocation describing where the object wqas defined.
+    defined_in: A _FileLocation describing where the object was defined.
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
@@ -1943,6 +2002,8 @@ class ModulePageInfo(PageInfo):
       in this module
     modules: A list of `MemberInfo` objects pointing to docs for the modules in
       this module.
+    type_alias: A list of `MemberInfo` objects pointing to docs for the type
+      aliases in this module.
     other_members: A list of `MemberInfo` objects documenting any other object's
       defined on the module object (mostly enum style fields).
   """
@@ -1960,31 +2021,39 @@ class ModulePageInfo(PageInfo):
     self._classes = []
     self._functions = []
     self._other_members = []
+    self._type_alias = []
 
   @property
   def modules(self):
     return self._modules
 
-  def _add_module(self, member_info: MemberInfo):
-    self._modules.append(member_info)
+  @property
+  def functions(self):
+    return self._functions
 
   @property
   def classes(self):
     return self._classes
 
-  def _add_class(self, member_info: MemberInfo):
-    self._classes.append(member_info)
-
   @property
-  def functions(self):
-    return self._functions
-
-  def _add_function(self, member_info: MemberInfo):
-    self._functions.append(member_info)
+  def type_alias(self):
+    return self._type_alias
 
   @property
   def other_members(self):
     return self._other_members
+
+  def _add_module(self, member_info: MemberInfo):
+    self._modules.append(member_info)
+
+  def _add_class(self, member_info: MemberInfo):
+    self._classes.append(member_info)
+
+  def _add_function(self, member_info: MemberInfo):
+    self._functions.append(member_info)
+
+  def _add_type_alias(self, member_info: MemberInfo):
+    self._type_alias.append(member_info)
 
   def _add_other_member(self, member_info: MemberInfo):
     self._other_members.append(member_info)
@@ -2000,6 +2069,7 @@ class ModulePageInfo(PageInfo):
     return meta_data.build_html()
 
   def _add_member(self, member_info: MemberInfo) -> None:
+    """Adds members of the modules to the respective lists."""
     obj_type = get_obj_type(member_info.obj)
     if obj_type is ObjType.MODULE:
       self._add_module(member_info)
@@ -2007,6 +2077,8 @@ class ModulePageInfo(PageInfo):
       self._add_class(member_info)
     elif obj_type is ObjType.CALLABLE:
       self._add_function(member_info)
+    elif obj_type is ObjType.TYPE_ALIAS:
+      self._add_type_alias(member_info)
     else:
       self._add_other_member(member_info)
 
@@ -2071,7 +2143,7 @@ def docs_for_object(full_name, py_object, parser_config):
     parser_config: A ParserConfig object.
 
   Returns:
-    Either a `_FunctionPageInfo`, `_ClassPageInfo`, or a `_ModulePageInfo`
+    Either a `FunctionPageInfo`, `ClassPageInfo`, or a `ModulePageInfo`
     depending on the type of the python object being documented.
 
   Raises:
@@ -2092,6 +2164,8 @@ def docs_for_object(full_name, py_object, parser_config):
     page_info = FunctionPageInfo(master_name, py_object)
   elif obj_type is ObjType.MODULE:
     page_info = ModulePageInfo(master_name, py_object)
+  elif obj_type is ObjType.TYPE_ALIAS:
+    page_info = TypeAliasPageInfo(master_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
 
