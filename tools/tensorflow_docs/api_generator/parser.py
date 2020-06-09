@@ -1664,8 +1664,9 @@ class TypeAliasPageInfo(PageInfo):
     del parser_config
 
     assert self.signature is None
-    wrapped_sig = textwrap.fill(repr(self.py_object), width=80)
-    self._signature = textwrap.indent(wrapped_sig, '  ').strip()
+    wrapped_sig = textwrap.fill(
+        repr(self.py_object).replace('typing.', ''), width=80)
+    self._signature = textwrap.indent(wrapped_sig, '    ').strip()
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
