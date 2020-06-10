@@ -162,12 +162,12 @@ def _build_type_alias_page(page_info: parser.TypeAliasPageInfo,
 
   del table_view
 
-  parts = []
+  parts = [f'# {page_info.full_name}\n\n']
   parts.append(page_info.doc.brief)
-  parts.append('\n\n')
+  parts.append('\n')
 
   if page_info.signature is not None:
-    parts.append('Source:\n\n')
+    parts.append('Source:\n')
     parts.append(
         _build_signature(
             page_info, obj_name=page_info.short_name, type_alias=True))
