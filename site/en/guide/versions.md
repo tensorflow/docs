@@ -135,7 +135,7 @@ These include:
     to APIs for which we find no documented uses (by performing audit of
     TensorFlow usage through GitHub search). Before making any such changes, we
     will announce our intention to make the change on the
-    [tensorflow-announce@ list](https://groups.google.com/a/tensorflow.org/forum/#!forum/announce),
+    [announce@ mailing list](https://groups.google.com/a/tensorflow.org/forum/#!forum/announce),
     providing instructions for how to address any breakages (if applicable), and
     wait for two weeks to give our community a chance to share their feedback.
 
