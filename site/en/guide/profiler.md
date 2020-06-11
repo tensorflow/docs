@@ -25,14 +25,20 @@ script from the [GitHub repository](https://github.com/tensorflow/profiler).
 
 To profile on the GPU, you must:
 
-1.  Install CUDA® Toolkit 10.1 or newer. To profile multiple GPUs, install CUDA®
-    Toolkit 10.2 or later. CUDA® Toolkit 10.1 supports only single GPU
-    profiling.
+1.  [Install CUDA® Toolkit 10.1](https://www.tensorflow.org/install/gpu#linux_setup)
+    or newer. CUDA® Toolkit 10.1 supports only single GPU profiling. To profile
+    multiple GPUs, see [Profile multiple GPUs](#profile_multiple_gpus). Ensure
+    that the CUDA® driver version you install is at least 440.33 for Linux or
+    441.22 for Windows.
 1.  Ensure CUPTI exists on the path:
 
-    *   Run `ldconfig -p | grep libcupti`
+    ```shell
+    /sbin/ldconfig -N -v $(sed 's/:/ /g' <<< $LD_LIBRARY_PATH) | \
+    grep libcupti
+    ```
 
-If you don't have CUPTI on the path, run:
+If you don't have CUPTI on the path, prepend its installation directory to the
+`$LD_LIBRARY_PATH` environment variable by running:
 
 ```shell
 export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
@@ -40,6 +46,18 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 Run the `ldconfig` command above again to verify that the CUPTI library is
 found.
+
+### Profile multiple GPUs {: id = 'profile_multiple_gpus'}
+
+TensorFlow does not officially support multiple GPU profiling yet. You can
+install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As TensorFlow
+supports CUDA® Toolkit versions only up to 10.1 , create symbolic links to
+`libcudart.so.10.1` and `libcupti.so.10.1`.
+
+```shell
+sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
+sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.1
+```
 
 To profile multi-worker GPU configurations, profile individual workers
 independently.
@@ -363,9 +381,10 @@ through either the programmatic mode or the sampling mode.
     (`tf.keras.callbacks.TensorBoard`)
 
     ```python
-    # profile from batches 10 to 15
+    # Profile from batches 10 to 15
     tb_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir,
                                                  profile_batch='10, 15')
+
     # Train the model and use the TensorBoard Keras callback to collect
     # performance profiling data
     model.fit(train_data,
@@ -390,8 +409,9 @@ through either the programmatic mode or the sampling mode.
         pass
     ```
 
-Note that running the profiler for too long can cause it to run out of memory.
-It is recommended to profile no more than 10 steps at a time.
+Note: Running the Profiler for too long can cause it to run out of memory. It is
+recommended to profile no more than 10 steps at a time. Avoid profiling the
+first few batches to avoid inaccuracies due to initialization overhead.
 
 *   Sampling mode - Perform on-demand profiling by using
     `tf.profiler.experimental.server.start()` to start a gRPC server with your
