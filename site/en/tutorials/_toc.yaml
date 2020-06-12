@@ -159,3 +159,10 @@ toc:
     path: /tutorials/generative/adversarial_fgsm
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
+
+- title: "Interpretability"
+  style: accordion
+  section:
+  status: new
+  - title: "Integrated Gradients"
+    path: /tutorials/interpretability/integrated_gradients
