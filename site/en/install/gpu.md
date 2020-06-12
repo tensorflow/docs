@@ -103,7 +103,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
     cuda-10-1 \
     libcudnn7=7.6.4.38-1+cuda10.1  \
     libcudnn7-dev=7.6.4.38-1+cuda10.1 \
-    cuda-drivers=440.64.00-1
+    cuda-drivers=440\*
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
