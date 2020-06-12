@@ -95,14 +95,15 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install NVIDIA driver
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-430</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-440</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
     libcudnn7=7.6.4.38-1+cuda10.1  \
-    libcudnn7-dev=7.6.4.38-1+cuda10.1
+    libcudnn7-dev=7.6.4.38-1+cuda10.1 \
+    cuda-drivers=440.64.00-1
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
