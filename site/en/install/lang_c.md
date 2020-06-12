@@ -6,7 +6,18 @@ TensorFlow provides a C API that can be used to build
 and designed for simplicity and uniformity rather than convenience.
 
 Note: There is no `libtensorflow` support for TensorFlow 2 yet. It is expected
-in a future release.
+in the 2.3 release. In the meantime please use nightly libtensorflow releases.
+
+## Nightly Libtensorflow C packages
+
+Libtensorflow packages are built nightly and uploaded to GCS for all supported
+platforms. They are uploaded to the
+[libtensorflow-nightly GCS bucket](https://storage.googleapis.com/libtensorflow-nightly)
+and are indexed by operating system and date built. For MacOS and Linux shared
+objects, we have a
+[script](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/builds/libtensorflow_nightly_symlink.sh)
+that renames the .so files versioned to the current date copied into the
+directory with the artifacts.
 
 ## Supported Platforms
 
