@@ -1355,7 +1355,7 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     kind = param.kind
     default = param.default
 
-    if skip_self_cls and (param.name == 'self' or param.name == 'cls'):
+    if skip_self_cls and param.name in ('self', 'cls', '_cls'):
       # Only skip the first parameter. If the function contains both
       # `self` and `cls`, skip only the first one.
       skip_self_cls = False
