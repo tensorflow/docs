@@ -166,5 +166,5 @@ toc:
   style: accordion
   status: new
   section:
-  - title: "Integrated Gradients"
+  - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
