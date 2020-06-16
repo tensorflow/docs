@@ -183,9 +183,12 @@ def _get_raw_docstring(py_object):
     The docstring, or the empty string if no docstring was found.
   """
 
-  # For object instances, inspect.getdoc does give us the docstring of their
-  # type, which is not what we want. Only return the docstring if it is useful.
-  if get_obj_type(py_object) not in (ObjType.TYPE_ALIAS, ObjType.OTHER):
+  if get_obj_type(py_object) is ObjType.TYPE_ALIAS:
+    if inspect.getdoc(py_object) != inspect.getdoc(py_object.__origin__):
+      result = inspect.getdoc(py_object)
+    else:
+      result = ''
+  elif get_obj_type(py_object) is not ObjType.OTHER:
     result = inspect.getdoc(py_object) or ''
   else:
     result = ''
@@ -1546,11 +1549,11 @@ class PageInfo(object):
     self._aliases = aliases
 
   @property
-  def doc(self):
+  def doc(self) -> _DocstringInfo:
     """Returns a `_DocstringInfo` created from the object's docstring."""
     return self._doc
 
-  def set_doc(self, doc):
+  def set_doc(self, doc: _DocstringInfo):
     """Sets the `doc` field.
 
     Args:
@@ -1645,13 +1648,6 @@ class TypeAliasPageInfo(PageInfo):
   @property
   def signature(self) -> None:
     return self._signature
-
-  def set_doc(self, doc: _DocstringInfo) -> None:
-    """Overrides base class's method and sets the `doc` field."""
-    self._doc = _DocstringInfo(
-        brief='This symbol is a Type Alias.',
-        docstring_parts=[],
-        compatibility={})
 
   def collect_docs(self, parser_config) -> None:
     """Collect all information necessary to genertate the function page.

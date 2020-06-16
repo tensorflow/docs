@@ -154,26 +154,34 @@ def _build_type_alias_page(page_info: parser.TypeAliasPageInfo,
   Args:
     page_info: A `TypeAliasPageInfo` object containing information that's used
       to create a type alias page.
-    table_view: Unused for this function.
+    table_view: If True, `Args`, `Returns`, `Raises` or `Attributes` will be
+      converted to a tabular format while generating markdown. If False, they
+      will be converted to a markdown List view.
 
   Returns:
     The type alias's markdown page.
   """
 
-  del table_view
-
   parts = [f'# {page_info.full_name}\n\n']
+  parts.append('This symbol is a Type Alias.\n\n')
   parts.append(page_info.doc.brief)
-  parts.append('\n')
+  parts.append('\n\n')
 
   if page_info.signature is not None:
-    parts.append('Source:\n')
+    parts.append('Source:\n\n')
     parts.append(
         _build_signature(
             page_info, obj_name=page_info.short_name, type_alias=True))
     parts.append('\n\n')
 
-  return '\n'.join(parts)
+  for item in page_info.doc.docstring_parts:
+    parts.append(
+        _format_docstring(
+            item,
+            table_view,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
+
+  return ''.join(parts)
 
 
 class _Methods(NamedTuple):
