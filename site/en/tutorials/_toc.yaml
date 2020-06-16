@@ -93,6 +93,8 @@ toc:
     path: /tutorials/distribute/multi_worker_with_estimator
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
+  - title: "Distributed input"
+    path: /tutorials/distribute/input
 
 - title: "Images"
   style: accordion
