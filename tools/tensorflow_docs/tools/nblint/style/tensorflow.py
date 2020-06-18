@@ -23,6 +23,14 @@ TensorFlow documentation and style guides. See:
 
 When adding lints, please link to the URL of the relevant style rule, if
 applicable.
+
+Lint callback functions are passed an `args` dict with the following entries:
+  cell_data: Dict of parsed cell (cell-scope only)
+  cell_source: String of cell content (cell-scope only)
+  file_data: Dict of parsed notebook
+  file_source: String of notebook content
+  path: Filepath of notebook
+  user: Dict of args passed at the command-line
 """
 import re
 
@@ -34,9 +42,8 @@ copyright_re = re.compile(
 
 
 @lint(message="TensorFlow copyright is required", scope=Options.Scope.TEXT)
-def copyright_check(source, cell, filepath):
-  del cell, filepath  # Unused by callback
-  if copyright_re.search(source):
+def copyright_check(args):
+  if copyright_re.search(args["cell_source"]):
     return True
   else:
     return False
@@ -49,18 +56,16 @@ license_re = re.compile("#@title Licensed under the Apache License")
     message="Apache license is required",
     scope=Options.Scope.CODE,
     cond=Options.Cond.ANY)
-def license_check(source, cell, filepath):
-  del cell, filepath  # Unused by callback
-  if license_re.search(source):
+def license_check(args):
+  if license_re.search(args["cell_source"]):
     return True
   else:
     return False
 
 
 @lint(scope=Options.Scope.FILE)
-def not_translation(source, data, filepath):
-  del source, data  # Unused by callback
-  if "site" not in filepath.parents:
+def not_translation(args):
+  if "site" not in args["path"].parents:
     return True
   else:
-    return "site/en" in filepath.parents
+    return "site/en" in args["path"].parents

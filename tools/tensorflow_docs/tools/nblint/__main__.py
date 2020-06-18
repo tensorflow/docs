@@ -23,6 +23,7 @@ Usage:
 $ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
 $ python3 -m tensorflow_docs.tools.nblint --verbose \
     [--styles=google,tensorflow] notebook.ipynb [...]
+$ python3 -m tensorflow_docs.tools.nblint --arg=x:foo --arg=y:bar notebook.ipynb
 
 See the TensorFlow notebook template:
 https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
@@ -42,6 +43,7 @@ from absl import flags
 from tensorflow_docs.tools.nblint import decorator
 from tensorflow_docs.tools.nblint import linter
 
+flags.DEFINE_multi_string("arg", [], "User arguments to pass to lint callback.")
 flags.DEFINE_list("styles", ["google", "tensorflow"], "Lint styles to include.")
 flags.DEFINE_boolean("verbose", False, "Display verbose output.")
 
@@ -157,11 +159,31 @@ def add_styles(styles, verbose):
   return lint_dict
 
 
+def parse_user_args(args_list):
+  """Parse user-defined arguments passed at command-line.
+
+  Args:
+    args_list: List of strings in "key:value" format.
+
+  Returns:
+    A dictionary containing user-defined keys and values.
+  """
+  args_dict = {}
+  for arg_str in args_list:
+    parts = arg_str.split(":", 1)
+    key = parts[0]
+    val = parts[1] if len(parts) == 2 else True
+    args_dict[key] = val
+  return args_dict
+
+
 def main(argv):
   if len(argv) <= 1:
     raise app.UsageError("Missing arguments.", 1)
   if not FLAGS.styles:
     raise app.UsageError("Missing styles.", 1)
+
+  user_args = parse_user_args(FLAGS.arg)
 
   nb_linter = linter.Linter(verbose=FLAGS.verbose)
   lint_dict = add_styles(FLAGS.styles, FLAGS.verbose)
@@ -171,7 +193,7 @@ def main(argv):
   for path in _collect_notebook_paths(argv[1:]):
     print(f"Lint notebook: {path}")
 
-    status = nb_linter.run(path, lint_dict)
+    status = nb_linter.run(path, lint_dict, user_args)
     if not status.is_success:
       linter_fails.append(path)
 

@@ -31,9 +31,8 @@ second_person_re = re.compile(r"\bwe\b", re.IGNORECASE)
 @lint(
     message="Prefer second person 'you' instead of 'we': https://developers.google.com/style/person",
     cond=Options.Cond.ALL)
-def second_person(source, cell, filepath):
-  del cell, filepath  # Unused by callback
-  if not second_person_re.search(source):
+def second_person(args):
+  if not second_person_re.search(args["cell_source"]):
     return True
   else:
     return False

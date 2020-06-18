@@ -76,14 +76,14 @@ class Linter:
 
     return data, source
 
-  def _run_lint_group(self, lint, data, status, path):
+  def _run_lint_group(self, lint, lint_args, data, status):
     """Run lint over all cells with scope and return cumulative pass/fail.
 
     Args:
       lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint_args: Nested dictionary of args to pass the lint callback function.
       data: `dict` containing data of entire parse notebook.
       status: The `LinterStatus` to add individual entries for group members.
-      path: `pathlib.Path` of notebook to pass to @lint defined callback.
 
     Returns:
       Boolean: True if lint passes for all/any cells, otherwise False.
@@ -102,9 +102,12 @@ class Linter:
       elif scope is decorator.Options.Scope.CODE and cell_type != "code":
         continue
 
+      # Add cell-specific data to args passed to lint callback.
+      lint_args["cell_data"] = cell
+      lint_args["cell_source"] = "".join(cell["source"])
+
       # Execute lint on cell and collect result.
-      source = "".join(cell["source"])
-      is_success = lint.run(source, cell, path)
+      is_success = lint.run(lint_args)
       is_success_list.append(is_success)
 
       # All lint runs get a status entry. Group success is a separate entry.
@@ -120,12 +123,13 @@ class Linter:
     else:
       raise Exception("Unsupported lint condition.")
 
-  def run(self, path, lint_dict):
+  def run(self, path, lint_dict, user_args_dict):
     """Multiple hooks provided to run tests at specific points.
 
     Args:
       path: `pathlib.Path` of notebook to run lints against.
       lint_dict: A dictionary containing the lint styles.
+      user_args_dict: Dictionary of user-defined args passed to lint callback.
 
     Returns:
       LinterStatus: Provides status and reporting of lint tests for a notebook.
@@ -134,13 +138,23 @@ class Linter:
     if not data:
       return False
 
+    # Args passed to lint callback function.
+    lint_args = {
+        "cell_data": None,  # Added per-cell in _run_lint_group.
+        "cell_source": None,  # Added per-cell in _run_lint_group.
+        "file_data": data,
+        "file_source": source,
+        "path": path,
+        "user": user_args_dict
+    }
+
     status = LinterStatus(path, verbose=self.verbose)
 
     # File-level scope.
     # Lint run once for the file.
     for lint in lint_dict[decorator.Options.Scope.FILE][
         decorator.Options.Cond.ANY]:
-      is_success = lint.run(source, data, path)
+      is_success = lint.run(lint_args)
       status.add_entry(lint, is_success)
 
     # Cell-level scope.
@@ -152,7 +166,7 @@ class Linter:
       for cond in decorator.Options.Cond:
         lints = lint_dict[scope][cond]
         for lint in lints:
-          is_success = self._run_lint_group(lint, data, status, path)
+          is_success = self._run_lint_group(lint, lint_args, data, status)
           status.add_entry(lint, is_success, group=lint.name)
 
     return status
