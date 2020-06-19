@@ -159,7 +159,7 @@ def add_styles(styles, verbose):
   return lint_dict
 
 
-def parse_user_args(args_list):
+def _parse_user_args(args_list):
   """Parse user-defined arguments passed at command-line.
 
   Args:
@@ -172,7 +172,16 @@ def parse_user_args(args_list):
   for arg_str in args_list:
     parts = arg_str.split(":", 1)
     key = parts[0]
-    val = parts[1] if len(parts) == 2 else True
+    # Command-line args are strings. If no value provided, use "True".
+    val = parts[1] if len(parts) == 2 else "True"
+    # Add basic string parsing into Python types.
+    if val.isdigit():
+      # Non-exhaustive numeric parsing, for convenience.
+      val = int(val)
+    elif val.lower() == "true":
+      val = True
+    elif val.lower() == "false":
+      val = False
     args_dict[key] = val
   return args_dict
 
@@ -183,7 +192,7 @@ def main(argv):
   if not FLAGS.styles:
     raise app.UsageError("Missing styles.", 1)
 
-  user_args = parse_user_args(FLAGS.arg)
+  user_args = _parse_user_args(FLAGS.arg)
 
   nb_linter = linter.Linter(verbose=FLAGS.verbose)
   lint_dict = add_styles(FLAGS.styles, FLAGS.verbose)

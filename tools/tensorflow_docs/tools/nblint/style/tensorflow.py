@@ -31,6 +31,8 @@ Lint callback functions are passed an `args` dict with the following entries:
   file_source: String of notebook content
   path: Filepath of notebook
   user: Dict of args passed at the command-line
+
+Write to `sys.stderr` to print lint messages in the final status summary.
 """
 import re
 

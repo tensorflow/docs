@@ -25,11 +25,14 @@ associated with a single notebook file. It maintains the pass/fail state for
 each lint test on the file. Additionally, `LinterStatus` implements the
 formatting required to print the report that the console.
 """
-
+import contextlib
+import io
 import json
+import pathlib
 import sys
 import textwrap
-import typing
+
+from typing import List, NamedTuple, Optional, Set
 
 from tensorflow_docs.tools.nblint import decorator
 
@@ -76,6 +79,25 @@ class Linter:
 
     return data, source
 
+  def _run_lint(self, lint, lint_args, status):
+    """Run lint and capture any stderr output for the status display.
+
+    Args:
+      lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint_args: Nested dictionary of args to pass the lint callback function.
+      status: The `LinterStatus` to add individual entries for group members.
+
+    Returns:
+      Boolean: True if lint passes for all/any cells, otherwise False.
+    """
+    f = io.StringIO()
+    with contextlib.redirect_stderr(f):
+      is_success = lint.run(lint_args)
+    str_out = f.getvalue()
+    if str_out:
+      status.log_lint_message(str_out, lint)  # Will dedup
+    return is_success
+
   def _run_lint_group(self, lint, lint_args, data, status):
     """Run lint over all cells with scope and return cumulative pass/fail.
 
@@ -107,7 +129,7 @@ class Linter:
       lint_args["cell_source"] = "".join(cell["source"])
 
       # Execute lint on cell and collect result.
-      is_success = lint.run(lint_args)
+      is_success = self._run_lint(lint, lint_args, status)
       is_success_list.append(is_success)
 
       # All lint runs get a status entry. Group success is a separate entry.
@@ -154,7 +176,7 @@ class Linter:
     # Lint run once for the file.
     for lint in lint_dict[decorator.Options.Scope.FILE][
         decorator.Options.Cond.ANY]:
-      is_success = lint.run(lint_args)
+      is_success = self._run_lint(lint, lint_args, status)
       status.add_entry(lint, is_success)
 
     # Cell-level scope.
@@ -194,7 +216,7 @@ class LinterStatus:
       otherwise False.
   """
 
-  class LintStatusEntry(typing.NamedTuple):
+  class LintStatusEntry(NamedTuple):
     """Represents the status of a lint tested against a single section.
 
     Depending on the scope of the lint, one lint can create multiple
@@ -219,13 +241,16 @@ class LinterStatus:
     lint: decorator.Lint
     is_success: bool
     name: str
-    group: typing.Optional[str]
+    group: Optional[str]
     is_group_entry: bool
 
-  def __init__(self, path, verbose=False):
-    self.path = path
-    self.verbose = verbose
-    self._status_list = []  # Contains all status entries.
+  def __init__(self, path: pathlib.Path, verbose: bool = False) -> None:
+    self.path: pathlib.Path = path
+    self.verbose: bool = verbose
+    # Contains all status entries.
+    self._status_list: List[self.LintStatusEntry] = []
+    # Deduplicated stderr messages printed within lint functions.
+    self._lint_messages: Set[str] = set()
 
   def add_entry(self,
                 lint,
@@ -262,6 +287,29 @@ class LinterStatus:
         status = False
         break
     return status
+
+  def log_lint_message(self, msg, lint):
+    """Add message to lint message queue.
+
+    Args:
+      msg: String message captured from stderr.
+      lint: `decorator.Lint` associated with this message.
+    """
+    prefix = f"\033[33m[{lint.style}::{lint.name}]\033[00m"  # Yellow
+    self._lint_messages.add(f"{prefix} {msg}")
+
+  def _format_lint_messages(self):
+    """Pretty-print stderr messages logged from within lint functions.
+
+    Returns:
+      String: Contains list of stderr messages.
+    """
+    output_str = ""
+    if self._lint_messages:
+      output_str += "\nLint log:\n"
+      for msg in self._lint_messages:
+        output_str += msg
+    return output_str
 
   def _format_status(self, entry):
     """Pretty-print an entry status for console (with color).
@@ -320,5 +368,8 @@ class LinterStatus:
           output += f"- {self._format_status(child)} | {child.name}\n"
 
         output += "\n"
+
+    # Print any stderror messages from within lint functions.
+    output += self._format_lint_messages()
 
     return output
