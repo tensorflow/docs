@@ -25,12 +25,12 @@ associated with a single notebook file. It maintains the pass/fail state for
 each lint test on the file. Additionally, `LinterStatus` implements the
 formatting required to print the report that the console.
 """
-import contextlib
 import io
 import json
 import pathlib
 import sys
 import textwrap
+import traceback
 
 from typing import List, NamedTuple, Optional, Set
 
@@ -89,14 +89,25 @@ class Linter:
 
     Returns:
       Boolean: True if lint passes for all/any cells, otherwise False.
+      String: Optional message for a conditional failure.
     """
-    f = io.StringIO()
-    with contextlib.redirect_stderr(f):
+    cond_fail_msg = None
+    try:
       is_success = lint.run(lint_args)
-    str_out = f.getvalue()
-    if str_out:
-      status.log_lint_message(str_out, lint)  # Will dedup
-    return is_success
+    except decorator.LintFailError as err:
+      is_success = False
+      if err.always_show:
+        # Grab stack trace and carry on.
+        f = io.StringIO()
+        traceback.print_exc(file=f)
+        trace = f.getvalue()
+        # Add any non-conditional failure messages to queue. Will de-dup.
+        status.log_lint_message(err.message, lint, verbose_msg=trace)
+      else:
+        # Defer logging a conditional message until the group status is known.
+        cond_fail_msg = err.message
+
+    return is_success, cond_fail_msg
 
   def _run_lint_group(self, lint, lint_args, data, status):
     """Run lint over all cells with scope and return cumulative pass/fail.
@@ -113,8 +124,11 @@ class Linter:
     Raises:
       Exception: Unsupported lint condition in `decorator.Options.Cond`.
     """
-    scope = lint.scope
-    is_success_list = []  # Collect for each (scoped) cell in notebook.
+    scope: decorator.Options.Scope = lint.scope
+    # Return value of each (scoped) cell in notebook.
+    is_success_list: List[bool] = []
+    # All conditional failure messages from lint function (deduplicated).
+    cond_fail_message_list: Set[str] = set()
 
     for cell_idx, cell in enumerate(data.get("cells")):
       # Evict notebook cells outside of scope.
@@ -129,8 +143,10 @@ class Linter:
       lint_args["cell_source"] = "".join(cell["source"])
 
       # Execute lint on cell and collect result.
-      is_success = self._run_lint(lint, lint_args, status)
+      is_success, cond_fail_msg = self._run_lint(lint, lint_args, status)
       is_success_list.append(is_success)
+      if cond_fail_msg:
+        cond_fail_message_list.add(cond_fail_msg)
 
       # All lint runs get a status entry. Group success is a separate entry.
       name = f"{lint.name}__cell_{cell_idx}"
@@ -139,9 +155,9 @@ class Linter:
 
     # Return True/False success for entire cell group.
     if lint.cond is decorator.Options.Cond.ANY:
-      return any(is_success_list)
+      return any(is_success_list), cond_fail_message_list
     elif lint.cond is decorator.Options.Cond.ALL:
-      return all(is_success_list)
+      return all(is_success_list), cond_fail_message_list
     else:
       raise Exception("Unsupported lint condition.")
 
@@ -176,7 +192,7 @@ class Linter:
     # Lint run once for the file.
     for lint in lint_dict[decorator.Options.Scope.FILE][
         decorator.Options.Cond.ANY]:
-      is_success = self._run_lint(lint, lint_args, status)
+      is_success, _ = self._run_lint(lint, lint_args, status)
       status.add_entry(lint, is_success)
 
     # Cell-level scope.
@@ -188,8 +204,18 @@ class Linter:
       for cond in decorator.Options.Cond:
         lints = lint_dict[scope][cond]
         for lint in lints:
-          is_success = self._run_lint_group(lint, lint_args, data, status)
+          is_success, cond_fail_msgs = self._run_lint_group(
+              lint, lint_args, data, status)
           status.add_entry(lint, is_success, group=lint.name)
+          if not is_success:
+            # Once group status is known, log any conditional messages.
+            for msg in cond_fail_msgs:
+              # Grab stack trace and carry on.
+              f = io.StringIO()
+              traceback.print_exc(file=f)
+              trace = f.getvalue()
+              # Add any non-conditional failure messages to queue. Will de-dup.
+              status.log_lint_message(msg, lint, verbose_msg=trace)
 
     return status
 
@@ -288,15 +314,22 @@ class LinterStatus:
         break
     return status
 
-  def log_lint_message(self, msg, lint):
+  def log_lint_message(self,
+                       msg: str,
+                       lint: decorator.Lint,
+                       verbose_msg: Optional[str] = None) -> None:
     """Add message to lint message queue.
 
     Args:
       msg: String message captured from stderr.
       lint: `decorator.Lint` associated with this message.
+      verbose_msg: String to add to next line, displayed with `--verbose` flag.
     """
     prefix = f"\033[33m[{lint.style}::{lint.name}]\033[00m"  # Yellow
-    self._lint_messages.add(f"{prefix} {msg}")
+    log_line = f"{prefix} {msg}"
+    if self.verbose and verbose_msg:
+      log_line += f"\n{verbose_msg}"
+    self._lint_messages.add(log_line)
 
   def _format_lint_messages(self):
     """Pretty-print stderr messages logged from within lint functions.
@@ -308,7 +341,7 @@ class LinterStatus:
     if self._lint_messages:
       output_str += "\nLint log:\n"
       for msg in self._lint_messages:
-        output_str += msg
+        output_str += (msg + "\n")
     return output_str
 
   def _format_status(self, entry):

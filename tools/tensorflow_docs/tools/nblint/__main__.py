@@ -211,6 +211,8 @@ def main(argv):
   if linter_fails:
     _print_fails(linter_fails)
     sys.exit(1)
+  else:
+    sys.exit(0)
 
 
 if __name__ == "__main__":

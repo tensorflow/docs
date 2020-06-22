@@ -40,6 +40,8 @@ module is imported into the `Linter`, the `Lint` object is extracted.
 import enum
 import functools
 
+from typing import Optional
+
 
 class Options:
   """Options to define the condition and scope of a @lint defined assertion."""
@@ -121,3 +123,45 @@ def lint(fn=None, *, message=None, scope=None, cond=None):
   # Attach to function object to access when importing the style module.
   setattr(wrapper, "_lint", Lint(fn, scope, cond, message))
   return wrapper
+
+
+class LintFailError(Exception):
+  """Exception raised for lint failure with optional message.
+
+    Attributes:
+      message: String message to add to status log.
+      always_show: Boolean if failure message should display in status,
+        regardless if larger conditional met.
+  """
+
+  def __init__(self, message: str = "Lint failure", always_show: bool = False):
+    self.message: str = message
+    self.always_show: bool = always_show
+    super().__init__(self.message)
+
+
+def fail(message: Optional[str] = None, always_show: bool = False) -> None:
+  """Signal within a @lint function that the test fails.
+
+  While sufficient to simply return False from a failing @lint function, this
+  function can add a message to the status log to provide the user additional
+  context. Stack trace available with `--verbose` flag.
+
+  Failure messages come in two flavors:
+  - conditional: (Default) While this test may fail here, it may succeed
+    elsewhere, and thus, the larger condition passes and do not dislay this
+    message.
+  - non-conditional (always show): Regardless if the larger condition is met,
+    display this error message in the status report. For example, a
+    configuration error should always display, even if the test succeeds
+    elsewhere.
+
+  Args:
+    message: String message to add to status log.
+    always_show: Boolean if failure message should display in status, reguardles
+      if larger conditional met.
+
+  Raises:
+    LintFailError: Lint failure with optional message.
+  """
+  raise LintFailError(message, always_show)
