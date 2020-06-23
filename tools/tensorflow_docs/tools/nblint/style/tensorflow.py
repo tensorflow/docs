@@ -102,6 +102,7 @@ def split_doc_path(filepath):
     pathlib.Path: The path of the doc root prefix directory., if applicable.
     pathlib.Path: The relative path to notebook from the prefix directory.
   """
+  fp_full = filepath.resolve()  # Check full path for sub-elements.
 
   def split_path_on_dir(fp, dirname, offset=1):
     parts = fp.parts
@@ -110,17 +111,17 @@ def split_doc_path(filepath):
     rel_path = fp.relative_to(*parts[:idx + offset])
     return docs_dir, rel_path
 
-  if "site" in filepath.parts:
-    return split_path_on_dir(filepath, "site", offset=2)  # site/<lang>/
-  elif "docs" in filepath.parts:
-    return split_path_on_dir(filepath, "docs")
-  elif "g3doc" in filepath.parts:
-    idx = filepath.parts.index("g3doc")
-    if filepath.parts[idx + 1] == "en":
+  if "site" in fp_full.parts:
+    return split_path_on_dir(fp_full, "site", offset=2)  # site/<lang>/
+  elif "docs" in fp_full.parts:
+    return split_path_on_dir(fp_full, "docs")
+  elif "g3doc" in fp_full.parts:
+    idx = fp_full.parts.index("g3doc")
+    if fp_full.parts[idx + 1] == "en":
       offset = 2
     else:
       offset = 1
-    return split_path_on_dir(filepath, "g3doc", offset=offset)
+    return split_path_on_dir(fp_full, "g3doc", offset=offset)
   else:
     # Unknown setup. Return empty root and unsplit path.
     return pathlib.Path(), filepath
