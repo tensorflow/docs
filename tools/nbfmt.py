@@ -201,7 +201,7 @@ def main(argv):
       files.extend(path.rglob("*.ipynb"))
     else:
       found_error = True
-      warn(f"Bad arg: {str(path)}")
+      warn(f"Invalid file or directory: {str(path)}")
 
   for fp in files:
     print(f"Notebook: {fp}", file=sys.stderr)
