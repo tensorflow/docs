@@ -53,13 +53,15 @@ def is_translation(args):
     return True
 
 
-# Ignore download.tensorflow.org and Google Group URL (../a/tensorflow.org/..)
+# Catch tensorflow.org hostname usage in Chinese docs. Ignore false positives
+# for the Google Group (../a/tensorflow.org/..), email (docs*@tensorflow.org),
+# and subdomains like (download|js).tensorflow.org.
 has_tf_hostname_re = re.compile(
-    r"(?<!download\.)(?<!/a/)(www\.)?tensorflow\.org")
+    r"(?<!/a/)(?<!@)(?<!download\.)(?<!js\.)(www\.)?tensorflow\.org")
 
 
 @lint(
-    message="Replace 'www.tensorflow.org' with 'tensorflow.google.cn' in Chinese docs.",
+    message="Replace 'www.tensorflow.org' URL with 'tensorflow.google.cn' in Chinese docs.",
     scope=Options.Scope.TEXT,
     cond=Options.Cond.ALL)
 def china_hostname_url(args):
