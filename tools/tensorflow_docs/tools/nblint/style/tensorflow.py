@@ -220,3 +220,26 @@ def button_website(args):
     return True
   else:
     fail(f"'View on' button URL doesn't match pattern: {this_url}")
+
+
+@lint(
+    message="Remove extra buttons from TF 1.x docs.",
+    scope=Options.Scope.TEXT,
+    cond=Options.Cond.ALL)
+def button_r1_extra(args):
+  """The r1/ docs should not have website or download buttons."""
+  cell_source = args["cell_source"]
+  _, rel_path = split_doc_path(args["path"])
+
+  # Only test r1/ notebooks. Only check cells that contain the button nav bar.
+  if "r1" not in rel_path.parts or not is_button_cell_re.search(cell_source):
+    return True
+
+  # Look for unwanted button labels.
+  if (cell_source.find("View on TensorFlow.org") != -1 or
+      cell_source.find("Download notebook")) != -1:
+    fail(
+        "Remove the 'View on' and 'Download notebook' buttons since r1/ docs aren't published."
+    )
+  else:
+    return True
