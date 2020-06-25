@@ -36,6 +36,7 @@ Lint callback functions are passed an `args` dict with the following entries:
 """
 import pathlib
 import re
+import urllib
 
 from tensorflow_docs.tools.nblint.decorator import fail
 from tensorflow_docs.tools.nblint.decorator import lint
@@ -78,6 +79,26 @@ def not_translation(args):
 # Button checks
 
 is_button_cell_re = re.compile(r"class.*tfo-notebook-buttons")
+
+
+def get_arg_or_fail(user_args, arg_name, arg_fmt):
+  """Get value of the user-defined arg passed at the command-line.
+
+  Args:
+    user_args: Dict containing user-defined args passed at command-line.
+    arg_name: String name of user-defined arg.
+    arg_fmt: String format of expected user-defined arg.
+
+  Returns:
+    Value of arg passed to command-line. If the arg does not exist, raise a
+    failure, log a message, and skip the lint function.
+  """
+  if arg_name in user_args:
+    return user_args.get(arg_name)
+  else:
+    fail(
+        f"Requires user-argument '{arg_name}': nblint --arg={arg_name}:{arg_fmt} ...",
+        always_show=True)
 
 
 def split_doc_path(filepath):
@@ -134,19 +155,14 @@ def split_doc_path(filepath):
 def button_colab(args):
   """Test that the URL in the Colab button matches the file path."""
   cell_source = args["cell_source"]
-  repo_name = args["user"].get("repo")  # User-defined arg
+  repo = get_arg_or_fail(args["user"], "repo", "<org/name>")
   docs_dir, rel_path = split_doc_path(args["path"])
 
-  if not repo_name:
-    fail(
-        "Requires user-argument 'repo': nblint --arg=repo:<org/name> ...",
-        always_show=True)
-
-  # Construct Colab URL based on location of this file in repo.
+  # Buttons use OSS URLs.
   if str(docs_dir) == "g3doc/en":
-    docs_dir = pathlib.Path("site/en")  # Test for OSS URLs.
+    docs_dir = pathlib.Path("site/en")
 
-  base_url = f"colab.research.google.com/github/{repo_name}/blob/master"
+  base_url = f"colab.research.google.com/github/{repo}/blob/master"
   this_url = "https://" + str(base_url / docs_dir / rel_path)
 
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
@@ -156,25 +172,48 @@ def button_colab(args):
 
 
 @lint(
+    message="Missing or malformed URL in Download button.",
+    scope=Options.Scope.TEXT,
+    cond=Options.Cond.ANY)
+def button_download(args):
+  """Test that the URL in the Download button matches the file path."""
+  cell_source = args["cell_source"]
+  repo = get_arg_or_fail(args["user"], "repo", "<org/name>")
+  repo_name = pathlib.Path(repo.split("/")[1])
+  docs_dir, rel_path = split_doc_path(args["path"])
+
+  if "r1" in rel_path.parts:
+    return True  # No download button for TF 1.x docs.
+
+  # Buttons use OSS URLs.
+  if str(docs_dir) == "g3doc/en":
+    docs_dir = pathlib.Path("site/en")
+
+  this_url = urllib.parse.urljoin(
+      "https://storage.googleapis.com",
+      str(f"tensorflow_docs/{repo_name}" / docs_dir / rel_path))
+
+  if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
+    return True
+  else:
+    fail(f"Download button URL doesn't match: {this_url}")
+
+
+@lint(
     message="Missing or malformed URL in GitHub button.",
     scope=Options.Scope.TEXT,
     cond=Options.Cond.ANY)
 def button_github(args):
   """Test that the URL in the GitHub button matches the file path."""
   cell_source = args["cell_source"]
-  repo_name = args["user"].get("repo")  # User-defined arg
+  repo = get_arg_or_fail(args["user"], "repo", "<org/name>")
   docs_dir, rel_path = split_doc_path(args["path"])
 
-  if not repo_name:
-    fail(
-        "Requires user-argument 'repo': nblint --arg=repo:<org/name> ...",
-        always_show=True)
-
-  # Construct GitHub URL based on location of this file in repo.
+  # Buttons use OSS URLs.
   if str(docs_dir) == "g3doc/en":
-    docs_dir = pathlib.Path("site/en")  # Test for OSS URLs.
+    docs_dir = pathlib.Path("site/en")
 
-  base_url = f"github.com/{repo_name}/blob/master"
+  base_url = f"github.com/{repo}/blob/master"
   this_url = "https://" + str(base_url / docs_dir / rel_path)
 
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
@@ -204,15 +243,14 @@ def button_website(args):
   docs_dir, rel_path = split_doc_path(args["path"])
 
   if "r1" in rel_path.parts:
-    # No button since TF 1.x docs are not published on website.
-    return True
+    return True  # No website button for TF 1.x docs.
 
   if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
     base_url = "https://tensorflow.google.cn/"
   else:
     base_url = "https://www.tensorflow.org/"
 
-  # Construct website URL patterb based on location of this file in repo.
+  # Construct website URL pattern based on location of this file in repo.
   url_path = rel_path.with_suffix("")
   this_url = f"{base_url}.*{url_path}"
 
@@ -229,17 +267,26 @@ def button_website(args):
 def button_r1_extra(args):
   """The r1/ docs should not have website or download buttons."""
   cell_source = args["cell_source"]
-  _, rel_path = split_doc_path(args["path"])
+  docs_dir, rel_path = split_doc_path(args["path"])
 
-  # Only test r1/ notebooks. Only check cells that contain the button nav bar.
-  if "r1" not in rel_path.parts or not is_button_cell_re.search(cell_source):
+  # Only test r1/ notebooks.
+  if "r1" not in rel_path.parts:
+    return True
+  # Only check text cells that contain the button nav bar.
+  if not is_button_cell_re.search(cell_source):
     return True
 
-  # Look for unwanted button labels.
-  if (cell_source.find("View on TensorFlow.org") != -1 or
-      cell_source.find("Download notebook")) != -1:
+  download_url = "https://storage.googleapis.com/tensorflow_docs/"
+  if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
+    base_url = "https://tensorflow.google.cn/"
+  else:
+    base_url = "https://www.tensorflow.org/"
+
+  # Look for button URLs that shouldn't be there..
+  if (re.search(f"{base_url}/(?!images)", cell_source) or
+      cell_source.find(download_url) != -1):
     fail(
-        "Remove the 'View on' and 'Download notebook' buttons since r1/ docs aren't published."
+        "Remove the 'View on' and 'Download notebook' buttons since r1/ docs are not published."
     )
   else:
     return True
