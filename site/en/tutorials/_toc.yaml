@@ -133,6 +133,9 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
+  - title: "Fine tuning BERT"
+    status: New
+    path: /official_models/fine_tuning_bert
 
 - title: "Structured data"
   style: accordion
