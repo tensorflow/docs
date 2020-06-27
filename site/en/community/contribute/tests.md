@@ -177,7 +177,7 @@ synchronization constructs such as mutexes.
 Flakes cause buildcops and developers to lose many hours. They are difficult to
 detect, and they are difficult to debug. Even though there are automated systems
 to detect flakiness, they need to accumulate hundreds of test runs before they
-can accurately blacklist tests. Even when they detect, they blacklist your tests
+can accurately denylist tests. Even when they detect, they denylist your tests
 and test coverage is lost. Therefore, test authors should check if their tests
 are flaky when writing tests. This can be easily done by running your test with
 the flag: `--runs_per_test=1000`

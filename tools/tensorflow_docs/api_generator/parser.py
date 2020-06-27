@@ -111,10 +111,10 @@ class _FileLocation(object):
     self.start_line = start_line
     self.end_line = end_line
 
-    github_master_re = 'github.com.*?(blob|tree)/master'
+    github_main_re = 'github.com.*?(blob|tree)/master'
     suffix = ''
-    # Only attach a line number for github URLs that are not using "master"
-    if self.start_line and not re.search(github_master_re, self.url):
+    # Only attach a line number for github URLs that are not using "main"
+    if self.start_line and not re.search(github_main_re, self.url):
       if 'github.com' in self.url:
         suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
             start_line=self.start_line, end_line=self.end_line)
@@ -500,8 +500,8 @@ class ReferenceResolver(object):
     code_re = '`(.*?)`'
     return re.sub(code_re, r'<code>\1</code>', link_text)
 
-  def py_master_name(self, full_name):
-    """Return the master name for a Python symbol name."""
+  def py_main_name(self, full_name):
+    """Return the main name for a Python symbol name."""
     return self._duplicate_of.get(full_name, full_name)
 
   def reference_to_url(self, ref_full_name, relative_path_to_root):
@@ -530,18 +530,18 @@ class ReferenceResolver(object):
     """
     if self._is_fragment.get(ref_full_name, False):
       # methods and constants get duplicated. And that's okay.
-      # Use the master name of their parent.
+      # Use the main name of their parent.
       parent_name, short_name = ref_full_name.rsplit('.', 1)
-      parent_master_name = self._duplicate_of.get(parent_name, parent_name)
-      master_name = '.'.join([parent_master_name, short_name])
+      parent_main_name = self._duplicate_of.get(parent_name, parent_name)
+      main_name = '.'.join([parent_main_name, short_name])
     else:
-      master_name = self._duplicate_of.get(ref_full_name, ref_full_name)
+      main_name = self._duplicate_of.get(ref_full_name, ref_full_name)
 
     # Check whether this link exists
-    if master_name not in self._all_names:
-      raise TFDocsError(f'Cannot make link to {master_name!r}: Not in index.')
+    if main_name not in self._all_names:
+      raise TFDocsError(f'Cannot make link to {main_name!r}: Not in index.')
 
-    ref_path = documentation_path(master_name, self._is_fragment[master_name])
+    ref_path = documentation_path(main_name, self._is_fragment[main_name])
     return os.path.join(relative_path_to_root, ref_path)
 
   def _one_ref(self, match, relative_path_to_root, full_name=None):
@@ -1496,7 +1496,7 @@ class PageInfo(object):
   Converted to markdown by pretty_docs.py.
 
   Attributes:
-    full_name: The full, master name, of the object being documented.
+    full_name: The full, main name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
     defined_in: A _FileLocation describing where the object was defined.
@@ -1509,7 +1509,7 @@ class PageInfo(object):
     """Initialize a PageInfo.
 
     Args:
-      full_name: The full, master name, of the object being documented.
+      full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
     """
     self.full_name = full_name
@@ -1567,7 +1567,7 @@ class FunctionPageInfo(PageInfo):
   """Collects docs For a function Page.
 
   Attributes:
-    full_name: The full, master name, of the object being documented.
+    full_name: The full, main name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
     defined_in: A _FileLocation describing where the object was defined.
@@ -1582,7 +1582,7 @@ class FunctionPageInfo(PageInfo):
     """Initialize a FunctionPageInfo.
 
     Args:
-      full_name: The full, master name, of the object being documented.
+      full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
     """
     super(FunctionPageInfo, self).__init__(full_name, py_object)
@@ -1623,7 +1623,7 @@ class TypeAliasPageInfo(PageInfo):
   """Collects docs For a type alias page.
 
   Attributes:
-    full_name: The full, master name, of the object being documented.
+    full_name: The full, main name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
     defined_in: A _FileLocation describing where the object was defined.
@@ -1638,7 +1638,7 @@ class TypeAliasPageInfo(PageInfo):
     """Initialize a `TypeAliasPageInfo`.
 
     Args:
-      full_name: The full, master name, of the object being documented.
+      full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
     """
 
@@ -1672,7 +1672,7 @@ class ClassPageInfo(PageInfo):
   """Collects docs for a class page.
 
   Attributes:
-    full_name: The full, master name, of the object being documented.
+    full_name: The full, main name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
     defined_in: A _FileLocation describing where the object was defined.
@@ -1695,7 +1695,7 @@ class ClassPageInfo(PageInfo):
     """Initialize a ClassPageInfo.
 
     Args:
-      full_name: The full, master name, of the object being documented.
+      full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
     """
     super(ClassPageInfo, self).__init__(full_name, py_object)
@@ -1986,7 +1986,7 @@ class ModulePageInfo(PageInfo):
   """Collects docs for a module page.
 
   Attributes:
-    full_name: The full, master name, of the object being documented.
+    full_name: The full, main name, of the object being documented.
     short_name: The last part of the full name.
     py_object: The object being documented.
     defined_in: A _FileLocation describing where the object was defined.
@@ -2009,7 +2009,7 @@ class ModulePageInfo(PageInfo):
     """Initialize a `ModulePageInfo`.
 
     Args:
-      full_name: The full, master name, of the object being documented.
+      full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
     """
     super(ModulePageInfo, self).__init__(full_name, py_object)
@@ -2149,20 +2149,20 @@ def docs_for_object(full_name, py_object, parser_config):
   """
 
   # Which other aliases exist for the object referenced by full_name?
-  master_name = parser_config.reference_resolver.py_master_name(full_name)
-  duplicate_names = parser_config.duplicates.get(master_name, [])
-  if master_name in duplicate_names:
-    duplicate_names.remove(master_name)
+  main_name = parser_config.reference_resolver.py_main_name(full_name)
+  duplicate_names = parser_config.duplicates.get(main_name, [])
+  if main_name in duplicate_names:
+    duplicate_names.remove(main_name)
 
   obj_type = get_obj_type(py_object)
   if obj_type is ObjType.CLASS:
-    page_info = ClassPageInfo(master_name, py_object)
+    page_info = ClassPageInfo(main_name, py_object)
   elif obj_type is ObjType.CALLABLE:
-    page_info = FunctionPageInfo(master_name, py_object)
+    page_info = FunctionPageInfo(main_name, py_object)
   elif obj_type is ObjType.MODULE:
-    page_info = ModulePageInfo(master_name, py_object)
+    page_info = ModulePageInfo(main_name, py_object)
   elif obj_type is ObjType.TYPE_ALIAS:
-    page_info = TypeAliasPageInfo(master_name, py_object)
+    page_info = TypeAliasPageInfo(main_name, py_object)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
 
@@ -2304,7 +2304,7 @@ def generate_global_index(library_name, index, reference_resolver):
   lines = [f'# All symbols in {library_name}', '']
 
   # Sort all the symbols once, so that the ordering is preserved when its broken
-  # up into master symbols and compat symbols and sorting the sublists is not
+  # up into main symbols and compat symbols and sorting the sublists is not
   # required.
   symbol_links = sorted(symbol_links, key=lambda x: x[0])
 

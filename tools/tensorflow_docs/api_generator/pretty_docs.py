@@ -548,7 +548,7 @@ def _build_module_page(page_info: parser.ModulePageInfo,
   return ''.join(parts)
 
 
-DECORATOR_WHITELIST = {
+DECORATOR_ALLOWLIST = {
     'classmethod',
     'staticmethod',
     'tf_contextlib.contextmanager',
@@ -597,7 +597,7 @@ def _build_signature(obj_info: parser.PageInfo,
   if hasattr(obj_info, 'decorators'):
     parts.extend([
         f'<code>@{dec}</code>' for dec in obj_info.decorators
-        if dec in DECORATOR_WHITELIST
+        if dec in DECORATOR_ALLOWLIST
     ])
 
   if type_alias:

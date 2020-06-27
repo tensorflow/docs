@@ -150,17 +150,17 @@ class DocGeneratorVisitor(object):
     This object accumulates the various data-structures necessary to build the
     docs, including (see the property definitions for details.):
 
-    In the decsription below "master name" is the object's preferred fully
+    In the decsription below "main name" is the object's preferred fully
     qualified name.
 
     Params:
-      index: A mapping from master names to python python objects.
-      tree: A mapping from master names to a list if attribute names.
-      reverse_index: Mapping from python object ids to master names.
+      index: A mapping from main names to python python objects.
+      tree: A mapping from main names to a list if attribute names.
+      reverse_index: Mapping from python object ids to main names.
         Note that this doesn't work for python numbers, strings or tuples.
       duplicate_of: A mapping from a fully qualified names to the object's
-        master name. The master names are not included as keys.
-      duplicates: A mapping from master names to lists of other fully qualified
+        main name. The main names are not included as keys.
+      duplicates: A mapping from main names to lists of other fully qualified
         names for the object.
     """
     self._index = {}
@@ -227,15 +227,15 @@ class DocGeneratorVisitor(object):
   def duplicates(self):
     """A map from preferred full names to a list of all names for this symbol.
 
-    This function returns a map from preferred (master) name for a symbol to a
-    lexicographically sorted list of all aliases for that name (incl. the master
+    This function returns a map from preferred (main) name for a symbol to a
+    lexicographically sorted list of all aliases for that name (incl. the main
     name). Symbols without duplicate names do not appear in this map.
 
     It is computed when it, `reverse_index`, or `duplicate_of` are first
     accessed.
 
     Returns:
-      The map from master name to list of all duplicate names.
+      The map from main name to list of all duplicate names.
     """
     self._maybe_find_duplicates()
     return self._duplicates
@@ -345,14 +345,14 @@ class DocGeneratorVisitor(object):
   def _maybe_find_duplicates(self):
     """Compute data structures containing information about duplicates.
 
-    Find duplicates in `index` and decide on one to be the "master" name.
+    Find duplicates in `index` and decide on one to be the "main" name.
 
-    Computes a reverse_index mapping each object id to its master name.
+    Computes a reverse_index mapping each object id to its main name.
 
-    Also computes a map `duplicate_of` from aliases to their master name (the
-    master name itself has no entry in this map), and a map `duplicates` from
-    master names to a lexicographically sorted list of all aliases for that name
-    (incl. the master name).
+    Also computes a map `duplicate_of` from aliases to their main name (the
+    main name itself has no entry in this map), and a map `duplicates` from
+    main names to a lexicographically sorted list of all aliases for that name
+    (incl. the main name).
 
     All these are computed and set as fields if they haven't already.
     """
@@ -365,8 +365,8 @@ class DocGeneratorVisitor(object):
     # objects in _index are in memory at the same time so this is safe.
     reverse_index = {}
 
-    # Decide on master names, rewire duplicates and make a duplicate_of map
-    # mapping all non-master duplicates to the master name. The master symbol
+    # Decide on main names, rewire duplicates and make a duplicate_of map
+    # mapping all non-main duplicates to the main name. The main symbol
     # does not have an entry in this map.
     duplicate_of = {}
 
@@ -390,20 +390,20 @@ class DocGeneratorVisitor(object):
       names = [alias.full_name for alias in aliases]
 
       names = sorted(names)
-      # Choose the master name with a lexical sort on the tuples returned by
+      # Choose the main name with a lexical sort on the tuples returned by
       # by _score_name.
-      master_name = min(names, key=self._score_name)
+      main_name = min(names, key=self._score_name)
 
       if names:
-        duplicates[master_name] = list(names)
+        duplicates[main_name] = list(names)
 
-      names.remove(master_name)
+      names.remove(main_name)
       for name in names:
-        duplicate_of[name] = master_name
+        duplicate_of[name] = main_name
 
       # Set the reverse index to the canonical name.
       if not maybe_singleton(py_object):
-        reverse_index[object_id] = master_name
+        reverse_index[object_id] = main_name
 
     self._duplicate_of = duplicate_of
     self._duplicates = duplicates
