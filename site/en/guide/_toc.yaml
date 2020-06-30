@@ -29,6 +29,9 @@ toc:
   path: /guide/tensor
 - title: "Automatic differentiation"
   path: /guide/autodiff
+- title: "Advanced auto-diff"
+  path: /guide/advanced_autodiff
+  status: new
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Create an op"
