@@ -47,11 +47,11 @@ flags.DEFINE_bool(
     "- If `True`: Set the notebook to keep outputs.\n"
     "- If `False`: Set the notebook to clear outputs.\n"
     "- If unset (`None`): keep the notebook's current setting.\n"
-    "  - If it's not set in the notebook, set the notebook to perserve outputs "
+    "  - If it's not set in the notebook, set the notebook to preserve outputs "
     "(to match the colab default).\n"
     "If a notebook is configured to clear outputs, this script will clear them "
     "when run.\n"
-    "Colab respects this setting. Juptyer does not.")
+    "Colab respects this setting. Jupyter does not.")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 flags.DEFINE_bool("test", False,
@@ -128,10 +128,15 @@ def clean_cells(data) -> None:
     cell_meta.pop("executionInfo", None)
     cell["metadata"] = cell_meta
 
+    # Clear any code cell outputs if notebook set to private outputs.
     if private_outputs and cell.get("outputs"):
       has_outputs = True
       # Clear code outputs
       cell["execution_count"] = 0
+      cell["outputs"] = []
+
+    # Ensure outputs field exists since part of the nbformat spec.
+    if cell.get("outputs", None) is None:
       cell["outputs"] = []
 
   if has_outputs:
@@ -196,7 +201,7 @@ def main(argv):
       files.extend(path.rglob("*.ipynb"))
     else:
       found_error = True
-      warn(f"Bad arg: {str(path)}")
+      warn(f"Invalid file or directory: {str(path)}")
 
   for fp in files:
     print(f"Notebook: {fp}", file=sys.stderr)

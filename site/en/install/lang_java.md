@@ -6,11 +6,17 @@ particularly useful for loading models created with Python and running them
 within a Java application.
 
 Note: There is no `libtensorflow` support for TensorFlow 2 yet. It is expected
-in a future release.
+in the 2.3 release. In the meantime please use nightly libtensorflow releases.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
+## Nightly Libtensorflow Java packages
+
+Libtensorflow JNI packages are built nightly and uploaded to GCS for all
+supported platforms. They are uploaded to the
+[libtensorflow-nightly GCS bucket](https://storage.googleapis.com/libtensorflow-nightly)
+and are indexed by operating system and date built.
 
 ## Supported Platforms
 

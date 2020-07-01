@@ -25,11 +25,14 @@ associated with a single notebook file. It maintains the pass/fail state for
 each lint test on the file. Additionally, `LinterStatus` implements the
 formatting required to print the report that the console.
 """
-
+import io
 import json
+import pathlib
 import sys
 import textwrap
-import typing
+import traceback
+
+from typing import List, NamedTuple, Optional, Set
 
 from tensorflow_docs.tools.nblint import decorator
 
@@ -76,14 +79,44 @@ class Linter:
 
     return data, source
 
-  def _run_lint_group(self, lint, data, status, path):
+  def _run_lint(self, lint, lint_args, status):
+    """Run lint and capture any stderr output for the status display.
+
+    Args:
+      lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint_args: Nested dictionary of args to pass the lint callback function.
+      status: The `LinterStatus` to add individual entries for group members.
+
+    Returns:
+      Boolean: True if lint passes for all/any cells, otherwise False.
+      String: Optional message for a conditional failure.
+    """
+    cond_fail_msg = None
+    try:
+      is_success = lint.run(lint_args)
+    except decorator.LintFailError as err:
+      is_success = False
+      if err.always_show:
+        # Grab stack trace and carry on.
+        f = io.StringIO()
+        traceback.print_exc(file=f)
+        trace = f.getvalue()
+        # Add any non-conditional failure messages to queue. Will de-dup.
+        status.log_lint_message(err.message, lint, verbose_msg=trace)
+      else:
+        # Defer logging a conditional message until the group status is known.
+        cond_fail_msg = err.message
+
+    return is_success, cond_fail_msg
+
+  def _run_lint_group(self, lint, lint_args, data, status):
     """Run lint over all cells with scope and return cumulative pass/fail.
 
     Args:
       lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint_args: Nested dictionary of args to pass the lint callback function.
       data: `dict` containing data of entire parse notebook.
       status: The `LinterStatus` to add individual entries for group members.
-      path: `pathlib.Path` of notebook to pass to @lint defined callback.
 
     Returns:
       Boolean: True if lint passes for all/any cells, otherwise False.
@@ -91,8 +124,11 @@ class Linter:
     Raises:
       Exception: Unsupported lint condition in `decorator.Options.Cond`.
     """
-    scope = lint.scope
-    is_success_list = []  # Collect for each (scoped) cell in notebook.
+    scope: decorator.Options.Scope = lint.scope
+    # Return value of each (scoped) cell in notebook.
+    is_success_list: List[bool] = []
+    # All conditional failure messages from lint function (deduplicated).
+    cond_fail_message_list: Set[str] = set()
 
     for cell_idx, cell in enumerate(data.get("cells")):
       # Evict notebook cells outside of scope.
@@ -102,10 +138,15 @@ class Linter:
       elif scope is decorator.Options.Scope.CODE and cell_type != "code":
         continue
 
+      # Add cell-specific data to args passed to lint callback.
+      lint_args["cell_data"] = cell
+      lint_args["cell_source"] = "".join(cell["source"])
+
       # Execute lint on cell and collect result.
-      source = "".join(cell["source"])
-      is_success = lint.run(source, cell, path)
+      is_success, cond_fail_msg = self._run_lint(lint, lint_args, status)
       is_success_list.append(is_success)
+      if cond_fail_msg:
+        cond_fail_message_list.add(cond_fail_msg)
 
       # All lint runs get a status entry. Group success is a separate entry.
       name = f"{lint.name}__cell_{cell_idx}"
@@ -114,18 +155,19 @@ class Linter:
 
     # Return True/False success for entire cell group.
     if lint.cond is decorator.Options.Cond.ANY:
-      return any(is_success_list)
+      return any(is_success_list), cond_fail_message_list
     elif lint.cond is decorator.Options.Cond.ALL:
-      return all(is_success_list)
+      return all(is_success_list), cond_fail_message_list
     else:
       raise Exception("Unsupported lint condition.")
 
-  def run(self, path, lint_dict):
+  def run(self, path, lint_dict, user_args_dict):
     """Multiple hooks provided to run tests at specific points.
 
     Args:
       path: `pathlib.Path` of notebook to run lints against.
       lint_dict: A dictionary containing the lint styles.
+      user_args_dict: Dictionary of user-defined args passed to lint callback.
 
     Returns:
       LinterStatus: Provides status and reporting of lint tests for a notebook.
@@ -134,13 +176,23 @@ class Linter:
     if not data:
       return False
 
+    # Args passed to lint callback function.
+    lint_args = {
+        "cell_data": None,  # Added per-cell in _run_lint_group.
+        "cell_source": None,  # Added per-cell in _run_lint_group.
+        "file_data": data,
+        "file_source": source,
+        "path": path,
+        "user": user_args_dict
+    }
+
     status = LinterStatus(path, verbose=self.verbose)
 
     # File-level scope.
     # Lint run once for the file.
     for lint in lint_dict[decorator.Options.Scope.FILE][
         decorator.Options.Cond.ANY]:
-      is_success = lint.run(source, data, path)
+      is_success, _ = self._run_lint(lint, lint_args, status)
       status.add_entry(lint, is_success)
 
     # Cell-level scope.
@@ -152,8 +204,18 @@ class Linter:
       for cond in decorator.Options.Cond:
         lints = lint_dict[scope][cond]
         for lint in lints:
-          is_success = self._run_lint_group(lint, data, status, path)
+          is_success, cond_fail_msgs = self._run_lint_group(
+              lint, lint_args, data, status)
           status.add_entry(lint, is_success, group=lint.name)
+          if not is_success:
+            # Once group status is known, log any conditional messages.
+            for msg in cond_fail_msgs:
+              # Grab stack trace and carry on.
+              f = io.StringIO()
+              traceback.print_exc(file=f)
+              trace = f.getvalue()
+              # Add any non-conditional failure messages to queue. Will de-dup.
+              status.log_lint_message(msg, lint, verbose_msg=trace)
 
     return status
 
@@ -180,7 +242,7 @@ class LinterStatus:
       otherwise False.
   """
 
-  class LintStatusEntry(typing.NamedTuple):
+  class LintStatusEntry(NamedTuple):
     """Represents the status of a lint tested against a single section.
 
     Depending on the scope of the lint, one lint can create multiple
@@ -205,13 +267,16 @@ class LinterStatus:
     lint: decorator.Lint
     is_success: bool
     name: str
-    group: typing.Optional[str]
+    group: Optional[str]
     is_group_entry: bool
 
-  def __init__(self, path, verbose=False):
-    self.path = path
-    self.verbose = verbose
-    self._status_list = []  # Contains all status entries.
+  def __init__(self, path: pathlib.Path, verbose: bool = False) -> None:
+    self.path: pathlib.Path = path
+    self.verbose: bool = verbose
+    # Contains all status entries.
+    self._status_list: List[self.LintStatusEntry] = []
+    # Deduplicated stderr messages printed within lint functions.
+    self._lint_messages: Set[str] = set()
 
   def add_entry(self,
                 lint,
@@ -248,6 +313,36 @@ class LinterStatus:
         status = False
         break
     return status
+
+  def log_lint_message(self,
+                       msg: str,
+                       lint: decorator.Lint,
+                       verbose_msg: Optional[str] = None) -> None:
+    """Add message to lint message queue.
+
+    Args:
+      msg: String message captured from stderr.
+      lint: `decorator.Lint` associated with this message.
+      verbose_msg: String to add to next line, displayed with `--verbose` flag.
+    """
+    prefix = f"\033[33m[{lint.style}::{lint.name}]\033[00m"  # Yellow
+    log_line = f"{prefix} {msg}"
+    if self.verbose and verbose_msg:
+      log_line += f"\n{verbose_msg}"
+    self._lint_messages.add(log_line)
+
+  def _format_lint_messages(self):
+    """Pretty-print stderr messages logged from within lint functions.
+
+    Returns:
+      String: Contains list of stderr messages.
+    """
+    output_str = ""
+    if self._lint_messages:
+      output_str += "\nLint log:\n"
+      for msg in self._lint_messages:
+        output_str += (msg + "\n")
+    return output_str
 
   def _format_status(self, entry):
     """Pretty-print an entry status for console (with color).
@@ -306,5 +401,8 @@ class LinterStatus:
           output += f"- {self._format_status(child)} | {child.name}\n"
 
         output += "\n"
+
+    # Print any stderror messages from within lint functions.
+    output += self._format_lint_messages()
 
     return output

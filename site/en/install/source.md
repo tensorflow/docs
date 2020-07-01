@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual environmen
 omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip six numpy wheel setuptools mock 'future>=0.17.1'</code>
+<code class="devsite-terminal">pip install -U --user pip six numpy<1.19.0 wheel setuptools mock 'future>=0.17.1'</code>
 <code class="devsite-terminal">pip install -U --user keras_applications --no-deps</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
@@ -435,6 +435,7 @@ Success: TensorFlow is now installed.
 <tr><td>tensorflow-2.2.0</td><td>3.5-3.8</td><td>GCC 7.3.1</td><td>Bazel 2.0.0</td></tr>
 <tr><td>tensorflow-2.1.0</td><td>2.7, 3.5-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.27.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td></tr>
+<tr><td>tensorflow-1.15.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td></tr>
 <tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td></tr>
 <tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td></tr>
@@ -459,6 +460,7 @@ Success: TensorFlow is now installed.
 <tr><td>tensorflow-2.2.0</td><td>3.5-3.8</td><td>GCC 7.3.1</td><td>Bazel 2.0.0</td><td>7.6</td><td>10.1</td></tr>
 <tr><td>tensorflow-2.1.0</td><td>2.7, 3.5-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.27.1</td><td>7.6</td><td>10.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.4</td><td>10.0</td></tr>
+<tr><td>tensorflow_gpu-1.15.0</td><td>2.7, 3.3-3.7</td><td>GCC 7.3.1</td><td>Bazel 0.26.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.14.0</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.24.1</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.13.1</td><td>2.7, 3.3-3.7</td><td>GCC 4.8</td><td>Bazel 0.19.2</td><td>7.4</td><td>10.0</td></tr>
 <tr><td>tensorflow_gpu-1.12.0</td><td>2.7, 3.3-3.6</td><td>GCC 4.8</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
@@ -486,6 +488,7 @@ Success: TensorFlow is now installed.
 <tr><td>tensorflow-2.1.0</td><td>2.7, 3.5-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.27.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>2.7, 3.5-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.27.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.26.1</td></tr>
+<tr><td>tensorflow-1.15.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode 10.1</td><td>Bazel 0.26.1</td></tr>
 <tr><td>tensorflow-1.14.0</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.24.1</td></tr>
 <tr><td>tensorflow-1.13.1</td><td>2.7, 3.3-3.7</td><td>Clang from xcode</td><td>Bazel 0.19.2</td></tr>
 <tr><td>tensorflow-1.12.0</td><td>2.7, 3.3-3.6</td><td>Clang from xcode</td><td>Bazel 0.15.0</td></tr>

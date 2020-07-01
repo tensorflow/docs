@@ -14,22 +14,8 @@ toc:
   status: external
 
 - heading: "Keras"
-- title: "Keras overview"
-  path: /guide/keras/overview
-- title: "Keras functional API"
-  path: /guide/keras/functional
-- title: "Train and evaluate"
-  path: /guide/keras/train_and_evaluate
-- title: "Write custom layers and models"
-  path: /guide/keras/custom_layers_and_models
-- title: "Save and serialize models"
-  path: /guide/keras/save_and_serialize
-- title: "Keras Recurrent Neural Networks"
-  path: /guide/keras/rnn
-- title: "Masking and padding"
-  path: /guide/keras/masking_and_padding
-- title: "Write custom callbacks"
-  path: /guide/keras/custom_callback
+- include: /guide/keras/_toc.yaml
+
 - heading: "Estimators"
 - title: "Estimator overview"
   path: /guide/estimator
@@ -43,6 +29,9 @@ toc:
   path: /guide/tensor
 - title: "Automatic differentiation"
   path: /guide/autodiff
+- title: "Advanced auto-diff"
+  path: /guide/advanced_autodiff
+  status: new
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Create an op"
@@ -85,7 +74,7 @@ toc:
 - title: "Graph optimization"
   path: /guide/graph_optimization
 - title: "Mixed precision"
-  path: /guide/keras/mixed_precision
+  path: /guide/mixed_precision
   status: experimental
 
 - heading: "Appendix"

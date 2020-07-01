@@ -93,6 +93,8 @@ toc:
     path: /tutorials/distribute/multi_worker_with_estimator
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
+  - title: "Distributed input"
+    path: /tutorials/distribute/input
 
 - title: "Images"
   style: accordion
@@ -131,6 +133,9 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
+  - title: "Fine tuning BERT"
+    status: New
+    path: /official_models/fine_tuning_bert
 
 - title: "Structured data"
   style: accordion
@@ -159,3 +164,10 @@ toc:
     path: /tutorials/generative/adversarial_fgsm
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
+
+- title: "Interpretability"
+  style: accordion
+  status: new
+  section:
+  - title: "Integrated gradients"
+    path: /tutorials/interpretability/integrated_gradients

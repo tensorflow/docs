@@ -81,41 +81,41 @@ These include:
     clearly marked as experimental from the compatibility guarantees. In
     particular, the following are not covered by any compatibility guarantees:
 
-  - any symbol in the `tf.contrib` module or its submodules;
-  - any symbol (module, function, argument, property, class, or constant) whose
-    name contains `experimental` or `Experimental`; or
-  - any symbol whose fully qualified name includes a module or class which is
-    itself experimental. This includes fields and submessages of any protocol
-    buffer called `experimental`.
+    -   any symbol in the `tf.contrib` module or its submodules;
+    -   any symbol (module, function, argument, property, class, or constant)
+        whose name contains `experimental` or `Experimental`; or
+    -   any symbol whose fully qualified name includes a module or class which
+        is itself experimental. This includes fields and submessages of any
+        protocol buffer called `experimental`.
 
 *   **Other languages**: TensorFlow APIs in languages other than Python and C,
     such as:
 
-  - [C++](../install/lang_c.md) (exposed through header files in
-    [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
-  - [Java](../install/lang_java.md),
-  - [Go](../install/lang_go.md)
-  - [JavaScript](https://www.tensorflow.org/js)
+    -   [C++](../install/lang_c.md) (exposed through header files in
+        [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+    -   [Java](../install/lang_java.md),
+    -   [Go](../install/lang_go.md)
+    -   [JavaScript](https://www.tensorflow.org/js)
 
 *   **Details of composite ops:** Many public functions in Python expand to
     several primitive ops in the graph, and these details will be part of any
-    graphs saved to disk as `GraphDef`s. These details may change for
-    minor releases. In particular, regressions tests that check for exact
-    matching between graphs are likely to break across minor releases, even
-    though the behavior of the graph should be unchanged and existing
-    checkpoints will still work.
+    graphs saved to disk as `GraphDef`s. These details may change for minor
+    releases. In particular, regression tests that check for exact matching
+    between graphs are likely to break across minor releases, even though the
+    behavior of the graph should be unchanged and existing checkpoints will
+    still work.
 
 *   **Floating point numerical details:** The specific floating point values
-    computed by ops may change at any time.  Users should rely only on
+    computed by ops may change at any time. Users should rely only on
     approximate accuracy and numerical stability, not on the specific bits
     computed. Changes to numerical formulas in minor and patch releases should
     result in comparable or improved accuracy, with the caveat that in machine
     learning improved accuracy of specific formulas may result in decreased
     accuracy for the overall system.
 
-*   **Random numbers:** The specific random numbers computed may change
-    at any time. Users should rely only on approximately correct distributions
-    and statistical strength, not the specific bits computed. See the
+*   **Random numbers:** The specific random numbers computed may change at any
+    time. Users should rely only on approximately correct distributions and
+    statistical strength, not the specific bits computed. See the
     [random number generation](random_numbers.ipynb) guide for details.
 
 *   **Version skew in distributed Tensorflow:** Running two different versions
@@ -125,18 +125,27 @@ These include:
 *   **Bugs:** We reserve the right to make backwards incompatible behavior
     (though not API) changes if the current implementation is clearly broken,
     that is, if it contradicts the documentation or if a well-known and
-    well-defined intended behavior is not properly implemented due to a bug.
-    For example, if an optimizer claims to implement a well-known optimization
+    well-defined intended behavior is not properly implemented due to a bug. For
+    example, if an optimizer claims to implement a well-known optimization
     algorithm but does not match that algorithm due to a bug, then we will fix
     the optimizer. Our fix may break code relying on the wrong behavior for
     convergence. We will note such changes in the release notes.
 
+*   **Unused API:** We reserve the right to make backwards incompatible changes
+    to APIs for which we find no documented uses (by performing audit of
+    TensorFlow usage through GitHub search). Before making any such changes, we
+    will announce our intention to make the change on the
+    [announce@ mailing list](https://groups.google.com/a/tensorflow.org/forum/#!forum/announce),
+    providing instructions for how to address any breakages (if applicable), and
+    wait for two weeks to give our community a chance to share their feedback.
+
 *   **Error behavior:** We may replace errors with non-error behavior. For
-    instance, we may change a function to compute a result instead of raising
-    an error, even if that error is documented. We also reserve the right to
-    change the text of error messages. In addition, the type of an error may
-    change unless the exception type for a specific error condition is specified
-    in the documentation.
+    instance, we may change a function to compute a result instead of raising an
+    error, even if that error is documented. We also reserve the right to change
+    the text of error messages. In addition, the type of an error may change
+    unless the exception type for a specific error condition is specified in the
+    documentation.
+
 <a name="compatibility_of_graphs_and_checkpoints"></a>
 ## Compatibility of SavedModels, graphs and checkpoints
 
