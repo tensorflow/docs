@@ -1,19 +1,19 @@
 toc:
 - column:
-  - heading: API
-    links:
-    - label: r2.2 (stable)
+  - links:
+    - label: "TensorFlow (r2.2)"
       path: /api/stable
     - label: r2.3 (rc)
       path: /api/r2.3
-    - label: r2.1
-      path: /api/r2.1
-    - label: r2.0
-      path: /api/r2.0
-- column:
-  - heading: API r1
-    links:
     - label: r1.15
       path: /api/r1.15
-    - label: More…
+    - label: Versions…
       path: /versions/
+- column:
+  - links:
+    - label: "TensorFlow.js"
+      path: https://js.tensorflow.org/api/latest/
+    - label: "TensorFlow Lite"
+      path: /lite/api_docs/
+    - label: "TFX"
+      path: /tfx/api_docs/
