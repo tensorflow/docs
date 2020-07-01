@@ -11,12 +11,21 @@ upper_tabs:
       contents:
       - title: Overview
         path: {VERSION_ROOT}/
-
-      - heading: Implementations
-      - title: "TensorFlow.js"
+      - title: "TensorFlow"
+        path: /api/stable
+      - title: "TensorFlow JavaScript"
         path: https://js.tensorflow.org/api/latest/
-      - title: "Swift"
-        path: /swift/api_docs/
+      - title: "TensorFlow Lite"
+        path: /lite/api_docs
+      - title: "TensorFlow Extended"
+        path: /tfx/api_docs
+      - title: "Swift for TensorFlow"
+        path: /swift/api_docs
+
+      - heading: Versions
+      - include: /versions/_versions_toc.yaml
+
+      - heading: Other languages
       - title: "Go"
         path: https://pkg.go.dev/github.com/tensorflow/tensorflow/tensorflow/go
         status: external
@@ -62,23 +71,6 @@ upper_tabs:
       - title: "Probability"
         path: /probability/api_docs/python/tfp
 
-      - heading: "Lite"
-      - title: "Python"
-        path: /api_docs/python/tf/lite
-      - title: "C++"
-        path: /lite/api_docs/cc
-
-      - heading: "TFX"
-      - title: "TFX"
-        path: /tfx/api_docs/python/tfx
-      - title: "Data Validation"
-        path: /tfx/data_validation/api_docs/python/tfdv
-      - title: "Model Analysis"
-        path: /tfx/model_analysis/api_docs/python/tfma
-      - title: "Transform"
-        path: /tfx/transform/api_docs/python/tft
-      - title: Serving
-        path: /tfx/serving/api_docs/cc
 
     - name: Python
       skip_translation: true
@@ -90,10 +82,6 @@ upper_tabs:
       - title: Python {VERSION}
       - include: {VERSION_ROOT}/python/_toc.yaml
 
-    - name: JavaScript
-      contents:
-      - title: JavaScript
-        path: https://js.tensorflow.org/api/latest/
 
     - name: C++
       skip_translation: true
