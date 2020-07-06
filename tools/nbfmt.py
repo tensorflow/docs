@@ -159,10 +159,15 @@ def update_metadata(data: Dict[str, Any],
 
   colab["provenance"] = []
   colab["toc_visible"] = True
-  # Always remove "last_runtime".
-  colab.pop("last_runtime", None)
-
+  colab.pop("last_runtime", None)  # Always remove "last_runtime".
   metadata["colab"] = colab
+
+  kernelspec = metadata.get("kernelspec", {})
+  # Set default kernel label for Python 3.
+  if kernelspec.get("name") == "python3":
+    kernelspec["display_name"] = "Python 3"
+  metadata["kernelspec"] = kernelspec
+
   data["metadata"] = metadata
 
 
