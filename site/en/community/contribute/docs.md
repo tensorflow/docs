@@ -278,16 +278,17 @@ Notebooks are stored on disk as JSON and the various notebook implementations
 format the JSON differently. Diff tools and version control don't handle this
 very well, so TensorFlow Docs enforces a standard notebook formatting.
 
-The
-[nbfmt.py](https://github.com/tensorflow/docs/blob/master/tools/nbfmt.py)
-script applies this formatting:
+Use the `nbfmt` command to apply this formattng:
 
 ```
-# Run it on a single file
-python nbfmt.py path/to/notebooks/example.ipynb
+# Install the tensorflow-docs package:
+$ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
-# Run  it on a whole directory
-python nbfmt.py path/to/notebooks/
+# Format individual notebooks:
+$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebook.ipynb [...]
+
+# Or a directory of notebooks:
+$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebooks/
 ```
 
 For the same reasons notebook output should be cleared before submission
@@ -296,7 +297,8 @@ to enforce this. Other notebook implementations do not recognize this option.
 You can clear the outputs by passing `--preserve_outputs=False` to `nbfmt`:
 
 ```
-python nbfmt.py --preserve_outputs=False path/to/notebooks/example.ipynb
+$ python3 -m tensorflow_docs.tools.nbfmt --preserve_outputs=False \
+    path/to/notebooks/example.ipynb
 ```
 
 ### Edit in Colab

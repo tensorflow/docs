@@ -10,15 +10,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: Fetch master branch
       run: git fetch -u origin master:master
-    - name: Set up environment
-      run: pip install --upgrade absl-py
+    - name: Install tensorflow-docs
+      run: python3 -m pip install -U git+https://github.com/tensorflow/docs
     - name: Check notebook formatting
       run: |
         # Only check notebooks modified in this pull request.
         notebooks="$(git diff --name-only master | grep '\.ipynb$' || true)"
         if [[ -n "$notebooks" ]]; then
           echo "Check formatting with nbfmt:"
-          python ./tools/nbfmt.py --test $notebooks
+          python3 -m tensorflow_docs.tools.nbfmt --test $notebooks
         else
           echo "No notebooks modified in this pull request."
         fi

@@ -15,12 +15,11 @@
 # ==============================================================================
 r"""Format notebooks using the TensorFlow docs style.
 
-Install dependencies:
-$ pip3 install -U [--user] absl-py
+Install the tensorflow-docs package:
+$ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
 Usage:
-$ nbfmt.py [options] notebook.ipynb [...]
-$ find . -name "*\.ipynb" | xargs ./tools/nbfmt.py
+$ python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
 
 See the TensorFlow notebook template:
 https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
