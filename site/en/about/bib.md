@@ -107,7 +107,7 @@ TensorFlow: Large-scale machine learning on heterogeneous systems,
 
 [Access this white paper.](https://www.usenix.org/system/files/conference/osdi16/osdi16-abadi.pdf)
 
-**Abstract:** TensorFlow is a machine learning system that operates at 
+**Abstract:** TensorFlow is a machine learning system that operates at
 large scale and in heterogeneous environments. TensorFlow
 uses dataflow graphs to represent computation,
 shared state, and the operations that mutate that state. It
