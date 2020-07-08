@@ -17,6 +17,9 @@ and some recommended best practices to optimize model performance.
 If you want to profile your model performance on Cloud TPUs, refer to the
 [Cloud TPU guide](https://cloud.google.com/tpu/docs/cloud-tpu-tools#capture_profile).
 
+Note: You cannot use the Profiler to get profiles for the
+`tf.data.experimental.service` available with `tf.data`.
+
 ## Install the Profiler and GPU prerequisites
 
 Install the Profiler by downloading and running the
@@ -62,11 +65,31 @@ sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/e
 To profile multi-worker GPU configurations, profile individual workers
 independently.
 
+### Resolve privilege issues
+
+When you run profiling with CUDA® Toolkit 10.1 in a Docker environment or on
+Linux, you may encounter issues related to insufficient CUPTI privileges
+(`CUPTI_ERROR_INSUFFICIENT_PRIVILEGES`). See the
+[NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters){:.external}
+to learn more about how you can resolve these issues on Linux.
+
+To resolve CUPTI privilege issues in a Docker environment, run
+
+```shell
+docker run option '--privileged=true'
+```
+
 ## Profiler tools
 
 Access the Profiler from the **Profile** tab in TensorBoard which appears only
-after you have captured some model data. The Profiler has a selection of tools
-to help with performance analysis:
+after you have captured some model data.
+
+Note: The Profiler requires internet access to load the
+[Google Chart libraries](https://developers.google.com/chart/interactive/docs/basic_load_libs#basic-library-loading).
+Some charts and tables may be missing if you run TensorBoard entirely offline on
+your local machine, behind a corporate firewall, or in a data center.
+
+The Profiler has a selection of tools to help with performance analysis:
 
 -   Overview page
 -   Input pipeline analyzer
@@ -284,12 +307,11 @@ The trace viewer displays a timeline that shows:
     host executes input operations, preprocesses training data and transfers it
     to the device, while the device executes the actual model training
 
-Trace viewer allows you to identify performance problems in your model, then
+The trace viewer allows you to identify performance problems in your model, then
 take steps to resolve them. For example, at a high level, you can identify
 whether input or model training is taking the majority of the time. Drilling
-down, you can identify which ops take the longest to execute.
-
-Note that trace viewer is limited to 1 million events per device.
+down, you can identify which ops take the longest to execute. Note that the
+trace viewer is limited to 1 million events per device.
 
 #### Trace viewer interface
 
@@ -332,13 +354,22 @@ The trace viewer contains the following sections:
         TensorFlow op is translated into one or several XLA ops. The XLA
         compiler translates the XLA ops into code that runs on the device).
 -   **One section for threads running on the host machine's CPU,** labeled
-    **"Host Threads"**. The section contains one track for each CPU thread.
-    Note: You can ignore the information displayed alongside the section labels
+    **"Host Threads"**. The section contains one track for each CPU thread. Note
+    that you can ignore the information displayed alongside the section labels.
 
 ##### Events
 
 Events within the timeline are displayed in different colors; the colors
 themselves have no specific meaning.
+
+The trace viewer can also display traces of Python function calls in your
+TensorFlow program. If you use the `tf.profiler.experimental.start()` API, you
+can enable Python tracing by using the `ProfilerOptions` namedtuple when
+starting profiling. Alternatively, if you use the sampling mode for profiling,
+you can select the level of tracing by using the dropdown options in the
+**Capture Profile** dialog.
+
+![image](./images/tf_profiler/python_tracer.png)
 
 ### GPU kernel stats
 
@@ -376,6 +407,10 @@ The tool displays information in two panes:
 The TensorFlow Profiler collects host activities and GPU traces of your
 TensorFlow model. You can configure the Profiler to collect performance data
 through either the programmatic mode or the sampling mode.
+
+### Profiling APIs
+
+You can use the following APIs to perform profiling.
 
 *   Programmatic mode using the TensorBoard Keras Callback
     (`tf.keras.callbacks.TensorBoard`)
@@ -428,11 +463,45 @@ first few batches to avoid inaccuracies due to initialization overhead.
     # ... TensorFlow program ...
     ```
 
-![image](./images/tf_profiler/capture_profile.png)
+<img src="./images/tf_profiler/capture_profile.png" width="400", height="450">
 
-You can specify the Profile Service URL or TPU name, the profiling duration, and
-how many times you want the Profiler to retry capturing profiles if unsuccessful
-at first.
+Use the **Capture Profile** dialog to specify:
+
+*   The profile Service URL or TPU name
+*   The profiling duration
+*   The level of device, host, and Python function call tracing
+*   How many times you want the Profiler to retry capturing profiles if
+    unsuccessful at first
+
+### Profiling use cases
+
+The profiler covers a number of use cases along four different axes. Some of the
+combinations are currently supported and others will be added in the future.
+Some of the use cases are:
+
+*   Local vs. Remote profiling: These are two common ways of setting up your
+    profiling environment. In local profiling, the profiling API is called on
+    the same machine your model is executing, for example, a local workstation
+    with GPUs. In remote profiling, the profiling API is called on a different
+    machine from where your model is executing, for example, on a Cloud TPU.
+*   Profiling multiple workers: You can profile multiple machines when using the
+    distributed training capabilities of TensorFlow.
+*   Hardware platform: Profile CPUs, GPUs, and TPUs.
+
+The table below is a quick overview of which of the above use cases are
+supported by the various profiling APIs in TensorFlow 2.3:
+
+| Profiling API                | Local     | Remote    | Multiple  | Hardware  |
+:                              :           :           : workers   : Platforms :
+| :--------------------------- | :-------- | :-------- | :-------- | :-------- |
+| **TensorBoard Keras          | Supported | Not       | Not       | CPU, GPU  |
+: Callback**                   :           : Supported : Supported :           :
+| **`tf.experimental.profiler` | Supported | Not       | Not       | CPU, GPU  |
+: Function API**               :           : Supported : Supported :           :
+| **Context manager API**      | Supported | Not       | Not       | CPU, GPU  |
+:                              :           : supported : Supported :           :
+| **On demand API**            | Not       | Supported | Limited   | CPU, GPU, |
+:                              : supported :           : Support   : TPU       :
 
 ## Best practices for optimal model performance
 
