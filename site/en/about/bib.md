@@ -113,7 +113,7 @@ uses dataflow graphs to represent computation,
 shared state, and the operations that mutate that state. It
 maps the nodes of a dataflow graph across many machines
 in a cluster, and within a machine across multiple computational
-devices, including multicore CPUs, generalpurpose
+devices, including multicore CPUs, general purpose
 GPUs, and custom-designed ASICs known as
 Tensor Processing Units (TPUs). This architecture gives
 flexibility to the application developer: whereas in previous
