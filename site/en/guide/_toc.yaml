@@ -16,28 +16,33 @@ toc:
 - heading: "Keras"
 - include: /guide/keras/_toc.yaml
 
-- heading: "Estimators"
-- title: "Estimator overview"
-  path: /guide/estimator
-
-- heading: "Customization"
+- heading: "TensorFlow basics"
 - title: "Eager execution"
   path: /guide/eager
-- title: "Variable"
-  path: /guide/variable
 - title: "Tensor"
   path: /guide/tensor
+- title: "Variable"
+  path: /guide/variable
 - title: "Automatic differentiation"
   path: /guide/autodiff
+- title: "Intro to graphs and functions"
+  path: /guide/intro_to_graphs
+  status: new
 - title: "Advanced auto-diff"
   path: /guide/advanced_autodiff
   status: new
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+
+- heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
 - title: "Random number generation"
   path: /guide/random_numbers
+
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
 
 - heading: "Data input pipelines"
 - title: "tf.data"
