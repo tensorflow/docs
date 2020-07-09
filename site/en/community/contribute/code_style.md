@@ -57,17 +57,15 @@ Use `six` to write compatible code (for example, `six.moves.range`).
 ## C++ coding style
 
 Changes to TensorFlow C++ code should conform to the [Google C++ Style
-Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-tidy` to
-check your C/C++ changes.
+Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-format` to check your C/C++ changes.
 
-To install `clang-tidy` on Ubuntu 16+, do:
-
+To install on Ubuntu 16+, do:
 
 ```bash
-$ apt-get install -y clang-tidy
+$ apt-get install -y clang-format
 ```
 
-You can check a C/C++ file by using the following:
+You can check a C/C++ file's format by using the following:
 
 ```bash
 $ clang-format <my_cc_file> --style=google > /tmp/my_cc_file.cc
