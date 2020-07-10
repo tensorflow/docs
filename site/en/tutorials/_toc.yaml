@@ -114,9 +114,6 @@ toc:
   - title: "Object detection with TF Hub"
     path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
     status: external
-  - title: "Object detection API"
-    path: https://github.com/tensorflow/models/blob/master/research/object_detection/object_detection_tutorial.ipynb
-    status: external
 
 - title: "Text"
   style: accordion
