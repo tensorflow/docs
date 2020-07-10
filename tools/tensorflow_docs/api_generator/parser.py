@@ -1037,7 +1037,7 @@ class FormatArguments(object):
     self._is_fragment = self._reference_resolver._is_fragment.get(
         self._func_full_name, None)
 
-  def _get_link(self, obj_full_name: str) -> str:
+  def get_link(self, obj_full_name: str) -> str:
     relative_path_to_root = os.path.relpath(
         path='.',
         start=os.path.dirname(
@@ -1130,7 +1130,7 @@ class FormatArguments(object):
     if obj_full_name is None:
       return ast_single_typehint
 
-    return self._get_link(obj_full_name)
+    return self.get_link(obj_full_name)
 
   def preprocess(self, ast_typehint: str, obj_anno: Any) -> str:
     """Links type annotations to its page if it exists.
@@ -1146,7 +1146,7 @@ class FormatArguments(object):
     # directly for the entire annotation.
     obj_anno_full_name = self._reverse_index.get(id(obj_anno), None)
     if obj_anno_full_name is not None:
-      return self._get_link(obj_anno_full_name)
+      return self.get_link(obj_anno_full_name)
 
     non_builtin_ast_types = self._get_non_builtin_ast_types(ast_typehint)
     try:
@@ -1638,7 +1638,7 @@ class TypeAliasPageInfo(PageInfo):
     For example (If generating docs for symbols in TF library):
 
     ```
-    X = Union[int, str, bool, tf.Tensor, np.ndarray, Dict[str, tf.Tensor]]
+    X = Union[int, str, bool, tf.Tensor, np.ndarray]
     ```
 
     In this case `tf.Tensor` will get linked to that symbol's page.
@@ -1648,8 +1648,7 @@ class TypeAliasPageInfo(PageInfo):
     be `tf.Tensor`. Hence the signature will be:
 
     ```
-    X = Union[int, str, bool, <a href="URL">tf.Tensor</a>, np.ndarray,
-              Dict[str, <a href="URL">tf.Tensor</a>]]
+    X = Union[int, str, bool, <a href="URL">tf.Tensor</a>, np.ndarray]
     ```
 
     Args:
@@ -1663,29 +1662,27 @@ class TypeAliasPageInfo(PageInfo):
         func_full_name=self.full_name)
 
     sig_args = []
-    if self.py_object.__args__:
+
+    # TODO(b/160825227): Remove the module-attr disable.
+    # pytype: disable=module-attr
+
+    if self.py_object.__origin__:
       for arg_obj in self.py_object.__args__:
         arg_full_name = parser_config.reverse_index.get(id(arg_obj), None)
         if arg_full_name is not None:
-          arg = arg_full_name
+          sig_args.append(linker.get_link(obj_full_name=arg_full_name))
         else:
-          # TODO(b/160825227): Remove the module-attr disable.
-          # pytype: disable=module-attr
-          arg = typing._type_repr(arg_obj).replace('typing.', '')  # pylint: disable=protected-access
-          # pytype: enable=module-attr
-        sig_args.append(linker.preprocess(ast_typehint=arg, obj_anno=arg_obj))
+          sig_args.append(typing._type_repr(arg_obj))  # pylint: disable=protected-access
 
-    sig_args_str = ', '.join(sig_args)
-
+    sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
     if self.py_object.__origin__:
-      sig = f'{self.py_object.__origin__}[{sig_args_str}]'
-    elif self.py_object.__args__:
-      sig = sig_args_str
+      sig = f'{self.py_object.__origin__}[\n{sig_args_str}\n]'
     else:
       sig = repr(self.py_object)
 
-    wrapped_sig = textwrap.fill(sig.replace('typing.', ''), width=80)
-    self._signature = textwrap.indent(wrapped_sig, '    ').strip()
+    # pytype: enable=module-attr
+
+    self._signature = sig.replace('typing.', '')
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
