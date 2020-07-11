@@ -65,7 +65,7 @@ To install on Ubuntu 16+, do:
 $ apt-get install -y clang-format
 ```
 
-You can check a C/C++ file's format by using the following:
+You can check the format of a C/C++ file with the following:
 
 ```bash
 $ clang-format <my_cc_file> --style=google > /tmp/my_cc_file.cc
