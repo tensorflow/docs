@@ -136,7 +136,7 @@ and AVX2. The result is a single binary that is optimized and compatible with
 most modern (post-2011) processors.
 
 TensorFlow can be compiled with the MKL optimizations using the following
-commands that depending on the version of the TensorFlow source used.
+commands that depend on the version of the TensorFlow source used.
 
 For TensorFlow source versions after 1.3.0:
 
@@ -258,7 +258,7 @@ bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pi
   of the GPUs that will be used, e.g. P100: 6.0, Titan X (Pascal): 6.1,
   Titan X (Maxwell): 5.2, and K80: 3.7.
 * Use a version of `gcc` that supports all of the optimizations of the target
-  CPU. The recommended minimum gcc version is 4.8.3. On OS X, upgrade to the
+  CPU. The recommended minimum gcc version is 4.8.3. On macOS, upgrade to the
   latest Xcode version and use the version of clang that comes with Xcode.
 * Install the latest stable CUDA platform and cuDNN libraries supported by
   TensorFlow.

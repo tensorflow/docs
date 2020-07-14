@@ -18,17 +18,18 @@ Install the following build tools to configure your development environment.
 <section>
 <h3>Ubuntu</h3>
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt install python-dev python-pip  # or python3-dev python3-pip</code>
+<code class="devsite-terminal">sudo apt install python3-dev python3-pip</code>
 </pre>
 </section>
 <section>
-<h3>mac OS</h3>
+<h3>macOS</h3>
 <p>Requires Xcode 9.2 or later.</p>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
-<code class="devsite-terminal">export PATH="/usr/local/bin:/usr/local/sbin:$PATH"</code>
-<code class="devsite-terminal">brew install python@2  # or python (Python 3)</code>
+<code class="devsite-terminal">export PATH="/usr/local/opt/python/libexec/bin:$PATH"</code>
+<code class="devsite-terminal"># if you are on macOS 10.12 (Sierra) use `export PATH="/usr/local/bin:/usr/local/sbin:$PATH"`</code>
+<code class="devsite-terminal">brew install python</code>
 </pre>
 </section>
 </div><!--/ds-selector-tabs-->
@@ -101,85 +102,71 @@ flags, for example).
 
 ### Sample session
 
-The `./configure` script The following shows a sample run of `./configure` (your
+The following shows a sample run of `./configure` script (your
 session may differ):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal">
 ./configure
-You have bazel 0.15.0 installed.
-Please specify the location of python. [Default is /usr/bin/python]: <b>/usr/bin/python2.7</b>
+You have bazel 3.0.0 installed.
+Please specify the location of python. [Default is /usr/bin/python3]: 
+
 
 Found possible Python library paths:
-  /usr/local/lib/python2.7/dist-packages
-  /usr/lib/python2.7/dist-packages
-Please input the desired Python library path to use.  Default is [/usr/lib/python2.7/dist-packages]
+  /usr/lib/python3/dist-packages
+  /usr/local/lib/python3.6/dist-packages
+Please input the desired Python library path to use.  Default is [/usr/lib/python3/dist-packages]
 
-Do you wish to build TensorFlow with jemalloc as malloc support? [Y/n]:
-jemalloc as malloc support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with Google Cloud Platform support? [Y/n]:
-Google Cloud Platform support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with Hadoop File System support? [Y/n]:
-Hadoop File System support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with Amazon AWS Platform support? [Y/n]:
-Amazon AWS Platform support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with Apache Kafka Platform support? [Y/n]:
-Apache Kafka Platform support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with XLA JIT support? [y/N]:
-No XLA JIT support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with GDR support? [y/N]:
-No GDR support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with VERBS support? [y/N]:
-No VERBS support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]:
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: 
 No OpenCL SYCL support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: <b>Y</b>
+Do you wish to build TensorFlow with ROCm support? [y/N]: 
+No ROCm support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: Y
 CUDA support will be enabled for TensorFlow.
 
-Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: <b>9.0</b>
-
-Please specify the location where CUDA 9.0 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
-
-Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: <b>7.0</b>
-
-Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
-
-Do you wish to build TensorFlow with TensorRT support? [y/N]:
+Do you wish to build TensorFlow with TensorRT support? [y/N]: 
 No TensorRT support will be enabled for TensorFlow.
 
-Please specify the NCCL version you want to use. If NCLL 2.2 is not installed, then you can use version 1.3 that can be fetched automatically but it may have worse performance with multiple GPUs. [Default is 2.2]: 1.3
+Found CUDA 10.1 in:
+    /usr/local/cuda-10.1/targets/x86_64-linux/lib
+    /usr/local/cuda-10.1/targets/x86_64-linux/include
+Found cuDNN 7 in:
+    /usr/lib/x86_64-linux-gnu
+    /usr/include
 
-Please specify a list of comma-separated Cuda compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
-Please note that each additional compute capability significantly increases your
-build time and binary size. [Default is: 3.5,7.0] <b>6.1</b>
 
-Do you want to use clang as CUDA compiler? [y/N]:
+Please specify a list of comma-separated CUDA compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
+Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 6.1
+
+
+Do you want to use clang as CUDA compiler? [y/N]: 
 nvcc will be used as CUDA compiler.
 
-Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]:
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
 
-Do you wish to build TensorFlow with MPI support? [y/N]:
-No MPI support will be enabled for TensorFlow.
 
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]:
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
 
-Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
 Not configuring the WORKSPACE for Android builds.
 
-Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See tools/bazel.rc for more details.
-    --config=mkl            # Build with MKL support.
-    --config=monolithic     # Config for mostly static monolithic build.
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+	--config=mkl         	# Build with MKL support.
+	--config=monolithic  	# Config for mostly static monolithic build.
+	--config=ngraph      	# Build with Intel nGraph support.
+	--config=numa        	# Build with NUMA support.
+	--config=dynamic_kernels	# (Experimental) Build kernels into separate shared objects.
+	--config=v2          	# Build TensorFlow 2.x instead of 1.x.
+Preconfigured Bazel build configs to DISABLE default on features:
+	--config=noaws       	# Disable AWS S3 filesystem support.
+	--config=nogcp       	# Disable GCP support.
+	--config=nohdfs      	# Disable HDFS support.
+	--config=nonccl      	# Disable NVIDIA NCCL support.
 Configuration finished
 </pre>
 </section>
@@ -316,8 +303,7 @@ code and dependencies required to build TensorFlow. See the TensorFlow
 
 ### CPU-only
 
-The following example uses the `:devel` image to build a CPU-only
-Python&nbsp;2 package from the latest TensorFlow source code. See the
+The following example uses the `:devel` image to build a CPU-only package from the latest TensorFlow source code. See the
 [Docker guide](./docker.md) for available TensorFlow `-devel` tags.
 
 Download the latest development image and start a Docker container that we'll
@@ -386,14 +372,14 @@ machine only requires the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md)
 to set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external} (Linux only).
 
-The following example downloads the TensorFlow `:devel-gpu-py3` image
+The following example downloads the TensorFlow `:devel-gpu` image
 and uses `nvidia-docker` to run the GPU-enabled container. This development image
-is configured to build a Python 3 *pip* package with GPU support:
+is configured to build a *pip* package with GPU support:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu-py3</var></code>
+<code class="devsite-terminal">docker pull tensorflow/tensorflow<var>:devel-gpu</var></code>
 <code class="devsite-terminal">docker run --gpus all -it -w /tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" \
-    tensorflow/tensorflow<var>:devel-gpu-py3</var> bash</code>
+    tensorflow/tensorflow<var>:devel-gpu</var> bash</code>
 <code class="devsite-terminal tfo-terminal-root">git pull  # within the container, download the latest source code</code>
 </pre>
 
@@ -417,7 +403,7 @@ Install and verify the package within the container and check for a GPU:
 
 <code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
-<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.contrib.eager.num_gpus())"</code>
+<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.experimental.list_physical_devices('GPU')))"</code>
 </pre>
 
 Success: TensorFlow is now installed.
