@@ -28,7 +28,7 @@ $ pylint --rcfile=/tmp/pylintrc myfile.py
 
 ### Supported Python versions
 
-TensorFlow supports Python >= 3.5. Note that Python 3.8 support requires TensorFlow 2.2 or later. See the
+TensorFlow supports Python >= 3.5. See the
 [installation guide](https://www.tensorflow.org/install) for details.
 
 See the TensorFlow
