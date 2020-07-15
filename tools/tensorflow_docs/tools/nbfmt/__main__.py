@@ -259,7 +259,9 @@ def main(argv):
       error_template = textwrap.dedent("""
       [test] The following notebooks are not formatted:
       {notebooks}
-      Format with: nbfmt.py notebook.ipynb [...]
+      Please install `nbfmt` and format:
+      $ python3 -m pip install -U --user git+https://github.com/tensorflow/docs
+      $ python3 -m tensorflow_docs.tools.nbfmt notebook.ipynb
       """)
       notebooks = "\n".join([f"- {str(fp)}" for fp in test_fail_notebooks])
       print(error_template.format(notebooks=notebooks), file=sys.stderr)
