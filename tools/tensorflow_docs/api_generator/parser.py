@@ -1652,7 +1652,7 @@ class TypeAliasPageInfo(PageInfo):
       return linker.get_link(arg_full_name)
 
     result = []
-    if hasattr(obj, '__args__'):
+    if getattr(obj, '__args__', None):
       for arg in obj.__args__:
         result.append(self._link_type_args(arg, reverse_index, linker))
       origin_str = typing._type_repr(obj.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr

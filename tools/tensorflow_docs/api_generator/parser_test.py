@@ -1155,7 +1155,16 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         Union[
             Callable[[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>], float],
             int
-        ]""")))
+        ]""")),
+      ('callable_without_args', Union[None, dict, str, Callable],
+       textwrap.dedent("""\
+        Union[
+            NoneType,
+            dict,
+            str,
+            Callable
+        ]""")),
+  )  # pyformat: disable
   def test_type_alias_signature(self, alias, expected_sig):
     info_obj = parser.TypeAliasPageInfo(
         full_name='tfdocs.api_generator.generate_lib.DocGenerator',
