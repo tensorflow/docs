@@ -21,7 +21,7 @@ import os
 import tempfile
 import textwrap
 
-from typing import Union, List
+from typing import Union, List, Dict, Callable
 
 from absl.testing import absltest
 from absl.testing import parameterized
@@ -1009,20 +1009,27 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     self.assertEqual(expected, strip_todos(input_str))
 
 
-class TestGenerateSignature(absltest.TestCase):
+class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
   def setUp(self):
     super().setUp()
     self.known_object = object()
     reference_resolver = parser.ReferenceResolver(
-        duplicate_of={}, is_fragment={}, py_module_names=[''])
+        duplicate_of={},
+        is_fragment={'tfdocs.api_generator.parser.extract_decorators': False},
+        py_module_names=[])
     self.parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
         tree={},
         index={},
-        reverse_index={id(self.known_object): 'location.of.object.in.api'},
+        reverse_index={
+            id(self.known_object):
+                'location.of.object.in.api',
+            id(parser.extract_decorators):
+                'tfdocs.api_generator.parser.extract_decorators',
+        },
         base_dir='/',
         code_url_prefix='/')
 
@@ -1125,6 +1132,36 @@ class TestGenerateSignature(absltest.TestCase):
     self.assertEqual(sig.return_type, 'None')
     self.assertEqual(sig.arguments_typehint_exists, True)
     self.assertEqual(sig.return_typehint_exists, True)
+
+  @parameterized.named_parameters(
+      ('deep_objects', Union[Dict[str, Dict[bool, parser.extract_decorators]],
+                             int, bool, parser.extract_decorators,
+                             List[Dict[int, parser.extract_decorators]]],
+       textwrap.dedent("""\
+        Union[
+            Dict[str, Dict[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]],
+            int,
+            <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>,
+            List[Dict[int, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]]
+        ]""")), ('callable_ellipsis_sig', Union[Callable[..., int], str],
+                 textwrap.dedent("""\
+        Union[
+            Callable[..., int],
+            str
+        ]""")),
+      ('callable_args_sig', Union[Callable[[bool, parser.extract_decorators],
+                                           float], int],
+       textwrap.dedent("""\
+        Union[
+            Callable[[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>], float],
+            int
+        ]""")))
+  def test_type_alias_signature(self, alias, expected_sig):
+    info_obj = parser.TypeAliasPageInfo(
+        full_name='tfdocs.api_generator.generate_lib.DocGenerator',
+        py_object=alias)
+    info_obj.collect_docs(self.parser_config)
+    self.assertEqual(info_obj.signature, expected_sig)
 
 
 if __name__ == '__main__':

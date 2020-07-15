@@ -1626,6 +1626,41 @@ class TypeAliasPageInfo(PageInfo):
   def signature(self) -> None:
     return self._signature
 
+  def _custom_join(self, args: List[str], origin: str) -> str:
+    """Custom join for Callable and other type hints.
+
+    Args:
+      args: Args of a type annotation object returned by `__args__`.
+      origin: Origin of a type annotation object returned by `__origin__`.
+
+    Returns:
+      A joined string containing the right representation of a type annotation.
+    """
+    if 'Callable' in origin:
+      if args[0] == '...':
+        return ', '.join(args)
+      else:
+        return f"[{', '.join(args[:-1])}], {args[-1]}"
+
+    return ', '.join(args)
+
+  def _link_type_args(self, obj: Any, reverse_index: Dict[int, str],
+                      linker: FormatArguments) -> str:
+    """Recurses into typehint object and links known objects to their pages."""
+    arg_full_name = reverse_index.get(id(obj), None)
+    if arg_full_name is not None:
+      return linker.get_link(arg_full_name)
+
+    result = []
+    if hasattr(obj, '__args__'):
+      for arg in obj.__args__:
+        result.append(self._link_type_args(arg, reverse_index, linker))
+      origin_str = typing._type_repr(obj.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr
+      result = self._custom_join(result, origin_str)
+      return f'{origin_str}[{result}]'
+    else:
+      return typing._type_repr(obj)  # pylint: disable=protected-access # pytype: disable=module-attr
+
   def collect_docs(self, parser_config) -> None:
     """Collect all information necessary to genertate the function page.
 
@@ -1662,17 +1697,10 @@ class TypeAliasPageInfo(PageInfo):
         func_full_name=self.full_name)
 
     sig_args = []
-
-    # TODO(b/160825227): Remove the module-attr disable.
-    # pytype: disable=module-attr
-
     if self.py_object.__origin__:
       for arg_obj in self.py_object.__args__:
-        arg_full_name = parser_config.reverse_index.get(id(arg_obj), None)
-        if arg_full_name is not None:
-          sig_args.append(linker.get_link(obj_full_name=arg_full_name))
-        else:
-          sig_args.append(typing._type_repr(arg_obj))  # pylint: disable=protected-access
+        sig_args.append(
+            self._link_type_args(arg_obj, parser_config.reverse_index, linker))
 
     sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
     if self.py_object.__origin__:
