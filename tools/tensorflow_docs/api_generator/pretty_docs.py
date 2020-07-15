@@ -166,12 +166,12 @@ def _build_type_alias_page(page_info: parser.TypeAliasPageInfo,
 
   parts.append('<!-- Insert buttons and diff -->\n')
 
-  parts.append('This symbol is a Type Alias.\n\n')
+  parts.append('This symbol is a **type alias**.\n\n')
   parts.append(page_info.doc.brief)
   parts.append('\n\n')
 
   if page_info.signature is not None:
-    parts.append('Source:\n\n')
+    parts.append('#### Source:\n\n')
     parts.append(
         _build_signature(
             page_info, obj_name=page_info.short_name, type_alias=True))
