@@ -2344,6 +2344,7 @@ def generate_global_index(library_name, index, reference_resolver):
         (full_name, reference_resolver.python_link(full_name, full_name, '.')))
 
   lines = [f'# All symbols in {library_name}', '']
+  lines.append('<!-- Insert buttons and diff -->\n')
 
   # Sort all the symbols once, so that the ordering is preserved when its broken
   # up into main symbols and compat symbols and sorting the sublists is not
