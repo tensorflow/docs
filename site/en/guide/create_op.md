@@ -195,8 +195,8 @@ struct ExampleFunctor {
 
 #if GOOGLE_CUDA
 // Partially specialize functor for GpuDevice.
-template <typename Eigen::GpuDevice, typename T>
-struct ExampleFunctor {
+template <typename T>
+struct ExampleFunctor<Eigen::GpuDevice, T> {
   void operator()(const Eigen::GpuDevice& d, int size, const T* in, T* out);
 };
 #endif
@@ -263,7 +263,7 @@ REGISTER_CPU(int32);
 #ifdef GOOGLE_CUDA
 #define REGISTER_GPU(T)                                          \
   /* Declare explicit instantiations in kernel_example.cu.cc. */ \
-  extern template ExampleFunctor<GPUDevice, T>;                  \
+  extern template class ExampleFunctor<GPUDevice, T>;            \
   REGISTER_KERNEL_BUILDER(                                       \
       Name("Example").Device(DEVICE_GPU).TypeConstraint<T>("T"), \
       ExampleOp<GPUDevice, T>);
@@ -288,7 +288,7 @@ template <typename T>
 __global__ void ExampleCudaKernel(const int size, const T* in, T* out) {
   for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < size;
        i += blockDim.x * gridDim.x) {
-    out[i] = 2 * ldg(in + i);
+    out[i] = 2 * __ldg(in + i);
   }
 }
 
