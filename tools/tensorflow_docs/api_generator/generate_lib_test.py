@@ -217,25 +217,24 @@ class GenerateTest(absltest.TestCase):
       f.write('')
 
     reference_resolver, _ = self.get_test_objects()
-    generate_lib.replace_refs(test_in_dir, test_out_dir, reference_resolver,
-                              '*.md')
+    generate_lib.replace_refs(test_in_dir, test_out_dir, [reference_resolver],
+                              ['api_docs'], '*.md')
 
     with open(os.path.join(test_out_dir, 'a/file1.md')) as f:
       content = f.read()
       self.assertEqual(
           content,
           'Use <a href="../api_docs/python/tf/TestModule/test_function.md">'
-          '<code>tf.test_function</code></a> to test things.')
+          '<code>tf.test_function</code></a> to test things.\n')
 
     with open(os.path.join(test_out_dir, 'b/file2.md')) as f:
       content = f.read()
       self.assertEqual(
-          content,
-          'Use '
+          content, 'Use '
           '<a href="../api_docs/python/tf/TestModule/TestClass/ChildClass.md">'
           '<code>tf.TestModule.TestClass.ChildClass</code></a> '
           'to test things.\n'
-          '`tf.whatever` doesn\'t exist')
+          '`tf.whatever` doesn\'t exist\n')
 
     with open(os.path.join(test_out_dir, 'b/file3.notmd')) as f:
       content = f.read()

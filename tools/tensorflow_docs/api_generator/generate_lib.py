@@ -23,6 +23,7 @@ import pathlib
 import shutil
 import tempfile
 
+from typing import List
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -652,11 +653,13 @@ class _GetMarkdownTitle(py_guide_parser.PyGuideParser):
 EXCLUDED = set(['__init__.py', 'OWNERS', 'README.txt'])
 
 
-def replace_refs(src_dir,
-                 output_dir,
-                 reference_resolver,
-                 file_pattern='*.md',
-                 api_docs_relpath='api_docs'):
+def replace_refs(
+    src_dir: str,
+    output_dir: str,
+    reference_resolvers: List[parser.ReferenceResolver],
+    api_docs_relpath: List[str],
+    file_pattern: str = '*.md',
+):
   """Link `tf.symbol` references found in files matching `file_pattern`.
 
   A matching directory structure, with the modified files is
@@ -672,17 +675,17 @@ def replace_refs(src_dir,
   Args:
     src_dir: The directory to convert files from.
     output_dir: The root directory to write the resulting files to.
-    reference_resolver: A `parser.ReferenceResolver` to make the replacements.
+    reference_resolvers: A list of `parser.ReferenceResolver` to make the
+      replacements.
+    api_docs_relpath: List of relative-path strings to the api_docs
+      from the src_dir for each reference_resolver.
     file_pattern: Only replace references in files matching file_patters, using
       `fnmatch`. Non-matching files are copied unchanged.
-    api_docs_relpath: Relative-path string to the api_docs, from the src_dir.
   """
+
   # Iterate through all the source files and process them.
   for dirpath, _, filenames in os.walk(src_dir):
     depth = os.path.relpath(src_dir, start=dirpath)
-    # How to get from `dirpath` to api_docs/python/
-    relative_path_to_root = os.path.join(depth, api_docs_relpath, 'python')
-
     # Make the directory under output_dir.
     new_dir = os.path.join(output_dir,
                            os.path.relpath(path=dirpath, start=src_dir))
@@ -705,10 +708,12 @@ def replace_refs(src_dir,
       with open(full_in_path, 'rb') as f:
         content = f.read().decode('utf-8')
 
-      content = reference_resolver.replace_references(content,
-                                                      relative_path_to_root)
+      for resolver, rel_path in zip(reference_resolvers, api_docs_relpath):
+        relative_path_to_root = os.path.join(depth, rel_path, 'python')
+        content = resolver.replace_references(content, relative_path_to_root)
+
       with open(full_out_path, 'wb') as f:
-        f.write(content.encode('utf-8'))
+        f.write((content + '\n').encode('utf-8'))
 
 
 class DocGenerator(object):
@@ -851,7 +856,12 @@ class DocGenerator(object):
     reference_resolver = self.make_reference_resolver(visitor)
     # Replace all the `tf.symbol` references in the workdir.
     replace_refs(
-        str(workdir), str(workdir), reference_resolver, file_pattern='*.md')
+        src_dir=str(workdir),
+        output_dir=str(workdir),
+        reference_resolvers=[reference_resolver],
+        api_docs_relpath=['api_docs'],
+        file_pattern='*.md',
+    )
 
     # Write the api docs.
     parser_config = self.make_parser_config(visitor, reference_resolver)
