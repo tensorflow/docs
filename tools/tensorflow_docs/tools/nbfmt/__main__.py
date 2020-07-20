@@ -161,11 +161,18 @@ def update_metadata(data: Dict[str, Any],
   colab.pop("last_runtime", None)  # Always remove "last_runtime".
   metadata["colab"] = colab
 
-  kernelspec = metadata.get("kernelspec", {})
-  # Set default kernel label for Python 3.
-  if kernelspec.get("name") == "python3":
-    kernelspec["display_name"] = "Python 3"
-  metadata["kernelspec"] = kernelspec
+  # kernelspec: name: display_name
+  supported_kernels = {"python3": "Python 3", "swift": "Swift"}
+  kernel_name = metadata.get("kernelspec", {}).get("name")
+
+  if kernel_name not in supported_kernels:
+    kernel_name = "python3"  # Notebook defaults to Python3 (same as Colab).
+
+  # Use new dict to clear any other attributes.
+  metadata["kernelspec"] = {
+      "name": kernel_name,
+      "display_name": supported_kernels[kernel_name]
+  }
 
   data["metadata"] = metadata
 
