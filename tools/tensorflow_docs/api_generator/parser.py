@@ -452,7 +452,9 @@ class ReferenceResolver(object):
     filters = [
         IgnoreLineInBlock('<pre class="tfo-notebook-code-cell-output">',
                           '</pre>'),
-        IgnoreLineInBlock('```', '```')
+        IgnoreLineInBlock('```', '```'),
+        IgnoreLineInBlock(
+            '<pre class="devsite-click-to-copy prettyprint lang-py">', '</pre>')
     ]
 
     for line in string.splitlines():
