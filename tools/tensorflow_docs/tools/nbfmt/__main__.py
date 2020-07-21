@@ -138,6 +138,10 @@ def clean_cells(data) -> None:
     if cell.get("outputs", None) is None:
       cell["outputs"] = []
 
+    # Spec allows null or integer, but use null since it's the Colab default.
+    if cell.get("execution_count") == 0:
+      cell["execution_count"] = None
+
   if has_outputs:
     warn("Removed the existing output cells.")
 
