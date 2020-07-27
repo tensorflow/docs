@@ -50,7 +50,9 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 Run the `ldconfig` command above again to verify that the CUPTI library is
 found.
 
-### Profile multiple GPUs {: id = 'profile_multiple_gpus'}
+<a name="profile_multiple_gpus"></a>
+
+### Profile multiple GPUs
 
 TensorFlow does not officially support multiple GPU profiling yet. You can
 install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As TensorFlow
@@ -79,6 +81,8 @@ To resolve CUPTI privilege issues in a Docker environment, run
 docker run option '--privileged=true'
 ```
 
+<a name="profiler_tools"></a>
+
 ## Profiler tools
 
 Access the Profiler from the **Profile** tab in TensorBoard which appears only
@@ -96,6 +100,9 @@ The Profiler has a selection of tools to help with performance analysis:
 -   TensorFlow stats
 -   Trace viewer
 -   GPU kernel stats
+-   Memory profile tool
+
+<a name="overview_page"></a>
 
 ### Overview page
 
@@ -149,6 +156,8 @@ The overview page displays data as follows:
 *   **Recommendation for next steps -** Reports when a model is input bound and
     recommends tools you can use to locate and resolve model performance
     bottlenecks
+
+<a name="input_pipeline_analyzer"></a>
 
 ### Input pipeline analyzer
 
@@ -221,7 +230,7 @@ The host-side analysis reports a breakdown of the input processing time (the
 time spent on `tf.data` API ops) on the host into several categories:
 
 -   **Reading data from files on demand -** Time spent on reading data from
-    files without caching, prefetching, and interleaving.
+    files without caching, prefetching, and interleaving
 -   **Reading data from files in advance -** Time spent reading files, including
     caching, prefetching, and interleaving
 -   **Data preprocessing -** Time spent on preprocessing ops, such as image
@@ -250,6 +259,8 @@ information:
 1.  **Total Self Time %**. Shows the total self time as a fraction of the total
     time spent on input processing
 1.  **Category**. Shows the processing category of the input op
+
+<a name="tf_stats"></a>
 
 ### TensorFlow stats
 
@@ -297,6 +308,8 @@ The tool displays performance information in two panes:
             including this op will be 0
 
 You can choose to include or exclude Idle time in the pie charts and table.
+
+<a name="trace_viewer"></a>
 
 ### Trace viewer
 
@@ -371,6 +384,8 @@ you can select the level of tracing by using the dropdown options in the
 
 ![image](./images/tf_profiler/python_tracer.png)
 
+<a name="gpu_kernel_stats"></a>
+
 ### GPU kernel stats
 
 This tool shows performance statistics and the originating op for every GPU
@@ -401,6 +416,113 @@ The tool displays information in two panes:
     *   The average elapsed GPU time in microseconds
     *   The minimum elapsed GPU time in microseconds
     *   The maximum elapsed GPU time in microseconds
+
+<a name="memory_profile_tool"></a>
+
+### Memory profile tool {: id = 'memory_profile_tool'}
+
+The Memory Profile tool monitors the memory usage of your host or device during
+the profiling interval. You can use this tool to:
+
+*   Debug out of memory (OOM) issues by pinpointing peak memory usage and the
+    corresponding memory allocation to TensorFlow ops. You can also debug OOM
+    issues that may arise when you run
+    [multi-tenancy](https://arxiv.org/pdf/1901.06887.pdf) inference
+*   Debug memory fragmentation issues
+
+The memory profile tool displays data in three sections:
+
+1.  Memory Profile Summary
+1.  Memory Timeline Graph
+1.  Memory Breakdown Table
+
+#### Memory profile summary
+
+This section displays a high-level summary of the memory profile of your
+TensorFlow program as shown below:
+
+<img src="./images/tf_profiler/memory_profile_summary.png" width="400", height="450">
+
+The memory profile summary has six fields:
+
+1.  Memory ID - Dropdown which lists all available memory systems (host and
+    device). Select the memory system you want to view from the dropdown. Note
+    that the host is listed as `gpu_host_bfc`
+1.  #Allocation - The number of memory allocations made during the profiling
+    interval
+1.  #Deallocation - The number of memory deallocations in the profiling interval
+1.  Memory Capacity - The total capacity (in GiBs) of the memory system that you
+    select
+1.  Peak Heap Usage - The peak memory usage (in GiBs) since the model started
+    running
+1.  Peak Memory Usage - The peak memory usage (in GiBs) in the profiling
+    interval. This field contains the following sub-fields:
+    1.  Timestamp - The timestamp of when the peak memory usage occurred on the
+        Timeline Graph
+    1.  Stack Reservation - Amount of memory reserved on the stack (in GiBs)
+    1.  Heap Allocation - Amount of memory allocated on the heap (in GiBs)
+    1.  Free Memory - Amount of free memory (in GiBs). The Memory Capacity is
+        the sum total of the Stack Reservation, Heap Allocation, and Free Memory
+    1.  Fragmentation - The percentage of fragmentation (lower is better). It is
+        calculated as a percentage of (1 - Size of the largest chunk of free
+        memory / Total free memory)
+
+#### Memory timeline graph
+
+This section displays a plot of the memory usage (in GiBs) and the percentage of
+fragmentation versus time (in ms).
+
+![image](./images/tf_profiler/memory_timeline_graph.png)
+
+The X-axis represents the timeline (in ms) of the profiling interval. The Y-axis
+on the left represents the memory usage (in GiBs) and the Y-axis on the right
+represents the percentage of fragmentation. At each point in time on the X-axis,
+the total memory is broken down into three categories: stack (in red), heap (in
+orange), and free (in green). Hover over a specific timestamp to view the
+details about the memory allocation/deallocation events at that point like
+below:
+
+![image](./images/tf_profiler/memory_timeline_graph_popup.png)
+
+The pop-up window displays the following information:
+
+*   timestamp(ms) - The location of the selected event on the timeline
+*   event - The type of event (allocation or deallocation)
+*   requested_size(GiBs) - The amount of memory requested. This will be a
+    negative number for deallocation events
+*   allocation_size(GiBs) - The actual amount of memory allocated. This will be
+    a negative number for deallocation events
+*   tf_op - The TensorFlow Op that requests the allocation/deallocation
+*   step_id - The training step in which this event occurred
+*   region_type - The data entity type that this allocated memory is for.
+    Possible values are `temp` for temporaries, `output` for activations and
+    gradients, and `persist`/`dynamic` for weights and constants
+*   data_type - The tensor element type (e.g., uint8 for 8-bit unsigned integer)
+*   tensor_shape - The shape of the tensor being allocated/deallocated
+*   memory_in_use(GiBs) - The total memory that is in use at this point of time
+
+#### Memory breakdown table
+
+This table shows the active memory allocations at the point of peak memory usage
+in the profiling interval.
+
+![image](./images/tf_profiler/memory_breakdown_table.png)
+
+There is one row for each TensorFlow Op and each row has the following columns:
+
+*   Op Name - The name of the TensorFlow op
+*   Allocation Size (GiBs) - The total amount of memory allocated to this op
+*   Requested Size (GiBs) - The total amount of memory requested for this op
+*   Occurrences - The number of allocations for this op
+*   Region type - The data entity type that this allocated memory is for.
+    Possible values are `temp` for temporaries, `output` for activations and
+    gradients, and `persist`/`dynamic` for weights and constants
+*   Data type - The tensor element type
+*   Shape - The shape of the allocated tensors
+
+Note: You can sort any column in the table and also filter rows by op name.
+
+<a name="collect_performance_data"></a>
 
 ## Collect performance data
 
@@ -537,6 +659,8 @@ supported by the various profiling APIs in TensorFlow 2.3:
 :                              :           : supported : Supported :           :
 | **On demand API**            | Not       | Supported | Limited   | CPU, GPU, |
 :                              : supported :           : Support   : TPU       :
+
+<a name="performance_best_practices"></a>
 
 ## Best practices for optimal model performance
 
