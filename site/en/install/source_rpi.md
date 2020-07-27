@@ -53,30 +53,29 @@ Cross-compile the TensorFlow source code to build a Python *pip* package with
 ARMv7
 [NEON instructions](https://developer.arm.com/technologies/neon){:.external}
 that works on Raspberry Pi 2, 3 and 4 devices. The build script launches a
-Docker container for compilation. You can also build ARM 64-bit binary
-(aarch64). You just need to provide "AARCH64" parameter to the
-'build_raspberry_pi.sh' script. Choose among Python 3.8, Python 3.7, Python 3.5
-and Python 2.7 for the target package:
+Docker container for compilation. You can also build ARM 64-bit binary (aarch64)
+by providing "AARCH64" parameter to the 'build_raspberry_pi.sh' script. Choose
+among Python 3.8, Python 3.7, Python 3.5 and Python 2.7 for the target package:
 
 <div class="ds-selector-tabs">
   <section>
     <h3>Python 3.5</h3>
 <pre class="devsite-terminal prettyprint lang-bsh">
-    tensorflow/tools/ci_build/ci_build.sh PI-PYTHON3 \\
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON3 \\
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh
 </pre>
   </section>
   <section>
     <h3>Python 3.7</h3>
 <pre class="devsite-terminal prettyprint lang-bsh">
-    tensorflow/tools/ci_build/ci_build.sh PI-PYTHON37 \\
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON37 \\
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh
 </pre>
   </section>
   <section>
     <h3>Python 3.8 (64bit)</h3>
 <pre class="devsite-terminal prettyprint lang-bsh">
-    tensorflow/tools/ci_build/ci_build.sh PI-PYTHON38 \\
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON38 \\
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh AARCH64
 </pre>
   </section>
