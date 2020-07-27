@@ -336,7 +336,7 @@ The Timeline pane contains the following elements:
 1.  **Tool selector -** Contains various tools for interacting with the trace
     viewer such as Zoom, Pan, Select, and Timing. Use the Timing tool to mark a
     time interval.
-1.  **Events -** These show the time during which a op was executed or the
+1.  **Events -** These show the time during which an op was executed or the
     duration of meta-events, such as training steps
 
 ##### Sections and tracks
@@ -472,6 +472,41 @@ Use the **Capture Profile** dialog to specify:
 *   The level of device, host, and Python function call tracing
 *   How many times you want the Profiler to retry capturing profiles if
     unsuccessful at first
+
+### Profiling custom training loops
+
+To profile custom training loops in your TensorFlow code, instrument the
+training loop with the `tf.profiler.experimental.Trace` API to mark the step
+boundaries for the Profiler. The `name` argument is used as a prefix for the
+step names, the `step_num` keyword argument is appended in the step names, and
+the `_r` keyword argument makes this trace event get processed as a step event
+by the Profiler.
+
+As an example,
+
+```python
+for step in range(NUM_STEPS):
+    with tf.profiler.experimental.Trace('train', step_num=step, _r=1):
+        train_data = next(dataset)
+        train_step(train_data)
+```
+
+This will enable the Profiler's step-based performance analysis and cause the
+step events to show up in the trace viewer.
+
+Ensure that you include the dataset iterator within the
+`tf.profiler.experimental.Trace` context for accurate analysis of the input
+pipeline.
+
+The code snippet below is an anti-pattern:
+
+Warning: This will result in inaccurate analysis of the input pipeline.
+
+```python
+for step, train_data in enumerate(dataset):
+    with tf.profiler.experimental.Trace('train', step_num=step, _r=1):
+        train_step(train_data)
+```
 
 ### Profiling use cases
 

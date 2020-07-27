@@ -192,7 +192,7 @@ the extracted JNI library.
 
 <div class="ds-selector-tabs">
 <section>
-<h3>Linux / mac OS</h3>
+<h3>Linux / macOS</h3>
 <pre class="devsite-terminal devsite-click-to-copy">java -cp libtensorflow-1.14.0.jar:. -Djava.library.path=./jni HelloTensorFlow</pre>
 </section>
 <section>

@@ -14,7 +14,7 @@ how to use the graphical user interface (GUI) of tfdbg, i.e., the
 
 Note: The TensorFlow debugger uses a
 [curses](https://en.wikipedia.org/wiki/Curses_\(programming_library\))-based text
-user interface. On Mac OS X, the `ncurses` library is required and can be
+user interface. On macOS, the `ncurses` library is required and can be
 installed with `brew install ncurses`. On Windows, curses isn't as
 well supported, so a [readline](https://en.wikipedia.org/wiki/GNU_Readline)-based
 interface can be used with tfdbg by installing `pyreadline` with `pip`. If you
@@ -201,7 +201,7 @@ Try the following commands at the `tfdbg>` prompt (referencing the code at
 | | `--op_type_filter <pattern>` | Execute the next `Session.run`, watching only nodes with op types matching the given regular-expression pattern. | `run --op_type_filter Variable.*` |
 | | `--tensor_dtype_filter <pattern>` | Execute the next `Session.run`, dumping only Tensors with data types (`dtype`s) matching the given regular-expression pattern. | `run --tensor_dtype_filter int.*` |
 | | `-p` | Execute the next `Session.run` call in profiling mode. | `run -p` |
-| **`ri`** | | **Display information about the run the current run, including fetches and feeds.** | `ri` |
+| **`ri`** | | **Display information about the current run, including fetches and feeds.** | `ri` |
 | **`config`** | | **Set or show persistent TFDBG UI configuration.** | |
 | | `set` | Set the value of a config item: {`graph_recursion_depth`, `mouse_mode`}. | `config set graph_recursion_depth 3` |
 | | `show` | Show current persistent UI configuration. | `config show` |

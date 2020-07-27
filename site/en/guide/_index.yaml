@@ -50,8 +50,9 @@ landing_page:
   - items:
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/eager"><h3 class="no-link">Customization</h3></a>
-        TensorFlow for research and experimentation. Write custom layers and models, forward pass, and training loops.
+        <a href="/guide/eager"><h3 class="no-link">TensorFlow basics</h3></a>
+        Learn about the fundamental classes and features that make TensorFlow
+        work.
       path: /guide/eager
     - classname: tfo-landing-page-card
       description: >

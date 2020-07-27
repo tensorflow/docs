@@ -452,7 +452,9 @@ class ReferenceResolver(object):
     filters = [
         IgnoreLineInBlock('<pre class="tfo-notebook-code-cell-output">',
                           '</pre>'),
-        IgnoreLineInBlock('```', '```')
+        IgnoreLineInBlock('```', '```'),
+        IgnoreLineInBlock(
+            '<pre class="devsite-click-to-copy prettyprint lang-py">', '</pre>')
     ]
 
     for line in string.splitlines():
@@ -1037,40 +1039,17 @@ class FormatArguments(object):
     self._is_fragment = self._reference_resolver._is_fragment.get(
         self._func_full_name, None)
 
-  def _calc_relative_path(self, single_type: str) -> str:
-    """Calculates the relative path of the type from the function.
+  def get_link(self, obj_full_name: str) -> str:
+    relative_path_to_root = os.path.relpath(
+        path='.',
+        start=os.path.dirname(
+            documentation_path(self._func_full_name, self._is_fragment)) or '.')
 
-    The number of `..` are counted from `os.path.relpath` and adjusted based
-    on if the function (for which signature is being generated) is a fragment
-    or not.
-
-    Args:
-      single_type: The type for which the relative path is calculated.
-
-    Returns:
-      Relative path consisting of only `..` as a path.
-    """
-
-    func_full_path = self._func_full_name.replace('.', '/')
-    single_type = single_type.replace('.', '/')
-
-    dot_count = os.path.relpath(single_type, func_full_path).count('..')
-    # Methods are fragments, stand-alone functions are not.
-    if self._is_fragment:
-      dot_count -= 2
-    else:
-      dot_count -= 1
-
-    dot_list = ['..'] * dot_count
-    return os.path.join(*dot_list)  # pylint: disable=no-value-for-parameter
-
-  def _get_link(self, full_name: str, ast_typehint: str) -> str:
-    full_name = self._reference_resolver._duplicate_of.get(full_name, full_name)  # pylint: disable=protected-access
-    relative_path = self._calc_relative_path(ast_typehint)
-    url = os.path.join(relative_path, full_name.replace('.', '/')) + '.md'
-    # Use `full_name` for the text in the link since its available over
-    # `ast_typehint`.
-    return f'<a href="{url}"><code>{full_name}</code></a>'
+    return self._reference_resolver.python_link(
+        link_text=obj_full_name,
+        ref_full_name=obj_full_name,
+        relative_path_to_root=relative_path_to_root,
+        code_ref=True)
 
   def _extract_non_builtin_types(self, arg_obj: Any,
                                  non_builtin_types: List[Any]) -> List[Any]:
@@ -1153,9 +1132,9 @@ class FormatArguments(object):
     if obj_full_name is None:
       return ast_single_typehint
 
-    return self._get_link(obj_full_name, ast_single_typehint)
+    return self.get_link(obj_full_name)
 
-  def _preprocess(self, ast_typehint: str, obj_anno: Any) -> str:
+  def preprocess(self, ast_typehint: str, obj_anno: Any) -> str:
     """Links type annotations to its page if it exists.
 
     Args:
@@ -1169,7 +1148,7 @@ class FormatArguments(object):
     # directly for the entire annotation.
     obj_anno_full_name = self._reverse_index.get(id(obj_anno), None)
     if obj_anno_full_name is not None:
-      return self._get_link(obj_anno_full_name, ast_typehint)
+      return self.get_link(obj_anno_full_name)
 
     non_builtin_ast_types = self._get_non_builtin_ast_types(ast_typehint)
     try:
@@ -1197,7 +1176,7 @@ class FormatArguments(object):
     return default_text
 
   def format_return(self, return_anno: Any) -> str:
-    return self._preprocess(self._type_annotations['return'], return_anno)
+    return self.preprocess(self._type_annotations['return'], return_anno)
 
   def format_args(self, args: List[inspect.Parameter]) -> List[str]:
     """Creates a text representation of the args in a method/function.
@@ -1214,8 +1193,8 @@ class FormatArguments(object):
     for arg in args:
       arg_name = arg.name
       if arg_name in self._type_annotations:
-        typeanno = self._preprocess(self._type_annotations[arg_name],
-                                    arg.annotation)
+        typeanno = self.preprocess(self._type_annotations[arg_name],
+                                   arg.annotation)
         args_text_repr.append(f'{arg_name}: {typeanno}')
       else:
         args_text_repr.append(f'{arg_name}')
@@ -1260,8 +1239,8 @@ class FormatArguments(object):
 
       # Format the kwargs to add the type annotation and default values.
       if kname in self._type_annotations:
-        typeanno = self._preprocess(self._type_annotations[kname],
-                                    kwarg.annotation)
+        typeanno = self.preprocess(self._type_annotations[kname],
+                                   kwarg.annotation)
         kwargs_text_repr.append(f'{kname}: {typeanno} = {default_text}')
       else:
         kwargs_text_repr.append(f'{kname}={default_text}')
@@ -1649,20 +1628,91 @@ class TypeAliasPageInfo(PageInfo):
   def signature(self) -> None:
     return self._signature
 
+  def _custom_join(self, args: List[str], origin: str) -> str:
+    """Custom join for Callable and other type hints.
+
+    Args:
+      args: Args of a type annotation object returned by `__args__`.
+      origin: Origin of a type annotation object returned by `__origin__`.
+
+    Returns:
+      A joined string containing the right representation of a type annotation.
+    """
+    if 'Callable' in origin:
+      if args[0] == '...':
+        return ', '.join(args)
+      else:
+        return f"[{', '.join(args[:-1])}], {args[-1]}"
+
+    return ', '.join(args)
+
+  def _link_type_args(self, obj: Any, reverse_index: Dict[int, str],
+                      linker: FormatArguments) -> str:
+    """Recurses into typehint object and links known objects to their pages."""
+    arg_full_name = reverse_index.get(id(obj), None)
+    if arg_full_name is not None:
+      return linker.get_link(arg_full_name)
+
+    result = []
+    if getattr(obj, '__args__', None):
+      for arg in obj.__args__:
+        result.append(self._link_type_args(arg, reverse_index, linker))
+      origin_str = typing._type_repr(obj.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr
+      result = self._custom_join(result, origin_str)
+      return f'{origin_str}[{result}]'
+    else:
+      return typing._type_repr(obj)  # pylint: disable=protected-access # pytype: disable=module-attr
+
   def collect_docs(self, parser_config) -> None:
     """Collect all information necessary to genertate the function page.
 
     Mainly this is details about the function signature.
 
+    For the type alias signature, the args are extracted and replaced with the
+    full_name if the object is present in `parser_config.reverse_index`. They
+    are also linkified to point to that symbol's page.
+
+    For example (If generating docs for symbols in TF library):
+
+    ```
+    X = Union[int, str, bool, tf.Tensor, np.ndarray]
+    ```
+
+    In this case `tf.Tensor` will get linked to that symbol's page.
+    Note: In the signature `tf.Tensor` is an object, so it will show up as
+    `tensorflow.python.framework.ops.Tensor`. That's why we need to query
+    `parser_config.reverse_index` to get the full_name of the object which will
+    be `tf.Tensor`. Hence the signature will be:
+
+    ```
+    X = Union[int, str, bool, <a href="URL">tf.Tensor</a>, np.ndarray]
+    ```
+
     Args:
       parser_config: The ParserConfig for the module being documented.
     """
-    del parser_config
-
     assert self.signature is None
-    wrapped_sig = textwrap.fill(
-        repr(self.py_object).replace('typing.', ''), width=80)
-    self._signature = textwrap.indent(wrapped_sig, '    ').strip()
+
+    linker = FormatArguments(
+        type_annotations={},
+        parser_config=parser_config,
+        func_full_name=self.full_name)
+
+    sig_args = []
+    if self.py_object.__origin__:
+      for arg_obj in self.py_object.__args__:
+        sig_args.append(
+            self._link_type_args(arg_obj, parser_config.reverse_index, linker))
+
+    sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
+    if self.py_object.__origin__:
+      sig = f'{self.py_object.__origin__}[\n{sig_args_str}\n]'
+    else:
+      sig = repr(self.py_object)
+
+    # pytype: enable=module-attr
+
+    self._signature = sig.replace('typing.', '')
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
@@ -2236,7 +2286,6 @@ def _get_defined_in(py_object: Any,
     start_line = None
     end_line = None
 
-
   # In case this is compiled, point to the original
   if rel_path.endswith('.pyc'):
     # If a PY3 __pycache__/ subdir is being used, omit it.
@@ -2297,6 +2346,7 @@ def generate_global_index(library_name, index, reference_resolver):
         (full_name, reference_resolver.python_link(full_name, full_name, '.')))
 
   lines = [f'# All symbols in {library_name}', '']
+  lines.append('<!-- Insert buttons and diff -->\n')
 
   # Sort all the symbols once, so that the ordering is preserved when its broken
   # up into main symbols and compat symbols and sorting the sublists is not
