@@ -283,6 +283,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.3.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td></tr>
 <tr><td>tensorflow-2.2.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 2.0.0</td></tr>
 <tr><td>tensorflow-2.1.0</td><td>3.5-3.7</td><td>MSVC 2019</td><td>Bazel 0.27.1-0.29.1</td></tr>
 <tr><td>tensorflow-2.0.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.26.1</td></tr>
@@ -308,6 +309,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow_gpu-2.3.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td><td>7.4</td><td>10.1</td></tr>
 <tr><td>tensorflow_gpu-2.2.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 2.0.0</td><td>7.4</td><td>10.1</td></tr>
 <tr><td>tensorflow_gpu-2.1.0</td><td>3.5-3.7</td><td>MSVC 2019</td><td>Bazel 0.27.1-0.29.1</td><td>7.4</td><td>10.1</td></tr>
 <tr><td>tensorflow_gpu-2.0.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.26.1</td><td>7.4</td><td>10</td></tr>

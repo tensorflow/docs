@@ -1,0 +1,58 @@
+# Greet new pull requests that modify notebooks with a comment that includes
+# Colab preview links and instructions to use the tensorflow-docs notebook tools.
+name: Welcome
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Fetch master branch
+      run: git fetch -u origin master:master
+    - name: Post comment
+      env:
+        URL: "${{ github.event.pull_request.issue_url }}"
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        # Source is the user's forked repo.
+        SRC_REPO: "${{ github.event.pull_request.head.repo.full_name }}"
+        SRC_BRANCH: "${{ github.event.pull_request.head.ref }}"
+        # Dest is repo that's being submitted to.
+        DEST_REPO: "${{ github.event.pull_request.base.repo.full_name }}"
+        PR_NUM: "${{ github.event.pull_request.number }}"
+      run: |
+        # Only want notebooks modified in this pull request.
+        readarray -t notebooks < <(git diff --name-only master | grep '\.ipynb$' || true)
+        if [[ ${#notebooks[@]} -eq 0 ]]; then
+          echo "No notebooks modified in this pull request."
+        else
+          msg="<h4>Preview</h4>\n"
+          msg+="Preview and run these notebook edits with Google Colab:\n<ul>\n"
+          # Link to PR branch in user's fork that is always current.
+          for fp in "${notebooks[@]}"; do
+            gh_path="${SRC_REPO}/blob/${SRC_BRANCH}/${fp}"
+            colab_url="https://colab.research.google.com/github/${gh_path}"
+            msg+="<li><a href='${colab_url}'>${fp}</a></li>\n"
+          done
+          msg+="</ul>\n"
+
+          msg+="<h4>Format and style</h4>\n"
+          msg+="Use the TensorFlow docs <a href='https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs/tools'>notebook tools</a> to format for consistent source diffs and lint for style:\n"
+          msg+="<pre>\n$ python3 -m pip install -U --user git+https://github.com/tensorflow/docs\n<br/>"
+          msg+="$ python3 -m tensorflow_docs.tools.nbfmt notebook.ipynb\n<br/>"
+          msg+="$ python3 -m tensorflow_docs.tools.nblint --arg=repo:tensorflow/docs notebook.ipynb\n</pre>\n"
+
+          reviewnb_url="https://app.reviewnb.com/${DEST_REPO}/pull/${PR_NUM}/files/"
+          msg+="Rendered <a href='${reviewnb_url}'>notebook diffs</a> available on ReviewNB.com.\n"
+
+          # Escape string for JSON
+          body="$(echo -n -e $msg | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))')"
+          # Post comment
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            "${URL}/comments" \
+            --data "{\"body\": $body}"
+        fi
