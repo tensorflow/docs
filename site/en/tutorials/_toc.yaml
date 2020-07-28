@@ -26,7 +26,6 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
-    status: new
 
 - title: "Load and preprocess data"
   style: accordion
@@ -131,7 +130,6 @@ toc:
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
   - title: "Fine tuning BERT"
-    status: New
     path: /official_models/fine_tuning_bert
 
 - title: "Structured data"
@@ -164,7 +162,6 @@ toc:
 
 - title: "Interpretability"
   style: accordion
-  status: new
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
