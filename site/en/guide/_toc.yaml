@@ -28,6 +28,9 @@ toc:
   path: /guide/autodiff
 - title: "Intro to graphs and functions"
   path: /guide/intro_to_graphs
+- title: "Intro to modules, layers, and models"
+  path: /guide/intro_to_modules
+  status: new
 - title: "Advanced auto-diff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
