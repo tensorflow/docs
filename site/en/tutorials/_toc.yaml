@@ -102,10 +102,10 @@ toc:
     path: /tutorials/images/cnn
   - title: "Image classification"
     path: /tutorials/images/classification
+  - title: "Transfer learning and fine-tuning"
+    path: /tutorials/images/transfer_learning
   - title: "Transfer learning with TF Hub"
     path: /tutorials/images/transfer_learning_with_hub
-  - title: "Transfer learning with pretrained CNN"
-    path: /tutorials/images/transfer_learning
   - title: "Data Augmentation"
     path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
