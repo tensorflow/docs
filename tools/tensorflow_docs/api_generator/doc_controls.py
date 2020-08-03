@@ -14,6 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
+from typing import Callable, Iterable
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
 
@@ -372,3 +373,33 @@ def should_skip_class_attr(cls, name):
 
   # No blockng decorators --> don't skip
   return False
+
+
+def decorate_all_class_attributes(decorator: Callable, cls: type,
+                                  skip: Iterable[str]):
+  """Applies `decorator` to every attribute defined in `cls`.
+
+  Args:
+    decorator: The decorator to apply.
+    cls: The class to aply the decorator to.
+    skip: A collection of attribute names that the decorator should not be
+      aplied to.
+  """
+  skip = frozenset(skip)
+  class_contents = list(cls.__dict__.items())
+
+  for name, obj in class_contents:
+    if name in skip:
+      continue
+
+    # Otherwise, exclude from documentation.
+    if isinstance(obj, property):
+      obj = obj.fget
+
+    if isinstance(obj, (staticmethod, classmethod)):
+      obj = obj.__func__
+
+    try:
+      decorator(obj)
+    except AttributeError:
+      pass
