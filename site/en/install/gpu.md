@@ -34,7 +34,7 @@ For releases 1.15 and older, CPU and GPU packages are separate:
 
 ## Hardware requirements
 
-The following notes describe which GPU-enabled devices are supported, and how to diagnose basic installation problems:
+The following GPU-enabled devices are supported:
 
 *   NVIDIA® GPU card with CUDA® architectures 3.5 or higher. See the list of
     <a href="https://developer.nvidia.com/cuda-gpus" class="external">CUDA®-enabled
@@ -54,10 +54,10 @@ The following notes describe which GPU-enabled devices are supported, and how to
     `CUDA_FORCE_PTX_JIT=1` is set. (See
     <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#application-compatibility" class="external">Application
     Compatibility</a> for details.)
-*   If you see this error: `Status: device kernel image is invalid`, this indicates that TensorFlow does not contain PTX
-    for your architecture. (Starting with TensorFlow 2.3, we don't ship PTX for
-    older architectures to reduce pip package size.) You can enable these compute capabilities yourself by building
-    [TensorFlow from source](./source.md).
+
+Note: The error message "Status: device kernel image is invalid" indicates that
+the TensorFlow package does not contain PTX for your architecture. You can
+enable compute capabilities by [building TensorFlow from source](./source.md).
 
 ## Software requirements
 
