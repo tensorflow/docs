@@ -55,6 +55,10 @@ The following GPU-enabled devices are supported:
     <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#application-compatibility" class="external">Application
     Compatibility</a> for details.)
 
+Note: The error message "Status: device kernel image is invalid" indicates that
+the TensorFlow package does not contain PTX for your architecture. You can
+enable compute capabilities by [building TensorFlow from source](./source.md).
+
 ## Software requirements
 
 The following NVIDIA® software must be installed on your system:
