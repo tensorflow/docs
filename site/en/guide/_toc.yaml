@@ -31,7 +31,7 @@ toc:
 - title: "Intro to modules, layers, and models"
   path: /guide/intro_to_modules
   status: new
-- title: "Advanced auto-diff"
+- title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
