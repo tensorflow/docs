@@ -35,6 +35,9 @@ toc:
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "NumPy API"
+  path: /guide/tf_numpy
+  status: new
 
 - heading: "Customization"
 - title: "Create an op"
