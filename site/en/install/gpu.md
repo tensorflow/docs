@@ -55,8 +55,8 @@ The following notes describe which GPU-enabled devices are supported, and how to
     <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#application-compatibility" class="external">Application
     Compatibility</a> for details.)
 *   If you see this error: `Status: device kernel image is invalid`, this indicates that TensorFlow does not contain PTX
-    for your architecture. To reduce the size of the TF pip package, starting with TensorFlow 2.3, we don't ship PTX for
-    older architectures. You can enable these compute capabilities yourself by building
+    for your architecture. (Starting with TensorFlow 2.3, we don't ship PTX for
+    older architectures to reduce pip package size.) You can enable these compute capabilities yourself by building
     [TensorFlow from source](./source.md).
 
 ## Software requirements
