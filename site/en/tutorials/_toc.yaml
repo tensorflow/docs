@@ -165,3 +165,10 @@ toc:
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
+
+- title: "Reinforcement learning"
+  style: accordion
+  status: new
+  section:
+  - title: "Actor-Critic method"
+    path: /tutorials/rl/actor_critic
