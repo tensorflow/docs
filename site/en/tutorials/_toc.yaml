@@ -172,3 +172,6 @@ toc:
   section:
   - title: "Actor-Critic method"
     path: /tutorials/rl/actor_critic
+  - title: "TensorFlow agents"
+    status: external
+    path: /agents
