@@ -41,7 +41,7 @@ jobs:
       run: python3 -m pip install -U git+https://github.com/tensorflow/docs
     - name: Lint notebooks
       run: |
-        # Only check notebooks modified in this pull request. (Ignore en-snapshot)
+        # Only check notebooks modified in this pull request.
         readarray -t changed_notebooks < <(git diff --name-only master | grep '\.ipynb$' || true)
         if [[ ${#changed_notebooks[@]} == 0 ]]; then
           echo "No notebooks modified in this pull request."
