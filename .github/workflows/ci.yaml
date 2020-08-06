@@ -1,13 +1,8 @@
-# Pass/fail checks for continuous integration testing.
-# Webhook events: Pull requests
 name: CI
-on:
-  pull_request:
-    paths:
-    - "site/en/**"
+on: pull_request
 
 jobs:
-  nbfmt:
+  notebook_format:
     name: Notebook format
     runs-on: ubuntu-latest
     steps:
@@ -20,34 +15,10 @@ jobs:
     - name: Check notebook formatting
       run: |
         # Only check notebooks modified in this pull request.
-        readarray -t changed_notebooks < <(git diff --name-only master | grep '\.ipynb$' || true)
-        if [[ ${#changed_notebooks[@]} == 0 ]]; then
-          echo "No notebooks modified in this pull request."
-          exit 0
-        else
+        notebooks="$(git diff --name-only master | grep '\.ipynb$' || true)"
+        if [[ -n "$notebooks" ]]; then
           echo "Check formatting with nbfmt:"
-          python3 -m tensorflow_docs.tools.nbfmt --test "${changed_notebooks[@]}"
-        fi
-
-  nblint:
-    name: Notebook lint
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/setup-python@v1
-    - uses: actions/checkout@v2
-    - name: Fetch master branch
-      run: git fetch -u origin master:master
-    - name: Install tensorflow-docs
-      run: python3 -m pip install -U git+https://github.com/tensorflow/docs
-    - name: Lint notebooks
-      run: |
-        # Only check notebooks modified in this pull request.
-        readarray -t changed_notebooks < <(git diff --name-only master | grep '\.ipynb$' || true)
-        if [[ ${#changed_notebooks[@]} == 0 ]]; then
-          echo "No notebooks modified in this pull request."
-          exit 0
+          python3 -m tensorflow_docs.tools.nbfmt --test $notebooks
         else
-          echo "Lint check with nblint:"
-          python3 -m tensorflow_docs.tools.nblint \
-            --arg=repo:tensorflow/docs "${changed_notebooks[@]}"
+          echo "No notebooks modified in this pull request."
         fi
