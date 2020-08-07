@@ -30,16 +30,16 @@ toc:
 - title: "Load and preprocess data"
   style: accordion
   section:
+  - title: "Images"
+    path: /tutorials/load_data/images
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
-  - title: "Images"
-    path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
