@@ -117,7 +117,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
-    libcudnn7=7.6.5.32+cuda10.1  \
+    libcudnn7=7.6.5.32-1+cuda10.1  \
     libcudnn7-dev=7.6.5.32-1+cuda10.1
 </code>
 
