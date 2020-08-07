@@ -54,10 +54,11 @@ found.
 
 ### Profile multiple GPUs
 
-TensorFlow does not officially support multiple GPU profiling yet. You can
-install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As TensorFlow
-supports CUDA® Toolkit versions only up to 10.1 , create symbolic links to
-`libcudart.so.10.1` and `libcupti.so.10.1`.
+TensorFlow currently supports multiple GPU profiling only for single host
+systems. Multiple GPU profiling for multi-host systems is currently not
+supported. Install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As
+TensorFlow supports CUDA® Toolkit versions only up to 10.1 , create symbolic
+links to `libcudart.so.10.1` and `libcupti.so.10.1`.
 
 ```shell
 sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
