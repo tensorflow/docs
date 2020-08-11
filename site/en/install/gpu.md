@@ -8,8 +8,8 @@ simplify installation and avoid library conflicts, we recommend using a
 only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}.
 
 These install instructions are for the latest release of TensorFlow. See the
-[tested build configurations](./source.md#linux) for CUDA and cuDNN versions to use
-with older TensorFlow releases.
+[tested build configurations](./source.md#linux) for CUDA® and cuDNN versions to
+use with older TensorFlow releases.
 
 ## Pip package
 
@@ -36,23 +36,43 @@ For releases 1.15 and older, CPU and GPU packages are separate:
 
 The following GPU-enabled devices are supported:
 
-* NVIDIA® GPU card with CUDA® Compute Capability 3.5 or higher. See the list of
-  [CUDA-enabled GPU cards](https://developer.nvidia.com/cuda-gpus){:.external}.
+*   NVIDIA® GPU card with CUDA® architectures 3.5 or higher. See the list of
+    <a href="https://developer.nvidia.com/cuda-gpus" class="external">CUDA®-enabled
+    GPU cards</a>.
+*   For GPUs with unsupported CUDA® architectures, or to avoid JIT compilation
+    from PTX, or to use different versions of the NVIDIA® libraries, see the
+    [Linux build from source](./source.md) guide.
+*   On systems with NVIDIA® Ampere GPUs (CUDA architecture 8.0) or newer,
+    kernels are JIT-compiled from PTX and TensorFlow can take over 30 minutes to
+    start up. This overhead can be limited to the first start up by increasing
+    the default JIT cache size with: '`export CUDA_CACHE_MAXSIZE=2147483648`'
+    (see
+    <a href="https://devblogs.nvidia.com/cuda-pro-tip-understand-fat-binaries-jit-caching" class="external">JIT
+    Caching</a> for details).
+*   Packages do not contain PTX code except for the latest supported CUDA®
+    architecture; therefore, TensorFlow fails to load on older GPUs when
+    `CUDA_FORCE_PTX_JIT=1` is set. (See
+    <a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#application-compatibility" class="external">Application
+    Compatibility</a> for details.)
 
+Note: The error message "Status: device kernel image is invalid" indicates that
+the TensorFlow package does not contain PTX for your architecture. You can
+enable compute capabilities by [building TensorFlow from source](./source.md).
 
 ## Software requirements
 
 The following NVIDIA® software must be installed on your system:
 
-* [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA 10.1
-  requires 418.x or higher.
-* [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external}
-  —TensorFlow supports CUDA 10.1 (TensorFlow >= 2.1.0)
-* [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA Toolkit.
-* [cuDNN SDK](https://developer.nvidia.com/cudnn){:.external} (>= 7.6)
-* *(Optional)* [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
-  to improve latency and throughput for inference on some models.
-
+*   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA®
+    10.1 requires 418.x or higher.
+*   [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external}
+    —TensorFlow supports CUDA® 10.1 (TensorFlow >= 2.1.0)
+*   [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA®
+    Toolkit.
+*   [cuDNN SDK 7.6](https://developer.nvidia.com/cudnn){:.external}
+*   *(Optional)*
+    [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+    to improve latency and throughput for inference on some models.
 
 ## Linux setup
 
@@ -69,14 +89,10 @@ environmental variable:
 <code class="devsite-terminal">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64</code>
 </pre>
 
-For a GPU with CUDA Compute Capability 3.0, or different versions of the
-NVIDIA libraries, see the [Linux build from source](./source.md) guide.
-
 ### Install CUDA with apt
 
-This section shows how to install CUDA 10 (TensorFlow >= 1.13.0) and CUDA 9
-for Ubuntu 16.04 and 18.04. These instructions may work for other Debian-based
-distros.
+This section shows how to install CUDA® 10 (TensorFlow >= 1.13.0) on Ubuntu
+16.04 and 18.04. These instructions may work for other Debian-based distros.
 
 Caution: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
 complicates installation of the NVIDIA driver and is beyond the scope of these instructions.
@@ -101,8 +117,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
-    libcudnn7=7.6.4.38-1+cuda10.1  \
-    libcudnn7-dev=7.6.4.38-1+cuda10.1
+    libcudnn7=7.6.5.32-1+cuda10.1  \
+    libcudnn7-dev=7.6.5.32-1+cuda10.1
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
@@ -149,34 +165,6 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 </pre>
 
 
-#### Ubuntu 16.04 (CUDA 9.0 for TensorFlow < 1.13.0)
-
-<pre class="prettyprint lang-bsh">
-# Add NVIDIA package repository
-<code class="devsite-terminal">sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</code>
-<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt install ./cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</code>
-<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt update</code>
-
-# Install the NVIDIA driver
-# Issue with driver install requires creating /usr/lib/nvidia
-<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-410</code>
-# Reboot. Check that GPUs are visible using the command: nvidia-smi
-
-# Install CUDA and tools. Include optional NCCL 2.x
-<code class="devsite-terminal">sudo apt install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \
-    cuda-cusolver-9-0 cuda-cusparse-9-0 libcudnn7=7.2.1.38-1+cuda9.0 \
-    libnccl2=2.2.13-1+cuda9.0 cuda-command-line-tools-9-0</code>
-
-# Optional: Install the TensorRT runtime (must be after CUDA install)
-<code class="devsite-terminal">sudo apt update</code>
-<code class="devsite-terminal">sudo apt install libnvinfer4=4.1.2-1+cuda9.0</code>
-</pre>
-
-
 ## Windows setup
 
 See the [hardware requirements](#hardware_requirements) and
@@ -187,8 +175,8 @@ Make sure the installed NVIDIA software packages match the versions listed above
 particular, TensorFlow will not load without the `cuDNN64_7.dll` file. To use a
 different version, see the [Windows build from source](./source_windows.md) guide.
 
-Add the CUDA, CUPTI, and cuDNN installation directories to the `%PATH%`
-environmental variable. For example, if the CUDA Toolkit is installed to
+Add the CUDA®, CUPTI, and cuDNN installation directories to the `%PATH%`
+environmental variable. For example, if the CUDA® Toolkit is installed to
 `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1` and cuDNN to
 `C:\tools\cuda`, update your `%PATH%` to match:
 

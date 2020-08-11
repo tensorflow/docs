@@ -17,6 +17,7 @@ toc:
 - include: /guide/keras/_toc.yaml
 
 - heading: "TensorFlow basics"
+  status: new
 - title: "Eager execution"
   path: /guide/eager
 - title: "Tensor"
@@ -27,12 +28,16 @@ toc:
   path: /guide/autodiff
 - title: "Intro to graphs and functions"
   path: /guide/intro_to_graphs
+- title: "Intro to modules, layers, and models"
+  path: /guide/intro_to_modules
   status: new
-- title: "Advanced auto-diff"
+- title: "Advanced autodiff"
   path: /guide/advanced_autodiff
-  status: new
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "NumPy API"
+  path: /guide/tf_numpy
+  status: new
 
 - heading: "Customization"
 - title: "Create an op"
@@ -50,7 +55,6 @@ toc:
 - title: "Optimize pipeline performance"
   path: /guide/data_performance
 - title: "Analyze pipeline performance"
-  status: new
   path: /guide/data_performance_analysis
 
 - heading: "Save a model"
@@ -66,7 +70,6 @@ toc:
 - title: "GPU"
   path: /guide/gpu
 - title: "TPU"
-  status: new
   path: /guide/tpu
 
 - heading: "Performance"

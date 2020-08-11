@@ -5,9 +5,6 @@ TensorFlow provides a
 particularly useful for loading models created with Python and running them
 within a Java application.
 
-Note: There is no `libtensorflow` support for TensorFlow 2 yet. It is expected
-in the 2.3 release. In the meantime please use nightly libtensorflow releases.
-
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
@@ -148,25 +145,25 @@ system and processor support:
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
     <td>Linux CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.14.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr>
     <td>Linux GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.14.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">macOS</td></tr>
   <tr>
     <td>macOS CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.14.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
     <td>Windows CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.14.0.zip</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip</a></td>
   </tr>
   <tr>
     <td>Windows GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.14.0.zip</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip</a></td>
   </tr>
 </table>
 
@@ -182,7 +179,7 @@ compile a program that uses TensorFlow. Make sure the `libtensorflow.jar` is
 accessible to your `classpath`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-javac -cp libtensorflow-1.14.0.jar HelloTensorFlow.java
+javac -cp libtensorflow-2.3.0.jar HelloTensorFlow.java
 </pre>
 
 ### Run
@@ -193,11 +190,11 @@ the extracted JNI library.
 <div class="ds-selector-tabs">
 <section>
 <h3>Linux / macOS</h3>
-<pre class="devsite-terminal devsite-click-to-copy">java -cp libtensorflow-1.14.0.jar:. -Djava.library.path=./jni HelloTensorFlow</pre>
+<pre class="devsite-terminal devsite-click-to-copy">java -cp libtensorflow-2.3.0.jar:. -Djava.library.path=./jni HelloTensorFlow</pre>
 </section>
 <section>
 <h3>Windows</h3>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">java -cp libtensorflow-1.14.0.jar;. -Djava.library.path=jni HelloTensorFlow</pre>
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">java -cp libtensorflow-2.3.0.jar;. -Djava.library.path=jni HelloTensorFlow</pre>
 </section>
 </div><!--/ds-selector-tabs-->
 

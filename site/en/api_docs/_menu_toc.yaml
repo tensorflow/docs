@@ -1,10 +1,8 @@
 toc:
 - column:
   - links:
-    - label: "TensorFlow (r2.2)"
+    - label: "TensorFlow (r2.3)"
       path: /api/stable
-    - label: r2.3 (rc)
-      path: /api/r2.3
     - label: r1.15
       path: /api/r1.15
     - label: Versions…

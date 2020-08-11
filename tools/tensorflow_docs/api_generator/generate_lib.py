@@ -709,7 +709,11 @@ def replace_refs(
         content = f.read().decode('utf-8')
 
       for resolver, rel_path in zip(reference_resolvers, api_docs_relpath):
-        relative_path_to_root = os.path.join(depth, rel_path, 'python')
+        # TODO(b/163055387): delete when all api_cache files have been updated.
+        if not rel_path.endswith('python'):
+          rel_path = os.path.join(rel_path, 'python')
+        # If `rel_path` is an absolute path, `depth` is just discarded.
+        relative_path_to_root = os.path.join(depth, rel_path)
         content = resolver.replace_references(content, relative_path_to_root)
 
       with open(full_out_path, 'wb') as f:

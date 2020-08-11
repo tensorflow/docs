@@ -50,18 +50,33 @@ a release branch that is known to work.
 ## Build from source
 
 Cross-compile the TensorFlow source code to build a Python *pip* package with
-ARMv7 [NEON instructions](https://developer.arm.com/technologies/neon){:.external}
-that works on Raspberry Pi 2 and 3 devices. The build script launches a Docker
-container for compilation. Choose between Python 3 and Python 2.7 for the target
-package:
+ARMv7
+[NEON instructions](https://developer.arm.com/technologies/neon){:.external}
+that works on Raspberry Pi 2, 3 and 4 devices. The build script launches a
+Docker container for compilation. You can also build ARM 64-bit binary (aarch64)
+by providing "AARCH64" parameter to the 'build_raspberry_pi.sh' script. Choose
+among Python 3.8, Python 3.7, Python 3.5 and Python 2.7 for the target package:
 
 <div class="ds-selector-tabs">
   <section>
-    <h3>Python 3</h3>
+    <h3>Python 3.5</h3>
 <pre class="devsite-terminal prettyprint lang-bsh">
-CI_DOCKER_EXTRA_PARAMS="-e CI_BUILD_PYTHON=python3 -e CROSSTOOL_PYTHON_INCLUDE_PATH=/usr/include/python3.4" \\
-    tensorflow/tools/ci_build/ci_build.sh PI-PYTHON3 \\
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON3 \\
     tensorflow/tools/ci_build/pi/build_raspberry_pi.sh
+</pre>
+  </section>
+  <section>
+    <h3>Python 3.7</h3>
+<pre class="devsite-terminal prettyprint lang-bsh">
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON37 \\
+    tensorflow/tools/ci_build/pi/build_raspberry_pi.sh
+</pre>
+  </section>
+  <section>
+    <h3>Python 3.8 (64bit)</h3>
+<pre class="devsite-terminal prettyprint lang-bsh">
+tensorflow/tools/ci_build/ci_build.sh PI-PYTHON38 \\
+    tensorflow/tools/ci_build/pi/build_raspberry_pi.sh AARCH64
 </pre>
   </section>
   <section>
@@ -86,7 +101,7 @@ output-artifacts directory of the host's source tree. Copy the wheel file to the
 Raspberry Pi and install with `pip`:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-pip install tensorflow-<var>version</var>-cp34-none-linux_armv7l.whl
+pip install tensorflow-<var>version</var>-cp35-none-linux_armv7l.whl
 </pre>
 
 Success: TensorFlow is now installed on Raspbian.
