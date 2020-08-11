@@ -85,8 +85,7 @@ available resources. In general, even when running your model on an accelerator
 like a GPU or TPU, the `tf.data` pipelines are run on the CPU. You can check
 your utilization with tools like [sar](https://linux.die.net/man/1/sar) and
 [htop](https://en.wikipedia.org/wiki/Htop), or in the
-[cloud monitoring console](console.cloud.google.com/compute/instances) if you’re
-running on GCP.
+[cloud monitoring console](https://cloud.google.com/monitoring/docs/monitoring_in_console) if you’re running on GCP.
 
 **If your utilization is low,** this suggests that your input pipeline may not
 be taking full advantage of the host CPU. You should consult the
