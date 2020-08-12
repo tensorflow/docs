@@ -157,6 +157,8 @@ toc:
     path: /tutorials/generative/cyclegan
   - title: "Adversarial FGSM"
     path: /tutorials/generative/adversarial_fgsm
+  - title: "Intro to Autoencoders"
+    path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 
