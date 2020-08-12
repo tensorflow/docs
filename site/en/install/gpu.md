@@ -13,15 +13,16 @@ use with older TensorFlow releases.
 
 ## Pip package
 
-See the [pip install guide](./pip) for available packages, systems
-requirements, and instructions. To `pip` install a TensorFlow package with
-GPU support, choose a stable or development package:
+See the [pip install guide](./pip) for available packages, systems requirements,
+and instructions. The TensorFlow `pip` package includes GPU support for
+CUDA®-enabled cards:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install tensorflow  # stable</code>
-
-<code class="devsite-terminal">pip install tf-nightly  # preview</code>
+<code class="devsite-terminal">pip install tensorflow</code>
 </pre>
+
+This guide covers GPU support and installation steps for the latest *stable*
+TensorFlow release.
 
 ### Older versions of TensorFlow
 
