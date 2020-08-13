@@ -49,6 +49,10 @@ flags.DEFINE_bool('search_hints', True,
 flags.DEFINE_string('site_path', '/api_docs/python',
                     'Path prefix in the _toc.yaml')
 
+flags.DEFINE_bool('gen_report', False,
+                  ('Generate an API report containing the health of the'
+                   'docstrings of the public API.'))
+
 
 def gen_api_docs():
   """Generates api docs for the tensorflow docs package."""
@@ -69,8 +73,10 @@ def gen_api_docs():
       site_path=FLAGS.site_path,
       private_map={},
       table_view=True,
+      gen_report=FLAGS.gen_report,
       # This callback cleans up a lot of aliases caused by internal imports.
-      callbacks=[public_api.local_definitions_filter])
+      callbacks=[public_api.local_definitions_filter],
+  )
 
   doc_generator.build(FLAGS.output_dir)
 
