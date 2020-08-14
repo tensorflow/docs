@@ -21,9 +21,12 @@ $ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
 Usage:
 $ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
+
 $ python3 -m tensorflow_docs.tools.nblint --verbose \
     [--styles=google,tensorflow] notebook.ipynb [...]
 $ python3 -m tensorflow_docs.tools.nblint --arg=x:foo --arg=y:bar notebook.ipynb
+$ python3 -m tensorflow_docs.tools.nblint [options] \
+    --exclude_lint=tensorflow::copyright_check [...] notebook.ipynb
 
 See the TensorFlow notebook template:
 https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
@@ -44,7 +47,11 @@ from tensorflow_docs.tools.nblint import decorator
 from tensorflow_docs.tools.nblint import linter
 
 flags.DEFINE_multi_string("arg", [], "User arguments to pass to lint callback.")
-flags.DEFINE_list("styles", ["google", "tensorflow"], "Lint styles to include.")
+flags.DEFINE_multi_string(
+    "exclude_lint", [],
+    "Do not check a specific lint within a style. Format: 'style::function'")
+flags.DEFINE_list("styles", ["google", "tensorflow"],
+                  "Lint style modules to include.")
 flags.DEFINE_boolean("verbose", False, "Display verbose output.")
 
 FLAGS = flags.FLAGS
@@ -107,13 +114,14 @@ def _is_user_defined_lint(mod_name):
   return is_lint
 
 
-def add_styles(styles, verbose):
+def add_styles(styles, excluded_lints, verbose):
   """Import lint assertions from style modules.
 
   Style modules must exist in the `style/` directory of this package.
 
   Args:
     styles: A list of short names for style modules to import.
+    excluded_lints: List of lint functions to skip ('style::function').
     verbose: Bool, to print more details to console. Default is False.
 
   Returns:
@@ -146,6 +154,11 @@ def add_styles(styles, verbose):
     # Extract Lint instance attached to function object by decorator.
     lints = [
         getattr(mem[1], "_lint") for mem in inspect.getmembers(mod, is_lint)
+    ]
+
+    # Remove lints that have been explictly excluded at the command-line.
+    lints = [
+        lint for lint in lints if f"{style}::{lint.name}" not in excluded_lints
     ]
 
     if verbose:
@@ -195,7 +208,7 @@ def main(argv):
   user_args = _parse_user_args(FLAGS.arg)
 
   nb_linter = linter.Linter(verbose=FLAGS.verbose)
-  lint_dict = add_styles(FLAGS.styles, FLAGS.verbose)
+  lint_dict = add_styles(FLAGS.styles, FLAGS.exclude_lint, FLAGS.verbose)
 
   linter_fails = []  # Track failed notebooks for final return code.
 

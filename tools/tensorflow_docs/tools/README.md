@@ -78,6 +78,18 @@ are collected into
 styles can be set with the `--styles` option:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint --arg=repo:tensorflow/docs-1l0n \
-    --styles=tensorflow,tensorflow_docs_l10n notebook.ipynb
+$ python3 -m tensorflow_docs.tools.nblint \
+    --styles=tensorflow,tensorflow_docs_l10n --arg=repo:tensorflow/docs-1l0n \
+    notebook.ipynb
+```
+
+A style module may contain some lint checks that do not fit your project. You
+can exclude specific lint checks with the `--exclude_lint` option:
+
+```
+$ python3 -m tensorflow_docs.tools.nblint \
+    --styles=tensorflow --arg=repo:community/repo-name \
+    --exclude_lint=tensorflow::copyright_check \
+    --exclude_lint=tensorflow::button_website \
+    ./community/notebook.ipynb
 ```
