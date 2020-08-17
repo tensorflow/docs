@@ -374,6 +374,10 @@ class ReferenceResolver(object):
     for name in sorted(self._all_names):
       if 'tf.compat.v' in name or 'tf.contrib' in name:
         continue
+      # TODO(yashkatariya): Remove `tf.experimental.numpy` after `tf.numpy` is
+      # in not in experimental namespace.
+      if 'tf.experimental.numpy' in name or 'tf.numpy' in name:
+        continue
       partials = self._partial_symbols(name)
       for partial in partials:
         partial_symbols_dict[partial].append(name)
