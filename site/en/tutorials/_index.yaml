@@ -143,7 +143,7 @@ landing_page:
       - description: >
           <a href="/hub"><h3 class="tfo-landing-page-heading no-link">TensorFlow Hub</h3></a>
           <ul class="tfo-landing-page-resources-ul">
-          <li><a href="https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb" class="external">Object detection</a></li>
+          <li><a href="https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb" class="external">Object detection</a></li>
           <li><a href="https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_arbitrary_image_stylization.ipynb" class="external">Arbitrary style transfer</a></li>
           </ul>
         path: /hub
