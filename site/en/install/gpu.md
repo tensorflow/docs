@@ -37,12 +37,10 @@ For releases 1.15 and older, CPU and GPU packages are separate:
 
 The following GPU-enabled devices are supported:
 
-*   NVIDIA® GPU card with CUDA® architectures 3.5 or higher. See the list of
+*   NVIDIA® GPU card with CUDA® architectures 3.5, 3.7, 5.2, 6.0, 6.1, 7.0 and
+    higher than 7.0. See the list of
     <a href="https://developer.nvidia.com/cuda-gpus" class="external">CUDA®-enabled
     GPU cards</a>.
-*   For GPUs with unsupported CUDA® architectures, or to avoid JIT compilation
-    from PTX, or to use different versions of the NVIDIA® libraries, see the
-    [Linux build from source](./source.md) guide.
 *   On systems with NVIDIA® Ampere GPUs (CUDA architecture 8.0) or newer,
     kernels are JIT-compiled from PTX and TensorFlow can take over 30 minutes to
     start up. This overhead can be limited to the first start up by increasing
@@ -50,6 +48,9 @@ The following GPU-enabled devices are supported:
     (see
     <a href="https://devblogs.nvidia.com/cuda-pro-tip-understand-fat-binaries-jit-caching" class="external">JIT
     Caching</a> for details).
+*   For GPUs with unsupported CUDA® architectures, or to avoid JIT compilation
+    from PTX, or to use different versions of the NVIDIA® libraries, see the
+    [Linux build from source](./source.md) guide.
 *   Packages do not contain PTX code except for the latest supported CUDA®
     architecture; therefore, TensorFlow fails to load on older GPUs when
     `CUDA_FORCE_PTX_JIT=1` is set. (See
