@@ -422,8 +422,8 @@ The tool displays information in two panes:
 
 ### Memory profile tool {: id = 'memory_profile_tool'}
 
-The Memory Profile tool monitors the memory usage of your host or device during
-the profiling interval. You can use this tool to:
+The Memory Profile tool monitors the memory usage of your device during the
+profiling interval. You can use this tool to:
 
 *   Debug out of memory (OOM) issues by pinpointing peak memory usage and the
     corresponding memory allocation to TensorFlow ops. You can also debug OOM
@@ -446,9 +446,8 @@ TensorFlow program as shown below:
 
 The memory profile summary has six fields:
 
-1.  Memory ID - Dropdown which lists all available memory systems (host and
-    device). Select the memory system you want to view from the dropdown. Note
-    that the host is listed as `gpu_host_bfc`
+1.  Memory ID - Dropdown which lists all available device memory systems. Select
+    the memory system you want to view from the dropdown
 1.  #Allocation - The number of memory allocations made during the profiling
     interval
 1.  #Deallocation - The number of memory deallocations in the profiling interval
