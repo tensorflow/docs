@@ -282,7 +282,13 @@ AUTO_REFERENCE_RE = re.compile(
 class ReferenceResolver(object):
   """Class for replacing `tf.symbol` references with Markdown links."""
 
-  def __init__(self, duplicate_of, is_fragment, py_module_names):
+  def __init__(
+      self,
+      duplicate_of: Dict[str, str],
+      is_fragment: Dict[str, bool],
+      py_module_names: List[str],
+      site_link: Optional[str] = None,
+  ):
     """Initializes a Reference Resolver.
 
     Args:
@@ -292,11 +298,16 @@ class ReferenceResolver(object):
         object lives at a page fragment `tf.a.b.c` --> `tf/a/b#c`. If False
         object has a page to itself: `tf.a.b.c` --> `tf/a/b/c`.
       py_module_names: A list of string names of Python modules.
+      site_link: The website to which these symbols should link to. A prefix
+        is added before the links to enable cross-site linking if `site_link`
+        is not None.
     """
     self._duplicate_of = duplicate_of
     self._is_fragment = is_fragment
-    self._all_names = set(is_fragment.keys())
     self._py_module_names = py_module_names
+    self._site_link = site_link
+
+    self._all_names = set(is_fragment.keys())
     self._partial_symbols_dict = self._create_partial_symbols_dict()
 
   @classmethod
@@ -493,6 +504,12 @@ class ReferenceResolver(object):
       A markdown link to the documentation page of `ref_full_name`.
     """
     url = self.reference_to_url(ref_full_name, relative_path_to_root)
+    if self._site_link is not None:
+      if os.path.isabs(url):
+        url = os.path.join(self._site_link, url[1:])
+      else:
+        url = os.path.join(self._site_link, url)
+      url = url.replace('.md', '')
 
     if code_ref:
       link_text = link_text.join(['<code>', '</code>'])
