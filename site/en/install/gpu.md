@@ -71,7 +71,7 @@ The following NVIDIA® software must be installed on your system:
     —TensorFlow supports CUDA® 10.1 (TensorFlow >= 2.1.0)
 *   [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA®
     Toolkit.
-*   [cuDNN SDK 7.6](https://developer.nvidia.com/cudnn){:.external}
+*   [cuDNN SDK 8.0](https://developer.nvidia.com/cudnn){:.external}
 *   *(Optional)*
     [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
     to improve latency and throughput for inference on some models.
@@ -119,8 +119,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
-    libcudnn7=7.6.5.32-1+cuda10.1  \
-    libcudnn7-dev=7.6.5.32-1+cuda10.1
+    libcudnn8=8.0.2.39-1+cuda10.1  \
+    libcudnn8-dev=8.0.2.39-1+cuda10.1
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
@@ -154,8 +154,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
-    libcudnn7=7.6.4.38-1+cuda10.1  \
-    libcudnn7-dev=7.6.4.38-1+cuda10.1
+    libcudnn8=8.0.2.39-1+cuda10.1  \
+    libcudnn7-dev=8.0.2.39-1+cuda10.1
 </code>
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
@@ -174,7 +174,7 @@ See the [hardware requirements](#hardware_requirements) and
 [CUDA® install guide for Windows](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/){:.external}.
 
 Make sure the installed NVIDIA software packages match the versions listed above. In
-particular, TensorFlow will not load without the `cuDNN64_7.dll` file. To use a
+particular, TensorFlow will not load without the `cuDNN64_8.dll` file. To use a
 different version, see the [Windows build from source](./source_windows.md) guide.
 
 Add the CUDA®, CUPTI, and cuDNN installation directories to the `%PATH%`
