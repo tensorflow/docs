@@ -37,7 +37,7 @@ add the dependency to the project's `pom.xml` file:
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>tensorflow</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 
@@ -50,12 +50,12 @@ dependencies to the project's `pom.xml` file:
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>libtensorflow</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>libtensorflow_jni_gpu</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 
