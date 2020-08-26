@@ -32,6 +32,7 @@ from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import py_guide_parser
 from tensorflow_docs.api_generator import traverse
+from tensorflow_docs.api_generator.report import utils
 
 import yaml
 
@@ -469,8 +470,7 @@ def write_docs(
   redirects = []
 
   if gen_report:
-    # TODO(b/162684337): Create the proto object here.
-    pass
+    api_report = utils.ApiReport()
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   for full_name in sorted(parser_config.index.keys(), key=lambda k: k.lower()):
@@ -516,9 +516,9 @@ def write_docs(
     except:
       raise ValueError(f'Failed to generate docs for symbol: `{full_name}`')
 
-    if gen_report:
-      # TODO(b/162684337): For each page_info, fill in the proto.
-      pass
+    if gen_report and not full_name.startswith('tf.compat.v'):
+      api_report.fill_metrics(page_info)
+      continue
 
     path = output_dir / parser.documentation_path(full_name)
     try:

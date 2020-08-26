@@ -60,7 +60,7 @@ class ApiTreeNode(object):
 
   def __init__(self, path, obj, parent):
     self.path = path
-    self.obj = obj
+    self.py_object = obj
     self.children = {}
     self.parent = parent
 
@@ -378,7 +378,7 @@ class DocGeneratorVisitor(object):
       if not path:
         continue
       full_name = node.full_name
-      py_object = node.obj
+      py_object = node.py_object
       object_id = id(py_object)
       if full_name in duplicates:
         continue

@@ -1430,7 +1430,7 @@ class MemberInfo(NamedTuple):
   """Describes an attribute of a class or module."""
   short_name: str
   full_name: str
-  obj: Any
+  py_object: Any
   doc: _DocstringInfo
   url: str
 
@@ -1439,7 +1439,7 @@ class MethodInfo(NamedTuple):
   """Described a method."""
   short_name: str
   full_name: str
-  obj: Any
+  py_object: Any
   doc: _DocstringInfo
   url: str
   signature: _SignatureComponents
@@ -1819,7 +1819,7 @@ class ClassPageInfo(PageInfo):
       link_info = MemberInfo(
           short_name=base_full_name.split('.')[-1],
           full_name=base_full_name,
-          obj=base,
+          py_object=base,
           doc=base_doc,
           url=base_url)
       bases.append(link_info)
@@ -1886,12 +1886,12 @@ class ClassPageInfo(PageInfo):
         member_info.short_name in ['__del__', '__copy__']):
       return
 
-    signature = generate_signature(member_info.obj, parser_config,
+    signature = generate_signature(member_info.py_object, parser_config,
                                    member_info.full_name)
 
-    decorators = extract_decorators(member_info.obj)
+    decorators = extract_decorators(member_info.py_object)
 
-    defined_in = _get_defined_in(member_info.obj, parser_config)
+    defined_in = _get_defined_in(member_info.py_object, parser_config)
 
     method_info = MethodInfo.from_member_info(member_info, signature,
                                               decorators, defined_in)
@@ -1937,7 +1937,7 @@ class ClassPageInfo(PageInfo):
       parser_config: ParserConfig,
   ) -> None:
     """Adds a member to the class page."""
-    obj_type = get_obj_type(member_info.obj)
+    obj_type = get_obj_type(member_info.py_object)
 
     if obj_type is ObjType.PROPERTY:
       self._add_property(member_info)
@@ -2138,7 +2138,7 @@ class ModulePageInfo(PageInfo):
 
   def _add_member(self, member_info: MemberInfo) -> None:
     """Adds members of the modules to the respective lists."""
-    obj_type = get_obj_type(member_info.obj)
+    obj_type = get_obj_type(member_info.py_object)
     if obj_type is ObjType.MODULE:
       self._add_module(member_info)
     elif obj_type is ObjType.CLASS:

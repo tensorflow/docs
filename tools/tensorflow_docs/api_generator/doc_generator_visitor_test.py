@@ -285,7 +285,7 @@ class ApiTreeTest(absltest.TestCase):
 
     node = tree[('tf', 'sub')]
     self.assertEqual(node.full_name, 'tf.sub')
-    self.assertIs(node.obj, tf.sub)
+    self.assertIs(node.py_object, tf.sub)
     self.assertIs(node.parent, tree[('tf',)])
     self.assertLen(node.children, 1)
     self.assertIs(node.children['thing'], tree[('tf', 'sub', 'thing')])

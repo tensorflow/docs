@@ -64,7 +64,11 @@ message RaisesLint {
   optional float num_raises_defined = 1;
 
   // Total number of unique raises that are present in the code.
-  optional float total_raises = 2;
+  optional float total_raises_in_code = 2;
+
+  // Number of raises defined in the docstring that don't match with the actual
+  // raises in the code.
+  optional float num_raises_mismatch = 3;
 }
 
 // This Enum is used to describe the type of object. `api_generator` traverses
