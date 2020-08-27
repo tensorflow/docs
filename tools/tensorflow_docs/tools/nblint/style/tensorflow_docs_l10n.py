@@ -55,9 +55,10 @@ def is_translation(args):
 
 # Catch tensorflow.org hostname usage in Chinese docs. Ignore false positives
 # for the Google Group (../a/tensorflow.org/..), email (docs*@tensorflow.org),
-# and subdomains like (download|js).tensorflow.org.
+# and subdomains like (blog|download|js).tensorflow.org.
 has_tf_hostname_re = re.compile(
-    r"(?<!/a/)(?<!@)(?<!download\.)(?<!js\.)(www\.)?tensorflow\.org")
+    r"(?<!/a/)(?<!@)(?<!download\.)(?<!js\.)(www\.)(blog\.)?tensorflow\.org",
+    re.IGNORECASE)
 
 
 @lint(
