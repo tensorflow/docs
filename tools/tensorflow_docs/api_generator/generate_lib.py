@@ -470,7 +470,7 @@ def write_docs(
   redirects = []
 
   if gen_report:
-    api_report = utils.ApiReport()
+    api_report_obj = utils.ApiReport()
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   for full_name in sorted(parser_config.index.keys(), key=lambda k: k.lower()):
@@ -517,7 +517,7 @@ def write_docs(
       raise ValueError(f'Failed to generate docs for symbol: `{full_name}`')
 
     if gen_report and not full_name.startswith('tf.compat.v'):
-      api_report.fill_metrics(page_info)
+      api_report_obj.fill_metrics(page_info)
       continue
 
     path = output_dir / parser.documentation_path(full_name)
@@ -548,6 +548,11 @@ def write_docs(
         from_path = site_path / dup.replace('.', '/')
         to_path = site_path / full_name.replace('.', '/')
         redirects.append({'from': str(from_path), 'to': str(to_path)})
+
+  if gen_report:
+    serialized_proto = api_report_obj.api_report.SerializeToString()
+    raw_proto = output_dir / 'api_report.pb'
+    raw_proto.write_bytes(serialized_proto)
 
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
