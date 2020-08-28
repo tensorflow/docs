@@ -44,6 +44,8 @@ class ApiReport:
     self.api_report.symbol_metric.add(
         symbol_name=name,
         object_type=object_type,
+        parameter_lint=linter.lint_params(page_info),
+        desc_lint=linter.lint_description(page_info),
         return_lint=linter.lint_returns(page_info),
         raises_lint=linter.lint_raises(page_info),
     )

@@ -19,7 +19,7 @@ import ast
 import inspect
 import textwrap
 
-from typing import Optional, Any
+from typing import Optional, Any, List, Tuple
 
 import astor
 
@@ -37,12 +37,67 @@ def _get_source(py_object: Any) -> Optional[str]:
   return None
 
 
-def lint_params():
-  pass
+def _count_empty_param(items: List[Tuple[str, str]]) -> int:
+  count = 0
+  for item in items:
+    if not item[1].strip():
+      count += 1
+  return count
 
 
-def lint_description():
-  pass
+def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
+  """Lints the parameters of a docstring.
+
+  Args:
+    page_info: A `PageInfo` object containing the information of a page
+      generated via the api generation.
+
+  Returns:
+    A filled `DescriptionLint` proto object.
+  """
+  param_lint = api_report_pb2.ParameterLint()
+
+  for part in page_info.doc.docstring_parts:
+    if isinstance(part, parser.TitleBlock):
+      if part.title.lower().startswith('args'):
+        param_lint.total_args_param = len(part.items)
+        param_lint.num_empty_param_desc_args = _count_empty_param(part.items)
+
+      if part.title.lower().startswith('attr'):
+        param_lint.total_attr_param = len(part.items)
+        param_lint.num_empty_param_desc_attr = _count_empty_param(part.items)
+
+  return param_lint
+
+
+def lint_description(
+    page_info: parser.PageInfo) -> api_report_pb2.DescriptionLint:
+  """Lints the description of a docstring.
+
+  If a field in the proto is assigned 0, then it means that that field doesn't
+  exist.
+
+  Args:
+    page_info: A `PageInfo` object containing the information of a page
+      generated via the api generation.
+
+  Returns:
+    A filled `DescriptionLint` proto object.
+  """
+  desc_lint = api_report_pb2.DescriptionLint()
+
+  if page_info.doc.brief:
+    desc_lint.len_brief = len(page_info.doc.brief.split())
+  else:
+    desc_lint.len_brief = 0
+
+  len_long_desc = 0
+  for part in page_info.doc.docstring_parts:
+    if not isinstance(part, parser.TitleBlock):
+      len_long_desc += len(part.split())
+  desc_lint.len_long_desc = len_long_desc
+
+  return desc_lint
 
 
 def lint_usage_example():

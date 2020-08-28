@@ -35,23 +35,39 @@ class TestClass:
   """Class docstring.
 
   Some words here.
+
+  Another paragraph.
+
+  Attributes:
+    temp_a: Temporary variable a.
+
+  A example usage here.
   """
 
-  def __init__(self, temp_a, temp_b):
+  def __init__(self, temp_a, temp_b, temp_c):  # pylint: disable=g-doc-args
     """Initializes the class.
 
     Args:
       temp_a: Temporary variable a.
       temp_b: Temporary variable b.
+      temp_c:
+      temp_d:
 
     Raises:
       ValuesError: Temp_a value not allowed.
       TypeError: Type not allowed.
     """
-    if temp_a:
+    self.temp_a = temp_a
+    self._temp_c = temp_c
+
+    if self.temp_a:
       raise ValueError('temp_a value not allowed.')
     else:
       raise TypeError('Type not allowed.')
+
+  @property
+  def temp_c(self):  # pylint: disable=g-missing-from-attributes
+    return self._temp_c
 
   def method_one(self, x: str) -> Optional[str]:
     """Does some nice things.
@@ -76,9 +92,10 @@ class LinterTest(absltest.TestCase):
         'TestClass': TestClass,
         'TestClass.__init__': TestClass.__init__,
         'TestClass.method_one': TestClass.method_one,
+        'TestClass.temp_c': TestClass.temp_c,
     }
     tree = {
-        'TestClass': ['__init__', 'method_one'],
+        'TestClass': ['__init__', 'method_one', 'temp_c'],
     }
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=DummyVisitor(index=index, duplicate_of={}),
@@ -118,12 +135,59 @@ class LinterTest(absltest.TestCase):
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
-    print(test_api_report.api_report)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertTrue(test_report.return_lint.returns_defined)
+
+  def test_description_lint(self):
+    class_page_info = parser.docs_for_object(
+        full_name='TestClass',
+        py_object=TestClass,
+        parser_config=self.parser_config)
+
+    test_api_report = utils.ApiReport()
+    test_api_report.fill_metrics(class_page_info)
+
+    for test_report in test_api_report.api_report.symbol_metric:
+      if (test_report.symbol_name == 'TestClass' and
+          test_report.object_type == api_report_pb2.ObjectType.CLASS):
+        self.assertEqual(test_report.desc_lint.len_brief, 2)
+        self.assertEqual(test_report.desc_lint.len_long_desc, 9)
+
+      if (test_report.symbol_name == 'TestClass.method_one' and
+          test_report.object_type == api_report_pb2.ObjectType.METHOD):
+        self.assertEqual(test_report.desc_lint.len_brief, 4)
+        self.assertEqual(test_report.desc_lint.len_long_desc, 0)
+
+  def test_parameter_lint(self):
+    class_page_info = parser.docs_for_object(
+        full_name='TestClass',
+        py_object=TestClass,
+        parser_config=self.parser_config)
+
+    test_api_report = utils.ApiReport()
+    test_api_report.fill_metrics(class_page_info)
+
+    for test_report in test_api_report.api_report.symbol_metric:
+      if (test_report.symbol_name == 'TestClass' and
+          test_report.object_type == api_report_pb2.ObjectType.CLASS):
+        self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
+                         2)
+        self.assertEqual(test_report.parameter_lint.total_args_param, 4)
+        self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
+                         1)
+        self.assertEqual(test_report.parameter_lint.total_attr_param, 2)
+
+      if (test_report.symbol_name == 'TestClass.method_one' and
+          test_report.object_type == api_report_pb2.ObjectType.METHOD):
+        self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
+                         0)
+        self.assertEqual(test_report.parameter_lint.total_args_param, 1)
+        self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
+                         0)
+        self.assertEqual(test_report.parameter_lint.total_attr_param, 0)
 
 
 if __name__ == '__main__':
