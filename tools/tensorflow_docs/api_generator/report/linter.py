@@ -17,6 +17,7 @@
 
 import ast
 import inspect
+import re
 import textwrap
 
 from typing import Optional, Any, List, Tuple
@@ -84,24 +85,55 @@ def lint_description(
   Returns:
     A filled `DescriptionLint` proto object.
   """
-  desc_lint = api_report_pb2.DescriptionLint()
 
+  len_brief = 0
   if page_info.doc.brief:
-    desc_lint.len_brief = len(page_info.doc.brief.split())
-  else:
-    desc_lint.len_brief = 0
+    len_brief = len(page_info.doc.brief.split())
 
   len_long_desc = 0
   for part in page_info.doc.docstring_parts:
     if not isinstance(part, parser.TitleBlock):
       len_long_desc += len(part.split())
-  desc_lint.len_long_desc = len_long_desc
 
-  return desc_lint
+  return api_report_pb2.DescriptionLint(
+      len_brief=len_brief, len_long_desc=len_long_desc)
 
 
-def lint_usage_example():
-  pass
+_EXAMPLE_RE = re.compile(
+    r"""
+    (?P<indent>\ *)(?P<content>```.*?\n\s*?```)
+    """, re.VERBOSE | re.DOTALL)
+
+
+def lint_usage_example(
+    page_info: parser.PageInfo) -> api_report_pb2.UsageExampleLint:
+  """Counts the number of doctests and untested examples in a docstring.
+
+  Args:
+    page_info: A `PageInfo` object containing the information of a page
+      generated via the api generation.
+
+  Returns:
+    A filled `UsageExampleLint` proto object.
+  """
+
+  description = []
+  for part in page_info.doc.docstring_parts:
+    if not isinstance(part, parser.TitleBlock):
+      description.append(part)
+  desc_str = ''.join(description)
+
+  num_doctest = 0
+  num_untested_examples = 0
+  # The doctests are wrapped in backticks (```).
+  for match in _EXAMPLE_RE.finditer(desc_str):
+    if '>>>' in match.groupdict()['content']:
+      num_doctest += 1
+    else:
+      num_untested_examples += 1
+
+  return api_report_pb2.UsageExampleLint(
+      num_doctest=num_doctest, num_untested_examples=num_untested_examples)
 
 
 def lint_returns(

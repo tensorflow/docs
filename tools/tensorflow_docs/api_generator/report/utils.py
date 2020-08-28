@@ -46,6 +46,7 @@ class ApiReport:
         object_type=object_type,
         parameter_lint=linter.lint_params(page_info),
         desc_lint=linter.lint_description(page_info),
+        usage_example_lint=linter.lint_usage_example(page_info),
         return_lint=linter.lint_returns(page_info),
         raises_lint=linter.lint_raises(page_info),
     )

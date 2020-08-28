@@ -38,10 +38,28 @@ class TestClass:
 
   Another paragraph.
 
+  >>> x = 1
+  >>> print(x)
+  1
+  >>> x += 2
+  >>> print(x)
+  3
+
+  >>> z = 'api'
+  >>> z += ' report'
+  >>> print(z)
+  api report
+
   Attributes:
     temp_a: Temporary variable a.
 
   A example usage here.
+
+  ```
+  y = 2
+  z = y + 3
+  assert z == 5
+  ```
   """
 
   def __init__(self, temp_a, temp_b, temp_c):  # pylint: disable=g-doc-args
@@ -71,6 +89,11 @@ class TestClass:
 
   def method_one(self, x: str) -> Optional[str]:
     """Does some nice things.
+
+    ```
+    x = 'api'
+    method_one(x)  # output == apitemp
+    ```
 
     Args:
       x: A variable.
@@ -154,12 +177,12 @@ class LinterTest(absltest.TestCase):
       if (test_report.symbol_name == 'TestClass' and
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.desc_lint.len_brief, 2)
-        self.assertEqual(test_report.desc_lint.len_long_desc, 9)
+        self.assertEqual(test_report.desc_lint.len_long_desc, 54)
 
       if (test_report.symbol_name == 'TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.desc_lint.len_brief, 4)
-        self.assertEqual(test_report.desc_lint.len_long_desc, 0)
+        self.assertEqual(test_report.desc_lint.len_long_desc, 10)
 
   def test_parameter_lint(self):
     class_page_info = parser.docs_for_object(
@@ -188,6 +211,28 @@ class LinterTest(absltest.TestCase):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
                          0)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 0)
+
+  def test_example_lint(self):
+    class_page_info = parser.docs_for_object(
+        full_name='TestClass',
+        py_object=TestClass,
+        parser_config=self.parser_config)
+
+    test_api_report = utils.ApiReport()
+    test_api_report.fill_metrics(class_page_info)
+
+    for test_report in test_api_report.api_report.symbol_metric:
+      if (test_report.symbol_name == 'TestClass' and
+          test_report.object_type == api_report_pb2.ObjectType.CLASS):
+        self.assertEqual(test_report.usage_example_lint.num_doctest, 2)
+        self.assertEqual(test_report.usage_example_lint.num_untested_examples,
+                         1)
+
+      if (test_report.symbol_name == 'TestClass.method_one' and
+          test_report.object_type == api_report_pb2.ObjectType.METHOD):
+        self.assertEqual(test_report.usage_example_lint.num_doctest, 0)
+        self.assertEqual(test_report.usage_example_lint.num_untested_examples,
+                         1)
 
 
 if __name__ == '__main__':
