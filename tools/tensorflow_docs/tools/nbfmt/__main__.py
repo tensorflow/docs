@@ -121,24 +121,27 @@ def clean_cells(data) -> None:
     if cell["cell_type"] != "code":
       continue
 
-    # Clean cell metadata: remove the "executionInfo" block, this is what adds
-    # the little user photos in Colab.
+    # Clean cell metadata.
     cell_meta = cell.get("metadata", {})
     cell_meta.pop("executionInfo", None)
+    cell_meta.pop("ExecuteTime", None)
+    if "colab" in cell_meta:
+      cell_meta["colab"].pop("base_uri", None)
     cell["metadata"] = cell_meta
 
     # Clear any code cell outputs if notebook set to private outputs.
-    if private_outputs and cell.get("outputs"):
-      has_outputs = True
-      # Clear code outputs
-      cell["execution_count"] = 0
+    if private_outputs:
+      if cell.get("outputs"):
+        has_outputs = True  # Used for warning.
+
+      cell["execution_count"] = None
       cell["outputs"] = []
 
     # Ensure outputs field exists since part of the nbformat spec.
     if cell.get("outputs", None) is None:
       cell["outputs"] = []
 
-    # Spec allows null or integer, but use null since it's the Colab default.
+    # Spec allows null or int (null is Colab default).
     if cell.get("execution_count") == 0:
       cell["execution_count"] = None
 
