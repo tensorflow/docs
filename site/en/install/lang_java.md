@@ -136,7 +136,7 @@ TensorFlow can be used with the JDK through the Java Native Interface (JNI).
 
 ### Download
 
-1. Download the TensorFlow Jar Archive (JAR): [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.14.0.jar)
+1. Download the TensorFlow Jar Archive (JAR): [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-2.3.0.jar)
 2. Download and extract the Java Native Interface (JNI) file for your operating
 system and processor support:
 
