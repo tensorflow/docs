@@ -26,6 +26,8 @@ https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb
 And the TensorFlow docs contributor guide:
 https://www.tensorflow.org/community/contribute/docs
 """
+
+import enum
 import json
 import os
 import pathlib
@@ -33,7 +35,7 @@ import re
 import sys
 import textwrap
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, List
 
 from absl import app
 from absl import flags
@@ -202,13 +204,22 @@ def update_license_cell(data: Dict[str, Any]) -> None:
       data["cells"][idx]["metadata"] = metadata
 
 
-def main(argv):
-  if len(argv) <= 1:
-    raise app.UsageError("Missing arguments.")
+class Status(enum.Enum):
+  PASS = 0
+  FAIL = 1
 
+
+def format_nb(
+    *,
+    notebooks: List[str],
+    remove_outputs: bool = False,
+    indent: int = 2,
+    test: bool = False,
+) -> Status:
+  """Formats a notebook."""
   found_error = False  # Track errors for final return code.
   test_fail_notebooks = []
-  paths, err_paths = notebook_utils.collect_notebook_paths(argv[1:])
+  paths, err_paths = notebook_utils.collect_notebook_paths(notebooks)
 
   if err_paths:
     found_error = True
@@ -229,12 +240,11 @@ def main(argv):
     data["nbformat_minor"] = 0
 
     remove_extra_fields(data)  # Top-level fields.
-    clean_cells(data, source, FLAGS.remove_outputs)
+    clean_cells(data, source, remove_outputs)
     update_metadata(data, filepath=path)
     update_license_cell(data)
 
-    nbjson = json.dumps(
-        data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
+    nbjson = json.dumps(data, sort_keys=True, ensure_ascii=False, indent=indent)
 
     if not OSS:
       # Serialization differences in enviroments.
@@ -244,7 +254,7 @@ def main(argv):
 
     expected_output = (nbjson + "\n").encode("utf-8")
 
-    if FLAGS.test:
+    if test:
       # Compare formatted contents with original file contents.
       src_bytes = path.read_bytes()
       if expected_output != src_bytes:
@@ -252,7 +262,7 @@ def main(argv):
     else:
       path.write_bytes(expected_output)
 
-  if FLAGS.test:
+  if test:
     if test_fail_notebooks:
       error_template = textwrap.dedent("""
       [test] The following notebooks are not formatted:
@@ -263,13 +273,30 @@ def main(argv):
       """)
       notebooks = "\n".join([f"- {str(fp)}" for fp in test_fail_notebooks])
       print(error_template.format(notebooks=notebooks), file=sys.stderr)
-      sys.exit(1)
+      return Status.FAIL
     else:
       print("[test] Notebooks are formatted", file=sys.stderr)
-      sys.exit(0)
+      return Status.PASS
 
   if found_error:
+    return Status.FAIL
+
+  return Status.PASS
+
+
+def main(argv):
+  if len(argv) <= 1:
+    raise app.UsageError("Missing arguments.")
+
+  exit_code = format_nb(
+      notebooks=argv[1:],
+      remove_outputs=FLAGS.remove_outputs,
+      indent=FLAGS.indent,
+      test=FLAGS.test)
+  if exit_code == Status.FAIL:
     sys.exit(1)
+  else:
+    sys.exit(0)
 
 
 if __name__ == "__main__":
