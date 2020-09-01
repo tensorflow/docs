@@ -308,7 +308,7 @@ class DocGeneratorVisitor(object):
     if len(parts) == 1:
       return (-99, -99, -99, -99, short_name)
 
-    container = self._index['.'.join(parts[:-1])]
+    container = self._index.get('.'.join(parts[:-1]), name)
 
     defining_class_score = 1
     if inspect.isclass(container):

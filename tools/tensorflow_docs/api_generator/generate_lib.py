@@ -908,7 +908,8 @@ class DocGenerator(object):
 
     if self.api_cache:
       reference_resolver.to_json_file(
-          str(work_py_dir / self._short_name / '_api_cache.json'))
+          str(work_py_dir / self._short_name.replace('.', '/') /
+              '_api_cache.json'))
 
     try:
       os.makedirs(output_dir)
