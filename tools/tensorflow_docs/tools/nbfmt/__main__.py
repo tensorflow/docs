@@ -236,9 +236,11 @@ def main(argv):
     nbjson = json.dumps(
         data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
 
-    # Some enviroments require a different format.
     if not OSS:
-      nbjson = nbjson.replace("<", r"\u003c").replace(">", r"\u003e")
+      # Serialization differences in enviroments.
+      str_replaces = {"<": r"\u003c", ">": r"\u003e", "&": r"\u0026"}
+      for str_from, str_to in str_replaces.items():
+        nbjson = nbjson.replace(str_from, str_to)
 
     expected_output = (nbjson + "\n").encode("utf-8")
 
