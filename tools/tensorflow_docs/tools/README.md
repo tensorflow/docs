@@ -42,8 +42,8 @@ non-notebook files).
 
 For TensorFlow docs projects, notebooks *without* output cells are executed and
 tested; notebooks *with* saved output cells are published as-is. `nbfmt`
-respects the notebook state and uses the `--preserve_outputs=True|False` option
-to explicitly keep or clear output cells.
+respects the notebook state and uses the `--remove_outputs` option to explicitly
+remove output cells.
 
 The `--test` flag is for continuous integration tests. This does not format the
 notebook, rather it exits with an error code if the notebook is not in an

@@ -26,14 +26,13 @@ each lint test on the file. Additionally, `LinterStatus` implements the
 formatting required to print the report that the console.
 """
 import io
-import json
 import pathlib
 import sys
-import textwrap
 import traceback
 
 from typing import List, NamedTuple, Optional, Set
 
+from tensorflow_docs.tools.nbfmt import notebook_utils
 from tensorflow_docs.tools.nblint import decorator
 
 
@@ -60,22 +59,10 @@ class Linter:
       Dict: Contains data of the parsed JSON notebook.
       String: The entire JSON source code of the notebook.
     """
-    source = path.read_text(encoding="utf-8")
-    try:
-      data = json.loads(source)
-      if not isinstance(data.get("cells"), list):
-        print(
-            "Error: Invalid notebook, unable to find list of cells.",
-            file=sys.stderr)
-        sys.exit(1)
-    except (json.JSONDecodeError, ValueError) as err:
-      print(
-          textwrap.dedent(f"""
-        Unable to load JSON for {path}:
-        {err.__class__.__name__}: {err}
-        """),
-          file=sys.stderr)
-      data = None
+    data, source = notebook_utils.load_notebook(path)
+
+    if not data:
+      sys.exit(1)  # load_notebook prints warning.
 
     return data, source
 

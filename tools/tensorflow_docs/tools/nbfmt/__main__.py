@@ -38,19 +38,12 @@ from typing import Any, Dict, Optional
 from absl import app
 from absl import flags
 
+from tensorflow_docs.tools.nbfmt import notebook_utils
+
 OSS = True
 
-flags.DEFINE_bool(
-    "preserve_outputs", None,
-    "Configures the notebook to either preserve, or clear outputs."
-    "- If `True`: Set the notebook to keep outputs.\n"
-    "- If `False`: Set the notebook to clear outputs.\n"
-    "- If unset (`None`): keep the notebook's current setting.\n"
-    "  - If it's not set in the notebook, set the notebook to preserve outputs "
-    "(to match the colab default).\n"
-    "If a notebook is configured to clear outputs, this script will clear them "
-    "when run.\n"
-    "Colab respects this setting. Jupyter does not.")
+flags.DEFINE_bool("remove_outputs", False,
+                  "Remove output cells from the notebook")
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 flags.DEFINE_bool("test", False,
@@ -69,7 +62,7 @@ def warn(msg: str) -> None:
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
-def remove_extra_fields(data) -> None:
+def remove_extra_fields(data: Dict[str, Any]) -> None:
   """Deletes extra notebook fields.
 
   Jupyter format spec:
@@ -91,61 +84,65 @@ def remove_extra_fields(data) -> None:
   filter_keys(data["metadata"], ["accelerator", "colab", "kernelspec"])
 
 
-def clean_cells(data) -> None:
-  """Remove empty cells and strip outputs from `data` object.
+def _clean_code_cell(cell_data: Dict[str, Any], remove_outputs: bool) -> None:
+  """Clean an individual code cell and optionally remove outputs.
 
   Args:
-    data: object representing a parsed JSON notebook.
+    cell_data: object representing a parsed JSON cell.
+    remove_outputs: Boolean to clear cell output.
   """
-  remove_extra_fields(data)
+  # Clean cell metadata.
+  cell_meta = cell_data.get("metadata", {})
+  cell_meta.pop("executionInfo", None)
+  cell_meta.pop("ExecuteTime", None)
 
+  if "colab" in cell_meta:
+    cell_meta["colab"].pop("base_uri", None)
+
+  cell_data["metadata"] = cell_meta
+
+  if remove_outputs:
+    cell_data["outputs"] = []
+    cell_data["execution_count"] = None
+
+  # Ensure outputs field exists since part of the nbformat spec.
+  if cell_data.get("outputs", None) is None:
+    cell_data["outputs"] = []
+
+  # Spec allows null or int (null is Colab default).
+  if cell_data.get("execution_count") == 0:
+    cell_data["execution_count"] = None
+
+
+def clean_cells(data: Dict[str, Any], nb_source: str,
+                remove_outputs: bool) -> None:
+  """Remove empty cells and clean code cells.
+
+  Args:
+    data: Object representing a parsed JSON notebook.
+    nb_source: String of entire notebook contents.
+    remove_outputs: Boolean True to remove code cell outputs, False to keep.
+  """
   # Clear leading and trailing newlines.
   for cell in data["cells"]:
-    source = cell["source"]
-    while source and source[0] == "\n":
-      source.pop(0)
-    while source and source[-1] == "\n":
-      source.pop()
-    cell["source"] = source
+    cell_source = cell["source"]
+    while cell_source and cell_source[0] == "\n":
+      cell_source.pop(0)
+    while cell_source and cell_source[-1] == "\n":
+      cell_source.pop()
+    cell["source"] = cell_source
 
   # remove empty cells
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
 
-  # `private_outputs` will default to False. If `private_outputs` is True, then
-  # the output will be removed from the notebook.
-  private_outputs = (
-      data.get("metadata", {}).get("colab", {}).get("private_outputs", False))
+  # The presence of this field indicates that ouputs are already saved.
+  has_outputs = True if '"output_type"' in nb_source else False
 
-  has_outputs = False
   for cell in data["cells"]:
-    if cell["cell_type"] != "code":
-      continue
+    if cell["cell_type"] == "code":
+      _clean_code_cell(cell, remove_outputs)
 
-    # Clean cell metadata.
-    cell_meta = cell.get("metadata", {})
-    cell_meta.pop("executionInfo", None)
-    cell_meta.pop("ExecuteTime", None)
-    if "colab" in cell_meta:
-      cell_meta["colab"].pop("base_uri", None)
-    cell["metadata"] = cell_meta
-
-    # Clear any code cell outputs if notebook set to private outputs.
-    if private_outputs:
-      if cell.get("outputs"):
-        has_outputs = True  # Used for warning.
-
-      cell["execution_count"] = None
-      cell["outputs"] = []
-
-    # Ensure outputs field exists since part of the nbformat spec.
-    if cell.get("outputs", None) is None:
-      cell["outputs"] = []
-
-    # Spec allows null or int (null is Colab default).
-    if cell.get("execution_count") == 0:
-      cell["execution_count"] = None
-
-  if has_outputs:
+  if has_outputs and remove_outputs:
     warn("Removed the existing output cells.")
 
 
@@ -165,6 +162,8 @@ def update_metadata(data: Dict[str, Any],
 
   colab["provenance"] = []
   colab["toc_visible"] = True
+  # Use Colab default that allows saved outputs in this notebook.
+  colab.pop("private_outputs", None)
   colab.pop("last_runtime", None)  # Always remove "last_runtime".
   metadata["colab"] = colab
 
@@ -209,64 +208,47 @@ def main(argv):
 
   found_error = False  # Track errors for final return code.
   test_fail_notebooks = []
+  paths, err_paths = notebook_utils.collect_notebook_paths(argv[1:])
 
-  files = []
-  for path in argv[1:]:
-    path = pathlib.Path(path)
-    if path.is_file():
-      files.append(path)
-    elif path.is_dir():
-      files.extend(path.rglob("*.ipynb"))
-    else:
+  if err_paths:
+    found_error = True
+    test_fail_notebooks.extend(err_paths)
+
+  for path in paths:
+    print(f"Format notebook: {path}", file=sys.stderr)
+
+    data, source = notebook_utils.load_notebook(path)
+
+    if not data:
       found_error = True
-      warn(f"Invalid file or directory: {str(path)}")
-
-  for fp in files:
-    print(f"Notebook: {fp}", file=sys.stderr)
-
-    if fp.suffix != ".ipynb":
-      warn("Not an '.ipynb' file, skipping.")
-      found_error = True
-      test_fail_notebooks.append(fp)
+      test_fail_notebooks.append(path)
       continue
-
-    with open(fp, "r", encoding="utf-8") as f:
-      try:
-        data = json.load(f)
-      except ValueError as err:
-        print(f"  {err.__class__.__name__}: {err}", file=sys.stderr)
-        warn("Unable to load JSON, skipping.")
-        found_error = True
-        test_fail_notebooks.append(fp)
-        continue
-
-    if FLAGS.preserve_outputs is not None:
-      # Overwrite the value of `private_outputs`
-      colab = data.get("metadata", {}).get("colab", {})
-      colab["private_outputs"] = not FLAGS.preserve_outputs
-      data["metadata"]["colab"] = colab
 
     # Set top-level notebook defaults.
     data["nbformat"] = 4
     data["nbformat_minor"] = 0
 
-    clean_cells(data)
-    update_metadata(data, filepath=fp)
+    remove_extra_fields(data)  # Top-level fields.
+    clean_cells(data, source, FLAGS.remove_outputs)
+    update_metadata(data, filepath=path)
     update_license_cell(data)
 
     nbjson = json.dumps(
         data, sort_keys=True, ensure_ascii=False, indent=FLAGS.indent)
+
+    # Some enviroments require a different format.
     if not OSS:
       nbjson = nbjson.replace("<", r"\u003c").replace(">", r"\u003e")
+
     expected_output = (nbjson + "\n").encode("utf-8")
 
     if FLAGS.test:
       # Compare formatted contents with original file contents.
-      src_bytes = fp.read_bytes()
+      src_bytes = path.read_bytes()
       if expected_output != src_bytes:
-        test_fail_notebooks.append(fp)
+        test_fail_notebooks.append(path)
     else:
-      fp.write_bytes(expected_output)
+      path.write_bytes(expected_output)
 
   if FLAGS.test:
     if test_fail_notebooks:

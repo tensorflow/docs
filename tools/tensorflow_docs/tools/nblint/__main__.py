@@ -36,15 +36,16 @@ https://www.tensorflow.org/community/contribute/docs
 
 import importlib
 import inspect
-import pathlib
 import sys
 import textwrap
 
 from absl import app
 from absl import flags
 
+from tensorflow_docs.tools.nbfmt import notebook_utils
 from tensorflow_docs.tools.nblint import decorator
 from tensorflow_docs.tools.nblint import linter
+
 
 flags.DEFINE_multi_string("arg", [], "User arguments to pass to lint callback.")
 flags.DEFINE_multi_string(
@@ -55,32 +56,6 @@ flags.DEFINE_list("styles", ["google", "tensorflow"],
 flags.DEFINE_boolean("verbose", False, "Display verbose output.")
 
 FLAGS = flags.FLAGS
-
-
-def _collect_notebook_paths(filepaths):
-  """Return list of `Path`s for (recursive) notebook filepaths.
-
-  Skips any file that's not an .ipynb notebook file.
-
-  Args:
-    filepaths: List file path strings passed at command-line.
-
-  Returns:
-    A list of Path objects for all notebook files.
-  """
-  paths = []
-  for fp in filepaths:
-    path = pathlib.Path(fp)
-    if path.is_dir():
-      paths.extend(path.rglob("*.ipynb"))
-    elif path.is_file():
-      if path.suffix == ".ipynb":
-        paths.append(path)
-      else:
-        print(f"Not an '.ipynb' file, skipping: {path}", file=sys.stderr)
-    else:
-      print(f"Invalid file, skipping: {path}", file=sys.stderr)
-  return paths
 
 
 def _print_fails(path_list):
@@ -212,7 +187,9 @@ def main(argv):
 
   linter_fails = []  # Track failed notebooks for final return code.
 
-  for path in _collect_notebook_paths(argv[1:]):
+  paths, _ = notebook_utils.collect_notebook_paths(argv[1:])
+
+  for path in paths:
     print(f"Lint notebook: {path}")
 
     status = nb_linter.run(path, lint_dict, user_args)
