@@ -525,10 +525,15 @@ def write_docs(
       path.parent.mkdir(exist_ok=True, parents=True)
       # This function returns unicode in PY3.
       hidden = doc_controls.should_hide_from_search(page_info.py_object)
+      brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
+      content = []
+      if brief_no_backticks:
+        content.append(f'description: {brief_no_backticks}\n')
+
       if search_hints and not hidden:
-        content = [page_info.get_metadata_html()]
+        content.append(page_info.get_metadata_html())
       else:
-        content = ['robots: noindex\n']
+        content.append('robots: noindex\n')
 
       content.append(pretty_docs.build_md_page(page_info, table_view))
       text = '\n'.join(content)
