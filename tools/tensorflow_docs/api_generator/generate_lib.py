@@ -558,6 +558,7 @@ def write_docs(
     serialized_proto = api_report_obj.api_report.SerializeToString()
     raw_proto = output_dir / 'api_report.pb'
     raw_proto.write_bytes(serialized_proto)
+    return
 
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
@@ -934,7 +935,12 @@ class DocGenerator(object):
     # Copy the top level files to the `{output_dir}/`, delete and replace the
     # `{output_dir}/{short_name}/` directory.
 
-    for work_path in work_py_dir.glob('*'):
+    if self._gen_report:
+      glob_pattern = '*.pb'
+    else:
+      glob_pattern = '*'
+
+    for work_path in work_py_dir.glob(glob_pattern):
       out_path = pathlib.Path(output_dir) / work_path.name
       out_path.parent.mkdir(exist_ok=True, parents=True)
 
