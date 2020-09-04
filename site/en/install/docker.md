@@ -33,16 +33,13 @@ The official TensorFlow Docker images are located in the
 Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
 using the following format:
 
-| Tag         | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| `latest`    | The latest release of TensorFlow CPU binary image. Default. |
-| `nightly`   | Nightly builds of the TensorFlow image. (unstable)          |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for   |
-:             : example\: *2.1.0*                                           :
-| `devel`     | Nightly builds of a TensorFlow `master` development         |
-:             : environment. Includes TensorFlow source code.               :
-| `custom-op` | Special experimental image for developing TF custom ops.    |
-:             : More info here: https://github.com/tensorflow/custom-op.    :
+| Tag         | Description                                                                                                          |
+|-------------|----------------------------------------------------------------------------------------------------------------------|
+| `latest`    | The latest release of TensorFlow CPU binary image. Default.                                                          |
+| `nightly`   | Nightly builds of the TensorFlow image. (Unstable.)                                                                  |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for example\: *2.1.0*                                          |
+| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code.                    |
+| `custom-op` | Special experimental image for developing TF custom ops.  More info [here](https://github.com/tensorflow/custom-op). |
 
 Each base *tag* has variants that add or change functionality:
 
