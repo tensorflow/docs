@@ -136,6 +136,19 @@ def lint_usage_example(
       num_doctest=num_doctest, num_untested_examples=num_untested_examples)
 
 
+class ReturnVisitor(ast.NodeVisitor):
+  """Visits the Returns node in an AST."""
+
+  def __init__(self) -> None:
+    self.total_returns = []
+
+  def visit_Return(self, node) -> None:  # pylint: disable=invalid-name
+    if node.value is None:
+      self.total_returns.append('None')
+    else:
+      self.total_returns.append(astor.to_source(node.value))
+
+
 def lint_returns(
     page_info: parser.PageInfo) -> Optional[api_report_pb2.ReturnLint]:
   """"Lints the returns block in the docstring.
@@ -151,12 +164,29 @@ def lint_returns(
     A filled `ReturnLint` proto object.
   """
   source = _get_source(page_info.py_object)
+
+  return_visitor = ReturnVisitor()
+  if source is not None:
+    try:
+      return_visitor.visit(ast.parse(source))
+    except Exception:  # pylint: disable=broad-except
+      pass
+
   if source is not None and 'return' in source:
     for item in page_info.doc.docstring_parts:
       if isinstance(item, parser.TitleBlock):
         if item.title.lower().startswith('return'):
           return api_report_pb2.ReturnLint(returns_defined=True)
+    # If "Returns" word is present in the brief docstring then having a separate
+    # `Returns` section is not needed.
+    if 'return' in page_info.doc.brief.lower():
+      return api_report_pb2.ReturnLint(returns_defined=True)
+    # If the code only returns None then `Returns` section in the docstring is
+    # not required.
+    if all(return_val == 'None' for return_val in return_visitor.total_returns):
+      return None
     return api_report_pb2.ReturnLint(returns_defined=False)
+
   return None
 
 
