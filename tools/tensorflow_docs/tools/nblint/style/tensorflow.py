@@ -38,9 +38,11 @@ import pathlib
 import re
 import urllib
 
+from tensorflow_docs.tools.nblint import fix
 from tensorflow_docs.tools.nblint.decorator import fail
 from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
+
 
 # Acceptable copyright heading for notebooks following this style.
 copyrights_re = [
@@ -169,7 +171,10 @@ def button_colab(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"Colab button URL doesn't match: {this_url}")
+    fail(
+        f"Colab button URL doesn't match: {this_url}",
+        fix=fix.regex_replace_between_groups,
+        fix_args=[r"(href\s?=\s?\\\").*?(\\\".*Run in Google Colab)", this_url])
 
 
 @lint(
@@ -197,7 +202,10 @@ def button_download(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"Download button URL doesn't match: {this_url}")
+    fail(
+        f"Download button URL doesn't match: {this_url}",
+        fix=fix.regex_replace_between_groups,
+        fix_args=[r"(href\s?=\s?\\\").*?(\\\".*Download notebook)", this_url])
 
 
 @lint(
@@ -220,7 +228,12 @@ def button_github(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"GitHub button URL doesn't match: {this_url}")
+    fail(
+        f"GitHub button URL doesn't match: {this_url}",
+        fix=fix.regex_replace_between_groups,
+        fix_args=[
+            r"(href\s?=\s?\\\").*?(\\\".*View source on GitHub)", this_url
+        ])
 
 
 @lint(

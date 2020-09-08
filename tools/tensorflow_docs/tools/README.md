@@ -61,6 +61,8 @@ common errors and useful for CI tests. To lint a notebook, install the
 ```
 $ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
 
+$ python3 -m tensorflow_docs.tools.nblint --fix [options] notebook.ipynb [...]
+
 $ python3 -m tensorflow_docs.tools.nblint --help
 ```
 
@@ -93,3 +95,14 @@ $ python3 -m tensorflow_docs.tools.nblint \
     --exclude_lint=tensorflow::button_website \
     ./community/notebook.ipynb
 ```
+
+Some lint errors can be automatically fixed in the notebook file:
+
+```
+$ python3 -m tensorflow_docs.tools.nblint --fix \
+    --arg=repo:tensorflow/docs notebook.ipynb
+```
+
+This applies the lint fixes to the notebook and overwrites the file. Not all
+lint errors have an associated fix. Fixes are applied from the loaded style
+modules.

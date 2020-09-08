@@ -28,26 +28,27 @@ Lint callback functions are passed an `args` dict with the following entries:
   path: Filepath of notebook
   user: Dict of args passed at the command-line
 """
-import pathlib
 import re
 
+from tensorflow_docs.tools.nblint import fix
+from tensorflow_docs.tools.nblint.decorator import fail
 from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
 from tensorflow_docs.tools.nblint.style.tensorflow import split_doc_path
 
 
 @lint(
-    message="Edit en/ source files over here: https://github.com/tensorflow/docs",
+    message="Only edit translated files. Source files are here: https://github.com/tensorflow/docs",
     scope=Options.Scope.FILE)
 def is_translation(args):
-  """Only doc translations in this repo; edit source files elsewhere."""
-  fp_parents = args["path"].resolve().parents
+  """Translations live in the site/<lang>/ directory of the docs-l10n repo."""
+  path_str = str(args["path"].resolve())
 
-  if pathlib.Path("site") not in fp_parents:
-    return True  # Not a doc translation, ignore.
-  elif pathlib.Path("site/en") in fp_parents:
+  if "site/" not in path_str:
     return False
-  elif pathlib.Path("site/en-snapshot") in fp_parents:
+  elif "site/en/" in path_str:
+    return False
+  elif "site/en-snapshot/" in path_str:
     return False
   else:
     return True
@@ -80,7 +81,9 @@ def china_hostname_url(args):
 
   if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
     if has_tf_hostname_re.search(args["cell_source"]):
-      return False
+      fail(
+          fix=fix.regex_replace,
+          fix_args=[has_tf_hostname_re.pattern, "tensorflow.google.cn"])
     else:
       return True
   else:

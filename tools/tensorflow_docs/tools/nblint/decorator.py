@@ -40,7 +40,7 @@ module is imported into the `Linter`, the `Lint` object is extracted.
 import enum
 import functools
 
-from typing import Optional
+from typing import Any, Callable, List, Optional
 
 
 class Options:
@@ -132,15 +132,28 @@ class LintFailError(Exception):
       message: String message to add to status log.
       always_show: Boolean if failure message should display in status,
         regardless if larger conditional met.
+      fix_fn: Optional Callable to run that fixes the lint failure.
+      fix_args: List of arguments passed to the `fix_fn` Callable.
   """
 
-  def __init__(self, message: str = "Lint failure", always_show: bool = False):
+  def __init__(self,
+               message: str = "Lint failure",
+               always_show: bool = False,
+               fix_fn: Optional[Callable[[], None]] = None,
+               fix_args: Optional[List[Any]] = None):
     self.message: str = message
     self.always_show: bool = always_show
+    self.fix_fn: Optional[Callable[[], None]] = fix_fn
+    if fix_args is None:
+      fix_args = []
+    self.fix_args: List[Any] = fix_args
     super().__init__(self.message)
 
 
-def fail(message: Optional[str] = None, always_show: bool = False) -> None:
+def fail(message: Optional[str] = None,
+         always_show: bool = False,
+         fix: Optional[Callable[[], None]] = None,
+         fix_args: Optional[List[Any]] = None) -> None:
   """Signal within a @lint function that the test fails.
 
   While sufficient to simply return False from a failing @lint function, this
@@ -156,12 +169,18 @@ def fail(message: Optional[str] = None, always_show: bool = False) -> None:
     configuration error should always display, even if the test succeeds
     elsewhere.
 
+  A `fix` function/Callable is executed with the --fix command-line option. It
+  is run as `fn(lint_args, *fix_args)` and executed once for each unique fn-args
+  pair. Callbacks passed the same arg are deduplicated.
+
   Args:
     message: String message to add to status log.
     always_show: Boolean if failure message should display in status, reguardles
       if larger conditional met.
+    fix: Optional Callable to run that fixes the lint failure.
+    fix_args: Optional list of arguments passed to the `fix` Callable.
 
   Raises:
     LintFailError: Lint failure with optional message.
   """
-  raise LintFailError(message, always_show)
+  raise LintFailError(message, always_show, fix, fix_args)

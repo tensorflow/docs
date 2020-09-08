@@ -21,6 +21,7 @@ $ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
 Usage:
 $ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
+$ python3 -m tensorflow_docs.tools.nblint --fix [options] notebook.ipynb [...]
 
 $ python3 -m tensorflow_docs.tools.nblint --verbose \
     [--styles=google,tensorflow] notebook.ipynb [...]
@@ -51,6 +52,7 @@ flags.DEFINE_multi_string("arg", [], "User arguments to pass to lint callback.")
 flags.DEFINE_multi_string(
     "exclude_lint", [],
     "Do not check a specific lint within a style. Format: 'style::function'")
+flags.DEFINE_boolean("fix", False, "Fix lint errors, if possible.")
 flags.DEFINE_list("styles", ["google", "tensorflow"],
                   "Lint style modules to include.")
 flags.DEFINE_boolean("verbose", False, "Display verbose output.")
@@ -174,6 +176,10 @@ def _parse_user_args(args_list):
   return args_dict
 
 
+# Linter is run in both lint and fix modes. When linting, the lint status list
+# is displayed and the program exits with an error on any lint failure.
+# When fixing, no status is displayed and it runs through the queue of fix
+# callbacks, exiting without error reguardless if everything is fixed.
 def main(argv):
   if len(argv) <= 1:
     raise app.UsageError("Missing arguments.", 1)
@@ -190,13 +196,21 @@ def main(argv):
   paths, _ = notebook_utils.collect_notebook_paths(argv[1:])
 
   for path in paths:
-    print(f"Lint notebook: {path}")
+    mode = "Fix" if FLAGS.fix else "Lint"
+    print(f"{mode} notebook: {path}")
 
     status = nb_linter.run(path, lint_dict, user_args)
     if not status.is_success:
       linter_fails.append(path)
 
-    print(status)
+    if FLAGS.fix:
+      status.fix_lints()
+    else:
+      print(status)
+
+  # Fix mode always exits as success.
+  if FLAGS.fix:
+    sys.exit(0)
 
   if linter_fails:
     _print_fails(linter_fails)
