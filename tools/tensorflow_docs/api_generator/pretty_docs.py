@@ -636,14 +636,12 @@ def _build_compatibility(compatibility):
   return ''.join(parts)
 
 
+TABLE_HEADER = ('<table class="tfo-notebook-buttons tfo-api nocontent" '
+                'align="left">')
+
+
 def _top_source_link(location):
   """Retrns a source link with Github image, like the notebook butons."""
-  table_template = textwrap.dedent("""
-    <table class="tfo-notebook-buttons tfo-api" align="left">
-    {}
-    </table>
-
-    """)
 
   link_template = textwrap.dedent("""
     <td>
@@ -653,14 +651,22 @@ def _top_source_link(location):
       </a>
     </td>""")
 
-  if location is None or not location.url:
-    return table_template.format('')
+  table_content = ''
+  table_footer = ''
 
-  if 'github.com' not in location.url:
-    return table_template.format('') + _small_source_link(location)
+  if location:
+    if location.url and 'github.com' not in location.url:
+      table_footer = _small_source_link(location)
+    else:
+      table_content = link_template.format(url=location.url)
 
-  link = link_template.format(url=location.url)
-  table = table_template.format(link)
+  table = textwrap.dedent(f"""
+    {TABLE_HEADER}
+    {table_content}
+    </table>
+
+    {table_footer}""")
+
   return table
 
 
