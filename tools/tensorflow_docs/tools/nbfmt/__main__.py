@@ -32,10 +32,11 @@ import json
 import os
 import pathlib
 import re
+import secrets
 import sys
 import textwrap
 
-from typing import Any, Dict, Optional, List
+from typing import Any, Dict, List
 
 from absl import app
 from absl import flags
@@ -64,26 +65,81 @@ def warn(msg: str) -> None:
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
-def remove_extra_fields(data: Dict[str, Any]) -> None:
-  """Deletes extra notebook fields.
+def _generate_cell_id(cells: List[Dict[str, Any]]) -> str:
+  """Generate a new cell ID unique to the notebook.
+
+  Args:
+    cells: List of notebook cells.
+
+  Returns:
+    String for a unique cell ID.
+  """
+  cell_id = None
+  cell_ids = [cell.get("metadata", {}).get("id") for cell in cells]
+
+  while True:
+    cell_id = secrets.token_urlsafe()[0:12]  # Random 12 char id.
+    if cell_id not in cell_ids:
+      break
+  return cell_id
+
+
+def del_entries_except(data: Dict[str, Any], keep: List[str]) -> None:
+  """Modifies `data` to remove any entry not specified in the `keep` list.
+
+  Args:
+    data: Dict representing a parsed JSON object.
+    keep: List of key entries to not deleted from `data`.
+  """
+  to_delete = set(data.keys()) - frozenset(keep)
+  for key in to_delete:
+    del data[key]
+
+
+def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
+  """Deletes extra top-level notebook fields and metadata.
 
   Jupyter format spec:
   https://nbformat.readthedocs.io/en/latest/format_description.html
 
   Args:
     data: object representing a parsed JSON notebook.
+    filepath: String of notebook filepath passed to the command-line.
   """
-
-  def filter_keys(data, keep_list) -> None:
-    to_delete = set(data.keys()) - frozenset(keep_list)
-    for key in to_delete:
-      del data[key]
-
   # These top-level fields are required:
-  filter_keys(data, ["cells", "metadata", "nbformat_minor", "nbformat"])
+  del_entries_except(
+      data, keep=["cells", "metadata", "nbformat_minor", "nbformat"])
   # All metadata is optional according to spec, but we use some of it.
-  # For example, this removes "language_info" and other editor-specific fields.
-  filter_keys(data["metadata"], ["accelerator", "colab", "kernelspec"])
+  del_entries_except(
+      data["metadata"], keep=["accelerator", "colab", "kernelspec"])
+
+  metadata = data.get("metadata", {})
+  colab = metadata.get("colab", {})
+
+  # Set top-level notebook defaults.
+  data["nbformat"] = 4
+  data["nbformat_minor"] = 0
+
+  # Colab metadata
+  del_entries_except(colab, keep=["collapsed_sections", "name", "toc_visible"])
+  colab["name"] = os.path.basename(filepath)
+  colab["toc_visible"] = True
+  metadata["colab"] = colab
+
+  # Kernelspec metadata
+  kernelspec = metadata.get("kernelspec", {})
+  del_entries_except(kernelspec, keep=["display_name", "name"])
+
+  supported_kernels = {"python3": "Python 3", "swift": "Swift"}
+  kernel_name = kernelspec.get("name")
+  if kernel_name not in supported_kernels:
+    kernel_name = "python3"  # Notebook defaults to Python3 (same as Colab).
+
+  kernelspec["name"] = kernel_name
+  kernelspec["display_name"] = supported_kernels[kernel_name]
+  metadata["kernelspec"] = kernelspec
+
+  data["metadata"] = metadata
 
 
 def _clean_code_cell(cell_data: Dict[str, Any], remove_outputs: bool) -> None:
@@ -93,16 +149,6 @@ def _clean_code_cell(cell_data: Dict[str, Any], remove_outputs: bool) -> None:
     cell_data: object representing a parsed JSON cell.
     remove_outputs: Boolean to clear cell output.
   """
-  # Clean cell metadata.
-  cell_meta = cell_data.get("metadata", {})
-  cell_meta.pop("executionInfo", None)
-  cell_meta.pop("ExecuteTime", None)
-
-  if "colab" in cell_meta:
-    cell_meta["colab"].pop("base_uri", None)
-
-  cell_data["metadata"] = cell_meta
-
   if remove_outputs:
     cell_data["outputs"] = []
     cell_data["execution_count"] = None
@@ -134,8 +180,17 @@ def clean_cells(data: Dict[str, Any], nb_source: str,
       cell_source.pop()
     cell["source"] = cell_source
 
-  # remove empty cells
+  # Remove empty cells.
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
+
+  # Clean cell metadata.
+  for cell in data["cells"]:
+    cell_metadata = cell.get("metadata", {})
+    del_entries_except(cell_metadata, keep=["id", "cellView"])
+    if "id" not in cell_metadata:
+      cell_metadata["id"] = _generate_cell_id(data["cells"])
+
+    cell["metadata"] = cell_metadata
 
   # The presence of this field indicates that ouputs are already saved.
   has_outputs = True if '"output_type"' in nb_source else False
@@ -148,44 +203,7 @@ def clean_cells(data: Dict[str, Any], nb_source: str,
     warn("Removed the existing output cells.")
 
 
-def update_metadata(data: Dict[str, Any],
-                    filepath: Optional[pathlib.Path] = None) -> None:
-  """Set notebook metadata on `data` object using TF docs style.
-
-  Args:
-    data: object representing a parsed JSON notebook.
-    filepath: String of notebook filepath passed to the command-line.
-  """
-  metadata = data.get("metadata", {})
-  colab = metadata.get("colab", {})
-  # Set preferred metadata for notebook docs.
-  if filepath is not None:
-    colab["name"] = os.path.basename(filepath)
-
-  colab["provenance"] = []
-  colab["toc_visible"] = True
-  # Use Colab default that allows saved outputs in this notebook.
-  colab.pop("private_outputs", None)
-  colab.pop("last_runtime", None)  # Always remove "last_runtime".
-  metadata["colab"] = colab
-
-  # kernelspec: name: display_name
-  supported_kernels = {"python3": "Python 3", "swift": "Swift"}
-  kernel_name = metadata.get("kernelspec", {}).get("name")
-
-  if kernel_name not in supported_kernels:
-    kernel_name = "python3"  # Notebook defaults to Python3 (same as Colab).
-
-  # Use new dict to clear any other attributes.
-  metadata["kernelspec"] = {
-      "name": kernel_name,
-      "display_name": supported_kernels[kernel_name]
-  }
-
-  data["metadata"] = metadata
-
-
-def update_license_cell(data: Dict[str, Any]) -> None:
+def update_license_cells(data: Dict[str, Any]) -> None:
   """Format license cell to hide code pane from the Colab form.
 
   Args:
@@ -235,14 +253,9 @@ def format_nb(
       test_fail_notebooks.append(path)
       continue
 
-    # Set top-level notebook defaults.
-    data["nbformat"] = 4
-    data["nbformat_minor"] = 0
-
-    remove_extra_fields(data)  # Top-level fields.
+    clean_root(data, filepath=path)  # Top-level notebook fields.
     clean_cells(data, source, remove_outputs)
-    update_metadata(data, filepath=path)
-    update_license_cell(data)
+    update_license_cells(data)
 
     nbjson = json.dumps(data, sort_keys=True, ensure_ascii=False, indent=indent)
 
