@@ -636,16 +636,14 @@ def _build_compatibility(compatibility):
   return ''.join(parts)
 
 
-def _top_source_link(location):
-  """Retrns a source link with Github image, like the notebook butons."""
-  table_template = textwrap.dedent("""
-    <table class="tfo-notebook-buttons tfo-api" align="left">
-    {}
+_TABLE_TEMPLATE = textwrap.dedent("""
+    <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
+    {table_content}
     </table>
 
-    """)
+    {table_footer}""")
 
-  link_template = textwrap.dedent("""
+_TABLE_LINK_TEMPLATE = textwrap.dedent("""\
     <td>
       <a target="_blank" href="{url}">
         <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
@@ -653,14 +651,22 @@ def _top_source_link(location):
       </a>
     </td>""")
 
-  if location is None or not location.url:
-    return table_template.format('')
 
-  if 'github.com' not in location.url:
-    return table_template.format('') + _small_source_link(location)
+def _top_source_link(location):
+  """Retrns a source link with Github image, like the notebook butons."""
 
-  link = link_template.format(url=location.url)
-  table = table_template.format(link)
+  table_content = ''
+  table_footer = ''
+
+  if location and location.url:
+    if 'github.com' not in location.url:
+      table_footer = _small_source_link(location)
+    else:
+      table_content = _TABLE_LINK_TEMPLATE.format(url=location.url)
+
+  table = _TABLE_TEMPLATE.format(
+      table_content=table_content, table_footer=table_footer)
+
   return table
 
 
