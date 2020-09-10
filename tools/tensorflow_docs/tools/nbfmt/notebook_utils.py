@@ -16,6 +16,7 @@
 r"""A collection of utilties for working with notebook files."""
 import json
 import pathlib
+import secrets
 import sys
 import textwrap
 
@@ -80,3 +81,44 @@ def load_notebook(path: pathlib.Path) -> Tuple[Optional[Dict[str, Any]], str]:
     data = None
 
   return data, source
+
+
+def warn(msg: str) -> None:
+  """Print highlighted warning message to stderr.
+
+  Args:
+    msg: String to print to console.
+  """
+  # Use terminal codes to print color output to console.
+  print(f" \033[33m {msg}\033[00m", file=sys.stderr)
+
+
+def generate_cell_id(cells: List[Dict[str, Any]]) -> str:
+  """Generate a new cell ID unique to the notebook.
+
+  Args:
+    cells: List of notebook cells.
+
+  Returns:
+    String for a unique cell ID.
+  """
+  cell_id = None
+  cell_ids = [cell.get("metadata", {}).get("id") for cell in cells]
+
+  while True:
+    cell_id = secrets.token_urlsafe()[0:12]  # Random 12 char id.
+    if cell_id not in cell_ids:
+      break
+  return cell_id
+
+
+def del_entries_except(data: Dict[str, Any], keep: List[str]) -> None:
+  """Modifies `data` to remove any entry not specified in the `keep` list.
+
+  Args:
+    data: Dict representing a parsed JSON object.
+    keep: List of key entries to not deleted from `data`.
+  """
+  to_delete = set(data.keys()) - frozenset(keep)
+  for key in to_delete:
+    del data[key]
