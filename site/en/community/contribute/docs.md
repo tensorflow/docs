@@ -270,36 +270,29 @@ top buttons always link to the TensorFlow Docs `master` branch.
 
 ### Notebook formatting
 
-To create a new notebook, copy and edit the
-<a href="https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb" external="class">TensorFlow
-notebook template</a>.
-
-Notebooks are stored on disk as JSON and the various notebook implementations
-format the JSON differently. Diff tools and version control don't handle this
-very well, so TensorFlow Docs enforces a standard notebook formatting.
-
-Use the `nbfmt` command to apply this formattng:
+A notebook formatting tool makes Jupyter notebook source diffs consistent and
+easier to review. Since notebook authoring environments differ with regards to
+file output, indentation, metadata and other non-specified fields; `nbfmt` uses
+opinionated defaults with a preference for the TensorFlow docs Colab workflow.
+To format a notebook, install the
+<a href="https://&#103;ithub.com/tensorflow/docs/tree/master/tools/tensorflow_docs/tools/" external="class">TensorFlow
+docs notebook tools</a> and run the `nbfmt` tool:
 
 ```
 # Install the tensorflow-docs package:
 $ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
-# Format individual notebooks:
-$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebook.ipynb [...]
-
-# Or a directory of notebooks:
-$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebooks/
+$ python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
 ```
 
-For the same reasons notebook output should be cleared before submission
-(except in a few special cases). In Colab the "private outputs" option is used
-to enforce this. Other notebook implementations do not recognize this option.
-You can clear the outputs by passing `--preserve_outputs=False` to `nbfmt`:
+For TensorFlow docs projects, notebooks *without* output cells are executed and
+tested; notebooks *with* saved output cells are published as-is. `nbfmt`
+respects the notebook state and uses the `--remove_outputs` option to explicitly
+remove output cells.
 
-```
-$ python3 -m tensorflow_docs.tools.nbfmt --preserve_outputs=False \
-    path/to/notebooks/example.ipynb
-```
+To create a new notebook, copy and edit the
+<a href="https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb" external="class">TensorFlow
+docs notebook template</a>.
 
 ### Edit in Colab
 
