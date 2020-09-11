@@ -636,8 +636,11 @@ def _build_compatibility(compatibility):
   return ''.join(parts)
 
 
+TABLE_HEADER = (
+    '<table class="tfo-notebook-buttons tfo-api nocontent" align="left">')
+
 _TABLE_TEMPLATE = textwrap.dedent("""
-    <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
+    {table_header}
     {table_content}
     </table>
 
@@ -665,7 +668,9 @@ def _top_source_link(location):
       table_content = _TABLE_LINK_TEMPLATE.format(url=location.url)
 
   table = _TABLE_TEMPLATE.format(
-      table_content=table_content, table_footer=table_footer)
+      table_header=TABLE_HEADER,
+      table_content=table_content,
+      table_footer=table_footer)
 
   return table
 
