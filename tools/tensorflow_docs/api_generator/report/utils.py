@@ -17,6 +17,7 @@
 
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
+from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator.report import linter
 
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
@@ -89,11 +90,13 @@ class ApiReport:
 
     # Lint each method separately and add its metrics to the proto object.
     for method in methods.info_dict.values():
-      self._lint(
-          name=method.full_name,
-          object_type=api_report_pb2.ObjectType.METHOD,
-          page_info=method,
-      )
+      # Skip the dunder methods from being in the report.
+      if method.short_name not in public_api.ALLOWED_DUNDER_METHODS:
+        self._lint(
+            name=method.full_name,
+            object_type=api_report_pb2.ObjectType.METHOD,
+            page_info=method,
+        )
 
   def _fill_function_metric(self, function_page_info: parser.FunctionPageInfo):
     """Fills in the lint metrics for a function.
