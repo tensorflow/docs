@@ -86,21 +86,18 @@ enum ObjectType {
 message ApiSymbolMetric {
   // The full name of the symbol being linted.
   optional string symbol_name = 1;
-  // How many times was the symbol used in the docs. Used to sort the symbols
-  // and rank the most used symbols higher.
-  optional float usage_count = 2;
   // The type of object the symbol is.
-  optional ObjectType object_type = 3;
+  optional ObjectType object_type = 2;
   // Statistics after linting the parameters of the docstring of the symbol.
-  optional ParameterLint parameter_lint = 4;
+  optional ParameterLint parameter_lint = 3;
   // Statistics after linting the description of the docstring of the symbol.
-  optional DescriptionLint desc_lint = 5;
+  optional DescriptionLint desc_lint = 4;
   // Statistics after linting the usage examples in the docstring of the symbol.
-  optional UsageExampleLint usage_example_lint = 6;
+  optional UsageExampleLint usage_example_lint = 5;
   // Statistics after linting the return blocks in the docstring of the symbol.
-  optional ReturnLint return_lint = 7;
+  optional ReturnLint return_lint = 6;
   // Statistics after linting the raises blocks in the docstring of the symbol.
-  optional RaisesLint raises_lint = 8;
+  optional RaisesLint raises_lint = 7;
 }
 
 message ApiReport {
