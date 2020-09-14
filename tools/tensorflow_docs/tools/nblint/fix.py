@@ -28,8 +28,8 @@ import re
 from typing import Any, Dict, Pattern
 
 
-def regex_replace(args: Dict[str, Any], pattern: Pattern[str],
-                  repl: str) -> None:
+def regex_replace_all(args: Dict[str, Any], pattern: Pattern[str],
+                      repl: str) -> None:
   """Replace regex matched content in a file.
 
   Args:
@@ -44,8 +44,8 @@ def regex_replace(args: Dict[str, Any], pattern: Pattern[str],
     fp.write_text(contents_new, encoding="utf-8")
 
 
-def regex_replace_between_groups(args: Dict[str, Any], pattern: Pattern[str],
-                                 repl: str) -> None:
+def regex_between_groups_replace_all(args: Dict[str, Any],
+                                     pattern: Pattern[str], repl: str) -> None:
   """Replace content between two matched groups in a file.
 
   Regex pattern must contain two groups: r'(foo).*(bar)'
@@ -56,4 +56,4 @@ def regex_replace_between_groups(args: Dict[str, Any], pattern: Pattern[str],
     pattern: Regex pattern containing two groups to match.
     repl: Replacement text to insert between the two matched groups.
   """
-  regex_replace(args, pattern, rf"\g<1>{repl}\g<2>")
+  regex_replace_all(args, pattern, rf"\g<1>{repl}\g<2>")

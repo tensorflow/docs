@@ -61,14 +61,15 @@ license_re = re.compile("#@title Licensed under the Apache License")
 
 
 @lint(
-    message="Apache license is required",
+    message="Apache license cell is required",
     scope=Options.Scope.CODE,
     cond=Options.Cond.ANY)
 def license_check(args):
   if license_re.search(args["cell_source"]):
     return True
   else:
-    return False
+    template_url = "https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb"
+    fail(f"License cell missing or doesn't follow template: {template_url}")
 
 
 @lint(scope=Options.Scope.FILE)
@@ -173,8 +174,8 @@ def button_colab(args):
   else:
     fail(
         f"Colab button URL doesn't match: {this_url}",
-        fix=fix.regex_replace_between_groups,
-        fix_args=[r"(href\s?=\s?\\\").*?(\\\".*Run in Google Colab)", this_url])
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*colab_logo_32px.png)", this_url])
 
 
 @lint(
@@ -204,8 +205,8 @@ def button_download(args):
   else:
     fail(
         f"Download button URL doesn't match: {this_url}",
-        fix=fix.regex_replace_between_groups,
-        fix_args=[r"(href\s?=\s?\\\").*?(\\\".*Download notebook)", this_url])
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*download_logo_32px.png)", this_url])
 
 
 @lint(
@@ -230,10 +231,8 @@ def button_github(args):
   else:
     fail(
         f"GitHub button URL doesn't match: {this_url}",
-        fix=fix.regex_replace_between_groups,
-        fix_args=[
-            r"(href\s?=\s?\\\").*?(\\\".*View source on GitHub)", this_url
-        ])
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*GitHub-Mark-32px.png)", this_url])
 
 
 @lint(

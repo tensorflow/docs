@@ -82,7 +82,7 @@ def china_hostname_url(args):
   if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
     if has_tf_hostname_re.search(args["cell_source"]):
       fail(
-          fix=fix.regex_replace,
+          fix=fix.regex_replace_all,
           fix_args=[has_tf_hostname_re.pattern, "tensorflow.google.cn"])
     else:
       return True

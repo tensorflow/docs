@@ -460,13 +460,15 @@ class LinterStatus:
       if arg_group not in fix_fns[fn]:
         fix_fns[fn].append(arg_group)
 
-    if self.verbose and fix_fns:
-      print("Run fixes:")
-
     # Execute each fix function with different arg lists.
+    fn_count = 0
     for fix_fn, arg_groups in fix_fns.items():
       for arg_group in arg_groups:
         display_name, args = arg_group
         if self.verbose:
           print(f" {display_name}")
+        fn_count += 1
         fix_fn(*args)
+
+    plural = "" if fn_count == 1 else "es"
+    print(f"Ran {fn_count} lint fix{plural}. (For details, use --verbose)")
