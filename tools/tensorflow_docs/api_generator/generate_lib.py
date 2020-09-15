@@ -167,7 +167,7 @@ class Module(TocNode):
   @property
   def children(self):
     return sorted(
-        self._children, key=lambda x: (x.full_name.upper(), x.full_name))
+        self._children, key=lambda x: (x.full_name.lower(), x.full_name))
 
   @property
   def submodules(self):
