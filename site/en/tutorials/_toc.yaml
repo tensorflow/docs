@@ -135,6 +135,9 @@ toc:
   section:
   - title: "Classify structured data with feature columns"
     path: /tutorials/structured_data/feature_columns
+  - title: "Classify structured data with preprocessing layers"
+    path: /tutorials/structured_data/preprocessing_layers
+    status: experimental
   - title: "Classification on imbalanced data"
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
