@@ -217,7 +217,7 @@ class GenerateTest(absltest.TestCase):
 
     reference_resolver, _ = self.get_test_objects()
     generate_lib.replace_refs(test_in_dir, test_out_dir, [reference_resolver],
-                              ['api_docs'], '*.md')
+                              ['api_docs/python'], '*.md')
 
     with open(os.path.join(test_out_dir, 'a/file1.md')) as f:
       content = f.read()
