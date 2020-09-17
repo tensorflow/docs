@@ -2281,6 +2281,9 @@ def _get_defined_in(py_object: Any,
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
     return None
 
+  if not obj_path.endswith(('.py', '.pyc')):
+    return None
+
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
 
