@@ -665,18 +665,6 @@ def extract(py_modules,
   return accumulator
 
 
-class _GetMarkdownTitle(py_guide_parser.PyGuideParser):
-  """Extract the title from a .md file."""
-
-  def __init__(self):
-    self.title = None
-    py_guide_parser.PyGuideParser.__init__(self)
-
-  def process_title(self, _, title):
-    if self.title is None:  # only use the first title
-      self.title = title
-
-
 EXCLUDED = set(['__init__.py', 'OWNERS', 'README.txt'])
 
 

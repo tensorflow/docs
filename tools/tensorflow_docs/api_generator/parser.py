@@ -2286,7 +2286,6 @@ def _get_defined_in(py_object: Any,
 
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
-
     rel_path = os.path.relpath(path=obj_path, start=base_dir)
     # A leading ".." indicates that the file is not inside `base_dir`, and
     # the search should continue.
@@ -2330,7 +2329,6 @@ def _get_defined_in(py_object: Any,
     return _FileLocation(rel_path)
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-
     rel_path = rel_path[:-7] + '.proto'
     return _FileLocation(
         rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
