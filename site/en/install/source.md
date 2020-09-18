@@ -207,42 +207,32 @@ run on older CPUs.
 
 ### TensorFlow 2.x
 
-tensorflow:master repo has been updated to build 2.x by default.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
-`bazel build ` to create the TensorFlow package.
+`bazel build` to create the TensorFlow 2.x package with *CPU-only* support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:build_pip_package
+bazel build [--config=option] //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-Note: For GPU support, enable CUDA with `cuda=Y` during the `./configure` stage.
+Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
+
+### GPU support
+
+To build a TensorFlow package builder with GPU support:
+
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build --config=cuda [--config=option] //tensorflow/tools/pip_package:build_pip_package
+</pre>
 
 ### TensorFlow 1.x
 
-To build the 1.x version of TensorFlow from master, use
-`bazel build --config=v1` to create a TensorFlow 1.x package.
+To build an older TensorFlow 1.x package, use the `--config=v1` option:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
+bazel build --config=v1 [--config=option] //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-#### CPU-only
-
-Use `bazel` to make the TensorFlow package builder with CPU-only support:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-#### GPU support
-
-To make the TensorFlow package builder with GPU support:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-#### Bazel build options
+### Bazel build options
 
 See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
 for
