@@ -37,7 +37,7 @@ add the dependency to the project's `pom.xml` file:
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>tensorflow</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 
@@ -50,12 +50,12 @@ dependencies to the project's `pom.xml` file:
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>libtensorflow</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>libtensorflow_jni_gpu</artifactId>
-  <version>1.14.0</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 
@@ -145,25 +145,25 @@ system and processor support:
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
     <td>Linux CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr>
     <td>Linux GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">macOS</td></tr>
   <tr>
     <td>macOS CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-1.14.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz</a></td>
   </tr>
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
     <td>Windows CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip</a></td>
   </tr>
   <tr>
     <td>Windows GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-1.14.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip</a></td>
+    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip</a></td>
   </tr>
 </table>
 

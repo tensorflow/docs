@@ -38,9 +38,11 @@ import pathlib
 import re
 import urllib
 
+from tensorflow_docs.tools.nblint import fix
 from tensorflow_docs.tools.nblint.decorator import fail
 from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
+
 
 # Acceptable copyright heading for notebooks following this style.
 copyrights_re = [
@@ -59,14 +61,15 @@ license_re = re.compile("#@title Licensed under the Apache License")
 
 
 @lint(
-    message="Apache license is required",
+    message="Apache license cell is required",
     scope=Options.Scope.CODE,
     cond=Options.Cond.ANY)
 def license_check(args):
   if license_re.search(args["cell_source"]):
     return True
   else:
-    return False
+    template_url = "https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb"
+    fail(f"License cell missing or doesn't follow template: {template_url}")
 
 
 @lint(scope=Options.Scope.FILE)
@@ -169,7 +172,10 @@ def button_colab(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"Colab button URL doesn't match: {this_url}")
+    fail(
+        f"Colab button URL doesn't match: {this_url}",
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*colab_logo_32px.png)", this_url])
 
 
 @lint(
@@ -197,7 +203,10 @@ def button_download(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"Download button URL doesn't match: {this_url}")
+    fail(
+        f"Download button URL doesn't match: {this_url}",
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*download_logo_32px.png)", this_url])
 
 
 @lint(
@@ -220,7 +229,10 @@ def button_github(args):
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
   else:
-    fail(f"GitHub button URL doesn't match: {this_url}")
+    fail(
+        f"GitHub button URL doesn't match: {this_url}",
+        fix=fix.regex_between_groups_replace_all,
+        fix_args=[r"(href.*)http.*?(\\\".*GitHub-Mark-32px.png)", this_url])
 
 
 @lint(
@@ -253,12 +265,16 @@ def button_website(args):
 
   # Construct website URL pattern based on location of this file in repo.
   url_path = rel_path.with_suffix("")
-  this_url = f"{base_url}.*{url_path}"
+  # If run in source repo, we don't know for certain the published subsite URL.
+  # Match: base/<optional-subsite-path>/notebook-path
+  this_url = rf"{base_url}[\w\-/]*{url_path}"
 
   if is_button_cell_re.search(cell_source) and re.search(this_url, cell_source):
     return True
   else:
-    fail(f"'View on' button URL doesn't match pattern: {this_url}")
+    # If included verbatium, bracket will fail lint. That's desired.
+    url_format = f"{base_url}<OPTIONAL-SUBSITE-PATH>/{url_path}"
+    fail(f"'View on' button URL doesn't match pattern: {url_format}")
 
 
 @lint(

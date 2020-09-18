@@ -215,7 +215,7 @@ class ParserTest(parameterized.TestCase):
         method_info.short_name: method_info for method_info in page_info.methods
     }
 
-    self.assertIs(method_infos['a_method'].obj, TestClass.a_method)
+    self.assertIs(method_infos['a_method'].py_object, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
     self.assertEqual(["arg='default'"],
@@ -230,7 +230,7 @@ class ParserTest(parameterized.TestCase):
     self.assertIn('a_property', [name for name, desc in attrs.items])
 
     # Make sure there is a link to the child class and it points the right way.
-    self.assertIs(TestClass.ChildClass, page_info.classes[0].obj)
+    self.assertIs(TestClass.ChildClass, page_info.classes[0].py_object)
 
     # Make sure this file is contained as the definition location.
     self.assertEqual(
@@ -275,7 +275,7 @@ class ParserTest(parameterized.TestCase):
     #   'Alias for field number ##'. These props are returned sorted.
 
     def sort_key(prop_info):
-      return int(prop_info.obj.__doc__.split(' ')[-1])
+      return int(prop_info.py_object.__doc__.split(' ')[-1])
 
     self.assertSequenceEqual(page_info._properties,
                              sorted(page_info._properties, key=sort_key))
@@ -421,10 +421,10 @@ class ParserTest(parameterized.TestCase):
         inspect.getdoc(test_module).split('\n')[0], page_info.doc.brief)
 
     # Make sure that the members are there
-    funcs = {f_info.obj for f_info in page_info.functions}
+    funcs = {f_info.py_object for f_info in page_info.functions}
     self.assertEqual({test_function, test_function_with_args_kwargs}, funcs)
 
-    classes = {cls_info.obj for cls_info in page_info.classes}
+    classes = {cls_info.py_object for cls_info in page_info.classes}
     self.assertEqual({TestClass}, classes)
 
     # Make sure the module's file is contained as the definition location.
@@ -657,7 +657,7 @@ class ParserTest(parameterized.TestCase):
         parser_config=parser_config)
 
     self.assertIn(ConcreteMutableMapping.get,
-                  [m.obj for m in page_info.methods])
+                  [m.py_object for m in page_info.methods])
 
   def test_strips_default_arg_memory_address(self):
     """Validates that parser strips memory addresses out out default argspecs.

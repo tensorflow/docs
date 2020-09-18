@@ -30,16 +30,16 @@ toc:
 - title: "Load and preprocess data"
   style: accordion
   section:
+  - title: "Images"
+    path: /tutorials/load_data/images
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
-  - title: "Images"
-    path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
@@ -74,8 +74,6 @@ toc:
     path: /tutorials/customization/basics
   - title: "Custom layers"
     path: /tutorials/customization/custom_layers
-  - title: "Custom training"
-    path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
     path: /tutorials/customization/custom_training_walkthrough
 
@@ -111,7 +109,7 @@ toc:
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
   - title: "Object detection with TF Hub"
-    path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
     status: external
 
 - title: "Text"
@@ -137,6 +135,9 @@ toc:
   section:
   - title: "Classify structured data with feature columns"
     path: /tutorials/structured_data/feature_columns
+  - title: "Classify structured data with preprocessing layers"
+    path: /tutorials/structured_data/preprocessing_layers
+    status: experimental
   - title: "Classification on imbalanced data"
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
@@ -157,6 +158,8 @@ toc:
     path: /tutorials/generative/cyclegan
   - title: "Adversarial FGSM"
     path: /tutorials/generative/adversarial_fgsm
+  - title: "Intro to Autoencoders"
+    path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 

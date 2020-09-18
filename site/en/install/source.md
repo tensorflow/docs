@@ -38,7 +38,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual environmen
 omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip six 'numpy<1.19.0' wheel setuptools mock 'future>=0.17.1'</code>
+<code class="devsite-terminal">pip install -U --user pip six 'numpy<1.19.0' wheel setuptools mock 'future>=0.17.1' 'gast==0.3.3' typing_extensions</code>
 <code class="devsite-terminal">pip install -U --user keras_applications --no-deps</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>

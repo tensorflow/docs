@@ -282,7 +282,13 @@ AUTO_REFERENCE_RE = re.compile(
 class ReferenceResolver(object):
   """Class for replacing `tf.symbol` references with Markdown links."""
 
-  def __init__(self, duplicate_of, is_fragment, py_module_names):
+  def __init__(
+      self,
+      duplicate_of: Dict[str, str],
+      is_fragment: Dict[str, bool],
+      py_module_names: List[str],
+      site_link: Optional[str] = None,
+  ):
     """Initializes a Reference Resolver.
 
     Args:
@@ -292,11 +298,16 @@ class ReferenceResolver(object):
         object lives at a page fragment `tf.a.b.c` --> `tf/a/b#c`. If False
         object has a page to itself: `tf.a.b.c` --> `tf/a/b/c`.
       py_module_names: A list of string names of Python modules.
+      site_link: The website to which these symbols should link to. A prefix
+        is added before the links to enable cross-site linking if `site_link`
+        is not None.
     """
     self._duplicate_of = duplicate_of
     self._is_fragment = is_fragment
-    self._all_names = set(is_fragment.keys())
     self._py_module_names = py_module_names
+    self._site_link = site_link
+
+    self._all_names = set(is_fragment.keys())
     self._partial_symbols_dict = self._create_partial_symbols_dict()
 
   @classmethod
@@ -373,6 +384,10 @@ class ReferenceResolver(object):
 
     for name in sorted(self._all_names):
       if 'tf.compat.v' in name or 'tf.contrib' in name:
+        continue
+      # TODO(yashkatariya): Remove `tf.experimental.numpy` after `tf.numpy` is
+      # in not in experimental namespace.
+      if 'tf.experimental.numpy' in name or 'tf.numpy' in name:
         continue
       partials = self._partial_symbols(name)
       for partial in partials:
@@ -489,6 +504,12 @@ class ReferenceResolver(object):
       A markdown link to the documentation page of `ref_full_name`.
     """
     url = self.reference_to_url(ref_full_name, relative_path_to_root)
+    if self._site_link is not None:
+      if os.path.isabs(url):
+        url = os.path.join(self._site_link, url[1:])
+      else:
+        url = os.path.join(self._site_link, url)
+      url = url.replace('.md', '')
 
     if code_ref:
       link_text = link_text.join(['<code>', '</code>'])
@@ -1409,7 +1430,7 @@ class MemberInfo(NamedTuple):
   """Describes an attribute of a class or module."""
   short_name: str
   full_name: str
-  obj: Any
+  py_object: Any
   doc: _DocstringInfo
   url: str
 
@@ -1418,7 +1439,7 @@ class MethodInfo(NamedTuple):
   """Described a method."""
   short_name: str
   full_name: str
-  obj: Any
+  py_object: Any
   doc: _DocstringInfo
   url: str
   signature: _SignatureComponents
@@ -1798,7 +1819,7 @@ class ClassPageInfo(PageInfo):
       link_info = MemberInfo(
           short_name=base_full_name.split('.')[-1],
           full_name=base_full_name,
-          obj=base,
+          py_object=base,
           doc=base_doc,
           url=base_url)
       bases.append(link_info)
@@ -1865,12 +1886,12 @@ class ClassPageInfo(PageInfo):
         member_info.short_name in ['__del__', '__copy__']):
       return
 
-    signature = generate_signature(member_info.obj, parser_config,
+    signature = generate_signature(member_info.py_object, parser_config,
                                    member_info.full_name)
 
-    decorators = extract_decorators(member_info.obj)
+    decorators = extract_decorators(member_info.py_object)
 
-    defined_in = _get_defined_in(member_info.obj, parser_config)
+    defined_in = _get_defined_in(member_info.py_object, parser_config)
 
     method_info = MethodInfo.from_member_info(member_info, signature,
                                               decorators, defined_in)
@@ -1916,7 +1937,7 @@ class ClassPageInfo(PageInfo):
       parser_config: ParserConfig,
   ) -> None:
     """Adds a member to the class page."""
-    obj_type = get_obj_type(member_info.obj)
+    obj_type = get_obj_type(member_info.py_object)
 
     if obj_type is ObjType.PROPERTY:
       self._add_property(member_info)
@@ -2117,7 +2138,7 @@ class ModulePageInfo(PageInfo):
 
   def _add_member(self, member_info: MemberInfo) -> None:
     """Adds members of the modules to the respective lists."""
-    obj_type = get_obj_type(member_info.obj)
+    obj_type = get_obj_type(member_info.py_object)
     if obj_type is ObjType.MODULE:
       self._add_module(member_info)
     elif obj_type is ObjType.CLASS:
@@ -2260,9 +2281,11 @@ def _get_defined_in(py_object: Any,
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
     return None
 
+  if not obj_path.endswith(('.py', '.pyc')):
+    return None
+
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
-
     rel_path = os.path.relpath(path=obj_path, start=base_dir)
     # A leading ".." indicates that the file is not inside `base_dir`, and
     # the search should continue.
@@ -2306,7 +2329,6 @@ def _get_defined_in(py_object: Any,
     return _FileLocation(rel_path)
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
-
     rel_path = rel_path[:-7] + '.proto'
     return _FileLocation(
         rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
@@ -2343,7 +2365,7 @@ def generate_global_index(library_name, index, reference_resolver):
       if is_class_attr(full_name, index):
         continue
     symbol_links.append(
-        (full_name, reference_resolver.python_link(full_name, full_name, '.')))
+        (full_name, reference_resolver.python_link(full_name, full_name, '..')))
 
   lines = [f'# All symbols in {library_name}', '']
   lines.append('<!-- Insert buttons and diff -->\n')

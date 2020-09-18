@@ -76,14 +76,20 @@ class GenerateTest(absltest.TestCase):
     module = sys.modules[__name__]
 
     index = {
-        'tf': sys,  # Can be any module, this test doesn't care about content.
-        'tf.TestModule': module,
-        'tf.test_function': test_function,
-        'tf.TestModule.test_function': test_function,
-        'tf.TestModule.TestClass': TestClass,
-        'tf.TestModule.TestClass.ChildClass': TestClass.ChildClass,
+        'tf':
+            sys,  # Can be any module, this test doesn't care about content.
+        'tf.TestModule':
+            module,
+        'tf.test_function':
+            test_function,
+        'tf.TestModule.test_function':
+            test_function,
+        'tf.TestModule.TestClass':
+            TestClass,
+        'tf.TestModule.TestClass.ChildClass':
+            TestClass.ChildClass,
         'tf.TestModule.TestClass.ChildClass.GrandChildClass':
-        TestClass.ChildClass.GrandChildClass,
+            TestClass.ChildClass.GrandChildClass,
     }
 
     tree = {
@@ -126,10 +132,14 @@ class GenerateTest(absltest.TestCase):
 
     output_dir = pathlib.Path(self.workdir)
 
-    generate_lib.write_docs(output_dir, parser_config, yaml_toc=True)
+    generate_lib.write_docs(
+        output_dir=output_dir,
+        parser_config=parser_config,
+        root_module_name='tf',
+        yaml_toc=True)
 
     # Check redirects
-    redirects_file = output_dir / '_redirects.yaml'
+    redirects_file = output_dir / 'tf/_redirects.yaml'
     self.assertTrue(redirects_file.exists())
     redirects = yaml.safe_load(redirects_file.read_text())
     self.assertEqual(
@@ -143,7 +153,7 @@ class GenerateTest(absltest.TestCase):
             }]
         })
 
-    toc_file = output_dir / '_toc.yaml'
+    toc_file = output_dir / 'tf/_toc.yaml'
     self.assertTrue(toc_file.exists())
     toc_list = yaml.safe_load(toc_file.read_text())['toc']
 
@@ -159,29 +169,18 @@ class GenerateTest(absltest.TestCase):
     self.assertEqual(test_function_toc['status'], 'deprecated')
 
     # Make sure that the right files are written to disk.
-    self.assertTrue(os.path.exists(os.path.join(output_dir, 'index.md')))
-    self.assertTrue(os.path.exists(os.path.join(output_dir, 'tf.md')))
-    self.assertTrue(os.path.exists(os.path.join(output_dir, '_toc.yaml')))
+    self.assertTrue((output_dir / 'tf/all_symbols.md').exists())
+    self.assertTrue((output_dir / 'tf.md').exists())
+    self.assertTrue((output_dir / 'tf/TestModule.md').exists())
+    self.assertFalse((output_dir / 'tf/test_function.md').exists())
+    self.assertTrue((output_dir / 'tf/TestModule/TestClass.md').exists())
     self.assertTrue(
-        os.path.exists(os.path.join(output_dir, 'tf/TestModule.md')))
-    self.assertFalse(
-        os.path.exists(os.path.join(output_dir, 'tf/test_function.md')))
+        (output_dir / 'tf/TestModule/TestClass/ChildClass.md').exists())
     self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir, 'tf/TestModule/TestClass.md')))
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir,
-                         'tf/TestModule/TestClass/ChildClass.md')))
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(
-                output_dir,
-                'tf/TestModule/TestClass/ChildClass/GrandChildClass.md')))
+        (output_dir /
+         'tf/TestModule/TestClass/ChildClass/GrandChildClass.md').exists())
     # Make sure that duplicates are not written
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir, 'tf/TestModule/test_function.md')))
+    self.assertTrue((output_dir / 'tf/TestModule/test_function.md').exists())
 
   def test_replace_refes(self):
     test_dir = self.workdir
@@ -218,7 +217,7 @@ class GenerateTest(absltest.TestCase):
 
     reference_resolver, _ = self.get_test_objects()
     generate_lib.replace_refs(test_in_dir, test_out_dir, [reference_resolver],
-                              ['api_docs'], '*.md')
+                              ['api_docs/python'], '*.md')
 
     with open(os.path.join(test_out_dir, 'a/file1.md')) as f:
       content = f.read()
