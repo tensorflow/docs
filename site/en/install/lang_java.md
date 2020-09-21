@@ -168,9 +168,9 @@ system and processor support:
 </table>
 
 Note: On Windows, the native library (`tensorflow_jni.dll`) requires
-`msvcp140.dll` at runtime. See the [Windows build from source](./source_windows.md)
-guide to install the [Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145){:.external}.
-
+`msvcp140.dll` at runtime. See the
+[Windows build from source](./source_windows.md) guide to install the
+[Visual C++ 2019 Redistributable](https://visualstudio.microsoft.com/vs/){:.external}.
 
 ### Compile
 
