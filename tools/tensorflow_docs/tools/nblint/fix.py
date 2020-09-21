@@ -39,7 +39,8 @@ def regex_replace_all(args: Dict[str, Any], pattern: Pattern[str],
   """
   fp = args["path"]
   contents = fp.read_text(encoding="utf-8")
-  contents_new = re.sub(pattern, rf"{repl}", contents, flags=re.MULTILINE)
+  contents_new = re.sub(
+      pattern, rf"{repl}", contents, flags=re.MULTILINE | re.DOTALL)
   if contents_new != contents:
     fp.write_text(contents_new, encoding="utf-8")
 
