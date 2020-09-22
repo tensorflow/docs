@@ -13,9 +13,6 @@ toc:
   path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
   status: external
 
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
-
 - heading: "TensorFlow basics"
   status: new
 - title: "Eager execution"
@@ -41,6 +38,9 @@ toc:
 - title: "NumPy API"
   path: /guide/tf_numpy
   status: new
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
 
 - heading: "Customization"
 - title: "Create an op"
