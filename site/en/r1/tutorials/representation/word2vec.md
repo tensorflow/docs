@@ -19,11 +19,11 @@ represent words as vectors.
 
 We walk through the code later during the tutorial, but if you'd prefer to dive
 straight in, feel free to look at the minimalistic implementation in
-[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
+[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
 This basic example contains the code needed to download some data, train on it a
 bit and visualize the result. Once you get comfortable with reading and running
 the basic version, you can graduate to
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py)
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.13.0/tutorials/embedding/word2vec.py)
 which is a more serious implementation that showcases some more advanced
 TensorFlow principles about how to efficiently use threads to move data into a
 text model, how to checkpoint during training, etc.
@@ -271,7 +271,7 @@ nce_biases = tf.Variable(tf.zeros([vocabulary_size]))
 Now that we have the parameters in place, we can define our skip-gram model
 graph. For simplicity, let's suppose we've already integerized our text corpus
 with a vocabulary so that each word is represented as an integer (see
-[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
+[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
 for the details). The skip-gram model takes two inputs. One is a batch full of
 integers representing the source context words, the other is for the target
 words. Let's create placeholder nodes for these inputs, so that we can feed in
@@ -378,20 +378,20 @@ out several different ideas and iterating quickly.
 
 Once you have a model structure you're satisfied with, it may be worth
 optimizing your implementation to run more efficiently (and cover more data in
-less time).  For example, the naive code we used in this tutorial would suffer
+less time). For example, the naive code we used in this tutorial would suffer
 compromised speed because we use Python for reading and feeding data items --
-each of which require very little work on the TensorFlow back-end.  If you find
+each of which require very little work on the TensorFlow back-end. If you find
 your model is seriously bottlenecked on input data, you may want to implement a
 custom data reader for your problem, as described in
-[New Data Formats](../../extend/new_data_formats.md).  For the case of Skip-Gram
+[New Data Formats](../../guide/extend/formats.md). For the case of Skip-Gram
 modeling, we've actually already done this for you as an example in
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py).
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.13.0/tutorials/embedding/word2vec.py).
 
 If your model is no longer I/O bound but you want still more performance, you
 can take things further by writing your own TensorFlow Ops, as described in
-[Adding a New Op](../../guide/extend/op.md).  Again we've provided an
-example of this for the Skip-Gram case
-[models/tutorials/embedding/word2vec_optimized.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec_optimized.py).
+[Adding a New Op](../../guide/extend/op.md). Again we've provided an example of
+this for the Skip-Gram case
+[models/tutorials/embedding/word2vec_optimized.py](https://github.com/tensorflow/models/tree/r1.13.0/tutorials/embedding/word2vec_optimized.py).
 Feel free to benchmark these against each other to measure performance
 improvements at each stage.
 

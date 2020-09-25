@@ -15,8 +15,8 @@
 # ==============================================================================
 r"""A collection of utilties for working with notebook files."""
 import json
+import hashlib
 import pathlib
-import secrets
 import sys
 import textwrap
 
@@ -93,23 +93,11 @@ def warn(msg: str) -> None:
   print(f" \033[33m {msg}\033[00m", file=sys.stderr)
 
 
-def generate_cell_id(cells: List[Dict[str, Any]]) -> str:
-  """Generate a new cell ID unique to the notebook.
-
-  Args:
-    cells: List of notebook cells.
-
-  Returns:
-    String for a unique cell ID.
-  """
-  cell_id = None
-  cell_ids = [cell.get("metadata", {}).get("id") for cell in cells]
-
-  while True:
-    cell_id = secrets.token_urlsafe()[0:12]  # Random 12 char id.
-    if cell_id not in cell_ids:
-      break
-  return cell_id
+def generate_cell_id(source: str, cell_count: int) -> str:
+  """Generate a new cell ID unique to the notebook."""
+  str_to_hash = f"{cell_count} {source}"
+  cell_id = hashlib.sha256(str_to_hash.encode("utf-8")).hexdigest()
+  return cell_id[:12]
 
 
 def del_entries_except(data: Dict[str, Any], keep: List[str]) -> None:
