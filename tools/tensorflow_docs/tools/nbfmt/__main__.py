@@ -196,10 +196,13 @@ def clean_cells(data: Dict[str, Any], nb_source: str,
   data["cells"] = [cell for cell in data["cells"] if any(cell["source"])]
 
   # Clean cell metadata.
+  cell_count = 0
   for cell in data["cells"]:
+    cell_count += 1
     cell_metadata = cell.get("metadata", {})
     if "id" not in cell_metadata:
-      cell_metadata["id"] = notebook_utils.generate_cell_id(data["cells"])
+      cell_metadata["id"] = notebook_utils.generate_cell_id(
+          cell["source"], cell_count)
     notebook_utils.del_entries_except(
         cell_metadata, keep=["id", "cellView", "colab"])
     _clean_metadata_colab(cell_metadata, remove_outputs)
