@@ -1,28 +1,27 @@
 toc:
-- title: "Sequential API"
+- title: The Sequential model
   path: /guide/keras/sequential_model
-- title: "Keras functional API"
+- title: The Functional API
   path: /guide/keras/functional
-- title: "Train and evaluate"
+- title: Training and evaluation with the built-in methods
   path: /guide/keras/train_and_evaluate
-- title: "Write custom layers and models"
+- title: Making new Layers and Models via subclassing
   path: /guide/keras/custom_layers_and_models
-- title: "Save and serialize models"
+- title: Save and load Keras models
   path: /guide/keras/save_and_serialize
-- title: "Working with preprocessing layers"
+- title: Working with preprocessing layers
   path: /guide/keras/preprocessing_layers
-- title: "Customizing what happens in fit"
+- title: Customize what happens in Model.fit
   path: /guide/keras/customizing_what_happens_in_fit
-- title: "Writing a training loop from scratch"
+- title: Writing a training loop from scratch
   path: /guide/keras/writing_a_training_loop_from_scratch
-- title: "Keras Recurrent Neural Networks"
+- title: Recurrent Neural Networks (RNN) with Keras
   path: /guide/keras/rnn
-- title: "Masking and padding"
+- title: Masking and padding with Keras
   path: /guide/keras/masking_and_padding
-- title: "Write custom callbacks"
+- title: Writing your own callbacks
   path: /guide/keras/custom_callback
-- title: "Transfer learning"
+- title: Transfer learning and fine-tuning
   path: /guide/keras/transfer_learning
-- title: "Training Keras models with TensorFlow Cloud"
+- title: Training Keras models with TensorFlow Cloud
   path: /guide/keras/training_keras_models_on_cloud
-  status: new
