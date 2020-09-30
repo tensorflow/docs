@@ -396,8 +396,11 @@ def _build_class_page(page_info: parser.ClassPageInfo, table_view: bool) -> str:
 
   # Add class variables/members if they exist to the page.
   if page_info.other_members:
-    parts.append('## Class Variables\n\n')
-    parts.append(_other_members(page_info.other_members))
+    parts.append(
+        _other_members(
+            page_info.other_members,
+            title='<h2 class="add-link">Class Variables</h2>',
+        ))
 
   return ''.join(parts)
 
@@ -411,30 +414,31 @@ def _method_sort(method_name):
   return (-1, method_name)
 
 
-def _other_members(other_members):
+def _other_members(other_members: List[parser.MemberInfo], title: str):
   """Returns "other_members" rendered to markdown.
 
   `other_members` is used for anything that is not a class, function, module,
   or method.
 
   Args:
-    other_members: a list of (name, object) pairs.
+    other_members: A list of `MemberInfo` objects.
+    title: Title of the table.
 
   Returns:
     A markdown string
   """
-  parts = []
-  list_item = '* `{short_name}` <a id="{short_name}"></a>\n'
-  list_item_with_value = ('* `{short_name} = {py_object!r}` '
-                          '<a id="{short_name}"></a>\n')
-  for other_member in other_members:
-    if doc_generator_visitor.maybe_singleton(other_member.py_object):
-      part = list_item_with_value.format(**other_member._asdict())
-    else:
-      part = list_item.format(**other_member._asdict())
-    parts.append(part)
 
-  return ''.join(parts)
+  items = []
+
+  for other_member in other_members:
+    items.append(
+        parser.ITEMS_TEMPLATE.format(
+            name=other_member.short_name,
+            anchor=f'<a id="{other_member.short_name}"></a>',
+            description=other_member.doc.brief,
+        ))
+  return '\n' + parser.TABLE_TEMPLATE.format(
+      title=title, text='', items=''.join(items)) + '\n'
 
 
 def _build_method_section(method_info, table_view, heading_level=3):
@@ -554,9 +558,11 @@ def _build_module_page(page_info: parser.ModulePageInfo,
             template='[`{short_name}`]({url})'))
 
   if page_info.other_members:
-    # TODO(markdaoust): Document the value of the members, for basic types.
-    parts.append('## Other Members\n\n')
-    parts.append(_other_members(page_info.other_members))
+    parts.append(
+        _other_members(
+            page_info.other_members,
+            title='<h2 class="add-link">Other Members</h2>',
+        ))
 
   return ''.join(parts)
 
@@ -584,8 +590,8 @@ def _build_signature(obj_info: parser.PageInfo,
       which a signature will be created.
     obj_name: The name to use to build the signature.
     type_alias: If True, uses an `=` instead of `()` for the signature.
-      For example: `TensorLike = (Union[str, tf.Tensor, int])`.
-      Defaults to `False`.
+      For example: `TensorLike = (Union[str, tf.Tensor, int])`. Defaults to
+        `False`.
 
   Returns:
     The signature of the object.

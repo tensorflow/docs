@@ -32,6 +32,7 @@ from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 import astor
 
 from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -665,6 +666,35 @@ def _pairs(items):
   return list(zip(items[::2], items[1::2]))
 
 
+# Don't change the width="214px" without consulting with the devsite-team.
+TABLE_TEMPLATE = textwrap.dedent("""
+  <!-- Tabular view -->
+   <table class="responsive fixed orange">
+  <colgroup><col width="214px"><col></colgroup>
+  <tr><th colspan="2">{title}</th></tr>
+  {text}
+  {items}
+  </table>
+  """)
+
+ITEMS_TEMPLATE = textwrap.dedent("""\
+  <tr>
+  <td>
+  {name}{anchor}
+  </td>
+  <td>
+  {description}
+  </td>
+  </tr>""")
+
+TEXT_TEMPLATE = textwrap.dedent("""\
+  <tr class="alt">
+  <td colspan="2">
+  {text}
+  </td>
+  </tr>""")
+
+
 class TitleBlock(object):
   """A class to parse title blocks (like `Args:`) and convert them to markdown.
 
@@ -706,34 +736,6 @@ class TitleBlock(object):
 
   _INDENTATION_REMOVAL_RE = re.compile(r'( *)(.+)')
 
-  # Don't change the width="214px" without consulting with the devsite-team.
-  _TABLE_TEMPLATE = textwrap.dedent("""
-    <!-- Tabular view -->
-     <table class="responsive fixed orange">
-    <colgroup><col width="214px"><col></colgroup>
-    <tr><th colspan="2">{title}</th></tr>
-    {text}
-    {items}
-    </table>
-    """)
-
-  _ITEMS_TEMPLATE = textwrap.dedent("""\
-    <tr>
-    <td>
-    {name}
-    </td>
-    <td>
-    {description}
-    </td>
-    </tr>""")
-
-  _TEXT_TEMPLATE = textwrap.dedent("""\
-    <tr class="alt">
-    <td colspan="2">
-    {text}
-    </td>
-    </tr>""")
-
   def __init__(self,
                *,
                title: Optional[str] = None,
@@ -763,7 +765,7 @@ class TitleBlock(object):
 
     text = self.text.strip()
     if text:
-      text = self._TEXT_TEMPLATE.format(text=text)
+      text = TEXT_TEMPLATE.format(text=text)
       text = self._INDENTATION_REMOVAL_RE.sub(r'\2', text)
 
     items = []
@@ -772,12 +774,12 @@ class TitleBlock(object):
         description = ''
       else:
         description = description.strip()
-      item_table = self._ITEMS_TEMPLATE.format(
-          name=f'`{name}`', description=description)
+      item_table = ITEMS_TEMPLATE.format(
+          name=f'`{name}`', anchor='', description=description)
       item_table = self._INDENTATION_REMOVAL_RE.sub(r'\2', item_table)
       items.append(item_table)
 
-    return '\n' + self._TABLE_TEMPLATE.format(
+    return '\n' + TABLE_TEMPLATE.format(
         title=title, text=text, items=''.join(items)) + '\n'
 
   def list_view(self, title_template: str) -> str:
@@ -897,8 +899,37 @@ class _DocstringInfo(typing.NamedTuple):
   compatibility: Dict[str, str]
 
 
-def _parse_md_docstring(py_object, relative_path_to_root, full_name,
-                        reference_resolver) -> _DocstringInfo:
+def _get_other_member_doc(
+    obj: Any,
+    parser_config: ParserConfig,
+    extra_docs: Optional[Dict[int, str]],
+) -> str:
+  """Returns the docs for other members of a module."""
+  if extra_docs is not None:
+    other_member_extra_doc = extra_docs.get(id(obj), None)
+  else:
+    other_member_extra_doc = None
+
+  if other_member_extra_doc is not None:
+    description = other_member_extra_doc
+  elif doc_generator_visitor.maybe_singleton(obj):
+    description = f'`{repr(obj)}`'
+  else:
+    class_name = parser_config.reverse_index.get(id(type(obj)), None)
+    if class_name is not None:
+      description = f'`{class_name}`'
+    else:
+      description = ''
+  return description
+
+
+def _parse_md_docstring(
+    py_object: Any,
+    relative_path_to_root: str,
+    full_name: str,
+    parser_config: ParserConfig,
+    extra_docs: Optional[Dict[int, str]] = None,
+) -> _DocstringInfo:
   """Parse the object's docstring and return a `_DocstringInfo`.
 
   This function clears @@'s from the docstring, and replaces `` references
@@ -920,17 +951,25 @@ def _parse_md_docstring(py_object, relative_path_to_root, full_name,
       compute links for "`tf.symbol`" references.
     full_name: (optional) The api path to the current object, so replacements
       can depend on context.
-    reference_resolver: An instance of ReferenceResolver.
+    parser_config: An instance of `ParserConfig`.
+    extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
+      that need to be added to the markdown pages created.
 
   Returns:
     A _DocstringInfo object, all fields will be empty if no docstring was found.
   """
-  # TODO(wicke): If this is a partial, use the .func docstring and add a note.
-  raw_docstring = _get_raw_docstring(py_object)
 
-  raw_docstring = reference_resolver.replace_references(raw_docstring,
-                                                        relative_path_to_root,
-                                                        full_name)
+  if get_obj_type(py_object) is ObjType.OTHER:
+    raw_docstring = _get_other_member_doc(
+        obj=py_object, parser_config=parser_config, extra_docs=extra_docs)
+  else:
+    raw_docstring = _get_raw_docstring(py_object)
+
+  raw_docstring = parser_config.reference_resolver.replace_references(
+      raw_docstring,
+      relative_path_to_root,
+      full_name,
+  )
 
   atat_re = re.compile(r' *@@[a-zA-Z_.0-9]+ *$')
   raw_docstring = '\n'.join(
@@ -1490,7 +1529,7 @@ def extract_decorators(func: Any) -> List[str]:
   return visitor.decorator_list
 
 
-class PageInfo(object):
+class PageInfo:
   """Base-class for api_pages objects.
 
   Converted to markdown by pretty_docs.py.
@@ -1505,15 +1544,23 @@ class PageInfo(object):
       converted to markdown using str().
   """
 
-  def __init__(self, full_name, py_object):
+  def __init__(
+      self,
+      full_name: str,
+      py_object: Any,
+      extra_docs: Optional[Dict[int, str]] = None,
+  ):
     """Initialize a PageInfo.
 
     Args:
       full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
+      extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
+        that need to be added to the markdown pages created.
     """
     self.full_name = full_name
     self.py_object = py_object
+    self._extra_docs = extra_docs
 
     self._defined_in = None
     self._aliases = None
@@ -1578,14 +1625,15 @@ class FunctionPageInfo(PageInfo):
     decorators: A list of decorator names.
   """
 
-  def __init__(self, full_name, py_object):
+  def __init__(self, *, full_name: str, py_object: Any, **kwargs):
     """Initialize a FunctionPageInfo.
 
     Args:
       full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
+      **kwargs: Extra arguments.
     """
-    super(FunctionPageInfo, self).__init__(full_name, py_object)
+    super().__init__(full_name, py_object, **kwargs)
 
     self._signature = None
     self._decorators = []
@@ -1634,15 +1682,16 @@ class TypeAliasPageInfo(PageInfo):
     decorators: A list of decorator names.
   """
 
-  def __init__(self, full_name: str, py_object: Any) -> None:
+  def __init__(self, *, full_name: str, py_object: Any, **kwargs) -> None:
     """Initialize a `TypeAliasPageInfo`.
 
     Args:
       full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
+      **kwargs: Extra arguments.
     """
 
-    super().__init__(full_name, py_object)
+    super().__init__(full_name, py_object, **kwargs)
     self._signature = None
 
   @property
@@ -1762,14 +1811,15 @@ class ClassPageInfo(PageInfo):
       the class.
   """
 
-  def __init__(self, full_name, py_object):
+  def __init__(self, *, full_name, py_object, **kwargs):
     """Initialize a ClassPageInfo.
 
     Args:
       full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
+      **kwargs: Extra arguments.
     """
-    super(ClassPageInfo, self).__init__(full_name, py_object)
+    super().__init__(full_name, py_object, **kwargs)
 
     self._namedtuplefields = collections.OrderedDict()
     if issubclass(py_object, tuple):
@@ -1812,7 +1862,7 @@ class ClassPageInfo(PageInfo):
       if base_full_name is None:
         continue
       base_doc = _parse_md_docstring(base, relative_path, self.full_name,
-                                     parser_config.reference_resolver)
+                                     parser_config, self._extra_docs)
       base_url = parser_config.reference_resolver.reference_to_url(
           base_full_name, relative_path)
 
@@ -1947,7 +1997,7 @@ class ClassPageInfo(PageInfo):
       self._add_class(member_info)
     elif obj_type is ObjType.CALLABLE:
       self._add_method(member_info, defining_class, parser_config)
-    else:
+    elif obj_type is ObjType.OTHER:
       # Exclude members defined by protobuf that are useless
       if issubclass(self.py_object, ProtoMessage):
         if (member_info.short_name.endswith('_FIELD_NUMBER') or
@@ -1989,7 +2039,7 @@ class ClassPageInfo(PageInfo):
         continue
 
       child_doc = _parse_md_docstring(child, relative_path, self.full_name,
-                                      parser_config.reference_resolver)
+                                      parser_config, self._extra_docs)
 
       child_url = parser_config.reference_resolver.reference_to_url(
           child_full_name, relative_path)
@@ -2076,14 +2126,15 @@ class ModulePageInfo(PageInfo):
       defined on the module object (mostly enum style fields).
   """
 
-  def __init__(self, full_name, py_object):
+  def __init__(self, *, full_name, py_object, **kwargs):
     """Initialize a `ModulePageInfo`.
 
     Args:
       full_name: The full, main name, of the object being documented.
       py_object: The object being documented.
+      **kwargs: Extra arguments.
     """
-    super(ModulePageInfo, self).__init__(full_name, py_object)
+    super().__init__(full_name, py_object, **kwargs)
 
     self._modules = []
     self._classes = []
@@ -2147,7 +2198,7 @@ class ModulePageInfo(PageInfo):
       self._add_function(member_info)
     elif obj_type is ObjType.TYPE_ALIAS:
       self._add_type_alias(member_info)
-    else:
+    elif obj_type is ObjType.OTHER:
       self._add_other_member(member_info)
 
   def collect_docs(self, parser_config):
@@ -2180,7 +2231,7 @@ class ModulePageInfo(PageInfo):
       member = parser_config.py_name_to_object(member_full_name)
 
       member_doc = _parse_md_docstring(member, relative_path, self.full_name,
-                                       parser_config.reference_resolver)
+                                       parser_config, self._extra_docs)
 
       url = parser_config.reference_resolver.reference_to_url(
           member_full_name, relative_path)
@@ -2190,7 +2241,12 @@ class ModulePageInfo(PageInfo):
       self._add_member(member_info)
 
 
-def docs_for_object(full_name, py_object, parser_config):
+def docs_for_object(
+    full_name: str,
+    py_object: Any,
+    parser_config: ParserConfig,
+    extra_docs: Optional[Dict[int, str]] = None,
+) -> PageInfo:
   """Return a PageInfo object describing a given object from the TF API.
 
   This function uses _parse_md_docstring to parse the docs pertaining to
@@ -2209,6 +2265,8 @@ def docs_for_object(full_name, py_object, parser_config):
     py_object: The Python object to be documented. Its documentation is sourced
       from `py_object`'s docstring.
     parser_config: A ParserConfig object.
+    extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
+      that need to be added to the markdown pages created.
 
   Returns:
     Either a `FunctionPageInfo`, `ClassPageInfo`, or a `ModulePageInfo`
@@ -2227,13 +2285,17 @@ def docs_for_object(full_name, py_object, parser_config):
 
   obj_type = get_obj_type(py_object)
   if obj_type is ObjType.CLASS:
-    page_info = ClassPageInfo(main_name, py_object)
+    page_info = ClassPageInfo(
+        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
   elif obj_type is ObjType.CALLABLE:
-    page_info = FunctionPageInfo(main_name, py_object)
+    page_info = FunctionPageInfo(
+        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
   elif obj_type is ObjType.MODULE:
-    page_info = ModulePageInfo(main_name, py_object)
+    page_info = ModulePageInfo(
+        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
   elif obj_type is ObjType.TYPE_ALIAS:
-    page_info = TypeAliasPageInfo(main_name, py_object)
+    page_info = TypeAliasPageInfo(
+        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
   else:
     raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
 
@@ -2241,8 +2303,13 @@ def docs_for_object(full_name, py_object, parser_config):
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
 
   page_info.set_doc(
-      _parse_md_docstring(py_object, relative_path, full_name,
-                          parser_config.reference_resolver))
+      _parse_md_docstring(
+          py_object,
+          relative_path,
+          full_name,
+          parser_config,
+          extra_docs,
+      ))
 
   page_info.collect_docs(parser_config)
 
