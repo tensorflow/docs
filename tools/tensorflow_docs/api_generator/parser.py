@@ -782,18 +782,11 @@ class TitleBlock(object):
     return '\n' + TABLE_TEMPLATE.format(
         title=title, text=text, items=''.join(items)) + '\n'
 
-  def list_view(self, title_template: str) -> str:
-    """Returns a List markdown version of the TitleBlock.
-
-    Args:
-      title_template: Template for title detailing how to display it.
-
-    Returns:
-      Markdown list containing the content to display.
-    """
+  def __str__(self) -> str:
+    """Returns a non-tempated version of the TitleBlock."""
 
     sub = []
-    sub.append(title_template.format(title=self.title))
+    sub.append(f'\n\n#### {self.title}:\n')
     sub.append(textwrap.dedent(self.text))
     sub.append('\n')
 
