@@ -431,11 +431,19 @@ def _other_members(other_members: List[parser.MemberInfo], title: str):
   items = []
 
   for other_member in other_members:
+    description = [other_member.doc.brief]
+    for doc_part in other_member.doc.docstring_parts:
+      if isinstance(doc_part, parser.TitleBlock):
+        # Use list_view here because description will be part of a table.
+        description.append(doc_part.list_view(title_template='\n{title}\n'))
+      else:
+        description.append(doc_part)
+
     items.append(
         parser.ITEMS_TEMPLATE.format(
             name=other_member.short_name,
             anchor=f'<a id="{other_member.short_name}"></a>',
-            description=other_member.doc.brief,
+            description='\n'.join(description),
         ))
   return '\n' + parser.TABLE_TEMPLATE.format(
       title=title, text='', items=''.join(items)) + '\n'
