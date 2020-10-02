@@ -18,6 +18,8 @@ To file a docs issue, use the issue tracker in the
 And join the TensorFlow documentation contributors on the
 [docs@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
 
+Install using: pip install tensorflow
+
 ## Community translations
 
 [Community translations](https://www.tensorflow.org/community/contribute/docs#community_translations)
