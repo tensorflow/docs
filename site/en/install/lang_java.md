@@ -11,7 +11,7 @@ Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 
 ## Requirements
 
-TensorFlow Java runs on JRE 8 and above, and is supported on the following platforms:
+TensorFlow Java runs on Java 8 and above, and is supported on the following platforms:
 
 * Ubuntu 16.04 or higher; 64-bit, x86
 * macOS 10.12.6 (Sierra) or higher; 64-bit, x86
