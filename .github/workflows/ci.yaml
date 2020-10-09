@@ -74,7 +74,6 @@ jobs:
         # Remove notebooks excluded from test.
         declare -a tested_notebooks
         for fp in "${changed_notebooks[@]}"; do
-          echo "==> $fp"
           is_excluded=0
           for excluded_fp in "${EXCLUDED_PATHS[@]}"; do
             if [[ "$fp" == "$excluded_fp" ]]; then
@@ -95,4 +94,8 @@ jobs:
             status_code=1
           fi
         done
+        if [[ "$status_code" != 0 ]]; then
+          echo "To remove notebook outputs:" >&2
+          echo "$ python3 -m tensorflow_docs.tools.nbfmt --remove_outputs notebook.ipynb" >&2
+        fi
         exit "$status_code"
