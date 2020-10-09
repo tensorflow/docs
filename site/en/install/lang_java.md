@@ -86,7 +86,7 @@ configured in your `pom.xml` as well:
 
 To build TensorFlow Java from sources and possibly customize it, please read the following [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources). 
 
-Please also note that custom builds are not supported by TensorFlow Java maintainers.
+Please also note that only official builds distributed by TensorFlow are supported by its maintainers and custom builds should be used at the user's risk.
 
 ## Example Program
 
