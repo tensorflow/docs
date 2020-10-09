@@ -82,10 +82,6 @@ configured in your `pom.xml` as well:
 </dependencies>
 ```
 
-## Building from Source
-
-To build TensorFlow Java from source and possibly customize it, please read the following [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources).
-
 ## Example Program
 
 This example shows how to build an Apache Maven project with TensorFlow. First,
@@ -157,3 +153,7 @@ Double of 10 is 20
 ```
 
 Success: TensorFlow Java is configured.
+
+## Building from Source
+
+To build TensorFlow Java from source and possibly customize it, please read the following [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources).
