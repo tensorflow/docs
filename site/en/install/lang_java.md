@@ -94,7 +94,7 @@ add the TensorFlow dependency to the project's `pom.xml` file:
     <artifactId>hellotensorflow</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-	<!-- Minimal version for compiling with TensorFlow Java is JDK 8 -->
+	<!-- Minimal version for compiling TensorFlow Java is JDK 8 -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -108,7 +108,7 @@ add the TensorFlow dependency to the project's `pom.xml` file:
 </project>
 ```
 
-Create the source file (`src/main/java/HelloTensorFlow.java`):
+Create the source file `src/main/java/HelloTensorFlow.java`:
 
 ```java
 import org.tensorflow.ConcreteFunction;
