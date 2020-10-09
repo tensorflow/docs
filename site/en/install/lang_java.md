@@ -9,12 +9,12 @@ which makes TensorFlow a strategic choice for adopting machine learning at a lar
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
-## Supported Platforms
+## Requirements
 
-TensorFlow Java is supported on the following systems:
+TensorFlow Java runs on JRE 8 and above, and is supported on the following platforms:
 
 * Ubuntu 16.04 or higher; 64-bit, x86
-* macOS 10.12.6 (Sierra) or higher
+* macOS 10.12.6 (Sierra) or higher; 64-bit, x86
 * Windows 7 or higher; 64-bit, x86
 
 *Note: To use TensorFlow on Android, see [TensorFlow Lite](https://tensorflow.org/lite)*
