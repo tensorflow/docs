@@ -19,7 +19,7 @@ TensorFlow Java is supported on the following systems:
 
 *Note: To use TensorFlow on Android, see [TensorFlow Lite](https://tensorflow.org/lite)*
 
-## Using Apache Maven
+## Maven Dependencies
 
 To include TensorFlow in your [Maven](http://maven.apache.org) application, you first need to add in
 your project's `pom.xml` file a dependency on a `tensorflow-core-platform` artifact.
@@ -46,7 +46,7 @@ set of high-level utilities to improve the developer experience with machine lea
 </dependency>
 ```
 
-### Reducing Dependencies
+### Reducing Number of Dependencies
 
 It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
 libraries for all supported platforms, which can increase significantly the size of your project.
@@ -54,7 +54,39 @@ libraries for all supported platforms, which can increase significantly the size
 When it is already known that your project will only run on a subset of the supported platforms, it is possible
 to exclude the artifacts of other platforms using the [Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) feature.
 
-## Example program
+
+### Using Snapshots
+
+TensorFlow Java is also available as snapshots, which reflects that latest changes of the 
+[TensorFlow Java Repository](https://github.com/tensorflow/java). To depend on these artifacts, 
+you need to make sure that [OSS Sonatype](https://oss.sonatype.org/) Snapshots repository is 
+configured in your `pom.xml` as well:
+
+```xml
+<repositories>
+    <repository>
+        <id>tensorflow-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>org.tensorflow</groupId>
+        <artifactId>tensorflow-core-platform</artifactId>
+        <version>0.3.0-SNAPSHOT</version>
+    </dependency>
+</dependencies>
+```
+
+## Building from Source
+
+To build TensorFlow Java from source and possibly customize it, please read the following [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources).
+
+## Example Program
 
 This example shows how to build an Apache Maven project with TensorFlow. First,
 add the TensorFlow dependency to the project's `pom.xml` file:
@@ -125,10 +157,3 @@ Double of 10 is 20
 ```
 
 Success: TensorFlow Java is configured.
-
-
-## Build from source
-
-TensorFlow is open source. Read
-[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
-to build TensorFlow's Java and native libraries from source code.
