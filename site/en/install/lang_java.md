@@ -1,60 +1,58 @@
-# Install TensorFlow for Java
+# Install TensorFlow Java
 
-TensorFlow provides a
-[Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
-particularly useful for loading models created with Python and running them
-within a Java application.
+[TensorFlow Java](https://github.com/tensorflow/java) can run on any JVM for building, training and 
+running machine learning models. It comes with a series of utilities and frameworks that help achieve 
+most of the tasks common to data scientists and developers working in this domain. Java and other JVM 
+languages, such as Scala or Kotlin, are frequently used in small-to-large enterprises all over the world, 
+which makes TensorFlow a strategic choice for adopting machine learning at a large scale.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
-## Nightly Libtensorflow Java packages
-
-Libtensorflow JNI packages are built nightly and uploaded to GCS for all
-supported platforms. They are uploaded to the
-[libtensorflow-nightly GCS bucket](https://storage.googleapis.com/libtensorflow-nightly)
-and are indexed by operating system and date built.
-
 ## Supported Platforms
 
-TensorFlow for Java is supported on the following systems:
+TensorFlow Java is supported on the following systems:
 
 * Ubuntu 16.04 or higher; 64-bit, x86
 * macOS 10.12.6 (Sierra) or higher
 * Windows 7 or higher; 64-bit, x86
 
-To use TensorFlow on Android see [TensorFlow Lite](https://tensorflow.org/lite)
+*Note: To use TensorFlow on Android, see [TensorFlow Lite](https://tensorflow.org/lite)*
 
-## TensorFlow with Apache Maven
+## Using Apache Maven
 
-To use TensorFlow with [Apache Maven](https://maven.apache.org){:.external},
-add the dependency to the project's `pom.xml` file:
-
+To include TensorFlow in your [Maven](http://maven.apache.org) application, you first need to add in
+your project's `pom.xml` file a dependency on a `tensorflow-core-platform` artifact.
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
-  <artifactId>tensorflow</artifactId>
-  <version>2.3.0</version>
+  <artifactId>tensorflow-core-platform${extension}</artifactId>
+  <version>0.2.0</version>
 </dependency>
 ```
+You can leave the `extension` variable empty to use a vanilla version of TensorFlow or set it to one
+of the supported variant:
+* `-mkl`: Support for Intel® MKL-DNN on all platforms
+* `-gpu`: Support for CUDA® on Linux and Windows platforms
+* `-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
-### GPU support
-
-If your system has [GPU support](./gpu.md), add the following TensorFlow
-dependencies to the project's `pom.xml` file:
-
+Optionally, you can also add a dependency to the `tensorflow-framework` library, which provides a rich
+set of high-level utilities to improve the developer experience with machine learning on the JVM.
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
-  <artifactId>libtensorflow</artifactId>
-  <version>2.3.0</version>
-</dependency>
-<dependency>
-  <groupId>org.tensorflow</groupId>
-  <artifactId>libtensorflow_jni_gpu</artifactId>
-  <version>2.3.0</version>
+  <artifactId>tensorflow-framework</artifactId>
+  <version>0.2.0</version>
 </dependency>
 ```
+
+### Reducing Dependencies
+
+It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
+libraries for all supported platforms, which can increase significantly the size of your project.
+
+When it is already known that your project will only run on a subset of the supported platforms, it is possible
+to exclude the artifacts of other platforms using the [Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) feature.
 
 ### Example program
 
@@ -63,55 +61,53 @@ add the TensorFlow dependency to the project's `pom.xml` file:
 
 ```xml
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.myorg</groupId>
-  <artifactId>hellotensorflow</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <properties>
-    <exec.mainClass>HelloTensorFlow</exec.mainClass>
-	<!-- The sample code requires at least JDK 1.7. -->
-	<!-- The maven compiler plugin defaults to a lower version -->
-	<maven.compiler.source>1.7</maven.compiler.source>
-	<maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
-  <dependencies>
-    <dependency>
-	  <groupId>org.tensorflow</groupId>
-	  <artifactId>tensorflow</artifactId>
-	  <version>1.14.0</version>
-	</dependency>
-  </dependencies>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg</groupId>
+    <artifactId>hellotensorflow</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+	<!-- Minimal version for compiling with TensorFlow Java is JDK 8 -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>tensorflow-core-platform</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+    </dependencies>
 </project>
 ```
 
 Create the source file (`src/main/java/HelloTensorFlow.java`):
 
 ```java
-import org.tensorflow.Graph;
-import org.tensorflow.Session;
+import org.tensorflow.ConcreteFunction;
+import org.tensorflow.Signature;
 import org.tensorflow.Tensor;
 import org.tensorflow.TensorFlow;
+import org.tensorflow.op.Ops;
+import org.tensorflow.op.core.Placeholder;
+import org.tensorflow.op.math.Add;
+import org.tensorflow.types.TInt32;
 
 public class HelloTensorFlow {
+
   public static void main(String[] args) throws Exception {
-	try (Graph g = new Graph()) {
-	  final String value = "Hello from " + TensorFlow.version();
+    System.out.println("Running on TensorFlow " + TensorFlow.version());
 
-	  // Construct the computation graph with a single operation, a constant
-	  // named "MyConst" with a value "value".
-	  try (Tensor t = Tensor.create(value.getBytes("UTF-8"))) {
-	    // The Java API doesn't yet include convenience functions for adding operations.
-		g.opBuilder("Const", "MyConst").setAttr("dtype", t.dataType()).setAttr("value", t).build();
-	  }
-
-	  // Execute the "MyConst" operation in a Session.
-	  try (Session s = new Session(g);
-	      // Generally, there may be multiple output tensors,
-		  // all of them must be closed to prevent resource leaks.
-		  Tensor output = s.runner().fetch("MyConst").run().get(0)) {
-	    System.out.println(new String(output.bytesValue(), "UTF-8"));
-	  }
+    try (ConcreteFunction dbl = ConcreteFunction.create(HelloTensorFlow::dbl);
+        Tensor<TInt32> x = TInt32.scalarOf(10);
+        Tensor<TInt32> dblX = dbl.call(x).expect(TInt32.DTYPE)) {
+      System.out.println("Double of " + x.data().getInt() + " is " + dblX.data().getInt());
     }
+  }
+
+  private static Signature dbl(Ops tf) {
+    Placeholder<TInt32> x = tf.placeholder(TInt32.DTYPE);
+    Add<TInt32> dblX = tf.math.add(x, x);
+    return Signature.builder().input("x", x).output("dbl", dblX).build();
   }
 }
 ```
@@ -122,9 +118,13 @@ Compile and execute:
 mvn -q compile exec:java  # Use -q to hide logging
 </pre>
 
-The command outputs: <code>Hello from <em>version</em></code>
+The command outputs: 
+```
+Running on TensorFlow 2.3.1
+Double of 10 is 20
+```
 
-Success: TensorFlow for Java is configured.
+Success: TensorFlow Java is configured.
 
 
 ## TensorFlow with the JDK
