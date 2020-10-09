@@ -143,7 +143,7 @@ public class HelloTensorFlow {
 Compile and execute:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-mvn -q compile exec:java  # Use -q to hide logging
+mvn -q compile exec:java
 </pre>
 
 The command outputs: 
