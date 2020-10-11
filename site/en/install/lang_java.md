@@ -203,4 +203,4 @@ Running on TensorFlow 2.3.1
 Double of 10 is 20
 ```
 
-Success: TensorFlow Java is configured.
+Success! TensorFlow Java is configured.
