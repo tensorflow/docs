@@ -1,17 +1,16 @@
 # Subsite projects
 
-Subsite projects are sections of the
-[tensorflow.org](https://www.tensorflow.org) website that *do not* live in the
-[tensorflow/docs](https://github.com/tensorflow/docs) repo. Instead, the project
-docs live with the code in the project repo. Some example subsites:
+Subsite projects are Tensorflow projects of 
+[tensorflow.org](https://www.tensorflow.org) whose documentation source docs *do not* resides in the [tensorflow/docs](https://github.com/tensorflow/docs) repo. Instead, the project
+docs resides near the code in a separate repository, usually in the project repo. Some examples of subsite projects are:
 
 * [TensorFlow Probability](https://www.tensorflow.org/probability/)
   [[tensorflow/probability](https://github.com/tensorflow/probability)]
 * [TensorFlow Serving](https://www.tensorflow.org/serving/)
   [[tensorflow/serving](https://github.com/tensorflow/serving)]
 
-Documentation changes are submitted to the project repo and *not* the
-tensorflow/docs repo. Guides can be Markdown files or Colab/Jupyter notebooks.
+Documentation changes are submitted to the specific project repo and *not* to the
+tensorflow/docs repo. Guides and tutorials are written as  Markdown files and Jupyter notebooks.
 
 ## Set up the base template for the subsite project
 
