@@ -126,8 +126,8 @@ Please read at Gradle JavaCPP [documentation](https://github.com/bytedeco/gradle
 To build TensorFlow Java from sources, and possibly customize it, please read the following 
 [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources). 
 
-Note that only official builds distributed by TensorFlow are supported by its maintainers and custom builds 
-should be used at the user's risk.
+*Note: Only official builds distributed by TensorFlow are supported by its maintainers and custom builds 
+should be used at the user's risk.*
 
 
 # Example Program
