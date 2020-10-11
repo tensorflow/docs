@@ -19,7 +19,7 @@ TensorFlow Java runs on Java 8 and above, and supports out-of-the-box the follow
 
 *Note: To use TensorFlow on Android, see [TensorFlow Lite](https://tensorflow.org/lite)*
 
-## Maven Dependencies
+## Installing with Maven
 
 To include TensorFlow in your [Maven](http://maven.apache.org) application, you first need to add in
 your project's `pom.xml` file a dependency on a `tensorflow-core-platform` artifact.
@@ -46,13 +46,17 @@ set of high-level utilities to improve the developer experience with machine lea
 </dependency>
 ```
 
-### Reducing Number of Dependencies
+### Reducing Number of Dependencies with Maven
 
 It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
 libraries for all supported platforms, which can increase significantly the size of your project.
 
 When it is already known that your project will only run on a subset of the supported platforms, it is possible
 to exclude the artifacts of other platforms using the [Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) feature.
+
+Another way to specify which platform you want to include is to use JavaCPP platforms properties directly
+in your Maven command line. Please see JavaCPP [documentation](https://github.com/bytedeco/javacpp-presets/wiki/Reducing-the-Number-of-Dependencies)
+for more details.
 
 
 ### Using Snapshots
@@ -82,13 +86,34 @@ configured in your `pom.xml` as well:
 </dependencies>
 ```
 
-## Building from Source
+## Installing with Gradle
 
-To build TensorFlow Java from sources and possibly customize it, please read the following [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources). 
+Same dependencies as with Maven can be added to your Gradle project to run TensorFlow. 
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.tensorflow', name: 'tensorflow-core-platform', version: '0.2.0'
+}
+```
+Please read the [Maven](#installing-with-maven) section for more details on the different artifacts that can be included.
+
+### Reducing Number of Dependencies
+
+Excluding native artifacts from TensorFlow Java with Gradle is not as easy as with Maven. We recommend that you use 
+Gradle JavaCPP plugins to reduce the number of dependencies. Please read at Gradle JavaCPP 
+[documentation](https://github.com/bytedeco/gradle-javacpp) for more details.
+
+## Installing from Sources
+
+To build TensorFlow Java from sources and possibly customize it, please read the following 
+[instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources). 
 
 Please also note that only official builds distributed by TensorFlow are supported by its maintainers and custom builds should be used at the user's risk.
 
-## Example Program
+# Example Program
 
 This example shows how to build an Apache Maven project with TensorFlow. First,
 add the TensorFlow dependency to the project's `pom.xml` file:
