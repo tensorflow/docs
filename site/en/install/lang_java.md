@@ -1,13 +1,14 @@
 # Install TensorFlow Java
 
 [TensorFlow Java](https://github.com/tensorflow/java) can run on any JVM for building, training and 
-running machine learning models. It comes with a series of utilities and frameworks that help achieve 
+running machine learning models. It comes with a series of utilities and a framework that help achieve 
 most of the tasks common to data scientists and developers working in this domain. Java and other JVM 
 languages, such as Scala or Kotlin, are frequently used in small-to-large enterprises all over the world, 
 which makes TensorFlow a strategic choice for adopting machine learning at a large scale.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
+
 
 ## Requirements
 
@@ -19,10 +20,20 @@ TensorFlow Java runs on Java 8 and above, and supports out-of-the-box the follow
 
 *Note: To use TensorFlow on Android, see [TensorFlow Lite](https://tensorflow.org/lite)*
 
+
+## Versions
+
+TensorFlow Java has its own release cycle, independent from the [TensorFlow runtime](https://github.com/tensorflow/tensorflow).
+In consequence, its version does not match the version of TensorFlow runtime it runs on. Consult the TensorFlow Java 
+[versioning table](https://github.com/tensorflow/java/#tensorflow-version-support) to list all versions available 
+and their mapping with the TensorFlow runtime.
+
+
 ## Installing with Maven
 
 To include TensorFlow in your [Maven](http://maven.apache.org) application, you first need to add in
-your project's `pom.xml` file a dependency on a `tensorflow-core-platform` artifact.
+your project's `pom.xml` file a dependency on one of the `tensorflow-core-platform` artifact.
+
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
@@ -30,6 +41,7 @@ your project's `pom.xml` file a dependency on a `tensorflow-core-platform` artif
   <version>0.2.0</version>
 </dependency>
 ```
+
 You can leave the `extension` variable empty to use a vanilla version of TensorFlow or set it to one
 of the supported variant:
 * `-mkl`: Support for Intel® MKL-DNN on all platforms
@@ -38,6 +50,7 @@ of the supported variant:
 
 Optionally, you can also add a dependency to the `tensorflow-framework` library, which provides a rich
 set of high-level utilities to improve the developer experience with machine learning on the JVM.
+
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
@@ -51,20 +64,20 @@ set of high-level utilities to improve the developer experience with machine lea
 It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
 libraries for all supported platforms, which can increase significantly the size of your project.
 
-When it is already known that your project will only run on a subset of the supported platforms, it is possible
-to exclude the artifacts of other platforms using the [Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) feature.
+When it has already been established that your project will only run on a subset of these platforms, it is possible
+to exclude the artifacts of the other platforms using the 
+[Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) 
+feature.
 
-Another way to specify which platform you want to include is to use JavaCPP platforms properties directly
-in your Maven command line. Please see JavaCPP [documentation](https://github.com/bytedeco/javacpp-presets/wiki/Reducing-the-Number-of-Dependencies)
-for more details.
-
+Another way to select which platforms you want to include in your application is to set JavaCPP system properties,
+in your Maven command line or in your `pom.xml`. Please see JavaCPP 
+[documentation](https://github.com/bytedeco/javacpp-presets/wiki/Reducing-the-Number-of-Dependencies) for more details.
 
 ### Using Snapshots
 
-TensorFlow Java is also available as snapshots, which reflects that latest changes of the 
-[TensorFlow Java Repository](https://github.com/tensorflow/java). To depend on these artifacts, 
-you need to make sure that [OSS Sonatype](https://oss.sonatype.org/) Snapshots repository is 
-configured in your `pom.xml` as well:
+TensorFlow Java snapshots that reflect that latest version of the source code
+in [TensorFlow Java Repository](https://github.com/tensorflow/java) are available on [OSS Sonatype](https://oss.sonatype.org). 
+To depend on these artifacts, make sure to configure the OSS snapshots repository in your `pom.xml`.
 
 ```xml
 <repositories>
@@ -103,15 +116,18 @@ Please read the [Maven](#installing-with-maven) section for more details on the 
 ### Reducing Number of Dependencies
 
 Excluding native artifacts from TensorFlow Java with Gradle is not as easy as with Maven. We recommend that you use 
-Gradle JavaCPP plugins to reduce the number of dependencies. Please read at Gradle JavaCPP 
+Gradle JavaCPP plugins to reduce this number of dependencies. Please read at Gradle JavaCPP 
 [documentation](https://github.com/bytedeco/gradle-javacpp) for more details.
+
 
 ## Installing from Sources
 
-To build TensorFlow Java from sources and possibly customize it, please read the following 
+To build TensorFlow Java from sources, and possibly customize it, please read the following 
 [instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources). 
 
-Please also note that only official builds distributed by TensorFlow are supported by its maintainers and custom builds should be used at the user's risk.
+Note that only official builds distributed by TensorFlow are supported by its maintainers and custom builds 
+should be used at the user's risk.
+
 
 # Example Program
 
@@ -124,12 +140,15 @@ add the TensorFlow dependency to the project's `pom.xml` file:
     <groupId>org.myorg</groupId>
     <artifactId>hellotensorflow</artifactId>
     <version>1.0-SNAPSHOT</version>
+	
     <properties>
 	<!-- Minimal version for compiling TensorFlow Java is JDK 8 -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+	
     <dependencies>
+	<!-- Includes vanilla TensorFlow for all platforms -->
         <dependency>
             <groupId>org.tensorflow</groupId>
             <artifactId>tensorflow-core-platform</artifactId>
