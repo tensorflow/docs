@@ -116,8 +116,9 @@ Please read the [Maven](#installing-with-maven) section for more details on the 
 ### Reducing Number of Dependencies
 
 Excluding native artifacts from TensorFlow Java with Gradle is not as easy as with Maven. We recommend that you use 
-Gradle JavaCPP plugins to reduce this number of dependencies. Please read at Gradle JavaCPP 
-[documentation](https://github.com/bytedeco/gradle-javacpp) for more details.
+Gradle JavaCPP plugins to reduce this number of dependencies. 
+
+Please read at Gradle JavaCPP [documentation](https://github.com/bytedeco/gradle-javacpp) for more details.
 
 
 ## Installing from Sources
