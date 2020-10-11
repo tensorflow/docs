@@ -59,7 +59,7 @@ set of high-level utilities to improve the developer experience with machine lea
 </dependency>
 ```
 
-### Reducing Number of Dependencies with Maven
+### Reducing Number of Dependencies
 
 It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
 libraries for all supported platforms, which can increase significantly the size of your project.
