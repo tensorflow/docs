@@ -71,7 +71,8 @@ The following NVIDIA® software must be installed on your system:
     —TensorFlow supports CUDA® 10.1 (TensorFlow >= 2.1.0)
 *   [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA®
     Toolkit.
-*   [cuDNN SDK 7.6](https://developer.nvidia.com/cudnn){:.external}
+*   [cuDNN SDK 7.6](https://developer.nvidia.com/cudnn){:.external} Also see cuDNN
+    and CUDA® [compatible versions](https://developer.nvidia.com/rdp/cudnn-archive){:.external}. 
 *   *(Optional)*
     [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
     to improve latency and throughput for inference on some models.
