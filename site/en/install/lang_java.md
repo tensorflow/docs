@@ -3,8 +3,8 @@
 [TensorFlow Java](https://github.com/tensorflow/java) can run on any JVM for building, training and 
 deploying machine learning models. It supports both CPU and GPU execution, in graph or eager mode, and
 presents a rich API for using TensorFlow in a JVM environment. Java and other JVM languages, like Scala
-and Kotlin, are frequently used in small-to-large enterprises all over the world, which makes TensorFlow 
-a strategic choice for adopting machine learning at a large scale.
+and Kotlin, are frequently used in large and small enterprises all over the world, which makes TensorFlow 
+Java a strategic choice for adopting machine learning at a large scale.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
@@ -24,7 +24,7 @@ TensorFlow Java runs on Java 8 and above, and supports out-of-the-box the follow
 ## Versions
 
 TensorFlow Java has its own release cycle, independent from the [TensorFlow runtime](https://github.com/tensorflow/tensorflow).
-In consequence, its version does not match the version of TensorFlow runtime it runs on. Consult the TensorFlow Java 
+Consequently, its version does not match the version of TensorFlow runtime it runs on. Consult the TensorFlow Java 
 [versioning table](https://github.com/tensorflow/java/#tensorflow-version-support) to list all versions available 
 and their mapping with the TensorFlow runtime.
 
@@ -42,13 +42,13 @@ your project's `pom.xml` file a dependency on one of the `tensorflow-core-platfo
 </dependency>
 ```
 
-You can leave the `extension` variable empty to use a vanilla version of TensorFlow or set it to one
+You can leave the `extension` variable empty to use a pure CPU version of TensorFlow or set it to one
 of the supported variant:
 * `-mkl`: Support for Intel® MKL-DNN on all platforms
 * `-gpu`: Support for CUDA® on Linux and Windows platforms
 * `-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
-Optionally, you can also add a dependency to the `tensorflow-framework` library, which provides a rich
+Optionally, you can also add a dependency on the `tensorflow-framework` library, which provides a rich
 set of high-level utilities to improve the developer experience with with TensorFlow-based machine learning
 on the JVM.
 
@@ -63,12 +63,10 @@ on the JVM.
 ### Reducing Number of Dependencies
 
 It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
-libraries for all supported platforms, which can increase significantly the size of your project.
+libraries for all supported platforms, which can significantly increase the size of your project.
 
-When it has already been established that your project will only run on a subset of these platforms, it is possible
-to exclude the artifacts of the other platforms using the 
-[Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) 
-feature.
+If you wish to target a subset of the available platforms then you can exclude the unnecessary artifacts from 
+the other platforms using the [Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions) feature.
 
 Another way to select which platforms you want to include in your application is to set JavaCPP system properties,
 in your Maven command line or in your `pom.xml`. Please see JavaCPP 
@@ -76,9 +74,9 @@ in your Maven command line or in your `pom.xml`. Please see JavaCPP
 
 ### Using Snapshots
 
-TensorFlow Java snapshots that reflect that latest version of the source code
-in [TensorFlow Java Repository](https://github.com/tensorflow/java) are available on [OSS Sonatype](https://oss.sonatype.org). 
-To depend on these artifacts, make sure to configure the OSS snapshots repository in your `pom.xml`.
+The latest TensorFlow Java development snapshots from the TensorFlow Java source repository are available on the 
+[OSS Sonatype](https://oss.sonatype.org) Nexus repository. To depend on these artifacts, make sure to configure 
+the OSS snapshots repository in your `pom.xml`.
 
 ```xml
 <repositories>
@@ -102,7 +100,7 @@ To depend on these artifacts, make sure to configure the OSS snapshots repositor
 
 ## Installing with Gradle
 
-Same dependencies as with Maven can be added to your Gradle project to run TensorFlow. 
+To use TensorFlow Java with Gradle you can include the following snippet in your `build.gradle`:
 ```groovy
 repositories {
     mavenCentral()
@@ -150,7 +148,7 @@ add the TensorFlow dependency to the project's `pom.xml` file:
     </properties>
 	
     <dependencies>
-	<!-- Includes vanilla TensorFlow for all platforms -->
+	<!-- Includes pure CPU TensorFlow for all platforms -->
         <dependency>
             <groupId>org.tensorflow</groupId>
             <artifactId>tensorflow-core-platform</artifactId>
@@ -166,6 +164,7 @@ Create the source file `src/main/java/HelloTensorFlow.java`:
 import org.tensorflow.ConcreteFunction;
 import org.tensorflow.Signature;
 import org.tensorflow.Tensor;
+import org.tensorflow.TensorFlow;
 import org.tensorflow.op.Ops;
 import org.tensorflow.op.core.Placeholder;
 import org.tensorflow.op.math.Add;
@@ -174,10 +173,12 @@ import org.tensorflow.types.TInt32;
 public class HelloTensorFlow {
 
   public static void main(String[] args) throws Exception {
+    System.out.println("Hello TensorFlow " + TensorFlow.version());
+
     try (ConcreteFunction dbl = ConcreteFunction.create(HelloTensorFlow::dbl);
         Tensor<TInt32> x = TInt32.scalarOf(10);
         Tensor<TInt32> dblX = dbl.call(x).expect(TInt32.DTYPE)) {
-      System.out.println("Double of " + x.data().getInt() + " is " + dblX.data().getInt());
+      System.out.println(x.data().getInt() + " doubled is " + dblX.data().getInt());
     }
   }
 
@@ -197,7 +198,8 @@ mvn -q compile exec:java
 
 The command outputs: 
 ```
-Double of 10 is 20
+Hello TensorFlow 2.3.1
+10 doubled is 20
 ```
 
 Success! TensorFlow Java is configured.
