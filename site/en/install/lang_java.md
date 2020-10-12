@@ -1,10 +1,10 @@
 # Install TensorFlow Java
 
 [TensorFlow Java](https://github.com/tensorflow/java) can run on any JVM for building, training and 
-running machine learning models. It comes with a series of utilities and a framework that help achieve 
-most of the tasks common to data scientists and developers working in this domain. Java and other JVM 
-languages, such as Scala or Kotlin, are frequently used in small-to-large enterprises all over the world, 
-which makes TensorFlow a strategic choice for adopting machine learning at a large scale.
+deploying machine learning models. It supports both CPU and GPU execution, in graph or eager mode, and
+presents a rich API for using TensorFlow in a JVM environment. Java and other JVM languages, like Scala
+and Kotlin, are frequently used in small-to-large enterprises all over the world, which makes TensorFlow 
+a strategic choice for adopting machine learning at a large scale.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
@@ -49,7 +49,8 @@ of the supported variant:
 * `-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
 Optionally, you can also add a dependency to the `tensorflow-framework` library, which provides a rich
-set of high-level utilities to improve the developer experience with machine learning on the JVM.
+set of high-level utilities to improve the developer experience with with TensorFlow-based machine learning
+on the JVM.
 
 ```xml
 <dependency>
