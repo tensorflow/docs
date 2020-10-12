@@ -166,7 +166,6 @@ Create the source file `src/main/java/HelloTensorFlow.java`:
 import org.tensorflow.ConcreteFunction;
 import org.tensorflow.Signature;
 import org.tensorflow.Tensor;
-import org.tensorflow.TensorFlow;
 import org.tensorflow.op.Ops;
 import org.tensorflow.op.core.Placeholder;
 import org.tensorflow.op.math.Add;
@@ -175,8 +174,6 @@ import org.tensorflow.types.TInt32;
 public class HelloTensorFlow {
 
   public static void main(String[] args) throws Exception {
-    System.out.println("Running on TensorFlow " + TensorFlow.version());
-
     try (ConcreteFunction dbl = ConcreteFunction.create(HelloTensorFlow::dbl);
         Tensor<TInt32> x = TInt32.scalarOf(10);
         Tensor<TInt32> dblX = dbl.call(x).expect(TInt32.DTYPE)) {
@@ -200,7 +197,6 @@ mvn -q compile exec:java
 
 The command outputs: 
 ```
-Running on TensorFlow 2.3.1
 Double of 10 is 20
 ```
 
