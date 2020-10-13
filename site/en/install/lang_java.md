@@ -32,22 +32,22 @@ and their mapping with the TensorFlow runtime.
 ## Artifacts
 
 There are [several ways](https://github.com/tensorflow/java/#using-maven-artifacts) to add TensorFlow Java to your project. 
-The easiest one is to add a dependency to the `tensorflow-core-platform` artifact, which not only include the
-TensorFlow Java Core API but also the native depencendies it requires to run on all supported platforms.
+The easiest one is to add a dependency on the `tensorflow-core-platform` artifact, which includes both the TensorFlow Java 
+Core API and the native dependencies it requires to run on all supported platforms.
 
-You can also select one of the following extension instead of the pure CPU version:
+You can also select one of the following extensions instead of the pure CPU version:
 
 * `tensorflow-core-platform-mkl`: Support for Intel® MKL-DNN on all platforms
 * `tensorflow-core-platform-gpu`: Support for CUDA® on Linux and Windows platforms
 * `tensorflow-core-platform-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
-In addition, a separate dependency to the `tensorflow-framework` library can be added to benefit from a rich set of 
+In addition, a separate dependency on the `tensorflow-framework` library can be added to benefit from a rich set of 
 utilities for TensorFlow-based machine learning on the JVM. 
 
 
 ## Installing with Maven
 
-To include TensorFlow in your [Maven](http://maven.apache.org) application, add a dependency to its [artifacts](#artifacts)
+To include TensorFlow in your [Maven](http://maven.apache.org) application, add a dependency on its [artifacts](#artifacts)
 to your project's `pom.xml` file. For example,
 
 ```xml
@@ -60,7 +60,7 @@ to your project's `pom.xml` file. For example,
 
 ### Reducing Number of Dependencies
 
-It is important to note that adding a dependency to a `tensorflow-core-platform` artifact will import native 
+It is important to note that adding a dependency on a `tensorflow-core-platform` artifact will import native 
 libraries for all supported platforms, which can significantly increase the size of your project.
 
 If you wish to target a subset of the available platforms then you can exclude the unnecessary artifacts from 
@@ -99,7 +99,7 @@ the OSS snapshots repository in your `pom.xml`.
 
 ## Installing with Gradle
 
-To include TensorFlow in your [Gradle](https://gradle.org) application, add a dependency to its [artifacts](#artifacts)
+To include TensorFlow in your [Gradle](https://gradle.org) application, add a dependency on its [artifacts](#artifacts)
 to your project's `build.gradle` file. For example,
 
 ```groovy
