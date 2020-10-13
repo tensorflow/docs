@@ -29,33 +29,31 @@ Consequently, its version does not match the version of TensorFlow runtime it ru
 and their mapping with the TensorFlow runtime.
 
 
-## Installing with Maven
+## Artifacts
 
-To include TensorFlow in your [Maven](http://maven.apache.org) application, add the following dependency
-to your project's `pom.xml` file:
+There are [several ways](https://github.com/tensorflow/java/#using-maven-artifacts) to add TensorFlow Java to your project. 
+The easiest one is to add a dependency to the `tensorflow-core-platform` artifact, which not only include the
+TensorFlow Java Core API but also the native depencendies it requires to run on all supported platforms.
 
-```xml
-<dependency>
-  <groupId>org.tensorflow</groupId>
-  <artifactId>tensorflow-core-platform</artifactId>
-  <version>0.2.0</version>
-</dependency>
-```
-
-or alternatively select one of the supported variant:
+You can also select one of the following extension instead of the pure CPU version:
 
 * `tensorflow-core-platform-mkl`: Support for Intel® MKL-DNN on all platforms
 * `tensorflow-core-platform-gpu`: Support for CUDA® on Linux and Windows platforms
 * `tensorflow-core-platform-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
-In addition, you can include a dependency to the `tensorflow-framework` library, which provides a rich
-set of high-level utilities to improve the developer experience with with TensorFlow-based machine learning
-on the JVM.
+In addition, a separate dependency to the `tensorflow-framework` library can be added to benefit from a rich set of 
+utilities for TensorFlow-based machine learning on the JVM. 
+
+
+## Installing with Maven
+
+To include TensorFlow in your [Maven](http://maven.apache.org) application, add a dependency to its [artifacts](#artifacts)
+to your project's `pom.xml` file. For example,
 
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
-  <artifactId>tensorflow-framework</artifactId>
+  <artifactId>tensorflow-core-platform</artifactId>
   <version>0.2.0</version>
 </dependency>
 ```
@@ -98,9 +96,12 @@ the OSS snapshots repository in your `pom.xml`.
 </dependencies>
 ```
 
+
 ## Installing with Gradle
 
-To use TensorFlow Java with Gradle you can include the following snippet in your `build.gradle`:
+To include TensorFlow in your [Gradle](https://gradle.org) application, add a dependency to its [artifacts](#artifacts)
+to your project's `build.gradle` file. For example,
+
 ```groovy
 repositories {
     mavenCentral()
@@ -110,7 +111,6 @@ dependencies {
     compile group: 'org.tensorflow', name: 'tensorflow-core-platform', version: '0.2.0'
 }
 ```
-Please read the [Maven](#installing-with-maven) section for more details on the different artifacts that can be included.
 
 ### Reducing Number of Dependencies
 
