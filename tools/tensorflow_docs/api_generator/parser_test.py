@@ -551,12 +551,21 @@ class ParserTest(parameterized.TestCase):
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
 
     doc_info = parser._parse_md_docstring(
         test_function_with_fancy_docstring,
         relative_path_to_root='../..',
         full_name=None,
-        reference_resolver=reference_resolver)
+        parser_config=parser_config)
 
     freeform_docstring = '\n'.join(
         part for part in doc_info.docstring_parts if isinstance(part, str))

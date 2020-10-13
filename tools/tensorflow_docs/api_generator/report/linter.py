@@ -120,7 +120,7 @@ def lint_usage_example(
   description = []
   for part in page_info.doc.docstring_parts:
     if isinstance(part, parser.TitleBlock):
-      description.append(part.list_view(title_template=''))
+      description.append(str(part))
     else:
       description.append(part)
   desc_str = ''.join(description)

@@ -272,9 +272,32 @@ def button_website(args):
   if is_button_cell_re.search(cell_source) and re.search(this_url, cell_source):
     return True
   else:
-    # If included verbatium, bracket will fail lint. That's desired.
+    # If included verbatim, bracket will fail lint. That's desired.
     url_format = f"{base_url}<OPTIONAL-SUBSITE-PATH>/{url_path}"
     fail(f"'View on' button URL doesn't match pattern: {url_format}")
+
+
+@lint(
+    message="Missing or malformed URL in 'TFHub' button.",
+    scope=Options.Scope.TEXT,
+    cond=Options.Cond.ANY)
+def button_hub(args):
+  """Notebooks that mention tfhub.dev should have a TFHub button."""
+  cell_source = args["cell_source"]
+  file_source = args["file_source"]
+
+  hub_url = "https://tfhub.dev/"
+
+  # Only check files that mention TFHub.
+  if file_source.find(hub_url) == -1:
+    return True
+
+  if is_button_cell_re.search(cell_source) and cell_source.find(hub_url) != -1:
+    return True
+  else:
+    # If included verbatim, bracket will fail lint. That's desired.
+    url_format = f"{hub_url}<MODEL-OR-COLLECTION>"
+    fail(f"'TFHub' button URL doesn't match pattern: {url_format}")
 
 
 @lint(

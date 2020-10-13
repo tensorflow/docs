@@ -80,6 +80,8 @@ toc:
   path: /guide/function
 - title: "Profile TensorFlow performance"
   path: /guide/profiler
+- title: "Optimize GPU Performance"
+  path: /guide/gpu_performance_analysis
 - title: "Graph optimization"
   path: /guide/graph_optimization
 - title: "Mixed precision"
