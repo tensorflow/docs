@@ -42,13 +42,13 @@ to your project's `pom.xml` file:
 </dependency>
 ```
 
-or select one of the supported variant of TensorFlow instead of the pure CPU version:
+or alternatively, select one of the supported variant:
 
 * `tensorflow-core-platform-mkl`: Support for Intel® MKL-DNN on all platforms
 * `tensorflow-core-platform-gpu`: Support for CUDA® on Linux and Windows platforms
 * `tensorflow-core-platform-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
 
-In addition, you can add a dependency to the `tensorflow-framework` library, which provides a rich
+You can also include a dependency to the `tensorflow-framework` library, which provides a rich
 set of high-level utilities to improve the developer experience with with TensorFlow-based machine learning
 on the JVM.
 
