@@ -31,8 +31,8 @@ and their mapping with the TensorFlow runtime.
 
 ## Installing with Maven
 
-To include TensorFlow in your [Maven](http://maven.apache.org) application, you first need to add in
-your project's `pom.xml` file a dependency on one of the `tensorflow-core-platform` artifact.
+To include TensorFlow in your [Maven](http://maven.apache.org) application, add a dependency to
+a `tensorflow-core-platform` artifact to your project's `pom.xml` file.
 
 ```xml
 <dependency>
@@ -44,6 +44,7 @@ your project's `pom.xml` file a dependency on one of the `tensorflow-core-platfo
 
 You can leave the `extension` variable empty to use a pure CPU version of TensorFlow or set it to one
 of the supported variant:
+
 * `-mkl`: Support for Intel® MKL-DNN on all platforms
 * `-gpu`: Support for CUDA® on Linux and Windows platforms
 * `-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on Linux and Windows platforms.
