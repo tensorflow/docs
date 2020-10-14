@@ -51,3 +51,51 @@ jobs:
           python3 -m tensorflow_docs.tools.nblint \
             --arg=repo:tensorflow/docs "${changed_notebooks[@]}"
         fi
+
+  outputs-removed:
+    name: Notebook outputs removed
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Fetch master branch
+      run: git fetch -u origin master:master
+    - name: Check for output cells
+      run: |
+        # Notebooks that are allowed to save outputs and excluded from test.
+        EXCLUDED_PATHS=(
+          site/en/guide/gpu.ipynb
+        )
+        # Only check notebooks modified in this pull request.
+        readarray -t changed_notebooks < <(git diff --name-only master | grep '\.ipynb$' || true)
+        if [[ ${#changed_notebooks[@]} == 0 ]]; then
+          echo "No notebooks modified in this pull request."
+          exit 0
+        fi
+        # Remove notebooks excluded from test.
+        declare -a tested_notebooks
+        for fp in "${changed_notebooks[@]}"; do
+          is_excluded=0
+          for excluded_fp in "${EXCLUDED_PATHS[@]}"; do
+            if [[ "$fp" == "$excluded_fp" ]]; then
+              is_excluded=1
+              break
+            fi
+          done
+          if [[ $is_excluded == 0 ]]; then
+            tested_notebooks+=("$fp")
+          fi
+        done
+        # Test notebooks for output cells.
+        status_code=0
+        for fp in "${tested_notebooks[@]}"; do
+          # Output cells use the "output_type" property.
+          if grep --quiet "\"output_type\":" "$fp"; then
+            echo "[${GITHUB_WORKFLOW}] Remove output cells from: $fp" >&2
+            status_code=1
+          fi
+        done
+        if [[ "$status_code" != 0 ]]; then
+          echo "To remove notebook outputs:" >&2
+          echo "$ python3 -m tensorflow_docs.tools.nbfmt --remove_outputs notebook.ipynb" >&2
+        fi
+        exit "$status_code"
