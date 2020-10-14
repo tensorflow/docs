@@ -48,10 +48,6 @@ toc:
 - title: "Random number generation"
   path: /guide/random_numbers
 
-- heading: "Estimators"
-- title: "Estimator overview"
-  path: /guide/estimator
-
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
@@ -87,6 +83,10 @@ toc:
 - title: "Mixed precision"
   path: /guide/mixed_precision
   status: experimental
+
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
 
 - heading: "Appendix"
 - title: "Version compatibility"
