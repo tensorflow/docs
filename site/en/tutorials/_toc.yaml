@@ -130,6 +130,13 @@ toc:
   - title: "Fine tuning BERT"
     path: /official_models/fine_tuning_bert
 
+- title: "Audio"
+  style: accordion
+  status: new
+  section:
+  - title: "Simple Audio Recognition"
+    path: /tutorials/audio/simple_audio
+
 - title: "Structured data"
   style: accordion
   section:
@@ -181,3 +188,4 @@ toc:
   - title: "TensorFlow agents"
     status: external
     path: /agents
+
