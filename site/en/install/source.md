@@ -99,9 +99,9 @@ flags, for example).
 ./configure
 </pre>
 
-Note: If using a virtual environment `python configure.py` will give priority
-to paths from the environments, whereas `./configure` will give priority to
-paths outside the environment. In both cases you can change the default.
+If using a virtual environment, `python configure.py` prioritizes paths
+within the environment, whereas `./configure` prioritizes paths outside
+the environment. In both cases you can change the default.
 
 ### Sample session
 
