@@ -110,6 +110,8 @@ class TocNode(object):
     Returns:
       True if depreacted else False.
     """
+    if doc_controls.is_deprecated(self.py_object):
+      return True
 
     if 'tf.contrib' in self.full_name:
       return True

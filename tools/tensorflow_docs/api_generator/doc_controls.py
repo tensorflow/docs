@@ -16,6 +16,19 @@
 """Documentation control decorators."""
 from typing import Callable, Iterable
 
+_DEPRECATED = "_tf_docs_deprecated"
+
+
+def set_deprecated(obj):
+  """Explicitly tag an object as deprecated for the doc generator."""
+  setattr(obj, _DEPRECATED, None)
+  return obj
+
+
+def is_deprecated(obj):
+  return hasattr(obj, _DEPRECATED)
+
+
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
 
 

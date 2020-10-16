@@ -1512,6 +1512,8 @@ def extract_decorators(func: Any) -> List[str]:
   visitor = ASTDecoratorExtractor()
 
   try:
+    # Note: inspect.getsource doesn't include the decorator lines on classes,
+    # this won't work for classes until that's fixed.
     func_source = textwrap.dedent(inspect.getsource(func))
     func_ast = ast.parse(func_source)
     visitor.visit(func_ast)
