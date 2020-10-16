@@ -38,8 +38,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual environmen
 omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip six 'numpy<1.19.0' wheel setuptools mock 'future>=0.17.1' 'gast==0.3.3' typing_extensions</code>
-<code class="devsite-terminal">pip install -U --user keras_applications --no-deps</code>
+<code class="devsite-terminal">pip install -U --user pip numpy wheel</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
@@ -85,7 +84,7 @@ The repo defaults to the `master` development branch. You can also checkout a
 to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
+git checkout <em>branch_name</em>  # r2.2, r2.3, etc.
 </pre>
 
 
@@ -99,6 +98,10 @@ flags, for example).
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
+
+If using a virtual environment, `python configure.py` prioritizes paths
+within the environment, whereas `./configure` prioritizes paths outside
+the environment. In both cases you can change the default.
 
 ### Sample session
 
