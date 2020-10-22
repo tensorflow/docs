@@ -31,7 +31,7 @@ from typing import Dict, List, Optional, NamedTuple
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 
-_TABLE_ITEMS = ('arg', 'return', 'raise', 'attr')
+_TABLE_ITEMS = ('arg', 'return', 'raise', 'attr', 'yield')
 
 
 def build_md_page(page_info: parser.PageInfo) -> str:

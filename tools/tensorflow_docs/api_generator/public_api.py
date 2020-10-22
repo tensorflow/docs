@@ -230,10 +230,14 @@ class PublicAPIFilter(object):
     self._private_map = private_map or {}
 
   def _is_private(self, path, name, obj):
-    """Return whether a name is private."""
+    """Returns whether a name is private or not."""
+
     # Skip objects blocked by doc_controls.
     if doc_controls.should_skip(obj):
       return True
+
+    if doc_controls.should_doc_private(obj):
+      return False
 
     # Skip modules outside of the package root.
     if inspect.ismodule(obj):
