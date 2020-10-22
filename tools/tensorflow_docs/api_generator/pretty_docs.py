@@ -218,12 +218,24 @@ def merge_blocks(class_page_info: parser.ClassPageInfo,
   # Get the constructor's docstring parts.
   constructor_doc = ctor_info.doc.docstring_parts
 
+  # If `Args`/`Arguments` and `Raises` already exist in the class docstring,
+  # then record them and don't lift those sections from the constructor.
+  existing_items_in_class = []
+  for item in class_doc:
+    if isinstance(item, parser.TitleBlock):
+      title = item.title
+      if title.startswith(('Args', 'Arguments')):
+        title = 'Arg'
+      existing_items_in_class.append(title)
+
   # Extract the `Arguments`/`Args` from the constructor's docstring.
   # A constructor won't contain `Args` and `Arguments` section at once.
   # It can contain either one of these so check for both.
   for block in constructor_doc:
     if isinstance(block, parser.TitleBlock):
-      if block.title.startswith(('Args', 'Arguments', 'Raises')):
+      # If the block doesn't exist in class docstring, then lift the block.
+      if (block.title.startswith(('Args', 'Arguments', 'Raises')) and
+          not block.title.startswith(tuple(existing_items_in_class))):
         class_doc.append(block)
   return class_doc
 
