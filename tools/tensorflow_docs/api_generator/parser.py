@@ -49,7 +49,7 @@ class ObjType(enum.Enum):
 
 def get_obj_type(py_obj: Any) -> ObjType:
   """Get the `ObjType` for the `py_object`."""
-  if hasattr(py_obj, '__args__') and hasattr(py_obj, '__origin__'):
+  if getattr(py_obj, '__args__', None) and getattr(py_obj, '__origin__', None):
     return ObjType.TYPE_ALIAS
   elif inspect.ismodule(py_obj):
     return ObjType.MODULE
