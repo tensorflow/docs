@@ -98,6 +98,13 @@ message ApiSymbolMetric {
   optional ReturnLint return_lint = 6;
   // Statistics after linting the raises blocks in the docstring of the symbol.
   optional RaisesLint raises_lint = 7;
+  // The package group a symbol belongs too.
+  // For example:
+  //   tf.keras.layers.Conv2D -> tf.keras
+  //   tf.Variable -> tf
+  //   tf.Variable.assign (method) -> tf
+  //   tf.data.tensor_slices -> tf.data
+  optional string package_group = 8;
 }
 
 message ApiReport {

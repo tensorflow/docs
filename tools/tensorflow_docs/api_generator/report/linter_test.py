@@ -227,12 +227,14 @@ class LinterTest(absltest.TestCase):
         self.assertEqual(test_report.usage_example_lint.num_doctest, 2)
         self.assertEqual(test_report.usage_example_lint.num_untested_examples,
                          1)
+        self.assertEqual(test_report.package_group, 'TestClass')
 
       if (test_report.symbol_name == 'TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.usage_example_lint.num_doctest, 0)
         self.assertEqual(test_report.usage_example_lint.num_untested_examples,
                          1)
+        self.assertEqual(test_report.package_group, 'TestClass')
 
 
 if __name__ == '__main__':

@@ -40,17 +40,28 @@ class ApiReport:
       *,
       name: str,
       object_type: api_report_pb2.ObjectType,
+      package_group: str,
       page_info: parser.PageInfo,
   ) -> None:
     self.api_report.symbol_metric.add(
         symbol_name=name,
         object_type=object_type,
+        package_group=package_group,
         parameter_lint=linter.lint_params(page_info),
         desc_lint=linter.lint_description(page_info),
         usage_example_lint=linter.lint_usage_example(page_info),
         return_lint=linter.lint_returns(page_info),
         raises_lint=linter.lint_raises(page_info),
     )
+
+  def _find_pkg_group(self, name: str) -> str:
+    name_list = name.split('.')
+    # name = 'tf.keras.layers'; name_list = ['tf', 'keras', 'layers']
+    # Number of dots in name == 2 == len(name_list) - 1
+    dot_count = len(name_list) - 1
+    if dot_count == 1:
+      return name_list[0]
+    return '.'.join(name_list[:2])
 
   def _fill_class_metric(self, class_page_info: parser.ClassPageInfo) -> None:
     """Fills in the lint metrics for a class and its methods.
@@ -82,9 +93,12 @@ class ApiReport:
       class_page_info.py_object = None
     class_page_info.doc._replace(docstring_parts=class_blocks)
 
+    package_group = self._find_pkg_group(class_page_info.full_name)
+
     self._lint(
         name=class_page_info.full_name,
         object_type=api_report_pb2.ObjectType.CLASS,
+        package_group=package_group,
         page_info=class_page_info,
     )
 
@@ -95,6 +109,9 @@ class ApiReport:
         self._lint(
             name=method.full_name,
             object_type=api_report_pb2.ObjectType.METHOD,
+            # Since methods are part of a class, each method belongs to the
+            # package group of the respective class.
+            package_group=package_group,
             page_info=method,
         )
 
@@ -108,6 +125,7 @@ class ApiReport:
     self._lint(
         name=function_page_info.full_name,
         object_type=api_report_pb2.ObjectType.FUNCTION,
+        package_group=self._find_pkg_group(function_page_info.full_name),
         page_info=function_page_info,
     )
 
