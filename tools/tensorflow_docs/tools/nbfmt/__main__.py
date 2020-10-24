@@ -28,6 +28,7 @@ https://www.tensorflow.org/community/contribute/docs
 """
 
 import enum
+import io
 import json
 import os
 import pathlib
@@ -35,7 +36,7 @@ import re
 import sys
 import textwrap
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from absl import app
 from absl import flags
@@ -51,23 +52,24 @@ flags.DEFINE_bool("remove_outputs", False,
                   "Remove output cells from the notebook")
 flags.DEFINE_bool("test", False,
                   "Test if the notebook is formatted (useful for CI).")
+flags.DEFINE_bool("textconv", False, "Print results to output", short_name='t')
 
 FLAGS = flags.FLAGS
 
 
-def clean_notebook(data: Dict[str, Any], nb_source: str, filepath: pathlib.Path,
-                   remove_outputs: bool, indent: int) -> bytes:
+def clean_notebook(data: Dict[str, Any], nb_source: str, remove_outputs: bool,
+                   indent: int, filepath: pathlib.Path = None) -> str:
   """The main notebook formatting logic.
 
   Args:
     data: object representing a parsed JSON notebook.
     nb_source: JSON string of entire notebook contents.
-    filepath: String of notebook filepath passed to the command-line.
     remove_outputs: Boolean to clear cell output.
     indent: Integer indicating the number of spaces to indent the JSON.
+    filepath: String of notebook filepath passed to the command-line.
 
   Returns:
-    A byte string for the JSON formatted notebook.
+    A string for the JSON formatted notebook.
   """
   clean_root(data, filepath)  # Top-level notebook fields.
   clean_cells(data, nb_source, remove_outputs)
@@ -81,10 +83,10 @@ def clean_notebook(data: Dict[str, Any], nb_source: str, filepath: pathlib.Path,
     for str_from, str_to in str_replaces.items():
       nbjson = nbjson.replace(str_from, str_to)
 
-  return (nbjson + "\n").encode("utf-8")
+  return nbjson + "\n"
 
 
-def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
+def clean_root(data: Dict[str, Any], filepath: pathlib.Path = None) -> None:
   """Deletes extra top-level notebook fields and metadata.
 
   Jupyter format spec:
@@ -111,7 +113,8 @@ def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
   # Colab metadata
   notebook_utils.del_entries_except(
       colab, keep=["collapsed_sections", "name", "toc_visible"])
-  colab["name"] = os.path.basename(filepath)
+  if filepath:
+    colab["name"] = os.path.basename(filepath)
   colab["toc_visible"] = True
   metadata["colab"] = colab
 
@@ -270,8 +273,8 @@ def format_nb(
       test_fail_notebooks.append(path)
       continue
 
-    # Returns formatted JSON byte string.
-    expected_output = clean_notebook(data, source, path, remove_outputs, indent)
+    # Returns formatted JSON string.
+    expected_output = clean_notebook(data, source, remove_outputs, indent, path)
 
     if test:
       # Compare formatted contents with original file contents.
@@ -279,7 +282,7 @@ def format_nb(
       if expected_output != src_bytes:
         test_fail_notebooks.append(path)
     else:
-      path.write_bytes(expected_output)
+      path.write_bytes(expected_output.encode('utf-8'))
 
   if test:
     if test_fail_notebooks:
@@ -303,19 +306,85 @@ def format_nb(
   return Status.PASS
 
 
+def format_source(
+    *,
+    source: str,
+    remove_outputs: bool = False,
+    indent: int = 2,
+) -> Tuple[Status, str]:
+  """Formats source of a notebook."""
+
+  data = notebook_utils.parse_source(source)
+
+  if not data:
+    return Status.FAIL, source
+
+  expected_output = clean_notebook(data, source, remove_outputs, indent)
+
+  return Status.PASS, expected_output
+
+
+def format_textconv(
+    *,
+    notebook: str,
+    remove_outputs: bool = False,
+    indent: int = 2,
+) -> Tuple[Status, str]:
+  """Formats a notebook."""
+  paths, err_paths = notebook_utils.collect_notebook_paths([notebook])
+
+  if err_paths:
+    sys.exit(1)
+
+  path = paths[0]
+  print(f"Format notebook: {path}", file=sys.stderr)
+
+  data, source = notebook_utils.load_notebook(path)
+
+  if not data:
+    return Status.FAIL, source
+
+  # Returns formatted JSON string.
+  expected_output = clean_notebook(data, source, remove_outputs, indent)
+
+  return Status.PASS, expected_output
+
+
 def main(argv):
-  if len(argv) <= 1:
+  if len(argv) <= 1 and FLAGS.textconv or len(argv) <= 1 and not sys.stdin:
     raise app.UsageError("Missing arguments.")
 
   if FLAGS.oss is not None:
     global OSS
     OSS = FLAGS.oss
 
-  exit_code = format_nb(
-      notebooks=argv[1:],
-      remove_outputs=FLAGS.remove_outputs,
-      indent=FLAGS.indent,
-      test=FLAGS.test)
+  if not FLAGS.textconv:
+    exit_code = format_nb(
+        notebooks=argv[1:],
+        remove_outputs=FLAGS.remove_outputs,
+        indent=FLAGS.indent,
+        test=FLAGS.test)
+  else:
+    output_stream = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+    if len(argv) > 1:
+      exit_code, expected_output = format_textconv(
+        notebook=argv[1],
+        remove_outputs=FLAGS.remove_outputs,
+        indent=FLAGS.indent)
+
+    else:
+      input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
+      source = input_stream.read()
+      exit_code, expected_output = format_source(
+          source=source,
+          remove_outputs=FLAGS.remove_outputs,
+          indent=FLAGS.indent)
+
+    output_stream.write(expected_output)
+    output_stream.write("\n")
+    output_stream.flush()
+
   if exit_code == Status.FAIL:
     sys.exit(1)
   else:
