@@ -279,7 +279,7 @@ def format_nb(
     if test:
       # Compare formatted contents with original file contents.
       src_bytes = path.read_bytes()
-      if expected_output != src_bytes:
+      if expected_output.encode('utf-8') != src_bytes:
         test_fail_notebooks.append(path)
     else:
       path.write_bytes(expected_output.encode('utf-8'))
