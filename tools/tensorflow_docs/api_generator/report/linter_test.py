@@ -72,7 +72,7 @@ class TestClass:
       temp_d:
 
     Raises:
-      ValuesError: Temp_a value not allowed.
+      ValueError: Temp_a value not allowed.
       TypeError: Type not allowed.
     """
     self.temp_a = temp_a
@@ -148,7 +148,6 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.raises_lint.num_raises_defined, 2)
         self.assertEqual(test_report.raises_lint.total_raises_in_code, 2)
-        self.assertEqual(test_report.raises_lint.num_raises_mismatch, 1)
 
   def test_method_return_lint(self):
     class_page_info = parser.docs_for_object(

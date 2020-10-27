@@ -37,7 +37,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x61pi_report.proto\x12!tensorflow_docs.api_report.schema\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x01\n\rParameterLint\x12!\n\x19num_empty_param_desc_args\x18\x01 \x01(\x02\x12\x18\n\x10total_args_param\x18\x02 \x01(\x02\x12!\n\x19num_empty_param_desc_attr\x18\x03 \x01(\x02\x12\x18\n\x10total_attr_param\x18\x04 \x01(\x02\";\n\x0f\x44\x65scriptionLint\x12\x11\n\tlen_brief\x18\x01 \x01(\x02\x12\x15\n\rlen_long_desc\x18\x03 \x01(\x02\"F\n\x10UsageExampleLint\x12\x13\n\x0bnum_doctest\x18\x01 \x01(\x02\x12\x1d\n\x15num_untested_examples\x18\x02 \x01(\x02\"%\n\nReturnLint\x12\x17\n\x0freturns_defined\x18\x01 \x01(\x08\"c\n\nRaisesLint\x12\x1a\n\x12num_raises_defined\x18\x01 \x01(\x02\x12\x1c\n\x14total_raises_in_code\x18\x02 \x01(\x02\x12\x1b\n\x13num_raises_mismatch\x18\x03 \x01(\x02\"\xeb\x03\n\x0f\x41piSymbolMetric\x12\x13\n\x0bsymbol_name\x18\x01 \x01(\t\x12\x42\n\x0bobject_type\x18\x02 \x01(\x0e\x32-.tensorflow_docs.api_report.schema.ObjectType\x12H\n\x0eparameter_lint\x18\x03 \x01(\x0b\x32\x30.tensorflow_docs.api_report.schema.ParameterLint\x12\x45\n\tdesc_lint\x18\x04 \x01(\x0b\x32\x32.tensorflow_docs.api_report.schema.DescriptionLint\x12O\n\x12usage_example_lint\x18\x05 \x01(\x0b\x32\x33.tensorflow_docs.api_report.schema.UsageExampleLint\x12\x42\n\x0breturn_lint\x18\x06 \x01(\x0b\x32-.tensorflow_docs.api_report.schema.ReturnLint\x12\x42\n\x0braises_lint\x18\x07 \x01(\x0b\x32-.tensorflow_docs.api_report.schema.RaisesLint\x12\x15\n\rpackage_group\x18\x08 \x01(\t\"\x93\x01\n\tApiReport\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04\x64\x61te\x18\x02 \x01(\t\x12I\n\rsymbol_metric\x18\x03 \x03(\x0b\x32\x32.tensorflow_docs.api_report.schema.ApiSymbolMetric*M\n\nObjectType\x12\t\n\x05\x43LASS\x10\x00\x12\n\n\x06METHOD\x10\x01\x12\x0c\n\x08\x46UNCTION\x10\x02\x12\n\n\x06MODULE\x10\x03\x12\x0e\n\nTYPE_ALIAS\x10\x04'
+  serialized_pb=b'\n\x10\x61pi_report.proto\x12!tensorflow_docs.api_report.schema\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x01\n\rParameterLint\x12!\n\x19num_empty_param_desc_args\x18\x01 \x01(\x02\x12\x18\n\x10total_args_param\x18\x02 \x01(\x02\x12!\n\x19num_empty_param_desc_attr\x18\x03 \x01(\x02\x12\x18\n\x10total_attr_param\x18\x04 \x01(\x02\";\n\x0f\x44\x65scriptionLint\x12\x11\n\tlen_brief\x18\x01 \x01(\x02\x12\x15\n\rlen_long_desc\x18\x03 \x01(\x02\"F\n\x10UsageExampleLint\x12\x13\n\x0bnum_doctest\x18\x01 \x01(\x02\x12\x1d\n\x15num_untested_examples\x18\x02 \x01(\x02\"%\n\nReturnLint\x12\x17\n\x0freturns_defined\x18\x01 \x01(\x08\"F\n\nRaisesLint\x12\x1a\n\x12num_raises_defined\x18\x01 \x01(\x02\x12\x1c\n\x14total_raises_in_code\x18\x02 \x01(\x02\"\xeb\x03\n\x0f\x41piSymbolMetric\x12\x13\n\x0bsymbol_name\x18\x01 \x01(\t\x12\x42\n\x0bobject_type\x18\x02 \x01(\x0e\x32-.tensorflow_docs.api_report.schema.ObjectType\x12H\n\x0eparameter_lint\x18\x03 \x01(\x0b\x32\x30.tensorflow_docs.api_report.schema.ParameterLint\x12\x45\n\tdesc_lint\x18\x04 \x01(\x0b\x32\x32.tensorflow_docs.api_report.schema.DescriptionLint\x12O\n\x12usage_example_lint\x18\x05 \x01(\x0b\x32\x33.tensorflow_docs.api_report.schema.UsageExampleLint\x12\x42\n\x0breturn_lint\x18\x06 \x01(\x0b\x32-.tensorflow_docs.api_report.schema.ReturnLint\x12\x42\n\x0braises_lint\x18\x07 \x01(\x0b\x32-.tensorflow_docs.api_report.schema.RaisesLint\x12\x15\n\rpackage_group\x18\x08 \x01(\t\"\x93\x01\n\tApiReport\x12-\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04\x64\x61te\x18\x02 \x01(\t\x12I\n\rsymbol_metric\x18\x03 \x03(\x0b\x32\x32.tensorflow_docs.api_report.schema.ApiSymbolMetric*M\n\nObjectType\x12\t\n\x05\x43LASS\x10\x00\x12\n\n\x06METHOD\x10\x01\x12\x0c\n\x08\x46UNCTION\x10\x02\x12\n\n\x06MODULE\x10\x03\x12\x0e\n\nTYPE_ALIAS\x10\x04'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -76,8 +76,8 @@ _OBJECTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1145,
-  serialized_end=1222,
+  serialized_start=1116,
+  serialized_end=1193,
 )
 _sym_db.RegisterEnumDescriptor(_OBJECTTYPE)
 
@@ -275,13 +275,6 @@ _RAISESLINT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='num_raises_mismatch', full_name='tensorflow_docs.api_report.schema.RaisesLint.num_raises_mismatch', index=2,
-      number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -295,7 +288,7 @@ _RAISESLINT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=400,
-  serialized_end=499,
+  serialized_end=470,
 )
 
 
@@ -375,8 +368,8 @@ _APISYMBOLMETRIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=502,
-  serialized_end=993,
+  serialized_start=473,
+  serialized_end=964,
 )
 
 
@@ -421,8 +414,8 @@ _APIREPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=996,
-  serialized_end=1143,
+  serialized_start=967,
+  serialized_end=1114,
 )
 
 _APISYMBOLMETRIC.fields_by_name['object_type'].enum_type = _OBJECTTYPE

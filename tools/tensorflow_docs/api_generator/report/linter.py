@@ -243,9 +243,4 @@ def lint_raises(page_info: parser.PageInfo) -> api_report_pb2.RaisesLint:
   else:
     raises_lint.num_raises_defined = 0
 
-  # Raises mismatch is when the raises found in code don't match the raises
-  # defined in the docstring.
-  mismatch = set(raises_defined_in_doc) - set(raise_visitor.total_raises)
-  raises_lint.num_raises_mismatch = len(mismatch)
-
   return raises_lint
