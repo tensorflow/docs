@@ -14,25 +14,27 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-from typing import Callable, Iterable
+from typing import Callable, Iterable, TypeVar
+
+T = TypeVar("T")
 
 _DEPRECATED = "_tf_docs_deprecated"
 
 
-def set_deprecated(obj):
+def set_deprecated(obj: T) -> T:
   """Explicitly tag an object as deprecated for the doc generator."""
   setattr(obj, _DEPRECATED, None)
   return obj
 
 
-def is_deprecated(obj):
+def is_deprecated(obj) -> bool:
   return hasattr(obj, _DEPRECATED)
 
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
 
 
-def hide_from_search(obj):
+def hide_from_search(obj: T) -> T:
   """Marks an object so metadata search hints will not be included on it's page.
 
   The page is set to "noindex" to hide it from search.
@@ -50,7 +52,7 @@ def hide_from_search(obj):
   return obj
 
 
-def should_hide_from_search(obj):
+def should_hide_from_search(obj) -> bool:
   """Returns true if metadata search hints should not be included."""
   return hasattr(obj, _NO_SEARCH_HINTS)
 
@@ -71,7 +73,7 @@ def get_custom_page_content(obj):
 _DO_NOT_DOC = "_tf_docs_do_not_document"
 
 
-def do_not_generate_docs(obj):
+def do_not_generate_docs(obj: T) -> T:
   """A decorator: Do not generate docs for this object.
 
   For example the following classes:
@@ -152,7 +154,7 @@ def do_not_generate_docs(obj):
 _DO_NOT_DOC_INHERITABLE = "_tf_docs_do_not_doc_inheritable"
 
 
-def do_not_doc_inheritable(obj):
+def do_not_doc_inheritable(obj: T) -> T:
   """A decorator: Do not generate docs for this method.
 
   This version of the decorator is "inherited" by subclasses. No docs will be
@@ -215,7 +217,7 @@ def do_not_doc_inheritable(obj):
 _FOR_SUBCLASS_IMPLEMENTERS = "_tf_docs_tools_for_subclass_implementers"
 
 
-def for_subclass_implementers(obj):
+def for_subclass_implementers(obj: T) -> T:
   """A decorator: Only generate docs for this method in the defining class.
 
   Also group this method's docs with and `@abstractmethod` in the class's docs.
@@ -295,7 +297,7 @@ do_not_doc_in_subclasses = for_subclass_implementers
 _DOC_PRIVATE = "_tf_docs_doc_private"
 
 
-def doc_private(obj):
+def doc_private(obj: T) -> T:
   """A decorator: Generates docs for private methods/functions.
 
   For example:
@@ -328,7 +330,7 @@ def should_doc_private(obj) -> bool:
   return hasattr(obj, _DOC_PRIVATE)
 
 
-def should_skip(obj):
+def should_skip(obj) -> bool:
   """Returns true if docs generation should be skipped for this object.
 
   Checks for the `do_not_generate_docs` or `do_not_doc_inheritable` decorators.
