@@ -28,12 +28,9 @@ script from the [GitHub repository](https://github.com/tensorflow/profiler).
 
 To profile on the GPU, you must:
 
-1.  [Install CUDA® Toolkit 10.1](https://www.tensorflow.org/install/gpu#linux_setup)
-    or newer. CUDA® Toolkit 10.1 supports only single GPU profiling. To profile
-    multiple GPUs, see [Profile multiple GPUs](#profile_multiple_gpus). Ensure
-    that the CUDA® driver version you install is at least 440.33 for Linux or
-    441.22 for Windows.
-1.  Ensure CUPTI exists on the path:
+1.  Meet the NVIDIA® GPU drivers and CUDA® Toolkit requirements listed on
+    [TensorFlow GPU support software requirements](https://www.tensorflow.org/install/gpu#linux_setup).
+2.  Ensure CUPTI exists on the path:
 
     ```shell
     /sbin/ldconfig -N -v $(sed 's/:/ /g' <<< $LD_LIBRARY_PATH) | \
@@ -50,28 +47,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 Run the `ldconfig` command above again to verify that the CUPTI library is
 found.
 
-<a name="profile_multiple_gpus"></a>
-
-### Profile multiple GPUs
-
-TensorFlow currently supports multiple GPU profiling only for single host
-systems. Multiple GPU profiling for multi-host systems is currently not
-supported. Install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As
-TensorFlow supports CUDA® Toolkit versions only up to 10.1 , create symbolic
-links to `libcudart.so.10.1` and `libcupti.so.10.1`.
-
-```shell
-sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
-sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.1
-```
-
-To profile multi-worker GPU configurations, profile individual workers
-independently.
-
 ### Resolve privilege issues
 
-When you run profiling with CUDA® Toolkit 10.1 in a Docker environment or on
-Linux, you may encounter issues related to insufficient CUPTI privileges
+When you run profiling with CUDA® Toolkit in a Docker environment or on Linux,
+you may encounter issues related to insufficient CUPTI privileges
 (`CUPTI_ERROR_INSUFFICIENT_PRIVILEGES`). See the
 [NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters){:.external}
 to learn more about how you can resolve these issues on Linux.
@@ -102,6 +81,7 @@ The Profiler has a selection of tools to help with performance analysis:
 -   Trace viewer
 -   GPU kernel stats
 -   Memory profile tool
+-   Pod viewer
 
 <a name="overview_page"></a>
 
@@ -522,6 +502,21 @@ There is one row for each TensorFlow Op and each row has the following columns:
 
 Note: You can sort any column in the table and also filter rows by op name.
 
+<a name="pod_viewer"></a>
+
+### Pod viewer
+
+The Pod Viewer tool shows the breakdown of a training step across all workers.
+
+![image](./images/tf_profiler/pod_viewer.png)
+
+-   The upper pane has slider for selecting the step number.
+-   The lower pane displays a stacked column chart. This is a high level view of
+    broken down step-time categories placed atop one another. Each stacked
+    column represents a unique worker.
+-   When you hover over a stacked column, the card on the left-hand side shows
+    more details about the step breakdown.
+
 <a name="collect_performance_data"></a>
 
 ## Collect performance data
@@ -580,20 +575,23 @@ first few batches to avoid inaccuracies due to initialization overhead.
     As an example,
 
     ```python
-    # Start a gRPC server at port 6009
+    # Start a profiler server before your model runs.
     tf.profiler.experimental.server.start(6009)
-    # ... TensorFlow program ...
+    # (Model code goes here).
+    #  Send a request to the profiler server to collect a trace of your model.
+    tf.profiler.experimental.client.trace('grpc://localhost:6009',
+                                          'gs://logdir/tb_log', 2000)
     ```
 
 <img src="./images/tf_profiler/capture_profile.png" width="400", height="450">
 
 Use the **Capture Profile** dialog to specify:
 
-*   The profile Service URL or TPU name
-*   The profiling duration
-*   The level of device, host, and Python function call tracing
+*   A comma delimited list of profile service URLs or TPU name.
+*   A profiling duration.
+*   The level of device, host, and Python function call tracing.
 *   How many times you want the Profiler to retry capturing profiles if
-    unsuccessful at first
+    unsuccessful at first.
 
 ### Profiling custom training loops
 
@@ -646,19 +644,22 @@ Some of the use cases are:
 *   Hardware platform: Profile CPUs, GPUs, and TPUs.
 
 The table below is a quick overview of which of the above use cases are
-supported by the various profiling APIs in TensorFlow 2.3:
+supported by the various profiling APIs in TensorFlow:
 
 | Profiling API                | Local     | Remote    | Multiple  | Hardware  |
 :                              :           :           : workers   : Platforms :
 | :--------------------------- | :-------- | :-------- | :-------- | :-------- |
 | **TensorBoard Keras          | Supported | Not       | Not       | CPU, GPU  |
 : Callback**                   :           : Supported : Supported :           :
-| **`tf.experimental.profiler` | Supported | Not       | Not       | CPU, GPU  |
-: Function API**               :           : Supported : Supported :           :
+| **`tf.profiler.experimental` | Supported | Not       | Not       | CPU, GPU  |
+: start/stop [API][API_0]**    :           : Supported : Supported :           :
+| **`tf.profiler.experimental` | Supported | Supported | Supported | CPU, GPU, |
+: client.trace [API][API_1]**  :           :           :           : TPU       :
 | **Context manager API**      | Supported | Not       | Not       | CPU, GPU  |
 :                              :           : supported : Supported :           :
-| **On demand API**            | Not       | Supported | Limited   | CPU, GPU, |
-:                              : supported :           : Support   : TPU       :
+
+[API_0]: https://www.tensorflow.org/api_docs/python/tf/profiler/experimental#functions_2
+[API_1]: https://www.tensorflow.org/api_docs/python/tf/profiler/experimental/client/trace
 
 <a name="performance_best_practices"></a>
 
@@ -719,3 +720,23 @@ pipeline is a performance bottleneck.
 *   Watch the
     [Performance profiling in TF 2](https://www.youtube.com/watch?v=pXHAQIhhMhI)
     talk from the TensorFlow Dev Summit 2020.
+
+## Known limitations
+
+### Profiling multiple GPUs on TensorFlow 2.2 and TensorFlow 2.3
+
+TensorFlow 2.2 and 2.3 support multiple GPU profiling for single host systems
+only; multiple GPU profiling for multi-host systems is not supported. To profile
+multi-worker GPU configurations, each worker has to be profiled independently.
+On TensorFlow 2.4, multiple workers can be profiled using the
+[`tf.profiler.experimental.trace`](https://www.tensorflow.org/api_docs/python/tf/profiler/experimental/client/trace)
+API.
+
+CUDA® Toolkit 10.2 or later is required to profile multiple GPUs. As TensorFlow
+2.2 and 2.3 support CUDA® Toolkit versions only up to 10.1 , create symbolic
+links to `libcudart.so.10.1` and `libcupti.so.10.1`.
+
+```shell
+sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
+sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.1
+```
