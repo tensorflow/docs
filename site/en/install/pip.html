@@ -241,18 +241,18 @@ is available. To install, read the <a href="https://docs.anaconda.com/anaconda/u
 <h3>Virtual environment install</h3>
 <pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">pip install --upgrade tensorflow</pre>
 <p>Verify the install:</p>
-<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf; print(tf.constant('TensorFlow installed successfully'))"</pre>
+<pre class="devsite-terminal tfo-terminal-venv devsite-click-to-copy prettyprint lang-bsh">python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"</pre>
 </section>
 
 <section>
 <h3>System install</h3>
 <pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">pip3 install --user --upgrade tensorflow  # install in $HOME</pre>
 <p>Verify the install:</p>
-<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf; print(tf.constant('TensorFlow installed successfully'))"</pre>
+<pre class="devsite-terminal devsite-click-to-copy prettyprint lang-bsh">python3 -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"</pre>
 </section>
 </div><!--/ds-selector-tabs-->
 
-<aside class="success"><b>Success:</b> TensorFlow is now installed. Read the <a href="../tutorials">tutorials</a> to get started.</aside>
+<aside class="success"><b>Success:</b> If a tensor is returned, you've installed TensorFlow successfully. Read the <a href="../tutorials">tutorials</a> to get started.</aside>
 
 <h2>Package location</h2>
 
