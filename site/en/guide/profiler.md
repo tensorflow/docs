@@ -565,6 +565,8 @@ Note: Running the Profiler for too long can cause it to run out of memory. It is
 recommended to profile no more than 10 steps at a time. Avoid profiling the
 first few batches to avoid inaccuracies due to initialization overhead.
 
+<a name="sampling_mode"></a>
+
 *   Sampling mode - Perform on-demand profiling by using
     `tf.profiler.experimental.server.start()` to start a gRPC server with your
     TensorFlow model run. After starting the gRPC server and running your model,
@@ -580,8 +582,21 @@ first few batches to avoid inaccuracies due to initialization overhead.
     # (Model code goes here).
     #  Send a request to the profiler server to collect a trace of your model.
     tf.profiler.experimental.client.trace('grpc://localhost:6009',
-                                          'gs://logdir/tb_log', 2000)
+                                          'gs://your_tb_logdir', 2000)
     ```
+
+    An example for profiling multiple workers:
+
+    ```python
+    # E.g. your worker IP addresses are 10.0.0.2, 10.0.0.3, 10.0.0.4, and you
+    # would like to profile for a duration of 2 seconds.
+    tf.profiler.experimental.client.trace(
+        'grpc://10.0.0.2:8466,grpc://10.0.0.3:8466,grpc://10.0.0.4:8466',
+        'gs://your_tb_logdir',
+        2000)
+    ```
+
+<a name="capture_dialog"></a>
 
 <img src="./images/tf_profiler/capture_profile.png" width="400", height="450">
 
@@ -645,6 +660,8 @@ Some of the use cases are:
 
 The table below is a quick overview of which of the above use cases are
 supported by the various profiling APIs in TensorFlow:
+
+<a name="profiling_api_table"></a>
 
 | Profiling API                | Local     | Remote    | Multiple  | Hardware  |
 :                              :           :           : workers   : Platforms :
