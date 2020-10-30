@@ -1,117 +1,209 @@
-# Install TensorFlow for Java
+# Install TensorFlow Java
 
-TensorFlow provides a
-[Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
-particularly useful for loading models created with Python and running them
-within a Java application.
+[TensorFlow Java](https://github.com/tensorflow/java) can run on any JVM for
+building, training and deploying machine learning models. It supports both CPU
+and GPU execution, in graph or eager mode, and presents a rich API for using
+TensorFlow in a JVM environment. Java and other JVM languages, like Scala and
+Kotlin, are frequently used in large and small enterprises all over the world,
+which makes TensorFlow Java a strategic choice for adopting machine learning at
+a large scale.
 
 Caution: The TensorFlow Java API is *not* covered by the TensorFlow
 [API stability guarantees](../guide/versions.md).
 
-## Nightly Libtensorflow Java packages
+## Requirements
 
-Libtensorflow JNI packages are built nightly and uploaded to GCS for all
-supported platforms. They are uploaded to the
-[libtensorflow-nightly GCS bucket](https://storage.googleapis.com/libtensorflow-nightly)
-and are indexed by operating system and date built.
+TensorFlow Java runs on Java 8 and above, and supports out-of-the-box the
+following platforms:
 
-## Supported Platforms
+*   Ubuntu 16.04 or higher; 64-bit, x86
+*   macOS 10.12.6 (Sierra) or higher; 64-bit, x86
+*   Windows 7 or higher; 64-bit, x86
 
-TensorFlow for Java is supported on the following systems:
+*Note: To use TensorFlow on Android, see
+[TensorFlow Lite](https://tensorflow.org/lite)*
 
-* Ubuntu 16.04 or higher; 64-bit, x86
-* macOS 10.12.6 (Sierra) or higher
-* Windows 7 or higher; 64-bit, x86
+## Versions
 
-To use TensorFlow on Android see [TensorFlow Lite](https://tensorflow.org/lite)
+TensorFlow Java has its own release cycle, independent from the
+[TensorFlow runtime](https://github.com/tensorflow/tensorflow). Consequently,
+its version does not match the version of TensorFlow runtime it runs on. Consult
+the TensorFlow Java
+[versioning table](https://github.com/tensorflow/java/#tensorflow-version-support)
+to list all versions available and their mapping with the TensorFlow runtime.
 
-## TensorFlow with Apache Maven
+## Artifacts
 
-To use TensorFlow with [Apache Maven](https://maven.apache.org){:.external},
-add the dependency to the project's `pom.xml` file:
+There are
+[several ways](https://github.com/tensorflow/java/#using-maven-artifacts) to add
+TensorFlow Java to your project. The easiest one is to add a dependency on the
+`tensorflow-core-platform` artifact, which includes both the TensorFlow Java
+Core API and the native dependencies it requires to run on all supported
+platforms.
+
+You can also select one of the following extensions instead of the pure CPU
+version:
+
+*   `tensorflow-core-platform-mkl`: Support for Intel® MKL-DNN on all platforms
+*   `tensorflow-core-platform-gpu`: Support for CUDA® on Linux and Windows
+    platforms
+*   `tensorflow-core-platform-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on
+    Linux and Windows platforms.
+
+In addition, a separate dependency on the `tensorflow-framework` library can be
+added to benefit from a rich set of utilities for TensorFlow-based machine
+learning on the JVM.
+
+## Installing with Maven
+
+To include TensorFlow in your [Maven](http://maven.apache.org) application, add
+a dependency on its [artifacts](#artifacts) to your project's `pom.xml` file.
+For example,
 
 ```xml
 <dependency>
   <groupId>org.tensorflow</groupId>
-  <artifactId>tensorflow</artifactId>
-  <version>2.3.0</version>
+  <artifactId>tensorflow-core-platform</artifactId>
+  <version>0.2.0</version>
 </dependency>
 ```
 
-### GPU support
+### Reducing Number of Dependencies
 
-If your system has [GPU support](./gpu.md), add the following TensorFlow
-dependencies to the project's `pom.xml` file:
+It is important to note that adding a dependency on a `tensorflow-core-platform`
+artifact will import native libraries for all supported platforms, which can
+significantly increase the size of your project.
+
+If you wish to target a subset of the available platforms then you can exclude
+the unnecessary artifacts from the other platforms using the
+[Maven Dependency Exclusion](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#dependency-exclusions)
+feature.
+
+Another way to select which platforms you want to include in your application is
+to set JavaCPP system properties, in your Maven command line or in your
+`pom.xml`. Please see JavaCPP
+[documentation](https://github.com/bytedeco/javacpp-presets/wiki/Reducing-the-Number-of-Dependencies)
+for more details.
+
+### Using Snapshots
+
+The latest TensorFlow Java development snapshots from the TensorFlow Java source
+repository are available on the [OSS Sonatype](https://oss.sonatype.org) Nexus
+repository. To depend on these artifacts, make sure to configure the OSS
+snapshots repository in your `pom.xml`.
 
 ```xml
-<dependency>
-  <groupId>org.tensorflow</groupId>
-  <artifactId>libtensorflow</artifactId>
-  <version>2.3.0</version>
-</dependency>
-<dependency>
-  <groupId>org.tensorflow</groupId>
-  <artifactId>libtensorflow_jni_gpu</artifactId>
-  <version>2.3.0</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>tensorflow-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>org.tensorflow</groupId>
+        <artifactId>tensorflow-core-platform</artifactId>
+        <version>0.3.0-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 ```
 
-### Example program
+## Installing with Gradle
+
+To include TensorFlow in your [Gradle](https://gradle.org) application, add a
+dependency on its [artifacts](#artifacts) to your project's `build.gradle` file.
+For example,
+
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.tensorflow', name: 'tensorflow-core-platform', version: '0.2.0'
+}
+```
+
+### Reducing Number of Dependencies
+
+Excluding native artifacts from TensorFlow Java with Gradle is not as easy as
+with Maven. We recommend that you use Gradle JavaCPP plugins to reduce this
+number of dependencies.
+
+Please read at Gradle JavaCPP
+[documentation](https://github.com/bytedeco/gradle-javacpp) for more details.
+
+## Installing from Sources
+
+To build TensorFlow Java from sources, and possibly customize it, please read
+the following
+[instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources).
+
+*Note: Only official builds distributed by TensorFlow are supported by its
+maintainers and custom builds should be used at the user's risk.*
+
+# Example Program
 
 This example shows how to build an Apache Maven project with TensorFlow. First,
 add the TensorFlow dependency to the project's `pom.xml` file:
 
 ```xml
 <project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.myorg</groupId>
-  <artifactId>hellotensorflow</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <properties>
-    <exec.mainClass>HelloTensorFlow</exec.mainClass>
-	<!-- The sample code requires at least JDK 1.7. -->
-	<!-- The maven compiler plugin defaults to a lower version -->
-	<maven.compiler.source>1.7</maven.compiler.source>
-	<maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
-  <dependencies>
-    <dependency>
-	  <groupId>org.tensorflow</groupId>
-	  <artifactId>tensorflow</artifactId>
-	  <version>1.14.0</version>
-	</dependency>
-  </dependencies>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg</groupId>
+    <artifactId>hellotensorflow</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <exec.mainClass>HelloTensorFlow</exec.mainClass>
+    <!-- Minimal version for compiling TensorFlow Java is JDK 8 -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+    <!-- Include TensorFlow (pure CPU only) for all supported platforms -->
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>tensorflow-core-platform</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+    </dependencies>
 </project>
 ```
 
-Create the source file (`src/main/java/HelloTensorFlow.java`):
+Create the source file `src/main/java/HelloTensorFlow.java`:
 
 ```java
-import org.tensorflow.Graph;
-import org.tensorflow.Session;
+import org.tensorflow.ConcreteFunction;
+import org.tensorflow.Signature;
 import org.tensorflow.Tensor;
 import org.tensorflow.TensorFlow;
+import org.tensorflow.op.Ops;
+import org.tensorflow.op.core.Placeholder;
+import org.tensorflow.op.math.Add;
+import org.tensorflow.types.TInt32;
 
 public class HelloTensorFlow {
+
   public static void main(String[] args) throws Exception {
-	try (Graph g = new Graph()) {
-	  final String value = "Hello from " + TensorFlow.version();
+    System.out.println("Hello TensorFlow " + TensorFlow.version());
 
-	  // Construct the computation graph with a single operation, a constant
-	  // named "MyConst" with a value "value".
-	  try (Tensor t = Tensor.create(value.getBytes("UTF-8"))) {
-	    // The Java API doesn't yet include convenience functions for adding operations.
-		g.opBuilder("Const", "MyConst").setAttr("dtype", t.dataType()).setAttr("value", t).build();
-	  }
-
-	  // Execute the "MyConst" operation in a Session.
-	  try (Session s = new Session(g);
-	      // Generally, there may be multiple output tensors,
-		  // all of them must be closed to prevent resource leaks.
-		  Tensor output = s.runner().fetch("MyConst").run().get(0)) {
-	    System.out.println(new String(output.bytesValue(), "UTF-8"));
-	  }
+    try (ConcreteFunction dbl = ConcreteFunction.create(HelloTensorFlow::dbl);
+        Tensor<TInt32> x = TInt32.scalarOf(10);
+        Tensor<TInt32> dblX = dbl.call(x).expect(TInt32.DTYPE)) {
+      System.out.println(x.data().getInt() + " doubled is " + dblX.data().getInt());
     }
+  }
+
+  private static Signature dbl(Ops tf) {
+    Placeholder<TInt32> x = tf.placeholder(TInt32.DTYPE);
+    Add<TInt32> dblX = tf.math.add(x, x);
+    return Signature.builder().input("x", x).output("dbl", dblX).build();
   }
 }
 ```
@@ -119,89 +211,9 @@ public class HelloTensorFlow {
 Compile and execute:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-mvn -q compile exec:java  # Use -q to hide logging
+mvn -q compile exec:java
 </pre>
 
-The command outputs: <code>Hello from <em>version</em></code>
+The command outputs: `Hello TensorFlow 2.3.1 10 doubled is 20`
 
-Success: TensorFlow for Java is configured.
-
-
-## TensorFlow with the JDK
-
-TensorFlow can be used with the JDK through the Java Native Interface (JNI).
-
-### Download
-
-1. Download the TensorFlow Jar Archive (JAR): [libtensorflow.jar](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-1.14.0.jar)
-2. Download and extract the Java Native Interface (JNI) file for your operating
-system and processor support:
-
-<table>
-  <tr><th>JNI version</th><th>URL</th></tr>
-  <tr class="alt"><td colspan="2">Linux</td></tr>
-  <tr>
-    <td>Linux CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-2.3.0.tar.gz</a></td>
-  </tr>
-  <tr>
-    <td>Linux GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-linux-x86_64-2.3.0.tar.gz</a></td>
-  </tr>
-  <tr class="alt"><td colspan="2">macOS</td></tr>
-  <tr>
-    <td>macOS CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-darwin-x86_64-2.3.0.tar.gz</a></td>
-  </tr>
-  <tr class="alt"><td colspan="2">Windows</td></tr>
-  <tr>
-    <td>Windows CPU only</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-windows-x86_64-2.3.0.zip</a></td>
-  </tr>
-  <tr>
-    <td>Windows GPU support</td>
-    <td class="devsite-click-to-copy"><a href="https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip">https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-gpu-windows-x86_64-2.3.0.zip</a></td>
-  </tr>
-</table>
-
-Note: On Windows, the native library (`tensorflow_jni.dll`) requires
-`msvcp140.dll` at runtime. See the
-[Windows build from source](./source_windows.md) guide to install the
-[Visual C++ 2019 Redistributable](https://visualstudio.microsoft.com/vs/){:.external}.
-
-### Compile
-
-Using the `HelloTensorFlow.java` file from the [previous example](#example),
-compile a program that uses TensorFlow. Make sure the `libtensorflow.jar` is
-accessible to your `classpath`:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-javac -cp libtensorflow-2.3.0.jar HelloTensorFlow.java
-</pre>
-
-### Run
-
-To execute a TensorFlow Java program, the JVM must access `libtensorflow.jar` and
-the extracted JNI library.
-
-<div class="ds-selector-tabs">
-<section>
-<h3>Linux / macOS</h3>
-<pre class="devsite-terminal devsite-click-to-copy">java -cp libtensorflow-2.3.0.jar:. -Djava.library.path=./jni HelloTensorFlow</pre>
-</section>
-<section>
-<h3>Windows</h3>
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">java -cp libtensorflow-2.3.0.jar;. -Djava.library.path=jni HelloTensorFlow</pre>
-</section>
-</div><!--/ds-selector-tabs-->
-
-The command outputs: <code>Hello from <em>version</em></code>
-
-Success: TensorFlow for Java is configured.
-
-
-## Build from source
-
-TensorFlow is open source. Read
-[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
-to build TensorFlow's Java and native libraries from source code.
+Success! TensorFlow Java is configured.
