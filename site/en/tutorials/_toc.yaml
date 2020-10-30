@@ -117,6 +117,8 @@ toc:
   section:
   - title: "Word embeddings"
     path: /tutorials/text/word_embeddings
+  - title: "Word2Vec"
+    path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
   - title: "Text generation with an RNN"
