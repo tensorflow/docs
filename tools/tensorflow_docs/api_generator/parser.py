@@ -1384,16 +1384,15 @@ def generate_signature(func: Any, parser_config: ParserConfig,
   only_kwargs = []
   varargs = None
   varkwargs = None
-  skip_self_cls = True
 
   for index, param in enumerate(sig_values):
     kind = param.kind
     default = param.default
 
-    if skip_self_cls and param.name in ('self', 'cls', '_cls'):
+    if index == 0 and param.name in ('self', 'cls', '_cls'):
       # Only skip the first parameter. If the function contains both
       # `self` and `cls`, skip only the first one.
-      skip_self_cls = False
+      continue
     elif kind == param.POSITIONAL_ONLY:
       pos_only_args.append(param)
     elif default is param.empty and kind == param.POSITIONAL_OR_KEYWORD:
