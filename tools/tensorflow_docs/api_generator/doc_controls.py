@@ -330,6 +330,71 @@ def should_doc_private(obj) -> bool:
   return hasattr(obj, _DOC_PRIVATE)
 
 
+_DOC_IN_CURRENT_AND_SUBCLASSES = "_tf_docs_doc_in_current_and_subclasses"
+
+
+def doc_in_current_and_subclasses(obj: T) -> T:
+  """Overrides `do_not_doc_in_subclasses` decorator.
+
+  If this decorator is set on a child class's method whose parent's method
+  contains `do_not_doc_in_subclasses`, then that will be overriden and the
+  child method will get documented. All classes inherting from the child will
+  also document that method.
+
+  For example:
+
+  ```
+  class Parent:
+    @do_not_doc_in_subclasses
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child1(Parent):
+    @doc_in_current_and_subclasses
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child2(Parent):
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child11(Child1):
+    pass
+  ```
+
+  This will produce the following docs:
+
+  ```
+  /Parent.md
+    # method1
+    # method2
+  /Child1.md
+    # method1
+    # method2
+  /Child2.md
+    # method2
+  /Child11.md
+    # method1
+    # method2
+  ```
+
+  Args:
+    obj: The class-attribute to hide from the generated docs.
+
+  Returns:
+    obj
+  """
+
+  setattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES, None)
+  return obj
+
+
 def should_skip(obj) -> bool:
   """Returns true if docs generation should be skipped for this object.
 
@@ -404,14 +469,23 @@ def should_skip_class_attr(cls, name):
     if hasattr(obj, _FOR_SUBCLASS_IMPLEMENTERS):
       return False
 
+    # If object is defined in this class, then don't skip if decorated with
+    # `doc_in_current_and_subclasses`.
+    if hasattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES):
+      return False
+
   # for each parent class
-  for parent in getattr(cls, "__mro__", [])[1:]:
+  parent_classes = getattr(cls, "__mro__", [])[1:]
+  for parent in parent_classes:
     obj = getattr(parent, name, None)
 
     if obj is None:
       continue
 
     obj = _unwrap_func(obj)
+
+    if hasattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES):
+      return False
 
     # Skip if the parent's definition is decorated with `do_not_doc_inheritable`
     # or `for_subclass_implementers`
@@ -425,13 +499,12 @@ def should_skip_class_attr(cls, name):
   return False
 
 
-def decorate_all_class_attributes(decorator: Callable, cls: type,
-                                  skip: Iterable[str]):
+def decorate_all_class_attributes(decorator, cls, skip: Iterable[str]):
   """Applies `decorator` to every attribute defined in `cls`.
 
   Args:
     decorator: The decorator to apply.
-    cls: The class to aply the decorator to.
+    cls: The class to apply the decorator to.
     skip: A collection of attribute names that the decorator should not be
       aplied to.
   """
