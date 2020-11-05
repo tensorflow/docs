@@ -197,6 +197,7 @@ def _get_raw_docstring(py_object):
   result = _StripTODOs()(result)
   result = _StripPylints()(result)
   result = _AddDoctestFences()(result + '\n')
+  result = _DowngradeH1Keywords()(result)
   return result
 
 
@@ -232,6 +233,34 @@ class _StripPylints(object):
 
   def __call__(self, content: str) -> str:
     return self.PYLINT_RE.sub('', content)
+
+
+class _DowngradeH1Keywords():
+  """ Convert keras docstring keyword format to google format."""
+  KEYWORD_H1_RE = re.compile(
+      r"""
+    ^                 # Start of line
+    (?P<indent>\s*)   # Capture leading whitespace as <indent
+    \#\s*             # A literal "#" and more spaces
+                      # Capture any of these keywords as <keyword>
+    (?P<keyword>Args|Arguments|Returns|Raises|Yields|Examples?|Notes?)
+    \s*:?             # Optional whitespace and optional ":"
+    """, re.VERBOSE)
+
+  def __call__(self, docstring):
+    lines = docstring.splitlines()
+
+    new_lines = []
+    is_code = False
+    for line in lines:
+      if line.strip().startswith('```'):
+        is_code = not is_code
+      elif not is_code:
+        line = self.KEYWORD_H1_RE.sub(r'\g<indent>\g<keyword>:', line)
+      new_lines.append(line)
+
+    docstring = '\n'.join(new_lines)
+    return docstring
 
 
 class IgnoreLineInBlock(object):

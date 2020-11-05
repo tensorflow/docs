@@ -584,6 +584,37 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual(doc_info.compatibility['numpy'],
                      'NumPy has nothing as awesome as this function.\n')
 
+  def test_downgrade_h1_docstrings(self):
+    h1_docstring = textwrap.dedent("""\
+      Hello.
+
+      Some keras functions have docstrings like this.
+
+      # Arguments
+        a: a
+        b: b
+        c: c
+
+      # Example
+
+        ```
+        # comment
+        ```
+
+      # Returns
+        a+b+c
+
+      # Raises
+        ValueError: always
+      """)
+    downgrader = parser._DowngradeH1Keywords()
+    doc = downgrader(h1_docstring)
+    self.assertIn('\n  ```\n  # comment\n  ```', doc)
+    self.assertIn('\nArguments:', doc)
+    self.assertIn('\nExample:', doc)
+    self.assertIn('\nReturns:', doc)
+    self.assertIn('\nRaises:', doc)
+
   def test_generate_index(self):
 
     index = {
