@@ -77,7 +77,7 @@ def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
 
   for part in page_info.doc.docstring_parts:
     if isinstance(part, parser.TitleBlock):
-      if part.title.lower().startswith('args'):
+      if part.title.lower().startswith('arg'):
         param_lint.num_args_in_doc = len(part.items)
         param_lint.num_empty_param_desc_args = _count_empty_param(part.items)
 
