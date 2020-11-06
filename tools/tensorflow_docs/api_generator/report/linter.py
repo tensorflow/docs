@@ -58,10 +58,27 @@ def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
   """
   param_lint = api_report_pb2.ParameterLint()
 
+  reserved_keywords = frozenset(['self', 'cls', '_cls'])
+
+  if page_info.py_object is not None:
+    try:
+      sig = inspect.signature(page_info.py_object)
+      args_in_code = sig.parameters.keys()
+      num_args_in_code = len(args_in_code)
+      for arg in args_in_code:
+        if arg in reserved_keywords:
+          num_args_in_code -= 1
+          break
+      param_lint.num_args_in_code = num_args_in_code
+    except (ValueError, TypeError):
+      param_lint.num_args_in_code = 0
+  else:
+    param_lint.num_args_in_code = 0
+
   for part in page_info.doc.docstring_parts:
     if isinstance(part, parser.TitleBlock):
       if part.title.lower().startswith('args'):
-        param_lint.total_args_param = len(part.items)
+        param_lint.num_args_in_doc = len(part.items)
         param_lint.num_empty_param_desc_args = _count_empty_param(part.items)
 
       if part.title.lower().startswith('attr'):
