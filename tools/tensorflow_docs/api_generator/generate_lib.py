@@ -520,7 +520,8 @@ def write_docs(
       raise ValueError(f'Failed to generate docs for symbol: `{full_name}`')
 
     if gen_report and not full_name.startswith(
-        ('tf.compat.v', 'tf.keras.backend')):
+        ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
+         'tf.experimental.numpy')):
       api_report_obj.fill_metrics(page_info)
       continue
 
