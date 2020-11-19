@@ -1879,8 +1879,7 @@ class ClassPageInfo(PageInfo):
       parser_config: An instance of `ParserConfig`.
     """
     bases = []
-    obj = parser_config.py_name_to_object(self.full_name)
-    for base in obj.__bases__:
+    for base in self.py_object.__mro__[1:]:
       base_full_name = parser_config.reverse_index.get(id(base), None)
       if base_full_name is None:
         continue
