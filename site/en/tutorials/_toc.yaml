@@ -63,6 +63,8 @@ toc:
     path: /tutorials/estimator/boosted_trees_model_understanding
   - title: "Keras model to Estimator"
     path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
 
 - heading: "Advanced"
   style: divider
@@ -89,8 +91,6 @@ toc:
   - title: "Parameter Server Training"
     path: /tutorials/distribute/parameter_server_training
     status: experimental
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
   - title: "Distributed input"
