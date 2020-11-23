@@ -118,6 +118,8 @@ toc:
 - title: "Text"
   style: accordion
   section:
+  - title: "Classify Text with BERT"
+    path: /tutorials/text/classify_text_with_bert
   - title: "Word embeddings"
     path: /tutorials/text/word_embeddings
   - title: "Word2Vec"
@@ -193,4 +195,3 @@ toc:
   - title: "TensorFlow agents"
     status: external
     path: /agents
-
