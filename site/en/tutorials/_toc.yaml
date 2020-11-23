@@ -118,14 +118,21 @@ toc:
 - title: "Text"
   style: accordion
   section:
-  - title: "Classify Text with BERT"
-    path: /tutorials/text/classify_text_with_bert
   - title: "Word embeddings"
     path: /tutorials/text/word_embeddings
   - title: "Word2Vec"
     path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
+  - title: "Classify Text with BERT"
+    status: new
+    path: /tutorials/text/classify_text_with_bert
+  - title: "Solve GLUE tasks using BERT on TPU"
+    status: new
+    path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
+  - title: "Fine tuning BERT"
+    path: /official_models/fine_tuning_bert
+  - heading: Generation
   - title: "Text generation with an RNN"
     path: /tutorials/text/text_generation
   - title: "Neural machine translation with attention"
@@ -134,8 +141,6 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
-  - title: "Fine tuning BERT"
-    path: /official_models/fine_tuning_bert
 
 - title: "Audio"
   style: accordion
