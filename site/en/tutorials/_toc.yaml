@@ -63,6 +63,8 @@ toc:
     path: /tutorials/estimator/boosted_trees_model_understanding
   - title: "Keras model to Estimator"
     path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
 
 - heading: "Advanced"
   style: divider
@@ -86,8 +88,9 @@ toc:
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
     path: /tutorials/distribute/multi_worker_with_keras
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Parameter Server Training"
+    path: /tutorials/distribute/parameter_server_training
+    status: experimental
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
   - title: "Distributed input"
@@ -121,6 +124,15 @@ toc:
     path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
+  - title: "Classify Text with BERT"
+    status: new
+    path: /tutorials/text/classify_text_with_bert
+  - title: "Solve GLUE tasks using BERT on TPU"
+    status: new
+    path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
+  - title: "Fine tuning BERT"
+    path: /official_models/fine_tuning_bert
+  - heading: Generation
   - title: "Text generation with an RNN"
     path: /tutorials/text/text_generation
   - title: "Neural machine translation with attention"
@@ -129,8 +141,6 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
-  - title: "Fine tuning BERT"
-    path: /official_models/fine_tuning_bert
 
 - title: "Audio"
   style: accordion
@@ -190,4 +200,3 @@ toc:
   - title: "TensorFlow agents"
     status: external
     path: /agents
-
