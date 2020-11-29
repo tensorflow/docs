@@ -173,19 +173,21 @@ The following instructions describe how to set up CUDA inside a WSL2 instance. T
 
 ### Install the latest Windows build
 You first need to install the latest build of Windows (version 20145 or higher). To do so, you'll have to subscribe to the [Microsoft Windows Insider Program](https://insider.windows.com/en-us/getting-started#register){:.external}
+
 Then, install the latest build from the Fast Ring by following the provided instructions.
 
 ### Ubuntu 18.04 running is WSL2
 First, install WSL2 by following the [instructions](https://docs.microsoft.com/en-us/windows/wsl/install-win10){:.external} provided by the Microsoft documentation.  
 After that you can download the Ubuntu 18.04 distribution from the Windows Store.
-Now you should be able to launch it from the Windows terminal or the Windows start menu.  
+
+You should now be able to launch it from the Windows terminal or the Windows start menu.  
+
 Finally check that the kernel version is superior than 4.19.121 with the following command `uname -r` if not, that means that the latest windows build is not installed.
 
 ### Install the NVIDIA driver for WSL2
 Using CUDA with WSL2 requires specific drivers. Install them by following [these](https://developer.nvidia.com/cuda/wsl){:.external} instructions.  
 
 Once installed, you can make sure that the driver is working and check the version by running the command in a Windows PowerShell terminal : `nvidia-smi`
-
 
 Note : You may encounter issues the 465.12, if this version is not working, revert to a previous WSL2 enabled one (460.20 for instance).
 
