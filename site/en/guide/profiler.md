@@ -517,6 +517,104 @@ The Pod Viewer tool shows the breakdown of a training step across all workers.
 -   When you hover over a stacked column, the card on the left-hand side shows
     more details about the step breakdown.
 
+<a name="tf_data_bottleneck_analysis"></a>
+
+### tf.data bottleneck analysis
+
+Warning: This tool is experimental. Please report
+[here](https://github.com/tensorflow/profiler/issues) if the analysis result
+seems off.
+
+tf.data bottleneck analysis automatically detects bottlenecks in tf.data input
+pipelines in your program and provides recommendations on how to fix them. It
+works with any program using tf.data regardless of the platform (CPU/GPU/TPU) or
+the framework (TensorFlow/JAX). Its analysis and recommendations are based on
+this [guide](https://www.tensorflow.org/guide/data_performance_analysis).
+
+It detects a bottleneck by following these steps:
+
+1.  Find the most input bound host.
+1.  Find the slowest execution of tf.data input pipeline.
+1.  Reconstruct the input pipeline graph from the profiler trace.
+1.  Find the critical path in the input pipeline graph.
+1.  Identify the slowest transformation on the critical path as a bottleneck.
+
+The UI is divided into three sections: Performance Analysis Summary, Summary of
+All Input Pipelines and Input Pipeline Graph.
+
+#### Performance analysis summary
+
+![image](./images/tf_profiler/tf_data_summary.png)
+
+This section provides the summary of the analysis. It tells whether a slow
+tf.data input pipeline is detected in the profile. If so, it shows the most
+input bound host and its slowest input pipeline with the max latency. And most
+importantly, it tells which part of the input pipeline is the bottleneck and how
+to fix it. The bottleneck information is provided with the iterator type and its
+long name.
+
+##### How to read tf.data iterator's long name
+
+A long name is formatted as `Iterator::<Dataset_1>::...::<Dataset_n>`. In the
+long name, `<Dataset_n>` matches the iterator type and the other datasets in the
+long name represent downstream transformations.
+
+For example, consider the following input pipeline dataset:
+
+```python
+dataset = tf.data.Dataset.range(10).map(lambda x: x).repeat(2).batch(5)
+```
+
+The long names for the iterators from the above dataset will be:
+
+Iterator Type | Long Name
+:------------ | :----------------------------------
+Range         | Iterator::Batch::Repeat::Map::Range
+Map           | Iterator::Batch::Repeat::Map
+Repeat        | Iterator::Batch::Repeat
+Batch         | Iterator::Batch
+
+#### Summary of All Input Pipelines
+
+![image](./images/tf_profiler/tf_data_all_hosts.png)
+
+This section provides the summary of all input pipelines across all hosts.
+Typically there is one input pipeline. When using the distribution strategy,
+there are one host input pipeline running the program's tf.data code and
+multiple device input pipelines retrieving data from the host input pipeline and
+transferring it to the devices.
+
+For each input pipeline, it shows the statistics of its execution time. A call
+is counted as slow if it takes longer than 50 μs.
+
+#### Input Pipeline Graph
+
+![image](./images/tf_profiler/tf_data_graph_selector.png)
+
+This section shows the input pipeline graph with the execution time information.
+You can use "Host" and "Input Pipeline" to choose which host and input pipeline
+to see. Executions of the input pipeline are sorted by the execution time in
+descending order which you can use "Rank" to choose.
+
+![image](./images/tf_profiler/tf_data_graph.png)
+
+The nodes on the critical path have bold outlines. The bottleneck node, which is
+the node with the longest self time on the critical path, has a red outline. The
+other non-critical nodes have gray dashed outlines.
+
+In each node, "Start Time" indicates the start time of the execution. The same
+node may be executed multiple times, for example, if there is Batch in the input
+pipeline. If it is executed multiple times, it is the start time of the first
+execution.
+
+"Total Duration" is the wall time of the execution. If it is executed multiple
+times, it is the sum of the wall times of all executions.
+
+"Self Time" is "Total Time" without the overlapped time with its immediate child
+nodes.
+
+"# Calls" is the number of times the input pipeline is executed.
+
 <a name="collect_performance_data"></a>
 
 ## Collect performance data
