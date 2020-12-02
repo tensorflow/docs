@@ -31,6 +31,7 @@ from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import traverse
+from tensorflow_docs.api_generator.report import utils
 
 import yaml
 
@@ -471,10 +472,6 @@ def write_docs(
   redirects = []
 
   if gen_report:
-    # If the import is at the top, then due to protobuf version mismatch, some
-    # docs fail that import the visualization tools. To get around that, import
-    # the report utils only when report needs to be generated.
-    from tensorflow_docs.api_generator.report import utils  # pylint: disable=g-import-not-at-top
     api_report_obj = utils.ApiReport()
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
