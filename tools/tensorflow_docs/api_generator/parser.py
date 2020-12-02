@@ -205,7 +205,7 @@ class _AddDoctestFences(object):
   """Adds ``` fences around doctest caret blocks >>> that don't have them."""
   CARET_BLOCK_RE = re.compile(
       r"""
-    (?<=\n)\ *\n                           # After a blank line.
+    \n                                     # After a blank line.
     (?P<indent>\ *)(?P<content>\>\>\>.*?)  # Whitespace and a triple caret.
     \n\s*?(?=\n|$)                         # Followed by a blank line""",
       re.VERBOSE | re.DOTALL)
