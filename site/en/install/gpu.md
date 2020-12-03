@@ -113,6 +113,17 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
+### Set the environment variables
+
+In your .bashrc or .profile file, check that the following variables are set or add the following lines :
+
+<pre class="devsite-click-to-copy">
+<code class="devsite-terminal">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-<VERSION>/lib64</code>
+</pre>
+
+Note that the <VERSION> matches the version you install above (and the name of the corresponding /usr/local subdirectory)
+
+
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-10-1 \
