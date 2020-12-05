@@ -31,7 +31,7 @@ _TYPING = frozenset(
 def ignore_typing(path, parent, children):
   """Removes all children that are members of the typing module.
 
-  Arguments:
+  Args:
     path: A tuple or name parts forming the attribute-lookup path to this
       object. For `tf.keras.layers.Dense` path is:
         ("tf","keras","layers","Dense")
@@ -92,7 +92,7 @@ def local_definitions_filter(path, parent, children):
     subpackage
       from my_package._utils import *
   ```
-  Arguments:
+  Args:
     path: A tuple or name parts forming the attribute-lookup path to this
       object. For `tf.keras.layers.Dense` path is:
         ("tf","keras","layers","Dense")

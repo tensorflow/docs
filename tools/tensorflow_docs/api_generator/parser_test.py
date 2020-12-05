@@ -610,7 +610,7 @@ class ParserTest(parameterized.TestCase):
     downgrader = parser._DowngradeH1Keywords()
     doc = downgrader(h1_docstring)
     self.assertIn('\n  ```\n  # comment\n  ```', doc)
-    self.assertIn('\nArguments:', doc)
+    self.assertIn('\nArgs:', doc)
     self.assertIn('\nExample:', doc)
     self.assertIn('\nReturns:', doc)
     self.assertIn('\nRaises:', doc)
