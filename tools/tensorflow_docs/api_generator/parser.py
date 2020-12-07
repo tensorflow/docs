@@ -19,6 +19,7 @@ import ast
 import collections
 import enum
 import functools
+import html
 import inspect
 import itertools
 import json
@@ -1318,6 +1319,7 @@ class FormatArguments(object):
         # Strip object memory addresses to avoid unnecessary doc churn.
         default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
             r'<\g<type>>', repr(default_val))
+      default_text = html.escape(str(default_text))
 
       # Format the kwargs to add the type annotation and default values.
       if kname in self._type_annotations:
