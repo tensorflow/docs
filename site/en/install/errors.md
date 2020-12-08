@@ -317,4 +317,9 @@ ImportError: cannot import name 'descriptor'</pre>
   <td><a href="https://github.com/tensorflow/tensorflow/issues/24835">24835</a></td>
   <td><pre>Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory: [long path name]</pre></td>
 </tr>
+<tr>
+  <td><a href="https://github.com/tensorflow/tensorflow/issues/45434">45434</a></td>
+  <td><pre>sed: /var/folders/y4/85hx48054tbd2y04jkf3l6880000gn/T/tmp.XXXXXXXXXX.Ty6dzcrU/tensorflow/__init__.py: 
+  in-place editing only works for regular files</pre></td>
+</tr>
 </table>
