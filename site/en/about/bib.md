@@ -116,7 +116,7 @@ in a cluster, and within a machine across multiple computational
 devices, including multicore CPUs, general purpose
 GPUs, and custom-designed ASICs known as
 Tensor Processing Units (TPUs). This architecture gives
-flexibility to the application developer: whereas in previous
+flexibility to the application developer whereas in previous
 “parameter server” designs the management of shared
 state is built into the system, TensorFlow enables developers
 to experiment with novel optimizations and training algorithms.
