@@ -31,6 +31,7 @@ import typing
 from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
+import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -1046,6 +1047,22 @@ class TypeAnnotationExtractor(ast.NodeVisitor):
         self.arguments_typehint_exists = True
 
 
+class DataclassTypeAnnotationExtractor(ast.NodeVisitor):
+  """Extracts the type annotations by parsing the AST of a dataclass."""
+
+  def __init__(self):
+    self.annotation_dict = {}
+    self.arguments_typehint_exists = False
+    self.return_typehint_exists = False
+
+  def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
+    """Vists an assignment with a type annotation. Dataclasses is an example."""
+    arg = astor.to_source(node.target).strip()
+    anno = astor.to_source(node.annotation).strip()
+    self.annotation_dict[arg] = anno
+    self.arguments_typehint_exists = True
+
+
 class ASTDefaultValueExtractor(ast.NodeVisitor):
   """Extracts the default values by parsing the AST of a function."""
 
@@ -1388,7 +1405,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     sig_values = []
     return_anno = None
 
-  type_annotation_visitor = TypeAnnotationExtractor()
+  if dataclasses.is_dataclass(func):
+    type_annotation_visitor = DataclassTypeAnnotationExtractor()
+  else:
+    type_annotation_visitor = TypeAnnotationExtractor()
+
   ast_defaults_visitor = ASTDefaultValueExtractor()
 
   try:
@@ -1960,8 +1981,17 @@ class ClassPageInfo(PageInfo):
         member_info.short_name in ['__del__', '__copy__']):
       return
 
-    signature = generate_signature(member_info.py_object, parser_config,
-                                   member_info.full_name)
+    # If the curent class py_object is a dataclass then use the class object
+    # instead of the __init__ method object because __init__ is a
+    # generated method on dataclasses and `inspect.getsource` doesn't work
+    # on generated methods (as the source file doesn't exist) which is
+    # required for signature generation.
+    if (dataclasses.is_dataclass(self.py_object) and
+        member_info.short_name == '__init__'):
+      py_obj = self.py_object
+    else:
+      py_obj = member_info.py_object
+    signature = generate_signature(py_obj, parser_config, member_info.full_name)
 
     decorators = extract_decorators(member_info.py_object)
 

@@ -26,6 +26,7 @@ from typing import Union, List, Dict, Callable
 from absl.testing import absltest
 from absl.testing import parameterized
 import attr
+import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -1182,6 +1183,34 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     self.assertEqual(sig.return_type, 'None')
     self.assertEqual(sig.arguments_typehint_exists, True)
     self.assertEqual(sig.return_typehint_exists, True)
+
+  def test_dataclasses_type_annotations(self):
+
+    @dataclasses.dataclass
+    class ExampleClass:
+      x: List[str]
+      z: int
+      c: List[int] = dataclasses.field(default_factory=list)
+      a: Union[List[str], str, int] = None
+      b: str = 'test'
+      y: bool = False
+
+      def add(self, x: int, y: int) -> int:
+        return x + y
+
+    sig = parser.generate_signature(
+        ExampleClass, parser_config=self.parser_config, func_full_name='')
+
+    self.assertEqual(sig.arguments, [
+        'x: List[str]',
+        'z: int',
+        'c: List[int] = &lt;factory&gt;',
+        'a: Union[List[str], str, int] = None',
+        'b: str = &#x27;test&#x27;',
+        'y: bool = False',
+    ])
+    self.assertEqual(sig.return_type, 'None')
+    self.assertEqual(sig.arguments_typehint_exists, True)
 
   @parameterized.named_parameters(
       ('deep_objects', Union[Dict[str, Dict[bool, parser.extract_decorators]],
