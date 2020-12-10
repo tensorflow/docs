@@ -13,7 +13,9 @@
 # limitations under the License.
 # ==============================================================================
 """tensorflow_docs is a package for generating python api-reference docs."""
+
 import subprocess
+import sys
 
 from setuptools import find_packages
 from setuptools import setup
@@ -35,6 +37,10 @@ REQUIRED_PKGS = [
     'protobuf>=3.14',
     'pyyaml',
 ]
+
+# Dataclasses is in-built from py >=3.7. This version is a backport for py 3.6.
+if (sys.version_info.major, sys.version_info.minor) == (3, 6):
+  REQUIRED_PKGS.append('dataclasses')
 
 VIS_REQURE = [
     'numpy',
