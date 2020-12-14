@@ -22,7 +22,7 @@ import typing
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 
-_TYPING = frozenset(
+TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
     if not doc_generator_visitor.maybe_singleton(obj))
@@ -46,7 +46,7 @@ def ignore_typing(path, parent, children):
 
   children = [(name, child_obj)
               for (name, child_obj) in children
-              if id(child_obj) not in _TYPING]
+              if id(child_obj) not in TYPING_IDS]
 
   return children
 

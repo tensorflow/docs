@@ -1161,7 +1161,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                     b: str = 'test',
                     *,
                     y: bool = False,
-                    c: int,
+                    c: Callable[..., int],
                     **kwargs) -> None:
       pass
 
@@ -1177,7 +1177,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         'b: str = &#x27;test&#x27;',
         '*',
         'y: bool = False',
-        'c: int',
+        'c: Callable[..., int]',
         '**kwargs',
     ])
     self.assertEqual(sig.return_type, 'None')

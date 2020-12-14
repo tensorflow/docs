@@ -35,6 +35,7 @@ import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import public_api
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -1120,9 +1121,10 @@ class FormatArguments(object):
       list(typing.__dict__.keys()) +
       ['int', 'str', 'bytes', 'float', 'complex', 'bool', 'None'])
 
-  _IMMUTABLE_TYPES = frozenset(
-      [int, str, bytes, float, complex, bool,
-       type(None), tuple, frozenset])
+  _IMMUTABLE_TYPES = frozenset([
+      int, str, bytes, float, complex, bool, Ellipsis,
+      type(None), tuple, frozenset
+  ])
 
   def __init__(
       self,
@@ -1173,8 +1175,8 @@ class FormatArguments(object):
     for anno in annotations:
       if self._reverse_index.get(id(anno), None):
         non_builtin_types.append(anno)
-      elif (anno in self._IMMUTABLE_TYPES or anno in typing.__dict__.values() or
-            anno is Ellipsis):
+      elif (anno in self._IMMUTABLE_TYPES or
+            id(type(anno)) in public_api.TYPING_IDS):
         continue
       elif hasattr(anno, '__args__'):
         self._extract_non_builtin_types(anno, non_builtin_types)
