@@ -2,8 +2,8 @@
 
 Build a TensorFlow *pip* package from source and install it on Windows.
 
-Note: We already provide well-tested, pre-built [TensorFlow packages](./pip.md)
-for Windows systems.
+Note: We already provide well-tested, pre-built
+[TensorFlow packages](./pip.html) for Windows systems.
 
 ## Setup for Windows
 
@@ -14,7 +14,8 @@ environment.
 
 Install a
 [Python 3.5.x or Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
-Select *pip* as an optional feature and add it to your `%PATH%` environmental variable.
+Select *pip* as an optional feature and add it to your `%PATH%` environmental
+variable.
 
 Install the TensorFlow *pip* package dependencies:
 
@@ -66,9 +67,8 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 
 ### Install GPU support (optional)
 
-See the Windows [GPU support](./gpu.md) guide to install the drivers and additional
-software required to run TensorFlow on a GPU.
-
+See the Windows [GPU support](./gpu.md) guide to install the drivers and
+additional software required to run TensorFlow on a GPU.
 
 ### Download the TensorFlow source code
 
@@ -104,7 +104,8 @@ python ./configure.py
 
 This script prompts you for the location of TensorFlow dependencies and asks for
 additional build configuration options (compiler flags, for example). The
-following shows a sample run of `python ./configure.py` (your session may differ):
+following shows a sample run of `python ./configure.py` (your session may
+differ):
 
 <section class="expandable">
 <h4 class="showalways">View sample configuration session</h4>
@@ -147,9 +148,9 @@ Configuration finished
 
 For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
 system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure.py` creates symbolic links
-to your system's CUDA libraries—so if you update your CUDA library paths, this
-configuration step must be run again before building.
+version instead of relying on the default. `./configure.py` creates symbolic
+links to your system's CUDA libraries—so if you update your CUDA library paths,
+this configuration step must be run again before building.
 
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
@@ -215,8 +216,8 @@ to suppress nvcc warning messages.
 ### Build the package
 
 The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. For example, the following builds a
-`.whl` package in the `C:/tmp/tensorflow_pkg` directory:
+is the program that builds the `pip` package. For example, the following builds
+a `.whl` package in the `C:/tmp/tensorflow_pkg` directory:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg
@@ -270,11 +271,10 @@ variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
 For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/bin:$PATH"</code>
-<code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/extras/CUPTI/libx64:$PATH"</code>
+<code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/bin:$PATH"</code>
+<code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/extras/CUPTI/libx64:$PATH"</code>
 <code class="devsite-terminal">export PATH="/c/tools/cuda/bin:$PATH"</code>
 </pre>
-
 
 <a name="tested_build_configurations"></a>
 ## Tested build configurations
@@ -283,6 +283,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.4.0</td><td>3.6-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td></tr>
 <tr><td>tensorflow-2.3.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td></tr>
 <tr><td>tensorflow-2.2.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 2.0.0</td></tr>
 <tr><td>tensorflow-2.1.0</td><td>3.5-3.7</td><td>MSVC 2019</td><td>Bazel 0.27.1-0.29.1</td></tr>
@@ -309,6 +310,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow_gpu-2.4.0</td><td>3.6-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td><td>8.0</td><td>11.0</td></tr>
 <tr><td>tensorflow_gpu-2.3.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 3.1.0</td><td>7.6</td><td>10.1</td></tr>
 <tr><td>tensorflow_gpu-2.2.0</td><td>3.5-3.8</td><td>MSVC 2019</td><td>Bazel 2.0.0</td><td>7.6</td><td>10.1</td></tr>
 <tr><td>tensorflow_gpu-2.1.0</td><td>3.5-3.7</td><td>MSVC 2019</td><td>Bazel 0.27.1-0.29.1</td><td>7.6</td><td>10.1</td></tr>
