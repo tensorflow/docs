@@ -174,7 +174,8 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
 <code class="devsite-terminal">sudo apt-get install -y --no-install-recommends \
     libnvinfer7=7.1.3-1+cuda11.0 \
     libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0
+    libnvinfer-plugin7=7.1.3-1+cuda11.0 \
+    libnvinfer-plugin-dev=7.1.3-1+cuda11.0
 </code>
 </pre>
 
