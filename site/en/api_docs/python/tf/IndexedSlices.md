@@ -14,7 +14,7 @@ description: A sparse representation of a set of tensor slices at given indices.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/indexed_slices.py#L60-L184">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/indexed_slices.py#L61-L185">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -149,7 +149,7 @@ A `Tensor` containing the values of the slices.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/indexed_slices.py#L183-L184">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/indexed_slices.py#L184-L185">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>consumers()
@@ -160,7 +160,7 @@ A `Tensor` containing the values of the slices.
 
 <h3 id="__neg__"><code>__neg__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/indexed_slices.py#L152-L153">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/indexed_slices.py#L153-L154">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__neg__()

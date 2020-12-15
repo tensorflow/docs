@@ -14,7 +14,7 @@ description: Gated Recurrent Unit - Cho et al. 2014.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1957-L2237">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1952-L2226">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -34,9 +34,9 @@ Inherits From: [`RNN`](../../../../../tf/keras/layers/RNN.md)
     bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None,
     bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
     recurrent_constraint=None, bias_constraint=None, dropout=0.0,
-    recurrent_dropout=0.0, implementation=1, return_sequences=(False),
-    return_state=(False), go_backwards=(False), stateful=(False), unroll=(False),
-    reset_after=(False), **kwargs
+    recurrent_dropout=0.0, return_sequences=(False), return_state=(False),
+    go_backwards=(False), stateful=(False), unroll=(False), reset_after=(False),
+    **kwargs
 )
 </code></pre>
 
@@ -187,18 +187,6 @@ the linear transformation of the inputs.
 Float between 0 and 1.
 Fraction of the units to drop for
 the linear transformation of the recurrent state.
-</td>
-</tr><tr>
-<td>
-`implementation`
-</td>
-<td>
-Implementation mode, either 1 or 2.
-Mode 1 will structure its operations as a larger number of
-smaller dot products and additions, whereas mode 2 will
-batch them into fewer, larger operations. These modes will
-have different performance profiles on different hardware and
-for different applications.
 </td>
 </tr><tr>
 <td>
@@ -430,7 +418,7 @@ True = "after" (CuDNN compatible).
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L889-L957">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L886-L961">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_states(

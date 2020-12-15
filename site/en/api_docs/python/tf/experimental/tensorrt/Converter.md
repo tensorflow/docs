@@ -15,7 +15,7 @@ description: An offline converter for TF-TRT transformation for TF 2.0 SavedMode
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/tensorrt/trt_convert.py#L880-L1266">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/tensorrt/trt_convert.py#L882-L1281">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -191,7 +191,7 @@ if the combination of the parameters is invalid.
 
 <h3 id="build"><code>build</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/tensorrt/trt_convert.py#L1126-L1187">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/tensorrt/trt_convert.py#L1139-L1200">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>build(
@@ -256,7 +256,7 @@ the input_fx is None.
 
 <h3 id="convert"><code>convert</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/tensorrt/trt_convert.py#L1060-L1124">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/tensorrt/trt_convert.py#L1069-L1137">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>convert(
@@ -320,7 +320,7 @@ The TF-TRT converted Function.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/tensorrt/trt_convert.py#L1189-L1266">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/tensorrt/trt_convert.py#L1202-L1281">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(

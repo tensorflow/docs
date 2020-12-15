@@ -12,7 +12,7 @@ description: Optimization parameters for stochastic gradient descent for TPU emb
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L124-L207">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L166-L263">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,8 +36,12 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.tpu.experimental.embedding.SGD(
-    learning_rate=0.01, clip_weight_min=None, clip_weight_max=None,
-    weight_decay_factor=None, multiply_weight_decay_factor_by_learning_rate=None
+    learning_rate: Union[float, Callable[[], float]] = 0.01,
+    clip_weight_min: Optional[float] = None,
+    clip_weight_max: Optional[float] = None,
+    weight_decay_factor: Optional[float] = None,
+    multiply_weight_decay_factor_by_learning_rate: bool = None,
+    clipvalue: Optional[ClipValueType] = None
 )
 </code></pre>
 
@@ -130,6 +134,21 @@ by this factor each step.
 <td>
 if true,
 `weight_decay_factor` is multiplied by the current learning rate.
+</td>
+</tr><tr>
+<td>
+`clipvalue`
+</td>
+<td>
+Controls clipping of the gradient. Set to either a single
+positive scalar value to get clipping or a tiple of scalar values (min,
+max) to set a separate maximum or minimum. If one of the two entries is
+None, then there will be no clipping that direction. Note if this is
+set, you may see a decrease in performance as  gradient accumulation
+will be enabled (it is normally off for SGD as it has no affect on
+accuracy). See
+'tensorflow/core/protobuf/tpu/optimization_parameters.proto' for more
+information on gradient accumulation and its impact on tpu embeddings.
 </td>
 </tr>
 </table>

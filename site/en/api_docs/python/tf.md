@@ -38,7 +38,7 @@ description: ## TensorFlow
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/__init__.py">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/__init__.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -147,6 +147,8 @@ pip install tensorflow
 [`tpu`](./tf/tpu.md) module: Ops related to Tensor Processing Units.
 
 [`train`](./tf/train.md) module: Support for training models.
+
+[`types`](./tf/types.md) module: Public TensorFlow type definitions.
 
 [`version`](./tf/version.md) module: Public API for tf.version namespace.
 
@@ -328,7 +330,7 @@ pip install tensorflow
 
 [`expand_dims(...)`](./tf/expand_dims.md): Returns a tensor with a length 1 axis inserted at index `axis`.
 
-[`extract_volume_patches(...)`](./tf/extract_volume_patches.md): Extract `patches` from `input` and put them in the "depth" output dimension. 3D extension of `extract_image_patches`.
+[`extract_volume_patches(...)`](./tf/extract_volume_patches.md): Extract `patches` from `input` and put them in the `"depth"` output dimension. 3D extension of `extract_image_patches`.
 
 [`eye(...)`](./tf/eye.md): Construct an identity matrix, or a batch of matrices.
 
@@ -377,6 +379,8 @@ pip install tensorflow
 [`import_graph_def(...)`](./tf/graph_util/import_graph_def.md): Imports the graph from `graph_def` into the current default `Graph`. (deprecated arguments)
 
 [`init_scope(...)`](./tf/init_scope.md): A context manager that lifts ops out of control-flow scopes and function-building graphs.
+
+[`inside_function(...)`](./tf/inside_function.md): Indicates whether the caller code is executing inside a <a href="./tf/function.md"><code>tf.function</code></a>.
 
 [`is_tensor(...)`](./tf/is_tensor.md): Checks whether `x` is a TF-native type that can be passed to many TF ops.
 
@@ -444,6 +448,8 @@ pip install tensorflow
 
 [`py_function(...)`](./tf/py_function.md): Wraps a python function into a TensorFlow op that executes it eagerly.
 
+[`quantize_and_dequantize_v4(...)`](./tf/quantize_and_dequantize_v4.md): Returns the gradient of `QuantizeAndDequantizeV4`.
+
 [`range(...)`](./tf/range.md): Creates a sequence of numbers.
 
 [`rank(...)`](./tf/rank.md): Returns the rank of a tensor.
@@ -496,7 +502,7 @@ pip install tensorflow
 
 [`sequence_mask(...)`](./tf/sequence_mask.md): Returns a mask tensor representing the first N positions of each cell.
 
-[`shape(...)`](./tf/shape.md): Returns the shape of a tensor.
+[`shape(...)`](./tf/shape.md): Returns a tensor containing the shape of the input tensor.
 
 [`shape_n(...)`](./tf/shape_n.md): Returns shape of tensors.
 
@@ -548,7 +554,7 @@ pip install tensorflow
 
 [`tensor_scatter_nd_sub(...)`](./tf/tensor_scatter_nd_sub.md): Subtracts sparse `updates` from an existing tensor according to `indices`.
 
-[`tensor_scatter_nd_update(...)`](./tf/tensor_scatter_nd_update.md): Scatter `updates` into an existing tensor according to `indices`.
+[`tensor_scatter_nd_update(...)`](./tf/tensor_scatter_nd_update.md): "Scatter `updates` into an existing tensor according to `indices`.
 
 [`tensordot(...)`](./tf/tensordot.md): Tensor contraction of a and b along specified axes and outer product.
 
@@ -590,7 +596,7 @@ pip install tensorflow
 
 ## Other Members
 
-* `__version__ = '2.3.0'` <a id="__version__"></a>
+* `__version__ = '2.4.0'` <a id="__version__"></a>
 * `bfloat16` <a id="bfloat16"></a>
 * `bool` <a id="bool"></a>
 * `complex128` <a id="complex128"></a>

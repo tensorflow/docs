@@ -11,7 +11,7 @@ description: Returns an element-wise indication of the sign of a number.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L685-L721">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L719-L762">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,17 +46,26 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-y = sign(x) = -1 if x < 0; 0 if x == 0; 1 if x > 0.
+`y = sign(x) = -1 if x < 0; 0 if x == 0; 1 if x > 0`.
 
-For complex numbers, y = sign(x) = x / |x| if x != 0, otherwise y = 0.
+For complex numbers, `y = sign(x) = x / |x| if x != 0, otherwise y = 0`.
 
 #### Example usage:
 
 
 
 ```
+>>> # real number
 >>> tf.math.sign([0., 2., -3.])
-<tf.Tensor: ... numpy=array([ 0.,  1., -1.], dtype=float32)>
+<tf.Tensor: shape=(3,), dtype=float32,
+numpy=array([ 0.,  1., -1.], dtype=float32)>
+```
+
+```
+>>> # complex number
+>>> tf.math.sign([1 + 1j, 0 + 0j])
+<tf.Tensor: shape=(2,), dtype=complex128,
+numpy=array([0.70710678+0.70710678j, 0.        +0.j        ])>
 ```
 
 <!-- Tabular view -->

@@ -110,6 +110,13 @@ cluster_def already.
 
 <tr>
 <td>
+`checkpoint_save_graph_def`
+</td>
+<td>
+
+</td>
+</tr><tr>
+<td>
 `cluster`
 </td>
 <td>

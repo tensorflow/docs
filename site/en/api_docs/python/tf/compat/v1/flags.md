@@ -11,7 +11,7 @@ description: Import router for absl.flags. See https://github.com/abseil/abseil-
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/flags.py">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/flags.py">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -68,6 +68,8 @@ more details.</p>
 [`class Error`](../../../tf/compat/v1/flags/Error.md): The base class for all flags errors.
 
 [`class Flag`](../../../tf/compat/v1/flags/Flag.md): Information about a command-line flag.
+
+[`class FlagHolder`](../../../tf/compat/v1/flags/FlagHolder.md): Holds a defined flag.
 
 [`class FlagNameConflictsWithMethodError`](../../../tf/compat/v1/flags/FlagNameConflictsWithMethodError.md): Raised when a flag name conflicts with FlagValues methods.
 

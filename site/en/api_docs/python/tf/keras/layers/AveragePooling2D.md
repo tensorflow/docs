@@ -13,7 +13,7 @@ description: Average pooling operation for spatial data.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/pooling.py#L465-L511">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/pooling.py#L470-L519">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -80,6 +80,9 @@ If None, it will default to `pool_size`.
 </td>
 <td>
 One of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

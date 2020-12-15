@@ -13,7 +13,7 @@ description: Represents the output of a regression head.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/model_utils/export_output.py#L170-L199">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/model_utils/export_output.py#L171-L200">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -105,7 +105,7 @@ if the value is not a `Tensor` with dtype tf.float32.
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/model_utils/export_output.py#L191-L199">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/model_utils/export_output.py#L192-L200">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_signature_def(

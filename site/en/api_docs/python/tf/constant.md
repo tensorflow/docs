@@ -11,7 +11,7 @@ description: Creates a constant tensor from a tensor-like object.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/constant_op.py#L166-L264">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/constant_op.py#L166-L265">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -35,10 +35,9 @@ Creates a constant tensor from a tensor-like object.
 Note: All eager <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> values are immutable (in contrast to
 <a href="../tf/Variable.md"><code>tf.Variable</code></a>). There is nothing especially _constant_ about the value
 returned from <a href="../tf/constant.md"><code>tf.constant</code></a>. This function it is not fundamentally different
-from <a href="../tf/convert_to_tensor.md"><code>tf.convert_to_tensor</code></a>. The name <a href="../tf/constant.md"><code>tf.constant</code></a> comes from the symbolic
-APIs (like <a href="../tf/data.md"><code>tf.data</code></a> or keras functional models) where the `value` is embeded
-in a `Const` node in the <a href="../tf/Graph.md"><code>tf.Graph</code></a>. <a href="../tf/constant.md"><code>tf.constant</code></a> is useful for asserting
-that the value can be embedded that way.
+from <a href="../tf/convert_to_tensor.md"><code>tf.convert_to_tensor</code></a>. The name <a href="../tf/constant.md"><code>tf.constant</code></a> comes from the `value`
+being embeded in a `Const` node in the <a href="../tf/Graph.md"><code>tf.Graph</code></a>. <a href="../tf/constant.md"><code>tf.constant</code></a> is useful
+for asserting that the value can be embedded that way.
 
 If the argument `dtype` is not specified, then the type is inferred from
 the type of `value`.
@@ -94,11 +93,12 @@ But, since <a href="../tf/constant.md"><code>tf.constant</code></a> embeds the v
 symbolic tensors:
 
 ```
->>> i = tf.keras.layers.Input(shape=[None, None])
->>> t = tf.constant(i)
+>>> with tf.compat.v1.Graph().as_default():
+...   i = tf.compat.v1.placeholder(shape=[None, None], dtype=tf.float32)
+...   t = tf.constant(i)
 Traceback (most recent call last):
 ...
-NotImplementedError: ...
+TypeError: ...
 ```
 
 <a href="../tf/constant.md"><code>tf.constant</code></a> will _always_ create CPU (host) tensors. In order to create
@@ -113,10 +113,11 @@ Tensor, however, the tensor will be returned unmodified as mentioned above.)
   * It has no `shape` argument.
   * Symbolic tensors are allowed to pass through.
 
-    ```
-    >>> i = tf.keras.layers.Input(shape=[None, None])
-    >>> t = tf.convert_to_tensor(i)
-    ```
+  ```
+  >>> with tf.compat.v1.Graph().as_default():
+  ...   i = tf.compat.v1.placeholder(shape=[None, None], dtype=tf.float32)
+  ...   t = tf.convert_to_tensor(i)
+  ```
 
 * <a href="../tf/fill.md"><code>tf.fill</code></a>: differs in a few ways:
   *   <a href="../tf/constant.md"><code>tf.constant</code></a> supports arbitrary constants, not just uniform scalar

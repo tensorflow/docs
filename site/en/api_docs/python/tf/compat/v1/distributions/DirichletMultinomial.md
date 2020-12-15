@@ -35,7 +35,7 @@ description: Dirichlet-Multinomial compound distribution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/dirichlet_multinomial.py#L55-L355">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/dirichlet_multinomial.py#L55-L355">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -334,7 +334,7 @@ Python `bool` indicating possibly expensive checks are enabled.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L637-L654">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L637-L654">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_shape_tensor(
@@ -383,7 +383,7 @@ name to give to the op
 
 <h3 id="cdf"><code>cdf</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L881-L898">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L881-L898">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cdf(
@@ -443,7 +443,7 @@ values of type `self.dtype`.
 
 <h3 id="copy"><code>copy</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L615-L631">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L615-L631">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>copy(
@@ -495,7 +495,7 @@ of self.parameters and override_parameters_kwargs, i.e.,
 
 <h3 id="covariance"><code>covariance</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1094-L1131">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1094-L1131">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>covariance(
@@ -588,7 +588,7 @@ where the first `n` dimensions are batch coordinates and
 
 <h3 id="cross_entropy"><code>cross_entropy</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1146-L1169">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1146-L1169">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cross_entropy(
@@ -653,7 +653,7 @@ representing `n` different calculations of (Shanon) cross entropy.
 
 <h3 id="entropy"><code>entropy</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L982-L985">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L982-L985">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>entropy(
@@ -666,7 +666,7 @@ Shannon entropy in nats.
 
 <h3 id="event_shape_tensor"><code>event_shape_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L677-L691">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L677-L691">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>event_shape_tensor(
@@ -713,7 +713,7 @@ name to give to the op
 
 <h3 id="is_scalar_batch"><code>is_scalar_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L721-L733">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L721-L733">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_scalar_batch(
@@ -760,7 +760,7 @@ Python `str` prepended to names of ops created by this function.
 
 <h3 id="is_scalar_event"><code>is_scalar_event</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L707-L719">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L707-L719">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_scalar_event(
@@ -807,7 +807,7 @@ Python `str` prepended to names of ops created by this function.
 
 <h3 id="kl_divergence"><code>kl_divergence</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1175-L1201">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1175-L1201">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>kl_divergence(
@@ -875,7 +875,7 @@ divergence.
 
 <h3 id="log_cdf"><code>log_cdf</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L842-L863">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L842-L863">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>log_cdf(
@@ -939,7 +939,7 @@ values of type `self.dtype`.
 
 <h3 id="log_prob"><code>log_prob</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L784-L795">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L784-L795">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>log_prob(
@@ -1009,7 +1009,7 @@ values of type `self.dtype`.
 
 <h3 id="log_survival_function"><code>log_survival_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L917-L939">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L917-L939">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>log_survival_function(
@@ -1071,7 +1071,7 @@ Python `str` prepended to names of ops created by this function.
 
 <h3 id="mean"><code>mean</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L991-L994">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L991-L994">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>mean(
@@ -1084,7 +1084,7 @@ Mean.
 
 <h3 id="mode"><code>mode</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1137-L1140">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1137-L1140">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>mode(
@@ -1097,7 +1097,7 @@ Mode.
 
 <h3 id="param_shapes"><code>param_shapes</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L497-L516">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L497-L516">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1155,7 +1155,7 @@ name to prepend ops with.
 
 <h3 id="param_static_shapes"><code>param_static_shapes</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L518-L555">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L518-L555">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1225,7 +1225,7 @@ if `sample_shape` is a `TensorShape` and is not fully defined.
 
 <h3 id="prob"><code>prob</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L813-L824">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L813-L824">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>prob(
@@ -1295,7 +1295,7 @@ values of type `self.dtype`.
 
 <h3 id="quantile"><code>quantile</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1006-L1023">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1006-L1023">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>quantile(
@@ -1355,7 +1355,7 @@ values of type `self.dtype`.
 
 <h3 id="sample"><code>sample</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L752-L766">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L752-L766">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>sample(
@@ -1418,7 +1418,7 @@ a `Tensor` with prepended dimensions `sample_shape`.
 
 <h3 id="stddev"><code>stddev</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1061-L1088">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1061-L1088">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>stddev(
@@ -1474,7 +1474,7 @@ Floating-point `Tensor` with shape identical to
 
 <h3 id="survival_function"><code>survival_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L957-L976">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L957-L976">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>survival_function(
@@ -1533,7 +1533,7 @@ Python `str` prepended to names of ops created by this function.
 
 <h3 id="variance"><code>variance</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/distributions/distribution.py#L1029-L1055">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/distributions/distribution.py#L1029-L1055">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variance(

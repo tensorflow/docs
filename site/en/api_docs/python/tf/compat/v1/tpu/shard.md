@@ -11,7 +11,7 @@ description: Shards computation for parallel execution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu.py#L1714-L1792">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu.py#L1798-L1880">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -26,7 +26,7 @@ Shards `computation` for parallel execution.
 <code>tf.compat.v1.tpu.shard(
     computation, inputs=None, num_shards=1, input_shard_axes=None,
     outputs_from_all_shards=(True), output_shard_axes=None, infeed_queue=None,
-    device_assignment=None, name=None
+    device_assignment=None, name=None, xla_options=None
 )
 </code></pre>
 
@@ -141,6 +141,14 @@ is equal to the number of cores in the TPU system.
 </td>
 <td>
 (Deprecated) Does nothing.
+</td>
+</tr><tr>
+<td>
+`xla_options`
+</td>
+<td>
+An instance of `tpu.XLAOptions` which indicates the options
+passed to XLA compiler. Use `None` for default options.
 </td>
 </tr>
 </table>

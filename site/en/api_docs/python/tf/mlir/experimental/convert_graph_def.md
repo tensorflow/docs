@@ -11,7 +11,7 @@ description: Import a GraphDef and convert it to a textual MLIR module.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/mlir/mlir.py#L25-L41">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/mlir/mlir.py#L25-L47">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,6 +43,8 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+This API is only intended for inspecting the internals of TensorFlow and the
+string returned is at the moment intended for debugging purposes.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -64,7 +66,7 @@ representation of a valid GraphDef.
 <td>
 A textual description of an MLIR Pass Pipeline to run on the
 module, see MLIR documentation for the
-[textual pass pipeline syntax](https://github.com/tensorflow/mlir/blob/master/g3doc/WritingAPass.md#textual-pass-pipeline-specification).
+[textual pass pipeline syntax](https://mlir.llvm.org/docs/PassManagement/#textual-pass-pipeline-specification).
 </td>
 </tr>
 </table>
@@ -78,9 +80,26 @@ module, see MLIR documentation for the
 <tr class="alt">
 <td colspan="2">
 A textual representation of the MLIR module corresponding to the graphdef.
-Raises a RuntimeError on error.
 </td>
 </tr>
 
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
+
+<tr>
+<td>
+`InvalidArgumentError`
+</td>
+<td>
+if graph_def is invalid or cannot be converted to
+MLIR.
+</td>
+</tr>
 </table>
 

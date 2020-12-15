@@ -43,6 +43,10 @@ Public API for tf.saved_model namespace.
 
 
 
+## Modules
+
+[`experimental`](../tf/saved_model/experimental.md) module: Public API for tf.saved_model.experimental namespace.
+
 ## Classes
 
 [`class Asset`](../tf/saved_model/Asset.md): Represents a file asset to hermetically include in a SavedModel.

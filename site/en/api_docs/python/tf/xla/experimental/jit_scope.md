@@ -11,7 +11,7 @@ description: Enable or disable JIT compilation of operators within the scope.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/xla/jit.py#L40-L132">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/xla/jit.py#L40-L160">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -72,6 +72,36 @@ Example of `separate_compiled_gradients`:
     f = tf.matmul(a, b)
   g = tf.gradients([f], [a, b], name='mygrads1')
   h = tf.gradients([f], [a, b], name='mygrads2')
+  ```
+
+Ops that are not in the scope may be clustered and compiled with ops in
+the scope with `compile_ops=True`, while the ops in the scope with
+`compile_ops=False` will never be compiled.
+
+#### For example:
+
+
+```python
+# In the example below, x and loss may be clustered and compiled together,
+# while y will not be compiled.
+with tf.xla.experimental.jit_scope():
+  x = tf.matmul(a, b)
+with tf.xla.experimental.jit_scope(compile_ops=False):
+  y = tf.matmul(c, d)
+loss = x + y
+```
+
+
+If you want to only compile the ops in the scope with `compile_ops=True`,
+consider adding an outer `jit_scope(compile_ops=False)`:
+
+  ```python
+  # In the example below, only x will be compiled.
+  with tf.xla.experimental.jit_scope(compile_ops=False):
+    with tf.xla.experimental.jit_scope():
+      x = tf.matmul(a, b)
+    y = tf.matmul(c, d)
+    loss = x + y
   ```
 
 <!-- Tabular view -->

@@ -19,7 +19,7 @@ description: Implementation of the scikit-learn regressor API for Keras.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L314-L355">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L314-L355">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -56,7 +56,7 @@ more details.</p>
 
 <h3 id="check_params"><code>check_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L79-L106">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L79-L106">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>check_params(
@@ -103,7 +103,7 @@ if any member of `params` is not a valid argument.
 
 <h3 id="filter_sk_params"><code>filter_sk_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L170-L187">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L170-L187">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>filter_sk_params(
@@ -158,7 +158,7 @@ in both `sk_params` and `fn`'s arguments.
 
 <h3 id="fit"><code>fit</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L134-L168">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L134-L168">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit(
@@ -224,7 +224,7 @@ details about the training history at each epoch.
 
 <h3 id="get_params"><code>get_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L108-L119">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L108-L119">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_params(
@@ -268,7 +268,7 @@ Dictionary of parameter names mapped to their values.
 
 <h3 id="predict"><code>predict</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L318-L333">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L318-L333">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict(
@@ -326,7 +326,7 @@ Predictions.
 
 <h3 id="score"><code>score</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L335-L355">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L335-L355">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>score(
@@ -392,7 +392,7 @@ Mean accuracy of predictions on `x` wrt. `y`.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L121-L132">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L121-L132">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_params(

@@ -11,7 +11,7 @@ description: Instantiates a Keras model from its config.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/saving/model_config.py#L34-L55">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/saving/model_config.py#L34-L64">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,6 +43,17 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+
+#### Usage:
+
+
+```
+# for a Functional API model
+tf.keras.Model().from_config(model.get_config())
+
+# for a Sequential model
+tf.keras.Sequential().from_config(model.get_config())
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

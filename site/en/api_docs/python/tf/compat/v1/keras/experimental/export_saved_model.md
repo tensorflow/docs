@@ -1,4 +1,4 @@
-description: Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel. (deprecated)
+description: Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.keras.experimental.export_saved_model" />
@@ -11,7 +11,7 @@ description: Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/saving/saved_model_experimental.py#L64-L146">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/saving/saved_model_experimental.py#L64-L146">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras
 
 
 
-Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel. (deprecated)
+Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.keras.experimental.export_saved_model(
@@ -32,10 +32,6 @@ Exports a <a href="../../../../../tf/keras/Model.md"><code>tf.keras.Model</code>
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please use `model.save(..., save_format="tf")` or `tf.keras.models.save_model(..., save_format="tf")`.
 
 Note that at this time, subclassed models can only be saved using
 `serving_only=True`.

@@ -3,6 +3,7 @@ description: A generic hash table that is immutable once initialized.
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.lookup.StaticHashTable" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="__getitem__"/>
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="export"/>
 <meta itemprop="property" content="lookup"/>
@@ -15,7 +16,7 @@ description: A generic hash table that is immutable once initialized.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L330-L365">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L353-L388">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -157,7 +158,7 @@ The table value dtype.
 
 <h3 id="export"><code>export</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L310-L326">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L333-L349">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>export(
@@ -202,7 +203,7 @@ second tensors containing all values in the table.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L202-L237">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L207-L246">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>lookup(
@@ -244,7 +245,8 @@ A name for the operation (optional).
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, a `RaggedTensor` if keys are ragged,
+otherwise a dense `Tensor`.
 </td>
 </tr>
 
@@ -272,7 +274,7 @@ types.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L190-L200">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L195-L205">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(
@@ -312,6 +314,19 @@ A scalar tensor containing the number of elements in this table.
 
 </table>
 
+
+
+<h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L149-L151">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__getitem__(
+    keys
+)
+</code></pre>
+
+Looks up `keys` in a table, outputs the corresponding values.
 
 
 

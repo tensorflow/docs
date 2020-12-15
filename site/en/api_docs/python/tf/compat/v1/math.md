@@ -147,6 +147,8 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`erfc(...)`](../../../tf/math/erfc.md): Computes the complementary error function of `x` element-wise.
 
+[`erfcinv(...)`](../../../tf/math/erfcinv.md): Computes the inverse of complementary error function.
+
 [`erfinv(...)`](../../../tf/math/erfinv.md): Compute inverse error function.
 
 [`exp(...)`](../../../tf/math/exp.md): Computes exponential of x element-wise.  \\(y = e^x\\).
@@ -299,7 +301,7 @@ tf.math.unsorted_segment_sum(c, tf.constant([0, 1, 0]), num_segments=2)
 
 [`square(...)`](../../../tf/math/square.md): Computes square of x element-wise.
 
-[`squared_difference(...)`](../../../tf/math/squared_difference.md): Returns (x - y)(x - y) element-wise.
+[`squared_difference(...)`](../../../tf/math/squared_difference.md): Returns conj(x - y)(x - y) element-wise.
 
 [`subtract(...)`](../../../tf/math/subtract.md): Returns x - y element-wise.
 

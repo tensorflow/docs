@@ -11,7 +11,7 @@ description: Split a SparseTensor into num_split tensors along axis. (deprecated
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/sparse_ops.py#L951-L1022">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/sparse_ops.py#L952-L1025">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -98,7 +98,9 @@ A Python integer. The number of ways to split.
 `axis`
 </td>
 <td>
-A 0-D `int32` `Tensor`. The dimension along which to split.
+A 0-D `int32` `Tensor`. The dimension along which to split. Must be in
+range [-rank, rank), where rank is the number of dimensions in the input
+`SparseTensor`.
 </td>
 </tr><tr>
 <td>

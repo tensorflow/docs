@@ -15,7 +15,7 @@ description: Holds a list of enqueue operations for a queue, each to be run in a
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/queue_runner_impl.py#L38-L391">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/queue_runner_impl.py#L38-L391">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -241,7 +241,7 @@ The string name of the underlying Queue.
 
 <h3 id="create_threads"><code>create_threads</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/queue_runner_impl.py#L301-L356">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/queue_runner_impl.py#L301-L356">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>create_threads(
@@ -319,7 +319,7 @@ A list of threads.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/queue_runner_impl.py#L387-L391">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/queue_runner_impl.py#L387-L391">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -333,7 +333,7 @@ Returns a `QueueRunner` object created from `queue_runner_def`.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/queue_runner_impl.py#L358-L385">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/queue_runner_impl.py#L358-L385">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_proto(

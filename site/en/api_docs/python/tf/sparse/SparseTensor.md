@@ -11,6 +11,7 @@ description: Represents a sparse tensor.
 <meta itemprop="property" content="eval"/>
 <meta itemprop="property" content="from_value"/>
 <meta itemprop="property" content="get_shape"/>
+<meta itemprop="property" content="with_values"/>
 </div>
 
 # tf.sparse.SparseTensor
@@ -19,7 +20,7 @@ description: Represents a sparse tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/sparse_tensor.py#L47-L260">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L47-L285">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -223,7 +224,7 @@ The non-zero values in the represented dense tensor.
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/sparse_tensor.py#L259-L260">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L284-L285">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>consumers()
@@ -234,7 +235,7 @@ The non-zero values in the represented dense tensor.
 
 <h3 id="eval"><code>eval</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/sparse_tensor.py#L214-L237">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L239-L262">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>eval(
@@ -294,7 +295,7 @@ A `SparseTensorValue` object.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/sparse_tensor.py#L106-L114">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L106-L114">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -308,7 +309,7 @@ A `SparseTensorValue` object.
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/sparse_tensor.py#L154-L160">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L154-L160">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_shape()
@@ -331,9 +332,69 @@ A `TensorShape` object.
 
 
 
+<h3 id="with_values"><code>with_values</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/sparse_tensor.py#L181-L204">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>with_values(
+    new_values
+)
+</code></pre>
+
+Returns a copy of `self` with `values` replaced by `new_values`.
+
+This method produces a new `SparseTensor` that has the same nonzero
+`indices` and same `dense_shape`, but updated values.
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`new_values`
+</td>
+<td>
+The values of the new `SparseTensor`. Needs to have the same
+shape as the current `.values` `Tensor`. May have a different type than
+the current `values`.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+A `SparseTensor` with identical indices and shape but updated values.
+</td>
+</tr>
+
+</table>
+
+
+
+#### Example usage:
+
+
+
+```
+>>> st = tf.sparse.from_dense([[1, 0, 2, 0], [3, 0, 0, 4]])
+>>> tf.sparse.to_dense(st.with_values([10, 20, 30, 40]))  # 4 nonzero values
+<tf.Tensor: shape=(2, 4), dtype=int32, numpy=
+array([[10,  0, 20,  0],
+       [30,  0,  0, 40]], dtype=int32)>
+```
+
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1145-L1151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1184-L1190">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__div__(
@@ -412,7 +473,7 @@ A `Tensor`. Has the same type as `sp_values`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1145-L1151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1184-L1190">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__mul__(
@@ -495,7 +556,7 @@ A `Tensor`. Has the same type as `sp_values`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1145-L1151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1184-L1190">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__truediv__(

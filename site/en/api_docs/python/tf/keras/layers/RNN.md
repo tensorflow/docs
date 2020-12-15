@@ -14,7 +14,7 @@ description: Base class for recurrent layers.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L207-L992">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L202-L992">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -235,7 +235,7 @@ Note on using statefulness in RNNs:
       This is the expected shape of your inputs
       *including the batch size*.
       It should be a tuple of integers, e.g. `(32, 10, 100)`.
-    - Specify `shuffle=False` when calling fit().
+    - Specify `shuffle=False` when calling `fit()`.
 
   To reset the states of your model, call `.reset_states()` on either
   a specific layer, or on your entire model.
@@ -327,7 +327,7 @@ y = layer(x)
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L889-L957">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L886-L961">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_states(

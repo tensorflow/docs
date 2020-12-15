@@ -11,7 +11,7 @@ description: Replaces all the variables in a graph with constants of the same va
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/graph_util_impl.py#L243-L284">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/graph_util_impl.py#L243-L284">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -114,7 +114,7 @@ GraphDef containing a simplified version of the original.
 </td>
 <td>
 if a DT_RESOURCE op is found whose ancestor Variables are both
-blacklisted AND whitelisted for freezing.
+denylisted AND whitelisted for freezing.
 </td>
 </tr>
 </table>

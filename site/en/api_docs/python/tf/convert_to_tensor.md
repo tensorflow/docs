@@ -11,7 +11,7 @@ description: Converts the given value to a Tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/ops.py#L1319-L1382">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/ops.py#L1340-L1405">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -34,9 +34,14 @@ Converts the given `value` to a `Tensor`.
 
 This function converts Python objects of various types to `Tensor`
 objects. It accepts `Tensor` objects, numpy arrays, Python lists,
-and Python scalars. For example:
+and Python scalars.
+
+#### For example:
+
+
 
 ```
+>>> import numpy as np
 >>> def my_func(arg):
 ...   arg = tf.convert_to_tensor(arg, dtype=tf.float32)
 ...   return arg
@@ -44,6 +49,7 @@ and Python scalars. For example:
 
 ```
 >>> # The following calls are equivalent.
+...
 >>> value_1 = my_func(tf.constant([[1.0, 2.0], [3.0, 4.0]]))
 >>> print(value_1)
 tf.Tensor(

@@ -18,7 +18,7 @@ description: Mapping from logical cores in a computation to the physical TPU top
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L60-L176">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L61-L177">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -148,7 +148,7 @@ A `Topology` that describes the TPU topology.
 
 <h3 id="build"><code>build</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L170-L176">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L171-L177">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -162,7 +162,7 @@ A `Topology` that describes the TPU topology.
 
 <h3 id="coordinates"><code>coordinates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L131-L133">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L132-L134">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>coordinates(
@@ -175,7 +175,7 @@ Returns the physical topology coordinates of a logical core.
 
 <h3 id="host_device"><code>host_device</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L160-L163">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L161-L164">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>host_device(
@@ -188,7 +188,7 @@ Returns the CPU device attached to a logical core.
 
 <h3 id="lookup_replicas"><code>lookup_replicas</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L135-L153">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L136-L154">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>lookup_replicas(
@@ -258,7 +258,7 @@ core.
 
 <h3 id="tpu_device"><code>tpu_device</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L165-L168">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L166-L169">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tpu_device(
@@ -271,7 +271,7 @@ Returns the name of the TPU device assigned to a logical core.
 
 <h3 id="tpu_ordinal"><code>tpu_ordinal</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/device_assignment.py#L155-L158">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/device_assignment.py#L156-L159">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tpu_ordinal(

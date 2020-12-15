@@ -19,7 +19,7 @@ description: TensorFlow multi-step profiler.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L126-L306">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L126-L306">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -106,7 +106,7 @@ extra op types.
 
 <h3 id="add_step"><code>add_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L189-L205">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L189-L205">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_step(
@@ -145,7 +145,7 @@ RunMetadata proto that contains statistics of a session run.
 
 <h3 id="advise"><code>advise</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L279-L291">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L279-L291">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>advise(
@@ -189,7 +189,7 @@ An Advise proto that contains the reports from all checkers.
 
 <h3 id="profile_graph"><code>profile_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L262-L277">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L262-L277">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>profile_graph(
@@ -233,7 +233,7 @@ a GraphNodeProto that records the results.
 
 <h3 id="profile_name_scope"><code>profile_name_scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L245-L260">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L245-L260">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>profile_name_scope(
@@ -277,7 +277,7 @@ a GraphNodeProto that records the results.
 
 <h3 id="profile_operations"><code>profile_operations</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L228-L243">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L228-L243">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>profile_operations(
@@ -321,7 +321,7 @@ a MultiGraphNodeProto that records the results.
 
 <h3 id="profile_python"><code>profile_python</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L207-L226">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L207-L226">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>profile_python(
@@ -368,7 +368,7 @@ a MultiGraphNodeProto that records the results.
 
 <h3 id="serialize_to_string"><code>serialize_to_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/model_analyzer.py#L293-L302">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/model_analyzer.py#L293-L302">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>serialize_to_string()

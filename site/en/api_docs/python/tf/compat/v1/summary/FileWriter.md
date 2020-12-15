@@ -24,7 +24,7 @@ description: Writes Summary protocol buffers to event files.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L283-L432">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L283-L432">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -141,7 +141,7 @@ If called with eager execution enabled.
 
 <h3 id="add_event"><code>add_event</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L395-L402">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L395-L402">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_event(
@@ -171,7 +171,7 @@ An `Event` protocol buffer.
 
 <h3 id="add_graph"><code>add_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L163-L214">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L163-L214">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_graph(
@@ -235,7 +235,7 @@ If both graph and graph_def are passed to the method.
 
 <h3 id="add_meta_graph"><code>add_meta_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L229-L249">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L229-L249">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_meta_graph(
@@ -293,7 +293,7 @@ If both `meta_graph_def` is not an instance of `MetaGraphDef`.
 
 <h3 id="add_run_metadata"><code>add_run_metadata</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L251-L273">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L251-L273">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_run_metadata(
@@ -355,7 +355,7 @@ If the provided tag was already used for this type of event.
 
 <h3 id="add_session_log"><code>add_session_log</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L144-L156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L144-L156">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_session_log(
@@ -395,7 +395,7 @@ summary.
 
 <h3 id="add_summary"><code>add_summary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L101-L142">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L101-L142">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_summary(
@@ -442,7 +442,7 @@ summary.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L415-L421">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L415-L421">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>close()
@@ -454,7 +454,7 @@ Call this method when you do not need the summary writer anymore.
 
 <h3 id="flush"><code>flush</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L404-L413">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L404-L413">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>flush()
@@ -467,7 +467,7 @@ disk.
 
 <h3 id="get_logdir"><code>get_logdir</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L381-L383">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L381-L383">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_logdir()
@@ -478,7 +478,7 @@ Returns the directory where event file will be written.
 
 <h3 id="reopen"><code>reopen</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L423-L432">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L423-L432">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reopen()
@@ -493,7 +493,7 @@ Does nothing if the EventFileWriter was not closed.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L373-L375">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L373-L375">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__enter__()
@@ -504,7 +504,7 @@ Make usable with "with" statement.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/writer/writer.py#L377-L379">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/writer/writer.py#L377-L379">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__exit__(

@@ -12,7 +12,7 @@ description: Configuration data for one embedding feature.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L547-L618">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L649-L733">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,7 +36,9 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.tpu.experimental.embedding.FeatureConfig(
-    table, max_sequence_length=0, name=None
+    table: <a href="../../../../tf/tpu/experimental/embedding/TableConfig.md"><code>tf.tpu.experimental.embedding.TableConfig</code></a>,
+    max_sequence_length: int = 0,
+    name: Optional[Text] = None
 )
 </code></pre>
 

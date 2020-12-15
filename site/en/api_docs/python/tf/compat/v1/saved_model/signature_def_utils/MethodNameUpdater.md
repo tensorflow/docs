@@ -14,7 +14,7 @@ description: Updates the method name(s) of the SavedModel stored in the given pa
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/method_name_updater.py#L37-L148">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/method_name_updater.py#L37-L149">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -42,7 +42,8 @@ can be used to replace the `predict` `method_name` to `regress`.
 Typical usages of the `MethodNameUpdater`
 ```python
 ...
-updater = tf.compat.v1.saved_model.MethodNameUpdater(export_dir)
+updater = tf.compat.v1.saved_model.signature_def_utils.MethodNameUpdater(
+    export_dir)
 # Update all signature_defs with key "foo" in all meta graph defs.
 updater.replace_method_name(signature_key="foo", method_name="regress")
 # Update a single signature_def with key "bar" in the meta graph def with
@@ -94,7 +95,7 @@ parsed.
 
 <h3 id="replace_method_name"><code>replace_method_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/method_name_updater.py#L74-L117">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/method_name_updater.py#L75-L118">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>replace_method_name(
@@ -162,7 +163,7 @@ if no meta graph has a signature_def that matches signature_key.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/method_name_updater.py#L119-L148">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/method_name_updater.py#L120-L149">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(

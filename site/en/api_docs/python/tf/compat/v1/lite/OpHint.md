@@ -29,7 +29,7 @@ description: A class that helps build tflite function invocations.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/op_hint.py#L97-L468">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/op_hint.py#L97-L468">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -113,7 +113,7 @@ Keyword arguments of any constant attributes for the function.
 
 <h3 id="add_input"><code>add_input</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/op_hint.py#L388-L408">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/op_hint.py#L388-L408">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_input(
@@ -174,7 +174,7 @@ The wrapped input tensor.
 
 <h3 id="add_inputs"><code>add_inputs</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/op_hint.py#L432-L449">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/op_hint.py#L432-L449">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_inputs(
@@ -226,7 +226,7 @@ are also are also tf.Tensor's.
 
 <h3 id="add_output"><code>add_output</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/op_hint.py#L410-L430">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/op_hint.py#L410-L430">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_output(
@@ -287,7 +287,7 @@ The wrapped output tensor.
 
 <h3 id="add_outputs"><code>add_outputs</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/op_hint.py#L451-L468">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/op_hint.py#L451-L468">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_outputs(

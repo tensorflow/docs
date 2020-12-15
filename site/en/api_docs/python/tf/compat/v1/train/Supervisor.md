@@ -34,7 +34,7 @@ description: A training helper that checkpoints models and computes summaries.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L44-L1023">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L44-L1023">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -543,7 +543,7 @@ Return the SummaryWriter used by the chief supervisor.
 
 <h3 id="Loop"><code>Loop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>Loop(
@@ -614,7 +614,7 @@ The started thread.
 
 <h3 id="PrepareSession"><code>PrepareSession</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>PrepareSession(
@@ -695,7 +695,7 @@ A Session object that can be used to drive the model.
 
 <h3 id="RequestStop"><code>RequestStop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>RequestStop(
@@ -728,7 +728,7 @@ corresponding exception is recorded and re-raised from `join()`.
 
 <h3 id="ShouldStop"><code>ShouldStop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>ShouldStop()
@@ -754,7 +754,7 @@ True if the coordinator was told to stop, False otherwise.
 
 <h3 id="StartQueueRunners"><code>StartQueueRunners</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>StartQueueRunners(
@@ -835,7 +835,7 @@ execution is enabled, use the <a href="../../../../tf/data.md"><code>tf.data</co
 
 <h3 id="StartStandardServices"><code>StartStandardServices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>StartStandardServices(
@@ -912,7 +912,7 @@ services need a log directory.
 
 <h3 id="Stop"><code>Stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>Stop(
@@ -965,7 +965,7 @@ raising a RuntimeError.
 
 <h3 id="StopOnException"><code>StopOnException</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>StopOnException()
@@ -991,7 +991,7 @@ A context handler.
 
 <h3 id="SummaryComputed"><code>SummaryComputed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>SummaryComputed(
@@ -1060,7 +1060,7 @@ if the Supervisor was created without a `logdir`.
 
 <h3 id="WaitForStop"><code>WaitForStop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>WaitForStop()
@@ -1071,7 +1071,7 @@ Block waiting for the coordinator to stop.
 
 <h3 id="loop"><code>loop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L782-L808">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>loop(
@@ -1142,7 +1142,7 @@ The started thread.
 
 <h3 id="managed_session"><code>managed_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L935-L1023">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L935-L1023">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -1255,7 +1255,7 @@ session is closed when the `with` block exits.
 
 <h3 id="prepare_or_wait_for_session"><code>prepare_or_wait_for_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L690-L745">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>prepare_or_wait_for_session(
@@ -1336,7 +1336,7 @@ A Session object that can be used to drive the model.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L849-L859">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>request_stop(
@@ -1369,7 +1369,7 @@ corresponding exception is recorded and re-raised from `join()`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L861-L869">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>should_stop()
@@ -1395,7 +1395,7 @@ True if the coordinator was told to stop, False otherwise.
 
 <h3 id="start_queue_runners"><code>start_queue_runners</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L747-L780">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>start_queue_runners(
@@ -1476,7 +1476,7 @@ execution is enabled, use the <a href="../../../../tf/data.md"><code>tf.data</co
 
 <h3 id="start_standard_services"><code>start_standard_services</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L638-L688">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>start_standard_services(
@@ -1553,7 +1553,7 @@ services need a log directory.
 
 <h3 id="stop"><code>stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L810-L847">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>stop(
@@ -1606,7 +1606,7 @@ raising a RuntimeError.
 
 <h3 id="stop_on_exception"><code>stop_on_exception</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L871-L879">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>stop_on_exception()
@@ -1632,7 +1632,7 @@ A context handler.
 
 <h3 id="summary_computed"><code>summary_computed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L885-L902">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>summary_computed(
@@ -1701,7 +1701,7 @@ if the Supervisor was created without a `logdir`.
 
 <h3 id="wait_for_stop"><code>wait_for_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/supervisor.py#L881-L883">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>wait_for_stop()

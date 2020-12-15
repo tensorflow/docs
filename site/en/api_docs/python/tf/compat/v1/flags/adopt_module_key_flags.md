@@ -57,9 +57,8 @@ as key flags to the current module.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance in which the flags will
-be declared as key flags. This should almost never need to be
-overridden.
+FlagValues, the FlagValues instance in which the flags will be
+declared as key flags. This should almost never need to be overridden.
 </td>
 </tr>
 </table>

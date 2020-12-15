@@ -5,6 +5,7 @@ description: The TPUEmbedding mid level API.
 <meta itemprop="path" content="Stable" />
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="apply_gradients"/>
+<meta itemprop="property" content="build"/>
 <meta itemprop="property" content="dequeue"/>
 <meta itemprop="property" content="enqueue"/>
 </div>
@@ -15,7 +16,7 @@ description: The TPUEmbedding mid level API.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2.py#L87-L1200">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2.py#L95-L1312">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -39,8 +40,9 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.tpu.experimental.embedding.TPUEmbedding(
-    feature_config, batch_size, optimizer,
-    pipeline_execution_with_tensor_core=(False), initialize_tpu_embedding=(True)
+    feature_config: Any,
+    optimizer: Optional[tpu_embedding_v2_utils._Optimizer],
+    pipeline_execution_with_tensor_core: bool = (False)
 )
 </code></pre>
 
@@ -97,7 +99,6 @@ strategy = tf.distribute.TPUStrategy(...)
 with strategy.scope():
   embedding = tf.tpu.experimental.embedding.TPUEmbedding(
       feature_config=feature_config,
-      batch_size=1024,
       optimizer=tf.tpu.experimental.embedding.SGD(0.1))
 ```
 
@@ -106,12 +107,18 @@ operation a special input option must be specified:
 
 ```python
 distributed_dataset = (
-    strategy.experimental_distribute_datasets_from_function(
+    strategy.distribute_datasets_from_function(
         dataset_fn=...,
         options=tf.distribute.InputOptions(
             experimental_prefetch_to_device=False))
 dataset_iterator = iter(distributed_dataset)
 ```
+
+NOTE: All batches passed to the layer must have the same batch size for each
+input, more over once you have called the layer with one batch size all
+subsequent calls must use the same batch_size. In the event that the batch
+size cannot be automatically determined by the enqueue method, you must call
+the build method with the batch size to initialize the layer.
 
 To use this API on TPU you should use a custom training loop. Below is an
 example of a training and evaluation step:
@@ -202,21 +209,15 @@ A nested structure of
 </td>
 </tr><tr>
 <td>
-`batch_size`
-</td>
-<td>
-The global batch size that you indend to use. Note that is
-fixed and the same batch size must be used for both training and
-evaluation.
-</td>
-</tr><tr>
-<td>
 `optimizer`
 </td>
 <td>
 An instance of one of <a href="../../../../tf/tpu/experimental/embedding/SGD.md"><code>tf.tpu.experimental.embedding.SGD</code></a>,
 <a href="../../../../tf/tpu/experimental/embedding/Adagrad.md"><code>tf.tpu.experimental.embedding.Adagrad</code></a> or
-<a href="../../../../tf/tpu/experimental/embedding/Adam.md"><code>tf.tpu.experimental.embedding.Adam</code></a>.
+<a href="../../../../tf/tpu/experimental/embedding/Adam.md"><code>tf.tpu.experimental.embedding.Adam</code></a>. When not created under
+TPUStrategy may be set to None to avoid the creation of the optimizer
+slot variables, useful for optimizing memory consumption when exporting
+the model for serving where slot variables aren't needed.
 </td>
 </tr><tr>
 <td>
@@ -226,16 +227,6 @@ An instance of one of <a href="../../../../tf/tpu/experimental/embedding/SGD.md"
 If True, the TPU embedding
 computations will overlap with the TensorCore computations (and hence
 will be one step old). Set to True for improved performance.
-</td>
-</tr><tr>
-<td>
-`initialize_tpu_embedding`
-</td>
-<td>
-If False, will not initialize the TPU embedding
-engine. If this is set to False and another instance of this class has
-not initialized the tpu embedding engine, the creation of this object
-will fail.
 </td>
 </tr>
 </table>
@@ -253,7 +244,7 @@ will fail.
 </td>
 <td>
 If optimizer is not one of tf.tpu.experimental.embedding.(SGD,
-Adam or Adagrad).
+Adam or Adagrad) or None when created under a TPUStrategy.
 </td>
 </tr>
 </table>
@@ -287,11 +278,12 @@ creating a serving checkpoint.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2.py#L506-L593">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2.py#L571-L664">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_gradients(
-    gradients, name=None
+    gradients,
+    name: Text = None
 )
 </code></pre>
 
@@ -309,7 +301,7 @@ with strategy.scope():
   embedding = tf.tpu.experimental.embedding.TPUEmbedding(...)
 
 distributed_dataset = (
-    strategy.experimental_distribute_datasets_from_function(
+    strategy.distribute_datasets_from_function(
         dataset_fn=...,
         options=tf.distribute.InputOptions(
             experimental_prefetch_to_device=False))
@@ -369,7 +361,8 @@ A name for the underlying op.
 `RuntimeError`
 </td>
 <td>
-If called when object wasn't created under a `TPUStrategy`.
+If called when object wasn't created under a `TPUStrategy`
+or if not built (either by manually calling build or calling enqueue).
 </td>
 </tr><tr>
 <td>
@@ -394,13 +387,72 @@ corresponding sequence in `feature_config`.
 
 
 
+<h3 id="build"><code>build</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2.py#L340-L393">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>build(
+    per_replica_batch_size: Optional[int] = None
+)
+</code></pre>
+
+Create the underlying variables and initializes the TPU for embeddings.
+
+This method creates the underlying variables (including slot variables). If
+created under a TPUStrategy, this will also initialize the TPU for
+embeddings.
+
+This function will automatically get called by enqueue, which will try to
+determine your batch size automatically. If this fails, you must manually
+call this method before you call enqueue.
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`per_replica_batch_size`
+</td>
+<td>
+The per replica batch size that you intend to use.
+Note that is fixed and the same batch size must be used for both
+training and evaluation. If you want to calculate this from the global
+batch size, you can use `num_replicas_in_sync` property of your strategy
+object. May be set to None if not created under a TPUStrategy.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Raises</th></tr>
+
+<tr>
+<td>
+`ValueError`
+</td>
+<td>
+If per_replica_batch_size is None and object was created in a
+TPUStrategy scope.
+</td>
+</tr>
+</table>
+
+
+
 <h3 id="dequeue"><code>dequeue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2.py#L595-L700">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2.py#L666-L777">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>dequeue(
-    name=None
+    name: Text = None
 )
 </code></pre>
 
@@ -420,7 +472,7 @@ with strategy.scope():
   embedding = tf.tpu.experimental.embedding.TPUEmbedding(...)
 
 distributed_dataset = (
-    strategy.experimental_distribute_datasets_from_function(
+    strategy.distribute_datasets_from_function(
         dataset_fn=...,
         options=tf.distribute.InputOptions(
             experimental_prefetch_to_device=False))
@@ -487,7 +539,8 @@ passed to this instance of the `TPUEmbedding` object.
 `RuntimeError`
 </td>
 <td>
-If called when object wasn't created under a `TPUStrategy`.
+If called when object wasn't created under a `TPUStrategy`
+or if not built (either by manually calling build or calling enqueue).
 </td>
 </tr>
 </table>
@@ -496,11 +549,14 @@ If called when object wasn't created under a `TPUStrategy`.
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2.py#L1051-L1200">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2.py#L1115-L1284">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>enqueue(
-    features, weights=None, training=(True), name=None
+    features,
+    weights=None,
+    training: bool = (True),
+    name: Optional[Text] = None
 )
 </code></pre>
 
@@ -511,7 +567,7 @@ embedding tables. We expect that the batch size of each of the tensors in
 features matches the per core batch size. This will automatically happen if
 your input dataset is batched to the global batch size and you use
 <a href="../../../../tf/distribute/TPUStrategy.md"><code>tf.distribute.TPUStrategy</code></a>'s `experimental_distribute_dataset`
-or if you use `experimental_distribute_datasets_from_function` and batch
+or if you use `distribute_datasets_from_function` and batch
 to the per core batch size computed by the context passed to your input
 function.
 
@@ -521,7 +577,7 @@ with strategy.scope():
   embedding = tf.tpu.experimental.embedding.TPUEmbedding(...)
 
 distributed_dataset = (
-    strategy.experimental_distribute_datasets_from_function(
+    strategy.distribute_datasets_from_function(
         dataset_fn=...,
         options=tf.distribute.InputOptions(
             experimental_prefetch_to_device=False))
@@ -607,6 +663,7 @@ When called inside a strategy.run call and input is not
 directly taken from the args of the `strategy.run` call. Also if
 the size of any sequence in `features` does not match corresponding
 sequence in `feature_config`. Similarly for `weights`, if not `None`.
+If batch size of features is unequal or different from a previous call.
 </td>
 </tr><tr>
 <td>
@@ -614,7 +671,8 @@ sequence in `feature_config`. Similarly for `weights`, if not `None`.
 </td>
 <td>
 When called inside a strategy.run call and inside XLA
-control flow.
+control flow. If batch_size is not able to be determined and build was
+not called.
 </td>
 </tr><tr>
 <td>

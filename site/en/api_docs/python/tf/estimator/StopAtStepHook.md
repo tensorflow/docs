@@ -17,7 +17,7 @@ description: Hook that requests stop at a specified step.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L390-L442">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L390-L442">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -97,7 +97,7 @@ If one of the arguments is invalid.
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L424-L427">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L424-L427">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>after_create_session(
@@ -141,7 +141,7 @@ A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L432-L442">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L432-L442">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>after_run(
@@ -185,7 +185,7 @@ A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L429-L430">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L429-L430">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>before_run(
@@ -240,7 +240,7 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L419-L422">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L419-L422">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>begin()
@@ -256,7 +256,7 @@ graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/session_run_hook.py#L171-L186">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/session_run_hook.py#L171-L186">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>end(

@@ -1,4 +1,4 @@
-description: Experimental Distribution Strategy library.
+description: Public API for tf.distribute.experimental namespace.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.distribute.experimental" />
@@ -15,7 +15,7 @@ description: Experimental Distribution Strategy library.
 
 
 
-Experimental Distribution Strategy library.
+Public API for tf.distribute.experimental namespace.
 
 
 
@@ -23,9 +23,13 @@ Experimental Distribution Strategy library.
 
 [`class CentralStorageStrategy`](../../../../tf/compat/v1/distribute/experimental/CentralStorageStrategy.md): A one-machine strategy that puts all variables on a single device.
 
-[`class CollectiveCommunication`](../../../../tf/distribute/experimental/CollectiveCommunication.md): Communication choices for CollectiveOps.
+[`class CollectiveCommunication`](../../../../tf/distribute/experimental/CommunicationImplementation.md): Cross device communication implementation.
 
 [`class CollectiveHints`](../../../../tf/distribute/experimental/CollectiveHints.md): Hints for collective operations like AllReduce.
+
+[`class CommunicationImplementation`](../../../../tf/distribute/experimental/CommunicationImplementation.md): Cross device communication implementation.
+
+[`class CommunicationOptions`](../../../../tf/distribute/experimental/CommunicationOptions.md): Options for cross device communications like All-reduce.
 
 [`class MultiWorkerMirroredStrategy`](../../../../tf/compat/v1/distribute/experimental/MultiWorkerMirroredStrategy.md): A distribution strategy for synchronous training on multiple workers.
 

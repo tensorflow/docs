@@ -13,7 +13,7 @@ description: Depthwise separable 2D convolution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional.py#L2212-L2422">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional.py#L2240-L2453">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -90,6 +90,9 @@ any `dilation_rate` value != 1.
 </td>
 <td>
 one of `'valid'` or `'same'` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

@@ -22,7 +22,7 @@ description: A class for running TensorFlow operations.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1509-L1675">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1519-L1685">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -168,7 +168,7 @@ The TensorFlow process to which this session will connect.
 
 <h3 id="as_default"><code>as_default</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L793-L846">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L803-L856">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_default()
@@ -239,7 +239,7 @@ A context manager using this session as the default session.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L744-L755">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L754-L765">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>close()
@@ -269,7 +269,7 @@ closing the TensorFlow session.
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L706-L742">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L716-L752">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>list_devices()
@@ -329,7 +329,7 @@ A list of devices in the session.
 
 <h3 id="make_callable"><code>make_callable</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1186-L1309">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1196-L1319">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_callable(
@@ -425,7 +425,7 @@ as arguments to `tf.Session.run`.
 
 <h3 id="partial_run"><code>partial_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L969-L1014">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L979-L1024">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>partial_run(
@@ -529,7 +529,7 @@ Or one of its subclasses on error.
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1016-L1090">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1026-L1100">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>partial_run_setup(
@@ -616,7 +616,7 @@ Or one of its subclasses if a TensorFlow error happens.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1643-L1675">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1653-L1685">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -693,7 +693,7 @@ resetting containers.
 
 <h3 id="run"><code>run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L848-L967">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L858-L977">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>run(
@@ -877,7 +877,7 @@ If `fetches` or `feed_dict` keys are invalid or refer to a
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1591-L1601">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1601-L1611">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__enter__()
@@ -888,7 +888,7 @@ If `fetches` or `feed_dict` keys are invalid or refer to a
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1603-L1641">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1613-L1651">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__exit__(

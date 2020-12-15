@@ -11,7 +11,7 @@ description: Computes exponential of x element-wise.  \\(y = e^x\\).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L4777-L4819">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L4907-L4953">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -65,10 +65,14 @@ numpy=array([   7.389056, 2980.958   ], dtype=float32)>
 ```
 
 For complex numbers, the exponential value is calculated as
-\\(e^{x+iy}={e^x}{e^{iy}}={e^x}{\\cos(y)+i\\sin(y)}\\)
+$$
+e^{x+iy} = {e^x} {e^{iy}} = {e^x} ({\cos (y) + i \sin (y)})
+$$
 
 For `1+1j` the value would be computed as:
-\\(e^1{\\cos(1)+i\\sin(1)} = 2.7182817 \\times (0.5403023+0.84147096j)\\)
+$$
+e^1 (\cos (1) + i \sin (1)) = 2.7182817 \times (0.5403023+0.84147096j)
+$$
 
 ```
 >>> x = tf.constant(1 + 1j)

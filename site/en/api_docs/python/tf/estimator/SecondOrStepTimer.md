@@ -16,7 +16,7 @@ description: Timer that triggers at most once every N seconds or once every N st
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L91-L155">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L91-L155">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -55,7 +55,7 @@ https://github.com/tensorflow/estimator/blob/master/tensorflow_estimator/python/
 
 <h3 id="last_triggered_step"><code>last_triggered_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L154-L155">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L154-L155">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>last_triggered_step()
@@ -66,7 +66,7 @@ Returns the last triggered time step or None if never triggered.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L110-L112">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L110-L112">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset()
@@ -77,7 +77,7 @@ Resets the timer.
 
 <h3 id="should_trigger_for_step"><code>should_trigger_for_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L114-L139">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L114-L139">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>should_trigger_for_step(
@@ -123,7 +123,7 @@ step and the last triggered step exceeds `every_steps`. False otherwise.
 
 <h3 id="update_last_triggered_step"><code>update_last_triggered_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/basic_session_run_hooks.py#L141-L152">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/basic_session_run_hooks.py#L141-L152">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>update_last_triggered_step(

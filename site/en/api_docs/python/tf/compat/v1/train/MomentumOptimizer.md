@@ -22,7 +22,7 @@ description: Optimizer that implements the Momentum algorithm.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/momentum.py#L29-L138">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/momentum.py#L29-L138">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -118,7 +118,7 @@ in the average gradient.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L531-L640">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L531-L640">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_gradients(
@@ -213,7 +213,7 @@ If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_gradients(
@@ -345,7 +345,7 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_name()
@@ -356,7 +356,7 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L737-L773">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L737-L773">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot(
@@ -413,7 +413,7 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L775-L783">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L775-L783">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot_names()
@@ -439,7 +439,7 @@ A list of strings.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>minimize(
@@ -574,7 +574,7 @@ execution is enabled.
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L785-L811">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L785-L811">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variables()

@@ -1,8 +1,9 @@
-description: String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
+description: String to Id table that assigns out-of-vocabulary keys to hash buckets.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.lookup.StaticVocabularyTable" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="__getitem__"/>
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="lookup"/>
 <meta itemprop="property" content="size"/>
@@ -14,7 +15,7 @@ description: String to Id table wrapper that assigns out-of-vocabulary keys to b
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L1279-L1286">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L1332-L1339">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -23,7 +24,7 @@ description: String to Id table wrapper that assigns out-of-vocabulary keys to b
 
 
 
-String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
+String to Id table that assigns out-of-vocabulary keys to hash buckets.
 
 Inherits From: [`StaticVocabularyTable`](../../../../tf/lookup/StaticVocabularyTable.md)
 
@@ -40,21 +41,34 @@ Inherits From: [`StaticVocabularyTable`](../../../../tf/lookup/StaticVocabularyT
 For example, if an instance of `StaticVocabularyTable` is initialized with a
 string-to-id initializer that maps:
 
-* `emerson -> 0`
-* `lake -> 1`
-* `palmer -> 2`
+```
+>>> init = tf.lookup.KeyValueTensorInitializer(
+...     keys=tf.constant(['emerson', 'lake', 'palmer']),
+...     values=tf.constant([0, 1, 2], dtype=tf.int64))
+>>> table = tf.lookup.StaticVocabularyTable(
+...    init,
+...    num_oov_buckets=5)
+```
 
 The `Vocabulary` object will performs the following mapping:
 
 * `emerson -> 0`
 * `lake -> 1`
 * `palmer -> 2`
-* `<other term> -> bucket_id`, where bucket_id will be between `3` and
-`3 + num_oov_buckets - 1`, calculated by:
+* `<other term> -> bucket_id`, where `bucket_id` will be between `3` and
+`3 + num_oov_buckets - 1 = 7`, calculated by:
 `hash(<term>) % num_oov_buckets + vocab_size`
 
-If input_tensor is `["emerson", "lake", "palmer", "king", "crimson"]`,
-the lookup result is `[0, 1, 2, 4, 7]`.
+#### If input_tensor is:
+
+
+
+```
+>>> input_tensor = tf.constant(["emerson", "lake", "palmer",
+...                             "king", "crimson"])
+>>> table[input_tensor].numpy()
+array([0, 1, 2, 6, 7])
+```
 
 If `initializer` is None, only out-of-vocabulary buckets are used.
 
@@ -62,19 +76,24 @@ If `initializer` is None, only out-of-vocabulary buckets are used.
 
 
 
-```python
-num_oov_buckets = 3
-input_tensor = tf.constant(["emerson", "lake", "palmer", "king", "crimnson"])
-table = tf.lookup.StaticVocabularyTable(
-    tf.lookup.TextFileInitializer(
-        filename,
-        key_dtype=tf.string, key_index=tf.lookup.TextFileIndex.WHOLE_LINE,
-        value_dtype=tf.int64, value_index=tf.lookup.TextFileIndex.LINE_NUMBER,
-        delimiter="\t"),
-    num_oov_buckets)
-out = table.lookup(input_tensor).
-table.init.run()
-print(out.eval())
+```
+>>> num_oov_buckets = 3
+>>> vocab = ["emerson", "lake", "palmer", "crimnson"]
+>>> import tempfile
+>>> f = tempfile.NamedTemporaryFile(delete=False)
+>>> f.write('\n'.join(vocab).encode('utf-8'))
+>>> f.close()
+```
+
+```
+>>> init = tf.lookup.TextFileInitializer(
+...     f.name,
+...     key_dtype=tf.string, key_index=tf.lookup.TextFileIndex.WHOLE_LINE,
+...     value_dtype=tf.int64, value_index=tf.lookup.TextFileIndex.LINE_NUMBER)
+>>> table = tf.lookup.StaticVocabularyTable(init, num_oov_buckets)
+>>> table.lookup(tf.constant(["palmer", "crimnson" , "king",
+...                           "tarkus", "black", "moon"])).numpy()
+array([2, 3, 5, 6, 6, 4])
 ```
 
 The hash function used for generating out-of-vocabulary buckets ID is
@@ -90,8 +109,8 @@ Fingerprint64.
 `initializer`
 </td>
 <td>
-A TableInitializerBase object that contains the data used to
-initialize the table. If None, then we only use out-of-vocab buckets.
+A `TableInitializerBase` object that contains the data used
+to initialize the table. If None, then we only use out-of-vocab buckets.
 </td>
 </tr><tr>
 <td>
@@ -199,7 +218,7 @@ The table value dtype.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L1236-L1275">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L1285-L1328">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>lookup(
@@ -241,7 +260,8 @@ Optional name for the op.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, a `RaggedTensor` if keys are ragged,
+otherwise a dense `Tensor`.
 </td>
 </tr>
 
@@ -268,7 +288,7 @@ when `keys` doesn't match the table key data type.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L1227-L1234">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L1276-L1283">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(
@@ -277,6 +297,19 @@ when `keys` doesn't match the table key data type.
 </code></pre>
 
 Compute the number of elements in this table.
+
+
+<h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L149-L151">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__getitem__(
+    keys
+)
+</code></pre>
+
+Looks up `keys` in a table, outputs the corresponding values.
 
 
 

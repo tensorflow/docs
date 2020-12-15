@@ -11,7 +11,7 @@ description: Compiles a function into a callable TensorFlow graph.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/def_function.py#L1199-L1452">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/def_function.py#L1331-L1620">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -37,7 +37,7 @@ more details.</p>
 <code>tf.function(
     func=None, input_signature=None, autograph=(True), experimental_implements=None,
     experimental_autograph_options=None, experimental_relax_shapes=(False),
-    experimental_compile=None
+    experimental_compile=None, experimental_follow_type_hints=None
 )
 </code></pre>
 
@@ -229,6 +229,35 @@ for the first time:
 In general, it is recommended to create stateful objects like <a href="../tf/Variable.md"><code>tf.Variable</code></a>
 outside of <a href="../tf/function.md"><code>tf.function</code></a> and passing them as arguments.
 
+_Using type annotations to improve performance_
+
+'experimental_follow_type_hints` can be used along with type annotations to
+improve performance by reducing the number of expensive graph retracings.
+For example, an argument annotated with <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> is converted to Tensor
+even when the input is a non-Tensor value.
+
+```
+>>> @tf.function(experimental_follow_type_hints=True)
+... def f_with_hints(x: tf.Tensor):
+...   print('Tracing')
+...   return x
+>>> @tf.function(experimental_follow_type_hints=False)
+... def f_no_hints(x: tf.Tensor):
+...   print('Tracing')
+...   return x
+>>> f_no_hints(1)
+Tracing
+<tf.Tensor: shape=(), dtype=int32, numpy=1>
+>>> f_no_hints(2)
+Tracing
+<tf.Tensor: shape=(), dtype=int32, numpy=2>
+>>> f_with_hints(1)
+Tracing
+<tf.Tensor: shape=(), dtype=int32, numpy=1>
+>>> f_with_hints(2)
+<tf.Tensor: shape=(), dtype=int32, numpy=2>
+```
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
@@ -314,6 +343,16 @@ graphs that are less specialized on input shapes.
 If True, the function is always compiled by
 [XLA](https://www.tensorflow.org/xla). XLA may be more efficient in some
 cases (e.g. TPU, XLA_GPU, dense tensor computations).
+</td>
+</tr><tr>
+<td>
+`experimental_follow_type_hints`
+</td>
+<td>
+When True, the function may use type
+annotations from `func` to optimize the tracing performance. For example,
+arguments annotated with <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> will automatically be converted
+to a Tensor.
 </td>
 </tr>
 </table>

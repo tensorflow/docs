@@ -16,7 +16,7 @@ description: Converts a TensorFlow model into TensorFlow Lite model.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L904-L1076">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L947-L1117">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -136,8 +136,8 @@ device.
 <td>
 Data type of the input layer. Note that integer types
 (tf.int8 and tf.uint8) are currently only supported for post training
-integer quantization. (default tf.float32, must be in {tf.float32,
-tf.int8, tf.uint8})
+integer quantization and quantization aware training. (default tf.float32,
+must be in {tf.float32, tf.int8, tf.uint8})
 </td>
 </tr><tr>
 <td>
@@ -146,8 +146,8 @@ tf.int8, tf.uint8})
 <td>
 Data type of the output layer. Note that integer
 types (tf.int8 and tf.uint8) are currently only supported for post
-training integer quantization. (default tf.float32, must be in
-{tf.float32, tf.int8, tf.uint8})
+training integer quantization and quantization aware training. (default
+tf.float32, must be in {tf.float32, tf.int8, tf.uint8})
 </td>
 </tr><tr>
 <td>
@@ -166,7 +166,7 @@ MLIR-based conversion instead of TOCO conversion. (default True)
 
 <h3 id="convert"><code>convert</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1063-L1076">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1104-L1117">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>convert()
@@ -211,7 +211,7 @@ Invalid quantization parameters.
 
 <h3 id="from_concrete_functions"><code>from_concrete_functions</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L964-L986">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1006-L1028">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -272,7 +272,7 @@ Invalid input type.
 
 <h3 id="from_keras_model"><code>from_keras_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1050-L1060">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1091-L1101">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -317,7 +317,7 @@ TFLiteConverter object.
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L988-L1048">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1030-L1089">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>

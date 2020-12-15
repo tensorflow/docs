@@ -11,7 +11,7 @@ description: Loads [CIFAR100 dataset](https://www.cs.toronto.edu/~kriz/cifar.htm
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/datasets/cifar100.py#L31-L84">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/datasets/cifar100.py#L31-L84">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>

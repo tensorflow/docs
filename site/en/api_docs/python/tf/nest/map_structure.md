@@ -11,7 +11,7 @@ description: Applies func to each entry in structure and returns a new structure
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/util/nest.py#L573-L636">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/util/nest.py#L582-L660">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,6 +46,27 @@ more details.</p>
 Applies `func(x[0], x[1], ...)` where x[i] is an entry in
 `structure[i]`.  All structures in `structure` must have the same arity,
 and the return value will contain results with the same structure layout.
+
+#### Examples:
+
+
+
+1. A single Python dict:
+
+```
+>>> a = {"hello": 24, "world": 76}
+>>> tf.nest.map_structure(lambda p: p * 2, a)
+{'hello': 48, 'world': 152}
+```
+
+2. Multiple Python dictionaries:
+
+```
+>>> d1 = {"hello": 24, "world": 76}
+>>> d2 = {"hello": 36, "world": 14}
+>>> tf.nest.map_structure(lambda p1, p2: p1 + p2, d1, d2)
+{'hello': 60, 'world': 90}
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

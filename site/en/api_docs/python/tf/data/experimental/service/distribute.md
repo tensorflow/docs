@@ -11,7 +11,7 @@ description: A transformation that moves dataset processing to the tf.data servi
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/data_service_ops.py#L259-L385">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/data_service_ops.py#L301-L483">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,51 +47,111 @@ When you iterate over a dataset containing the `distribute` transformation,
 the tf.data service creates a "job" which produces data for the dataset
 iteration.
 
-The `processing_mode` argument controls what data is produced by a tf.data
-service job. Currently, the only supported mode is "parallel_epochs".
+The tf.data service uses a cluster of workers to prepare data for training
+your model.
+The `processing_mode` argument to <a href="../../../../tf/data/experimental/service/distribute.md"><code>tf.data.experimental.service.distribute</code></a>
+describes how to leverage multiple workers to process the input dataset.
+Currently, there are two processing modes to choose from: "distributed_epoch"
+and "parallel_epochs".
 
-processing_mode="parallel_epochs" means that multiple tf.data workers will
-iterate through the dataset in parallel, each producing all elements of the
-dataset. For example, if the dataset contains {0, 1, 2}, every tf.data worker
-used for execution will produce {0, 1, 2}. If there are 3 workers, the job
-will produce the elements {0, 0, 0, 1, 1, 1, 2, 2, 2} (though not necessarily
-in that order). To account for this, it is recommended to randomly shuffle
-your dataset, so that different tf.data workers will iterate through the
-dataset in different orders.
+"distributed_epoch" means that the dataset will be split across all tf.data
+service workers.
+The dispatcher produces "splits" for the dataset and sends them to workers for
+further processing. For example, if a dataset begins with a list of filenames,
+the dispatcher will iterate through the filenames and send the filenames to
+tf.data workers, which will perform the rest of the dataset transformations on
+those files. "distributed_epoch" is useful when your model needs to see each
+element of the dataset exactly once, or if it needs to see the data in a
+generally-sequential order. "distributed_epoch" only works for datasets with
+splittable sources, such as <a href="../../../../tf/data/Dataset.md#from_tensor_slices"><code>Dataset.from_tensor_slices</code></a>,
+<a href="../../../../tf/data/Dataset.md#list_files"><code>Dataset.list_files</code></a>, or <a href="../../../../tf/data/Dataset.md#range"><code>Dataset.range</code></a>.
 
-In the future, there will be additional processing modes. For example,
-a "one_epoch" mode which partitions the dataset across the tf.data
-workers, so that the consumers see each element of the dataset only once.
+"parallel_epochs" means that the entire input dataset will be processed
+independently by each of the tf.data service workers.
+For this reason, it is important to shuffle data (e.g. filenames)
+non-deterministically, so that each worker will process the elements of the
+dataset in a different order. "parallel_epochs" can be used to distribute
+datasets that aren't splittable.
+
+With two workers, "parallel_epochs" will produce every element of the dataset
+twice:
 
 ```
-dataset = tf.data.Dataset.range(5)
-dataset = dataset.map(lambda x: x*x)
-dataset = dataset.apply(
-    tf.data.experimental.service.distribute("parallel_epochs",
-                                            "grpc://dataservice:5000"))
-dataset = dataset.map(lambda x: x+1)
-
-for element in dataset:
-  print(element)  # prints { 1, 2, 5, 10, 17 }
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
+>>> dispatcher_address = dispatcher.target.split("://")[1]
+>>> # Start two workers
+>>> workers = [
+...     tf.data.experimental.service.WorkerServer(
+...         tf.data.experimental.service.WorkerConfig(
+...             dispatcher_address=dispatcher_address)) for _ in range(2)
+... ]
+>>> dataset = tf.data.Dataset.range(10)
+>>> dataset = dataset.apply(tf.data.experimental.service.distribute(
+...     processing_mode="parallel_epochs", service=dispatcher.target))
+>>> print(sorted(list(dataset.as_numpy_iterator())))
+[0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
 ```
 
-In the above example, the first two lines (before the call to `distribute`)
-will be executed on tf.data workers, and the elements provided over
-RPC. The remaining transformations (after the call to `distribute`) will be
-executed locally.
+"distributed_epoch", on the other hand, will still produce each element once:
+
+```
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
+>>> dispatcher_address = dispatcher.target.split("://")[1]
+>>> workers = [
+...     tf.data.experimental.service.WorkerServer(
+...         tf.data.experimental.service.WorkerConfig(
+...             dispatcher_address=dispatcher_address)) for _ in range(2)
+... ]
+>>> dataset = tf.data.Dataset.range(10)
+>>> dataset = dataset.apply(tf.data.experimental.service.distribute(
+...     processing_mode="distributed_epoch", service=dispatcher.target))
+>>> print(sorted(list(dataset.as_numpy_iterator())))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+When using `apply(tf.data.experimental.service.distribute(...))`, the dataset
+before the `apply` transformation executes within the tf.data service, while
+the operations after `apply` happen within the local process.
+
+```
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
+>>> dispatcher_address = dispatcher.target.split("://")[1]
+>>> workers = [
+...     tf.data.experimental.service.WorkerServer(
+...         tf.data.experimental.service.WorkerConfig(
+...             dispatcher_address=dispatcher_address)) for _ in range(2)
+... ]
+>>> dataset = tf.data.Dataset.range(5)
+>>> dataset = dataset.map(lambda x: x*x)
+>>> dataset = dataset.apply(
+...    tf.data.experimental.service.distribute("parallel_epochs",
+...                                            dispatcher.target))
+>>> dataset = dataset.map(lambda x: x+1)
+>>> print(sorted(list(dataset.as_numpy_iterator())))
+[1, 1, 2, 2, 5, 5, 10, 10, 17, 17]
+```
+
+In the above example, the dataset operations (before applying the `distribute`
+function on the elements) will be executed on the tf.data workers,
+and the elements are provided over RPC. The remaining transformations
+(after the call to `distribute`) will be executed locally. The dispatcher
+and the workers will bind to usused free ports (which are chosen at random),
+in order to communicate with each other. However, to bind them to specific
+ports, the `port` parameter can be passed.
 
 The `job_name` argument allows jobs to be shared across multiple
 datasets. Instead of each dataset creating its own job, all
 datasets with the same `job_name` will consume from the same job. A new job
 will be created for each iteration of the dataset (with each repetition of
-<a href="../../../../tf/data/Dataset.md#repeat"><code>Dataset.repeat</code></a> counting as a new iteration). Suppose two training workers
-(in either a single client or multi-client setup) iterate over the below
-dataset, and there is a single tf.data worker:
+<a href="../../../../tf/data/Dataset.md#repeat"><code>Dataset.repeat</code></a> counting as a new iteration). Suppose the `DispatchServer`
+is serving on `localhost:5000` and two training workers (in either a single
+client or multi-client setup) iterate over the below dataset, and there is a
+single tf.data worker:
 
 ```
 range5_dataset = tf.data.Dataset.range(5)
 dataset = range5_dataset.apply(tf.data.experimental.service.distribute(
-    "parallel_epochs", "grpc://dataservice:5000", job_name="my_job_name"))
+    "parallel_epochs", "grpc://localhost:5000", job_name="my_job_name"))
 for iteration in range(3):
   print(list(dataset))
 ```
@@ -151,8 +211,10 @@ others.
 </td>
 <td>
 A string specifying the policy for how data should be
-processed by tf.data workers. Currently, the only supported value is
-"parallel_epochs".
+processed by tf.data workers. Can be either "parallel_epochs" to have
+each tf.data worker process a copy of the dataset, or
+"distributed_epoch" to split a single iteration of the dataset across
+all the workers.
 </td>
 </tr><tr>
 <td>
@@ -160,8 +222,8 @@ processed by tf.data workers. Currently, the only supported value is
 </td>
 <td>
 A string indicating how to connect to the tf.data service. The
-string should be in the format <protocol>://<address>, e.g.
-grpc://localhost:5000.
+string should be in the format "protocol://address", e.g.
+"grpc://localhost:5000".
 </td>
 </tr><tr>
 <td>

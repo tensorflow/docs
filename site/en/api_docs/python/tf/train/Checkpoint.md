@@ -1,4 +1,4 @@
-description: Groups trackable objects, saving and restoring them.
+description: Manages saving/restoring trackable values to disk.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.train.Checkpoint" />
@@ -16,7 +16,7 @@ description: Groups trackable objects, saving and restoring them.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1732-L2125">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1785-L2272">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,11 +25,11 @@ description: Groups trackable objects, saving and restoring them.
 
 
 
-Groups trackable objects, saving and restoring them.
+Manages saving/restoring trackable values to disk.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.train.Checkpoint(
-    **kwargs
+    root=None, **kwargs
 )
 </code></pre>
 
@@ -37,13 +37,32 @@ Groups trackable objects, saving and restoring them.
 
 <!-- Placeholder for "Used in" -->
 
-`Checkpoint`'s constructor accepts keyword arguments whose values are types
-that contain trackable state, such as <a href="../../tf/keras/optimizers/Optimizer.md"><code>tf.keras.optimizers.Optimizer</code></a>
-implementations, <a href="../../tf/Variable.md"><code>tf.Variable</code></a>s, <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> iterators, `tf.keras.Layer`
-implementations, or <a href="../../tf/keras/Model.md"><code>tf.keras.Model</code></a> implementations. It saves these values
-with a checkpoint, and maintains a `save_counter` for numbering checkpoints.
+TensorFlow objects may contain trackable state, such as <a href="../../tf/Variable.md"><code>tf.Variable</code></a>s,
+<a href="../../tf/keras/optimizers/Optimizer.md"><code>tf.keras.optimizers.Optimizer</code></a> implementations, <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> iterators,
+`tf.keras.Layer` implementations, or  <a href="../../tf/keras/Model.md"><code>tf.keras.Model</code></a> implementations.
+These are called **trackable objects**.
 
-#### Example usage:
+A `Checkpoint` object can be constructed to save either a single or group of
+trackable objects to a checkpoint file. It maintains a `save_counter` for
+numbering checkpoints.
+
+#### Example:
+
+
+
+```python
+model = tf.keras.Model(...)
+checkpoint = tf.train.Checkpoint(model)
+
+# Save a checkpoint to /tmp/training_checkpoints-{save_counter}. Every time
+# checkpoint.save is called, the save counter is increased.
+save_path = checkpoint.save('/tmp/training_checkpoints')
+
+# Restore the checkpointed values to the `model` object.
+checkpoint.restore(save_path)
+```
+
+#### Example 2:
 
 
 
@@ -105,15 +124,15 @@ section of the checkpoint. These sections are then merged/re-indexed to behave
 as a single checkpoint. This avoids copying all variables to one worker, but
 does require that all workers see a common filesystem.
 
-While <a href="../../tf/keras/Model.md#save_weights"><code>tf.keras.Model.save_weights</code></a> and <a href="../../tf/train/Checkpoint.md#save"><code>tf.train.Checkpoint.save</code></a> save in the
-same format, note that the root of the resulting checkpoint is the object the
-save method is attached to. This means saving a <a href="../../tf/keras/Model.md"><code>tf.keras.Model</code></a> using
-`save_weights` and loading into a <a href="../../tf/train/Checkpoint.md"><code>tf.train.Checkpoint</code></a> with a `Model`
-attached (or vice versa) will not match the `Model`'s variables. See the
-[guide to training
+This function differs slightly from the Keras Model `save_weights` function.
+<a href="../../tf/keras/Model.md#save_weights"><code>tf.keras.Model.save_weights</code></a> creates a checkpoint file with the name
+specified in `filepath`, while <a href="../../tf/train/Checkpoint.md"><code>tf.train.Checkpoint</code></a> numbers the checkpoints,
+using `filepath` as the prefix for the checkpoint file names. Aside from this,
+`model.save_weights()` and `tf.train.Checkpoint(model).save()` are equivalent.
+
+See the [guide to training
 checkpoints](https://www.tensorflow.org/guide/checkpoint) for
-details. Prefer <a href="../../tf/train/Checkpoint.md"><code>tf.train.Checkpoint</code></a> over <a href="../../tf/keras/Model.md#save_weights"><code>tf.keras.Model.save_weights</code></a> for
-training checkpoints.
+details.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -121,6 +140,13 @@ training checkpoints.
 <tr><th colspan="2"><h2 class="add-link">Args</h2></th></tr>
 
 <tr>
+<td>
+`root`
+</td>
+<td>
+The root object to checkpoint.
+</td>
+</tr><tr>
 <td>
 `**kwargs`
 </td>
@@ -143,7 +169,11 @@ saved with the checkpoint. Values must be trackable objects.
 `ValueError`
 </td>
 <td>
-If objects in `kwargs` are not trackable.
+If `root` or the objects in `kwargs` are not trackable. A
+`ValueError` is also raised if the `root` object tracks different
+objects from the ones listed in attributes in kwargs (e.g.
+`root.child = A` and <a href="../../tf/train/Checkpoint.md"><code>tf.train.Checkpoint(root, child=B)</code></a> are
+incompatible).
 </td>
 </tr>
 </table>
@@ -174,7 +204,7 @@ checkpoints.
 
 <h3 id="read"><code>read</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1996-L2035">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L2109-L2148">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>read(
@@ -182,7 +212,7 @@ checkpoints.
 )
 </code></pre>
 
-Read a training checkpoint written with `write`.
+Reads a training checkpoint written with `write`.
 
 Reads this `Checkpoint` and any objects it depends on.
 
@@ -207,7 +237,7 @@ path = ckpt.write('/tmp/my_checkpoint')
 # With restore() assert_consumed() would have failed.
 checkpoint.read(path).assert_consumed()
 
-# You can also pass options to restore(). For example this
+# You can also pass options to read(). For example this
 # runs the IO ops on the localhost:
 options = tf.CheckpointOptions(experimental_io_device="/job:localhost")
 checkpoint.read(path, options=options)
@@ -254,7 +284,7 @@ status of a checkpoint restoration.  See `restore` for details.
 
 <h3 id="restore"><code>restore</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L2037-L2125">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L2150-L2272">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>restore(
@@ -262,7 +292,7 @@ status of a checkpoint restoration.  See `restore` for details.
 )
 </code></pre>
 
-Restore a training checkpoint.
+Restores a training checkpoint.
 
 Restores this `Checkpoint` and any objects it depends on.
 
@@ -294,9 +324,26 @@ were not found in the checkpoint, or if any checkpointed values do not have
 a matching Python object.
 
 Name-based <a href="../../tf/compat/v1/train/Saver.md"><code>tf.compat.v1.train.Saver</code></a> checkpoints from TensorFlow 1.x can be
-loaded
-using this method. Names are used to match variables. Re-encode name-based
-checkpoints using <a href="../../tf/train/Checkpoint.md#save"><code>tf.train.Checkpoint.save</code></a> as soon as possible.
+loaded using this method. Names are used to match variables. Re-encode
+name-based checkpoints using <a href="../../tf/train/Checkpoint.md#save"><code>tf.train.Checkpoint.save</code></a> as soon as possible.
+
+**Loading from SavedModel checkpoints**
+
+To load values from a SavedModel, just pass the SavedModel directory
+to checkpoint.restore:
+
+```python
+model = tf.keras.Model(...)
+tf.saved_model.save(model, path)  # or model.save(path, save_format='tf')
+
+checkpoint = tf.train.Checkpoint(model)
+checkpoint.restore(path).expect_partial()
+```
+
+This example calls `expect_partial()` on the loaded status, since
+SavedModels saved from Keras often generates extra keys in the checkpoint.
+Otherwise, the program prints a lot of warnings about unused keys at exit
+time.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -311,7 +358,7 @@ checkpoints using <a href="../../tf/train/Checkpoint.md#save"><code>tf.train.Che
 The path to the checkpoint, as returned by `save` or
 <a href="../../tf/train/latest_checkpoint.md"><code>tf.train.latest_checkpoint</code></a>. If the checkpoint was written by the
 name-based <a href="../../tf/compat/v1/train/Saver.md"><code>tf.compat.v1.train.Saver</code></a>, names are used to match
-variables.
+variables. This path may also be a SavedModel directory.
 </td>
 </tr><tr>
 <td>
@@ -373,9 +420,27 @@ checkpoint file or object when the `Checkpoint` object is deleted
 
 
 
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Raises</th></tr>
+
+<tr>
+<td>
+`NotFoundError`
+</td>
+<td>
+if the a checkpoint or SavedModel cannot be found at
+`save_path`.
+</td>
+</tr>
+</table>
+
+
+
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1921-L1994">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L2034-L2107">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(
@@ -455,7 +520,7 @@ The full path to the checkpoint.
 
 <h3 id="write"><code>write</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1856-L1907">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1969-L2020">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>write(

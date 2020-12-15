@@ -248,7 +248,7 @@ specification.
 <tr class="alt">
 <td colspan="2">
 A tuple of the result of the `evaluate` call to the `Estimator` and the
-export results using the specified `ExportStrategy`.
+export results using the specified `Exporter`s.
 Currently, the return value is undefined for distributed training mode.
 </td>
 </tr>

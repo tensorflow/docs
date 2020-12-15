@@ -58,7 +58,7 @@ tf.math.equal(x, y) ==> array([True,  True])
 `x`
 </td>
 <td>
-A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `uint8`, `int8`, `int16`, `int32`, `int64`, `uint16`, `uint32`, `uint64`, `complex64`, `quint8`, `qint8`, `qint32`, `string`, `bool`, `complex128`.
+A `Tensor`.
 </td>
 </tr><tr>
 <td>

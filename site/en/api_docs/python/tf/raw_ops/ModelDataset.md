@@ -27,7 +27,8 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.ModelDataset(
-    input_dataset, output_types, output_shapes, algorithm=0, cpu_budget=0, name=None
+    input_dataset, output_types, output_shapes, algorithm=0, cpu_budget=0,
+    ram_budget=0, name=None
 )
 </code></pre>
 
@@ -74,6 +75,13 @@ An optional `int`. Defaults to `0`.
 </tr><tr>
 <td>
 `cpu_budget`
+</td>
+<td>
+An optional `int`. Defaults to `0`.
+</td>
+</tr><tr>
+<td>
+`ram_budget`
 </td>
 <td>
 An optional `int`. Defaults to `0`.

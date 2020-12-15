@@ -76,7 +76,7 @@ description: See the [Variables Guide](https://tensorflow.org/guide/variables).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1346-L1552">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1346-L1552">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -508,7 +508,7 @@ The `TensorShape` of this variable.
 
 <h3 id="assign"><code>assign</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L576-L592">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L576-L592">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assign(
@@ -576,7 +576,7 @@ Eager mode and the assign op in graph mode.
 
 <h3 id="assign_add"><code>assign_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L594-L610">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L594-L610">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assign_add(
@@ -644,7 +644,7 @@ Eager mode and the assign op in graph mode.
 
 <h3 id="assign_sub"><code>assign_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L612-L628">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L612-L628">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assign_sub(
@@ -712,7 +712,7 @@ Eager mode and the assign op in graph mode.
 
 <h3 id="batch_scatter_update"><code>batch_scatter_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L744-L788">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L744-L788">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_scatter_update(
@@ -816,7 +816,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="count_up_to"><code>count_up_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L962-L983">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L962-L983">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>count_up_to(
@@ -874,7 +874,7 @@ distinct.
 
 <h3 id="eval"><code>eval</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L493-L523">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L493-L523">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>eval(
@@ -938,7 +938,7 @@ A numpy `ndarray` with a copy of the value of this variable.
 
 <h3 id="experimental_ref"><code>experimental_ref</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1214-L1216">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1214-L1216">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>experimental_ref()
@@ -952,7 +952,7 @@ Use ref() instead.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1198-L1201">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1198-L1201">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -966,7 +966,7 @@ Returns a `Variable` object created from `variable_def`.
 
 <h3 id="gather_nd"><code>gather_nd</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L947-L960">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L947-L960">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>gather_nd(
@@ -1019,7 +1019,7 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="get_shape"><code>get_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1178-L1180">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1178-L1180">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_shape()
@@ -1030,7 +1030,7 @@ Alias of `Variable.shape`.
 
 <h3 id="initialized_value"><code>initialized_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L525-L550">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L525-L550">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>initialized_value()
@@ -1071,7 +1071,7 @@ has run.
 
 <h3 id="load"><code>load</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L985-L1028">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L985-L1028">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>load(
@@ -1151,7 +1151,7 @@ Session is not passed and no default session
 
 <h3 id="read_value"><code>read_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L462-L471">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L462-L471">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>read_value()
@@ -1178,7 +1178,7 @@ A `Tensor` containing the value of the variable.
 
 <h3 id="ref"><code>ref</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1218-L1257">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1218-L1257">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>ref()
@@ -1228,7 +1228,7 @@ original Variable.
 
 <h3 id="scatter_add"><code>scatter_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L646-L660">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L646-L660">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_add(
@@ -1303,7 +1303,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_div"><code>scatter_div</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L712-L726">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L712-L726">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_div(
@@ -1378,7 +1378,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_max"><code>scatter_max</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L662-L677">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L662-L677">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_max(
@@ -1454,7 +1454,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_min"><code>scatter_min</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L679-L694">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L679-L694">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_min(
@@ -1530,7 +1530,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_mul"><code>scatter_mul</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L696-L710">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L696-L710">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_mul(
@@ -1605,7 +1605,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_nd_add"><code>scatter_nd_add</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L837-L882">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L837-L882">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_nd_add(
@@ -1696,7 +1696,7 @@ The updated variable.
 
 <h3 id="scatter_nd_sub"><code>scatter_nd_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L790-L835">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L790-L835">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_nd_sub(
@@ -1787,7 +1787,7 @@ The updated variable.
 
 <h3 id="scatter_nd_update"><code>scatter_nd_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L884-L929">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L884-L929">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_nd_update(
@@ -1878,7 +1878,7 @@ The updated variable.
 
 <h3 id="scatter_sub"><code>scatter_sub</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L630-L644">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L630-L644">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_sub(
@@ -1953,7 +1953,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="scatter_update"><code>scatter_update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L728-L742">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L728-L742">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter_update(
@@ -2028,7 +2028,7 @@ if `sparse_delta` is not an `IndexedSlices`.
 
 <h3 id="set_shape"><code>set_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L473-L479">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L473-L479">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_shape(
@@ -2058,7 +2058,7 @@ the `TensorShape` representing the overridden shape.
 
 <h3 id="sparse_read"><code>sparse_read</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L931-L945">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L931-L945">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>sparse_read(
@@ -2112,7 +2112,7 @@ A `Tensor`. Has the same type as `params`.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1186-L1196">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1186-L1196">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_proto(
@@ -2157,7 +2157,7 @@ in the specified name scope.
 
 <h3 id="value"><code>value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L443-L460">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L443-L460">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>value()
@@ -2192,7 +2192,7 @@ A `Tensor` containing the value of the variable.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L358-L392">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L358-L401">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__abs__(
@@ -2208,10 +2208,23 @@ corresponding element in the input.
 
 Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. For
-a complex number \\(a + bj\\), its absolute value is computed as \\(\sqrt{a^2
-+ b^2}\\).  For example:
+a complex number \\(a + bj\\), its absolute value is computed as
+\\(\sqrt{a^2 + b^2}\\).
+
+#### For example:
+
+
 
 ```
+>>> # real number
+>>> x = tf.constant([-2.25, 3.25])
+>>> tf.abs(x)
+<tf.Tensor: shape=(2,), dtype=float32,
+numpy=array([2.25, 3.25], dtype=float32)>
+```
+
+```
+>>> # complex number
 >>> x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
 >>> tf.abs(x)
 <tf.Tensor: shape=(2, 1), dtype=float64, numpy=
@@ -2262,7 +2275,7 @@ returned `Tensor` will be of type `float32` or `float64`, respectively.
 
 <h3 id="__add__"><code>__add__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__add__(
@@ -2328,7 +2341,7 @@ The result of the elementwise `+` operation.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__and__(
@@ -2336,90 +2349,12 @@ The result of the elementwise `+` operation.
 )
 </code></pre>
 
-Logical AND function.
-
-The operation works for the following input types:
-
-- Two single elements of type `bool`
-- One <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type `bool` and one single `bool`, where the result will
-  be calculated by applying logical AND with the single element to each
-  element in the larger Tensor.
-- Two <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> objects of type `bool` of the same shape. In this case,
-  the result will be the element-wise logical AND of the two input tensors.
-
-#### Usage:
-
-
-
-```
->>> a = tf.constant([True])
->>> b = tf.constant([False])
->>> tf.math.logical_and(a, b)
-<tf.Tensor: shape=(1,), dtype=bool, numpy=array([False])>
-```
-
-```
->>> c = tf.constant([True])
->>> x = tf.constant([False, True, True, False])
->>> tf.math.logical_and(c, x)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False,  True,  True, False])>
-```
-
-```
->>> y = tf.constant([False, False, True, True])
->>> z = tf.constant([False, True, False, True])
->>> tf.math.logical_and(y, z)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False, False, False,  True])>
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> type bool.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the same size as that of x or y.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__div__(
@@ -2488,7 +2423,7 @@ A name for the operation (optional).
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1087-L1093">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1087-L1093">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -2501,7 +2436,7 @@ Compares two variables element-wise for equality.
 
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__floordiv__(
@@ -2657,7 +2592,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L1227-L1270">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L1250-L1293">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__getitem__(
@@ -2830,65 +2765,20 @@ A `Tensor` of type `bool`.
 
 <h3 id="__invert__"><code>__invert__</code></h3>
 
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1628-L1631">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__invert__(
     x, name=None
 )
 </code></pre>
 
-Returns the truth value of `NOT x` element-wise.
-
-
-#### Example:
-
-
-
-```
->>> tf.math.logical_not(tf.constant([True, False]))
-<tf.Tensor: shape=(2,), dtype=bool, numpy=array([False,  True])>
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A `Tensor` of type `bool`. A `Tensor` of type `bool`.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A `Tensor` of type `bool`.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1104-L1116">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1104-L1116">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
@@ -3065,7 +2955,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__matmul__(
@@ -3281,7 +3171,7 @@ If `transpose_a` and `adjoint_a`, or `transpose_b` and
 
 <h3 id="__mod__"><code>__mod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__mod__(
@@ -3344,7 +3234,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__mul__(
@@ -3357,7 +3247,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variables.py#L1096-L1102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variables.py#L1096-L1102">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(
@@ -3420,7 +3310,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__or__"><code>__or__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__or__(
@@ -3428,59 +3318,12 @@ A `Tensor`. Has the same type as `x`.
 )
 </code></pre>
 
-Returns the truth value of x OR y element-wise.
-
-*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A `Tensor` of type `bool`.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A `Tensor` of type `bool`.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A `Tensor` of type `bool`.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__pow__(
@@ -3548,7 +3391,7 @@ A `Tensor`.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__radd__(
@@ -3614,7 +3457,7 @@ The result of the elementwise `+` operation.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rand__(
@@ -3622,90 +3465,12 @@ The result of the elementwise `+` operation.
 )
 </code></pre>
 
-Logical AND function.
-
-The operation works for the following input types:
-
-- Two single elements of type `bool`
-- One <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type `bool` and one single `bool`, where the result will
-  be calculated by applying logical AND with the single element to each
-  element in the larger Tensor.
-- Two <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> objects of type `bool` of the same shape. In this case,
-  the result will be the element-wise logical AND of the two input tensors.
-
-#### Usage:
-
-
-
-```
->>> a = tf.constant([True])
->>> b = tf.constant([False])
->>> tf.math.logical_and(a, b)
-<tf.Tensor: shape=(1,), dtype=bool, numpy=array([False])>
-```
-
-```
->>> c = tf.constant([True])
->>> x = tf.constant([False, True, True, False])
->>> tf.math.logical_and(c, x)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False,  True,  True, False])>
-```
-
-```
->>> y = tf.constant([False, False, True, True])
->>> z = tf.constant([False, True, False, True])
->>> tf.math.logical_and(y, z)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False, False, False,  True])>
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> type bool.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the same size as that of x or y.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rdiv__(
@@ -3774,7 +3539,7 @@ A name for the operation (optional).
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rfloordiv__(
@@ -3858,7 +3623,7 @@ If the inputs are complex.
 
 <h3 id="__rmatmul__"><code>__rmatmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rmatmul__(
@@ -4074,7 +3839,7 @@ If `transpose_a` and `adjoint_a`, or `transpose_b` and
 
 <h3 id="__rmod__"><code>__rmod__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rmod__(
@@ -4137,7 +3902,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rmul__(
@@ -4150,7 +3915,7 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 
 <h3 id="__ror__"><code>__ror__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ror__(
@@ -4158,59 +3923,12 @@ Dispatches cwise mul for "Dense*Dense" and "Dense*Sparse".
 )
 </code></pre>
 
-Returns the truth value of x OR y element-wise.
-
-*NOTE*: `math.logical_or` supports broadcasting. More about broadcasting
-[here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A `Tensor` of type `bool`.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A `Tensor` of type `bool`.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A `Tensor` of type `bool`.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rpow__(
@@ -4278,7 +3996,7 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rsub__(
@@ -4338,7 +4056,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rtruediv__(
@@ -4426,7 +4144,7 @@ If `x` and `y` have different dtypes.
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1153-L1156">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1192-L1195">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rxor__(
@@ -4434,92 +4152,12 @@ If `x` and `y` have different dtypes.
 )
 </code></pre>
 
-Logical XOR function.
-
-x ^ y = (x | y) & ~(x & y)
-
-The operation works for the following input types:
-
-- Two single elements of type `bool`
-- One <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type `bool` and one single `bool`, where the result will
-  be calculated by applying logical XOR with the single element to each
-  element in the larger Tensor.
-- Two <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> objects of type `bool` of the same shape. In this case,
-  the result will be the element-wise logical XOR of the two input tensors.
-
-#### Usage:
-
-
-
-```
->>> a = tf.constant([True])
->>> b = tf.constant([False])
->>> tf.math.logical_xor(a, b)
-<tf.Tensor: shape=(1,), dtype=bool, numpy=array([ True])>
-```
-
-```
->>> c = tf.constant([True])
->>> x = tf.constant([False, True, True, False])
->>> tf.math.logical_xor(c, x)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([ True, False, False,  True])>
-```
-
-```
->>> y = tf.constant([False, False, True, True])
->>> z = tf.constant([False, True, False, True])
->>> tf.math.logical_xor(y, z)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False,  True,  True, False])>
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> type bool.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the same size as that of x or y.
-</td>
-</tr>
-
-</table>
 
 
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__sub__(
@@ -4579,7 +4217,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__truediv__(
@@ -4667,7 +4305,7 @@ If `x` and `y` have different dtypes.
 
 <h3 id="__xor__"><code>__xor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1122-L1143">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1161-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__xor__(
@@ -4675,86 +4313,6 @@ If `x` and `y` have different dtypes.
 )
 </code></pre>
 
-Logical XOR function.
-
-x ^ y = (x | y) & ~(x & y)
-
-The operation works for the following input types:
-
-- Two single elements of type `bool`
-- One <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type `bool` and one single `bool`, where the result will
-  be calculated by applying logical XOR with the single element to each
-  element in the larger Tensor.
-- Two <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> objects of type `bool` of the same shape. In this case,
-  the result will be the element-wise logical XOR of the two input tensors.
-
-#### Usage:
-
-
-
-```
->>> a = tf.constant([True])
->>> b = tf.constant([False])
->>> tf.math.logical_xor(a, b)
-<tf.Tensor: shape=(1,), dtype=bool, numpy=array([ True])>
-```
-
-```
->>> c = tf.constant([True])
->>> x = tf.constant([False, True, True, False])
->>> tf.math.logical_xor(c, x)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([ True, False, False,  True])>
-```
-
-```
->>> y = tf.constant([False, False, True, True])
->>> z = tf.constant([False, True, False, True])
->>> tf.math.logical_xor(y, z)
-<tf.Tensor: shape=(4,), dtype=bool, numpy=array([False,  True,  True, False])>
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`x`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> type bool.
-</td>
-</tr><tr>
-<td>
-`y`
-</td>
-<td>
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool.
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A name for the operation (optional).
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the same size as that of x or y.
-</td>
-</tr>
-
-</table>
 
 
 

@@ -5,6 +5,7 @@ description: Options for saving to SavedModel.
 <meta itemprop="path" content="Stable" />
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="experimental_io_device"/>
+<meta itemprop="property" content="experimental_variable_policy"/>
 <meta itemprop="property" content="function_aliases"/>
 <meta itemprop="property" content="namespace_whitelist"/>
 <meta itemprop="property" content="save_debug_info"/>
@@ -16,7 +17,7 @@ description: Options for saving to SavedModel.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/save_options.py#L28-L95">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/save_options.py#L95-L170">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -41,7 +42,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.saved_model.SaveOptions(
     namespace_whitelist=None, save_debug_info=(False), function_aliases=None,
-    experimental_io_device=None
+    experimental_io_device=None, experimental_variable_policy=None
 )
 </code></pre>
 
@@ -124,6 +125,17 @@ This is for example useful if you want to save to a local directory,
 such as "/tmp" when running in a distributed setting. In that case pass
 a device for the host where the "/tmp" directory is accessible.
 </td>
+</tr><tr>
+<td>
+`experimental_variable_policy`
+</td>
+<td>
+The policy to apply to variables when
+saving. This is either a <a href="../../tf/saved_model/experimental/VariablePolicy.md"><code>saved_model.experimental.VariablePolicy</code></a> enum
+instance or one of its value strings (case is not important). See that
+enum documentation for details. A value of `None` corresponds to the
+default policy.
+</td>
 </tr>
 </table>
 
@@ -132,6 +144,7 @@ a device for the host where the "/tmp" directory is accessible.
 ## Class Variables
 
 * `experimental_io_device` <a id="experimental_io_device"></a>
+* `experimental_variable_policy` <a id="experimental_variable_policy"></a>
 * `function_aliases` <a id="function_aliases"></a>
 * `namespace_whitelist` <a id="namespace_whitelist"></a>
 * `save_debug_info` <a id="save_debug_info"></a>

@@ -8,16 +8,17 @@ description: Represents a ragged tensor.
 <meta itemprop="property" content="__and__"/>
 <meta itemprop="property" content="__bool__"/>
 <meta itemprop="property" content="__div__"/>
+<meta itemprop="property" content="__eq__"/>
 <meta itemprop="property" content="__floordiv__"/>
 <meta itemprop="property" content="__ge__"/>
 <meta itemprop="property" content="__getitem__"/>
 <meta itemprop="property" content="__gt__"/>
-<meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="__invert__"/>
 <meta itemprop="property" content="__le__"/>
 <meta itemprop="property" content="__lt__"/>
 <meta itemprop="property" content="__mod__"/>
 <meta itemprop="property" content="__mul__"/>
+<meta itemprop="property" content="__ne__"/>
 <meta itemprop="property" content="__neg__"/>
 <meta itemprop="property" content="__nonzero__"/>
 <meta itemprop="property" content="__or__"/>
@@ -49,6 +50,7 @@ description: Represents a ragged tensor.
 <meta itemprop="property" content="from_tensor"/>
 <meta itemprop="property" content="from_uniform_row_length"/>
 <meta itemprop="property" content="from_value_rowids"/>
+<meta itemprop="property" content="get_shape"/>
 <meta itemprop="property" content="merge_dims"/>
 <meta itemprop="property" content="nested_row_lengths"/>
 <meta itemprop="property" content="nested_value_rowids"/>
@@ -72,7 +74,7 @@ description: Represents a ragged tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L59-L2057">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L61-L2119">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -94,14 +96,6 @@ more details.</p>
 </p>
 </section>
 
-<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>tf.RaggedTensor(
-    values, row_partition, internal=(False)
-)
-</code></pre>
-
-
-
 <!-- Placeholder for "Used in" -->
 
 A `RaggedTensor` is a tensor with one or more *ragged dimensions*, which are
@@ -118,6 +112,18 @@ and the number of ragged dimensions in a `RaggedTensor` is called its
 *ragged-rank*.  A `RaggedTensor`'s ragged-rank is fixed at graph creation
 time: it can't depend on the runtime values of `Tensor`s, and can't vary
 dynamically for different session runs.
+
+Note that the `__init__` constructor is private. Please use one of the
+following methods to construct a `RaggedTensor`:
+
+    * <a href="../tf/RaggedTensor.md#from_row_lengths"><code>tf.RaggedTensor.from_row_lengths</code></a>
+    * <a href="../tf/RaggedTensor.md#from_value_rowids"><code>tf.RaggedTensor.from_value_rowids</code></a>
+    * <a href="../tf/RaggedTensor.md#from_row_splits"><code>tf.RaggedTensor.from_row_splits</code></a>
+    * <a href="../tf/RaggedTensor.md#from_row_starts"><code>tf.RaggedTensor.from_row_starts</code></a>
+    * <a href="../tf/RaggedTensor.md#from_row_limits"><code>tf.RaggedTensor.from_row_limits</code></a>
+    * <a href="../tf/RaggedTensor.md#from_nested_row_splits"><code>tf.RaggedTensor.from_nested_row_splits</code></a>
+    * <a href="../tf/RaggedTensor.md#from_nested_row_lengths"><code>tf.RaggedTensor.from_nested_row_lengths</code></a>
+    * <a href="../tf/RaggedTensor.md#from_nested_value_rowids"><code>tf.RaggedTensor.from_nested_value_rowids</code></a>
 
 ### Potentially Ragged Tensors
 
@@ -283,65 +289,6 @@ t3 = RaggedTensor.from_uniform_row_length(t2, 4)   #       [5, 4, 8, None, 2]
 t4 = RaggedTensor.from_row_lengths(t3, [...])      # [3, None, 4, 8, None, 2]
 ```
 
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Args</h2></th></tr>
-
-<tr>
-<td>
-`values`
-</td>
-<td>
-A potentially ragged tensor of any dtype and shape `[nvals, ...]`.
-</td>
-</tr><tr>
-<td>
-`row_partition`
-</td>
-<td>
-A `RowPartition` object, representing the arrangement of
-the lists at the top level.
-</td>
-</tr><tr>
-<td>
-`internal`
-</td>
-<td>
-True if the constructor is being called by one of the factory
-methods.  If false, an exception will be raised.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
-
-<tr>
-<td>
-`ValueError`
-</td>
-<td>
-If internal = False. Note that this method is intended only
-for internal use.
-</td>
-</tr><tr>
-<td>
-`TypeError`
-</td>
-<td>
-If values is not a `RaggedTensor` or `Tensor`, or
-row_partition is not a `RowPartition`.
-</td>
-</tr>
-</table>
-
-
-
 
 
 <!-- Tabular view -->
@@ -412,7 +359,20 @@ Splits for dimension 3: [0 4 4 7 8 8]
 `ragged_rank`
 </td>
 <td>
-The number of ragged dimensions in this ragged tensor.
+The number of times the RaggedTensor's flat_values is partitioned.
+
+
+```
+>>> values = tf.ragged.constant([[1, 2, 3], [4], [5, 6], [7, 8, 9, 10]])
+>>> values.ragged_rank
+1
+```
+
+```
+>>> rt = tf.RaggedTensor.from_uniform_row_length(values, 2)
+>>> rt.ragged_rank
+2
+```
 </td>
 </tr><tr>
 <td>
@@ -510,7 +470,7 @@ tf.Tensor([3 1 4 1 5 9 2 6], shape=(8,), dtype=int32)
 
 <h3 id="bounding_shape"><code>bounding_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1191-L1246">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1244-L1299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>bounding_shape(
@@ -582,7 +542,7 @@ array([5, 4])
 
 <h3 id="consumers"><code>consumers</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L2056-L2057">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L2118-L2119">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>consumers()
@@ -593,7 +553,7 @@ array([5, 4])
 
 <h3 id="from_nested_row_lengths"><code>from_nested_row_lengths</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L722-L759">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L742-L780">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -672,7 +632,7 @@ A `RaggedTensor` (or `flat_values` if `nested_row_lengths` is empty).
 
 <h3 id="from_nested_row_splits"><code>from_nested_row_splits</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L683-L720">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L702-L740">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -751,7 +711,7 @@ A `RaggedTensor` (or `flat_values` if `nested_row_splits` is empty).
 
 <h3 id="from_nested_value_rowids"><code>from_nested_value_rowids</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L627-L681">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L645-L700">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -855,7 +815,7 @@ If `len(nested_values_rowids) != len(nested_nrows)`.
 
 <h3 id="from_row_lengths"><code>from_row_lengths</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L436-L476">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L450-L491">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -939,7 +899,7 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_row_limits"><code>from_row_limits</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L517-L551">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L533-L568">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1018,7 +978,7 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_row_splits"><code>from_row_splits</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L390-L434">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L403-L448">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1120,7 +1080,7 @@ If `row_splits` is an empty list.
 
 <h3 id="from_row_starts"><code>from_row_starts</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L478-L515">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L493-L531">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1200,7 +1160,7 @@ A `RaggedTensor`.  `result.rank = values.rank + 1`.
 
 <h3 id="from_sparse"><code>from_sparse</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1709-L1770">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1770-L1832">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1298,7 +1258,7 @@ statically, or is not two.
 
 <h3 id="from_tensor"><code>from_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1437-L1641">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1492-L1697">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1442,7 +1402,7 @@ If both `lengths` and `padding` are specified.
 
 <h3 id="from_uniform_row_length"><code>from_uniform_row_length</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L553-L625">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L570-L643">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1556,7 +1516,7 @@ for _ in range(nrows)]
 
 <h3 id="from_value_rowids"><code>from_value_rowids</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L332-L388">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L344-L401">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1667,9 +1627,51 @@ If `nrows` is incompatible with `value_rowids`.
 <tf.RaggedTensor [[3, 1, 4, 1], [], [5, 9, 2], [6], []]>
 ```
 
+<h3 id="get_shape"><code>get_shape</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L849-L868">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>get_shape()
+</code></pre>
+
+The statically known shape of this ragged tensor.
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+A `TensorShape` containing the statically known shape of this ragged
+tensor.  Ragged dimensions have a size of `None`.
+</td>
+</tr>
+
+</table>
+
+
+Alias for `shape` property.
+
+#### Examples:
+
+
+
+```
+>>> tf.ragged.constant([[0], [1, 2]]).get_shape()
+TensorShape([2, None])
+```
+
+```
+>>> tf.ragged.constant(
+...    [[[0, 1]], [[1, 2], [3, 4]]], ragged_rank=1).get_shape()
+TensorShape([2, None, 2])
+```
+
 <h3 id="merge_dims"><code>merge_dims</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1331-L1377">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1386-L1432">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>merge_dims(
@@ -1744,7 +1746,7 @@ is the total number of slices in the merged dimensions.
 
 <h3 id="nested_row_lengths"><code>nested_row_lengths</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1170-L1189">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1223-L1242">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>nested_row_lengths(
@@ -1791,7 +1793,7 @@ A `tuple` of 1-D integer `Tensors`.  The length of the tuple is equal to
 
 <h3 id="nested_value_rowids"><code>nested_value_rowids</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1011-L1046">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1064-L1099">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>nested_value_rowids(
@@ -1854,7 +1856,7 @@ row ids for dimension 3: [0 0 0 0 2 2 2 3]
 
 <h3 id="nrows"><code>nrows</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1048-L1069">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1101-L1122">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>nrows(
@@ -1914,7 +1916,7 @@ tf.Tensor(5, shape=(), dtype=int64)
 
 <h3 id="numpy"><code>numpy</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1912-L1950">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1974-L2012">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>numpy()
@@ -1963,7 +1965,7 @@ A numpy `array`.
 
 <h3 id="row_lengths"><code>row_lengths</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1121-L1168">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1174-L1221">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>row_lengths(
@@ -2044,7 +2046,7 @@ tf.Tensor([2 0 2 1 0], shape=(5,), dtype=int64)
 
 <h3 id="row_limits"><code>row_limits</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1096-L1119">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1149-L1172">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>row_limits(
@@ -2100,7 +2102,7 @@ tf.Tensor([4 4 7 8 8], shape=(5,), dtype=int64)
 
 <h3 id="row_starts"><code>row_starts</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1071-L1094">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1124-L1147">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>row_starts(
@@ -2156,7 +2158,7 @@ tf.Tensor([0 4 4 7 8], shape=(5,), dtype=int64)
 
 <h3 id="to_list"><code>to_list</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1952-L1965">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L2014-L2027">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_list()
@@ -2182,7 +2184,7 @@ A nested Python `list`.
 
 <h3 id="to_sparse"><code>to_sparse</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1772-L1796">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1834-L1858">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_sparse(
@@ -2240,7 +2242,7 @@ A SparseTensor with the same values as `self`.
 
 <h3 id="to_tensor"><code>to_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1643-L1707">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1699-L1768">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_tensor(
@@ -2321,7 +2323,7 @@ assigned `default_value`.
 
 <h3 id="value_rowids"><code>value_rowids</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L984-L1009">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1037-L1062">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>value_rowids(
@@ -2379,7 +2381,7 @@ tf.Tensor([0 0 0 0 2 2 2 3], shape=(8,), dtype=int64)
 
 <h3 id="with_flat_values"><code>with_flat_values</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1280-L1299">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1334-L1354">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_flat_values(
@@ -2429,7 +2431,7 @@ A `RaggedTensor`.
 
 <h3 id="with_row_splits_dtype"><code>with_row_splits_dtype</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1301-L1329">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1356-L1384">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_row_splits_dtype(
@@ -2476,7 +2478,7 @@ type.
 
 <h3 id="with_values"><code>with_values</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L1252-L1278">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L1305-L1332">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_values(
@@ -2525,7 +2527,7 @@ A `RaggedTensor`.  `result.rank = 1 + new_values.rank`.
 
 <h3 id="__abs__"><code>__abs__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L358-L392">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L358-L401">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__abs__(
@@ -2541,10 +2543,23 @@ corresponding element in the input.
 
 Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. For
-a complex number \\(a + bj\\), its absolute value is computed as \\(\sqrt{a^2
-+ b^2}\\).  For example:
+a complex number \\(a + bj\\), its absolute value is computed as
+\\(\sqrt{a^2 + b^2}\\).
+
+#### For example:
+
+
 
 ```
+>>> # real number
+>>> x = tf.constant([-2.25, 3.25])
+>>> tf.abs(x)
+<tf.Tensor: shape=(2,), dtype=float32,
+numpy=array([2.25, 3.25], dtype=float32)>
+```
+
+```
+>>> # complex number
 >>> x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
 >>> tf.abs(x)
 <tf.Tensor: shape=(2, 1), dtype=float64, numpy=
@@ -2609,6 +2624,10 @@ Returns x + y element-wise.
 *NOTE*: <a href="../tf/math/add.md"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
+Given two input tensors, the <a href="../tf/math/add.md"><code>tf.add</code></a> operation computes the sum for every element in the tensor.
+
+Both input and output have a range `(-inf, inf)`.
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
@@ -2656,7 +2675,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__and__"><code>__and__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1529-L1568">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1568-L1607">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__and__(
@@ -2747,7 +2766,7 @@ A <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the sam
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_operators.py#L72-L74">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_operators.py#L89-L91">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__bool__(
@@ -2760,7 +2779,7 @@ Dummy method to prevent a RaggedTensor from being used as a Python bool.
 
 <h3 id="__div__"><code>__div__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1300-L1324">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1339-L1363">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__div__(
@@ -2827,9 +2846,77 @@ A name for the operation (optional).
 
 
 
+<h3 id="__eq__"><code>__eq__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1718-L1753">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__eq__(
+    other
+)
+</code></pre>
+
+The operation invoked by the <a href="../tf/RaggedTensor.md#__eq__"><code>Tensor.__eq__</code></a> operator.
+
+Compares two tensors element-wise for equality if they are
+broadcast-compatible; or returns False if they are not broadcast-compatible.
+(Note that this behavior differs from <a href="../tf/math/equal.md"><code>tf.math.equal</code></a>, which raises an
+exception if the two tensors are not broadcast-compatible.)
+
+#### Purpose in the API:
+
+
+This method is exposed in TensorFlow's API so that library developers
+can register dispatching for <a href="../tf/RaggedTensor.md#__eq__"><code>Tensor.__eq__</code></a> to allow it to handle
+custom composite tensors & other custom objects.
+
+The API symbol is not intended to be called by users directly and does
+appear in TensorFlow's generated documentation.
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`self`
+</td>
+<td>
+The left-hand side of the `==` operator.
+</td>
+</tr><tr>
+<td>
+`other`
+</td>
+<td>
+The right-hand side of the `==` operator.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+The result of the elementwise `==` operation, or `False` if the arguments
+are not broadcast-compatible.
+</td>
+</tr>
+
+</table>
+
+
+
 <h3 id="__floordiv__"><code>__floordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1380-L1408">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1419-L1447">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__floordiv__(
@@ -2985,7 +3072,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_getitem.py#L35-L103">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_getitem.py#L35-L103">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__getitem__(
@@ -3454,7 +3541,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__mul__"><code>__mul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L463-L509">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L472-L518">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__mul__(
@@ -3558,6 +3645,74 @@ A `Tensor`.  Has the same type as `x`.
 
 
 
+<h3 id="__ne__"><code>__ne__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1756-L1789">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__ne__(
+    other
+)
+</code></pre>
+
+The operation invoked by the <a href="../tf/RaggedTensor.md#__ne__"><code>Tensor.__ne__</code></a> operator.
+
+Compares two tensors element-wise for inequality if they are
+broadcast-compatible; or returns True if they are not broadcast-compatible.
+(Note that this behavior differs from <a href="../tf/math/not_equal.md"><code>tf.math.not_equal</code></a>, which raises an
+exception if the two tensors are not broadcast-compatible.)
+
+#### Purpose in the API:
+
+
+This method is exposed in TensorFlow's API so that library developers
+can register dispatching for <a href="../tf/RaggedTensor.md#__ne__"><code>Tensor.__ne__</code></a> to allow it to handle
+custom composite tensors & other custom objects.
+
+The API symbol is not intended to be called by users directly and does
+appear in TensorFlow's generated documentation.
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`self`
+</td>
+<td>
+The left-hand side of the `!=` operator.
+</td>
+</tr><tr>
+<td>
+`other`
+</td>
+<td>
+The right-hand side of the `!=` operator.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+The result of the elementwise `!=` operation, or `True` if the arguments
+are not broadcast-compatible.
+</td>
+</tr>
+
+</table>
+
+
+
 <h3 id="__neg__"><code>__neg__</code></h3>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
@@ -3613,7 +3768,7 @@ If `x` is a `SparseTensor`, returns
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_operators.py#L72-L74">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_operators.py#L89-L91">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__nonzero__(
@@ -3684,7 +3839,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__pow__"><code>__pow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L611-L636">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L645-L670">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__pow__(
@@ -3763,6 +3918,10 @@ Returns x + y element-wise.
 *NOTE*: <a href="../tf/math/add.md"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
+Given two input tensors, the <a href="../tf/math/add.md"><code>tf.add</code></a> operation computes the sum for every element in the tensor.
+
+Both input and output have a range `(-inf, inf)`.
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
@@ -3810,7 +3969,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rand__"><code>__rand__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1529-L1568">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1568-L1607">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rand__(
@@ -3901,7 +4060,7 @@ A <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the sam
 
 <h3 id="__rdiv__"><code>__rdiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1300-L1324">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1339-L1363">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rdiv__(
@@ -3970,7 +4129,7 @@ A name for the operation (optional).
 
 <h3 id="__rfloordiv__"><code>__rfloordiv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1380-L1408">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1419-L1447">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rfloordiv__(
@@ -4115,7 +4274,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rmul__"><code>__rmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L463-L509">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L472-L518">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rmul__(
@@ -4279,7 +4438,7 @@ A `Tensor` of type `bool`.
 
 <h3 id="__rpow__"><code>__rpow__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L611-L636">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L645-L670">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rpow__(
@@ -4347,7 +4506,7 @@ A `Tensor`.
 
 <h3 id="__rsub__"><code>__rsub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L524-L527">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L533-L561">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rsub__(
@@ -4407,7 +4566,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__rtruediv__"><code>__rtruediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1267-L1297">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1306-L1336">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rtruediv__(
@@ -4495,7 +4654,7 @@ If `x` and `y` have different dtypes.
 
 <h3 id="__rxor__"><code>__rxor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1480-L1526">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1519-L1565">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__rxor__(
@@ -4588,7 +4747,7 @@ A <a href="../tf/Tensor.md"><code>tf.Tensor</code></a> of type bool with the sam
 
 <h3 id="__sub__"><code>__sub__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L524-L527">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L533-L561">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__sub__(
@@ -4648,7 +4807,7 @@ A `Tensor`. Has the same type as `x`.
 
 <h3 id="__truediv__"><code>__truediv__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1267-L1297">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1306-L1336">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__truediv__(
@@ -4736,7 +4895,7 @@ If `x` and `y` have different dtypes.
 
 <h3 id="__xor__"><code>__xor__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L1480-L1526">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L1519-L1565">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__xor__(

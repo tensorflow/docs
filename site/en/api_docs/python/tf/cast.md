@@ -11,7 +11,7 @@ description: Casts a tensor to a new type.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L866-L926">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L907-L969">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -67,6 +67,8 @@ types, only the real part of `x` is returned. In case of casting from real
 types to complex types (`complex64`, `complex128`), the imaginary part of the
 returned value is set to `0`. The handling of complex types here matches the
 behavior of numpy.
+
+Note casting nan and inf values to integral types has undefined behavior.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

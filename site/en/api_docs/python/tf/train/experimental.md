@@ -25,13 +25,13 @@ Public API for tf.train.experimental namespace.
 
 [`class FixedLossScale`](../../tf/mixed_precision/experimental/FixedLossScale.md): Loss scale with a fixed value.
 
-[`class LossScale`](../../tf/mixed_precision/experimental/LossScale.md): Base class for all loss scales.
+[`class LossScale`](../../tf/mixed_precision/experimental/LossScale.md): Base class for all TF1 loss scales.
 
 [`class PythonState`](../../tf/train/experimental/PythonState.md): A mixin for putting Python state in an object-based checkpoint.
 
 ## Functions
 
-[`disable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/disable_mixed_precision_graph_rewrite.md): Disables the mixed precision graph rewrite.
+[`disable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/disable_mixed_precision_graph_rewrite.md): Disables the mixed precision graph rewrite. (deprecated)
 
-[`enable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/enable_mixed_precision_graph_rewrite.md): Enable mixed precision via a graph rewrite.
+[`enable_mixed_precision_graph_rewrite(...)`](../../tf/train/experimental/enable_mixed_precision_graph_rewrite.md): Enable mixed precision via a graph rewrite. (deprecated)
 

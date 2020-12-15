@@ -13,7 +13,7 @@ description: Dot-product attention layer, a.k.a. Luong-style attention.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/dense_attention.py#L210-L340">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/dense_attention.py#L221-L355">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -109,14 +109,18 @@ attention scores.
   * value_mask: A boolean mask `Tensor` of shape `[batch_size, Tv]`.
     If given, will apply the mask such that values at positions where
     `mask==False` do not contribute to the result.
+* <b>`return_attention_scores`</b>: bool, it `True`, returns the attention scores
+  (after masking and softmax) as an additional output argument.
 * <b>`training`</b>: Python boolean indicating whether the layer should behave in
   training mode (adding dropout) or in inference mode (no dropout).
 
 
-#### Output shape:
+#### Output:
 
 
 Attention outputs of shape `[batch_size, Tq, dim]`.
+[Optional] Attention scores after masking and softmax with shape
+  `[batch_size, Tq, Tv]`.
 
 
 The meaning of `query`, `value` and `key` depend on the application. In the
@@ -132,7 +136,7 @@ query_input = tf.keras.Input(shape=(None,), dtype='int32')
 value_input = tf.keras.Input(shape=(None,), dtype='int32')
 
 # Embedding lookup.
-token_embedding = tf.keras.layers.Embedding(max_tokens, dimension)
+token_embedding = tf.keras.layers.Embedding(input_dim=1000, output_dim=64)
 # Query embeddings of shape [batch_size, Tq, dimension].
 query_embeddings = token_embedding(query_input)
 # Value embeddings of shape [batch_size, Tv, dimension].

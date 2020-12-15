@@ -1,3 +1,5 @@
+description: Writes an audio summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteAudioSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes an audio summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,8 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes encoded audio summary `tensor` at `step` with `tag` using summary `writer`.
+`sample_rate` is the audio sample rate is Hz.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

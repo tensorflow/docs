@@ -1,4 +1,4 @@
-description: An iterator for reading Event protocol buffers from an event file.
+description: Returns a iterator for reading Event protocol buffers from an event file.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.train.summary_iterator" />
@@ -11,7 +11,7 @@ description: An iterator for reading Event protocol buffers from an event file.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/summary/summary_iterator.py#L27-L69">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/summary/summary_iterator.py#L43-L95">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: An iterator for reading Event protocol buffers from an event file.
 
 
 
-An iterator for reading `Event` protocol buffers from an event file.
+Returns a iterator for reading `Event` protocol buffers from an event file.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.train.summary_iterator(
@@ -54,6 +54,18 @@ for e in tf.compat.v1.train.summary_iterator(path to events file):
         if v.tag == 'loss':
             print(v.simple_value)
 ```
+Example: Continuously check for new summary values.
+
+```python
+summaries = tf.compat.v1.train.summary_iterator(path to events file)
+while True:
+  for e in summaries:
+      for v in e.summary.value:
+          if v.tag == 'loss':
+              print(v.simple_value)
+  # Wait for a bit before checking the file for any new events
+  time.sleep(wait time)
+```
 
 See the protocol buffer definitions of
 [Event](https://www.tensorflow.org/code/tensorflow/core/util/event.proto)
@@ -78,6 +90,15 @@ The path to an event file created by a `SummaryWriter`.
 
 
 
-#### Yields:
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+A iterator that yields `Event` protocol buffers
+</td>
+</tr>
 
-`Event` protocol buffers.
+</table>
+

@@ -30,7 +30,7 @@ more details.</p>
     num_replicas, num_cores_per_replica=1, topology='', use_tpu=(True),
     device_assignment=[], computation_shape=[], host_compute_core=[],
     padding_map=[], step_marker_location='STEP_MARK_AT_ENTRY',
-    allow_soft_placement=(False), name=None
+    allow_soft_placement=(False), use_spmd_for_xla_partitioning=(False), name=None
 )
 </code></pre>
 
@@ -117,6 +117,13 @@ An optional `string`. Defaults to `"STEP_MARK_AT_ENTRY"`.
 </tr><tr>
 <td>
 `allow_soft_placement`
+</td>
+<td>
+An optional `bool`. Defaults to `False`.
+</td>
+</tr><tr>
+<td>
+`use_spmd_for_xla_partitioning`
 </td>
 <td>
 An optional `bool`. Defaults to `False`.

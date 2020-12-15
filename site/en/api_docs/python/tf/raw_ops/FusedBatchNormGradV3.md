@@ -114,7 +114,7 @@ A small float number added to the variance of x.
 `data_format`
 </td>
 <td>
-An optional `string` from: `"NHWC", "NCHW"`. Defaults to `"NHWC"`.
+An optional `string` from: `"NHWC", "NCHW", "NDHWC", "NCDHW"`. Defaults to `"NHWC"`.
 The data format for y_backprop, x, x_backprop.
 Either "NHWC" (default) or "NCHW".
 </td>

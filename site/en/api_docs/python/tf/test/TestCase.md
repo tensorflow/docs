@@ -140,7 +140,7 @@ description: Base class for tests that need to test TensorFlow.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L1922-L3160">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2019-L3266">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -246,7 +246,7 @@ useful error message when the two arguments are not equal.
 
 <h3 id="assertAllClose"><code>assertAllClose</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2574-L2607">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2678-L2711">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllClose(
@@ -337,7 +337,7 @@ to the nested structure, e.g. given `a = [(1, 1), {'d': (6, 7)}]` and
 
 <h3 id="assertAllCloseAccordingToType"><code>assertAllCloseAccordingToType</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2609-L2655">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2713-L2759">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllCloseAccordingToType(
@@ -441,7 +441,7 @@ Optional message to report on failure.
 
 <h3 id="assertAllEqual"><code>assertAllEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2676-L2739">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2780-L2843">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllEqual(
@@ -485,7 +485,7 @@ Optional message to report on failure.
 
 <h3 id="assertAllGreater"><code>assertAllGreater</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2756-L2766">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2860-L2870">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllGreater(
@@ -523,7 +523,7 @@ The target value of comparison.
 
 <h3 id="assertAllGreaterEqual"><code>assertAllGreaterEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2780-L2790">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2884-L2894">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllGreaterEqual(
@@ -561,7 +561,7 @@ The target value of comparison.
 
 <h3 id="assertAllInRange"><code>assertAllInRange</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2835-L2892">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2941-L2998">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllInRange(
@@ -643,7 +643,7 @@ if any of the elements do not fall in the specified range.
 
 <h3 id="assertAllInSet"><code>assertAllInSet</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2894-L2914">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3000-L3020">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllInSet(
@@ -699,7 +699,7 @@ if any of the elements do not fall into `expected_set`.
 
 <h3 id="assertAllLess"><code>assertAllLess</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2768-L2778">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2872-L2882">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllLess(
@@ -737,7 +737,7 @@ The target value of comparison.
 
 <h3 id="assertAllLessEqual"><code>assertAllLessEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2792-L2802">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2896-L2906">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertAllLessEqual(
@@ -806,7 +806,7 @@ compare almost equal.
 
 <h3 id="assertArrayNear"><code>assertArrayNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2416-L2431">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2520-L2535">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertArrayNear(
@@ -1153,7 +1153,7 @@ times, without regard to order.
 
 <h3 id="assertDTypeEqual"><code>assertDTypeEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2916-L2929">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3022-L3035">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertDTypeEqual(
@@ -1191,7 +1191,7 @@ Expected data type.
 
 <h3 id="assertDeviceEqual"><code>assertDeviceEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2997-L3009">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3103-L3115">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertDeviceEqual(
@@ -1710,7 +1710,7 @@ Asserts that two multi-line strings are equal.
 
 <h3 id="assertNDArrayNear"><code>assertNDArrayNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2436-L2446">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2540-L2550">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertNDArrayNear(
@@ -1761,7 +1761,7 @@ Optional message to report on failure.
 
 <h3 id="assertNear"><code>assertNear</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2398-L2414">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2502-L2518">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertNear(
@@ -1825,7 +1825,7 @@ Checks whether actual iterable and expected iterable are disjoint.
 
 <h3 id="assertNotAllClose"><code>assertNotAllClose</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2657-L2674">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2761-L2778">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertNotAllClose(
@@ -1887,7 +1887,7 @@ If `a` and `b` are unexpectedly close at all elements.
 
 <h3 id="assertNotAllEqual"><code>assertNotAllEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2741-L2754">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2845-L2858">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertNotAllEqual(
@@ -2145,7 +2145,7 @@ Optional message to report on failure.
 
 <h3 id="assertProtoEquals"><code>assertProtoEquals</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2064-L2088">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2168-L2192">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertProtoEquals(
@@ -2191,7 +2191,7 @@ Optional message to report on failure.
 
 <h3 id="assertProtoEqualsVersion"><code>assertProtoEqualsVersion</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2090-L2099">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2194-L2203">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertProtoEqualsVersion(
@@ -2238,7 +2238,7 @@ exception after the assertion::
 
 <h3 id="assertRaisesOpError"><code>assertRaisesOpError</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2975-L2977">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3081-L3083">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertRaisesOpError(
@@ -2459,7 +2459,7 @@ self.failureException if callable_obj does not raise a matching exception.
 
 <h3 id="assertRaisesWithPredicateMatch"><code>assertRaisesWithPredicateMatch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2932-L2971">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3038-L3077">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -2934,7 +2934,7 @@ difference method).
 
 <h3 id="assertShapeEqual"><code>assertShapeEqual</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2979-L2995">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L3085-L3101">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertShapeEqual(
@@ -2995,7 +2995,7 @@ If the arguments have the wrong type.
 
 <h3 id="assertStartsWith"><code>assertStartsWith</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2101-L2112">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2205-L2216">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assertStartsWith(
@@ -3270,7 +3270,7 @@ when assertWarnsRegex is used as a context manager.
 
 <h3 id="cached_session"><code>cached_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2209-L2259">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2313-L2363">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -3354,7 +3354,7 @@ the graph building and execution code in a test case.
 
 <h3 id="captureWritesToStream"><code>captureWritesToStream</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2003-L2047">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2107-L2151">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -3415,7 +3415,7 @@ made during this context.
 
 <h3 id="checkedThread"><code>checkedThread</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2377-L2395">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2481-L2499">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>checkedThread(
@@ -3500,7 +3500,19 @@ creation. This ensures that there is no pre-existing state.
 This creates a named directory on disk that is isolated to this test, and
 will be properly cleaned up by the test. This avoids several pitfalls of
 creating temporary directories for test purposes, as well as makes it easier
-to setup directories and verify their contents.
+to setup directories and verify their contents. For example:
+
+    def test_foo(self):
+      out_dir = self.create_tempdir()
+      out_log = out_dir.create_file('output.log')
+      expected_outputs = [
+          os.path.join(out_dir, 'data-0.txt'),
+          os.path.join(out_dir, 'data-1.txt'),
+      ]
+      code_under_test(out_dir)
+      self.assertTrue(os.path.exists(expected_paths[0]))
+      self.assertTrue(os.path.exists(expected_paths[1]))
+      self.assertEqual('foo', out_log.read_text())
 
 See also: `create_tempfile()` for creating temporary files.
 
@@ -3537,7 +3549,8 @@ all its contents) at the end of the test. If None, then uses
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A _TempDir representing the created directory.
+A _TempDir representing the created directory; see _TempDir class docs
+for usage.
 </td>
 </tr>
 
@@ -3560,7 +3573,13 @@ This creates a named file on disk that is isolated to this test, and will
 be properly cleaned up by the test. This avoids several pitfalls of
 creating temporary files for test purposes, as well as makes it easier
 to setup files, their data, read them back, and inspect them when
-a test fails.
+a test fails. For example:
+
+    def test_foo(self):
+      output = self.create_tempfile()
+      code_under_test(output)
+      self.assertGreater(os.path.getsize(output), 0)
+      self.assertEqual('foo', output.read_text())
 
 NOTE: This will zero-out the file. This ensures there is no pre-existing
 state.
@@ -3638,7 +3657,8 @@ all its contents) at the end of the test. If None, then uses
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A _TempFile representing the created file.
+A _TempFile representing the created file; see _TempFile class docs for
+usage.
 </td>
 </tr>
 
@@ -3725,7 +3745,7 @@ The context manager to enter.
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2145-L2162">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2249-L2266">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>evaluate(
@@ -3857,7 +3877,7 @@ Fail immediately with the given message, optionally prefixed.
 
 <h3 id="get_temp_dir"><code>get_temp_dir</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L1985-L2001">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2089-L2105">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_temp_dir()
@@ -3909,7 +3929,7 @@ string, the path to the unique temporary directory created for this test.
 
 <h3 id="session"><code>session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2165-L2207">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2269-L2311">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -3991,7 +4011,7 @@ the graph building and execution code in a test case.
 
 <h3 id="setUp"><code>setUp</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L1944-L1966">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2046-L2069">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>setUp()
@@ -4069,7 +4089,7 @@ block, allowing further test code to be executed.
 
 <h3 id="tearDown"><code>tearDown</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L1968-L1978">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2071-L2082">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tearDown()
@@ -4090,7 +4110,7 @@ Hook method for deconstructing the class fixture after running all tests in the 
 
 <h3 id="test_session"><code>test_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/test_util.py#L2261-L2287">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/test_util.py#L2365-L2391">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>

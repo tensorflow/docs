@@ -22,7 +22,7 @@ description: Represents a cluster as a set of "tasks", organized into "jobs".
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L247-L496">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L247-L496">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -141,7 +141,7 @@ Returns a list of job names in this cluster.
 
 <h3 id="as_cluster_def"><code>as_cluster_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L368-L370">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L368-L370">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_cluster_def()
@@ -152,7 +152,7 @@ Returns a <a href="../../tf/train/ClusterDef.md"><code>tf.train.ClusterDef</code
 
 <h3 id="as_dict"><code>as_dict</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L341-L366">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L341-L366">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_dict()
@@ -182,7 +182,7 @@ describing the tasks in those jobs.
 
 <h3 id="job_tasks"><code>job_tasks</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L442-L469">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L442-L469">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>job_tasks(
@@ -250,7 +250,7 @@ If `job_name` does not name a job in this cluster.
 
 <h3 id="num_tasks"><code>num_tasks</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L381-L397">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L381-L397">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_tasks(
@@ -311,7 +311,7 @@ If `job_name` does not name a job in this cluster.
 
 <h3 id="task_address"><code>task_address</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L418-L440">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L418-L440">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>task_address(
@@ -380,7 +380,7 @@ or no task with index `task_index` is defined in that job.
 
 <h3 id="task_indices"><code>task_indices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L399-L416">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L399-L416">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>task_indices(
@@ -442,7 +442,7 @@ or no task with index `task_index` is defined in that job.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L322-L323">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L322-L323">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__bool__()
@@ -453,7 +453,7 @@ or no task with index `task_index` is defined in that job.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L328-L329">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L328-L329">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -466,7 +466,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L331-L332">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L331-L332">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(
@@ -479,7 +479,7 @@ Return self!=value.
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L322-L323">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L322-L323">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__nonzero__()

@@ -25,7 +25,7 @@ description: Variable scope object to carry defaults to provide to get_variable.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1083-L1389">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1104-L1410">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -163,7 +163,7 @@ distributed training.
 
 <h3 id="get_collection"><code>get_collection</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1228-L1231">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1249-L1252">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_collection(
@@ -176,7 +176,7 @@ Get this scope's variables.
 
 <h3 id="get_variable"><code>get_variable</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1245-L1315">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1266-L1336">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_variable(
@@ -193,7 +193,7 @@ Gets an existing variable with this name or create a new one.
 
 <h3 id="global_variables"><code>global_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1237-L1239">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1258-L1260">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>global_variables()
@@ -204,7 +204,7 @@ Get this scope's global variables.
 
 <h3 id="local_variables"><code>local_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1241-L1243">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1262-L1264">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>local_variables()
@@ -215,7 +215,7 @@ Get this scope's local variables.
 
 <h3 id="reuse_variables"><code>reuse_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1190-L1192">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1211-L1213">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reuse_variables()
@@ -226,7 +226,7 @@ Reuse variables in this scope.
 
 <h3 id="set_caching_device"><code>set_caching_device</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1213-L1218">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1234-L1239">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_caching_device(
@@ -239,7 +239,7 @@ Set caching_device for this scope.
 
 <h3 id="set_custom_getter"><code>set_custom_getter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1224-L1226">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1245-L1247">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_custom_getter(
@@ -252,7 +252,7 @@ Set custom getter for this scope.
 
 <h3 id="set_dtype"><code>set_dtype</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1198-L1200">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1219-L1221">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_dtype(
@@ -265,7 +265,7 @@ Set data type for this scope.
 
 <h3 id="set_initializer"><code>set_initializer</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1194-L1196">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1215-L1217">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_initializer(
@@ -278,7 +278,7 @@ Set initializer for this scope.
 
 <h3 id="set_partitioner"><code>set_partitioner</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1220-L1222">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1241-L1243">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_partitioner(
@@ -291,7 +291,7 @@ Set partitioner for this scope.
 
 <h3 id="set_regularizer"><code>set_regularizer</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1209-L1211">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1230-L1232">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_regularizer(
@@ -304,7 +304,7 @@ Set regularizer for this scope.
 
 <h3 id="set_use_resource"><code>set_use_resource</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1202-L1207">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1223-L1228">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_use_resource(
@@ -317,7 +317,7 @@ Sets whether to use ResourceVariables for this scope.
 
 <h3 id="trainable_variables"><code>trainable_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L1233-L1235">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L1254-L1256">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>trainable_variables()

@@ -19,7 +19,7 @@ description: Base class for image data iterators.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/image.py#L305-L306">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/image.py#L304-L305">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -66,6 +66,8 @@ method.
 
 <h3 id="next"><code>next</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>next()
 </code></pre>
@@ -77,6 +79,8 @@ For python 2.x.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_epoch_end()
 </code></pre>
@@ -86,6 +90,8 @@ For python 2.x.
 
 <h3 id="reset"><code>reset</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset()
 </code></pre>
@@ -94,6 +100,8 @@ For python 2.x.
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__getitem__(
@@ -106,6 +114,8 @@ For python 2.x.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
 </code></pre>
@@ -114,6 +124,8 @@ For python 2.x.
 
 
 <h3 id="__len__"><code>__len__</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/iterator.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__len__()

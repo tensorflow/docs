@@ -5,6 +5,8 @@ description: TPU related configuration required by TPUEstimator.
 <meta itemprop="path" content="Stable" />
 <meta itemprop="property" content="__new__"/>
 <meta itemprop="property" content="eval_training_input_configuration"/>
+<meta itemprop="property" content="experimental_allow_per_host_v2_parallel_get_next"/>
+<meta itemprop="property" content="experimental_feed_hook"/>
 <meta itemprop="property" content="experimental_host_call_every_n_steps"/>
 <meta itemprop="property" content="initial_infeed_sleep_secs"/>
 <meta itemprop="property" content="input_partition_dims"/>
@@ -38,7 +40,9 @@ TPU related configuration required by `TPUEstimator`.
     per_host_input_for_training=(True), tpu_job_name=None,
     initial_infeed_sleep_secs=None, input_partition_dims=None,
     eval_training_input_configuration=InputPipelineConfig.PER_HOST_V1,
-    experimental_host_call_every_n_steps=1
+    experimental_host_call_every_n_steps=1,
+    experimental_allow_per_host_v2_parallel_get_next=(False),
+    experimental_feed_hook=None
 )
 </code></pre>
 
@@ -167,6 +171,31 @@ sets how often host calls are performed during training. Host calls will
 be evaluated every n steps within a training loop where n is the value of
 this argument.
 </td>
+</tr><tr>
+<td>
+`experimental_allow_per_host_v2_parallel_get_next`
+</td>
+<td>
+When enabled, allows
+concurrent execution of dataset get next calls when using PER_HOST_V2
+input. May result in a performance increase for models with a small step
+time, but as a consequence TPUEstimator may non-deterministically
+distribute batches to different cores, rather than guaranteeing round
+robin behavior.
+</td>
+</tr><tr>
+<td>
+`experimental_feed_hook`
+</td>
+<td>
+This is a class which user can provide to the TPU
+estimator to override the default TPUInfeedOutfeedSessionHook implementation
+and add customized implementatioin to handle infeed outfeed logic. If
+given class is None, TPU estimator uses default TPUInfeedOutfeedSessionHook
+implementation in tpu_estimator.py. If not None, TPU estimator uses this
+customized tpu infeed outfeed session hook class rather to override the
+default one.
+</td>
 </tr>
 </table>
 
@@ -259,6 +288,20 @@ If `num_cores_per_replica` is not 1, 2, 4, 8, ..., 128.
 <td>
 
 </td>
+</tr><tr>
+<td>
+`experimental_allow_per_host_v2_parallel_get_next`
+</td>
+<td>
+
+</td>
+</tr><tr>
+<td>
+`experimental_feed_hook`
+</td>
+<td>
+
+</td>
 </tr>
 </table>
 
@@ -267,6 +310,8 @@ If `num_cores_per_replica` is not 1, 2, 4, 8, ..., 128.
 ## Class Variables
 
 * `eval_training_input_configuration` <a id="eval_training_input_configuration"></a>
+* `experimental_allow_per_host_v2_parallel_get_next` <a id="experimental_allow_per_host_v2_parallel_get_next"></a>
+* `experimental_feed_hook` <a id="experimental_feed_hook"></a>
 * `experimental_host_call_every_n_steps` <a id="experimental_host_call_every_n_steps"></a>
 * `initial_infeed_sleep_secs` <a id="initial_infeed_sleep_secs"></a>
 * `input_partition_dims` <a id="input_partition_dims"></a>

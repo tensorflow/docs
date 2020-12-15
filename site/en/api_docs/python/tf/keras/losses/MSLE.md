@@ -11,7 +11,7 @@ description: Computes the mean squared logarithmic error between y_true and y_pr
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L1268-L1304">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L1271-L1307">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -59,7 +59,7 @@ more details.</p>
 >>> assert loss.shape == (2,)
 >>> y_true = np.maximum(y_true, 1e-7)
 >>> y_pred = np.maximum(y_pred, 1e-7)
->>> assert np.array_equal(
+>>> assert np.allclose(
 ...     loss.numpy(),
 ...     np.mean(
 ...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))

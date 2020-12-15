@@ -3,6 +3,10 @@ description: A ProtocolMessage
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.ConfigProto.Experimental" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="MLIR_BRIDGE_ROLLOUT_DISABLED"/>
+<meta itemprop="property" content="MLIR_BRIDGE_ROLLOUT_ENABLED"/>
+<meta itemprop="property" content="MLIR_BRIDGE_ROLLOUT_UNSPECIFIED"/>
+<meta itemprop="property" content="MlirBridgeRollout"/>
 </div>
 
 # tf.compat.v1.ConfigProto.Experimental
@@ -11,7 +15,7 @@ description: A ProtocolMessage
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/core/protobuf/config.proto">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/core/protobuf/config.proto">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -90,6 +94,13 @@ A ProtocolMessage
 </td>
 </tr><tr>
 <td>
+`mlir_bridge_rollout`
+</td>
+<td>
+`MlirBridgeRollout mlir_bridge_rollout`
+</td>
+</tr><tr>
+<td>
 `optimize_for_static_graph`
 </td>
 <td>
@@ -142,3 +153,9 @@ A ProtocolMessage
 
 
 
+## Class Variables
+
+* `MLIR_BRIDGE_ROLLOUT_DISABLED = 2` <a id="MLIR_BRIDGE_ROLLOUT_DISABLED"></a>
+* `MLIR_BRIDGE_ROLLOUT_ENABLED = 1` <a id="MLIR_BRIDGE_ROLLOUT_ENABLED"></a>
+* `MLIR_BRIDGE_ROLLOUT_UNSPECIFIED = 0` <a id="MLIR_BRIDGE_ROLLOUT_UNSPECIFIED"></a>
+* `MlirBridgeRollout` <a id="MlirBridgeRollout"></a>

@@ -14,7 +14,7 @@ description: A context manager for defining ops that creates variables (layers).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L2050-L2455">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L2071-L2476">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -341,7 +341,7 @@ when the types of some arguments are not appropriate.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L2297-L2321">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L2318-L2342">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__enter__()
@@ -352,7 +352,7 @@ when the types of some arguments are not appropriate.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/variable_scope.py#L2443-L2455">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/variable_scope.py#L2464-L2476">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__exit__(

@@ -15,7 +15,7 @@ description: Represents a value that may or may not be present.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/optional_ops.py#L38-L163">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/optional_ops.py#L38-L163">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -101,7 +101,7 @@ tf.TensorSpec(shape=(), dtype=tf.int32, name=None)
 
 <h3 id="empty"><code>empty</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/optional_ops.py#L118-L137">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/optional_ops.py#L118-L137">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -156,7 +156,7 @@ A <a href="../../tf/experimental/Optional.md"><code>tf.experimental.Optional</co
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/optional_ops.py#L139-L163">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/optional_ops.py#L139-L163">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -209,7 +209,7 @@ A <a href="../../tf/experimental/Optional.md"><code>tf.experimental.Optional</co
 
 <h3 id="get_value"><code>get_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/optional_ops.py#L84-L102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/optional_ops.py#L84-L102">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>
@@ -263,7 +263,7 @@ The wrapped value.
 
 <h3 id="has_value"><code>has_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/optional_ops.py#L68-L82">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/optional_ops.py#L68-L82">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>

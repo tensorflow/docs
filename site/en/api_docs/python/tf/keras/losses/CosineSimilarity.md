@@ -15,7 +15,7 @@ description: Computes the cosine similarity between labels and predictions.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L1732-L1800">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L1735-L1804">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -50,12 +50,13 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-Note that it is a negative quantity between -1 and 0, where 0 indicates
-orthogonality and values closer to -1 indicate greater similarity. This makes
-it usable as a loss function in a setting where you try to maximize the
-proximity between predictions and targets. If either `y_true` or `y_pred`
-is a zero vector, cosine similarity will be 0 regardless of the proximity
-between predictions and targets.
+Note that it is a number between -1 and 1. When it is a negative number
+between -1 and 0, 0 indicates orthogonality and values closer to -1
+indicate greater similarity. The values closer to 1 indicate greater
+dissimilarity. This makes it usable as a loss function in a setting
+where you try to maximize the proximity between predictions and targets.
+If either `y_true` or `y_pred` is a zero vector, cosine similarity will be 0
+regardless of the proximity between predictions and targets.
 
 `loss = -sum(l2_norm(y_true) * l2_norm(y_pred))`
 
@@ -196,7 +197,7 @@ The keyword arguments that are passed on to `fn`.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L153-L163">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L156-L166">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -241,7 +242,7 @@ A `Loss` instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L255-L260">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L258-L263">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -252,7 +253,7 @@ Returns the config dictionary for a `Loss` instance.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L117-L151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L117-L154">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__(

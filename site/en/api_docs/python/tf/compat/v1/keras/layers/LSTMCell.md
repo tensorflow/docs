@@ -18,7 +18,7 @@ description: Cell class for the LSTM layer.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L2241-L2524">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L2230-L2507">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -38,7 +38,7 @@ Inherits From: [`Layer`](../../../../../tf/keras/layers/Layer.md)
     bias_initializer='zeros', unit_forget_bias=(True), kernel_regularizer=None,
     recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None,
     recurrent_constraint=None, bias_constraint=None, dropout=0.0,
-    recurrent_dropout=0.0, implementation=1, **kwargs
+    recurrent_dropout=0.0, **kwargs
 )
 </code></pre>
 
@@ -186,18 +186,6 @@ Float between 0 and 1.
 Fraction of the units to drop for
 the linear transformation of the recurrent state.
 </td>
-</tr><tr>
-<td>
-`implementation`
-</td>
-<td>
-Implementation mode, either 1 or 2.
-Mode 1 will structure its operations as a larger number of
-smaller dot products and additions, whereas mode 2 will
-batch them into fewer, larger operations. These modes will
-have different performance profiles on different hardware and
-for different applications.
-</td>
 </tr>
 </table>
 
@@ -217,7 +205,7 @@ for different applications.
 
 <h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1163-L1182">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1163-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_dropout_mask_for_cell(
@@ -280,7 +268,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L2522-L2524">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L2505-L2507">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_initial_state(
@@ -293,7 +281,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1184-L1203">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1184-L1203">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_recurrent_dropout_mask_for_cell(
@@ -356,7 +344,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1127-L1136">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1127-L1136">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_dropout_mask()
@@ -364,15 +352,15 @@ List of mask tensor, generated or cached mask based on context.
 
 Reset the cached dropout masks if any.
 
-This is important for the RNN layer to invoke this in it call() method so
-that the cached mask is cleared before calling the cell.call(). The mask
+This is important for the RNN layer to invoke this in it `call()` method so
+that the cached mask is cleared before calling the `cell.call()`. The mask
 should be cached across the timestep within the same batch, but shouldn't
 be cached between batches. Otherwise it will introduce unreasonable bias
 against certain index of data within the batch.
 
 <h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1138-L1147">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1138-L1147">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_recurrent_dropout_mask()

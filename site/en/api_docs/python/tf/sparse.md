@@ -44,6 +44,8 @@ See also <a href="../tf/sparse/SparseTensor.md"><code>tf.sparse.SparseTensor</co
 
 [`from_dense(...)`](../tf/sparse/from_dense.md): Converts a dense tensor into a sparse tensor.
 
+[`map_values(...)`](../tf/sparse/map_values.md): Applies `op` to the `.values` tensor of one or more `SparseTensor`s.
+
 [`mask(...)`](../tf/sparse/mask.md): Masks elements of `IndexedSlices`.
 
 [`maximum(...)`](../tf/sparse/maximum.md): Returns the element-wise max of two SparseTensors.

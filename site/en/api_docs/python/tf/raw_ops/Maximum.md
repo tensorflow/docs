@@ -39,10 +39,13 @@ more details.</p>
 #### Example:
 
 
+
+```
 >>> x = tf.constant([0., 0., 0., 0.])
 >>> y = tf.constant([-2., 0., 2., 5.])
 >>> tf.math.maximum(x, y)
 <tf.Tensor: shape=(4,), dtype=float32, numpy=array([0., 0., 2., 5.], dtype=float32)>
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

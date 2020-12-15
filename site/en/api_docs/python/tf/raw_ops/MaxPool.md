@@ -27,7 +27,8 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.MaxPool(
-    input, ksize, strides, padding, data_format='NHWC', name=None
+    input, ksize, strides, padding, explicit_paddings=[], data_format='NHWC',
+    name=None
 )
 </code></pre>
 
@@ -71,8 +72,15 @@ input tensor.
 `padding`
 </td>
 <td>
-A `string` from: `"SAME", "VALID"`.
+A `string` from: `"SAME", "VALID", "EXPLICIT"`.
 The type of padding algorithm to use.
+</td>
+</tr><tr>
+<td>
+`explicit_paddings`
+</td>
+<td>
+An optional list of `ints`. Defaults to `[]`.
 </td>
 </tr><tr>
 <td>

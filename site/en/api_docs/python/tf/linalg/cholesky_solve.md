@@ -11,7 +11,7 @@ description: Solves systems of linear eqns A X = RHS, given Cholesky factorizati
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg_ops.py#L146-L189">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg_ops.py#L147-L193">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -42,6 +42,9 @@ more details.</p>
 
 
 <!-- Placeholder for "Used in" -->
+
+Specifically, returns `X` from `A X = RHS`, where `A = L L^T`, `L` is the
+`chol` arg and `RHS` is the `rhs` arg.
 
 ```python
 # Solve 10 separate 2x2 linear systems:

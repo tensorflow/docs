@@ -12,7 +12,7 @@ robots: noindex
 
 
 
-Extract `patches` from `input` and put them in the "depth" output dimension. 3D extension of `extract_image_patches`.
+Extract `patches` from `input` and put them in the `"depth"` output dimension. 3D extension of `extract_image_patches`.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -74,7 +74,7 @@ A list of `ints` that has length `>= 5`.
 A `string` from: `"SAME", "VALID"`.
 The type of padding algorithm to use.
 
-We specify the size-related attributes as:
+The size-related attributes are specified as follows:
 
 ```python
 ksizes = [1, ksize_planes, ksize_rows, ksize_cols, 1]

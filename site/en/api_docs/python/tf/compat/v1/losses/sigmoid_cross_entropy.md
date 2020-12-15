@@ -11,7 +11,7 @@ description: Creates a cross-entropy loss using tf.nn.sigmoid_cross_entropy_with
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/losses/losses_impl.py#L656-L718">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/losses/losses_impl.py#L656-L719">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -69,8 +69,9 @@ Float `[batch_size, num_classes]` logits outputs of the network.
 </td>
 <td>
 Optional `Tensor` whose rank is either 0, or the same rank as
-`labels`, and must be broadcastable to `labels` (i.e., all dimensions must
-be either `1`, or the same as the corresponding `losses` dimension).
+`multi_class_labels`, and must be broadcastable to `multi_class_labels` 
+(i.e., all dimensions must be either `1`, or the same as the 
+corresponding `losses` dimension).
 </td>
 </tr><tr>
 <td>

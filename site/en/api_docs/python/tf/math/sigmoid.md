@@ -11,7 +11,7 @@ description: Computes sigmoid of x element-wise.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L3594-L3643">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L3654-L3703">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,9 +46,9 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-Formula for calculating sigmoid(x): `y = 1 / (1 + exp(-x))`.
+Formula for calculating $\mathrm{sigmoid}(x) = y = 1 / (1 + \exp(-x))$.
 
-For x \in (-inf, inf) => sigmoid(x) \in (0, 1)
+For $x \in (-\infty, \infty)$, $\mathrm{sigmoid}(x) \in (0, 1)$.
 
 #### Example Usage:
 

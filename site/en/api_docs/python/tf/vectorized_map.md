@@ -11,7 +11,7 @@ description: Parallel map on the list of tensors unpacked from elems on dimensio
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/parallel_for/control_flow_ops.py#L335-L432">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/parallel_for/control_flow_ops.py#L366-L490">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,11 +43,11 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-
-This method works similar to tf.map_fn but is optimized to run much faster,
+This method works similar to <a href="../tf/map_fn.md"><code>tf.map_fn</code></a> but is optimized to run much faster,
 possibly with a much larger memory footprint. The speedups are obtained by
-vectorization (see https://arxiv.org/pdf/1903.04243.pdf). The idea behind
-vectorization is to semantically launch all the invocations of `fn` in
+vectorization (see [Auto-Vectorizing TensorFlow Graphs: Jacobians, 
+Auto-Batching and Beyond](https://arxiv.org/pdf/1903.04243.pdf)). The idea 
+behind vectorization is to semantically launch all the invocations of `fn` in
 parallel and fuse corresponding operations across all these invocations. This
 fusion is done statically at graph generation time and the generated code is
 often similar in performance to a manually fused version.
@@ -126,7 +126,10 @@ the structure of `elems`.
 <td>
 A tensor or (possibly nested) sequence of tensors, each of which will
 be unpacked along their first dimension. The nested sequence of the
-resulting slices will be mapped over by `fn`.
+resulting slices will be mapped over by `fn`. The first dimensions of all
+elements must broadcast to a consistent value; equivalently, each
+element tensor must have first dimension of either `B` or `1`, for some
+common batch size `B >= 1`.
 </td>
 </tr><tr>
 <td>
@@ -155,6 +158,13 @@ of magnitude.
 A tensor or (possibly nested) sequence of tensors. Each tensor packs the
 results of applying fn to tensors unpacked from elems along the first
 dimension, from first to last.
+
+Although they are less common as user-visible inputs and outputs, note that
+tensors of type <a href="../tf.md#variant"><code>tf.variant</code></a> which represent tensor lists (for example from
+<a href="../tf/raw_ops/TensorListFromTensor.md"><code>tf.raw_ops.TensorListFromTensor</code></a>) are vectorized by stacking the list
+contents rather than the variant itself, and so the container tensor will
+have a scalar shape when returned rather than the usual stacked shape. This
+improves the performance of control flow gradient vectorization.
 </td>
 </tr>
 

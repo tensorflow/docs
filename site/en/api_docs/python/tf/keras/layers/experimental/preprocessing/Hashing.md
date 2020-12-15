@@ -5,6 +5,7 @@ description: Implements categorical feature hashing, also known as "hashing tric
 <meta itemprop="path" content="Stable" />
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="__new__"/>
+<meta itemprop="property" content="adapt"/>
 </div>
 
 # tf.keras.layers.experimental.preprocessing.Hashing
@@ -13,7 +14,7 @@ description: Implements categorical feature hashing, also known as "hashing tric
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/hashing.py#L43-L280">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/hashing.py#L44-L279">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -24,7 +25,7 @@ description: Implements categorical feature hashing, also known as "hashing tric
 
 Implements categorical feature hashing, also known as "hashing trick".
 
-Inherits From: [`Layer`](../../../../../tf/keras/layers/Layer.md)
+Inherits From: [`PreprocessingLayer`](../../../../../tf/keras/layers/experimental/preprocessing/PreprocessingLayer.md)
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -171,4 +172,50 @@ Output shape: An int64 `Tensor`, `SparseTensor` or `RaggedTensor` of shape
   `[batch_size, ...]`. If any input is `RaggedTensor` then output is
   `RaggedTensor`, otherwise if any input is `SparseTensor` then output is
   `SparseTensor`, otherwise the output is `Tensor`.
+
+## Methods
+
+<h3 id="adapt"><code>adapt</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_preprocessing_layer.py#L53-L66">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>adapt(
+    data, reset_state=(True)
+)
+</code></pre>
+
+Fits the state of the preprocessing layer to the data being passed.
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Arguments</th></tr>
+
+<tr>
+<td>
+`data`
+</td>
+<td>
+The data to train on. It can be passed either as a tf.data
+Dataset, or as a numpy array.
+</td>
+</tr><tr>
+<td>
+`reset_state`
+</td>
+<td>
+Optional argument specifying whether to clear the state of
+the layer at the start of the call to `adapt`, or whether to start
+from the existing state. This argument may not be relevant to all
+preprocessing layers: a subclass of PreprocessingLayer may choose to
+throw if 'reset_state' is set to False.
+</td>
+</tr>
+</table>
+
+
+
+
 

@@ -11,7 +11,7 @@ description: Performs the max pooling on the input.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/nn_ops.py#L4570-L4604">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/nn_ops.py#L4675-L4721">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -77,8 +77,15 @@ stride of the sliding window for each dimension of the input tensor.
 `padding`
 </td>
 <td>
-A string, either `'VALID'` or `'SAME'`. The padding algorithm. See
-the "returns" section of <a href="../../tf/nn/convolution.md"><code>tf.nn.convolution</code></a> for details.
+Either the `string `"SAME"` or `"VALID"` indicating the type of
+padding algorithm to use, or a list indicating the explicit paddings at
+the start and end of each dimension. When explicit padding is used and
+data_format is `"NHWC"`, this should be in the form `[[0, 0], [pad_top,
+pad_bottom], [pad_left, pad_right], [0, 0]]`. When explicit padding used
+and data_format is `"NCHW"`, this should be in the form `[[0, 0], [0, 0],
+[pad_top, pad_bottom], [pad_left, pad_right]]`. When using explicit
+padding, the size of the paddings cannot be greater than the sliding
+window size.
 </td>
 </tr><tr>
 <td>

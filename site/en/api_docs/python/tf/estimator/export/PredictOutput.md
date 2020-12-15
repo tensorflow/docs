@@ -13,7 +13,7 @@ description: Represents the output of a generic prediction head.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/model_utils/export_output.py#L202-L232">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/model_utils/export_output.py#L203-L233">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -110,7 +110,7 @@ strings, or any of its values are not `Tensor`s.
 
 <h3 id="as_signature_def"><code>as_signature_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/model_utils/export_output.py#L230-L232">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/model_utils/export_output.py#L231-L233">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_signature_def(

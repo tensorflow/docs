@@ -35,6 +35,8 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Each entry in `output` is the mean of the corresponding size `ksize` window in
+`value`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

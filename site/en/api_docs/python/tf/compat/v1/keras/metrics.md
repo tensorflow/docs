@@ -23,9 +23,9 @@ Built-in metrics.
 
 [`class AUC`](../../../../tf/keras/metrics/AUC.md): Computes the approximate AUC (Area under the curve) via a Riemann sum.
 
-[`class Accuracy`](../../../../tf/keras/metrics/Accuracy.md): Calculates how often predictions equals labels.
+[`class Accuracy`](../../../../tf/keras/metrics/Accuracy.md): Calculates how often predictions equal labels.
 
-[`class BinaryAccuracy`](../../../../tf/keras/metrics/BinaryAccuracy.md): Calculates how often predictions matches binary labels.
+[`class BinaryAccuracy`](../../../../tf/keras/metrics/BinaryAccuracy.md): Calculates how often predictions match binary labels.
 
 [`class BinaryCrossentropy`](../../../../tf/keras/metrics/BinaryCrossentropy.md): Computes the crossentropy metric between the labels and predictions.
 
@@ -132,6 +132,10 @@ Built-in metrics.
 [`kld(...)`](../../../../tf/keras/losses/KLD.md): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
 
 [`kullback_leibler_divergence(...)`](../../../../tf/keras/losses/KLD.md): Computes Kullback-Leibler divergence loss between `y_true` and `y_pred`.
+
+[`log_cosh(...)`](../../../../tf/keras/losses/log_cosh.md): Logarithm of the hyperbolic cosine of the prediction error.
+
+[`logcosh(...)`](../../../../tf/keras/losses/log_cosh.md): Logarithm of the hyperbolic cosine of the prediction error.
 
 [`mae(...)`](../../../../tf/keras/losses/MAE.md): Computes the mean absolute error between labels and predictions.
 

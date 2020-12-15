@@ -11,7 +11,7 @@ description: Randomly flip an image horizontally (left to right).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L369-L409">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L372-L411">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -51,10 +51,6 @@ independent of other images.
 #### Example usage:
 
 
-
-```
->>> import numpy as np
-```
 
 ```
 >>> image = np.array([[[1], [2]], [[3], [4]]])

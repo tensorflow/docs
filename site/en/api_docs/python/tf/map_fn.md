@@ -11,7 +11,7 @@ description: Transforms elems by applying fn to each element unstacked on axis 0
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/map_fn.py#L610-L641">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/map_fn.py#L628-L659">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -282,7 +282,7 @@ must have the same structure as `elems`.
 A tensor or (possibly nested) sequence of tensors, each of which will
 be unstacked along their first dimension.  `fn` will be applied to the
 nested sequence of the resulting slices.  `elems` may include ragged and
-sparse tensors.
+sparse tensors. `elems` must consist of at least one tensor.
 </td>
 </tr><tr>
 <td>
@@ -384,7 +384,7 @@ if `fn` is not callable or the structure of the output of
 </td>
 <td>
 if the lengths of the output of `fn` and `fn_output_signature`
-do not match.
+do not match, or if the `elems` does not contain any tensor.
 </td>
 </tr>
 </table>

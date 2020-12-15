@@ -11,7 +11,7 @@ description: Instantiates a Mobile NASNet model in ImageNet mode.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/nasnet.py#L325-L390">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/nasnet.py#L322-L396">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,9 +47,20 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+
+#### Reference:
+
+
+- [Learning Transferable Architectures for Scalable Image Recognition](
+    https://arxiv.org/abs/1707.07012) (CVPR 2018)
+
 Optionally loads weights pre-trained on ImageNet.
 Note that the data format convention used by the model is
 the one specified in your Keras config at `~/.keras/keras.json`.
+
+Note: each Keras Application expects a specific kind of input preprocessing.
+For NASNet, call <a href="../../../tf/keras/applications/nasnet/preprocess_input.md"><code>tf.keras.applications.nasnet.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -83,6 +94,7 @@ layer at the top of the network.
 <td>
 `None` (random initialization) or
 `imagenet` (ImageNet weights)
+For loading `imagenet` weights, `input_shape` should be (224, 224, 3)
 </td>
 </tr><tr>
 <td>

@@ -11,7 +11,7 @@ description: Constructs the Hessian of sum of ys with respect to x in xs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/gradients_impl.py#L443-L450">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/gradients_impl.py#L443-L479">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -60,21 +60,6 @@ A `Tensor` or list of tensors to be used for differentiation.
 </td>
 </tr><tr>
 <td>
-`name`
-</td>
-<td>
-Optional name to use for grouping all the gradient ops together.
-defaults to 'hessians'.
-</td>
-</tr><tr>
-<td>
-`colocate_gradients_with_ops`
-</td>
-<td>
-See `gradients()` documentation for details.
-</td>
-</tr><tr>
-<td>
 `gate_gradients`
 </td>
 <td>
@@ -86,6 +71,14 @@ See `gradients()` documentation for details.
 </td>
 <td>
 See `gradients()` documentation for details.
+</td>
+</tr><tr>
+<td>
+`name`
+</td>
+<td>
+Optional name to use for grouping all the gradient ops together.
+defaults to 'hessians'.
 </td>
 </tr>
 </table>

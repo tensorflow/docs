@@ -11,7 +11,7 @@ description: Context manager for grouping async operations.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/context.py#L2262-L2307">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/context.py#L2273-L2318">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -61,7 +61,7 @@ try:
       train_step_fn()
 except tf.errors.OutOfRangeError:
   tf.experimental.async_clear_error()
-logging.info('loss =', loss.numpy())
+logging.info('loss = %s', loss.numpy())
 ```
 
 #### Yields:

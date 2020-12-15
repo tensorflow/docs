@@ -25,5 +25,5 @@ Public API for tf.mixed_precision.experimental namespace.
 
 [`class FixedLossScale`](../../tf/mixed_precision/experimental/FixedLossScale.md): Loss scale with a fixed value.
 
-[`class LossScale`](../../tf/mixed_precision/experimental/LossScale.md): Base class for all loss scales.
+[`class LossScale`](../../tf/mixed_precision/experimental/LossScale.md): Base class for all TF1 loss scales.
 

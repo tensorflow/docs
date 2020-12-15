@@ -110,6 +110,7 @@ Decay rate. Must be a scalar.
 </td>
 <td>
 A `Tensor`. Must have the same type as `lr`.
+Momentum Scale. Must be a scalar.
 </td>
 </tr><tr>
 <td>

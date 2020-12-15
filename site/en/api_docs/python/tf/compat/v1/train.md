@@ -208,7 +208,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`linear_cosine_decay(...)`](../../../tf/compat/v1/train/linear_cosine_decay.md): Applies linear cosine decay to the learning rate.
 
-[`list_variables(...)`](../../../tf/train/list_variables.md): Returns list of all variables in the checkpoint.
+[`list_variables(...)`](../../../tf/train/list_variables.md): Lists the checkpoint keys and shapes of variables in a checkpoint.
 
 [`load_checkpoint(...)`](../../../tf/train/load_checkpoint.md): Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 
@@ -256,7 +256,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`string_input_producer(...)`](../../../tf/compat/v1/train/string_input_producer.md): Output strings (e.g. filenames) to a queue for an input pipeline. (deprecated)
 
-[`summary_iterator(...)`](../../../tf/compat/v1/train/summary_iterator.md): An iterator for reading `Event` protocol buffers from an event file.
+[`summary_iterator(...)`](../../../tf/compat/v1/train/summary_iterator.md): Returns a iterator for reading `Event` protocol buffers from an event file.
 
 [`update_checkpoint_state(...)`](../../../tf/compat/v1/train/update_checkpoint_state.md): Updates the content of the 'checkpoint' file. (deprecated)
 

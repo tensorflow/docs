@@ -13,7 +13,7 @@ description: Locally-connected layer for 1D inputs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/local.py#L36-L334">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/local.py#L39-L338">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -111,6 +111,7 @@ any `dilation_rate` value != 1.
 <td>
 Currently only supports `"valid"` (case-insensitive).
 `"same"` may be supported in the future.
+`"valid"` means no padding.
 </td>
 </tr><tr>
 <td>

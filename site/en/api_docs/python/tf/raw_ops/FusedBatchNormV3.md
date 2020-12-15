@@ -106,7 +106,7 @@ An optional `float`. Defaults to `1`.
 `data_format`
 </td>
 <td>
-An optional `string` from: `"NHWC", "NCHW"`. Defaults to `"NHWC"`.
+An optional `string` from: `"NHWC", "NCHW", "NDHWC", "NCDHW"`. Defaults to `"NHWC"`.
 The data format for x and y. Either "NHWC" (default) or "NCHW".
 </td>
 </tr><tr>

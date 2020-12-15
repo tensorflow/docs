@@ -11,7 +11,7 @@ description: Instantiates the ResNet50V2 architecture.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/resnet_v2.py#L31-L59">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/resnet_v2.py#L31-L59">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -58,8 +58,9 @@ Optionally loads weights pre-trained on ImageNet.
 Note that the data format convention used by the model is
 the one specified in your Keras config at `~/.keras/keras.json`.
 
-Caution: Be sure to properly pre-process your inputs to the application.
-Please see <a href="../../../tf/keras/applications/resnet_v2/preprocess_input.md"><code>applications.resnet_v2.preprocess_input</code></a> for an example.
+Note: each Keras Application expects a specific kind of input preprocessing.
+For ResNetV2, call <a href="../../../tf/keras/applications/resnet_v2/preprocess_input.md"><code>tf.keras.applications.resnet_v2.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

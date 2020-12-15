@@ -13,7 +13,7 @@ description: Layer to be used as an entry point into a Network (a graph of layer
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/input_layer.py#L37-L207">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/input_layer.py#L36-L204">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -114,8 +114,9 @@ default float type will be used.
 `input_tensor`
 </td>
 <td>
-Optional tensor to use as layer input
-instead of creating a placeholder.
+Optional tensor to use as layer input. If set, the layer
+will use the <a href="../../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> of this tensor rather
+than creating a new placeholder tensor.
 </td>
 </tr><tr>
 <td>

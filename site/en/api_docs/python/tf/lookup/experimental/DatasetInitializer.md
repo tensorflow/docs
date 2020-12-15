@@ -13,7 +13,7 @@ description: Creates a table initializer from a <a href="../../../tf/data/Datase
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L416-L471">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L439-L494">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -49,15 +49,16 @@ more details.</p>
 #### Sample usage:
 
 
-```python
-  keys = tf.data.Dataset.range(100)
-  values = tf.data.Dataset.range(100).map(
-      lambda x: string_ops.as_string(x * 2))
-  ds = tf.data.Dataset.zip((keys, values))
-  init = tf.lookup.experimental.DatasetInitializer(ds)
-  table = tf.lookup.StaticHashTable(init, "")
-  output = table.lookup([0, 1, 2])
-  assertEquals(outputs, ["0", "2", "4"])
+
+```
+>>> keys = tf.data.Dataset.range(100)
+>>> values = tf.data.Dataset.range(100).map(
+...     lambda x: string_ops.as_string(x * 2))
+>>> ds = tf.data.Dataset.zip((keys, values))
+>>> init = tf.lookup.experimental.DatasetInitializer(ds)
+>>> table = tf.lookup.StaticHashTable(init, "")
+>>> table.lookup(tf.constant([0, 1, 2], dtype=tf.int64)).numpy()
+array([b'0', b'2', b'4'], dtype=object)
 ```
 Raises: ValueError if `dataset` doesn't conform to specifications.
 
@@ -117,7 +118,7 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L467-L471">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L489-L494">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>initialize(

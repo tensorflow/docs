@@ -11,7 +11,7 @@ description: Batch normalization.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/nn_impl.py#L1545-L1648">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/nn_impl.py#L1567-L1671">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,7 +48,7 @@ Reducing Internal Covariate Shift; S. Ioffe, C. Szegedy]
 `x`
 </td>
 <td>
-Input `Tensor` of 4 dimensions.
+Input `Tensor` of 4 or 5 dimensions.
 </td>
 </tr><tr>
 <td>
@@ -110,7 +110,8 @@ A small float number added to the variance of x.
 `data_format`
 </td>
 <td>
-The data format for x. Either "NHWC" (default) or "NCHW".
+The data format for x. Support "NHWC" (default) or "NCHW" for
+4D tenors and "NDHWC" or "NCDHW" for 5D tensors.
 </td>
 </tr><tr>
 <td>
@@ -153,7 +154,7 @@ returned.
 `y`
 </td>
 <td>
-A 4D Tensor for the normalized, scaled, offsetted x.
+A 4D or 5D Tensor for the normalized, scaled, offsetted x.
 </td>
 </tr><tr>
 <td>

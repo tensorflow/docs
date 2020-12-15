@@ -15,7 +15,7 @@ description: RNN cell composed sequentially of multiple simple cells.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1206-L1327">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1217-L1338">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -105,11 +105,7 @@ returns a state tuple but the flag `state_is_tuple` is `False`.
 `graph`
 </td>
 <td>
-DEPRECATED FUNCTION
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Stop using this property because tf.layers layers no longer track their graph.
 </td>
 </tr><tr>
 <td>
@@ -144,7 +140,7 @@ or TensorShapes.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L281-L309">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L284-L312">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_initial_state(
@@ -157,7 +153,7 @@ or TensorShapes.
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1270-L1277">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1281-L1288">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>zero_state(

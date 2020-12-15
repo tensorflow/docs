@@ -1,4 +1,4 @@
-description: Builds an operator that compiles and runs computation with XLA.
+description: Builds an operator that compiles and runs computation with XLA. (deprecated)
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.xla.experimental.compile" />
@@ -11,7 +11,7 @@ description: Builds an operator that compiles and runs computation with XLA.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/xla/xla.py#L66-L122">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/xla/xla.py#L67-L127">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Builds an operator that compiles and runs computation with XLA.
 
 
 
-Builds an operator that compiles and runs `computation` with XLA.
+Builds an operator that compiles and runs `computation` with XLA. (deprecated)
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -42,6 +42,10 @@ more details.</p>
 
 
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+xla.experimental.compile is deprecated. Consider using tf.function(experimental_compile=True)
 
 NOTE: In eager mode, `computation` will have `@tf.function` semantics.
 

@@ -11,7 +11,7 @@ description: Computes the matrix exponential of one or more square matrices.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linalg_impl.py#L232-L340">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linalg_impl.py#L232-L347">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,7 +43,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-exp(A) = \sum_{n=0}^\infty A^n/n!
+$$exp(A) = \sum_{n=0}^\infty A^n/n!$$
 
 The exponential is computed using a combination of the scaling and squaring
 method and the Pade approximation. Details can be found in:

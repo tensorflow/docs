@@ -1,4 +1,4 @@
-description: Applies Dropout to the input. (deprecated)
+description: Applies Dropout to the input.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.dropout" />
@@ -11,7 +11,7 @@ description: Applies Dropout to the input. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/core.py#L229-L271">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/core.py#L230-L272">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Applies Dropout to the input. (deprecated)
 
 
 
-Applies Dropout to the input. (deprecated)
+Applies Dropout to the input.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.dropout(
@@ -31,10 +31,6 @@ Applies Dropout to the input. (deprecated)
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.dropout instead.
 
 Dropout consists in randomly setting a fraction `rate` of input units to 0
 at each update during training time, which helps prevent overfitting.

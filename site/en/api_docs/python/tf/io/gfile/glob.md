@@ -11,7 +11,7 @@ description: Returns a list of files that match the given pattern(s).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/lib/io/file_io.py#L353-L418">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/lib/io/file_io.py#L355-L421">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -131,6 +131,13 @@ A list of strings containing filenames that match the given pattern(s).
 </td>
 <td>
 If there are filesystem / directory listing errors.
+</td>
+</tr><tr>
+<td>
+`errors.NotFoundError`
+</td>
+<td>
+If pattern to be matched is an invalid directory.
 </td>
 </tr>
 </table>

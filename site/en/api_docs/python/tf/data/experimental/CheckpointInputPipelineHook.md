@@ -17,7 +17,7 @@ description: Checkpoints input pipeline state every N steps or seconds.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L106-L294">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L106-L294">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -157,7 +157,7 @@ If `external_state_policy` is not one of 'warn', 'ignore' or
 
 <h3 id="after_create_session"><code>after_create_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L244-L247">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L244-L247">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>after_create_session(
@@ -201,7 +201,7 @@ A Coordinator object which keeps track of all threads.
 
 <h3 id="after_run"><code>after_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L290-L291">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L290-L291">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>after_run(
@@ -245,7 +245,7 @@ A SessionRunValues object.
 
 <h3 id="before_run"><code>before_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L284-L288">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L284-L288">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>before_run(
@@ -300,7 +300,7 @@ None or a `SessionRunArgs` object.
 
 <h3 id="begin"><code>begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L227-L242">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L227-L242">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>begin()
@@ -316,7 +316,7 @@ graph, should not change the graph.
 
 <h3 id="end"><code>end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/iterator_ops.py#L293-L294">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/iterator_ops.py#L293-L294">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>end(

@@ -268,6 +268,24 @@ the decode Ops to one of the cropping and resizing Ops.
 
 [`ssim_multiscale(...)`](../tf/image/ssim_multiscale.md): Computes the MS-SSIM between img1 and img2.
 
+[`stateless_random_brightness(...)`](../tf/image/stateless_random_brightness.md): Adjust the brightness of images by a random factor deterministically.
+
+[`stateless_random_contrast(...)`](../tf/image/stateless_random_contrast.md): Adjust the contrast of images by a random factor deterministically.
+
+[`stateless_random_crop(...)`](../tf/image/stateless_random_crop.md): Randomly crops a tensor to a given size in a deterministic manner.
+
+[`stateless_random_flip_left_right(...)`](../tf/image/stateless_random_flip_left_right.md): Randomly flip an image horizontally (left to right) deterministically.
+
+[`stateless_random_flip_up_down(...)`](../tf/image/stateless_random_flip_up_down.md): Randomly flip an image vertically (upside down) deterministically.
+
+[`stateless_random_hue(...)`](../tf/image/stateless_random_hue.md): Adjust the hue of RGB images by a random factor deterministically.
+
+[`stateless_random_jpeg_quality(...)`](../tf/image/stateless_random_jpeg_quality.md): Deterministically radomize jpeg encoding quality for inducing jpeg noise.
+
+[`stateless_random_saturation(...)`](../tf/image/stateless_random_saturation.md): Adjust the saturation of RGB images by a random factor deterministically.
+
+[`stateless_sample_distorted_bounding_box(...)`](../tf/image/stateless_sample_distorted_bounding_box.md): Generate a randomly distorted bounding box for an image deterministically.
+
 [`total_variation(...)`](../tf/image/total_variation.md): Calculate and return the total variation for one or more images.
 
 [`transpose(...)`](../tf/image/transpose.md): Transpose image(s) by swapping the height and width dimension.

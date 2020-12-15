@@ -11,7 +11,7 @@ description: API to persist the output of the input dataset.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/snapshot.py#L257-L356">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/snapshot.py#L257-L360">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -97,7 +97,7 @@ dataset = dataset.apply(tf.data.experimental.snapshot("/path/to/snapshot/dir",
     reader_func=user_reader_func))
 ```
 
-By default, snapshot parallelize reads by the number of cores available on
+By default, snapshot parallelizes reads by the number of cores available on
 the system, but will not attempt to shuffle the data.
 
 <!-- Tabular view -->

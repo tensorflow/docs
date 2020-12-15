@@ -11,7 +11,7 @@ description: Computes CTC (Connectionist Temporal Classification) loss.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ctc_ops.py#L833-L936">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ctc_ops.py#L833-L936">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -33,7 +33,7 @@ Computes CTC (Connectionist Temporal Classification) loss.
 
 <!-- Placeholder for "Used in" -->
 
-This op implements the CTC loss as presented in (Graves et al., 2016).
+This op implements the CTC loss as presented in (Graves et al., 2006).
 
 #### Notes:
 
@@ -146,5 +146,5 @@ tensor of shape [batch_size], negative log probabilities.
 
 Connectionist Temporal Classification - Labeling Unsegmented Sequence Data
 with Recurrent Neural Networks:
-  [Graves et al., 2016](https://dl.acm.org/citation.cfm?id=1143891)
+  [Graves et al., 2006](https://dl.acm.org/citation.cfm?id=1143891)
   ([pdf](http://www.cs.toronto.edu/~graves/icml_2006.pdf))

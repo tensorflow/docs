@@ -19,7 +19,7 @@ description: A TensorFlow Session for use in interactive contexts, such as a she
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1679-L1784">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1689-L1794">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -146,7 +146,7 @@ The TensorFlow process to which this session will connect.
 
 <h3 id="as_default"><code>as_default</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L793-L846">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L803-L856">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_default()
@@ -217,7 +217,7 @@ A context manager using this session as the default session.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1771-L1784">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1781-L1794">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>close()
@@ -228,7 +228,7 @@ Closes an `InteractiveSession`.
 
 <h3 id="list_devices"><code>list_devices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L706-L742">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L716-L752">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>list_devices()
@@ -288,7 +288,7 @@ A list of devices in the session.
 
 <h3 id="make_callable"><code>make_callable</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1186-L1309">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1196-L1319">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_callable(
@@ -384,7 +384,7 @@ as arguments to `tf.Session.run`.
 
 <h3 id="partial_run"><code>partial_run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L969-L1014">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L979-L1024">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>partial_run(
@@ -488,7 +488,7 @@ Or one of its subclasses on error.
 
 <h3 id="partial_run_setup"><code>partial_run_setup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L1016-L1090">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L1026-L1100">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>partial_run_setup(
@@ -575,7 +575,7 @@ Or one of its subclasses if a TensorFlow error happens.
 
 <h3 id="run"><code>run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/client/session.py#L848-L967">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/client/session.py#L858-L977">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>run(

@@ -11,7 +11,7 @@ description: Load a SavedModel from export_dir.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/load.py#L512-L603">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/load.py#L768-L859">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -139,8 +139,8 @@ if the SavedModel contains a single MetaGraph, as for those exported from
 `options`
 </td>
 <td>
-Optional, <a href="../../tf/saved_model/LoadOptions.md"><code>tf.saved_model.LoadOptions</code></a> object that specifies
-options for loading.
+<a href="../../tf/saved_model/LoadOptions.md"><code>tf.saved_model.LoadOptions</code></a> object that specifies options for
+loading.
 </td>
 </tr>
 </table>

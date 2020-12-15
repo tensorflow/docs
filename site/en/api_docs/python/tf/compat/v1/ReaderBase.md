@@ -19,7 +19,7 @@ description: Base class for different Reader types, that produce a record every 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L100-L301">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L100-L301">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -131,7 +131,7 @@ Whether the Reader implementation can serialize its state.
 
 <h3 id="num_records_produced"><code>num_records_produced</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L211-L229">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L211-L229">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_records_produced(
@@ -177,7 +177,7 @@ An int64 Tensor.
 
 <h3 id="num_work_units_completed"><code>num_work_units_completed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L231-L245">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L231-L245">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_work_units_completed(
@@ -221,7 +221,7 @@ An int64 Tensor.
 
 <h3 id="read"><code>read</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L144-L171">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L144-L171">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>read(
@@ -290,7 +290,7 @@ A string scalar Tensor.
 
 <h3 id="read_up_to"><code>read_up_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L173-L209">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L173-L209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>read_up_to(
@@ -367,7 +367,7 @@ A 1-D string Tensor.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L289-L301">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L289-L301">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset(
@@ -411,7 +411,7 @@ The created Operation.
 
 <h3 id="restore_state"><code>restore_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L264-L282">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L264-L282">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>restore_state(
@@ -465,7 +465,7 @@ The created Operation.
 
 <h3 id="serialize_state"><code>serialize_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/io_ops.py#L247-L262">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/io_ops.py#L247-L262">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>serialize_state(

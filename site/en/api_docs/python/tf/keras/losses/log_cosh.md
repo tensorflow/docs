@@ -11,7 +11,7 @@ description: Logarithm of the hyperbolic cosine of the prediction error.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/losses.py#L1459-L1494">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/losses.py#L1459-L1495">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -26,13 +26,13 @@ Logarithm of the hyperbolic cosine of the prediction error.
   <h4 class="showalways">View aliases</h4>
   <p>
 <b>Main aliases</b>
-<p>`tf.keras.losses.logcosh`, `tf.losses.log_cosh`, `tf.losses.logcosh`</p>
+<p>`tf.keras.losses.logcosh`, `tf.keras.metrics.log_cosh`, `tf.keras.metrics.logcosh`, `tf.losses.log_cosh`, `tf.losses.logcosh`, `tf.metrics.log_cosh`, `tf.metrics.logcosh`</p>
 
 <b>Compat aliases for migration</b>
 <p>See
 <a href="https://www.tensorflow.org/guide/migrate">Migration guide</a> for
 more details.</p>
-<p>`tf.compat.v1.keras.losses.log_cosh`, `tf.compat.v1.keras.losses.logcosh`</p>
+<p>`tf.compat.v1.keras.losses.log_cosh`, `tf.compat.v1.keras.losses.logcosh`, `tf.compat.v1.keras.metrics.log_cosh`, `tf.compat.v1.keras.metrics.logcosh`</p>
 </p>
 </section>
 

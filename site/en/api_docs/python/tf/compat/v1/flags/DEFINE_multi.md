@@ -76,11 +76,11 @@ str, the flag name.
 `default`
 </td>
 <td>
-Union[Iterable[T], Text, None], the default value of the flag.
-If the value is text, it will be parsed as if it was provided from
-the command line. If the value is a non-string iterable, it will be
-iterated over to create a shallow copy of the values. If it is None,
-it is left as-is.
+Union[Iterable[T], Text, None], the default value of the flag. If
+the value is text, it will be parsed as if it was provided from the
+command line. If the value is a non-string iterable, it will be iterated
+over to create a shallow copy of the values. If it is None, it is left
+as-is.
 </td>
 </tr><tr>
 <td>
@@ -94,25 +94,39 @@ str, the help message.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance with which the flag will
-be registered. This should almost never need to be overridden.
+FlagValues, the FlagValues instance with which the flag will be
+registered. This should almost never need to be overridden.
 </td>
 </tr><tr>
 <td>
 `module_name`
 </td>
 <td>
-A string, the name of the Python module declaring this flag.
-If not provided, it will be computed using the stack trace of this call.
+A string, the name of the Python module declaring this flag. If
+not provided, it will be computed using the stack trace of this call.
 </td>
 </tr><tr>
 <td>
 `**args`
 </td>
 <td>
-Dictionary with extra keyword args that are passed to the
-Flag __init__.
+Dictionary with extra keyword args that are passed to the Flag
+__init__.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

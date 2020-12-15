@@ -11,7 +11,7 @@ description: Finds the filename of latest saved checkpoint file.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/checkpoint_management.py#L327-L364">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/checkpoint_management.py#L327-L364">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,7 +46,7 @@ more details.</p>
 Gets the checkpoint state given the provided checkpoint_dir and looks for a
 corresponding TensorFlow 2 (preferred) or TensorFlow 1.x checkpoint path.
 The latest_filename argument is only applicable if you are saving checkpoint
-using `v1.Saver.save`
+using <a href="../../tf/compat/v1/train/Saver.md#save"><code>v1.train.Saver.save</code></a>
 
 
 See the [Training Checkpoints
@@ -72,7 +72,7 @@ Directory where the variables were saved.
 <td>
 Optional name for the protocol buffer file that
 contains the list of most recent checkpoint filenames.
-See the corresponding argument to `v1.Saver.save`.
+See the corresponding argument to <a href="../../tf/compat/v1/train/Saver.md#save"><code>v1.train.Saver.save</code></a>.
 </td>
 </tr>
 </table>

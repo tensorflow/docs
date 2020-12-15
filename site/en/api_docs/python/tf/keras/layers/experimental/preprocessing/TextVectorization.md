@@ -16,7 +16,7 @@ description: Text vectorization layer.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L74-L606">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L74-L652">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,7 +31,7 @@ Text vectorization layer.
 <code>tf.keras.layers.experimental.preprocessing.TextVectorization(
     max_tokens=None, standardize=LOWER_AND_STRIP_PUNCTUATION,
     split=SPLIT_ON_WHITESPACE, ngrams=None, output_mode=INT,
-    output_sequence_length=None, pad_to_max_tokens=(True), **kwargs
+    output_sequence_length=None, pad_to_max_tokens=(True), vocabulary=None, **kwargs
 )
 </code></pre>
 
@@ -125,6 +125,45 @@ array([[2, 1, 4, 0],
        [1, 3, 0, 0]])
 ```
 
+#### Example:
+
+
+This example instantiates a TextVectorization layer by passing a list
+of vocabulary terms to the layer's __init__ method.
+
+  input_array = np.array([["earth", "wind", "and", "fire"],
+                          ["fire", "and", "earth", "michigan"]])
+  expected_output = [[2, 3, 4, 5], [5, 4, 2, 1]]
+
+  input_data = keras.Input(shape=(None,), dtype=dtypes.string)
+  layer = get_layer_class()(
+      max_tokens=None,
+      standardize=None,
+      split=None,
+      output_mode=text_vectorization.INT,
+      vocabulary=vocab_data)
+  int_data = layer(input_data)
+  model = keras.Model(inputs=input_data, outputs=int_data)
+
+  output_dataset = model.predict(input_array)
+>>> vocab_data = ["earth", "wind", "and", "fire"]
+>>> max_len = 4  # Sequence length to pad the outputs to.
+>>>
+>>> # Create the layer, passing the vocab directly. You can also pass the
+>>> # vocabulary arg a path to a file containing one vocabulary word per
+>>> # line.
+>>> vectorize_layer = TextVectorization(
+...  max_tokens=max_features,
+...  output_mode='int',
+...  output_sequence_length=max_len,
+...  vocabulary=vocab_data)
+>>>
+>>> # Because we've passed the vocabulary directly, we don't need to adapt
+>>> # the layer - the vocabulary is already set. The vocabulary contains the
+>>> # padding token ('') and OOV token ('[UNK]') as well as the passed tokens.
+>>> vectorize_layer.get_vocabulary()
+['', '[UNK]', 'earth', 'wind', 'and', 'fire']
+
 
 
 <!-- Tabular view -->
@@ -212,6 +251,16 @@ the number of unique tokens in the vocabulary is less than max_tokens,
 resulting in a tensor of shape [batch_size, max_tokens] regardless of
 vocabulary size. Defaults to True.
 </td>
+</tr><tr>
+<td>
+`vocabulary`
+</td>
+<td>
+An optional list of vocabulary terms, or a path to a text file
+containing a vocabulary to load into this layer. The file should contain
+one token per line. If the list or file contains the same token multiple
+times, an error will be thrown.
+</td>
 </tr>
 </table>
 
@@ -221,7 +270,7 @@ vocabulary size. Defaults to True.
 
 <h3 id="adapt"><code>adapt</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L349-L400">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L392-L443">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>adapt(
@@ -263,7 +312,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="get_vocabulary"><code>get_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L402-L403">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L445-L446">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_vocabulary()
@@ -274,7 +323,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="set_vocabulary"><code>set_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L425-L489">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L471-L535">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_vocabulary(

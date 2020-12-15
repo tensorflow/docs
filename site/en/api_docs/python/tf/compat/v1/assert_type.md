@@ -11,7 +11,7 @@ description: Statically asserts that the given Tensor is of the specified type.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/check_ops.py#L1533-L1562">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/check_ops.py#L1535-L1566">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -54,7 +54,7 @@ more details.</p>
 `tensor`
 </td>
 <td>
-A `Tensor`.
+A `Tensor` or `SparseTensor`.
 </td>
 </tr><tr>
 <td>

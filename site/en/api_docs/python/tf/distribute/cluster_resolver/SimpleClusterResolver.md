@@ -15,7 +15,7 @@ description: Simple implementation of ClusterResolver that accepts all attribute
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L293-L419">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L293-L419">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -211,7 +211,7 @@ For more information, please see
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L345-L347">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L345-L347">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cluster_spec()
@@ -222,7 +222,7 @@ Returns the ClusterSpec passed into the constructor.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L349-L370">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L349-L370">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>master(
@@ -283,7 +283,7 @@ string passed into the initialization function.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L392-L411">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L392-L411">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accelerators(

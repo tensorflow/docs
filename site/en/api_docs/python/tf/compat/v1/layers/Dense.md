@@ -13,7 +13,7 @@ description: Densely-connected layer class.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/core.py#L33-L110">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/core.py#L33-L110">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -188,11 +188,7 @@ by the same name.
 `graph`
 </td>
 <td>
-DEPRECATED FUNCTION
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Stop using this property because tf.layers layers no longer track their graph.
 </td>
 </tr><tr>
 <td>

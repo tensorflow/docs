@@ -13,7 +13,7 @@ description: 3D convolution layer (e.g. spatial convolution over volumes).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional.py#L668-L808">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional.py#L675-L818">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -129,6 +129,9 @@ value != 1 is incompatible with specifying any `dilation_rate` value != 1.
 </td>
 <td>
 one of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

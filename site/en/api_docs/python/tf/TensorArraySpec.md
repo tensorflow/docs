@@ -17,7 +17,7 @@ description: Type specification for a <a href="../tf/TensorArray.md"><code>tf.Te
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1319-L1417">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1319-L1417">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -114,7 +114,7 @@ Whether shape inference is enabled.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1396-L1406">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1396-L1406">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -128,7 +128,7 @@ Whether shape inference is enabled.
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1341-L1350">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1341-L1350">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_compatible_with(
@@ -141,7 +141,7 @@ Returns true if `spec_or_value` is compatible with this TypeSpec.
 
 <h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1352-L1360">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1352-L1360">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>most_specific_compatible_type(
@@ -189,7 +189,7 @@ and `other`.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/type_spec.py#L293-L296">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/type_spec.py#L293-L296">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -202,7 +202,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/type_spec.py#L298-L299">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/type_spec.py#L298-L299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(

@@ -11,7 +11,7 @@ description: Print the specified inputs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/logging_ops.py#L140-L379">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/logging_ops.py#L134-L381">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,8 +48,6 @@ output stream or logging level. The inputs may be dense or sparse Tensors,
 primitive python objects, data structures that contain tensors, and printable
 Python objects. Printed tensors will recursively show the first and last
 elements of each dimension to summarize.
-
-
 
 #### Example:
 
@@ -220,10 +218,4 @@ If an unsupported output stream is specified.
 </td>
 </tr>
 </table>
-
-
-
-#### Python2 Compatibility
-In python 2.7, make sure to import the following:
-`from __future__ import print_function`
 

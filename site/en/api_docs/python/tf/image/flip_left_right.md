@@ -11,7 +11,7 @@ description: Flip an image horizontally (left to right).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L459-L491">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L530-L562">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -45,7 +45,7 @@ more details.</p>
 
 Outputs the contents of `image` flipped along the width dimension.
 
-See also `reverse()`.
+See also <a href="../../tf/reverse.md"><code>tf.reverse</code></a>.
 
 #### Usage Example:
 

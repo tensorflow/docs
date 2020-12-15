@@ -16,7 +16,7 @@ description: Loss scale that dynamically adjusts itself.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L290-L418">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L324-L464">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -39,7 +39,7 @@ Inherits From: [`LossScale`](../../../tf/mixed_precision/experimental/LossScale.
 <p>See
 <a href="https://www.tensorflow.org/guide/migrate">Migration guide</a> for
 more details.</p>
-<p>`tf.compat.v1.mixed_precision.experimental.DynamicLossScale`, `tf.compat.v1.train.experimental.DynamicLossScale`</p>
+<p>`tf.compat.v1.mixed_precision.DynamicLossScale`, `tf.compat.v1.mixed_precision.experimental.DynamicLossScale`, `tf.compat.v1.train.experimental.DynamicLossScale`</p>
 </p>
 </section>
 
@@ -52,6 +52,14 @@ more details.</p>
 
 
 <!-- Placeholder for "Used in" -->
+
+WARNING: This class is deprecated and will be unexposed from the TF 2
+namespace starting in TensorFlow 2.5. In TensorFlow 2.5, this class will only
+be accessible as <a href="../../../tf/mixed_precision/experimental/DynamicLossScale.md"><code>tf.compat.v1.mixed_precision.DynamicLossScale</code></a>. Additionally
+in 2.5, you will no longer be able to pass a `DynamicLossScale` to a
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a>. All the functionality in this class has
+been merged into <a href="../../../tf/keras/mixed_precision/LossScaleOptimizer.md"><code>tf.keras.mixed_precision.LossScaleOptimizer</code></a>, so this class
+is no longer needed.
 
 Dynamic loss scaling works by adjusting the loss scale as training progresses.
 The goal is to keep the loss scale as high as possible without overflowing the
@@ -140,7 +148,7 @@ scale.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L195-L198">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L206-L209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -154,7 +162,7 @@ Creates the LossScale from its config.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L413-L418">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L459-L464">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -165,7 +173,7 @@ Returns the config of this loss scale.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L353-L400">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L399-L446">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>update(
@@ -178,7 +186,7 @@ Updates loss scale based on if gradients are finite in current step.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L350-L351">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L396-L397">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__()

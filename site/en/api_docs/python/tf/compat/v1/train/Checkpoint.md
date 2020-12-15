@@ -15,7 +15,7 @@ description: Groups trackable objects, saving and restoring them.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1367-L1728">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1420-L1781">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -194,7 +194,7 @@ checkpoints.
 
 <h3 id="restore"><code>restore</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1619-L1728">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1672-L1781">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>restore(
@@ -330,7 +330,7 @@ called when `save_path` is not `None`.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1559-L1617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1612-L1670">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(
@@ -395,7 +395,7 @@ The full path to the checkpoint.
 
 <h3 id="write"><code>write</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/tracking/util.py#L1514-L1545">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/tracking/util.py#L1567-L1598">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>write(

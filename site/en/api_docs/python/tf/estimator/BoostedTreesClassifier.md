@@ -155,7 +155,8 @@ model.
 </td>
 <td>
 regularization multiplier applied to the absolute
-weights of the tree leafs.
+weights of the tree leafs. This is a per instance value. A good default
+is 1./(n_batches_per_layer*batch_size).
 </td>
 </tr><tr>
 <td>
@@ -163,7 +164,8 @@ weights of the tree leafs.
 </td>
 <td>
 regularization multiplier applied to the square weights
-of the tree leafs.
+of the tree leafs. This is a per instance value. A good default is
+1./(n_batches_per_layer*batch_size).
 </td>
 </tr><tr>
 <td>
@@ -171,6 +173,8 @@ of the tree leafs.
 </td>
 <td>
 regularization factor to penalize trees with more leaves.
+This is a per instance value. A good default is
+1./(n_batches_per_layer*batch_size).
 </td>
 </tr><tr>
 <td>
@@ -178,8 +182,8 @@ regularization factor to penalize trees with more leaves.
 </td>
 <td>
 min_node_weight: minimum hessian a node must have for a
-split to be considered. The value will be compared with
-`sum(leaf_hessian)/(batch_size * n_batches_per_layer)`.
+split to be considered. This is a per instance value. The value will be
+compared with `sum(leaf_hessian)/(batch_size * n_batches_per_layer)`.
 </td>
 </tr><tr>
 <td>

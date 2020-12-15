@@ -15,7 +15,7 @@ description: Performs a union on underlying ClusterResolvers.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L423-L628">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L423-L628">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -273,7 +273,7 @@ For more information, please see
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L499-L571">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L499-L571">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cluster_spec()
@@ -328,7 +328,7 @@ there is a conflicting key, we will raise a `KeyError`.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L573-L593">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L573-L593">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>master(
@@ -390,7 +390,7 @@ The name or URL of the session master.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L615-L620">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L615-L620">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accelerators(

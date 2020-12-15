@@ -35,11 +35,15 @@ Public API for tf.config.experimental namespace.
 
 [`enable_mlir_graph_optimization(...)`](../../tf/config/experimental/enable_mlir_graph_optimization.md): Enables experimental MLIR-Based TensorFlow Compiler Optimizations.
 
+[`enable_tensor_float_32_execution(...)`](../../tf/config/experimental/enable_tensor_float_32_execution.md): Enable or disable the use of TensorFloat-32 on supported hardware.
+
 [`get_device_details(...)`](../../tf/config/experimental/get_device_details.md): Returns details about a physical devices.
 
 [`get_device_policy(...)`](../../tf/config/experimental/get_device_policy.md): Gets the current device policy.
 
 [`get_memory_growth(...)`](../../tf/config/experimental/get_memory_growth.md): Get if memory growth is enabled for a `PhysicalDevice`.
+
+[`get_memory_usage(...)`](../../tf/config/experimental/get_memory_usage.md): Get the memory usage, in bytes, for the chosen device.
 
 [`get_synchronous_execution(...)`](../../tf/config/experimental/get_synchronous_execution.md): Gets whether operations are executed synchronously or asynchronously.
 
@@ -60,4 +64,6 @@ Public API for tf.config.experimental namespace.
 [`set_virtual_device_configuration(...)`](../../tf/config/set_logical_device_configuration.md): Set the logical device configuration for a <a href="../../tf/config/PhysicalDevice.md"><code>tf.config.PhysicalDevice</code></a>.
 
 [`set_visible_devices(...)`](../../tf/config/set_visible_devices.md): Set the list of visible devices.
+
+[`tensor_float_32_execution_enabled(...)`](../../tf/config/experimental/tensor_float_32_execution_enabled.md): Returns whether TensorFloat-32 is enabled.
 

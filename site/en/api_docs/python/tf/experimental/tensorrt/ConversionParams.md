@@ -21,7 +21,7 @@ description: Parameters that are used for TF-TRT conversion.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/compiler/tensorrt/trt_convert.py#L117-L180">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/compiler/tensorrt/trt_convert.py#L118-L181">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -80,7 +80,7 @@ Parameters that are used for TF-TRT conversion.
   there is a mismatch between which tensors TRT quantizes and which
   tensors were trained with fake quantization.
 * <b>`max_batch_size`</b>: max size for the input batch. This parameter is only
-  effective when is_dynamic_op=False which is not supported in TF 2.0.
+  effective when use_implicit_batch is true.
 * <b>`allow_build_at_runtime`</b>: whether to build TensorRT engines during runtime.
   If no TensorRT engine can be found in cache that can handle the given
   inputs during runtime, then a new TensorRT engine is built at runtime if

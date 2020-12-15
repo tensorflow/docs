@@ -27,7 +27,7 @@ description: This is the class from which all layers inherit.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L104-L3035">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L114-L3103">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -92,9 +92,11 @@ String name of the layer.
 `dtype`
 </td>
 <td>
-The dtype of the layer's computations and weights (default of
-`None` means use <a href="../../../tf/keras/backend/floatx.md"><code>tf.keras.backend.floatx</code></a> in TensorFlow 2, or the type
-of the first input in TensorFlow 1).
+The dtype of the layer's computations and weights. Can also be a
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a>, which allows the computation and weight
+dtype to differ. Default of `None` means to use
+<a href="../../../tf/keras/mixed_precision/global_policy.md"><code>tf.keras.mixed_precision.global_policy()</code></a>, which is a float32 policy
+unless set to different value.
 </td>
 </tr><tr>
 <td>
@@ -233,18 +235,6 @@ For more information about creating layers, see the guide
 [Writing custom layers and models with Keras](
   https://www.tensorflow.org/guide/keras/custom_layers_and_models)
 
-About the layer's `dtype` attribute:
-
-Each layer has a dtype, which is typically the dtype of the layer's
-computations and variables. A layer's dtype can be queried via the
-<a href="../../../tf/keras/layers/Layer.md#dtype"><code>Layer.dtype</code></a> property. The dtype is specified with the `dtype` constructor
-argument. In TensorFlow 2, the dtype defaults to <a href="../../../tf/keras/backend/floatx.md"><code>tf.keras.backend.floatx()</code></a>
-if no dtype is passed. `floatx()` itself defaults to "float32". Additionally,
-layers will cast their inputs to the layer's dtype in TensorFlow 2. When mixed
-precision is used, layers may have different computation and variable dtypes.
-See <a href="../../../tf/keras/mixed_precision/experimental/Policy.md"><code>tf.keras.mixed_precision.experimental.Policy</code></a> for details on layer
-dtypes.
-
 
 
 <!-- Tabular view -->
@@ -264,10 +254,33 @@ The name of the layer (string).
 `dtype`
 </td>
 <td>
-The dtype of the layer's computations and weights. If mixed
-precision is used with a <a href="../../../tf/keras/mixed_precision/experimental/Policy.md"><code>tf.keras.mixed_precision.experimental.Policy</code></a>,
-this is instead just the dtype of the layer's weights, as the computations
-are done in a different dtype.
+The dtype of the layer's weights.
+</td>
+</tr><tr>
+<td>
+`variable_dtype`
+</td>
+<td>
+Alias of `dtype`.
+</td>
+</tr><tr>
+<td>
+`compute_dtype`
+</td>
+<td>
+The dtype of the layer's computations. Layers automatically
+cast inputs to this dtype which causes the computations and output to also
+be in this dtype. When mixed precision is used with a
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a>, this will be different than
+`variable_dtype`.
+</td>
+</tr><tr>
+<td>
+`dtype_policy`
+</td>
+<td>
+The layer's dtype policy. See the
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a> documentation for details.
 </td>
 </tr><tr>
 <td>
@@ -361,9 +374,11 @@ propagate gradients back to the corresponding variables.
 >>> outputs = tf.keras.layers.Dense(1)(x)
 >>> model = tf.keras.Model(inputs, outputs)
 >>> # Activity regularization.
+>>> len(model.losses)
+0
 >>> model.add_loss(tf.abs(tf.reduce_mean(x)))
->>> model.losses
-[<tf.Tensor 'Abs:0' shape=() dtype=float32>]
+>>> len(model.losses)
+1
 ```
 
 ```
@@ -422,7 +437,7 @@ Whether this layer supports computing a mask using `compute_mask`.
 
 <h3 id="add_loss"><code>add_loss</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L1438-L1558">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L1482-L1604">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_loss(
@@ -518,7 +533,7 @@ inputs - Deprecated, will be automatically inferred.
 
 <h3 id="add_metric"><code>add_metric</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L1592-L1715">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L1638-L1760">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_metric(
@@ -535,11 +550,11 @@ or model.
 class MyMetricLayer(tf.keras.layers.Layer):
   def __init__(self):
     super(MyMetricLayer, self).__init__(name='my_metric_layer')
-    self.mean = metrics_module.Mean(name='metric_1')
+    self.mean = tf.keras.metrics.Mean(name='metric_1')
 
   def call(self, inputs):
     self.add_metric(self.mean(x))
-    self.add_metric(math_ops.reduce_sum(x), name='metric_2')
+    self.add_metric(tf.reduce_sum(x), name='metric_2')
     return inputs
 ```
 
@@ -606,12 +621,12 @@ using a `keras.Metric.Mean`.
 
 <h3 id="add_weight"><code>add_weight</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L477-L638">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L507-L661">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_weight(
     name=None, shape=None, dtype=None, initializer=None, regularizer=None,
-    trainable=None, constraint=None, partitioner=None, use_resource=None,
+    trainable=None, constraint=None, use_resource=None,
     synchronization=tf.VariableSynchronization.AUTO,
     aggregation=tf.compat.v1.VariableAggregation.NONE, **kwargs
 )
@@ -644,7 +659,7 @@ Variable shape. Defaults to scalar if unspecified.
 `dtype`
 </td>
 <td>
-The type of the variable. Defaults to `self.dtype` or `float32`.
+The type of the variable. Defaults to `self.dtype`.
 </td>
 </tr><tr>
 <td>
@@ -677,13 +692,6 @@ is set to `ON_READ`.
 </td>
 <td>
 Constraint instance (callable).
-</td>
-</tr><tr>
-<td>
-`partitioner`
-</td>
-<td>
-Partitioner to be passed to the `Trackable` API.
 </td>
 </tr><tr>
 <td>
@@ -732,9 +740,7 @@ Additional keyword arguments. Accepted values are `getter`,
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-The created variable. Usually either a `Variable` or `ResourceVariable`
-instance. If `partitioner` is not `None`, a `PartitionedVariable`
-instance is returned.
+The variable created.
 </td>
 </tr>
 
@@ -749,14 +755,6 @@ instance is returned.
 
 <tr>
 <td>
-`RuntimeError`
-</td>
-<td>
-If called with partitioned variable regularization and
-eager execution is enabled.
-</td>
-</tr><tr>
-<td>
 `ValueError`
 </td>
 <td>
@@ -770,7 +768,7 @@ trainable has been set to True with synchronization set as `ON_READ`.
 
 <h3 id="build"><code>build</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L418-L437">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L448-L467">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>build(
@@ -807,7 +805,7 @@ Instance of `TensorShape`, or list of instances of
 
 <h3 id="call"><code>call</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L439-L455">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L469-L485">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>call(
@@ -862,7 +860,7 @@ A tensor or list/tuple of tensors.
 
 <h3 id="compute_mask"><code>compute_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L853-L873">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L879-L899">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_mask(
@@ -914,7 +912,7 @@ one per output tensor of the layer).
 
 <h3 id="compute_output_shape"><code>compute_output_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L699-L741">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L722-L766">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_output_shape(
@@ -964,7 +962,7 @@ An input shape tuple.
 
 <h3 id="compute_output_signature"><code>compute_output_signature</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L743-L781">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L768-L806">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_output_signature(
@@ -1033,7 +1031,7 @@ If input_signature contains a non-TensorSpec object.
 
 <h3 id="count_params"><code>count_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L2141-L2160">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L2190-L2209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>count_params()
@@ -1076,7 +1074,7 @@ if the layer isn't yet built
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L681-L697">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L704-L720">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -1126,7 +1124,7 @@ A layer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L640-L679">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L663-L702">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -1159,7 +1157,7 @@ Python dictionary.
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L1832-L1874">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L1879-L1921">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_weights()
@@ -1214,7 +1212,7 @@ Weights values as a list of numpy arrays.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L1752-L1830">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L1799-L1877">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_weights(
@@ -1297,7 +1295,7 @@ layer's specifications.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer.py#L875-L994">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer.py#L901-L1021">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__(

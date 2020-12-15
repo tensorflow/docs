@@ -3,6 +3,7 @@ description: <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code><
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.data" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="AUTOTUNE"/>
 <meta itemprop="property" content="INFINITE_CARDINALITY"/>
 <meta itemprop="property" content="UNKNOWN_CARDINALITY"/>
 </div>
@@ -36,7 +37,7 @@ See [Importing Data](https://tensorflow.org/guide/data) for an overview.
 
 [`class Iterator`](../../../tf/compat/v1/data/Iterator.md): Represents the state of iterating through a `Dataset`.
 
-[`class Options`](../../../tf/data/Options.md): Represents options for tf.data.Dataset.
+[`class Options`](../../../tf/data/Options.md): Represents options for <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>.
 
 [`class TFRecordDataset`](../../../tf/compat/v1/data/TFRecordDataset.md): A `Dataset` comprising records from one or more TFRecord files.
 
@@ -56,5 +57,6 @@ See [Importing Data](https://tensorflow.org/guide/data) for an overview.
 
 ## Other Members
 
+* `AUTOTUNE = -1` <a id="AUTOTUNE"></a>
 * `INFINITE_CARDINALITY = -1` <a id="INFINITE_CARDINALITY"></a>
 * `UNKNOWN_CARDINALITY = -2` <a id="UNKNOWN_CARDINALITY"></a>

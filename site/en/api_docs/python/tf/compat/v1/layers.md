@@ -65,37 +65,37 @@ Public API for tf.layers namespace.
 
 ## Functions
 
-[`average_pooling1d(...)`](../../../tf/compat/v1/layers/average_pooling1d.md): Average Pooling layer for 1D inputs. (deprecated)
+[`average_pooling1d(...)`](../../../tf/compat/v1/layers/average_pooling1d.md): Average Pooling layer for 1D inputs.
 
-[`average_pooling2d(...)`](../../../tf/compat/v1/layers/average_pooling2d.md): Average pooling layer for 2D inputs (e.g. images). (deprecated)
+[`average_pooling2d(...)`](../../../tf/compat/v1/layers/average_pooling2d.md): Average pooling layer for 2D inputs (e.g. images).
 
-[`average_pooling3d(...)`](../../../tf/compat/v1/layers/average_pooling3d.md): Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
+[`average_pooling3d(...)`](../../../tf/compat/v1/layers/average_pooling3d.md): Average pooling layer for 3D inputs (e.g. volumes).
 
-[`batch_normalization(...)`](../../../tf/compat/v1/layers/batch_normalization.md): Functional interface for the batch normalization layer from_config(Ioffe et al., 2015). (deprecated)
+[`batch_normalization(...)`](../../../tf/compat/v1/layers/batch_normalization.md): Functional interface for the batch normalization layer from_config(Ioffe et al., 2015).
 
-[`conv1d(...)`](../../../tf/compat/v1/layers/conv1d.md): Functional interface for 1D convolution layer (e.g. temporal convolution). (deprecated)
+[`conv1d(...)`](../../../tf/compat/v1/layers/conv1d.md): Functional interface for 1D convolution layer (e.g. temporal convolution).
 
-[`conv2d(...)`](../../../tf/compat/v1/layers/conv2d.md): Functional interface for the 2D convolution layer. (deprecated)
+[`conv2d(...)`](../../../tf/compat/v1/layers/conv2d.md): Functional interface for the 2D convolution layer.
 
-[`conv2d_transpose(...)`](../../../tf/compat/v1/layers/conv2d_transpose.md): Functional interface for transposed 2D convolution layer. (deprecated)
+[`conv2d_transpose(...)`](../../../tf/compat/v1/layers/conv2d_transpose.md): Functional interface for transposed 2D convolution layer.
 
-[`conv3d(...)`](../../../tf/compat/v1/layers/conv3d.md): Functional interface for the 3D convolution layer. (deprecated)
+[`conv3d(...)`](../../../tf/compat/v1/layers/conv3d.md): Functional interface for the 3D convolution layer.
 
-[`conv3d_transpose(...)`](../../../tf/compat/v1/layers/conv3d_transpose.md): Functional interface for transposed 3D convolution layer. (deprecated)
+[`conv3d_transpose(...)`](../../../tf/compat/v1/layers/conv3d_transpose.md): Functional interface for transposed 3D convolution layer.
 
-[`dense(...)`](../../../tf/compat/v1/layers/dense.md): Functional interface for the densely-connected layer. (deprecated)
+[`dense(...)`](../../../tf/compat/v1/layers/dense.md): Functional interface for the densely-connected layer.
 
-[`dropout(...)`](../../../tf/compat/v1/layers/dropout.md): Applies Dropout to the input. (deprecated)
+[`dropout(...)`](../../../tf/compat/v1/layers/dropout.md): Applies Dropout to the input.
 
-[`flatten(...)`](../../../tf/compat/v1/layers/flatten.md): Flattens an input tensor while preserving the batch axis (axis 0). (deprecated)
+[`flatten(...)`](../../../tf/compat/v1/layers/flatten.md): Flattens an input tensor while preserving the batch axis (axis 0).
 
-[`max_pooling1d(...)`](../../../tf/compat/v1/layers/max_pooling1d.md): Max Pooling layer for 1D inputs. (deprecated)
+[`max_pooling1d(...)`](../../../tf/compat/v1/layers/max_pooling1d.md): Max Pooling layer for 1D inputs.
 
-[`max_pooling2d(...)`](../../../tf/compat/v1/layers/max_pooling2d.md): Max pooling layer for 2D inputs (e.g. images). (deprecated)
+[`max_pooling2d(...)`](../../../tf/compat/v1/layers/max_pooling2d.md): Max pooling layer for 2D inputs (e.g. images).
 
-[`max_pooling3d(...)`](../../../tf/compat/v1/layers/max_pooling3d.md): Max pooling layer for 3D inputs (e.g. (deprecated)
+[`max_pooling3d(...)`](../../../tf/compat/v1/layers/max_pooling3d.md): Max pooling layer for 3D inputs (e.g.
 
-[`separable_conv1d(...)`](../../../tf/compat/v1/layers/separable_conv1d.md): Functional interface for the depthwise separable 1D convolution layer. (deprecated)
+[`separable_conv1d(...)`](../../../tf/compat/v1/layers/separable_conv1d.md): Functional interface for the depthwise separable 1D convolution layer.
 
-[`separable_conv2d(...)`](../../../tf/compat/v1/layers/separable_conv2d.md): Functional interface for the depthwise separable 2D convolution layer. (deprecated)
+[`separable_conv2d(...)`](../../../tf/compat/v1/layers/separable_conv2d.md): Functional interface for the depthwise separable 2D convolution layer.
 

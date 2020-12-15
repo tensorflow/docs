@@ -59,10 +59,11 @@ the 100 % MobileNet on various input sizes:
 |  1.0 MobileNet-128  |    64.4 %    |        529        |     4.2     |
 ------------------------------------------------------------------------
 
-#### Reference paper:
+#### Reference:
 
-- [MobileNets: Efficient Convolutional Neural Networks for
-   Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
+- [MobileNets: Efficient Convolutional Neural Networks
+   for Mobile Vision Applications](
+    https://arxiv.org/abs/1704.04861)
 
 
 ## Functions

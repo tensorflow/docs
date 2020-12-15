@@ -199,6 +199,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sigmoid_cross_entropy_with_logits(...)`](../../../tf/compat/v1/nn/sigmoid_cross_entropy_with_logits.md): Computes sigmoid cross entropy given `logits`.
 
+[`silu(...)`](../../../tf/nn/silu.md): Computes the SiLU or Swish activation function: `x * sigmoid(x)`.
+
 [`softmax(...)`](../../../tf/compat/v1/math/softmax.md): Computes softmax activations. (deprecated arguments)
 
 [`softmax_cross_entropy_with_logits(...)`](../../../tf/compat/v1/nn/softmax_cross_entropy_with_logits.md): Computes softmax cross entropy between `logits` and `labels`. (deprecated)
@@ -223,7 +225,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sufficient_statistics(...)`](../../../tf/compat/v1/nn/sufficient_statistics.md): Calculate the sufficient statistics for the mean and variance of `x`.
 
-[`swish(...)`](../../../tf/nn/swish.md): Computes the Swish activation function: `x * sigmoid(x)`.
+[`swish(...)`](../../../tf/nn/silu.md): Computes the SiLU or Swish activation function: `x * sigmoid(x)`.
 
 [`tanh(...)`](../../../tf/math/tanh.md): Computes hyperbolic tangent of `x` element-wise.
 

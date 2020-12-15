@@ -11,7 +11,7 @@ description: Adjust the saturation of RGB images by a random factor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L2388-L2432">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L2689-L2732">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -44,7 +44,7 @@ more details.</p>
 <!-- Placeholder for "Used in" -->
 
 Equivalent to `adjust_saturation()` but uses a `saturation_factor` randomly
-picked in the interval `[lower, upper]`.
+picked in the interval `[lower, upper)`.
 
 #### Usage Example:
 

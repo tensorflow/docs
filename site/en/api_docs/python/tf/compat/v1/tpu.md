@@ -29,6 +29,8 @@ Ops related to Tensor Processing Units.
 
 [`class PaddingSpec`](../../../tf/compat/v1/tpu/PaddingSpec.md): Represents the type of padding policies for tpu.replicate.
 
+[`class XLAOptions`](../../../tf/compat/v1/tpu/XLAOptions.md): XLA compilation options.
+
 ## Functions
 
 [`batch_parallel(...)`](../../../tf/compat/v1/tpu/batch_parallel.md): Shards `computation` along the batch dimension for parallel execution.

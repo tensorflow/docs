@@ -27,7 +27,7 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.IgnoreErrorsDataset(
-    input_dataset, output_types, output_shapes, name=None
+    input_dataset, output_types, output_shapes, log_warning=(False), name=None
 )
 </code></pre>
 
@@ -61,6 +61,13 @@ A list of `tf.DTypes` that has length `>= 1`.
 </td>
 <td>
 A list of shapes (each a <a href="../../tf/TensorShape.md"><code>tf.TensorShape</code></a> or list of `ints`) that has length `>= 1`.
+</td>
+</tr><tr>
+<td>
+`log_warning`
+</td>
+<td>
+An optional `bool`. Defaults to `False`.
 </td>
 </tr><tr>
 <td>

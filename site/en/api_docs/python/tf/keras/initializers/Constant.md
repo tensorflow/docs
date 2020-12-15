@@ -15,7 +15,7 @@ description: Initializer that generates tensors with constant values.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L173-L213">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L176-L218">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -89,7 +89,7 @@ A Python scalar.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L88-L107">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L89-L108">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -144,7 +144,7 @@ A <a href="../../../tf/keras/initializers/Initializer.md"><code>tf.keras.initial
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L212-L213">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L217-L218">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -169,11 +169,11 @@ A JSON-serializable Python dict.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L199-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L202-L215">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__(
-    shape, dtype=None
+    shape, dtype=None, **kwargs
 )
 </code></pre>
 
@@ -201,6 +201,13 @@ Optional dtype of the tensor. If not specified,
 <a href="../../../tf/keras/backend/floatx.md"><code>tf.keras.backend.floatx()</code></a> is used,
 which default to `float32` unless you configured it otherwise
 (via <a href="../../../tf/keras/backend/set_floatx.md"><code>tf.keras.backend.set_floatx(float_dtype)</code></a>).
+</td>
+</tr><tr>
+<td>
+`**kwargs`
+</td>
+<td>
+Additional keyword arguments.
 </td>
 </tr>
 </table>

@@ -15,7 +15,7 @@ description: RNNCell wrapper that ensures cell inputs are added to the outputs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/rnn_cell_wrapper_v2.py#L113-L120">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/rnn_cell_wrapper_v2.py#L113-L120">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -101,7 +101,7 @@ dict of keyword arguments for base layer.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1082-L1083">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1082-L1083">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_initial_state(
@@ -114,7 +114,7 @@ dict of keyword arguments for base layer.
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_wrapper_impl.py#L348-L350">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_wrapper_impl.py#L348-L350">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>zero_state(

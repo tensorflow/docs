@@ -14,7 +14,7 @@ description: Convolutional LSTM.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional_recurrent.py#L697-L1008">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional_recurrent.py#L700-L1014">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -94,6 +94,9 @@ any `dilation_rate` value != 1.
 </td>
 <td>
 One of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>
@@ -534,7 +537,7 @@ cells output).
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional_recurrent.py#L353-L421">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional_recurrent.py#L353-L421">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_states(

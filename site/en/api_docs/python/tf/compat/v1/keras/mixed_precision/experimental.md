@@ -21,5 +21,5 @@ Public API for tf.keras.mixed_precision.experimental namespace.
 
 ## Classes
 
-[`class LossScaleOptimizer`](../../../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md): An optimizer that applies loss scaling.
+[`class LossScaleOptimizer`](../../../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md): An deprecated optimizer that applies loss scaling.
 

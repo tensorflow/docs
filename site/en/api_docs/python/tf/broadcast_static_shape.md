@@ -11,7 +11,7 @@ description: Computes the shape of a broadcast given known shapes.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L529-L554">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L537-L570">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,15 +43,27 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-When shape_x and shape_y are fully known TensorShapes this computes a
-TensorShape which is the shape of the result of a broadcasting op applied in
-tensors of shapes shape_x and shape_y.
+When `shape_x` and `shape_y` are fully known `TensorShape`s this computes a
+`TensorShape` which is the shape of the result of a broadcasting op applied in
+tensors of shapes `shape_x` and `shape_y`.
 
-For example, if shape_x is [1, 2, 3] and shape_y is [5, 1, 3], the result is a
-TensorShape whose value is [5, 2, 3].
+For example, if shape_x is `TensorShape([1, 2, 3])` and shape_y is
+`TensorShape([5, 1, 3])`, the result is a TensorShape whose value is
+`TensorShape([5, 2, 3])`.
 
 This is useful when validating the result of a broadcasting operation when the
 tensors have statically known shapes.
+
+#### Example:
+
+
+
+```
+>>> shape_x = tf.TensorShape([1, 2, 3])
+>>> shape_y = tf.TensorShape([5, 1 ,3])
+>>> tf.broadcast_static_shape(shape_x, shape_y)
+TensorShape([5, 2, 3])
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

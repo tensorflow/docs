@@ -18,7 +18,7 @@ description: Additional APIs for algorithms that need to be distribution-aware.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1917-L2435">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1972-L2580">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -138,16 +138,63 @@ Returns the tuple of all devices used to for compute replica execution.
 
 <h3 id="batch_reduce_to"><code>batch_reduce_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2199-L2223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2304-L2374">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_reduce_to(
-    reduce_op, value_destination_pairs, experimental_hints=None
+    reduce_op, value_destination_pairs, options=None
 )
 </code></pre>
 
 Combine multiple `reduce_to` calls into one for faster execution.
 
+Similar to `reduce_to`, but accepts a list of (value, destinations) pairs.
+It's more efficient than reduce each value separately.
+
+This API currently can only be called in cross-replica context. Other
+variants to reduce values across replicas are:
+* <a href="../../tf/distribute/StrategyExtended.md#reduce_to"><code>tf.distribute.StrategyExtended.reduce_to</code></a>: the non-batch version of
+  this API.
+* <a href="../../tf/distribute/ReplicaContext.md#all_reduce"><code>tf.distribute.ReplicaContext.all_reduce</code></a>: the counterpart of this API
+  in replica context. It supports both batched and non-batched all-reduce.
+* <a href="../../tf/distribute/Strategy.md#reduce"><code>tf.distribute.Strategy.reduce</code></a>: a more convenient method to reduce
+  to the host in cross-replica context.
+
+See `reduce_to` for more information.
+
+```
+>>> @tf.function
+... def step_fn(var):
+...
+...   def merge_fn(strategy, value, var):
+...     # All-reduce the value. Note that `value` here is a
+...     # `tf.distribute.DistributedValues`.
+...     reduced = strategy.extended.batch_reduce_to(
+...         tf.distribute.ReduceOp.SUM, [(value, var)])[0]
+...     strategy.extended.update(var, lambda var, value: var.assign(value),
+...         args=(reduced,))
+...
+...   value = tf.identity(1.)
+...   tf.distribute.get_replica_context().merge_call(merge_fn,
+...     args=(value, var))
+>>>
+>>> def run(strategy):
+...   with strategy.scope():
+...     v = tf.Variable(0.)
+...     strategy.run(step_fn, args=(v,))
+...     return v
+>>>
+>>> run(tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"]))
+MirroredVariable:{
+  0: <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0>,
+  1: <tf.Variable 'Variable/replica_1:0' shape=() dtype=float32, numpy=2.0>
+}
+>>> run(tf.distribute.experimental.CentralStorageStrategy(
+...     compute_devices=["GPU:0", "GPU:1"], parameter_device="CPU:0"))
+<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0>
+>>> run(tf.distribute.OneDeviceStrategy("GPU:0"))
+<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -159,23 +206,28 @@ Combine multiple `reduce_to` calls into one for faster execution.
 `reduce_op`
 </td>
 <td>
-Reduction type, an instance of <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> enum.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> value specifying how values should
+be combined. Allows using string representation of the enum such as
+"SUM", "MEAN".
 </td>
 </tr><tr>
 <td>
 `value_destination_pairs`
 </td>
 <td>
-A sequence of (value, destinations) pairs. See
-`reduce_to()` for a description.
+a sequence of (value, destinations) pairs. See
+`tf.distribute.Strategy.reduce_to` for descriptions.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. Options to
+perform collective operations. This overrides the default options if the
+<a href="../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a> takes one in the constructor. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details of the
+options.
 </td>
 </tr>
 </table>
@@ -188,7 +240,7 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A list of mirrored values, one per pair in `value_destination_pairs`.
+A list of reduced values, one per pair in `value_destination_pairs`.
 </td>
 </tr>
 
@@ -198,7 +250,7 @@ A list of mirrored values, one per pair in `value_destination_pairs`.
 
 <h3 id="colocate_vars_with"><code>colocate_vars_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2083-L2128">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2145-L2190">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>colocate_vars_with(
@@ -270,16 +322,68 @@ A context manager.
 
 <h3 id="reduce_to"><code>reduce_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2168-L2194">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2216-L2299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reduce_to(
-    reduce_op, value, destinations, experimental_hints=None
+    reduce_op, value, destinations, options=None
 )
 </code></pre>
 
 Combine (via e.g. sum or mean) values across replicas.
 
+`reduce_to` aggregates <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> and distributed
+variables. It supports both dense values and <a href="../../tf/IndexedSlices.md"><code>tf.IndexedSlices</code></a>.
+
+This API currently can only be called in cross-replica context. Other
+variants to reduce values across replicas are:
+* <a href="../../tf/distribute/StrategyExtended.md#batch_reduce_to"><code>tf.distribute.StrategyExtended.batch_reduce_to</code></a>: the batch version of
+  this API.
+* <a href="../../tf/distribute/ReplicaContext.md#all_reduce"><code>tf.distribute.ReplicaContext.all_reduce</code></a>: the counterpart of this API
+  in replica context. It supports both batched and non-batched all-reduce.
+* <a href="../../tf/distribute/Strategy.md#reduce"><code>tf.distribute.Strategy.reduce</code></a>: a more convenient method to reduce
+  to the host in cross-replica context.
+
+`destinations` specifies where to reduce the value to, e.g. "GPU:0". You can
+also pass in a `Tensor`, and the destinations will be the device of that
+tensor. For all-reduce, pass the same to `value` and `destinations`.
+
+It can be used in <a href="../../tf/distribute/ReplicaContext.md#merge_call"><code>tf.distribute.ReplicaContext.merge_call</code></a> to write code
+that works for all <a href="../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a>.
+
+```
+>>> @tf.function
+... def step_fn(var):
+...
+...   def merge_fn(strategy, value, var):
+...     # All-reduce the value. Note that `value` here is a
+...     # `tf.distribute.DistributedValues`.
+...     reduced = strategy.extended.reduce_to(tf.distribute.ReduceOp.SUM,
+...         value, destinations=var)
+...     strategy.extended.update(var, lambda var, value: var.assign(value),
+...         args=(reduced,))
+...
+...   value = tf.identity(1.)
+...   tf.distribute.get_replica_context().merge_call(merge_fn,
+...     args=(value, var))
+>>>
+>>> def run(strategy):
+...   with strategy.scope():
+...     v = tf.Variable(0.)
+...     strategy.run(step_fn, args=(v,))
+...     return v
+>>>
+>>> run(tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"]))
+MirroredVariable:{
+  0: <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0>,
+  1: <tf.Variable 'Variable/replica_1:0' shape=() dtype=float32, numpy=2.0>
+}
+>>> run(tf.distribute.experimental.CentralStorageStrategy(
+...     compute_devices=["GPU:0", "GPU:1"], parameter_device="CPU:0"))
+<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0>
+>>> run(tf.distribute.OneDeviceStrategy("GPU:0"))
+<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -291,32 +395,39 @@ Combine (via e.g. sum or mean) values across replicas.
 `reduce_op`
 </td>
 <td>
-Reduction type, an instance of <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> enum.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> value specifying how values should
+be combined. Allows using string representation of the enum such as
+"SUM", "MEAN".
 </td>
 </tr><tr>
 <td>
 `value`
 </td>
 <td>
-A per-replica value with one value per replica.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, or a <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> like object.
 </td>
 </tr><tr>
 <td>
 `destinations`
 </td>
 <td>
-A mirrored variable, a per-replica tensor, or a device
-string. The return value will be copied to all destination devices (or
-all the devices where the `destinations` value resides). To perform an
-all-reduction, pass `value` to `destinations`.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, a
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> alike object, or a device string. It specifies the devices
+to reduce to. To perform an all-reduce, pass the same to `value` and
+`destinations`. Note that if it's a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, the value is reduced
+to the devices of that variable, and this method doesn't update the
+variable.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. Options to
+perform collective operations. This overrides the default options if the
+<a href="../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a> takes one in the constructor. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details of the
+options.
 </td>
 </tr>
 </table>
@@ -329,7 +440,7 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A tensor or value mirrored to `destinations`.
+A tensor or value reduced to `destinations`.
 </td>
 </tr>
 
@@ -339,7 +450,7 @@ A tensor or value mirrored to `destinations`.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2233-L2300">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2426-L2494">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>update(
@@ -365,7 +476,8 @@ tensor value on that device.
 
 
 ```python
-strategy = tf.distribute.MirroredStrategy(['/gpu:0', '/gpu:1']) # With 2 devices
+strategy = tf.distribute.MirroredStrategy(['GPU:0', 'GPU:1']) # With 2
+devices
 with strategy.scope():
   v = tf.Variable(5.0, aggregation=tf.VariableAggregation.SUM)
 def update_fn(v):
@@ -460,7 +572,7 @@ for ensuring all elements are executed.
 
 <h3 id="value_container"><code>value_container</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2337-L2350">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2502-L2515">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>value_container(
@@ -508,7 +620,7 @@ always be true.
 
 <h3 id="variable_created_in_scope"><code>variable_created_in_scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L2057-L2081">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L2119-L2143">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variable_created_in_scope(

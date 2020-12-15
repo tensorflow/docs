@@ -18,7 +18,7 @@ description: A conditional accumulator for aggregating sparse gradients.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1412-L1603">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1412-L1603">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -176,7 +176,7 @@ The name of the underlying accumulator.
 
 <h3 id="apply_grad"><code>apply_grad</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1471-L1517">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1471-L1517">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_grad(
@@ -283,7 +283,7 @@ If grad is of the wrong shape
 
 <h3 id="apply_indexed_slices_grad"><code>apply_indexed_slices_grad</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1447-L1469">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1447-L1469">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_indexed_slices_grad(
@@ -360,7 +360,7 @@ If grad is of the wrong shape
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1572-L1585">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1572-L1585">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accumulated(
@@ -404,7 +404,7 @@ Number of accumulated gradients currently in accumulator.
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1587-L1603">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1587-L1603">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_global_step(
@@ -457,7 +457,7 @@ Operation that sets the accumulator's time step.
 
 <h3 id="take_grad"><code>take_grad</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1519-L1541">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1519-L1541">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>take_grad(
@@ -532,7 +532,7 @@ If `num_required` < 1
 
 <h3 id="take_indexed_slices_grad"><code>take_indexed_slices_grad</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1543-L1569">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1543-L1569">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>take_indexed_slices_grad(

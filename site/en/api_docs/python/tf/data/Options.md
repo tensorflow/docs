@@ -1,4 +1,4 @@
-description: Represents options for tf.data.Dataset.
+description: Represents options for <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.data.Options" />
@@ -15,7 +15,7 @@ description: Represents options for tf.data.Dataset.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L2814-L2943">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2935-L3097">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -24,7 +24,7 @@ description: Represents options for tf.data.Dataset.
 
 
 
-Represents options for tf.data.Dataset.
+Represents options for <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -45,20 +45,39 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-An `Options` object can be, for instance, used to control which graph
-optimizations to apply or whether to use performance modeling to dynamically
-tune the parallelism of operations such as <a href="../../tf/data/Dataset.md#map"><code>tf.data.Dataset.map</code></a> or
-<a href="../../tf/data/Dataset.md#interleave"><code>tf.data.Dataset.interleave</code></a>.
+A <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> object can be, for instance, used to control which static
+optimizations to apply to the input pipeline graph or whether to use
+performance modeling to dynamically tune the parallelism of operations such as
+<a href="../../tf/data/Dataset.md#map"><code>tf.data.Dataset.map</code></a> or <a href="../../tf/data/Dataset.md#interleave"><code>tf.data.Dataset.interleave</code></a>.
 
-After constructing an `Options` object, use `dataset.with_options(options)` to
-apply the options to a dataset.
+The options are set for the entire dataset and are carried over to datasets
+created through tf.data transformations.
+
+The options can be set either by mutating the object returned by
+<a href="../../tf/data/Dataset.md#options"><code>tf.data.Dataset.options()</code></a> or by constructing an `Options` object and using
+the <a href="../../tf/data/Dataset.md#with_options"><code>tf.data.Dataset.with_options(options)</code></a> transformation, which returns a
+dataset with the options set.
 
 ```
->>> dataset = tf.data.Dataset.range(3)
+>>> dataset = tf.data.Dataset.range(42)
+>>> dataset.options().experimental_deterministic = False
+>>> print(dataset.options().experimental_deterministic)
+False
+```
+
+```
+>>> dataset = tf.data.Dataset.range(42)
 >>> options = tf.data.Options()
->>> # Set options here.
+>>> options.experimental_deterministic = False
 >>> dataset = dataset.with_options(options)
+>>> print(dataset.options().experimental_deterministic)
+False
 ```
+
+Note: A known limitation of the <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> implementation is that the
+options are not preserved across tf.function boundaries. In particular, to
+set options for a dataset that is iterated within a tf.function, the options
+need to be set within the same tf.function.
 
 
 
@@ -125,7 +144,7 @@ The threading options associated with the dataset. See <a href="../../tf/data/ex
 
 <h3 id="merge"><code>merge</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L2927-L2943">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L3083-L3097">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>merge(
@@ -135,8 +154,9 @@ The threading options associated with the dataset. See <a href="../../tf/data/ex
 
 Merges itself with the given <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a>.
 
-The given <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> can be merged as long as there does not exist an
-attribute that is set to different values in `self` and `options`.
+If this object and the `options` to merge set an option differently, a
+warning is generated and this object's value is updated with the `options`
+object's value.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -158,27 +178,10 @@ a <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> to merge w
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Raises</th></tr>
-
-<tr>
-<td>
-`ValueError`
-</td>
-<td>
-if the given <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> cannot be merged
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-New <a href="../../tf/data/Options.md"><code>tf.data.Options()</code></a> object which is the result of merging self with
+New <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> object which is the result of merging self with
 the input <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a>.
 </td>
 </tr>
@@ -189,7 +192,7 @@ the input <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a>.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/util/options.py#L41-L47">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -202,7 +205,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/util/options.py#L45-L49">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/util/options.py#L49-L53">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(

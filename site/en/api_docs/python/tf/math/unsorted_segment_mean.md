@@ -11,7 +11,7 @@ description: Computes the mean along segments of a tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L3951-L3995">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L4054-L4097">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,8 +47,7 @@ Read [the section on
 segmentation](https://www.tensorflow.org/versions/r2.0/api_docs/python/tf/math#about_segmentation)
 for an explanation of segments.
 
-This operator is similar to the unsorted segment sum operator found
-[here](../../../api_docs/python/math_ops.md#UnsortedSegmentSum).
+This operator is similar to the <a href="../../tf/math/unsorted_segment_sum.md"><code>tf.math.unsorted_segment_sum</code></a> operator.
 Instead of computing the sum over segments, it computes the mean of all
 entries belonging to a segment such that:
 

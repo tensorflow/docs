@@ -11,7 +11,7 @@ description: Computes the maximum of elements across dimensions of a tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L2641-L2686">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L2701-L2746">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -42,8 +42,8 @@ Computes the maximum of elements across dimensions of a tensor.
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
-entry in `axis`. If `keepdims` is true, the reduced dimensions
-are retained with length 1.
+of the entries in `axis`, which must be unique. If `keepdims` is true, the
+reduced dimensions are retained with length 1.
 
 If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.
@@ -61,10 +61,10 @@ tf.Tensor(5, shape=(), dtype=int32)
 tf.Tensor(-1, shape=(), dtype=int32)
 >>> x = tf.constant([4, float('nan')])
 >>> print(tf.reduce_max(x))
-tf.Tensor(4.0, shape=(), dtype=float32)
+tf.Tensor(nan, shape=(), dtype=float32)
 >>> x = tf.constant([float('nan'), float('nan')])
 >>> print(tf.reduce_max(x))
-tf.Tensor(-inf, shape=(), dtype=float32)
+tf.Tensor(nan, shape=(), dtype=float32)
 >>> x = tf.constant([float('-inf'), float('inf')])
 >>> print(tf.reduce_max(x))
 tf.Tensor(inf, shape=(), dtype=float32)

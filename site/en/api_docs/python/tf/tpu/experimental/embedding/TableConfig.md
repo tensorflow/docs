@@ -12,7 +12,7 @@ description: Configuration data for one embedding table.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L454-L543">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L528-L645">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,7 +36,12 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.tpu.experimental.embedding.TableConfig(
-    vocabulary_size, dim, initializer, optimizer=None, combiner='mean', name=None
+    vocabulary_size: int,
+    dim: int,
+    initializer: Optional[Callable[[Any], None]],
+    optimizer: Optional[_Optimizer] = None,
+    combiner: Text = 'mean',
+    name: Optional[Text] = None
 )
 </code></pre>
 
@@ -122,10 +127,10 @@ optimizer passed to <a href="../../../../tf/tpu/experimental/embedding/TPUEmbedd
 </td>
 <td>
 A string specifying how to reduce if there are multiple entries
-in a single row. Currently 'mean', 'sqrtn', 'sum' are
-supported, with 'mean' the default. 'sqrtn' often achieves good
-accuracy, in particular with bag-of-words columns. For more information,
-see <a href="../../../../tf/nn/embedding_lookup_sparse.md"><code>tf.nn.embedding_lookup_sparse</code></a>.
+in a single row. Currently 'mean', 'sqrtn', 'sum' are supported, with
+'mean' the default. 'sqrtn' often achieves good accuracy, in particular
+with bag-of-words columns. For more information, see
+<a href="../../../../tf/nn/embedding_lookup_sparse.md"><code>tf.nn.embedding_lookup_sparse</code></a>.
 </td>
 </tr><tr>
 <td>

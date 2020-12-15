@@ -13,7 +13,7 @@ description: Transposed convolution layer (sometimes called Deconvolution).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional.py#L813-L1051">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional.py#L823-L1065">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -101,6 +101,9 @@ specifying a `dilation_rate` value != 1. Defaults to 1.
 </td>
 <td>
 one of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>
@@ -132,6 +135,7 @@ an integer, specifying
 the dilation rate to use for dilated convolution.
 Currently, specifying a `dilation_rate` value != 1 is
 incompatible with specifying a stride value != 1.
+Also dilation rate larger than 1 is not currently supported.
 </td>
 </tr><tr>
 <td>

@@ -11,7 +11,7 @@ description: Extract patches from images.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L5349-L5468">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L5867-L5986">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -150,15 +150,15 @@ We can again draw the effect, this time using the symbols `*`, `x`, `+` and
 `images`
 </td>
 <td>
-A 4-D Tensor with shape `[batch, in_rows, in_cols, depth]
+A 4-D Tensor with shape `[batch, in_rows, in_cols, depth]`.
 </td>
 </tr><tr>
 <td>
 `sizes`
 </td>
 <td>
-The size of the extracted patches. Must be [1, size_rows, size_cols,
-1].
+The size of the extracted patches. Must be
+`[1, size_rows, size_cols, 1]`.
 </td>
 </tr><tr>
 <td>

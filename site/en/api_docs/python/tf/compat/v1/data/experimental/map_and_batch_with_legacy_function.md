@@ -11,7 +11,7 @@ description: Fused implementation of map and batch. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/batching.py#L151-L204">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/batching.py#L151-L204">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -89,7 +89,7 @@ desired; the default behavior is not to drop the smaller batch.
 (Optional.) A <a href="../../../../../tf.md#int32"><code>tf.int32</code></a> scalar <a href="../../../../../tf/Tensor.md"><code>tf.Tensor</code></a>,
 representing the number of elements to process in parallel. If not
 specified, `batch_size * num_parallel_batches` elements will be processed
-in parallel. If the value <a href="../../../../../tf/data/experimental.md#AUTOTUNE"><code>tf.data.experimental.AUTOTUNE</code></a> is used, then
+in parallel. If the value <a href="../../../../../tf/data.md#AUTOTUNE"><code>tf.data.AUTOTUNE</code></a> is used, then
 the number of parallel calls is set dynamically based on available CPU.
 </td>
 </tr>

@@ -11,7 +11,7 @@ description: Computes sums of N-D convolutions (actually cross-correlation).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/nn_ops.py#L865-L998">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/nn_ops.py#L864-L1000">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -118,6 +118,9 @@ An (N+2)-D `Tensor` with the same type as `input` and shape
 </td>
 <td>
 A string, either `"VALID"` or `"SAME"`. The padding algorithm.
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

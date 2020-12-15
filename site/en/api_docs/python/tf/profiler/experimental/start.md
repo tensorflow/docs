@@ -1,4 +1,4 @@
-description: Starts profiling.
+description: Start profiling TensorFlow performance.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.profiler.experimental.start" />
@@ -11,7 +11,7 @@ description: Starts profiling.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/profiler_v2.py#L78-L121">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/profiler_v2.py#L85-L131">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Starts profiling.
 
 
 
-Starts profiling.
+Start profiling TensorFlow performance.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.profiler.experimental.start(
@@ -43,14 +43,15 @@ Starts profiling.
 `logdir`
 </td>
 <td>
-A log directory read by TensorBoard to export the profile results.
+Profiling results log directory.
 </td>
 </tr><tr>
 <td>
 `options`
 </td>
 <td>
-namedtuple of ProfilerOptions for miscellaneous profiler options.
+`ProfilerOptions` namedtuple to specify miscellaneous profiler
+options. See example usage below.
 </td>
 </tr>
 </table>
@@ -67,7 +68,7 @@ namedtuple of ProfilerOptions for miscellaneous profiler options.
 `AlreadyExistsError`
 </td>
 <td>
-If another profiling session is running.
+If a profiling session is already running.
 </td>
 </tr>
 </table>
@@ -78,12 +79,14 @@ If another profiling session is running.
 
 
 ```python
-tf.profiler.experimental.start(
-    'logdir_path', tf.profiler.ProfilerOptions(host_tracer_level=2))
-# do your training here.
+options = tf.profiler.experimental.ProfilerOptions(host_tracer_level = 3,
+                                                   python_tracer_level = 1,
+                                                   device_tracer_level = 1)
+tf.profiler.experimental.start('logdir_path', options = options)
+# Training code here
 tf.profiler.experimental.stop()
 ```
 
-Launch TensorBoard and point it to the same logdir you provided to this API.
-$ tensorboard --logdir=logdir_path
-Open your browser and go to localhost:6006/#profile to view profiling results.
+To view the profiling results, launch TensorBoard and point it to `logdir`.
+Open your browser and go to `localhost:6006/#profile` to view profiling
+results.

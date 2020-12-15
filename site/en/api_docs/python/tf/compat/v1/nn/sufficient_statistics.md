@@ -11,7 +11,7 @@ description: Calculate the sufficient statistics for the mean and variance of x.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/nn_impl.py#L1146-L1201">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/nn_impl.py#L1151-L1223">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,6 +36,19 @@ These sufficient statistics are computed using the one pass algorithm on
 an input that's optionally shifted. See:
 https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Computing_shifted_data
 
+#### For example:
+
+
+>>> t = [[1, 2, 3], [4, 5, 6]]
+>>> sufficient_statistics(t, [1])
+(<tf.Tensor: shape=(), dtype=int32, numpy=3>, <tf.Tensor: shape=(2,),
+dtype=int32, numpy=array([ 6, 15], dtype=int32)>, <tf.Tensor: shape=(2,),
+dtype=int32, numpy=array([14, 77], dtype=int32)>, None)
+>>> sufficient_statistics(t, [-1])
+(<tf.Tensor: shape=(), dtype=int32, numpy=3>, <tf.Tensor: shape=(2,),
+dtype=int32, numpy=array([ 6, 15], dtype=int32)>, <tf.Tensor: shape=(2,),
+dtype=int32, numpy=array([14, 77], dtype=int32)>, None)
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
@@ -53,7 +66,10 @@ A `Tensor`.
 `axes`
 </td>
 <td>
-Array of ints. Axes along which to compute mean and variance.
+Array of ints. Axes along which to compute mean and variance. As in
+Python, the axes can also be negative numbers. A negative axis is
+interpreted as counting from the end of the rank, i.e., axis +
+rank(values)-th dimension.
 </td>
 </tr><tr>
 <td>

@@ -11,7 +11,7 @@ description: Creates a Dataset from another Dataset and silently ignores any err
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/error_ops.py#L25-L53">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/error_ops.py#L26-L57">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -34,7 +34,9 @@ more details.</p>
 </section>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>tf.data.experimental.ignore_errors()
+<code>tf.data.experimental.ignore_errors(
+    log_warning=(False)
+)
 </code></pre>
 
 
@@ -56,6 +58,9 @@ dataset = dataset.map(lambda x: tf.debugging.check_numerics(1. / x, "error"))
 dataset =
     dataset.apply(tf.data.experimental.ignore_errors())  # ==> {1., 0.5, 0.2}
 ```
+Args:
+   log_warning: (Optional.) A 'tf.bool' scalar indicating whether ignored
+    errors should be logged to stderr. Defaults to 'False'.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

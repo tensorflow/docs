@@ -14,7 +14,7 @@ description: Callback to save the Keras model or model weights at some frequency
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L1057-L1442">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L1127-L1540">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -66,17 +66,24 @@ A few options this callback provides include:
   the end of every epoch, or after a fixed number of training batches.
 - Whether only weights are saved, or the whole model is saved.
 
+Note: If you get `WARNING:tensorflow:Can save best model only with <name>
+available, skipping` see the description of the `monitor` argument for
+details on how to get this right.
+
 #### Example:
 
 
 
 ```python
+model.compile(loss=..., optimizer=...,
+              metrics=['accuracy'])
+
 EPOCHS = 10
 checkpoint_filepath = '/tmp/checkpoint'
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_filepath,
     save_weights_only=True,
-    monitor='val_acc',
+    monitor='val_accuracy',
     mode='max',
     save_best_only=True)
 
@@ -110,7 +117,19 @@ in the filename.
 `monitor`
 </td>
 <td>
-quantity to monitor.
+The metric name to monitor. Typically the metrics are set by the
+<a href="../../../tf/keras/Model.md#compile"><code>Model.compile</code></a> method. Note:
+
+* Prefix the name with `"val_`" to monitor validation metrics.
+* Use `"loss"` or "`val_loss`" to monitor the model's total loss.
+* If you specify metrics as strings, like `"accuracy"`, pass the same
+string (with or without the `"val_"` prefix).
+* If you pass <a href="../../../tf/keras/metrics/Metric.md"><code>metrics.Metric</code></a> objects, `monitor` should be set to
+`metric.name`
+* If you're not sure about the metric names you can check the contents
+of the `history.history` dictionary returned by
+`history = model.fit()`
+* Multi-output models set additional prefixes on the metric names.
 </td>
 </tr><tr>
 <td>
@@ -124,22 +143,23 @@ verbosity mode, 0 or 1.
 `save_best_only`
 </td>
 <td>
-if `save_best_only=True`, the latest best model according
-to the quantity monitored will not be overwritten.
-If `filepath` doesn't contain formatting options like `{epoch}` then
-`filepath` will be overwritten by each new better model.
+if `save_best_only=True`, it only saves when the model
+is considered the "best" and the latest best model according to the
+quantity monitored will not be overwritten. If `filepath` doesn't
+contain formatting options like `{epoch}` then `filepath` will be
+overwritten by each new better model.
 </td>
 </tr><tr>
 <td>
 `mode`
 </td>
 <td>
-one of {auto, min, max}. If `save_best_only=True`, the decision to
-overwrite the current save file is made based on either the maximization
-or the minimization of the monitored quantity. For `val_acc`, this
-should be `max`, for `val_loss` this should be `min`, etc. In `auto`
-mode, the direction is automatically inferred from the name of the
-monitored quantity.
+one of {'auto', 'min', 'max'}. If `save_best_only=True`, the
+decision to overwrite the current save file is made based on either
+the maximization or the minimization of the monitored quantity.
+For `val_acc`, this should be `max`, for `val_loss` this should be
+`min`, etc. In `auto` mode, the direction is automatically inferred
+from the name of the monitored quantity.
 </td>
 </tr><tr>
 <td>
@@ -158,7 +178,7 @@ if True, then only the model's weights will be saved
 `'epoch'` or integer. When using `'epoch'`, the callback saves
 the model after each epoch. When using integer, the callback saves the
 model at end of this many batches. If the `Model` is compiled with
-`experimental_steps_per_execution=N`, then the saving criteria will be
+`steps_per_execution=N`, then the saving criteria will be
 checked every Nth batch. Note that if the saving isn't aligned to
 epochs, the monitored metric may potentially be less reliable (it
 could reflect as little as 1 batch, since the metrics get reset every
@@ -170,7 +190,7 @@ epoch). Defaults to `'epoch'`.
 </td>
 <td>
 Optional <a href="../../../tf/train/CheckpointOptions.md"><code>tf.train.CheckpointOptions</code></a> object if
-`save_weights_only` is true or optional `tf.saved_model.SavedOptions`
+`save_weights_only` is true or optional <a href="../../../tf/saved_model/SaveOptions.md"><code>tf.saved_model.SaveOptions</code></a>
 object if `save_weights_only` is false.
 </td>
 </tr><tr>
@@ -190,7 +210,7 @@ is `period`.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L1215-L1221">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L1306-L1312">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_model(
@@ -203,7 +223,7 @@ is `period`.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L616-L617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L630-L631">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_params(

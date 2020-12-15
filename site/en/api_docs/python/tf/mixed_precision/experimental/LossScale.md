@@ -1,4 +1,4 @@
-description: Base class for all loss scales.
+description: Base class for all TF1 loss scales.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.mixed_precision.experimental.LossScale" />
@@ -16,7 +16,7 @@ description: Base class for all loss scales.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L43-L198">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L50-L209">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,7 +25,7 @@ description: Base class for all loss scales.
 
 
 
-Base class for all loss scales.
+Base class for all TF1 loss scales.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -37,7 +37,7 @@ Base class for all loss scales.
 <p>See
 <a href="https://www.tensorflow.org/guide/migrate">Migration guide</a> for
 more details.</p>
-<p>`tf.compat.v1.mixed_precision.experimental.LossScale`, `tf.compat.v1.train.experimental.LossScale`</p>
+<p>`tf.compat.v1.mixed_precision.LossScale`, `tf.compat.v1.mixed_precision.experimental.LossScale`, `tf.compat.v1.train.experimental.LossScale`</p>
 </p>
 </section>
 
@@ -49,14 +49,18 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+WARNING: This class is deprecated and will be unexposed from the TF 2
+namespace starting in TensorFlow 2.5. In TensorFlow 2.5, this class will only
+be accessible as <a href="../../../tf/mixed_precision/experimental/LossScale.md"><code>tf.compat.v1.mixed_precision.LossScale</code></a>. Additionally in
+2.5, you will no longer be able to pass a `LossScale` to a
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a>. All the functionality in this class has
+been merged into <a href="../../../tf/keras/mixed_precision/LossScaleOptimizer.md"><code>tf.keras.mixed_precision.LossScaleOptimizer</code></a>, so this class
+is no longer needed.
+
 This is an abstract base class, so you cannot instantiate it directly.
 Instead, use one of its concrete subclasses:
-  * <a href="../../../tf/mixed_precision/experimental/DynamicLossScale.md"><code>tf.mixed_precision.experimental.DynamicLossScale</code></a> (recommended)
-  * <a href="../../../tf/mixed_precision/experimental/FixedLossScale.md"><code>tf.mixed_precision.experimental.FixedLossScale</code></a>
-
-It's recommended to use a loss scale with a
-<a href="../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md"><code>tf.keras.mixed_precision.experimental.LossScaleOptimizer</code></a>, as its easier than
-using a loss scale directly.
+  * <a href="../../../tf/mixed_precision/experimental/DynamicLossScale.md"><code>tf.compat.v1.mixed_precision.DynamicLossScale</code></a>
+  * <a href="../../../tf/mixed_precision/experimental/FixedLossScale.md"><code>tf.compat.v1.mixed_precision.FixedLossScale</code></a>
 
 Loss scaling is a process that multiplies the loss by a multiplier called the
 loss scale, and divides each gradient by the same multiplier. The pseudocode
@@ -87,7 +91,7 @@ loss scale.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L195-L198">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L206-L209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -101,7 +105,7 @@ Creates the LossScale from its config.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L190-L193">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L201-L204">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>
@@ -113,7 +117,7 @@ Returns the config of this loss scale.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L90-L125">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L101-L136">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>
@@ -191,7 +195,7 @@ step.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L85-L88">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L96-L99">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>

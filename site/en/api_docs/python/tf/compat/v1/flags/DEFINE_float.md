@@ -87,8 +87,8 @@ float, max value of the flag.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance with which the flag will
-be registered. This should almost never need to be overridden.
+FlagValues, the FlagValues instance with which the flag will be
+registered. This should almost never need to be overridden.
 </td>
 </tr><tr>
 <td>
@@ -98,5 +98,19 @@ be registered. This should almost never need to be overridden.
 dict, the extra keyword args that are passed to DEFINE.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

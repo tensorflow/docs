@@ -11,7 +11,7 @@ description: Computes the absolute value of a tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L358-L392">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L358-L401">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -52,10 +52,23 @@ corresponding element in the input.
 
 Given a tensor `x` of complex numbers, this operation returns a tensor of type
 `float32` or `float64` that is the absolute value of each element in `x`. For
-a complex number \\(a + bj\\), its absolute value is computed as \\(\sqrt{a^2
-+ b^2}\\).  For example:
+a complex number \\(a + bj\\), its absolute value is computed as
+\\(\sqrt{a^2 + b^2}\\).
+
+#### For example:
+
+
 
 ```
+>>> # real number
+>>> x = tf.constant([-2.25, 3.25])
+>>> tf.abs(x)
+<tf.Tensor: shape=(2,), dtype=float32,
+numpy=array([2.25, 3.25], dtype=float32)>
+```
+
+```
+>>> # complex number
 >>> x = tf.constant([[-2.25 + 4.75j], [-3.25 + 5.75j]])
 >>> tf.abs(x)
 <tf.Tensor: shape=(2, 1), dtype=float64, numpy=

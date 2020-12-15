@@ -13,7 +13,7 @@ description: Wraps arbitrary expressions as a Layer object.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/core.py#L744-L1063">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/core.py#L757-L1077">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -56,9 +56,10 @@ for subclassing <a href="../../../tf/keras/layers/Layer.md"><code>tf.keras.layer
 
 The main reason to subclass <a href="../../../tf/keras/layers/Layer.md"><code>tf.keras.layers.Layer</code></a> instead of using a
 `Lambda` layer is saving and inspecting a Model. `Lambda` layers
-are saved by serializing the Python bytecode, whereas subclassed
-Layers can be saved via overriding their `get_config` method. Overriding
-`get_config` improves the portability of Models. Models that rely on
+are saved by serializing the Python bytecode, which is fundamentally
+non-portable. They should only be loaded in the same environment where
+they were saved. Subclassed layers can be saved in a more portable way
+by overriding their `get_config` method. Models that rely on
 subclassed Layers are also often easier to visualize and reason about.
 
 #### Examples:

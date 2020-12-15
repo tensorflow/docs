@@ -37,7 +37,3 @@ Public API for tf.keras.experimental namespace.
 
 [`class WideDeepModel`](../../tf/keras/experimental/WideDeepModel.md): Wide & Deep Model for regression and classification problems.
 
-## Functions
-
-[`terminate_keras_multiprocessing_pools(...)`](../../tf/keras/experimental/terminate_keras_multiprocessing_pools.md): Destroy Keras' multiprocessing pools to prevent deadlocks. (deprecated)
-

@@ -16,7 +16,7 @@ description: Text vectorization layer.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization_v1.py#L29-L83">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization_v1.py#L30-L98">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -31,9 +31,10 @@ Inherits From: [`TextVectorization`](../../../../../../../tf/keras/layers/experi
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.keras.layers.experimental.preprocessing.TextVectorization(
-    max_tokens=None, standardize=LOWER_AND_STRIP_PUNCTUATION,
-    split=SPLIT_ON_WHITESPACE, ngrams=None, output_mode=INT,
-    output_sequence_length=None, pad_to_max_tokens=(True), **kwargs
+    max_tokens=None, standardize=text_vectorization.LOWER_AND_STRIP_PUNCTUATION,
+    split=text_vectorization.SPLIT_ON_WHITESPACE, ngrams=None,
+    output_mode=text_vectorization.INT, output_sequence_length=None,
+    pad_to_max_tokens=(True), **kwargs
 )
 </code></pre>
 
@@ -142,7 +143,7 @@ vocabulary is less than max_tokens.
 
 <h3 id="adapt"><code>adapt</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L349-L400">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L392-L443">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>adapt(
@@ -184,7 +185,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="get_vocabulary"><code>get_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L402-L403">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L445-L446">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_vocabulary()
@@ -195,7 +196,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="set_vocabulary"><code>set_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L425-L489">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/text_vectorization.py#L471-L535">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_vocabulary(

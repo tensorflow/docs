@@ -38,7 +38,7 @@ description: Wide & Deep Model for regression and classification problems.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/premade/wide_deep.py#L34-L219">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/premade/wide_deep.py#L34-L219">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -238,12 +238,12 @@ deliver the best execution performance.
 
 <h3 id="compile"><code>compile</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L462-L555">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L449-L549">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compile(
     optimizer='rmsprop', loss=None, metrics=None, loss_weights=None,
-    weighted_metrics=None, run_eagerly=None, **kwargs
+    weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs
 )
 </code></pre>
 
@@ -340,20 +340,27 @@ this as `None` unless your `Model` cannot be run inside a
 </td>
 </tr><tr>
 <td>
+`steps_per_execution`
+</td>
+<td>
+Int. Defaults to 1. The number of batches to
+run during each <a href="../../../tf/function.md"><code>tf.function</code></a> call. Running multiple batches
+inside a single <a href="../../../tf/function.md"><code>tf.function</code></a> call can greatly improve performance
+on TPUs or small models with a large Python overhead.
+At most, one full epoch will be run each
+execution. If a number larger than the size of the epoch is passed,
+the execution will be truncated to the size of the epoch.
+Note that if `steps_per_execution` is set to `N`,
+<a href="../../../tf/keras/callbacks/Callback.md#on_batch_begin"><code>Callback.on_batch_begin</code></a> and <a href="../../../tf/keras/callbacks/Callback.md#on_batch_end"><code>Callback.on_batch_end</code></a> methods
+will only be called every `N` batches
+(i.e. before/after each <a href="../../../tf/function.md"><code>tf.function</code></a> execution).
+</td>
+</tr><tr>
+<td>
 `**kwargs`
 </td>
 <td>
-Any additional arguments. Supported arguments:
-- `experimental_steps_per_execution`: Int. The number of batches to
-run during each <a href="../../../tf/function.md"><code>tf.function</code></a> call. Running multiple batches
-inside a single <a href="../../../tf/function.md"><code>tf.function</code></a> call can greatly improve performance
-on TPUs or small models with a large Python overhead. Note that if
-this value is set to `N`, `Callback.on_batch` methods will only be
-called every `N` batches. This currently defaults to `1`. At most,
-one full epoch will be run each execution. If a number larger than
-the size of the epoch is passed, the execution will be truncated
-to the size of the epoch.
-- `sample_weight_mode` for backward compatibility.
+Arguments supported for backwards compatibility only.
 </td>
 </tr>
 </table>
@@ -380,7 +387,7 @@ In case of invalid arguments for
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1242-L1394">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1250-L1410">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>evaluate(
@@ -574,7 +581,7 @@ in case of invalid arguments.
 
 <h3 id="evaluate_generator"><code>evaluate_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1831-L1857">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1863-L1889">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>evaluate_generator(
@@ -583,11 +590,8 @@ in case of invalid arguments.
 )
 </code></pre>
 
-Evaluates the model on a data generator. (deprecated)
+Evaluates the model on a data generator.
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please use Model.evaluate, which supports generators.
 
 #### DEPRECATED:
 
@@ -597,7 +601,7 @@ to use this endpoint.
 
 <h3 id="fit"><code>fit</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L824-L1146">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L822-L1155">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit(
@@ -693,7 +697,11 @@ interactively (eg, in a production environment).
 <td>
 List of <a href="../../../tf/keras/callbacks/Callback.md"><code>keras.callbacks.Callback</code></a> instances.
 List of callbacks to apply during training.
-See <a href="../../../tf/keras/callbacks.md"><code>tf.keras.callbacks</code></a>.
+See <a href="../../../tf/keras/callbacks.md"><code>tf.keras.callbacks</code></a>. Note <a href="../../../tf/keras/callbacks/ProgbarLogger.md"><code>tf.keras.callbacks.ProgbarLogger</code></a>
+and <a href="../../../tf/keras/callbacks/History.md"><code>tf.keras.callbacks.History</code></a> callbacks are created automatically
+and need not be passed into `model.fit`.
+<a href="../../../tf/keras/callbacks/ProgbarLogger.md"><code>tf.keras.callbacks.ProgbarLogger</code></a> is created or not based on
+`verbose` argument to `model.fit`.
 </td>
 </tr><tr>
 <td>
@@ -721,7 +729,7 @@ the loss and any model metrics at the end of each epoch.
 The model will not be trained on this data. Thus, note the fact
 that the validation loss of data provided using `validation_split`
 or `validation_data` is not affected by regularization layers like
-noise and dropuout.
+noise and dropout.
 `validation_data` will override `validation_split`.
 `validation_data` could be:
 - tuple `(x_val, y_val)` of Numpy arrays or tensors
@@ -937,7 +945,7 @@ and validation metrics values (if applicable).
 </td>
 <td>
 In case of mismatch between the provided input data
-and what the model expects.
+and what the model expects or when the input data is empty.
 </td>
 </tr>
 </table>
@@ -946,7 +954,7 @@ and what the model expects.
 
 <h3 id="fit_generator"><code>fit_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1791-L1829">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1823-L1861">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit_generator(
@@ -957,11 +965,8 @@ and what the model expects.
 )
 </code></pre>
 
-Fits the model on data yielded batch-by-batch by a Python generator. (deprecated)
+Fits the model on data yielded batch-by-batch by a Python generator.
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please use Model.fit, which supports generators.
 
 #### DEPRECATED:
 
@@ -971,7 +976,7 @@ this endpoint.
 
 <h3 id="get_layer"><code>get_layer</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2365-L2399">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2390-L2424">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_layer(
@@ -1041,7 +1046,7 @@ In case of invalid layer name or index.
 
 <h3 id="load_weights"><code>load_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2109-L2211">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2132-L2234">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>load_weights(
@@ -1161,7 +1166,7 @@ If `skip_mismatch` is set to `True` when `by_name` is
 
 <h3 id="make_predict_function"><code>make_predict_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1420-L1484">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1436-L1500">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_predict_function()
@@ -1197,7 +1202,7 @@ Function. The function created by this method should accept a
 
 <h3 id="make_test_function"><code>make_test_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1182-L1240">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1191-L1248">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_test_function()
@@ -1234,7 +1239,7 @@ be passed to `tf.keras.Callbacks.on_test_batch_end`.
 
 <h3 id="make_train_function"><code>make_train_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L762-L822">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L761-L820">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_train_function()
@@ -1272,7 +1277,7 @@ be passed to `tf.keras.Callbacks.on_train_batch_end`, such as
 
 <h3 id="predict"><code>predict</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1486-L1615">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1502-L1647">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict(
@@ -1434,7 +1439,7 @@ that is not a multiple of the batch size.
 
 <h3 id="predict_generator"><code>predict_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1859-L1883">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1891-L1915">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict_generator(
@@ -1443,11 +1448,8 @@ that is not a multiple of the batch size.
 )
 </code></pre>
 
-Generates predictions for the input samples from a data generator. (deprecated)
+Generates predictions for the input samples from a data generator.
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Please use Model.predict, which supports generators.
 
 #### DEPRECATED:
 
@@ -1457,7 +1459,7 @@ to use this endpoint.
 
 <h3 id="predict_on_batch"><code>predict_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1767-L1789">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1799-L1821">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict_on_batch(
@@ -1528,7 +1530,7 @@ expectations of the model.
 
 <h3 id="predict_step"><code>predict_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1396-L1418">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1412-L1434">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict_step(
@@ -1541,7 +1543,7 @@ The logic for one inference step.
 This method can be overridden to support custom inference logic.
 This method is called by <a href="../../../tf/keras/Model.md#make_predict_function"><code>Model.make_predict_function</code></a>.
 
-This method should contain the mathemetical logic for one step of inference.
+This method should contain the mathematical logic for one step of inference.
 This typically includes the forward pass.
 
 Configuration details for *how* this logic is run (e.g. <a href="../../../tf/function.md"><code>tf.function</code></a> and
@@ -1582,7 +1584,7 @@ The result of one inference step, typically the output of calling the
 
 <h3 id="reset_metrics"><code>reset_metrics</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1617-L1637">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1649-L1669">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_metrics()
@@ -1616,7 +1618,7 @@ Resets the state of all the metrics in the model.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2283-L2286">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2306-L2309">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_states()
@@ -1627,42 +1629,20 @@ Resets the state of all the metrics in the model.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1918-L1979">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1950-L2002">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(
     filepath, overwrite=(True), include_optimizer=(True), save_format=None,
-    signatures=None, options=None
+    signatures=None, options=None, save_traces=(True)
 )
 </code></pre>
 
 Saves the model to Tensorflow SavedModel or a single HDF5 file.
 
-
-#### The savefile includes:
-
-
-
-- The model architecture, allowing to re-instantiate the model.
-- The model weights.
-- The state of the optimizer, allowing to resume training
-    exactly where you left off.
-
-This allows you to save the entirety of the state of a model
-in a single file.
-
-Saved models can be reinstantiated via <a href="../../../tf/keras/models/load_model.md"><code>keras.models.load_model</code></a>.
-The model returned by `load_model` is a compiled model ready to be used
-(unless the saved model was never compiled in the first place).
-
-Models built with the Sequential and Functional API can be saved to both the
-HDF5 and SavedModel formats. Subclassed models can only be saved with the
-SavedModel format.
-
-Note that the model weights may have different scoped names after being
-loaded. Scoped names include the model/layer names, such as
-`"dense_1/kernel:0"`. It is recommended that you use the layer properties to
- access specific variables, e.g. `model.get_layer("dense_1").kernel`.
+Please see <a href="../../../tf/keras/models/save_model.md"><code>tf.keras.models.save_model</code></a> or the
+[Serialization and Saving guide](https://keras.io/guides/serialization_and_saving/)
+for details.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -1715,8 +1695,21 @@ Signatures to save with the SavedModel. Applicable to the
 `options`
 </td>
 <td>
-Optional <a href="../../../tf/saved_model/SaveOptions.md"><code>tf.saved_model.SaveOptions</code></a> object that specifies
-options for saving to SavedModel.
+(only applies to SavedModel format)
+<a href="../../../tf/saved_model/SaveOptions.md"><code>tf.saved_model.SaveOptions</code></a> object that specifies options for
+saving to SavedModel.
+</td>
+</tr><tr>
+<td>
+`save_traces`
+</td>
+<td>
+(only applies to SavedModel format) When enabled, the
+SavedModel will store the function traces for each layer. This
+can be disabled, so that only the configs of each layer are stored.
+Defaults to `True`. Disabling this will decrease serialization time
+and reduce file size, but it requires that all custom layers/models
+implement a `get_config()` method.
 </td>
 </tr>
 </table>
@@ -1740,7 +1733,7 @@ model = load_model('my_model.h5')
 
 <h3 id="save_weights"><code>save_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1981-L2107">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2004-L2130">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save_weights(
@@ -1862,7 +1855,7 @@ For invalid/unknown format arguments.
 
 <h3 id="summary"><code>summary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2332-L2359">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2357-L2384">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>summary(
@@ -1930,7 +1923,7 @@ if `summary()` is called before the model is built.
 
 <h3 id="test_on_batch"><code>test_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1708-L1765">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1740-L1797">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>test_on_batch(
@@ -2043,7 +2036,7 @@ In case of invalid user-provided arguments.
 
 <h3 id="test_step"><code>test_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1148-L1180">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1157-L1189">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>test_step(
@@ -2056,7 +2049,7 @@ The logic for one evaluation step.
 This method can be overridden to support custom evaluation logic.
 This method is called by <a href="../../../tf/keras/Model.md#make_test_function"><code>Model.make_test_function</code></a>.
 
-This function should contain the mathemetical logic for one step of
+This function should contain the mathematical logic for one step of
 evaluation.
 This typically includes the forward pass, loss calculation, and metrics
 updates.
@@ -2100,7 +2093,7 @@ values of the `Model`'s metrics are returned.
 
 <h3 id="to_json"><code>to_json</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2241-L2256">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2264-L2279">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_json(
@@ -2147,7 +2140,7 @@ A JSON string.
 
 <h3 id="to_yaml"><code>to_yaml</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L2258-L2281">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L2281-L2304">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_yaml(
@@ -2215,7 +2208,7 @@ if yaml module is not found.
 
 <h3 id="train_on_batch"><code>train_on_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/training.py#L1639-L1706">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/training.py#L1671-L1738">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>train_on_batch(
@@ -2342,7 +2335,7 @@ In case of invalid user-provided arguments.
 
 <h3 id="train_step"><code>train_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/premade/wide_deep.py#L112-L136">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/premade/wide_deep.py#L112-L136">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>train_step(
@@ -2355,7 +2348,7 @@ The logic for one training step.
 This method can be overridden to support custom training logic.
 This method is called by <a href="../../../tf/keras/Model.md#make_train_function"><code>Model.make_train_function</code></a>.
 
-This method should contain the mathemetical logic for one step of training.
+This method should contain the mathematical logic for one step of training.
 This typically includes the forward pass, loss calculation, backpropagation,
 and metric updates.
 

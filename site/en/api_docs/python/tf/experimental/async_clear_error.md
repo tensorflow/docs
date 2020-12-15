@@ -11,7 +11,7 @@ description: Clear pending operations and error statuses in async execution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/context.py#L2322-L2343">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/context.py#L2333-L2354">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -57,5 +57,5 @@ while True:
   except tf.errors.OutOfRangeError:
     tf.experimental.async_clear_error()
     break
-logging.info('loss =', loss.numpy())
+logging.info('loss = %s', loss.numpy())
 ```

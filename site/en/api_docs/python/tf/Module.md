@@ -13,7 +13,7 @@ description: Base neural network module class.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/module/module.py#L35-L291">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/module/module.py#L35-L302">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -49,22 +49,22 @@ A module is a named container for <a href="../tf/Variable.md"><code>tf.Variable<
 functions which apply to user input. For example a dense layer in a neural
 network might be implemented as a <a href="../tf/Module.md"><code>tf.Module</code></a>:
 
- ```
- >>> class Dense(tf.Module):
- ...   def __init__(self, in_features, out_features, name=None):
- ...     super(Dense, self).__init__(name=name)
- ...     self.w = tf.Variable(
- ...       tf.random.normal([in_features, out_features]), name='w')
- ...     self.b = tf.Variable(tf.zeros([out_features]), name='b')
- ...   def __call__(self, x):
- ...     y = tf.matmul(x, self.w) + self.b
- ...     return tf.nn.relu(y)
- ```
+```
+>>> class Dense(tf.Module):
+...   def __init__(self, input_dim, output_size, name=None):
+...     super(Dense, self).__init__(name=name)
+...     self.w = tf.Variable(
+...       tf.random.normal([input_dim, output_size]), name='w')
+...     self.b = tf.Variable(tf.zeros([output_size]), name='b')
+...   def __call__(self, x):
+...     y = tf.matmul(x, self.w) + self.b
+...     return tf.nn.relu(y)
+```
 
 You can use the Dense layer as you would expect:
 
 ```
->>> d = Dense(in_features=3, out_features=2)
+>>> d = Dense(input_dim=3, output_size=2)
 >>> d(tf.ones([1, 3]))
 <tf.Tensor: shape=(1, 2), dtype=float32, numpy=..., dtype=float32)>
 ```
@@ -93,21 +93,31 @@ to inspect in TensorBoard. You can enter the name scope explicitly using
 `with self.name_scope:` or you can annotate methods (apart from `__init__`)
 with `@tf.Module.with_name_scope`.
 
-```python
-class MLP(tf.Module):
-  def __init__(self, input_size, sizes, name=None):
-    super(MLP, self).__init__(name=name)
-    self.layers = []
-    with self.name_scope:
-      for size in sizes:
-        self.layers.append(Dense(input_size=input_size, output_size=size))
-        input_size = size
+```
+>>> class MLP(tf.Module):
+...   def __init__(self, input_size, sizes, name=None):
+...     super(MLP, self).__init__(name=name)
+...     self.layers = []
+...     with self.name_scope:
+...       for size in sizes:
+...         self.layers.append(Dense(input_dim=input_size, output_size=size))
+...         input_size = size
+...   @tf.Module.with_name_scope
+...   def __call__(self, x):
+...     for layer in self.layers:
+...       x = layer(x)
+...     return x
+```
 
-  @tf.Module.with_name_scope
-  def __call__(self, x):
-    for layer in self.layers:
-      x = layer(x)
-    return x
+```
+>>> module = MLP(input_size=5, sizes=[5, 5])
+>>> module.variables
+(<tf.Variable 'mlp/b:0' shape=(5,) dtype=float32, numpy=..., dtype=float32)>,
+<tf.Variable 'mlp/w:0' shape=(5, 5) dtype=float32, numpy=...,
+   dtype=float32)>,
+<tf.Variable 'mlp/b:0' shape=(5,) dtype=float32, numpy=..., dtype=float32)>,
+<tf.Variable 'mlp/w:0' shape=(5, 5) dtype=float32, numpy=...,
+   dtype=float32)>)
 ```
 
 
@@ -189,7 +199,7 @@ of calling this method if you don't expect the return value to change.
 
 <h3 id="with_name_scope"><code>with_name_scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/module/module.py#L260-L291">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/module/module.py#L271-L302">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>

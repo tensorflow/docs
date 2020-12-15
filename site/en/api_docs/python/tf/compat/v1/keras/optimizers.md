@@ -18,6 +18,7 @@ description: Built-in optimizer classes.
 Built-in optimizer classes.
 
 
+For more examples see the base class <a href="../../../../tf/keras/optimizers/Optimizer.md"><code>tf.keras.optimizers.Optimizer</code></a>.
 
 ## Modules
 

@@ -11,7 +11,7 @@ description: Instantiates the Densenet169 architecture.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/densenet.py#L333-L343">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/densenet.py#L334-L344">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,15 +48,19 @@ more details.</p>
 <!-- Placeholder for "Used in" -->
 
 
-#### Reference paper:
+#### Reference:
 
 
-- [Densely Connected Convolutional Networks]
-  (https://arxiv.org/abs/1608.06993) (CVPR 2017 Best Paper Award)
+- [Densely Connected Convolutional Networks](
+    https://arxiv.org/abs/1608.06993) (CVPR 2017)
 
 Optionally loads weights pre-trained on ImageNet.
 Note that the data format convention used by the model is
 the one specified in your Keras config at `~/.keras/keras.json`.
+
+Note: each Keras Application expects a specific kind of input preprocessing.
+For DenseNet, call <a href="../../../tf/keras/applications/densenet/preprocess_input.md"><code>tf.keras.applications.densenet.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

@@ -12,7 +12,7 @@ description: Represents a dataset distributed among devices and machines.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/input_lib.py#L275-L491">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/input_lib.py#L285-L486">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -39,7 +39,7 @@ inspect the dataset.
 
 There are two APIs to create a <a href="../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> object:
 <a href="../../tf/distribute/Strategy.md#experimental_distribute_dataset"><code>tf.distribute.Strategy.experimental_distribute_dataset(dataset)</code></a>and
-<a href="../../tf/distribute/Strategy.md#experimental_distribute_datasets_from_function"><code>tf.distribute.Strategy.experimental_distribute_datasets_from_function(dataset_fn)</code></a>.
+<a href="../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function(dataset_fn)</code></a>.
 *When to use which?* When you have a <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> instance, and the
 regular batch splitting (i.e. re-batch the input <a href="../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> instance
 with a new batch size that is equal to the global batch size divided by the
@@ -61,8 +61,8 @@ you can:
   * use a pythonic for-loop construct:
 
     ```
-    >>> global_batch_size = 2
-    >>> strategy = tf.distribute.MirroredStrategy()
+    >>> global_batch_size = 4
+    >>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
     >>> dataset = tf.data.Dataset.from_tensors(([1.],[1.])).repeat(4).batch(global_batch_size)
     >>> dist_dataset = strategy.experimental_distribute_dataset(dataset)
     >>> @tf.function
@@ -73,12 +73,14 @@ you can:
     ...   # train_step trains the model using the dataset elements
     ...   loss = strategy.run(train_step, args=(x,))
     ...   print("Loss is", loss)
-    Loss is tf.Tensor(
+    Loss is PerReplica:{
+      0: tf.Tensor(
+    [[0.7]
+     [0.7]], shape=(2, 1), dtype=float32),
+      1: tf.Tensor(
     [[0.7]
      [0.7]], shape=(2, 1), dtype=float32)
-    Loss is tf.Tensor(
-    [[0.7]
-     [0.7]], shape=(2, 1), dtype=float32)
+    }
     ```
 
     Placing the loop inside a <a href="../../tf/function.md"><code>tf.function</code></a> will give a performance boost.
@@ -93,7 +95,7 @@ you can:
 
     ```
     >>> global_batch_size = 4
-    >>> strategy = tf.distribute.MirroredStrategy()
+    >>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
     >>> train_dataset = tf.data.Dataset.from_tensors(([1.],[1.])).repeat(50).batch(global_batch_size)
     >>> train_dist_dataset = strategy.experimental_distribute_dataset(train_dataset)
     >>> @tf.function
@@ -113,10 +115,10 @@ you can:
     ...     total_loss += distributed_train_step(next(dist_dataset_iterator))
     ...     num_batches += 1
     ...   average_train_loss = total_loss / num_batches
-    ...   template = ("Epoch {}, Loss: {}")
+    ...   template = ("Epoch {}, Loss: {:.4f}")
     ...   print (template.format(epoch+1, average_train_loss))
-    Epoch 1, Loss: 0.10000000894069672
-    Epoch 2, Loss: 0.10000000894069672
+    Epoch 1, Loss: 0.2000
+    Epoch 2, Loss: 0.2000
     ```
 
 
@@ -142,10 +144,10 @@ you can:
   For example:
 
   ```
-  >>> global_batch_size = 2
+  >>> global_batch_size = 4
   >>> epochs = 1
   >>> steps_per_epoch = 1
-  >>> mirrored_strategy = tf.distribute.MirroredStrategy()
+  >>> mirrored_strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
   >>> dataset = tf.data.Dataset.from_tensors(([2.])).repeat(100).batch(global_batch_size)
   >>> dist_dataset = mirrored_strategy.experimental_distribute_dataset(dataset)
   >>> @tf.function(input_signature=[dist_dataset.element_spec])
@@ -158,9 +160,14 @@ you can:
   ...   for _ in range(steps_per_epoch):
   ...     output = train_step(next(iterator))
   ...     print(output)
-  tf.Tensor(
+  PerReplica:{
+    0: tf.Tensor(
+  [[4.]
+   [4.]], shape=(2, 1), dtype=float32),
+    1: tf.Tensor(
   [[4.]
    [4.]], shape=(2, 1), dtype=float32)
+  }
   ```
 
 
@@ -184,21 +191,10 @@ The type specification of an element of this <a href="../../tf/distribute/Distri
 
 ```
 >>> global_batch_size = 16
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> dataset = tf.data.Dataset.from_tensors(([1.],[2])).repeat(100).batch(global_batch_size)
 >>> dist_dataset = strategy.experimental_distribute_dataset(dataset)
 >>> dist_dataset.element_spec
-(TensorSpec(shape=(None, 1), dtype=tf.float32, name=None),
-TensorSpec(shape=(None, 1), dtype=tf.int32, name=None))
-```
-
-The above example corresponds to the case where you have only one device. If
-you have two devices, for example,
-```python
-strategy = tf.distribute.MirroredStrategy(['/gpu:0', '/gpu:1'])
-```
-Then the final line will print out:
-```python
 (PerReplicaSpec(TensorSpec(shape=(None, 1), dtype=tf.float32, name=None),
 TensorSpec(shape=(None, 1), dtype=tf.float32, name=None)),
 PerReplicaSpec(TensorSpec(shape=(None, 1), dtype=tf.int32, name=None),
@@ -214,7 +210,7 @@ TensorSpec(shape=(None, 1), dtype=tf.int32, name=None)))
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/input_lib.py#L417-L450">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/input_lib.py#L434-L456">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
@@ -230,21 +226,10 @@ The returned iterator implements the Python Iterator protocol.
 
 ```
 >>> global_batch_size = 4
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> dataset = tf.data.Dataset.from_tensor_slices([1, 2, 3, 4]).repeat().batch(global_batch_size)
 >>> distributed_iterator = iter(strategy.experimental_distribute_dataset(dataset))
 >>> print(next(distributed_iterator))
-tf.Tensor([1 2 3 4], shape=(4,), dtype=int32)
-```
-
-
-The above example corresponds to the case where you have only one device. If
-you have two devices, for example,
-```python
-strategy = tf.distribute.MirroredStrategy(['/gpu:0', '/gpu:1'])
-```
-Then the final line will print out:
-```python
 PerReplica:{
   0: tf.Tensor([1 2], shape=(2,), dtype=int32),
   1: tf.Tensor([3 4], shape=(2,), dtype=int32)

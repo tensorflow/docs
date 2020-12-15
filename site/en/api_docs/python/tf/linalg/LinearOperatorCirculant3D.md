@@ -39,7 +39,7 @@ description: LinearOperator acting like a nested block circulant matrix.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator_circulant.py#L939-L1085">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator_circulant.py#L963-L1119">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -352,6 +352,13 @@ Return `True/False` depending on if this operator is square.
 </td>
 </tr><tr>
 <td>
+`parameters`
+</td>
+<td>
+Dictionary of parameters used to instantiate this `LinearOperator`.
+</td>
+</tr><tr>
+<td>
 `range_dimension`
 </td>
 <td>
@@ -397,7 +404,7 @@ If this operator acts like the batch matrix `A` with
 
 <h3 id="add_to_tensor"><code>add_to_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L1046-L1059">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1077-L1090">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_to_tensor(
@@ -448,7 +455,7 @@ A `Tensor` with broadcast shape and same `dtype` as `self`.
 
 <h3 id="adjoint"><code>adjoint</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L902-L917">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L933-L948">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>adjoint(
@@ -494,7 +501,7 @@ A name for this `Op`.
 
 <h3 id="assert_hermitian_spectrum"><code>assert_hermitian_spectrum</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator_circulant.py#L333-L353">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator_circulant.py#L337-L357">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_hermitian_spectrum(
@@ -540,7 +547,7 @@ An `Op` that asserts this operator has Hermitian spectrum.
 
 <h3 id="assert_non_singular"><code>assert_non_singular</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L510-L528">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L541-L559">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_non_singular(
@@ -591,7 +598,7 @@ the operator is singular.
 
 <h3 id="assert_positive_definite"><code>assert_positive_definite</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L546-L561">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L577-L592">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_positive_definite(
@@ -639,7 +646,7 @@ the operator is not positive definite.
 
 <h3 id="assert_self_adjoint"><code>assert_self_adjoint</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L573-L587">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L604-L618">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_self_adjoint(
@@ -686,7 +693,7 @@ the operator is not self-adjoint.
 
 <h3 id="batch_shape_tensor"><code>batch_shape_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L324-L339">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L355-L370">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_shape_tensor(
@@ -733,7 +740,7 @@ A name for this `Op`.
 
 <h3 id="block_shape_tensor"><code>block_shape_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator_circulant.py#L173-L177">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator_circulant.py#L177-L181">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>block_shape_tensor()
@@ -744,7 +751,7 @@ Shape of the block dimensions of `self.spectrum`.
 
 <h3 id="cholesky"><code>cholesky</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L947-L970">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L978-L1001">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cholesky(
@@ -810,7 +817,7 @@ definite and self adjoint.
 
 <h3 id="cond"><code>cond</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L1096-L1106">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1127-L1137">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cond(
@@ -854,7 +861,7 @@ Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
 
 <h3 id="convolution_kernel"><code>convolution_kernel</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator_circulant.py#L288-L302">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator_circulant.py#L292-L306">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>convolution_kernel(
@@ -900,7 +907,7 @@ A name to give this `Op`.
 
 <h3 id="determinant"><code>determinant</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L706-L723">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L737-L754">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>determinant(
@@ -961,7 +968,7 @@ If `self.is_square` is `False`.
 
 <h3 id="diag_part"><code>diag_part</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L997-L1023">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1028-L1054">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>diag_part(
@@ -1023,7 +1030,7 @@ A `Tensor` of same `dtype` as self.
 
 <h3 id="domain_dimension_tensor"><code>domain_dimension_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L409-L425">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L440-L456">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>domain_dimension_tensor(
@@ -1071,7 +1078,7 @@ A name for this `Op`.
 
 <h3 id="eigvals"><code>eigvals</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L1064-L1081">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1095-L1112">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>eigvals(
@@ -1119,7 +1126,7 @@ Shape `[B1,...,Bb, N]` `Tensor` of same `dtype` as `self`.
 
 <h3 id="inverse"><code>inverse</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L922-L945">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L953-L976">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>inverse(
@@ -1182,7 +1189,7 @@ When the `LinearOperator` is not hinted to be `non_singular`.
 
 <h3 id="log_abs_determinant"><code>log_abs_determinant</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L735-L752">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L766-L783">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>log_abs_determinant(
@@ -1243,7 +1250,7 @@ If `self.is_square` is `False`.
 
 <h3 id="matmul"><code>matmul</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L600-L653">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L631-L684">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>matmul(
@@ -1324,7 +1331,7 @@ as `self`.
 
 <h3 id="matvec"><code>matvec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L663-L696">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L694-L727">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>matvec(
@@ -1397,7 +1404,7 @@ A `Tensor` with shape `[..., M]` and same `dtype` as `self`.
 
 <h3 id="range_dimension_tensor"><code>range_dimension_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L453-L469">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L484-L500">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>range_dimension_tensor(
@@ -1445,7 +1452,7 @@ A name for this `Op`.
 
 <h3 id="shape_tensor"><code>shape_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L290-L308">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L321-L339">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>shape_tensor(
@@ -1492,7 +1499,7 @@ A name for this `Op`.
 
 <h3 id="solve"><code>solve</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L773-L846">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L804-L877">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>solve(
@@ -1601,7 +1608,7 @@ If `self.is_non_singular` or `is_square` is False.
 
 <h3 id="solvevec"><code>solvevec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L854-L900">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L885-L931">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>solvevec(
@@ -1702,7 +1709,7 @@ If `self.is_non_singular` or `is_square` is False.
 
 <h3 id="tensor_rank_tensor"><code>tensor_rank_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L368-L382">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L399-L413">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tensor_rank_tensor(
@@ -1748,7 +1755,7 @@ A name for this `Op`.
 
 <h3 id="to_dense"><code>to_dense</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L988-L991">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1019-L1022">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_dense(
@@ -1761,7 +1768,7 @@ Return a dense (batch) matrix representing this operator.
 
 <h3 id="trace"><code>trace</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L1028-L1040">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L1059-L1071">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>trace(
@@ -1806,7 +1813,7 @@ Shape `[B1,...,Bb]` `Tensor` of same `dtype` as `self`.
 
 <h3 id="__matmul__"><code>__matmul__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/linalg/linear_operator.py#L655-L656">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/linalg/linear_operator.py#L686-L687">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__matmul__(

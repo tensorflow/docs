@@ -11,7 +11,7 @@ description: Instantiates the Xception architecture.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/xception.py#L50-L314">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/xception.py#L50-L315">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -59,8 +59,9 @@ Note that the data format convention used by the model is
 the one specified in your Keras config at `~/.keras/keras.json`.
 Note that the default input image size for this model is 299x299.
 
-Caution: Be sure to properly pre-process your inputs to the application.
-Please see <a href="../../../tf/keras/applications/xception/preprocess_input.md"><code>applications.xception.preprocess_input</code></a> for an example.
+Note: each Keras Application expects a specific kind of input preprocessing.
+For Xception, call <a href="../../../tf/keras/applications/xception/preprocess_input.md"><code>tf.keras.applications.xception.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

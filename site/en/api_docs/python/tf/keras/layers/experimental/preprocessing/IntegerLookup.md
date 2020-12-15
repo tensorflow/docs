@@ -17,7 +17,7 @@ description: Maps integers from a vocabulary to integer indices.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/integer_lookup.py#L27-L217">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/integer_lookup.py#L28-L219">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -237,7 +237,7 @@ of mapping vocabulary items to indices.
 
 <h3 id="adapt"><code>adapt</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L178-L193">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L178-L193">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>adapt(
@@ -279,7 +279,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="get_vocabulary"><code>get_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L195-L206">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L195-L206">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_vocabulary()
@@ -290,7 +290,7 @@ this layer, which does not support repeated calls to `adapt`.
 
 <h3 id="set_vocabulary"><code>set_vocabulary</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L345-L363">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L345-L363">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_vocabulary(
@@ -342,7 +342,7 @@ input data is missing.
 
 <h3 id="vocab_size"><code>vocab_size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L208-L209">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/index_lookup.py#L208-L209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>vocab_size()

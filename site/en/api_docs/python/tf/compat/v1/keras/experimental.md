@@ -39,9 +39,7 @@ Public API for tf.keras.experimental namespace.
 
 ## Functions
 
-[`export_saved_model(...)`](../../../../tf/compat/v1/keras/experimental/export_saved_model.md): Exports a <a href="../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel. (deprecated)
+[`export_saved_model(...)`](../../../../tf/compat/v1/keras/experimental/export_saved_model.md): Exports a <a href="../../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> as a Tensorflow SavedModel.
 
-[`load_from_saved_model(...)`](../../../../tf/compat/v1/keras/experimental/load_from_saved_model.md): Loads a keras Model from a SavedModel created by `export_saved_model()`. (deprecated)
-
-[`terminate_keras_multiprocessing_pools(...)`](../../../../tf/keras/experimental/terminate_keras_multiprocessing_pools.md): Destroy Keras' multiprocessing pools to prevent deadlocks. (deprecated)
+[`load_from_saved_model(...)`](../../../../tf/compat/v1/keras/experimental/load_from_saved_model.md): Loads a keras Model from a SavedModel created by `export_saved_model()`.
 

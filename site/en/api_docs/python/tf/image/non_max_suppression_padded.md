@@ -11,7 +11,7 @@ description: Greedily selects a subset of bounding boxes in descending order of 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L4518-L4594">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L5028-L5125">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -134,7 +134,7 @@ are sorted in descending order by the score.
 </td>
 <td>
 if box coordinates are given as
-`[y_min, x_min, y_max, x_max]`, settign to True eliminate redundant
+`[y_min, x_min, y_max, x_max]`, setting to True eliminate redundant
 computation to canonicalize box coordinates.
 </td>
 </tr><tr>
@@ -159,8 +159,8 @@ potentially more redundant work.
 <tr class="alt">
 <td colspan="2">
 idx: a tensor with a shape of [..., num_boxes] representing the
-indices selected by non-max suppression. The leadign dimensions
-are the batch dimensions of the input boxes. All numbers are are within
+indices selected by non-max suppression. The leading dimensions
+are the batch dimensions of the input boxes. All numbers are within
 [0, num_boxes). For each image (i.e., idx[i]), only the first num_valid[i]
 indices (i.e., idx[i][:num_valid[i]]) are valid.
 num_valid: a tensor of rank 0 or higher with a shape of [...]

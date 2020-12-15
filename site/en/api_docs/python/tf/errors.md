@@ -58,6 +58,8 @@ Exception types for TensorFlow errors.
 
 [`class OpError`](../tf/errors/OpError.md): A generic error that is raised when TensorFlow execution fails.
 
+[`class OperatorNotAllowedInGraphError`](../tf/errors/OperatorNotAllowedInGraphError.md): An error is raised for unsupported operator in Graph execution.
+
 [`class OutOfRangeError`](../tf/errors/OutOfRangeError.md): Raised when an operation iterates past the valid input range.
 
 [`class PermissionDeniedError`](../tf/errors/PermissionDeniedError.md): Raised when the caller does not have permission to run an operation.

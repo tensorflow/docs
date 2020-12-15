@@ -11,7 +11,7 @@ description: Converts a Keras model to dot format and save to a file.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/utils/vis_utils.py#L259-L325">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/utils/vis_utils.py#L280-L350">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -35,8 +35,8 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.utils.plot_model(
-    model, to_file='model.png', show_shapes=(False), show_layer_names=(True),
-    rankdir='TB', expand_nested=(False), dpi=96
+    model, to_file='model.png', show_shapes=(False), show_dtype=(False),
+    show_layer_names=(True), rankdir='TB', expand_nested=(False), dpi=96
 )
 </code></pre>
 
@@ -88,6 +88,13 @@ File name of the plot image.
 </td>
 <td>
 whether to display shape information.
+</td>
+</tr><tr>
+<td>
+`show_dtype`
+</td>
+<td>
+whether to display layer dtypes.
 </td>
 </tr><tr>
 <td>

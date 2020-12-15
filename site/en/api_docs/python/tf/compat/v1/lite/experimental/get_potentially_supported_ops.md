@@ -11,7 +11,7 @@ description: Returns operations potentially supported by TensorFlow Lite.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/experimental/tensorboard/ops_util.py#L34-L50">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/experimental/tensorboard/ops_util.py#L34-L50">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>

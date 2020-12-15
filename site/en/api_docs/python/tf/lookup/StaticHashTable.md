@@ -3,6 +3,7 @@ description: A generic hash table that is immutable once initialized.
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.lookup.StaticHashTable" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="__getitem__"/>
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="export"/>
 <meta itemprop="property" content="lookup"/>
@@ -15,7 +16,7 @@ description: A generic hash table that is immutable once initialized.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L248-L326">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L257-L349">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -41,13 +42,31 @@ A generic hash table that is immutable once initialized.
 
 
 
-```python
-keys_tensor = tf.constant([1, 2])
-vals_tensor = tf.constant([3, 4])
-input_tensor = tf.constant([1, 5])
-table = tf.lookup.StaticHashTable(
-    tf.lookup.KeyValueTensorInitializer(keys_tensor, vals_tensor), -1)
-print(table.lookup(input_tensor))
+```
+>>> keys_tensor = tf.constant(['a', 'b', 'c'])
+>>> vals_tensor = tf.constant([7, 8, 9])
+>>> input_tensor = tf.constant(['a', 'f'])
+>>> table = tf.lookup.StaticHashTable(
+...     tf.lookup.KeyValueTensorInitializer(keys_tensor, vals_tensor),
+...     default_value=-1)
+>>> table.lookup(input_tensor).numpy()
+array([ 7, -1], dtype=int32)
+```
+
+Or for more pythonic code:
+
+```
+>>> table[input_tensor].numpy()
+array([ 7, -1], dtype=int32)
+```
+
+The result of a lookup operation has the same shape as the argument:
+
+```
+>>> input_tensor = tf.constant([['a', 'b'], ['c', 'd']])
+>>> table[input_tensor].numpy()
+array([[ 7,  8],
+       [ 9, -1]], dtype=int32)
 ```
 
 <!-- Tabular view -->
@@ -133,7 +152,7 @@ The table value dtype.
 
 <h3 id="export"><code>export</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L310-L326">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L333-L349">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>export(
@@ -178,7 +197,7 @@ second tensors containing all values in the table.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L202-L237">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L207-L246">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>lookup(
@@ -220,7 +239,8 @@ A name for the operation (optional).
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A `SparseTensor` if keys are sparse, otherwise a dense `Tensor`.
+A `SparseTensor` if keys are sparse, a `RaggedTensor` if keys are ragged,
+otherwise a dense `Tensor`.
 </td>
 </tr>
 
@@ -248,7 +268,7 @@ types.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L190-L200">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L195-L205">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(
@@ -288,6 +308,19 @@ A scalar tensor containing the number of elements in this table.
 
 </table>
 
+
+
+<h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L149-L151">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__getitem__(
+    keys
+)
+</code></pre>
+
+Looks up `keys` in a table, outputs the corresponding values.
 
 
 

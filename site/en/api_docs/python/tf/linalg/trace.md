@@ -11,7 +11,7 @@ description: Compute the trace of a tensor x.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L3018-L3060">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L3078-L3120">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,7 +47,7 @@ more details.</p>
 in x. If x is of rank `k` with shape `[I, J, K, ..., L, M, N]`, then output
 is a tensor of rank `k-2` with dimensions `[I, J, K, ..., L]` where
 
-`output[i, j, k, ..., l] = trace(x[i, j, i, ..., l, :, :])`
+`output[i, j, k, ..., l] = trace(x[i, j, k, ..., l, :, :])`
 
 #### For example:
 

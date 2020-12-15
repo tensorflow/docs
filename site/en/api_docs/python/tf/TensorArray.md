@@ -24,7 +24,7 @@ description: Class wrapping dynamic-sized, per-time-step, write-once Tensor arra
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L947-L1271">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L947-L1271">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -293,7 +293,7 @@ The reference to the TensorArray.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1268-L1271">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1268-L1271">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>close(
@@ -307,7 +307,7 @@ Note: The output of this function should be used. If it is not, a warning will b
 
 <h3 id="concat"><code>concat</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1192-L1204">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1192-L1204">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>concat(
@@ -353,7 +353,7 @@ All the tensors in the TensorArray concatenated into one tensor.
 
 <h3 id="gather"><code>gather</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1175-L1190">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1175-L1190">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>gather(
@@ -408,7 +408,7 @@ tensor.
 
 <h3 id="grad"><code>grad</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1128-L1129">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1128-L1129">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>grad(
@@ -421,7 +421,7 @@ tensor.
 
 <h3 id="identity"><code>identity</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1118-L1126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1118-L1126">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>identity()
@@ -448,7 +448,7 @@ Use this object for all subsequent operations.
 
 <h3 id="read"><code>read</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1131-L1141">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1131-L1141">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>read(
@@ -499,7 +499,7 @@ The tensor at index `index`.
 
 <h3 id="scatter"><code>scatter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1226-L1243">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1226-L1243">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scatter(
@@ -577,7 +577,7 @@ Note: The output of this function should be used. If it is not, a warning will b
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1264-L1266">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1264-L1266">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(
@@ -590,7 +590,7 @@ Return the size of the TensorArray.
 
 <h3 id="split"><code>split</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1245-L1262">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1245-L1262">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>split(
@@ -668,7 +668,7 @@ Note: The output of this function should be used. If it is not, a warning will b
 
 <h3 id="stack"><code>stack</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1161-L1173">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1161-L1173">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>stack(
@@ -714,7 +714,7 @@ All the tensors in the TensorArray stacked into one tensor.
 
 <h3 id="unstack"><code>unstack</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1206-L1224">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1206-L1224">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>unstack(
@@ -786,7 +786,7 @@ Note: The output of this function should be used. If it is not, a warning will b
 
 <h3 id="write"><code>write</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/tensor_array_ops.py#L1143-L1159">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/tensor_array_ops.py#L1143-L1159">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>write(

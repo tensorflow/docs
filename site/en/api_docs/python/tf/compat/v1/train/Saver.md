@@ -22,7 +22,7 @@ description: Saves and restores variables.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L614-L1347">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L613-L1346">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -313,7 +313,7 @@ You can pass any of the returned values to `restore()`.
 
 <h3 id="as_saver_def"><code>as_saver_def</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L975-L981">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L974-L980">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_saver_def()
@@ -338,7 +338,7 @@ A `SaverDef` proto.
 
 <h3 id="build"><code>build</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L845-L848">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L844-L847">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>build()
@@ -349,7 +349,7 @@ A `SaverDef` proto.
 
 <h3 id="export_meta_graph"><code>export_meta_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1219-L1263">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1218-L1262">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>export_meta_graph(
@@ -452,7 +452,7 @@ A `MetaGraphDef` proto.
 
 <h3 id="from_proto"><code>from_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1010-L1021">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1009-L1020">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -504,7 +504,7 @@ A `Saver` built from saver_def.
 
 <h3 id="recover_last_checkpoints"><code>recover_last_checkpoints</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1064-L1080">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1063-L1079">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>recover_last_checkpoints(
@@ -538,7 +538,7 @@ a list of checkpoint paths.
 
 <h3 id="restore"><code>restore</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1265-L1335">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1264-L1334">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>restore(
@@ -599,7 +599,7 @@ If save_path is None or not a valid checkpoint.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1082-L1217">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1081-L1216">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(
@@ -755,7 +755,7 @@ If save and restore ops weren't built.
 
 <h3 id="set_last_checkpoints"><code>set_last_checkpoints</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1034-L1049">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1033-L1048">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_last_checkpoints(
@@ -803,7 +803,7 @@ If last_checkpoints is not a list.
 
 <h3 id="set_last_checkpoints_with_time"><code>set_last_checkpoints_with_time</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L1051-L1062">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L1050-L1061">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_last_checkpoints_with_time(
@@ -851,7 +851,7 @@ If last_checkpoints_with_time is not a list.
 
 <h3 id="to_proto"><code>to_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/saver.py#L983-L1008">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/saver.py#L982-L1007">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_proto(

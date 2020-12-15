@@ -7,6 +7,7 @@ description: Represents the state of iterating through a Dataset.
 <meta itemprop="property" content="from_string_handle"/>
 <meta itemprop="property" content="from_structure"/>
 <meta itemprop="property" content="get_next"/>
+<meta itemprop="property" content="get_next_as_optional"/>
 <meta itemprop="property" content="make_initializer"/>
 <meta itemprop="property" content="string_handle"/>
 </div>
@@ -17,7 +18,7 @@ description: Represents the state of iterating through a Dataset.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L81-L503">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L80-L501">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -154,7 +155,7 @@ Use <a href="../../../../tf/compat/v1/data/get_output_types.md"><code>tf.compat.
 
 <h3 id="from_string_handle"><code>from_string_handle</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L228-L304">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L217-L286">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -253,7 +254,7 @@ An `Iterator`.
 
 <h3 id="from_structure"><code>from_structure</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L124-L226">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L123-L215">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -386,7 +387,7 @@ not the same.
 
 <h3 id="get_next"><code>get_next</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L379-L433">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L364-L420">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_next(
@@ -462,9 +463,20 @@ A nested structure of <a href="../../../../tf/Tensor.md"><code>tf.Tensor</code><
 
 
 
+<h3 id="get_next_as_optional"><code>get_next_as_optional</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L422-L431">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>get_next_as_optional()
+</code></pre>
+
+
+
+
 <h3 id="make_initializer"><code>make_initializer</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L323-L377">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L305-L362">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_initializer(
@@ -534,7 +546,7 @@ element structure.
 
 <h3 id="string_handle"><code>string_handle</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L435-L448">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L433-L446">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>string_handle(

@@ -1,4 +1,4 @@
-description: Returns the permuted vector/tensor in the destination data format given the
+description: Permute input tensor from src_format to dst_format.
 
 robots: noindex
 
@@ -12,7 +12,7 @@ robots: noindex
 
 
 
-Returns the permuted vector/tensor in the destination data format given the
+Permute input tensor from `src_format` to `dst_format`.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -35,7 +35,26 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-one in the source data format.
+Input tensor must be a vector of size 4, or a 4x2 tensor.
+
+For example, with `src_format` of `NHWC`, `dst_format` of `NCHW`, and inputs:
+```
+[1, 2, 3, 4]
+```
+and
+```
+[[1, 2, 3, 4],
+ [5, 6, 7, 8]]
+```
+, the outputs will be (respectively):
+```
+[1, 4, 2, 3]
+```
+and
+```
+[[1, 4, 2, 3],
+ [5, 8, 6, 7]]
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

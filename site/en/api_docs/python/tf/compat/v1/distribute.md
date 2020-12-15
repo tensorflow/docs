@@ -117,7 +117,7 @@ the same way with eager and graph execution.
   devices, with a different value for each replica. They are produced by
   iterating through a distributed dataset returned by
   <a href="../../../tf/distribute/Strategy.md#experimental_distribute_dataset"><code>tf.distribute.Strategy.experimental_distribute_dataset</code></a> and
-  <a href="../../../tf/distribute/Strategy.md#experimental_distribute_datasets_from_function"><code>tf.distribute.Strategy.experimental_distribute_datasets_from_function</code></a>. They
+  <a href="../../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function</code></a>. They
   are also the typical result returned by
   <a href="../../../tf/distribute/Strategy.md#run"><code>tf.distribute.Strategy.run</code></a>.
 
@@ -190,13 +190,13 @@ reasonable default behavior.
 
 [`cluster_resolver`](../../../tf/compat/v1/distribute/cluster_resolver.md) module: Library imports for ClusterResolvers.
 
-[`experimental`](../../../tf/compat/v1/distribute/experimental.md) module: Experimental Distribution Strategy library.
+[`experimental`](../../../tf/compat/v1/distribute/experimental.md) module: Public API for tf.distribute.experimental namespace.
 
 ## Classes
 
 [`class CrossDeviceOps`](../../../tf/distribute/CrossDeviceOps.md): Base class for cross-device reduction and broadcasting algorithms.
 
-[`class HierarchicalCopyAllReduce`](../../../tf/distribute/HierarchicalCopyAllReduce.md): Reduction using hierarchical copy all-reduce.
+[`class HierarchicalCopyAllReduce`](../../../tf/distribute/HierarchicalCopyAllReduce.md): Hierarchical copy all-reduce implementation of CrossDeviceOps.
 
 [`class InputContext`](../../../tf/distribute/InputContext.md): A class wrapping information needed by an input function.
 
@@ -204,15 +204,15 @@ reasonable default behavior.
 
 [`class MirroredStrategy`](../../../tf/compat/v1/distribute/MirroredStrategy.md): Synchronous training across multiple replicas on one machine.
 
-[`class NcclAllReduce`](../../../tf/distribute/NcclAllReduce.md): Reduction using NCCL all-reduce.
+[`class NcclAllReduce`](../../../tf/distribute/NcclAllReduce.md): NCCL all-reduce implementation of CrossDeviceOps.
 
 [`class OneDeviceStrategy`](../../../tf/compat/v1/distribute/OneDeviceStrategy.md): A distribution strategy for running on a single device.
 
 [`class ReduceOp`](../../../tf/distribute/ReduceOp.md): Indicates how a set of values should be reduced.
 
-[`class ReductionToOneDevice`](../../../tf/distribute/ReductionToOneDevice.md): Always do reduction to one device first and then do broadcasting.
+[`class ReductionToOneDevice`](../../../tf/distribute/ReductionToOneDevice.md): A CrossDeviceOps implementation that copies values to one device to reduce.
 
-[`class ReplicaContext`](../../../tf/distribute/ReplicaContext.md): <a href="../../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a> API when in a replica context.
+[`class ReplicaContext`](../../../tf/compat/v1/distribute/ReplicaContext.md): A class with a collection of APIs that can be called in a replica context.
 
 [`class RunOptions`](../../../tf/distribute/RunOptions.md): Run options for `strategy.run`.
 

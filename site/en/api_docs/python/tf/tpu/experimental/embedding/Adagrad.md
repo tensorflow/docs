@@ -12,7 +12,7 @@ description: Optimization parameters for Adagrad with TPU embeddings.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L211-L310">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding_v2_utils.py#L267-L374">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,10 +36,15 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.tpu.experimental.embedding.Adagrad(
-    learning_rate=0.001, initial_accumulator_value=0.1,
-    use_gradient_accumulation=(True), clip_weight_min=None, clip_weight_max=None,
-    weight_decay_factor=None, multiply_weight_decay_factor_by_learning_rate=None,
-    slot_variable_creation_fn=None
+    learning_rate: float = 0.001,
+    initial_accumulator_value: float = 0.1,
+    use_gradient_accumulation: bool = (True),
+    clip_weight_min: Optional[float] = None,
+    clip_weight_max: Optional[float] = None,
+    weight_decay_factor: Optional[float] = None,
+    multiply_weight_decay_factor_by_learning_rate: bool = None,
+    slot_variable_creation_fn: Optional[SlotVarCreationFnType] = None,
+    clipvalue: Optional[ClipValueType] = None
 )
 </code></pre>
 
@@ -152,12 +157,23 @@ if true,
 `slot_variable_creation_fn`
 </td>
 <td>
-Defaults to `None`. If you wish do directly
-control the creation of the slot variables, set this to a callable
-taking two parameters, a variable and a list of slot names to create for
-it. This function should return a dict with the slot names as keys and
-the created variables as values. When set to None (the default), uses
-the built-in variable creation.
+If you wish do directly control the creation of
+the slot variables, set this to a callable taking three parameters: a
+table variable, a list of slot names to create for it, and a list of
+initializers. This function should return a dict with the slot names
+as keys and the created variables as values with types matching the
+table variable. When set to None (the default), uses the built-in
+variable creation.
+</td>
+</tr><tr>
+<td>
+`clipvalue`
+</td>
+<td>
+Controls clipping of the gradient. Set to either a single
+positive scalar value to get clipping or a tuple of scalar values (min,
+max) to set a separate maximum or minimum. If one of the two entries is
+None, then there will be no clipping that direction.
 </td>
 </tr>
 </table>

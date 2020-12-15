@@ -159,6 +159,7 @@ Arguments that accept `RaggedTensor`s are marked in **bold**.
 * <a href="../../../tf/truncatediv.md"><code>tf.truncatediv</code></a>(**x**, **y**, name=`None`)
 * <a href="../../../tf/truncatemod.md"><code>tf.truncatemod</code></a>(**x**, **y**, name=`None`)
 * <a href="../../../tf/where.md"><code>tf.where</code></a>(**condition**, **x**=`None`, **y**=`None`, name=`None`)
+* <a href="../../../tf/where.md"><code>tf.where</code></a>(**condition**, **x**=`None`, **y**=`None`, name=`None`)
 * <a href="../../../tf/zeros_like.md"><code>tf.zeros_like</code></a>(**tensor**, dtype=`None`, name=`None`, optimize=`True`)n
 
 ## Classes

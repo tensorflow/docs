@@ -33,3 +33,5 @@ Public API for tf.experimental namespace.
 
 [`output_all_intermediates(...)`](../../../tf/compat/v1/experimental/output_all_intermediates.md): Whether to output all intermediates from functional control flow ops.
 
+[`register_filesystem_plugin(...)`](../../../tf/experimental/register_filesystem_plugin.md): Loads a TensorFlow FileSystem plugin.
+

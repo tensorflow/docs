@@ -1,4 +1,4 @@
-description: Functional interface for the densely-connected layer. (deprecated)
+description: Functional interface for the densely-connected layer.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.dense" />
@@ -11,7 +11,7 @@ description: Functional interface for the densely-connected layer. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/core.py#L113-L187">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/core.py#L113-L188">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Functional interface for the densely-connected layer. (deprecated)
 
 
 
-Functional interface for the densely-connected layer. (deprecated)
+Functional interface for the densely-connected layer.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.dense(
@@ -34,10 +34,6 @@ Functional interface for the densely-connected layer. (deprecated)
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.Dense instead.
 
 This layer implements the operation:
 `outputs = activation(inputs * kernel + bias)`

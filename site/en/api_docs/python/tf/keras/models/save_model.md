@@ -11,7 +11,7 @@ description: Saves a model as a TensorFlow SavedModel or HDF5 file.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/saving/save.py#L47-L134">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/saving/save.py#L48-L157">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,7 +36,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.models.save_model(
     model, filepath, overwrite=(True), include_optimizer=(True), save_format=None,
-    signatures=None, options=None
+    signatures=None, options=None, save_traces=(True)
 )
 </code></pre>
 
@@ -44,6 +44,8 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+See the [Serialization and Saving guide](https://keras.io/guides/serialization_and_saving/)
+for details.
 
 #### Usage:
 
@@ -59,28 +61,38 @@ more details.</p>
 >>> assert np.allclose(model.predict(x), loaded_model.predict(x))
 ```
 
-The saved model contains:
+The SavedModel and HDF5 file contains:
 
-    - the model's configuration (topology)
-    - the model's weights
-    - the model's optimizer's state (if any)
+- the model's configuration (topology)
+- the model's weights
+- the model's optimizer's state (if any)
 
-Thus the saved model can be reinstantiated in
-the exact same state, without any of the code
-used for model definition or training.
+Thus models can be reinstantiated in the exact same state, without any of the
+code used for model definition or training.
 
 Note that the model weights may have different scoped names after being
 loaded. Scoped names include the model/layer names, such as
 `"dense_1/kernel:0"`. It is recommended that you use the layer properties to
 access specific variables, e.g. `model.get_layer("dense_1").kernel`.
 
-_SavedModel serialization_
+__SavedModel serialization format__
 
-The SavedModel serialization path uses <a href="../../../tf/saved_model/save.md"><code>tf.saved_model.save</code></a> to save the model
-and all trackable objects attached to the model (e.g. layers and variables).
-`@tf.function`-decorated methods are also saved. Additional trackable objects
-and functions are added to the SavedModel to allow the model to be
-loaded back as a Keras Model object.
+Keras SavedModel uses <a href="../../../tf/saved_model/save.md"><code>tf.saved_model.save</code></a> to save the model and all
+trackable objects attached to the model (e.g. layers and variables). The model
+config, weights, and optimizer are saved in the SavedModel. Additionally, for
+every Keras layer attached to the model, the SavedModel stores:
+
+  * the config and metadata -- e.g. name, dtype, trainable status
+  * traced call and loss functions, which are stored as TensorFlow subgraphs.
+
+The traced functions allow the SavedModel format to save and load custom
+layers without the original class definition.
+
+You can choose to not save the traced functions by disabling the `save_traces`
+option. This will decrease the time it takes to save the model and the
+amount of disk space occupied by the output SavedModel. If you enable this
+option, then you _must_ provide all custom class definitions when loading
+the model. See the `custom_objects` argument in <a href="../../../tf/keras/models/load_model.md"><code>tf.keras.models.load_model</code></a>.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -141,8 +153,20 @@ format only. Please see the `signatures` argument in
 `options`
 </td>
 <td>
-Optional <a href="../../../tf/saved_model/SaveOptions.md"><code>tf.saved_model.SaveOptions</code></a> object that specifies
-options for saving to SavedModel.
+(only applies to SavedModel format) <a href="../../../tf/saved_model/SaveOptions.md"><code>tf.saved_model.SaveOptions</code></a>
+object that specifies options for saving to SavedModel.
+</td>
+</tr><tr>
+<td>
+`save_traces`
+</td>
+<td>
+(only applies to SavedModel format) When enabled, the
+SavedModel will store the function traces for each layer. This
+can be disabled, so that only the configs of each layer are stored.
+Defaults to `True`. Disabling this will decrease serialization time and
+reduce file size, but it requires that all custom layers/models
+implement a `get_config()` method.
 </td>
 </tr>
 </table>

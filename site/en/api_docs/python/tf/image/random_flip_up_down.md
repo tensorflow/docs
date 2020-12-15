@@ -11,7 +11,7 @@ description: Randomly flips an image vertically (upside down).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L328-L366">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L331-L369">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -53,16 +53,14 @@ independent of other images.
 
 
 ```
->>> import numpy as np
-```
-
-```
 >>> image = np.array([[[1], [2]], [[3], [4]]])
 >>> tf.image.random_flip_up_down(image, 3).numpy().tolist()
 [[[3], [4]], [[1], [2]]]
 ```
 
 Randomly flip multiple images.
+
+```
 >>> images = np.array(
 ... [
 ...     [[[1], [2]], [[3], [4]]],
@@ -70,6 +68,7 @@ Randomly flip multiple images.
 ... ])
 >>> tf.image.random_flip_up_down(images, 4).numpy().tolist()
 [[[[3], [4]], [[1], [2]]], [[[5], [6]], [[7], [8]]]]
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

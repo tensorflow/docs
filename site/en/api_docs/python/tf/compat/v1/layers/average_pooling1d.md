@@ -1,4 +1,4 @@
-description: Average Pooling layer for 1D inputs. (deprecated)
+description: Average Pooling layer for 1D inputs.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.average_pooling1d" />
@@ -11,7 +11,7 @@ description: Average Pooling layer for 1D inputs. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/pooling.py#L61-L95">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/pooling.py#L62-L97">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Average Pooling layer for 1D inputs. (deprecated)
 
 
 
-Average Pooling layer for 1D inputs. (deprecated)
+Average Pooling layer for 1D inputs.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.average_pooling1d(
@@ -33,9 +33,6 @@ Average Pooling layer for 1D inputs. (deprecated)
 
 <!-- Placeholder for "Used in" -->
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.AveragePooling1D instead.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

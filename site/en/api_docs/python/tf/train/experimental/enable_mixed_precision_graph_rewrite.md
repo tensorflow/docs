@@ -1,4 +1,4 @@
-description: Enable mixed precision via a graph rewrite.
+description: Enable mixed precision via a graph rewrite. (deprecated)
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.train.experimental.enable_mixed_precision_graph_rewrite" />
@@ -11,7 +11,7 @@ description: Enable mixed precision via a graph rewrite.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/mixed_precision.py#L64-L206">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/mixed_precision.py#L65-L213">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Enable mixed precision via a graph rewrite.
 
 
 
-Enable mixed precision via a graph rewrite.
+Enable mixed precision via a graph rewrite. (deprecated)
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.train.experimental.enable_mixed_precision_graph_rewrite(
@@ -31,6 +31,10 @@ Enable mixed precision via a graph rewrite.
 
 
 <!-- Placeholder for "Used in" -->
+
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2020-11-30.
+Instructions for updating:
+Use tf.keras.mixed_precision. There is a guide at https://www.tensorflow.org/guide/mixed_precision. Alternatively, <a href="../../../tf/compat/v1/mixed_precision/enable_mixed_precision_graph_rewrite.md"><code>tf.compat.v1.mixed_precision.enable_mixed_precision_graph_rewrite</code></a> can be used, but this is not recommended for TF2 code.
 
 Mixed precision is the use of both float32 and float16 data types when
 training a model to improve performance. This is achieved via a graph rewrite
@@ -91,12 +95,12 @@ auto_mixed_precision_lists.h</a>:
 
 * `ClearList`: Ops that do not have numerically significant adverse effects.
 E.g. `ArgMax` and `Floor`.
-* `WhiteList`: Ops that are considered numerically safe for execution in
+* `AllowList`: Ops that are considered numerically safe for execution in
 float16, and thus are always converted. E.g. `Conv2D`.
-* `BlackList`: Ops that are numerically unsafe to execute in float16 and
+* `DenyList`: Ops that are numerically unsafe to execute in float16 and
 can negatively affect downstream nodes. E.g. `Softmax`.
 * `GrayList`: Ops that are considered numerically safe for execution in
-float16 unless downstream from a BlackList Op. E.g. `Add` and `AvgPool`.
+float16 unless downstream from a DenyList Op. E.g. `Add` and `AvgPool`.
 
 When this function is used, gradients should be computed and applied with the
 returned optimizer, either by calling `opt.minimize()` or
@@ -104,8 +108,8 @@ returned optimizer, either by calling `opt.minimize()` or
 are instead computed with <a href="../../../tf/gradients.md"><code>tf.gradients</code></a> or <a href="../../../tf/GradientTape.md"><code>tf.GradientTape</code></a>, loss scaling
 will not be applied, which will likely cause your model not to converge due to
 float16 underflow problems. To apply lossing scaling with <a href="../../../tf/gradients.md"><code>tf.gradients</code></a> or
-<a href="../../../tf/GradientTape.md"><code>tf.GradientTape</code></a>, <a href="../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md#get_scaled_loss"><code>LossScaleOptimizer.get_scaled_loss</code></a> and
-<a href="../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md#get_unscaled_gradients"><code>LossScaleOptimizer.get_unscaled_gradients</code></a>. See
+<a href="../../../tf/GradientTape.md"><code>tf.GradientTape</code></a>, <a href="../../../tf/keras/mixed_precision/LossScaleOptimizer.md#get_scaled_loss"><code>LossScaleOptimizer.get_scaled_loss</code></a> and
+<a href="../../../tf/keras/mixed_precision/LossScaleOptimizer.md#get_unscaled_gradients"><code>LossScaleOptimizer.get_unscaled_gradients</code></a>. See
 <a href="../../../tf/keras/mixed_precision/experimental/LossScaleOptimizer.md"><code>keras.mixed_precision.experimental.LossScaleOptimizer</code></a> for details how to do
 this.
 
@@ -163,7 +167,7 @@ float32 tensor will be added:
 <tr class="alt">
 <td colspan="2">
 `ValueError`, if the <a href="../../../tf/keras/mixed_precision.md"><code>tf.keras.mixed_precision</code></a> API is also used by calling
-<a href="../../../tf/keras/mixed_precision/experimental/set_policy.md"><code>tf.keras.mixed_precision.experimental.set_policy</code></a>. Only one mixed precision
+<a href="../../../tf/keras/mixed_precision/set_global_policy.md"><code>tf.keras.mixed_precision.experimental.set_policy</code></a>. Only one mixed precision
 API can be used.
 </td>
 </tr>

@@ -28,8 +28,8 @@ Public API for tf.version namespace.
 ## Other Members
 
 * `COMPILER_VERSION = '7.3.1 20180303'` <a id="COMPILER_VERSION"></a>
-* `GIT_VERSION = 'v2.3.0-rc2-23-gb36436b087'` <a id="GIT_VERSION"></a>
-* `GRAPH_DEF_VERSION = 440` <a id="GRAPH_DEF_VERSION"></a>
+* `GIT_VERSION = 'v2.4.0-rc4-71-g582c8d236cb'` <a id="GIT_VERSION"></a>
+* `GRAPH_DEF_VERSION = 561` <a id="GRAPH_DEF_VERSION"></a>
 * `GRAPH_DEF_VERSION_MIN_CONSUMER = 0` <a id="GRAPH_DEF_VERSION_MIN_CONSUMER"></a>
 * `GRAPH_DEF_VERSION_MIN_PRODUCER = 0` <a id="GRAPH_DEF_VERSION_MIN_PRODUCER"></a>
-* `VERSION = '2.3.0'` <a id="VERSION"></a>
+* `VERSION = '2.4.0'` <a id="VERSION"></a>

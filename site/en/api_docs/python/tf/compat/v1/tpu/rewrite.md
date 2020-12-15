@@ -11,7 +11,7 @@ description: Rewrites computation for execution on a TPU system.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu.py#L1852-L1902">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu.py#L1944-L1998">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -24,7 +24,8 @@ Rewrites `computation` for execution on a TPU system.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.tpu.rewrite(
-    computation, inputs=None, infeed_queue=None, device_assignment=None, name=None
+    computation, inputs=None, infeed_queue=None, device_assignment=None, name=None,
+    xla_options=None
 )
 </code></pre>
 
@@ -91,6 +92,14 @@ case the core attached to task 0, TPU device 0 is used.
 </td>
 <td>
 (Deprecated) Does nothing.
+</td>
+</tr><tr>
+<td>
+`xla_options`
+</td>
+<td>
+An instance of `tpu.XLAOptions` which indicates the options
+passed to XLA compiler. Use `None` for default options.
 </td>
 </tr>
 </table>

@@ -11,7 +11,7 @@ description: Input() is used to instantiate a Keras tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/input_layer.py#L210-L319">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/input_layer.py#L207-L317">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -111,7 +111,8 @@ input - they will be densified with a default value of 0.
 </td>
 <td>
 Optional existing tensor to wrap into the `Input` layer.
-If set, the layer will not create a placeholder tensor.
+If set, the layer will use the <a href="../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> of this tensor rather
+than creating a new placeholder tensor.
 </td>
 </tr><tr>
 <td>

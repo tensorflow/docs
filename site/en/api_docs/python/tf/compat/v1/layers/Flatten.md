@@ -13,7 +13,7 @@ description: Flattens an input tensor while preserving the batch axis (axis 0).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/core.py#L275-L297">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/core.py#L276-L298">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -84,11 +84,7 @@ inputs with shape `(batch, channels, ...)`.
 `graph`
 </td>
 <td>
-DEPRECATED FUNCTION
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Stop using this property because tf.layers layers no longer track their graph.
 </td>
 </tr><tr>
 <td>

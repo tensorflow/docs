@@ -20,7 +20,7 @@ description: Generate batches of tensor image data with real-time data augmentat
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/image.py#L582-L1101">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/image.py#L581-L1100">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -361,7 +361,7 @@ mask_generator = mask_datagen.flow_from_directory(
     seed=seed)
 # combine generators into one which yields image and masks
 train_generator = zip(image_generator, mask_generator)
-model.fit_generator(
+model.fit(
     train_generator,
     steps_per_epoch=2000,
     epochs=50)
@@ -370,6 +370,8 @@ model.fit_generator(
 ## Methods
 
 <h3 id="apply_transform"><code>apply_transform</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/image_data_generator.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_transform(
@@ -400,6 +402,8 @@ Applies a transformation to an image according to given parameters.
     A transformed version of the input (same shape).
 
 <h3 id="fit"><code>fit</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/image_data_generator.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit(
@@ -433,7 +437,7 @@ sample data before computing the internal data stats.
 
 <h3 id="flow"><code>flow</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/image.py#L808-L866">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/image.py#L807-L865">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>flow(
@@ -559,7 +563,7 @@ If `y` is None, only the numpy array `x` is returned.
 
 <h3 id="flow_from_dataframe"><code>flow_from_dataframe</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/image.py#L961-L1101">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/image.py#L960-L1100">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>flow_from_dataframe(
@@ -677,7 +681,7 @@ with autoencoders),
 - `"raw"`: numpy array of values in `y_col` column(s),
 - `"sparse"`: 1D numpy array of integer labels, - `None`, no targets
 are returned (the generator will only yield batches of image data,
-which is useful to use in `model.predict_generator()`).
+which is useful to use in `model.predict()`).
 </td>
 </tr><tr>
 <td>
@@ -786,7 +790,7 @@ and `y` is a numpy array of corresponding labels.
 
 <h3 id="flow_from_directory"><code>flow_from_directory</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/image.py#L868-L959">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/image.py#L867-L958">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>flow_from_directory(
@@ -860,7 +864,7 @@ be 1D binary labels, "sparse" will be 1D integer labels, - "input"
 will be images identical to input images (mainly used to work with
 autoencoders). - If None, no labels are returned (the generator
 will only yield batches of image data, which is useful to use with
-`model.predict_generator()`). Please note that in case of
+`model.predict()`). Please note that in case of
 class_mode None, the data still needs to reside in a subdirectory
 of `directory` for it to work correctly.
 </td>
@@ -963,6 +967,8 @@ and `y` is a numpy array of corresponding labels.
 
 <h3 id="get_random_transform"><code>get_random_transform</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/image_data_generator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_random_transform(
     img_shape, seed=None
@@ -982,6 +988,8 @@ Generates random parameters for a transformation.
 
 <h3 id="random_transform"><code>random_transform</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/image_data_generator.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>random_transform(
     x, seed=None
@@ -998,6 +1006,8 @@ Applies a random transformation to an image.
     A randomly transformed version of the input (same shape).
 
 <h3 id="standardize"><code>standardize</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/image/image_data_generator.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>standardize(

@@ -11,7 +11,7 @@ description: Computes the "logical or" of elements across dimensions of a tensor
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L2800-L2852">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L2860-L2912">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -50,8 +50,8 @@ keep_dims is deprecated, use keepdims instead
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
-entry in `axis`. If `keepdims` is true, the reduced dimensions
-are retained with length 1.
+of the entries in `axis`, which must be unique. If `keepdims` is true, the
+reduced dimensions are retained with length 1.
 
 If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.

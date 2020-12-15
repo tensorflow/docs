@@ -11,7 +11,7 @@ description: Sends grpc requests to profiler server to perform on-demand monitor
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/profiler/profiler_client.py#L98-L125">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/profiler/profiler_client.py#L136-L166">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -85,8 +85,12 @@ A string of monitoring output.
 #### Example usage:
 
 
-# Continuously send gRPC requests to the Cloud TPU to monitor the model
-# execution.
+
 ```python
-for query in range(0, 100):
-  print(tf.profiler.experimental.client.monitor('grpc://10.0.0.2:8466', 1000))
+  # Continuously send gRPC requests to the Cloud TPU to monitor the model
+  # execution.
+
+  for query in range(0, 100):
+    print(
+      tf.profiler.experimental.client.monitor('grpc://10.0.0.2:8466', 1000))
+```

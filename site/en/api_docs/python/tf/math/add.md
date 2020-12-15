@@ -44,6 +44,10 @@ more details.</p>
 *NOTE*: <a href="../../tf/math/add.md"><code>math.add</code></a> supports broadcasting. `AddN` does not. More about broadcasting
 [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
+Given two input tensors, the <a href="../../tf/math/add.md"><code>tf.add</code></a> operation computes the sum for every element in the tensor.
+
+Both input and output have a range `(-inf, inf)`.
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>

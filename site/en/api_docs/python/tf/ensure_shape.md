@@ -11,7 +11,7 @@ description: Updates the shape of a tensor and checks at runtime that the shape 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/check_ops.py#L2215-L2313">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/check_ops.py#L2219-L2338">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -42,6 +42,30 @@ more details.</p>
 
 
 <!-- Placeholder for "Used in" -->
+
+
+#### For example:
+
+
+
+```
+>>> @tf.function(input_signature=[tf.TensorSpec(shape=None, dtype=tf.float32)])
+... def f(tensor):
+...   return tf.ensure_shape(tensor, [3, 3])
+>>>
+>>> f(tf.zeros([3, 3])) # Passes
+<tf.Tensor: shape=(3, 3), dtype=float32, numpy=
+array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]], dtype=float32)>
+>>> f([1, 2, 3]) # fails
+Traceback (most recent call last):
+...
+InvalidArgumentError:  Shape of tensor x [3] is not compatible with expected shape [3,3].
+```
+
+The above example raises <a href="../tf/errors/InvalidArgumentError.md"><code>tf.errors.InvalidArgumentError</code></a>,
+because the shape (3,) is not compatible with the shape (None, 3, 3)
 
 With eager execution this is a shape assertion, that returns the input:
 
@@ -174,11 +198,27 @@ A name for this operation (optional). Defaults to "EnsureShape".
 <tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
 <tr class="alt">
 <td colspan="2">
-A `Tensor`. Has the same type and contents as `x`. At runtime, raises a
-<a href="../tf/errors/InvalidArgumentError.md"><code>tf.errors.InvalidArgumentError</code></a> if `shape` is incompatible with the shape
-of `x`.
+A `Tensor`. Has the same type and contents as `x`.
 </td>
 </tr>
 
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
+
+<tr>
+<td>
+`tf.errors.InvalidArgumentError`
+</td>
+<td>
+If `shape` is incompatible with the shape
+of `x`.
+</td>
+</tr>
 </table>
 

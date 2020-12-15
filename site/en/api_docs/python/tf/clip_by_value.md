@@ -11,7 +11,7 @@ description: Clips tensor values to a specified min and max.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/clip_ops.py#L36-L122">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/clip_ops.py#L36-L122">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -124,7 +124,7 @@ is broadcastable to the shape of `t`.
 `clip_value_max`
 </td>
 <td>
-The minimum value to clip to. A scalar `Tensor` or one that
+The maximum value to clip to. A scalar `Tensor` or one that
 is broadcastable to the shape of `t`.
 </td>
 </tr><tr>

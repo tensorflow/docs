@@ -15,7 +15,7 @@ description: An in-process TensorFlow server, for use in distributed training.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L100-L243">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L100-L243">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -176,7 +176,7 @@ with tf.compat.v1.Session(server.target):
 
 <h3 id="create_local_server"><code>create_local_server</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L220-L243">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L220-L243">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -234,7 +234,7 @@ A local <a href="../../tf/distribute/Server.md"><code>tf.distribute.Server</code
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L180-L189">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L180-L189">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>join()
@@ -264,7 +264,7 @@ joining the TensorFlow server.
 
 <h3 id="start"><code>start</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/server_lib.py#L171-L178">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/server_lib.py#L171-L178">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>start()

@@ -1,4 +1,4 @@
-description: Returns the shape of a tensor.
+description: Returns a tensor containing the shape of the input tensor.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.shape" />
@@ -11,7 +11,7 @@ description: Returns the shape of a tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L557-L601">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L573-L622">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Returns the shape of a tensor.
 
 
 
-Returns the shape of a tensor.
+Returns a tensor containing the shape of the input tensor.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.shape(
@@ -35,10 +35,17 @@ Returns the shape of a tensor.
 See also <a href="../tf/size.md"><code>tf.size</code></a>, <a href="../tf/rank.md"><code>tf.rank</code></a>.
 
 <a href="../tf/shape.md"><code>tf.shape</code></a> returns a 1-D integer tensor representing the shape of `input`.
+For a scalar input, the tensor returned has a shape of (0,) and its value is
+the empty vector (i.e. []).
 
 #### For example:
 
 
+
+```
+>>> tf.shape(1.)
+<tf.Tensor: shape=(0,), dtype=int32, numpy=array([], dtype=int32)>
+```
 
 ```
 >>> t = tf.constant([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
@@ -52,7 +59,7 @@ tf.shape() will return the shape of the symbolic tensor.
 ```
 >>> a = tf.keras.layers.Input((None, 10))
 >>> tf.shape(a)
-<tf.Tensor ... shape=(3,) dtype=int32>
+<... shape=(3,) dtype=int32...>
 ```
 
 In these cases, using <a href="../tf/Tensor.md#shape"><code>tf.Tensor.shape</code></a> will return more informative results.

@@ -1,3 +1,5 @@
+description: Writes a serialized proto summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteRawProtoSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes a serialized proto summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes `tensor`, a serialized proto at `step` using summary `writer`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

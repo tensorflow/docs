@@ -31,7 +31,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.flags.DEFINE_enum_class(
     name, default, enum_class, help, flag_values=_flagvalues.FLAGS,
-    module_name=None, **args
+    module_name=None, case_sensitive=(False), **args
 )
 </code></pre>
 
@@ -78,16 +78,24 @@ str, the help message.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance with which the flag will
-be registered. This should almost never need to be overridden.
+FlagValues, the FlagValues instance with which the flag will be
+registered. This should almost never need to be overridden.
 </td>
 </tr><tr>
 <td>
 `module_name`
 </td>
 <td>
-str, the name of the Python module declaring this flag.
-If not provided, it will be computed using the stack trace of this call.
+str, the name of the Python module declaring this flag. If not
+provided, it will be computed using the stack trace of this call.
+</td>
+</tr><tr>
+<td>
+`case_sensitive`
+</td>
+<td>
+bool, whether to map strings to members of the enum_class
+without considering case.
 </td>
 </tr><tr>
 <td>
@@ -97,5 +105,19 @@ If not provided, it will be computed using the stack trace of this call.
 dict, the extra keyword args that are passed to Flag __init__.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

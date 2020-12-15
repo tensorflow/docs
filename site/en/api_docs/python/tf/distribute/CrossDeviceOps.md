@@ -18,7 +18,7 @@ description: Base class for cross-device reduction and broadcasting algorithms.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L217-L405">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L231-L522">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,26 +48,34 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+The main purpose of this class is to be passed to
+<a href="../../tf/distribute/MirroredStrategy.md"><code>tf.distribute.MirroredStrategy</code></a> in order to choose among different cross
+device communication implementations. Prefer using the methods of
+<a href="../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a> instead of the ones of this class.
+
+#### Implementations:
+
+
+* <a href="../../tf/distribute/ReductionToOneDevice.md"><code>tf.distribute.ReductionToOneDevice</code></a>
+* <a href="../../tf/distribute/NcclAllReduce.md"><code>tf.distribute.NcclAllReduce</code></a>
+* <a href="../../tf/distribute/HierarchicalCopyAllReduce.md"><code>tf.distribute.HierarchicalCopyAllReduce</code></a>
 
 ## Methods
 
 <h3 id="batch_reduce"><code>batch_reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L272-L322">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L379-L426">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_reduce(
-    reduce_op, value_destination_pairs, experimental_hints=None
+    reduce_op, value_destination_pairs, options=None
 )
 </code></pre>
 
-Reduce PerReplica objects in a batch.
+Reduce values to destinations in batches.
 
-Reduce each first element in `value_destination_pairs` to each second
-element which indicates the destinations.
-
-This can be faster than multiple individual `reduce`s because we can
-fuse several tensors into one or multiple packs before reduction.
+See <a href="../../tf/distribute/StrategyExtended.md#batch_reduce_to"><code>tf.distribute.StrategyExtended.batch_reduce_to</code></a>. This can only be
+called in the cross-replica context.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -79,24 +87,24 @@ fuse several tensors into one or multiple packs before reduction.
 `reduce_op`
 </td>
 <td>
-An instance of <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> that indicates how the
-`per_replica_value` will be reduced.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> specifying how values should be
+combined.
 </td>
 </tr><tr>
 <td>
 `value_destination_pairs`
 </td>
 <td>
-A list or a tuple of PerReplica objects (or
-tensors with device set if there is one device) and destinations.
+a sequence of (value, destinations) pairs. See
+<a href="../../tf/distribute/CrossDeviceOps.md#reduce"><code>tf.distribute.CrossDeviceOps.reduce</code></a> for descriptions.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details.
 </td>
 </tr>
 </table>
@@ -109,7 +117,8 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a list of Mirrored objects.
+A list of <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, one per pair
+in `value_destination_pairs`.
 </td>
 </tr>
 
@@ -128,7 +137,7 @@ a list of Mirrored objects.
 </td>
 <td>
 if `value_destination_pairs` is not an iterable of
-tuples of PerReplica objects and destinations.
+tuples of <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> and destinations.
 </td>
 </tr>
 </table>
@@ -137,20 +146,17 @@ tuples of PerReplica objects and destinations.
 
 <h3 id="batch_reduce_implementation"><code>batch_reduce_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L365-L392">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L479-L504">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_reduce_implementation(
-    reduce_op, value_destination_pairs, experimental_hints
+    reduce_op, value_destination_pairs, options
 )
 </code></pre>
 
-Implementation of reduce PerReplica objects in a batch.
+Implementation of `batch_reduce`.
 
 Overriding this method is useful for subclass implementers.
-
-Reduce each first element in `value_destination_pairs` to each second
-element which indicates the destinations.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -162,24 +168,24 @@ element which indicates the destinations.
 `reduce_op`
 </td>
 <td>
-An instance of <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> that indicates how
-per_replica_value will be reduced.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> specifying how values should be
+combined.
 </td>
 </tr><tr>
 <td>
 `value_destination_pairs`
 </td>
 <td>
-An iterable of tuples of PerReplica objects
-(or tensors with device set if there is one device) and destinations.
+a sequence of (value, destinations) pairs. See
+`reduce` for descriptions.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details.
 </td>
 </tr>
 </table>
@@ -192,7 +198,8 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a list of Mirrored objects.
+A list of <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, one per pair
+in `value_destination_pairs`.
 </td>
 </tr>
 
@@ -211,7 +218,7 @@ a list of Mirrored objects.
 </td>
 <td>
 if `value_destination_pairs` is not an iterable of
-tuples of PerReplica objects and destinations
+tuples of <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> and destinations.
 </td>
 </tr>
 </table>
@@ -220,7 +227,7 @@ tuples of PerReplica objects and destinations
 
 <h3 id="broadcast"><code>broadcast</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L324-L335">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L428-L445">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>broadcast(
@@ -228,8 +235,9 @@ tuples of PerReplica objects and destinations
 )
 </code></pre>
 
-Broadcast the `tensor` to destinations.
+Broadcast `tensor` to `destinations`.
 
+This can only be called in the cross-replica context.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -241,14 +249,18 @@ Broadcast the `tensor` to destinations.
 `tensor`
 </td>
 <td>
-the tensor to broadcast.
+a <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> like object. The value to broadcast.
 </td>
 </tr><tr>
 <td>
 `destinations`
 </td>
 <td>
-the broadcast destinations.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, a
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> alike object, or a device string. It specifies the devices
+to broadcast to. Note that if it's a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, the value is
+broadcasted to the devices of that variable, this method doesn't update
+the variable.
 </td>
 </tr>
 </table>
@@ -261,7 +273,7 @@ the broadcast destinations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a Mirrored object.
+A <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 
@@ -271,7 +283,7 @@ a Mirrored object.
 
 <h3 id="broadcast_implementation"><code>broadcast_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L394-L405">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L506-L522">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>broadcast_implementation(
@@ -279,7 +291,7 @@ a Mirrored object.
 )
 </code></pre>
 
-Implementation of broadcast the `tensor` to destinations.
+Implementation of `broadcast`.
 
 
 <!-- Tabular view -->
@@ -292,14 +304,19 @@ Implementation of broadcast the `tensor` to destinations.
 `tensor`
 </td>
 <td>
-the tensor to broadcast.
+a <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> like object. The value to broadcast.
 </td>
 </tr><tr>
 <td>
 `destinations`
 </td>
 <td>
-the broadcast destinations.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, a
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> alike object, or a device string. It specifies the devices
+to broadcast to.
+`destinations`. Note that if it's a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, the value is
+broadcasted to the devices of that variable, this method doesn't update
+the variable.
 </td>
 </tr>
 </table>
@@ -312,7 +329,7 @@ the broadcast destinations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a Mirrored object.
+A <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 
@@ -322,18 +339,18 @@ a Mirrored object.
 
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L228-L270">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L253-L299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reduce(
-    reduce_op, per_replica_value, destinations, experimental_hints=None
+    reduce_op, per_replica_value, destinations, options=None
 )
 </code></pre>
 
 Reduce `per_replica_value` to `destinations`.
 
-It runs the reduction operation defined by `reduce_op` and put the
-result on `destinations`.
+See <a href="../../tf/distribute/StrategyExtended.md#reduce_to"><code>tf.distribute.StrategyExtended.reduce_to</code></a>. This can only be called in
+the cross-replica context.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -345,31 +362,36 @@ result on `destinations`.
 `reduce_op`
 </td>
 <td>
-An instance of <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> that indicates how
-per_replica_value will be reduced.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> specifying how values should be
+combined.
 </td>
 </tr><tr>
 <td>
 `per_replica_value`
 </td>
 <td>
-A <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> object or a tensor
-with device set.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, or a <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a>
+like object.
 </td>
 </tr><tr>
 <td>
 `destinations`
 </td>
 <td>
-the reduction destinations.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, a
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> alike object, or a device string. It specifies the devices
+to reduce to. To perform an all-reduce, pass the same to `value` and
+`destinations`. Note that if it's a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, the value is reduced
+to the devices of that variable, and this method doesn't update the
+variable.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details.
 </td>
 </tr>
 </table>
@@ -382,7 +404,7 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a Mirrored object.
+A <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 
@@ -400,8 +422,9 @@ a Mirrored object.
 `ValueError`
 </td>
 <td>
-if per_replica_value can't be converted to a PerReplica
-object or if destinations aren't strings, Variables or DistributedValues
+if per_replica_value can't be converted to a
+<a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> or if destinations is not a string,
+<a href="../../tf/Variable.md"><code>tf.Variable</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 </table>
@@ -410,20 +433,17 @@ object or if destinations aren't strings, Variables or DistributedValues
 
 <h3 id="reduce_implementation"><code>reduce_implementation</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cross_device_ops.py#L337-L363">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cross_device_ops.py#L447-L477">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reduce_implementation(
-    reduce_op, per_replica_value, destinations, experimental_hints
+    reduce_op, per_replica_value, destinations, options
 )
 </code></pre>
 
-The implementation of reduce of `per_replica_value` to `destinations`.
+Implementation of `reduce`.
 
 Overriding this method is useful for subclass implementers.
-
-It runs the reduction operation defined by `reduce_op` and put the
-result on `destinations`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -435,30 +455,36 @@ result on `destinations`.
 `reduce_op`
 </td>
 <td>
-An instance <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> that indicates of how
-per_replica_value will be reduced.
+a <a href="../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> specifying how values should be
+combined.
 </td>
 </tr><tr>
 <td>
 `per_replica_value`
 </td>
 <td>
-A PerReplica object or a tensor with device set.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, or a <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a>
+like object.
 </td>
 </tr><tr>
 <td>
 `destinations`
 </td>
 <td>
-the reduction destinations.
+a <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>, a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, a
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> alike object, or a device string. It specifies the devices
+to reduce to. To perform an all-reduce, pass the same to `value` and
+`destinations`. Note that if it's a <a href="../../tf/Variable.md"><code>tf.Variable</code></a>, the value is reduced
+to the devices of that variable, this method doesn't update the
+variable.
 </td>
 </tr><tr>
 <td>
-`experimental_hints`
+`options`
 </td>
 <td>
-A `tf.distrbute.experimental.CollectiveHints`. Hints
-to perform collective operations.
+a <a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a>. See
+<a href="../../tf/distribute/experimental/CommunicationOptions.md"><code>tf.distribute.experimental.CommunicationOptions</code></a> for details.
 </td>
 </tr>
 </table>
@@ -471,7 +497,7 @@ to perform collective operations.
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-a Mirrored object.
+A <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 
@@ -489,8 +515,9 @@ a Mirrored object.
 `ValueError`
 </td>
 <td>
-if per_replica_value can't be converted to a PerReplica
-object.
+if per_replica_value can't be converted to a
+<a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> or if destinations is not a string,
+<a href="../../tf/Variable.md"><code>tf.Variable</code></a> or <a href="../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>.
 </td>
 </tr>
 </table>

@@ -18,7 +18,7 @@ description: Gated Recurrent Unit - Cho et al. 2014.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent_v2.py#L187-L504">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent_v2.py#L221-L550">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -38,9 +38,9 @@ Inherits From: [`GRU`](../../../tf/compat/v1/keras/layers/GRU.md)
     bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None,
     bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
     recurrent_constraint=None, bias_constraint=None, dropout=0.0,
-    recurrent_dropout=0.0, implementation=2, return_sequences=(False),
-    return_state=(False), go_backwards=(False), stateful=(False), unroll=(False),
-    time_major=(False), reset_after=(True), **kwargs
+    recurrent_dropout=0.0, return_sequences=(False), return_state=(False),
+    go_backwards=(False), stateful=(False), unroll=(False), time_major=(False),
+    reset_after=(True), **kwargs
 )
 </code></pre>
 
@@ -232,18 +232,6 @@ transformation of the inputs. Default: 0.
 <td>
 Float between 0 and 1. Fraction of the units to drop for
 the linear transformation of the recurrent state. Default: 0.
-</td>
-</tr><tr>
-<td>
-`implementation`
-</td>
-<td>
-Implementation mode, either 1 or 2.
-Mode 1 will structure its operations as a larger number of
-smaller dot products and additions, whereas mode 2 will
-batch them into fewer, larger operations. These modes will
-have different performance profiles on different hardware and
-for different applications. Default: 2.
 </td>
 </tr><tr>
 <td>
@@ -476,7 +464,7 @@ True = "after" (default and CuDNN compatible).
 
 <h3 id="get_dropout_mask_for_cell"><code>get_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1163-L1182">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1163-L1182">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_dropout_mask_for_cell(
@@ -539,7 +527,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="get_recurrent_dropout_mask_for_cell"><code>get_recurrent_dropout_mask_for_cell</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1184-L1203">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1184-L1203">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_recurrent_dropout_mask_for_cell(
@@ -602,7 +590,7 @@ List of mask tensor, generated or cached mask based on context.
 
 <h3 id="reset_dropout_mask"><code>reset_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1127-L1136">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1127-L1136">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_dropout_mask()
@@ -610,15 +598,15 @@ List of mask tensor, generated or cached mask based on context.
 
 Reset the cached dropout masks if any.
 
-This is important for the RNN layer to invoke this in it call() method so
-that the cached mask is cleared before calling the cell.call(). The mask
+This is important for the RNN layer to invoke this in it `call()` method so
+that the cached mask is cleared before calling the `cell.call()`. The mask
 should be cached across the timestep within the same batch, but shouldn't
 be cached between batches. Otherwise it will introduce unreasonable bias
 against certain index of data within the batch.
 
 <h3 id="reset_recurrent_dropout_mask"><code>reset_recurrent_dropout_mask</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L1138-L1147">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L1138-L1147">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_recurrent_dropout_mask()
@@ -634,7 +622,7 @@ against certain index of data within the batch.
 
 <h3 id="reset_states"><code>reset_states</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/recurrent.py#L889-L957">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/recurrent.py#L886-L961">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_states(

@@ -21,7 +21,12 @@ description: Text tokenization utility class.
 <!-- Insert buttons and diff -->
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
-
+<td>
+  <a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td>
 </table>
 
 
@@ -79,6 +84,8 @@ split into lists of tokens. They will then be indexed or vectorized.
 
 <h3 id="fit_on_sequences"><code>fit_on_sequences</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit_on_sequences(
     sequences
@@ -95,6 +102,8 @@ Required before using `sequences_to_matrix`
         A "sequence" is a list of integer word indices.
 
 <h3 id="fit_on_texts"><code>fit_on_texts</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit_on_texts(
@@ -116,6 +125,8 @@ Required before using `texts_to_sequences` or `texts_to_matrix`.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
 </code></pre>
@@ -129,6 +140,8 @@ projects.
     A Python dictionary with the tokenizer configuration.
 
 <h3 id="sequences_to_matrix"><code>sequences_to_matrix</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>sequences_to_matrix(
@@ -152,6 +165,8 @@ Converts a list of sequences into a Numpy matrix.
 
 <h3 id="sequences_to_texts"><code>sequences_to_texts</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>sequences_to_texts(
     sequences
@@ -170,6 +185,8 @@ Only words known by the tokenizer will be taken into account.
     A list of texts (strings)
 
 <h3 id="sequences_to_texts_generator"><code>sequences_to_texts_generator</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>sequences_to_texts_generator(
@@ -193,6 +210,8 @@ Only words known by the tokenizer will be taken into account.
 
 <h3 id="texts_to_matrix"><code>texts_to_matrix</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>texts_to_matrix(
     texts, mode='binary'
@@ -209,6 +228,8 @@ Convert a list of texts to a Numpy matrix.
     A Numpy matrix.
 
 <h3 id="texts_to_sequences"><code>texts_to_sequences</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>texts_to_sequences(
@@ -228,6 +249,8 @@ Only words known by the tokenizer will be taken into account.
     A list of sequences.
 
 <h3 id="texts_to_sequences_generator"><code>texts_to_sequences_generator</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>texts_to_sequences_generator(
@@ -250,6 +273,8 @@ Only words known by the tokenizer will be taken into account.
     Yields individual sequences.
 
 <h3 id="to_json"><code>to_json</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_json(

@@ -11,7 +11,7 @@ description: Adjust the hue of RGB images by a random factor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L2178-L2218">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L2371-L2411">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -44,7 +44,7 @@ more details.</p>
 <!-- Placeholder for "Used in" -->
 
 Equivalent to `adjust_hue()` but uses a `delta` randomly
-picked in the interval `[-max_delta, max_delta]`.
+picked in the interval `[-max_delta, max_delta)`.
 
 `max_delta` must be in the interval `[0, 0.5]`.
 

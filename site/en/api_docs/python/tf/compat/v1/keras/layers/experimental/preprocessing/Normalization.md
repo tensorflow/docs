@@ -14,7 +14,7 @@ description: Feature-wise normalization of the data.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/preprocessing/normalization_v1.py#L27-L28">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/preprocessing/normalization_v1.py#L28-L32">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -63,6 +63,18 @@ array([[-1.4142135 ],
        [ 0.        ]], dtype=float32)>
 ```
 
+Pass the mean and variance directly.
+
+```
+>>> input_data = np.array([[1.], [2.], [3.]], np.float32)
+>>> layer = Normalization(mean=3., variance=2.)
+>>> layer(input_data)
+<tf.Tensor: shape=(3, 1), dtype=float32, numpy=
+array([[-1.4142135 ],
+       [-0.70710677],
+       [ 0.        ]], dtype=float32)>
+```
+
 
 
 <!-- Tabular view -->
@@ -80,9 +92,29 @@ Integer or tuple of integers, the axis or axes that should be
 normalization statistics. By default the last axis, the `features` axis
 is kept and any `space` or `time` axes are summed. Each element in the
 the axes that are kept is normalized independently. If `axis` is set to
-'None', the layer will perform scalar normalization (diving the input
+'None', the layer will perform scalar normalization (dividing the input
 by a single scalar value). The `batch` axis, 0, is always summed over
 (`axis=0` is not allowed).
+</td>
+</tr><tr>
+<td>
+`mean`
+</td>
+<td>
+The mean value(s) to use during normalization. The passed value(s)
+will be broadcast to the shape of the kept axes above; if the value(s)
+cannot be broadcast, an error will be raised when this layer's build()
+method is called.
+</td>
+</tr><tr>
+<td>
+`variance`
+</td>
+<td>
+The variance value(s) to use during normalization. The passed
+value(s) will be broadcast to the shape of the kept axes above; if the
+value(s)cannot be broadcast, an error will be raised when this layer's
+build() method is called.
 </td>
 </tr>
 </table>
@@ -93,7 +125,7 @@ by a single scalar value). The `batch` axis, 0, is always summed over
 
 <h3 id="adapt"><code>adapt</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_preprocessing_layer.py#L130-L216">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_preprocessing_layer.py#L136-L222">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>adapt(

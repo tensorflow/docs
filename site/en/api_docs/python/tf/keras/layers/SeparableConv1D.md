@@ -13,7 +13,7 @@ description: Depthwise separable 1D convolution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional.py#L1869-L2040">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional.py#L1891-L2065">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -97,6 +97,10 @@ any `dilation_rate` value != 1.
 </td>
 <td>
 One of `"valid"`, `"same"`, or `"causal"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input. `"causal"` results in causal
+(dilated) convolutions, e.g. `output[t]` does not depend on `input[t+1:]`.
 </td>
 </tr><tr>
 <td>
@@ -238,13 +242,6 @@ see <a href="../../../tf/keras/constraints.md"><code>keras.constraints</code></a
 <td>
 Boolean, if `True` the weights of this layer will be marked as
 trainable (and listed in `layer.trainable_weights`).
-</td>
-</tr><tr>
-<td>
-`name`
-</td>
-<td>
-A string, the name of the layer.
 </td>
 </tr>
 </table>

@@ -23,6 +23,8 @@ Public API for tf.experimental namespace.
 
 [`dlpack`](../tf/experimental/dlpack.md) module: Public API for tf.experimental.dlpack namespace.
 
+[`numpy`](../tf/experimental/numpy.md) module: # tf.experimental.numpy: NumPy API on TensorFlow.
+
 [`tensorrt`](../tf/experimental/tensorrt.md) module: Public API for tf.experimental.tensorrt namespace.
 
 ## Classes
@@ -36,4 +38,6 @@ Public API for tf.experimental namespace.
 [`async_scope(...)`](../tf/experimental/async_scope.md): Context manager for grouping async operations.
 
 [`function_executor_type(...)`](../tf/experimental/function_executor_type.md): Context manager for setting the executor of eager defined functions.
+
+[`register_filesystem_plugin(...)`](../tf/experimental/register_filesystem_plugin.md): Loads a TensorFlow FileSystem plugin.
 

@@ -11,7 +11,7 @@ description: Shards computation along the batch dimension for parallel execution
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu.py#L1795-L1849">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu.py#L1883-L1941">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,7 +25,7 @@ Shards `computation` along the batch dimension for parallel execution.
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.tpu.batch_parallel(
     computation, inputs=None, num_shards=1, infeed_queue=None,
-    device_assignment=None, name=None
+    device_assignment=None, name=None, xla_options=None
 )
 </code></pre>
 
@@ -106,6 +106,14 @@ is equal to the number of cores in the TPU system.
 </td>
 <td>
 (Deprecated) Does nothing.
+</td>
+</tr><tr>
+<td>
+`xla_options`
+</td>
+<td>
+An instance of `tpu.XLAOptions` which indicates the options
+passed to XLA compiler. Use `None` for default options.
 </td>
 </tr>
 </table>

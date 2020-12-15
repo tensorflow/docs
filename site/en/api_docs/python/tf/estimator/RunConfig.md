@@ -42,7 +42,8 @@ more details.</p>
     session_config=None, keep_checkpoint_max=5, keep_checkpoint_every_n_hours=10000,
     log_step_count_steps=100, train_distribute=None, device_fn=None, protocol=None,
     eval_distribute=None, experimental_distribute=None,
-    experimental_max_worker_delay_secs=None, session_creation_timeout_secs=7200
+    experimental_max_worker_delay_secs=None, session_creation_timeout_secs=7200,
+    checkpoint_save_graph_def=(True)
 )
 </code></pre>
 
@@ -210,6 +211,16 @@ with MonitoredTrainingSession. Defaults to 7200 seconds, but users may
 want to set a lower value to detect problems with variable / session
 (re)-initialization more quickly.
 </td>
+</tr><tr>
+<td>
+`checkpoint_save_graph_def`
+</td>
+<td>
+Whether to save the GraphDef and MetaGraphDef
+to `checkpoint_dir`. The GraphDef is saved after the session is created
+as `graph.pbtxt`. MetaGraphDefs are saved out for every checkpoint as
+`model.ckpt-*.meta`.
+</td>
 </tr>
 </table>
 
@@ -241,6 +252,13 @@ are set.
 <tr><th colspan="2"><h2 class="add-link">Attributes</h2></th></tr>
 
 <tr>
+<td>
+`checkpoint_save_graph_def`
+</td>
+<td>
+
+</td>
+</tr><tr>
 <td>
 `cluster_spec`
 </td>

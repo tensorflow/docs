@@ -14,7 +14,7 @@ description: An in-process tf.data service dispatch server.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L28-L141">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L82-L213">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +27,7 @@ An in-process tf.data service dispatch server.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.data.experimental.service.DispatchServer(
-    port, protocol=None, start=(True)
+    config=None, start=(True)
 )
 </code></pre>
 
@@ -40,10 +40,10 @@ A <a href="../../../../tf/data/experimental/service/DispatchServer.md"><code>tf.
 register themselves with the dispatcher.
 
 ```
->>> dispatcher = tf.data.experimental.service.DispatchServer(port=0)
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
 >>> dispatcher_address = dispatcher.target.split("://")[1]
->>> worker = tf.data.experimental.service.WorkerServer(
-...     port=0, dispatcher_address=dispatcher_address)
+>>> worker = tf.data.experimental.service.WorkerServer(WorkerConfig(
+...     dispatcher_address=dispatcher_address))
 >>> dataset = tf.data.Dataset.range(10)
 >>> dataset = dataset.apply(tf.data.experimental.service.distribute(
 ...     processing_mode="parallel_epochs", service=dispatcher.target))
@@ -55,8 +55,20 @@ When starting a dedicated tf.data dispatch process, use join() to block
 indefinitely after starting up the server.
 
 ```
-dispatcher = tf.data.experimental.service.DispatchServer(port=5050)
+dispatcher = tf.data.experimental.service.DispatchServer(
+    tf.data.experimental.service.DispatcherConfig(port=5050))
 dispatcher.join()
+```
+
+To start a `DispatchServer` in fault-tolerant mode, set `work_dir` and
+`fault_tolerant_mode` like below:
+
+```
+dispatcher = tf.data.experimental.service.DispatchServer(
+    tf.data.experimental.service.DispatcherConfig(
+        port=5050,
+        work_dir="gs://my-bucket/dispatcher/work_dir",
+        fault_tolerant_mode=True))
 ```
 
 <!-- Tabular view -->
@@ -66,18 +78,12 @@ dispatcher.join()
 
 <tr>
 <td>
-`port`
+`config`
 </td>
 <td>
-Specifies the port to bind to.
-</td>
-</tr><tr>
-<td>
-`protocol`
-</td>
-<td>
-(Optional.) Specifies the protocol to be used by the server.
-Acceptable values include `"grpc", "grpc+local"`. Defaults to `"grpc"`.
+(Optional.) A <a href="../../../../tf/data/experimental/service/DispatcherConfig.md"><code>tf.data.experimental.service.DispatcherConfig</code></a>
+configration. If `None`, the dispatcher will use default
+configuration values.
 </td>
 </tr><tr>
 <td>
@@ -85,25 +91,7 @@ Acceptable values include `"grpc", "grpc+local"`. Defaults to `"grpc"`.
 </td>
 <td>
 (Optional.) Boolean, indicating whether to start the server after
-creating it. Defaults to `True`.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
-
-<tr>
-<td>
-`tf.errors.OpError`
-</td>
-<td>
-Or one of its subclasses if an error occurs while
-creating the TensorFlow server.
+creating it. Defaults to True.
 </td>
 </tr>
 </table>
@@ -125,7 +113,7 @@ creating the TensorFlow server.
 Returns a target that can be used to connect to the server.
 
 ```
->>> dispatcher = tf.data.experimental.service.DispatchServer(port=0)
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
 >>> dataset = tf.data.Dataset.range(10)
 >>> dataset = dataset.apply(tf.data.experimental.service.distribute(
 ...     processing_mode="parallel_epochs", service=dispatcher.target))
@@ -143,7 +131,7 @@ The returned string will be in the form protocol://address, e.g.
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L88-L102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L159-L174">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>join()
@@ -154,7 +142,8 @@ Blocks until the server has shut down.
 This is useful when starting a dedicated dispatch process.
 
 ```
-dispatcher = tf.data.experimental.service.DispatchServer(port=5050)
+dispatcher = tf.data.experimental.service.DispatchServer(
+    tf.data.experimental.service.DispatcherConfig(port=5050))
 dispatcher.join()
 ```
 
@@ -178,7 +167,7 @@ joining the server.
 
 <h3 id="start"><code>start</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L75-L86">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L147-L157">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>start()
@@ -187,8 +176,7 @@ joining the server.
 Starts this server.
 
 ```
->>> dispatcher = tf.data.experimental.service.DispatchServer(port=0,
-...                                                          start=False)
+>>> dispatcher = tf.data.experimental.service.DispatchServer(start=False)
 >>> dispatcher.start()
 ```
 

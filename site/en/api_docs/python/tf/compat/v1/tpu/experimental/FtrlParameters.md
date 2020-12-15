@@ -12,7 +12,7 @@ description: Optimization parameters for Ftrl with TPU embeddings.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding.py#L551-L630">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding.py#L614-L723">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,10 +25,21 @@ Optimization parameters for Ftrl with TPU embeddings.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.tpu.experimental.FtrlParameters(
-    learning_rate, learning_rate_power=-0.5, initial_accumulator_value=0.1,
-    l1_regularization_strength=0.0, l2_regularization_strength=0.0,
-    use_gradient_accumulation=(True), clip_weight_min=None, clip_weight_max=None,
-    weight_decay_factor=None, multiply_weight_decay_factor_by_learning_rate=None
+    learning_rate: float,
+    learning_rate_power: float = -0.5,
+    initial_accumulator_value: float = 0.1,
+    l1_regularization_strength: float = 0.0,
+    l2_regularization_strength: float = 0.0,
+    use_gradient_accumulation: bool = (True),
+    clip_weight_min: Optional[float] = None,
+    clip_weight_max: Optional[float] = None,
+    weight_decay_factor: Optional[float] = None,
+    multiply_weight_decay_factor_by_learning_rate: Optional[bool] = None,
+    multiply_linear_by_learning_rate: bool = (False),
+    beta: float = 0,
+    allow_zero_accumulator: bool = (False),
+    clip_gradient_min: Optional[float] = None,
+    clip_gradient_max: Optional[float] = None
 )
 </code></pre>
 
@@ -135,6 +146,46 @@ weights are not decayed.
 <td>
 if true,
 `weight_decay_factor` is multiplied by the current learning rate.
+</td>
+</tr><tr>
+<td>
+`multiply_linear_by_learning_rate`
+</td>
+<td>
+When true, multiplies the usages of the
+linear slot in the weight update by the learning rate. This is useful
+when ramping up learning rate from 0 (which would normally produce
+NaNs).
+</td>
+</tr><tr>
+<td>
+`beta`
+</td>
+<td>
+The beta parameter for FTRL.
+</td>
+</tr><tr>
+<td>
+`allow_zero_accumulator`
+</td>
+<td>
+Changes the implementation of the square root to
+allow for the case of initial_accumulator_value being zero. This will
+cause a slight performance drop.
+</td>
+</tr><tr>
+<td>
+`clip_gradient_min`
+</td>
+<td>
+the minimum value to clip by; None means -infinity.
+</td>
+</tr><tr>
+<td>
+`clip_gradient_max`
+</td>
+<td>
+the maximum value to clip by; None means +infinity.
 </td>
 </tr>
 </table>

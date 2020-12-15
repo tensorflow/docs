@@ -11,7 +11,7 @@ description: Batches the computation done by the decorated function.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/batch_ops.py#L31-L111">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/batch_ops.py#L31-L122">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -36,7 +36,8 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.nondifferentiable_batch_function(
     num_batch_threads, max_batch_size, batch_timeout_micros,
-    allowed_batch_sizes=None, max_enqueued_batches=10, autograph=(True)
+    allowed_batch_sizes=None, max_enqueued_batches=10, autograph=(True),
+    enable_large_batch_splitting=(True)
 )
 </code></pre>
 
@@ -117,6 +118,21 @@ The maximum depth of the batch queue. Defaults to 10.
 <td>
 Whether to use autograph to compile python and eager style code
 for efficient graph-mode execution.
+</td>
+</tr><tr>
+<td>
+`enable_large_batch_splitting`
+</td>
+<td>
+The value of this option doesn't affect
+processing output given the same input; it affects implementation details
+as stated below: 1. Improve batching efficiency by eliminating unnecessary
+adding. 2.`max_batch_size` specifies the limit of input and
+`allowed_batch_sizes` specifies the limit of a task to be processed. API
+user can give an input of size 128 when 'max_execution_batch_size'
+is 32 -> implementation can split input of 128 into 4 x 32, schedule
+concurrent processing, and then return concatenated results corresponding
+to 128.
 </td>
 </tr>
 </table>

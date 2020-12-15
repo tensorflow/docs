@@ -25,8 +25,6 @@ Public API for tf.keras.utils namespace.
 
 [`class GeneratorEnqueuer`](../../tf/keras/utils/GeneratorEnqueuer.md): Builds a queue out of a data generator.
 
-[`class HDF5Matrix`](../../tf/keras/utils/HDF5Matrix.md): Representation of HDF5 dataset to be used instead of a Numpy array.
-
 [`class OrderedEnqueuer`](../../tf/keras/utils/OrderedEnqueuer.md): Builds a Enqueuer from a Sequence.
 
 [`class Progbar`](../../tf/keras/utils/Progbar.md): Displays a progress bar.
@@ -38,8 +36,6 @@ Public API for tf.keras.utils namespace.
 [`class custom_object_scope`](../../tf/keras/utils/CustomObjectScope.md): Exposes custom classes/functions to Keras deserialization internals.
 
 ## Functions
-
-[`convert_all_kernels_in_model(...)`](../../tf/keras/utils/convert_all_kernels_in_model.md): Converts all convolution kernels in a model from Theano to TensorFlow. (deprecated)
 
 [`deserialize_keras_object(...)`](../../tf/keras/utils/deserialize_keras_object.md): Turns the serialized form of a Keras object back into an actual object.
 
@@ -54,8 +50,6 @@ Public API for tf.keras.utils namespace.
 [`get_source_inputs(...)`](../../tf/keras/utils/get_source_inputs.md): Returns the list of input tensors necessary to compute `tensor`.
 
 [`model_to_dot(...)`](../../tf/keras/utils/model_to_dot.md): Convert a Keras model to dot format.
-
-[`multi_gpu_model(...)`](../../tf/keras/utils/multi_gpu_model.md): Replicates a model on different GPUs. (deprecated)
 
 [`normalize(...)`](../../tf/keras/utils/normalize.md): Normalizes a Numpy array.
 

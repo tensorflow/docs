@@ -11,7 +11,7 @@ description: Computes reciprocal of square root of x element-wise.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L4850-L4872">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L4984-L5006">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -66,7 +66,7 @@ numpy=array([0.707, inf, nan], dtype=float32)>
 </td>
 <td>
 A <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a>. Must be one of the following types: `bfloat16`, `half`,
-`float32`, `float64`. `int32`
+`float32`, `float64`.
 </td>
 </tr><tr>
 <td>

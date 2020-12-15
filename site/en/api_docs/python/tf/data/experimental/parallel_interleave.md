@@ -11,7 +11,7 @@ description: A parallel version of the <a href="../../../tf/data/Dataset.md#inte
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/interleave_ops.py#L37-L101">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/interleave_ops.py#L37-L101">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,7 +46,7 @@ more details.</p>
 
 Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
 Instructions for updating:
-Use <a href="../../../tf/data/Dataset.md#interleave"><code>tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)</code></a> instead. If sloppy execution is desired, use <a href="../../../tf/data/Options.md#experimental_deterministic"><code>tf.data.Options.experimental_deterministic</code></a>.
+Use <a href="../../../tf/data/Dataset.md#interleave"><code>tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.AUTOTUNE)</code></a> instead. If sloppy execution is desired, use <a href="../../../tf/data/Options.md#experimental_deterministic"><code>tf.data.Options.experimental_deterministic</code></a>.
 
 `parallel_interleave()` maps `map_func` across its input to produce nested
 datasets, and outputs their elements interleaved. Unlike

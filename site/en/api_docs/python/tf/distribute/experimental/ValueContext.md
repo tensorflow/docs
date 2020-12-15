@@ -12,7 +12,7 @@ description: A class wrapping information needed by a distribute function.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L514-L574">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L527-L589">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -57,7 +57,7 @@ information about the compute replicas. The `num_replicas_in_sync` and
 2. Passed in by `experimental_distribute_values_from_function`.
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> def value_fn(value_context):
 ...   return value_context.num_replicas_in_sync
 >>> distributed_values = (
@@ -65,7 +65,7 @@ information about the compute replicas. The `num_replicas_in_sync` and
 ...        value_fn))
 >>> local_result = strategy.experimental_local_results(distributed_values)
 >>> local_result
-(1,)
+(2, 2)
 ```
 
 <!-- Tabular view -->

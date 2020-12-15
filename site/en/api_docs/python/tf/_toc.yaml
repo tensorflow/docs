@@ -149,6 +149,8 @@ toc:
     path: /tf/identity_n
   - title: init_scope
     path: /tf/init_scope
+  - title: inside_function
+    path: /tf/inside_function
   - title: is_tensor
     path: /tf/is_tensor
   - title: linspace
@@ -193,6 +195,8 @@ toc:
     path: /tf/print
   - title: py_function
     path: /tf/py_function
+  - title: quantize_and_dequantize_v4
+    path: /tf/quantize_and_dequantize_v4
   - title: random_normal_initializer
     path: /tf/random_normal_initializer
   - title: random_uniform_initializer
@@ -1041,6 +1045,8 @@ toc:
         path: /tf/compat/v1/distribute/MirroredStrategy
       - title: OneDeviceStrategy
         path: /tf/compat/v1/distribute/OneDeviceStrategy
+      - title: ReplicaContext
+        path: /tf/compat/v1/distribute/ReplicaContext
       - title: Strategy
         path: /tf/compat/v1/distribute/Strategy
       - title: StrategyExtended
@@ -1282,6 +1288,8 @@ toc:
         path: /tf/compat/v1/flags/FLAGS
       - title: Flag
         path: /tf/compat/v1/flags/Flag
+      - title: FlagHolder
+        path: /tf/compat/v1/flags/FlagHolder
       - title: FlagNameConflictsWithMethodError
         path: /tf/compat/v1/flags/FlagNameConflictsWithMethodError
       - title: FlagValues
@@ -1509,6 +1517,10 @@ toc:
           section:
           - title: Overview
             path: /tf/compat/v1/keras/applications/mobilenet_v2
+        - title: mobilenet_v3
+          section:
+          - title: Overview
+            path: /tf/compat/v1/keras/applications/mobilenet_v3
         - title: nasnet
           section:
           - title: Overview
@@ -1601,10 +1613,8 @@ toc:
         - title: Overview
           path: /tf/compat/v1/keras/experimental
         - title: export_saved_model
-          status: deprecated
           path: /tf/compat/v1/keras/experimental/export_saved_model
         - title: load_from_saved_model
-          status: deprecated
           path: /tf/compat/v1/keras/experimental/load_from_saved_model
       - title: initializers
         section:
@@ -1785,55 +1795,38 @@ toc:
       - title: SeparableConv2D
         path: /tf/compat/v1/layers/SeparableConv2D
       - title: average_pooling1d
-        status: deprecated
         path: /tf/compat/v1/layers/average_pooling1d
       - title: average_pooling2d
-        status: deprecated
         path: /tf/compat/v1/layers/average_pooling2d
       - title: average_pooling3d
-        status: deprecated
         path: /tf/compat/v1/layers/average_pooling3d
       - title: batch_normalization
-        status: deprecated
         path: /tf/compat/v1/layers/batch_normalization
       - title: conv1d
-        status: deprecated
         path: /tf/compat/v1/layers/conv1d
       - title: conv2d
-        status: deprecated
         path: /tf/compat/v1/layers/conv2d
       - title: conv2d_transpose
-        status: deprecated
         path: /tf/compat/v1/layers/conv2d_transpose
       - title: conv3d
-        status: deprecated
         path: /tf/compat/v1/layers/conv3d
       - title: conv3d_transpose
-        status: deprecated
         path: /tf/compat/v1/layers/conv3d_transpose
       - title: dense
-        status: deprecated
         path: /tf/compat/v1/layers/dense
       - title: dropout
-        status: deprecated
         path: /tf/compat/v1/layers/dropout
       - title: flatten
-        status: deprecated
         path: /tf/compat/v1/layers/flatten
       - title: max_pooling1d
-        status: deprecated
         path: /tf/compat/v1/layers/max_pooling1d
       - title: max_pooling2d
-        status: deprecated
         path: /tf/compat/v1/layers/max_pooling2d
       - title: max_pooling3d
-        status: deprecated
         path: /tf/compat/v1/layers/max_pooling3d
       - title: separable_conv1d
-        status: deprecated
         path: /tf/compat/v1/layers/separable_conv1d
       - title: separable_conv2d
-        status: deprecated
         path: /tf/compat/v1/layers/separable_conv2d
       - title: experimental
         status: experimental
@@ -2073,6 +2066,12 @@ toc:
       section:
       - title: Overview
         path: /tf/compat/v1/mixed_precision
+      - title: MixedPrecisionLossScaleOptimizer
+        path: /tf/compat/v1/mixed_precision/MixedPrecisionLossScaleOptimizer
+      - title: disable_mixed_precision_graph_rewrite
+        path: /tf/compat/v1/mixed_precision/disable_mixed_precision_graph_rewrite
+      - title: enable_mixed_precision_graph_rewrite
+        path: /tf/compat/v1/mixed_precision/enable_mixed_precision_graph_rewrite
       - title: experimental
         status: experimental
         section:
@@ -2478,6 +2477,8 @@ toc:
         path: /tf/compat/v1/tpu/CrossShardOptimizer
       - title: PaddingSpec
         path: /tf/compat/v1/tpu/PaddingSpec
+      - title: XLAOptions
+        path: /tf/compat/v1/tpu/XLAOptions
       - title: batch_parallel
         path: /tf/compat/v1/tpu/batch_parallel
       - title: bfloat16_scope
@@ -2694,16 +2695,19 @@ toc:
         section:
         - title: Overview
           path: /tf/compat/v1/train/experimental
-        - title: MixedPrecisionLossScaleOptimizer
-          path: /tf/compat/v1/train/experimental/MixedPrecisionLossScaleOptimizer
-        - title: disable_mixed_precision_graph_rewrite
-          path: /tf/compat/v1/train/experimental/disable_mixed_precision_graph_rewrite
-        - title: enable_mixed_precision_graph_rewrite
-          path: /tf/compat/v1/train/experimental/enable_mixed_precision_graph_rewrite
       - title: queue_runner
         section:
         - title: Overview
           path: /tf/compat/v1/train/queue_runner
+    - title: types
+      section:
+      - title: Overview
+        path: /tf/compat/v1/types
+      - title: experimental
+        status: experimental
+        section:
+        - title: Overview
+          path: /tf/compat/v1/types/experimental
     - title: user_ops
       section:
       - title: Overview
@@ -2780,12 +2784,16 @@ toc:
       path: /tf/config/experimental/enable_mlir_bridge
     - title: enable_mlir_graph_optimization
       path: /tf/config/experimental/enable_mlir_graph_optimization
+    - title: enable_tensor_float_32_execution
+      path: /tf/config/experimental/enable_tensor_float_32_execution
     - title: get_device_details
       path: /tf/config/experimental/get_device_details
     - title: get_device_policy
       path: /tf/config/experimental/get_device_policy
     - title: get_memory_growth
       path: /tf/config/experimental/get_memory_growth
+    - title: get_memory_usage
+      path: /tf/config/experimental/get_memory_usage
     - title: get_synchronous_execution
       path: /tf/config/experimental/get_synchronous_execution
     - title: set_device_policy
@@ -2794,6 +2802,8 @@ toc:
       path: /tf/config/experimental/set_memory_growth
     - title: set_synchronous_execution
       path: /tf/config/experimental/set_synchronous_execution
+    - title: tensor_float_32_execution_enabled
+      path: /tf/config/experimental/tensor_float_32_execution_enabled
   - title: optimizer
     section:
     - title: Overview
@@ -2956,10 +2966,18 @@ toc:
         path: /tf/data/experimental/service
       - title: DispatchServer
         path: /tf/data/experimental/service/DispatchServer
+      - title: DispatcherConfig
+        path: /tf/data/experimental/service/DispatcherConfig
+      - title: WorkerConfig
+        path: /tf/data/experimental/service/WorkerConfig
       - title: WorkerServer
         path: /tf/data/experimental/service/WorkerServer
       - title: distribute
         path: /tf/data/experimental/service/distribute
+      - title: from_dataset_id
+        path: /tf/data/experimental/service/from_dataset_id
+      - title: register_dataset
+        path: /tf/data/experimental/service/register_dataset
 - title: tf.debugging
   section:
   - title: Overview
@@ -3051,6 +3069,8 @@ toc:
     path: /tf/distribute/InputReplicationMode
   - title: MirroredStrategy
     path: /tf/distribute/MirroredStrategy
+  - title: MultiWorkerMirroredStrategy
+    path: /tf/distribute/MultiWorkerMirroredStrategy
   - title: NcclAllReduce
     path: /tf/distribute/NcclAllReduce
   - title: OneDeviceStrategy
@@ -3109,10 +3129,12 @@ toc:
       path: /tf/distribute/experimental
     - title: CentralStorageStrategy
       path: /tf/distribute/experimental/CentralStorageStrategy
-    - title: CollectiveCommunication
-      path: /tf/distribute/experimental/CollectiveCommunication
     - title: CollectiveHints
       path: /tf/distribute/experimental/CollectiveHints
+    - title: CommunicationImplementation
+      path: /tf/distribute/experimental/CommunicationImplementation
+    - title: CommunicationOptions
+      path: /tf/distribute/experimental/CommunicationOptions
     - title: MultiWorkerMirroredStrategy
       path: /tf/distribute/experimental/MultiWorkerMirroredStrategy
     - title: ParameterServerStrategy
@@ -3121,6 +3143,28 @@ toc:
       path: /tf/distribute/experimental/TPUStrategy
     - title: ValueContext
       path: /tf/distribute/experimental/ValueContext
+    - title: coordinator
+      section:
+      - title: Overview
+        path: /tf/distribute/experimental/coordinator
+      - title: ClusterCoordinator
+        path: /tf/distribute/experimental/coordinator/ClusterCoordinator
+      - title: PerWorkerValues
+        path: /tf/distribute/experimental/coordinator/PerWorkerValues
+      - title: RemoteValue
+        path: /tf/distribute/experimental/coordinator/RemoteValue
+    - title: partitioners
+      section:
+      - title: Overview
+        path: /tf/distribute/experimental/partitioners
+      - title: FixedShardsPartitioner
+        path: /tf/distribute/experimental/partitioners/FixedShardsPartitioner
+      - title: MaxSizePartitioner
+        path: /tf/distribute/experimental/partitioners/MaxSizePartitioner
+      - title: MinSizePartitioner
+        path: /tf/distribute/experimental/partitioners/MinSizePartitioner
+      - title: Partitioner
+        path: /tf/distribute/experimental/partitioners/Partitioner
 - title: tf.dtypes
   section:
   - title: Overview
@@ -3157,6 +3201,8 @@ toc:
     path: /tf/errors/NotFoundError
   - title: OpError
     path: /tf/errors/OpError
+  - title: OperatorNotAllowedInGraphError
+    path: /tf/errors/OperatorNotAllowedInGraphError
   - title: OutOfRangeError
     path: /tf/errors/OutOfRangeError
   - title: PermissionDeniedError
@@ -3349,6 +3395,8 @@ toc:
     path: /tf/experimental/async_scope
   - title: function_executor_type
     path: /tf/experimental/function_executor_type
+  - title: register_filesystem_plugin
+    path: /tf/experimental/register_filesystem_plugin
   - title: dlpack
     section:
     - title: Overview
@@ -3357,6 +3405,464 @@ toc:
       path: /tf/experimental/dlpack/from_dlpack
     - title: to_dlpack
       path: /tf/experimental/dlpack/to_dlpack
+  - title: numpy
+    section:
+    - title: Overview
+      path: /tf/experimental/numpy
+    - title: abs
+      path: /tf/experimental/numpy/abs
+    - title: absolute
+      path: /tf/experimental/numpy/absolute
+    - title: add
+      path: /tf/experimental/numpy/add
+    - title: all
+      path: /tf/experimental/numpy/all
+    - title: allclose
+      path: /tf/experimental/numpy/allclose
+    - title: amax
+      path: /tf/experimental/numpy/amax
+    - title: amin
+      path: /tf/experimental/numpy/amin
+    - title: angle
+      path: /tf/experimental/numpy/angle
+    - title: any
+      path: /tf/experimental/numpy/any
+    - title: append
+      path: /tf/experimental/numpy/append
+    - title: arange
+      path: /tf/experimental/numpy/arange
+    - title: arccos
+      path: /tf/experimental/numpy/arccos
+    - title: arccosh
+      path: /tf/experimental/numpy/arccosh
+    - title: arcsin
+      path: /tf/experimental/numpy/arcsin
+    - title: arcsinh
+      path: /tf/experimental/numpy/arcsinh
+    - title: arctan
+      path: /tf/experimental/numpy/arctan
+    - title: arctan2
+      path: /tf/experimental/numpy/arctan2
+    - title: arctanh
+      path: /tf/experimental/numpy/arctanh
+    - title: argmax
+      path: /tf/experimental/numpy/argmax
+    - title: argmin
+      path: /tf/experimental/numpy/argmin
+    - title: argsort
+      path: /tf/experimental/numpy/argsort
+    - title: around
+      path: /tf/experimental/numpy/around
+    - title: array
+      path: /tf/experimental/numpy/array
+    - title: array_equal
+      path: /tf/experimental/numpy/array_equal
+    - title: asanyarray
+      path: /tf/experimental/numpy/asanyarray
+    - title: asarray
+      path: /tf/experimental/numpy/asarray
+    - title: ascontiguousarray
+      path: /tf/experimental/numpy/ascontiguousarray
+    - title: atleast_1d
+      path: /tf/experimental/numpy/atleast_1d
+    - title: atleast_2d
+      path: /tf/experimental/numpy/atleast_2d
+    - title: atleast_3d
+      path: /tf/experimental/numpy/atleast_3d
+    - title: average
+      path: /tf/experimental/numpy/average
+    - title: bitwise_and
+      path: /tf/experimental/numpy/bitwise_and
+    - title: bitwise_not
+      path: /tf/experimental/numpy/bitwise_not
+    - title: bitwise_or
+      path: /tf/experimental/numpy/bitwise_or
+    - title: bitwise_xor
+      path: /tf/experimental/numpy/bitwise_xor
+    - title: bool_
+      path: /tf/experimental/numpy/bool_
+    - title: broadcast_arrays
+      path: /tf/experimental/numpy/broadcast_arrays
+    - title: broadcast_to
+      path: /tf/experimental/numpy/broadcast_to
+    - title: cbrt
+      path: /tf/experimental/numpy/cbrt
+    - title: ceil
+      path: /tf/experimental/numpy/ceil
+    - title: clip
+      path: /tf/experimental/numpy/clip
+    - title: complex128
+      path: /tf/experimental/numpy/complex128
+    - title: complex64
+      path: /tf/experimental/numpy/complex64
+    - title: compress
+      path: /tf/experimental/numpy/compress
+    - title: concatenate
+      path: /tf/experimental/numpy/concatenate
+    - title: conj
+      path: /tf/experimental/numpy/conj
+    - title: conjugate
+      path: /tf/experimental/numpy/conjugate
+    - title: copy
+      path: /tf/experimental/numpy/copy
+    - title: cos
+      path: /tf/experimental/numpy/cos
+    - title: cosh
+      path: /tf/experimental/numpy/cosh
+    - title: count_nonzero
+      path: /tf/experimental/numpy/count_nonzero
+    - title: cross
+      path: /tf/experimental/numpy/cross
+    - title: cumprod
+      path: /tf/experimental/numpy/cumprod
+    - title: cumsum
+      path: /tf/experimental/numpy/cumsum
+    - title: deg2rad
+      path: /tf/experimental/numpy/deg2rad
+    - title: diag
+      path: /tf/experimental/numpy/diag
+    - title: diag_indices
+      path: /tf/experimental/numpy/diag_indices
+    - title: diagflat
+      path: /tf/experimental/numpy/diagflat
+    - title: diagonal
+      path: /tf/experimental/numpy/diagonal
+    - title: diff
+      path: /tf/experimental/numpy/diff
+    - title: divide
+      path: /tf/experimental/numpy/divide
+    - title: divmod
+      path: /tf/experimental/numpy/divmod
+    - title: dot
+      path: /tf/experimental/numpy/dot
+    - title: dsplit
+      path: /tf/experimental/numpy/dsplit
+    - title: dstack
+      path: /tf/experimental/numpy/dstack
+    - title: einsum
+      path: /tf/experimental/numpy/einsum
+    - title: empty
+      path: /tf/experimental/numpy/empty
+    - title: empty_like
+      path: /tf/experimental/numpy/empty_like
+    - title: equal
+      path: /tf/experimental/numpy/equal
+    - title: exp
+      path: /tf/experimental/numpy/exp
+    - title: exp2
+      path: /tf/experimental/numpy/exp2
+    - title: expand_dims
+      path: /tf/experimental/numpy/expand_dims
+    - title: expm1
+      path: /tf/experimental/numpy/expm1
+    - title: eye
+      path: /tf/experimental/numpy/eye
+    - title: fabs
+      path: /tf/experimental/numpy/fabs
+    - title: finfo
+      path: /tf/experimental/numpy/finfo
+    - title: fix
+      path: /tf/experimental/numpy/fix
+    - title: flip
+      path: /tf/experimental/numpy/flip
+    - title: fliplr
+      path: /tf/experimental/numpy/fliplr
+    - title: flipud
+      path: /tf/experimental/numpy/flipud
+    - title: float16
+      path: /tf/experimental/numpy/float16
+    - title: float32
+      path: /tf/experimental/numpy/float32
+    - title: float64
+      path: /tf/experimental/numpy/float64
+    - title: float_power
+      path: /tf/experimental/numpy/float_power
+    - title: floor
+      path: /tf/experimental/numpy/floor
+    - title: floor_divide
+      path: /tf/experimental/numpy/floor_divide
+    - title: full
+      path: /tf/experimental/numpy/full
+    - title: full_like
+      path: /tf/experimental/numpy/full_like
+    - title: gcd
+      path: /tf/experimental/numpy/gcd
+    - title: geomspace
+      path: /tf/experimental/numpy/geomspace
+    - title: greater
+      path: /tf/experimental/numpy/greater
+    - title: greater_equal
+      path: /tf/experimental/numpy/greater_equal
+    - title: heaviside
+      path: /tf/experimental/numpy/heaviside
+    - title: hsplit
+      path: /tf/experimental/numpy/hsplit
+    - title: hstack
+      path: /tf/experimental/numpy/hstack
+    - title: hypot
+      path: /tf/experimental/numpy/hypot
+    - title: identity
+      path: /tf/experimental/numpy/identity
+    - title: iinfo
+      path: /tf/experimental/numpy/iinfo
+    - title: imag
+      path: /tf/experimental/numpy/imag
+    - title: inexact
+      path: /tf/experimental/numpy/inexact
+    - title: inner
+      path: /tf/experimental/numpy/inner
+    - title: int16
+      path: /tf/experimental/numpy/int16
+    - title: int32
+      path: /tf/experimental/numpy/int32
+    - title: int64
+      path: /tf/experimental/numpy/int64
+    - title: int8
+      path: /tf/experimental/numpy/int8
+    - title: isclose
+      path: /tf/experimental/numpy/isclose
+    - title: iscomplex
+      path: /tf/experimental/numpy/iscomplex
+    - title: iscomplexobj
+      path: /tf/experimental/numpy/iscomplexobj
+    - title: isfinite
+      path: /tf/experimental/numpy/isfinite
+    - title: isinf
+      path: /tf/experimental/numpy/isinf
+    - title: isnan
+      path: /tf/experimental/numpy/isnan
+    - title: isneginf
+      path: /tf/experimental/numpy/isneginf
+    - title: isposinf
+      path: /tf/experimental/numpy/isposinf
+    - title: isreal
+      path: /tf/experimental/numpy/isreal
+    - title: isrealobj
+      path: /tf/experimental/numpy/isrealobj
+    - title: isscalar
+      path: /tf/experimental/numpy/isscalar
+    - title: issubdtype
+      path: /tf/experimental/numpy/issubdtype
+    - title: ix_
+      path: /tf/experimental/numpy/ix_
+    - title: kron
+      path: /tf/experimental/numpy/kron
+    - title: lcm
+      path: /tf/experimental/numpy/lcm
+    - title: less
+      path: /tf/experimental/numpy/less
+    - title: less_equal
+      path: /tf/experimental/numpy/less_equal
+    - title: linspace
+      path: /tf/experimental/numpy/linspace
+    - title: log
+      path: /tf/experimental/numpy/log
+    - title: log10
+      path: /tf/experimental/numpy/log10
+    - title: log1p
+      path: /tf/experimental/numpy/log1p
+    - title: log2
+      path: /tf/experimental/numpy/log2
+    - title: logaddexp
+      path: /tf/experimental/numpy/logaddexp
+    - title: logaddexp2
+      path: /tf/experimental/numpy/logaddexp2
+    - title: logical_and
+      path: /tf/experimental/numpy/logical_and
+    - title: logical_not
+      path: /tf/experimental/numpy/logical_not
+    - title: logical_or
+      path: /tf/experimental/numpy/logical_or
+    - title: logical_xor
+      path: /tf/experimental/numpy/logical_xor
+    - title: logspace
+      path: /tf/experimental/numpy/logspace
+    - title: matmul
+      path: /tf/experimental/numpy/matmul
+    - title: max
+      path: /tf/experimental/numpy/max
+    - title: maximum
+      path: /tf/experimental/numpy/maximum
+    - title: mean
+      path: /tf/experimental/numpy/mean
+    - title: meshgrid
+      path: /tf/experimental/numpy/meshgrid
+    - title: min
+      path: /tf/experimental/numpy/min
+    - title: minimum
+      path: /tf/experimental/numpy/minimum
+    - title: mod
+      path: /tf/experimental/numpy/mod
+    - title: moveaxis
+      path: /tf/experimental/numpy/moveaxis
+    - title: multiply
+      path: /tf/experimental/numpy/multiply
+    - title: nanmean
+      path: /tf/experimental/numpy/nanmean
+    - title: nanprod
+      path: /tf/experimental/numpy/nanprod
+    - title: nansum
+      path: /tf/experimental/numpy/nansum
+    - title: ndarray
+      path: /tf/experimental/numpy/ndarray
+    - title: ndim
+      path: /tf/experimental/numpy/ndim
+    - title: negative
+      path: /tf/experimental/numpy/negative
+    - title: nextafter
+      path: /tf/experimental/numpy/nextafter
+    - title: nonzero
+      path: /tf/experimental/numpy/nonzero
+    - title: not_equal
+      path: /tf/experimental/numpy/not_equal
+    - title: object_
+      path: /tf/experimental/numpy/object_
+    - title: ones
+      path: /tf/experimental/numpy/ones
+    - title: ones_like
+      path: /tf/experimental/numpy/ones_like
+    - title: outer
+      path: /tf/experimental/numpy/outer
+    - title: pad
+      path: /tf/experimental/numpy/pad
+    - title: polyval
+      path: /tf/experimental/numpy/polyval
+    - title: positive
+      path: /tf/experimental/numpy/positive
+    - title: power
+      path: /tf/experimental/numpy/power
+    - title: prod
+      path: /tf/experimental/numpy/prod
+    - title: promote_types
+      path: /tf/experimental/numpy/promote_types
+    - title: ptp
+      path: /tf/experimental/numpy/ptp
+    - title: rad2deg
+      path: /tf/experimental/numpy/rad2deg
+    - title: ravel
+      path: /tf/experimental/numpy/ravel
+    - title: real
+      path: /tf/experimental/numpy/real
+    - title: reciprocal
+      path: /tf/experimental/numpy/reciprocal
+    - title: remainder
+      path: /tf/experimental/numpy/remainder
+    - title: repeat
+      path: /tf/experimental/numpy/repeat
+    - title: reshape
+      path: /tf/experimental/numpy/reshape
+    - title: result_type
+      path: /tf/experimental/numpy/result_type
+    - title: roll
+      path: /tf/experimental/numpy/roll
+    - title: rot90
+      path: /tf/experimental/numpy/rot90
+    - title: round
+      path: /tf/experimental/numpy/round
+    - title: select
+      path: /tf/experimental/numpy/select
+    - title: shape
+      path: /tf/experimental/numpy/shape
+    - title: sign
+      path: /tf/experimental/numpy/sign
+    - title: signbit
+      path: /tf/experimental/numpy/signbit
+    - title: sin
+      path: /tf/experimental/numpy/sin
+    - title: sinc
+      path: /tf/experimental/numpy/sinc
+    - title: sinh
+      path: /tf/experimental/numpy/sinh
+    - title: size
+      path: /tf/experimental/numpy/size
+    - title: sort
+      path: /tf/experimental/numpy/sort
+    - title: split
+      path: /tf/experimental/numpy/split
+    - title: sqrt
+      path: /tf/experimental/numpy/sqrt
+    - title: square
+      path: /tf/experimental/numpy/square
+    - title: squeeze
+      path: /tf/experimental/numpy/squeeze
+    - title: stack
+      path: /tf/experimental/numpy/stack
+    - title: std
+      path: /tf/experimental/numpy/std
+    - title: string_
+      path: /tf/experimental/numpy/string_
+    - title: subtract
+      path: /tf/experimental/numpy/subtract
+    - title: sum
+      path: /tf/experimental/numpy/sum
+    - title: swapaxes
+      path: /tf/experimental/numpy/swapaxes
+    - title: take
+      path: /tf/experimental/numpy/take
+    - title: take_along_axis
+      path: /tf/experimental/numpy/take_along_axis
+    - title: tan
+      path: /tf/experimental/numpy/tan
+    - title: tanh
+      path: /tf/experimental/numpy/tanh
+    - title: tensordot
+      path: /tf/experimental/numpy/tensordot
+    - title: tile
+      path: /tf/experimental/numpy/tile
+    - title: trace
+      path: /tf/experimental/numpy/trace
+    - title: transpose
+      path: /tf/experimental/numpy/transpose
+    - title: tri
+      path: /tf/experimental/numpy/tri
+    - title: tril
+      path: /tf/experimental/numpy/tril
+    - title: triu
+      path: /tf/experimental/numpy/triu
+    - title: true_divide
+      path: /tf/experimental/numpy/true_divide
+    - title: uint16
+      path: /tf/experimental/numpy/uint16
+    - title: uint32
+      path: /tf/experimental/numpy/uint32
+    - title: uint64
+      path: /tf/experimental/numpy/uint64
+    - title: uint8
+      path: /tf/experimental/numpy/uint8
+    - title: unicode_
+      path: /tf/experimental/numpy/unicode_
+    - title: vander
+      path: /tf/experimental/numpy/vander
+    - title: var
+      path: /tf/experimental/numpy/var
+    - title: vdot
+      path: /tf/experimental/numpy/vdot
+    - title: vsplit
+      path: /tf/experimental/numpy/vsplit
+    - title: vstack
+      path: /tf/experimental/numpy/vstack
+    - title: where
+      path: /tf/experimental/numpy/where
+    - title: zeros
+      path: /tf/experimental/numpy/zeros
+    - title: zeros_like
+      path: /tf/experimental/numpy/zeros_like
+    - title: random
+      section:
+      - title: Overview
+        path: /tf/experimental/numpy/random
+      - title: rand
+        path: /tf/experimental/numpy/random/rand
+      - title: randint
+        path: /tf/experimental/numpy/random/randint
+      - title: randn
+        path: /tf/experimental/numpy/random/randn
+      - title: random
+        path: /tf/experimental/numpy/random/random
+      - title: seed
+        path: /tf/experimental/numpy/random/seed
+      - title: uniform
+        path: /tf/experimental/numpy/random/uniform
   - title: tensorrt
     section:
     - title: Overview
@@ -3509,6 +4015,24 @@ toc:
     path: /tf/image/ssim
   - title: ssim_multiscale
     path: /tf/image/ssim_multiscale
+  - title: stateless_random_brightness
+    path: /tf/image/stateless_random_brightness
+  - title: stateless_random_contrast
+    path: /tf/image/stateless_random_contrast
+  - title: stateless_random_crop
+    path: /tf/image/stateless_random_crop
+  - title: stateless_random_flip_left_right
+    path: /tf/image/stateless_random_flip_left_right
+  - title: stateless_random_flip_up_down
+    path: /tf/image/stateless_random_flip_up_down
+  - title: stateless_random_hue
+    path: /tf/image/stateless_random_hue
+  - title: stateless_random_jpeg_quality
+    path: /tf/image/stateless_random_jpeg_quality
+  - title: stateless_random_saturation
+    path: /tf/image/stateless_random_saturation
+  - title: stateless_sample_distorted_bounding_box
+    path: /tf/image/stateless_sample_distorted_bounding_box
   - title: total_variation
     path: /tf/image/total_variation
   - title: transpose
@@ -3661,6 +4185,8 @@ toc:
       path: /tf/keras/activations/elu
     - title: exponential
       path: /tf/keras/activations/exponential
+    - title: gelu
+      path: /tf/keras/activations/gelu
     - title: get
       path: /tf/keras/activations/get
     - title: hard_sigmoid
@@ -3719,6 +4245,10 @@ toc:
       path: /tf/keras/applications/MobileNet
     - title: MobileNetV2
       path: /tf/keras/applications/MobileNetV2
+    - title: MobileNetV3Large
+      path: /tf/keras/applications/MobileNetV3Large
+    - title: MobileNetV3Small
+      path: /tf/keras/applications/MobileNetV3Small
     - title: NASNetLarge
       path: /tf/keras/applications/NASNetLarge
     - title: NASNetMobile
@@ -3797,6 +4327,14 @@ toc:
         path: /tf/keras/applications/mobilenet_v2/decode_predictions
       - title: preprocess_input
         path: /tf/keras/applications/mobilenet_v2/preprocess_input
+    - title: mobilenet_v3
+      section:
+      - title: Overview
+        path: /tf/keras/applications/mobilenet_v3
+      - title: decode_predictions
+        path: /tf/keras/applications/mobilenet_v3/decode_predictions
+      - title: preprocess_input
+        path: /tf/keras/applications/mobilenet_v3/preprocess_input
     - title: nasnet
       section:
       - title: Overview
@@ -3853,299 +4391,28 @@ toc:
     section:
     - title: Overview
       path: /tf/keras/backend
-    - title: abs
-      path: /tf/keras/backend/abs
-    - title: all
-      path: /tf/keras/backend/all
-    - title: any
-      path: /tf/keras/backend/any
-    - title: arange
-      path: /tf/keras/backend/arange
-    - title: argmax
-      path: /tf/keras/backend/argmax
-    - title: argmin
-      path: /tf/keras/backend/argmin
-    - title: backend
-      path: /tf/keras/backend/backend
-    - title: batch_dot
-      path: /tf/keras/backend/batch_dot
-    - title: batch_flatten
-      path: /tf/keras/backend/batch_flatten
-    - title: batch_get_value
-      path: /tf/keras/backend/batch_get_value
-    - title: batch_normalization
-      path: /tf/keras/backend/batch_normalization
-    - title: batch_set_value
-      path: /tf/keras/backend/batch_set_value
-    - title: bias_add
-      path: /tf/keras/backend/bias_add
-    - title: binary_crossentropy
-      path: /tf/keras/backend/binary_crossentropy
-    - title: cast
-      path: /tf/keras/backend/cast
-    - title: cast_to_floatx
-      path: /tf/keras/backend/cast_to_floatx
-    - title: categorical_crossentropy
-      path: /tf/keras/backend/categorical_crossentropy
     - title: clear_session
       path: /tf/keras/backend/clear_session
-    - title: clip
-      path: /tf/keras/backend/clip
-    - title: concatenate
-      path: /tf/keras/backend/concatenate
-    - title: constant
-      path: /tf/keras/backend/constant
-    - title: conv1d
-      path: /tf/keras/backend/conv1d
-    - title: conv2d
-      path: /tf/keras/backend/conv2d
-    - title: conv2d_transpose
-      path: /tf/keras/backend/conv2d_transpose
-    - title: conv3d
-      path: /tf/keras/backend/conv3d
-    - title: cos
-      path: /tf/keras/backend/cos
-    - title: count_params
-      path: /tf/keras/backend/count_params
-    - title: ctc_batch_cost
-      path: /tf/keras/backend/ctc_batch_cost
-    - title: ctc_decode
-      path: /tf/keras/backend/ctc_decode
-    - title: ctc_label_dense_to_sparse
-      path: /tf/keras/backend/ctc_label_dense_to_sparse
-    - title: cumprod
-      path: /tf/keras/backend/cumprod
-    - title: cumsum
-      path: /tf/keras/backend/cumsum
-    - title: depthwise_conv2d
-      path: /tf/keras/backend/depthwise_conv2d
-    - title: dot
-      path: /tf/keras/backend/dot
-    - title: dropout
-      path: /tf/keras/backend/dropout
-    - title: dtype
-      path: /tf/keras/backend/dtype
-    - title: elu
-      path: /tf/keras/backend/elu
     - title: epsilon
       path: /tf/keras/backend/epsilon
-    - title: equal
-      path: /tf/keras/backend/equal
-    - title: eval
-      path: /tf/keras/backend/eval
-    - title: exp
-      path: /tf/keras/backend/exp
-    - title: expand_dims
-      path: /tf/keras/backend/expand_dims
-    - title: eye
-      path: /tf/keras/backend/eye
-    - title: flatten
-      path: /tf/keras/backend/flatten
     - title: floatx
       path: /tf/keras/backend/floatx
-    - title: foldl
-      path: /tf/keras/backend/foldl
-    - title: foldr
-      path: /tf/keras/backend/foldr
-    - title: function
-      path: /tf/keras/backend/function
-    - title: gather
-      path: /tf/keras/backend/gather
     - title: get_uid
       path: /tf/keras/backend/get_uid
-    - title: get_value
-      path: /tf/keras/backend/get_value
-    - title: gradients
-      path: /tf/keras/backend/gradients
-    - title: greater
-      path: /tf/keras/backend/greater
-    - title: greater_equal
-      path: /tf/keras/backend/greater_equal
-    - title: hard_sigmoid
-      path: /tf/keras/backend/hard_sigmoid
     - title: image_data_format
       path: /tf/keras/backend/image_data_format
-    - title: in_test_phase
-      path: /tf/keras/backend/in_test_phase
-    - title: in_top_k
-      path: /tf/keras/backend/in_top_k
-    - title: in_train_phase
-      path: /tf/keras/backend/in_train_phase
-    - title: int_shape
-      path: /tf/keras/backend/int_shape
     - title: is_keras_tensor
       path: /tf/keras/backend/is_keras_tensor
-    - title: is_sparse
-      path: /tf/keras/backend/is_sparse
-    - title: l2_normalize
-      path: /tf/keras/backend/l2_normalize
-    - title: learning_phase
-      path: /tf/keras/backend/learning_phase
-    - title: learning_phase_scope
-      status: deprecated
-      path: /tf/keras/backend/learning_phase_scope
-    - title: less
-      path: /tf/keras/backend/less
-    - title: less_equal
-      path: /tf/keras/backend/less_equal
-    - title: local_conv1d
-      path: /tf/keras/backend/local_conv1d
-    - title: local_conv2d
-      path: /tf/keras/backend/local_conv2d
-    - title: log
-      path: /tf/keras/backend/log
-    - title: manual_variable_initialization
-      path: /tf/keras/backend/manual_variable_initialization
-    - title: map_fn
-      path: /tf/keras/backend/map_fn
-    - title: max
-      path: /tf/keras/backend/max
-    - title: maximum
-      path: /tf/keras/backend/maximum
-    - title: mean
-      path: /tf/keras/backend/mean
-    - title: min
-      path: /tf/keras/backend/min
-    - title: minimum
-      path: /tf/keras/backend/minimum
-    - title: moving_average_update
-      path: /tf/keras/backend/moving_average_update
-    - title: name_scope
-      path: /tf/keras/backend/name_scope
-    - title: ndim
-      path: /tf/keras/backend/ndim
-    - title: normalize_batch_in_training
-      path: /tf/keras/backend/normalize_batch_in_training
-    - title: not_equal
-      path: /tf/keras/backend/not_equal
-    - title: one_hot
-      path: /tf/keras/backend/one_hot
-    - title: ones
-      path: /tf/keras/backend/ones
-    - title: ones_like
-      path: /tf/keras/backend/ones_like
-    - title: permute_dimensions
-      path: /tf/keras/backend/permute_dimensions
-    - title: placeholder
-      path: /tf/keras/backend/placeholder
-    - title: pool2d
-      path: /tf/keras/backend/pool2d
-    - title: pool3d
-      path: /tf/keras/backend/pool3d
-    - title: pow
-      path: /tf/keras/backend/pow
-    - title: print_tensor
-      path: /tf/keras/backend/print_tensor
-    - title: prod
-      path: /tf/keras/backend/prod
-    - title: random_bernoulli
-      path: /tf/keras/backend/random_bernoulli
-    - title: random_binomial
-      status: deprecated
-      path: /tf/keras/backend/random_binomial
-    - title: random_normal
-      path: /tf/keras/backend/random_normal
-    - title: random_normal_variable
-      path: /tf/keras/backend/random_normal_variable
-    - title: random_uniform
-      path: /tf/keras/backend/random_uniform
-    - title: random_uniform_variable
-      path: /tf/keras/backend/random_uniform_variable
-    - title: relu
-      path: /tf/keras/backend/relu
-    - title: repeat
-      path: /tf/keras/backend/repeat
-    - title: repeat_elements
-      path: /tf/keras/backend/repeat_elements
     - title: reset_uids
       path: /tf/keras/backend/reset_uids
-    - title: reshape
-      path: /tf/keras/backend/reshape
-    - title: resize_images
-      path: /tf/keras/backend/resize_images
-    - title: resize_volumes
-      path: /tf/keras/backend/resize_volumes
-    - title: reverse
-      path: /tf/keras/backend/reverse
     - title: rnn
       path: /tf/keras/backend/rnn
-    - title: round
-      path: /tf/keras/backend/round
-    - title: separable_conv2d
-      path: /tf/keras/backend/separable_conv2d
     - title: set_epsilon
       path: /tf/keras/backend/set_epsilon
     - title: set_floatx
       path: /tf/keras/backend/set_floatx
     - title: set_image_data_format
       path: /tf/keras/backend/set_image_data_format
-    - title: set_learning_phase
-      status: deprecated
-      path: /tf/keras/backend/set_learning_phase
-    - title: set_value
-      path: /tf/keras/backend/set_value
-    - title: shape
-      path: /tf/keras/backend/shape
-    - title: sigmoid
-      path: /tf/keras/backend/sigmoid
-    - title: sign
-      path: /tf/keras/backend/sign
-    - title: sin
-      path: /tf/keras/backend/sin
-    - title: softmax
-      path: /tf/keras/backend/softmax
-    - title: softplus
-      path: /tf/keras/backend/softplus
-    - title: softsign
-      path: /tf/keras/backend/softsign
-    - title: sparse_categorical_crossentropy
-      path: /tf/keras/backend/sparse_categorical_crossentropy
-    - title: spatial_2d_padding
-      path: /tf/keras/backend/spatial_2d_padding
-    - title: spatial_3d_padding
-      path: /tf/keras/backend/spatial_3d_padding
-    - title: sqrt
-      path: /tf/keras/backend/sqrt
-    - title: square
-      path: /tf/keras/backend/square
-    - title: squeeze
-      path: /tf/keras/backend/squeeze
-    - title: stack
-      path: /tf/keras/backend/stack
-    - title: std
-      path: /tf/keras/backend/std
-    - title: stop_gradient
-      path: /tf/keras/backend/stop_gradient
-    - title: sum
-      path: /tf/keras/backend/sum
-    - title: switch
-      path: /tf/keras/backend/switch
-    - title: tanh
-      path: /tf/keras/backend/tanh
-    - title: temporal_padding
-      path: /tf/keras/backend/temporal_padding
-    - title: tile
-      path: /tf/keras/backend/tile
-    - title: to_dense
-      path: /tf/keras/backend/to_dense
-    - title: transpose
-      path: /tf/keras/backend/transpose
-    - title: truncated_normal
-      path: /tf/keras/backend/truncated_normal
-    - title: update
-      path: /tf/keras/backend/update
-    - title: update_add
-      path: /tf/keras/backend/update_add
-    - title: update_sub
-      path: /tf/keras/backend/update_sub
-    - title: var
-      path: /tf/keras/backend/var
-    - title: variable
-      path: /tf/keras/backend/variable
-    - title: zeros
-      path: /tf/keras/backend/zeros
-    - title: zeros_like
-      path: /tf/keras/backend/zeros_like
   - title: callbacks
     section:
     - title: Overview
@@ -4284,9 +4551,6 @@ toc:
       path: /tf/keras/experimental/SequenceFeatures
     - title: WideDeepModel
       path: /tf/keras/experimental/WideDeepModel
-    - title: terminate_keras_multiprocessing_pools
-      status: deprecated
-      path: /tf/keras/experimental/terminate_keras_multiprocessing_pools
   - title: initializers
     section:
     - title: Overview
@@ -4449,6 +4713,8 @@ toc:
       path: /tf/keras/layers/Maximum
     - title: Minimum
       path: /tf/keras/layers/Minimum
+    - title: MultiHeadAttention
+      path: /tf/keras/layers/MultiHeadAttention
     - title: Multiply
       path: /tf/keras/layers/Multiply
     - title: PReLU
@@ -4750,6 +5016,14 @@ toc:
     section:
     - title: Overview
       path: /tf/keras/mixed_precision
+    - title: LossScaleOptimizer
+      path: /tf/keras/mixed_precision/LossScaleOptimizer
+    - title: Policy
+      path: /tf/keras/mixed_precision/Policy
+    - title: global_policy
+      path: /tf/keras/mixed_precision/global_policy
+    - title: set_global_policy
+      path: /tf/keras/mixed_precision/set_global_policy
     - title: experimental
       status: experimental
       section:
@@ -4761,10 +5035,6 @@ toc:
         path: /tf/keras/mixed_precision/experimental/Policy
       - title: get_layer_policy
         path: /tf/keras/mixed_precision/experimental/get_layer_policy
-      - title: global_policy
-        path: /tf/keras/mixed_precision/experimental/global_policy
-      - title: set_policy
-        path: /tf/keras/mixed_precision/experimental/set_policy
   - title: models
     section:
     - title: Overview
@@ -4931,8 +5201,6 @@ toc:
       path: /tf/keras/utils/CustomObjectScope
     - title: GeneratorEnqueuer
       path: /tf/keras/utils/GeneratorEnqueuer
-    - title: HDF5Matrix
-      path: /tf/keras/utils/HDF5Matrix
     - title: OrderedEnqueuer
       path: /tf/keras/utils/OrderedEnqueuer
     - title: Progbar
@@ -4941,9 +5209,6 @@ toc:
       path: /tf/keras/utils/Sequence
     - title: SequenceEnqueuer
       path: /tf/keras/utils/SequenceEnqueuer
-    - title: convert_all_kernels_in_model
-      status: deprecated
-      path: /tf/keras/utils/convert_all_kernels_in_model
     - title: deserialize_keras_object
       path: /tf/keras/utils/deserialize_keras_object
     - title: get_custom_objects
@@ -4958,9 +5223,6 @@ toc:
       path: /tf/keras/utils/get_source_inputs
     - title: model_to_dot
       path: /tf/keras/utils/model_to_dot
-    - title: multi_gpu_model
-      status: deprecated
-      path: /tf/keras/utils/multi_gpu_model
     - title: normalize
       path: /tf/keras/utils/normalize
     - title: pack_x_y_sample_weight
@@ -5242,6 +5504,8 @@ toc:
     path: /tf/math/erf
   - title: erfc
     path: /tf/math/erfc
+  - title: erfcinv
+    path: /tf/math/erfcinv
   - title: erfinv
     path: /tf/math/erfinv
   - title: exp
@@ -5474,6 +5738,8 @@ toc:
     section:
     - title: Overview
       path: /tf/mlir/experimental
+    - title: convert_function
+      path: /tf/mlir/experimental/convert_function
     - title: convert_graph_def
       path: /tf/mlir/experimental/convert_graph_def
 - title: tf.nest
@@ -5574,6 +5840,10 @@ toc:
     path: /tf/nn/fractional_avg_pool
   - title: fractional_max_pool
     path: /tf/nn/fractional_max_pool
+  - title: gelu
+    path: /tf/nn/gelu
+  - title: isotonic_regression
+    path: /tf/nn/isotonic_regression
   - title: l2_loss
     path: /tf/nn/l2_loss
   - title: leaky_relu
@@ -5618,6 +5888,8 @@ toc:
     path: /tf/nn/separable_conv2d
   - title: sigmoid_cross_entropy_with_logits
     path: /tf/nn/sigmoid_cross_entropy_with_logits
+  - title: silu
+    path: /tf/nn/silu
   - title: softmax
     path: /tf/nn/softmax
   - title: softmax_cross_entropy_with_logits
@@ -5630,8 +5902,6 @@ toc:
     path: /tf/nn/sparse_softmax_cross_entropy_with_logits
   - title: sufficient_statistics
     path: /tf/nn/sufficient_statistics
-  - title: swish
-    path: /tf/nn/swish
   - title: weighted_cross_entropy_with_logits
     path: /tf/nn/weighted_cross_entropy_with_logits
   - title: weighted_moments
@@ -5692,7 +5962,10 @@ toc:
   - title: quantize
     path: /tf/quantization/quantize
   - title: quantize_and_dequantize
+    status: deprecated
     path: /tf/quantization/quantize_and_dequantize
+  - title: quantize_and_dequantize_v2
+    path: /tf/quantization/quantize_and_dequantize_v2
   - title: quantized_concat
     path: /tf/quantization/quantized_concat
 - title: tf.queue
@@ -6140,6 +6413,8 @@ toc:
     path: /tf/raw_ops/CSRSparseMatrixToSparseTensor
   - title: CSVDataset
     path: /tf/raw_ops/CSVDataset
+  - title: CSVDatasetV2
+    path: /tf/raw_ops/CSVDatasetV2
   - title: CTCBeamSearchDecoder
     path: /tf/raw_ops/CTCBeamSearchDecoder
   - title: CTCGreedyDecoder
@@ -6180,10 +6455,14 @@ toc:
     path: /tf/raw_ops/CollectiveBcastSend
   - title: CollectiveGather
     path: /tf/raw_ops/CollectiveGather
+  - title: CollectiveGatherV2
+    path: /tf/raw_ops/CollectiveGatherV2
   - title: CollectivePermute
     path: /tf/raw_ops/CollectivePermute
   - title: CollectiveReduce
     path: /tf/raw_ops/CollectiveReduce
+  - title: CollectiveReduceV2
+    path: /tf/raw_ops/CollectiveReduceV2
   - title: CombinedNonMaxSuppression
     path: /tf/raw_ops/CombinedNonMaxSuppression
   - title: CompareAndBitpack
@@ -6196,6 +6475,8 @@ toc:
     path: /tf/raw_ops/CompressElement
   - title: ComputeAccidentalHits
     path: /tf/raw_ops/ComputeAccidentalHits
+  - title: ComputeBatchSize
+    path: /tf/raw_ops/ComputeBatchSize
   - title: Concat
     path: /tf/raw_ops/Concat
   - title: ConcatOffset
@@ -6334,6 +6615,8 @@ toc:
     path: /tf/raw_ops/DecodeCompressed
   - title: DecodeGif
     path: /tf/raw_ops/DecodeGif
+  - title: DecodeImage
+    path: /tf/raw_ops/DecodeImage
   - title: DecodeJSONExample
     path: /tf/raw_ops/DecodeJSONExample
   - title: DecodeJpeg
@@ -6734,6 +7017,8 @@ toc:
     path: /tf/raw_ops/Imag
   - title: ImageProjectiveTransformV2
     path: /tf/raw_ops/ImageProjectiveTransformV2
+  - title: ImageProjectiveTransformV3
+    path: /tf/raw_ops/ImageProjectiveTransformV3
   - title: ImageSummary
     path: /tf/raw_ops/ImageSummary
   - title: ImmutableConst
@@ -6792,6 +7077,8 @@ toc:
     path: /tf/raw_ops/IsNan
   - title: IsVariableInitialized
     path: /tf/raw_ops/IsVariableInitialized
+  - title: IsotonicRegression
+    path: /tf/raw_ops/IsotonicRegression
   - title: Iterator
     path: /tf/raw_ops/Iterator
   - title: IteratorFromStringHandle
@@ -7126,6 +7413,8 @@ toc:
     path: /tf/raw_ops/OnesLike
   - title: OptimizeDataset
     path: /tf/raw_ops/OptimizeDataset
+  - title: OptimizeDatasetV2
+    path: /tf/raw_ops/OptimizeDatasetV2
   - title: OptionalFromValue
     path: /tf/raw_ops/OptionalFromValue
   - title: OptionalGetValue
@@ -7152,6 +7441,10 @@ toc:
     path: /tf/raw_ops/OutfeedDequeue
   - title: OutfeedDequeueTuple
     path: /tf/raw_ops/OutfeedDequeueTuple
+  - title: OutfeedDequeueTupleV2
+    path: /tf/raw_ops/OutfeedDequeueTupleV2
+  - title: OutfeedDequeueV2
+    path: /tf/raw_ops/OutfeedDequeueV2
   - title: OutfeedEnqueue
     path: /tf/raw_ops/OutfeedEnqueue
   - title: OutfeedEnqueueTuple
@@ -7252,6 +7545,10 @@ toc:
     path: /tf/raw_ops/QuantizeAndDequantizeV2
   - title: QuantizeAndDequantizeV3
     path: /tf/raw_ops/QuantizeAndDequantizeV3
+  - title: QuantizeAndDequantizeV4
+    path: /tf/raw_ops/QuantizeAndDequantizeV4
+  - title: QuantizeAndDequantizeV4Grad
+    path: /tf/raw_ops/QuantizeAndDequantizeV4Grad
   - title: QuantizeDownAndShrinkRange
     path: /tf/raw_ops/QuantizeDownAndShrinkRange
   - title: QuantizeV2
@@ -7384,6 +7681,8 @@ toc:
     path: /tf/raw_ops/RaggedTensorToTensor
   - title: RaggedTensorToVariant
     path: /tf/raw_ops/RaggedTensorToVariant
+  - title: RaggedTensorToVariantGradient
+    path: /tf/raw_ops/RaggedTensorToVariantGradient
   - title: RandomCrop
     path: /tf/raw_ops/RandomCrop
   - title: RandomDataset
@@ -7452,6 +7751,8 @@ toc:
     path: /tf/raw_ops/RealDiv
   - title: RebatchDataset
     path: /tf/raw_ops/RebatchDataset
+  - title: RebatchDatasetV2
+    path: /tf/raw_ops/RebatchDatasetV2
   - title: Reciprocal
     path: /tf/raw_ops/Reciprocal
   - title: ReciprocalGrad
@@ -7680,6 +7981,8 @@ toc:
     path: /tf/raw_ops/RightShift
   - title: Rint
     path: /tf/raw_ops/Rint
+  - title: RngReadAndSkip
+    path: /tf/raw_ops/RngReadAndSkip
   - title: RngSkip
     path: /tf/raw_ops/RngSkip
   - title: Roll
@@ -8044,6 +8347,8 @@ toc:
     path: /tf/raw_ops/StatefulUniformFullInt
   - title: StatefulUniformInt
     path: /tf/raw_ops/StatefulUniformInt
+  - title: StatelessCase
+    path: /tf/raw_ops/StatelessCase
   - title: StatelessIf
     path: /tf/raw_ops/StatelessIf
   - title: StatelessMultinomial
@@ -8054,18 +8359,32 @@ toc:
     path: /tf/raw_ops/StatelessRandomBinomial
   - title: StatelessRandomGammaV2
     path: /tf/raw_ops/StatelessRandomGammaV2
+  - title: StatelessRandomGetKeyCounterAlg
+    path: /tf/raw_ops/StatelessRandomGetKeyCounterAlg
   - title: StatelessRandomNormal
     path: /tf/raw_ops/StatelessRandomNormal
+  - title: StatelessRandomNormalV2
+    path: /tf/raw_ops/StatelessRandomNormalV2
   - title: StatelessRandomPoisson
     path: /tf/raw_ops/StatelessRandomPoisson
   - title: StatelessRandomUniform
     path: /tf/raw_ops/StatelessRandomUniform
   - title: StatelessRandomUniformFullInt
     path: /tf/raw_ops/StatelessRandomUniformFullInt
+  - title: StatelessRandomUniformFullIntV2
+    path: /tf/raw_ops/StatelessRandomUniformFullIntV2
   - title: StatelessRandomUniformInt
     path: /tf/raw_ops/StatelessRandomUniformInt
+  - title: StatelessRandomUniformIntV2
+    path: /tf/raw_ops/StatelessRandomUniformIntV2
+  - title: StatelessRandomUniformV2
+    path: /tf/raw_ops/StatelessRandomUniformV2
+  - title: StatelessSampleDistortedBoundingBox
+    path: /tf/raw_ops/StatelessSampleDistortedBoundingBox
   - title: StatelessTruncatedNormal
     path: /tf/raw_ops/StatelessTruncatedNormal
+  - title: StatelessTruncatedNormalV2
+    path: /tf/raw_ops/StatelessTruncatedNormalV2
   - title: StatelessWhile
     path: /tf/raw_ops/StatelessWhile
   - title: StaticRegexFullMatch
@@ -8440,6 +8759,13 @@ toc:
     path: /tf/saved_model/load
   - title: save
     path: /tf/saved_model/save
+  - title: experimental
+    status: experimental
+    section:
+    - title: Overview
+      path: /tf/saved_model/experimental
+    - title: VariablePolicy
+      path: /tf/saved_model/experimental/VariablePolicy
 - title: tf.sets
   section:
   - title: Overview
@@ -8540,6 +8866,8 @@ toc:
     path: /tf/sparse/fill_empty_rows
   - title: from_dense
     path: /tf/sparse/from_dense
+  - title: map_values
+    path: /tf/sparse/map_values
   - title: mask
     path: /tf/sparse/mask
   - title: maximum
@@ -8763,6 +9091,8 @@ toc:
         path: /tf/tpu/experimental/embedding/TPUEmbedding
       - title: TableConfig
         path: /tf/tpu/experimental/embedding/TableConfig
+      - title: serving_embedding_lookup
+        path: /tf/tpu/experimental/embedding/serving_embedding_lookup
 - title: tf.train
   section:
   - title: Overview
@@ -8829,9 +9159,22 @@ toc:
     - title: PythonState
       path: /tf/train/experimental/PythonState
     - title: disable_mixed_precision_graph_rewrite
+      status: deprecated
       path: /tf/train/experimental/disable_mixed_precision_graph_rewrite
     - title: enable_mixed_precision_graph_rewrite
+      status: deprecated
       path: /tf/train/experimental/enable_mixed_precision_graph_rewrite
+- title: tf.types
+  section:
+  - title: Overview
+    path: /tf/types
+  - title: experimental
+    status: experimental
+    section:
+    - title: Overview
+      path: /tf/types/experimental
+    - title: TensorLike
+      path: /tf/types/experimental/TensorLike
 - title: tf.version
   section:
   - title: Overview
@@ -8846,6 +9189,7 @@ toc:
     - title: Overview
       path: /tf/xla/experimental
     - title: compile
+      status: deprecated
       path: /tf/xla/experimental/compile
     - title: jit_scope
       path: /tf/xla/experimental/jit_scope

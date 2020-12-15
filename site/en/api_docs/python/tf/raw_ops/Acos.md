@@ -36,6 +36,10 @@ more details.</p>
 <!-- Placeholder for "Used in" -->
 
 
+  Provided an input tensor, the <a href="../../tf/math/acos.md"><code>tf.math.acos</code></a> operation returns the inverse cosine of each element of the tensor. If `y = tf.math.cos(x)` then, `x = tf.math.acos(y)`.
+
+  Input range is `[-1, 1]` and the output has a range of `[0, pi]`.
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>

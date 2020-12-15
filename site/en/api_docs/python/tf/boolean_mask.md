@@ -11,7 +11,7 @@ description: Apply boolean mask to tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L1753-L1803">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L1774-L1831">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -34,13 +34,6 @@ Apply boolean mask to tensor.
 
 Numpy equivalent is `tensor[mask]`.
 
-```python
-# 1-D example
-tensor = [0, 1, 2, 3]
-mask = np.array([True, False, True, False])
-boolean_mask(tensor, mask)  # [0, 2]
-```
-
 In general, `0 < dim(mask) = K <= dim(tensor)`, and `mask`'s shape must match
 the first K dimensions of `tensor`'s shape.  We then have:
   `boolean_mask(tensor, mask)[i, j1,...,jd] = tensor[i1,...,iK,j1,...,jd]`
@@ -53,6 +46,26 @@ See also: <a href="../tf/ragged/boolean_mask.md"><code>tf.ragged.boolean_mask</c
 ragged tensors, and can be used if you need to preserve the masked dimensions
 of `tensor` (rather than flattening them, as <a href="../tf/boolean_mask.md"><code>tf.boolean_mask</code></a> does).
 
+#### Examples:
+
+
+
+```
+>>> tensor = [0, 1, 2, 3]  # 1-D example
+>>> mask = np.array([True, False, True, False])
+>>> tf.boolean_mask(tensor, mask)
+<tf.Tensor: shape=(2,), dtype=int32, numpy=array([0, 2], dtype=int32)>
+```
+
+```
+>>> tensor = [[1, 2], [3, 4], [5, 6]] # 2-D example
+>>> mask = np.array([True, False, True])
+>>> tf.boolean_mask(tensor, mask)
+<tf.Tensor: shape=(2, 2), dtype=int32, numpy=
+array([[1, 2],
+       [5, 6]], dtype=int32)>
+```
+
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
@@ -63,14 +76,14 @@ of `tensor` (rather than flattening them, as <a href="../tf/boolean_mask.md"><co
 `tensor`
 </td>
 <td>
-N-D tensor.
+N-D Tensor.
 </td>
 </tr><tr>
 <td>
 `mask`
 </td>
 <td>
-K-D boolean tensor, K <= N and K must be known statically.
+K-D boolean Tensor, K <= N and K must be known statically.
 </td>
 </tr><tr>
 <td>

@@ -1,3 +1,5 @@
+description: Writes a histogram summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteHistogramSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes a histogram summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes histogram `values` at `step` with `tag` using summary `writer`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

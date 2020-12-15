@@ -11,7 +11,7 @@ description: Function for decode_bmp, decode_gif, decode_jpeg, and decode_png.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L2593-L2707">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L2943-L3082">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -58,6 +58,12 @@ when constructing your graph if you are intermixing GIF files with BMP, JPEG,
 and/or PNG files. Alternately, set the `expand_animations` argument of this
 function to `False`, in which case the op will return 3-dimensional tensors
 and will truncate animated GIF files to the first frame.
+
+NOTE: If the first frame of an animated GIF does not occupy the entire
+canvas (maximum frame width x maximum frame height), then it fills the
+unoccupied areas (in the first frame) with zeros (black). For frames after the
+first frame that does not occupy the entire canvas, it uses the previous
+frame to fill the unoccupied areas.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

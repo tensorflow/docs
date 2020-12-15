@@ -13,7 +13,7 @@ description: This wrapper allows to apply a layer to every temporal slice of an 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/wrappers.py#L85-L321">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/wrappers.py#L86-L330">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -54,8 +54,8 @@ Consider a batch of 32 video samples, where each sample is a 128x128 RGB image
 with `channels_last` data format, across 10 timesteps.
 The batch input shape is `(32, 10, 128, 128, 3)`.
 
-You can then use `TimeDistributed` to apply a `Conv2D` layer to each of the
-10 timesteps, independently:
+You can then use `TimeDistributed` to apply the same `Conv2D` layer to each
+of the 10 timesteps, independently:
 
 ```
 >>> inputs = tf.keras.Input(shape=(10, 128, 128, 3))
@@ -64,6 +64,9 @@ You can then use `TimeDistributed` to apply a `Conv2D` layer to each of the
 >>> outputs.shape
 TensorShape([None, 10, 126, 126, 64])
 ```
+
+Because `TimeDistributed` applies the same instance of `Conv2D` to each of the
+timestamps, the same set of weights are used at each timestamp.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

@@ -53,7 +53,7 @@ Keras layers API.
 
 [`class AvgPool3D`](../../../../tf/keras/layers/AveragePooling3D.md): Average pooling operation for 3D data (spatial or spatio-temporal).
 
-[`class BatchNormalization`](../../../../tf/compat/v1/keras/layers/BatchNormalization.md): Normalize and scale inputs or activations.
+[`class BatchNormalization`](../../../../tf/compat/v1/keras/layers/BatchNormalization.md): Layer that normalizes its inputs.
 
 [`class Bidirectional`](../../../../tf/keras/layers/Bidirectional.md): Bidirectional wrapper for RNNs.
 
@@ -180,6 +180,8 @@ Keras layers API.
 [`class Maximum`](../../../../tf/keras/layers/Maximum.md): Layer that computes the maximum (element-wise) a list of inputs.
 
 [`class Minimum`](../../../../tf/keras/layers/Minimum.md): Layer that computes the minimum (element-wise) a list of inputs.
+
+[`class MultiHeadAttention`](../../../../tf/keras/layers/MultiHeadAttention.md): MultiHeadAttention layer.
 
 [`class Multiply`](../../../../tf/keras/layers/Multiply.md): Layer that multiplies (element-wise) a list of inputs.
 

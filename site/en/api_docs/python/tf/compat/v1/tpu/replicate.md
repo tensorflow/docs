@@ -11,7 +11,7 @@ description: Builds a graph operator that runs a replicated TPU computation.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu.py#L815-L915">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu.py#L864-L968">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,7 +25,7 @@ Builds a graph operator that runs a replicated TPU computation.
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.tpu.replicate(
     computation, inputs=None, infeed_queue=None, device_assignment=None, name=None,
-    maximum_shapes=None, padding_spec=None
+    maximum_shapes=None, padding_spec=None, xla_options=None
 )
 </code></pre>
 
@@ -140,6 +140,14 @@ padding policy when the `inputs` to `tpu.replicate` is dynamic.
 One usage is to enable automatic bucketizing on the inputs by setting the
 value to `tpu.PaddingSpec.POWER_OF_TWO`, which can help to reduce the
 recompilation in the XLA side.
+</td>
+</tr><tr>
+<td>
+`xla_options`
+</td>
+<td>
+An instance of `tpu.XLAOptions` which indicates the options
+passed to XLA compiler. Use `None` for default options.
 </td>
 </tr>
 </table>

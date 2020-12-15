@@ -11,7 +11,7 @@ description: Convert a Keras model to dot format.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/utils/vis_utils.py#L69-L256">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/utils/vis_utils.py#L69-L277">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -35,8 +35,8 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.utils.model_to_dot(
-    model, show_shapes=(False), show_layer_names=(True), rankdir='TB',
-    expand_nested=(False), dpi=96, subgraph=(False)
+    model, show_shapes=(False), show_dtype=(False), show_layer_names=(True),
+    rankdir='TB', expand_nested=(False), dpi=96, subgraph=(False)
 )
 </code></pre>
 
@@ -63,6 +63,13 @@ A Keras model instance.
 </td>
 <td>
 whether to display shape information.
+</td>
+</tr><tr>
+<td>
+`show_dtype`
+</td>
+<td>
+whether to display layer dtypes.
 </td>
 </tr><tr>
 <td>

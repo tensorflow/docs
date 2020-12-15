@@ -61,18 +61,17 @@ flags.declare_key_flag('flag_1')
 `flag_name`
 </td>
 <td>
-str, the name of an already declared flag.
-(Redeclaring flags as key, including flags implicitly key
-because they were declared in this module, is a no-op.)
+str, the name of an already declared flag. (Redeclaring flags as
+key, including flags implicitly key because they were declared in this
+module, is a no-op.)
 </td>
 </tr><tr>
 <td>
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance in which the flag will
-be declared as a key flag. This should almost never need to be
-overridden.
+FlagValues, the FlagValues instance in which the flag will be
+declared as a key flag. This should almost never need to be overridden.
 </td>
 </tr>
 </table>

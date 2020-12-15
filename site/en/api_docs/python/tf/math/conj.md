@@ -11,7 +11,7 @@ description: Returns the complex conjugate of a complex number.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L3849-L3891">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L3932-L3987">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,21 +43,36 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-Given a tensor `input` of complex numbers, this operation returns a tensor of
-complex numbers that are the complex conjugate of each element in `input`. The
-complex numbers in `input` must be of the form \\(a + bj\\), where *a* is the
-real part and *b* is the imaginary part.
+Given a tensor `x` of complex numbers, this operation returns a tensor of
+complex numbers that are the complex conjugate of each element in `x`. The
+complex numbers in `x` must be of the form \\(a + bj\\), where `a` is the
+real part and `b` is the imaginary part.
 
 The complex conjugate returned by this operation is of the form \\(a - bj\\).
 
 #### For example:
 
 
-# tensor 'input' is [-2.25 + 4.75j, 3.25 + 5.75j]
-tf.math.conj(input) ==> [-2.25 - 4.75j, 3.25 - 5.75j]
 
+```
+>>> x = tf.constant([-2.25 + 4.75j, 3.25 + 5.75j])
+>>> tf.math.conj(x)
+<tf.Tensor: shape=(2,), dtype=complex128,
+numpy=array([-2.25-4.75j,  3.25-5.75j])>
+```
 
 If `x` is real, it is returned unchanged.
+
+#### For example:
+
+
+
+```
+>>> x = tf.constant([-2.25, 3.25])
+>>> tf.math.conj(x)
+<tf.Tensor: shape=(2,), dtype=float32,
+numpy=array([-2.25,  3.25], dtype=float32)>
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -111,4 +126,10 @@ If `x` is not a numeric tensor.
 </td>
 </tr>
 </table>
+
+
+
+
+#### Numpy Compatibility
+Equivalent to numpy.conj.
 

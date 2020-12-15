@@ -13,7 +13,7 @@ description: A layer that uses tf.einsum as the backing computation.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/einsum_dense.py#L34-L206">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/einsum_dense.py#L34-L206">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -166,7 +166,7 @@ einsum operations. This example is equivalent to
 >>> input_tensor = tf.keras.Input(shape=[32])
 >>> output_tensor = layer(input_tensor)
 >>> output_tensor
-<tf.Tensor '...' shape=(None, 64) dtype=...>
+<... shape=(None, 64) dtype=...>
 ```
 
 **Applying a dense layer to a sequence**
@@ -184,7 +184,7 @@ has an unknown shape.
 >>> input_tensor = tf.keras.Input(shape=[32, 128])
 >>> output_tensor = layer(input_tensor)
 >>> output_tensor
-<tf.Tensor '...' shape=(None, 32, 64) dtype=...>
+<... shape=(None, 32, 64) dtype=...>
 ```
 
 **Applying a dense layer to a sequence using ellipses**
@@ -203,6 +203,6 @@ sequence dimension exists.
 >>> input_tensor = tf.keras.Input(shape=[32, 128])
 >>> output_tensor = layer(input_tensor)
 >>> output_tensor
-<tf.Tensor '...' shape=(None, 32, 64) dtype=...>
+<... shape=(None, 32, 64) dtype=...>
 ```
 

@@ -22,7 +22,7 @@ description: Interpreter interface for TensorFlow Lite Models.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L158-L527">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L160-L565">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -100,8 +100,8 @@ objects returned by lite.load_delegate().
 <td>
 Sets the number of threads used by the interpreter and
 available to CPU kernels. If not set, the interpreter will use an
-implementation-dependent default number of threads. Currently,
-only a subset of kernels, such as conv, support multi-threading.
+implementation-dependent default number of threads. Currently, only a
+subset of kernels, such as conv, support multi-threading.
 </td>
 </tr>
 </table>
@@ -129,7 +129,7 @@ If the interpreter was unable to create.
 
 <h3 id="allocate_tensors"><code>allocate_tensors</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L241-L243">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L257-L259">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>allocate_tensors()
@@ -140,7 +140,7 @@ If the interpreter was unable to create.
 
 <h3 id="get_input_details"><code>get_input_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L381-L389">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L397-L405">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_input_details()
@@ -165,7 +165,7 @@ A list of input details.
 
 <h3 id="get_output_details"><code>get_output_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L436-L444">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L452-L460">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_output_details()
@@ -190,7 +190,7 @@ A list of output details.
 
 <h3 id="get_tensor"><code>get_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L446-L459">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L462-L475">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_tensor(
@@ -237,7 +237,7 @@ a numpy array.
 
 <h3 id="get_tensor_details"><code>get_tensor_details</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L364-L379">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L380-L395">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_tensor_details()
@@ -264,7 +264,7 @@ A list of dictionaries containing tensor information.
 
 <h3 id="invoke"><code>invoke</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L511-L524">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L527-L540">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>invoke()
@@ -297,7 +297,7 @@ When the underlying interpreter fails raise ValueError.
 
 <h3 id="reset_all_variables"><code>reset_all_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L526-L527">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L542-L543">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_all_variables()
@@ -308,7 +308,7 @@ When the underlying interpreter fails raise ValueError.
 
 <h3 id="resize_tensor_input"><code>resize_tensor_input</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L409-L434">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L425-L450">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>resize_tensor_input(
@@ -378,7 +378,7 @@ If the interpreter could not resize the input tensor.
 
 <h3 id="set_tensor"><code>set_tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L391-L407">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L407-L423">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_tensor(
@@ -437,7 +437,7 @@ If the interpreter could not set the tensor.
 
 <h3 id="tensor"><code>tensor</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/interpreter.py#L461-L509">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/interpreter.py#L477-L525">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tensor(

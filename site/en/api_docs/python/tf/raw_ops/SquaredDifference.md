@@ -1,4 +1,4 @@
-description: Returns (x - y)(x - y) element-wise.
+description: Returns conj(x - y)(x - y) element-wise.
 
 robots: noindex
 
@@ -12,7 +12,7 @@ robots: noindex
 
 
 
-Returns (x - y)(x - y) element-wise.
+Returns conj(x - y)(x - y) element-wise.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>

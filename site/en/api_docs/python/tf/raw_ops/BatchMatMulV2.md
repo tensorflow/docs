@@ -70,7 +70,7 @@ about broadcasting
 `x`
 </td>
 <td>
-A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int32`, `int64`, `complex64`, `complex128`.
+A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`, `int16`, `int32`, `int64`, `complex64`, `complex128`.
 2-D or higher with shape `[..., r_x, c_x]`.
 </td>
 </tr><tr>

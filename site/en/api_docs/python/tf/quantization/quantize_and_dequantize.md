@@ -1,4 +1,4 @@
-description: Quantizes then dequantizes a tensor.
+description: Quantizes then dequantizes a tensor. (deprecated)
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.quantization.quantize_and_dequantize" />
@@ -11,7 +11,7 @@ description: Quantizes then dequantizes a tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L5224-L5281">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L5648-L5712">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Quantizes then dequantizes a tensor.
 
 
 
-Quantizes then dequantizes a tensor.
+Quantizes then dequantizes a tensor. (deprecated)
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -45,6 +45,9 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
+Instructions for updating:
+This Op has been deprecated, use`quantize_and_dequantize_v2` instead. To To simulate the V1 the behavior of tf.quantization.quantize_and_dequantize(...) use tf.grad_pass_through(tf.quantization.quantize_and_dequantize_v2)(...).
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

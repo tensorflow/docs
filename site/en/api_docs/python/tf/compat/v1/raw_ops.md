@@ -359,6 +359,8 @@ Public API for tf.raw_ops namespace.
 
 [`CSVDataset(...)`](../../../tf/raw_ops/CSVDataset.md)
 
+[`CSVDatasetV2(...)`](../../../tf/raw_ops/CSVDatasetV2.md)
+
 [`CTCBeamSearchDecoder(...)`](../../../tf/raw_ops/CTCBeamSearchDecoder.md): Performs beam search decoding on the logits given in input.
 
 [`CTCGreedyDecoder(...)`](../../../tf/raw_ops/CTCGreedyDecoder.md): Performs greedy decoding on the logits given in inputs.
@@ -399,9 +401,13 @@ Public API for tf.raw_ops namespace.
 
 [`CollectiveGather(...)`](../../../tf/raw_ops/CollectiveGather.md): Mutually accumulates multiple tensors of identical type and shape.
 
+[`CollectiveGatherV2(...)`](../../../tf/raw_ops/CollectiveGatherV2.md): Mutually accumulates multiple tensors of identical type and shape.
+
 [`CollectivePermute(...)`](../../../tf/raw_ops/CollectivePermute.md): An Op to permute tensors across replicated TPU instances.
 
 [`CollectiveReduce(...)`](../../../tf/raw_ops/CollectiveReduce.md): Mutually reduces multiple tensors of identical type and shape.
+
+[`CollectiveReduceV2(...)`](../../../tf/raw_ops/CollectiveReduceV2.md): Mutually reduces multiple tensors of identical type and shape.
 
 [`CombinedNonMaxSuppression(...)`](../../../tf/raw_ops/CombinedNonMaxSuppression.md): Greedily selects a subset of bounding boxes in descending order of score,
 
@@ -414,6 +420,8 @@ Public API for tf.raw_ops namespace.
 [`CompressElement(...)`](../../../tf/raw_ops/CompressElement.md): Compresses a dataset element.
 
 [`ComputeAccidentalHits(...)`](../../../tf/raw_ops/ComputeAccidentalHits.md): Computes the ids of the positions in sampled_candidates that match true_labels.
+
+[`ComputeBatchSize(...)`](../../../tf/raw_ops/ComputeBatchSize.md): Computes the static batch size of a dataset sans partial batches.
 
 [`Concat(...)`](../../../tf/raw_ops/Concat.md): Concatenates tensors along one dimension.
 
@@ -509,7 +517,7 @@ Public API for tf.raw_ops namespace.
 
 [`DataFormatDimMap(...)`](../../../tf/raw_ops/DataFormatDimMap.md): Returns the dimension index in the destination data format given the one in
 
-[`DataFormatVecPermute(...)`](../../../tf/raw_ops/DataFormatVecPermute.md): Returns the permuted vector/tensor in the destination data format given the
+[`DataFormatVecPermute(...)`](../../../tf/raw_ops/DataFormatVecPermute.md): Permute input tensor from `src_format` to `dst_format`.
 
 [`DataServiceDataset(...)`](../../../tf/raw_ops/DataServiceDataset.md): Creates a dataset that reads data from the tf.data service.
 
@@ -552,6 +560,8 @@ Public API for tf.raw_ops namespace.
 [`DecodeCompressed(...)`](../../../tf/raw_ops/DecodeCompressed.md): Decompress strings.
 
 [`DecodeGif(...)`](../../../tf/raw_ops/DecodeGif.md): Decode the frame(s) of a GIF-encoded image to a uint8 tensor.
+
+[`DecodeImage(...)`](../../../tf/raw_ops/DecodeImage.md): Function for decode_bmp, decode_gif, decode_jpeg, and decode_png.
 
 [`DecodeJSONExample(...)`](../../../tf/raw_ops/DecodeJSONExample.md): Convert JSON-encoded Example records to binary protocol buffer strings.
 
@@ -789,7 +799,7 @@ Public API for tf.raw_ops namespace.
 
 [`ExtractJpegShape(...)`](../../../tf/raw_ops/ExtractJpegShape.md): Extract the shape information of a JPEG-encoded image.
 
-[`ExtractVolumePatches(...)`](../../../tf/raw_ops/ExtractVolumePatches.md): Extract `patches` from `input` and put them in the "depth" output dimension. 3D extension of `extract_image_patches`.
+[`ExtractVolumePatches(...)`](../../../tf/raw_ops/ExtractVolumePatches.md): Extract `patches` from `input` and put them in the `"depth"` output dimension. 3D extension of `extract_image_patches`.
 
 [`FFT(...)`](../../../tf/raw_ops/FFT.md): Fast Fourier transform.
 
@@ -953,6 +963,8 @@ Public API for tf.raw_ops namespace.
 
 [`ImageProjectiveTransformV2(...)`](../../../tf/raw_ops/ImageProjectiveTransformV2.md): Applies the given transform to each of the images.
 
+[`ImageProjectiveTransformV3(...)`](../../../tf/raw_ops/ImageProjectiveTransformV3.md): Applies the given transform to each of the images.
+
 [`ImageSummary(...)`](../../../tf/raw_ops/ImageSummary.md): Outputs a `Summary` protocol buffer with images.
 
 [`ImmutableConst(...)`](../../../tf/raw_ops/ImmutableConst.md): Returns immutable tensor from memory region.
@@ -1010,6 +1022,8 @@ Public API for tf.raw_ops namespace.
 [`IsNan(...)`](../../../tf/raw_ops/IsNan.md): Returns which elements of x are NaN.
 
 [`IsVariableInitialized(...)`](../../../tf/raw_ops/IsVariableInitialized.md): Checks whether a tensor has been initialized.
+
+[`IsotonicRegression(...)`](../../../tf/raw_ops/IsotonicRegression.md): Solves a batch of isotonic regression problems.
 
 [`Iterator(...)`](../../../tf/raw_ops/Iterator.md): A container for an iterator resource.
 
@@ -1199,7 +1213,7 @@ Public API for tf.raw_ops namespace.
 
 [`MatrixExponential(...)`](../../../tf/raw_ops/MatrixExponential.md): Deprecated, use python implementation tf.linalg.matrix_exponential.
 
-[`MatrixInverse(...)`](../../../tf/raw_ops/MatrixInverse.md): Computes the inverse of one or more square invertible matrices or their
+[`MatrixInverse(...)`](../../../tf/raw_ops/MatrixInverse.md): Computes the inverse of one or more square invertible matrices or their adjoints (conjugate transposes).
 
 [`MatrixLogarithm(...)`](../../../tf/raw_ops/MatrixLogarithm.md): Computes the matrix logarithm of one or more square matrices:
 
@@ -1345,6 +1359,8 @@ Public API for tf.raw_ops namespace.
 
 [`OptimizeDataset(...)`](../../../tf/raw_ops/OptimizeDataset.md): Creates a dataset by applying optimizations to `input_dataset`.
 
+[`OptimizeDatasetV2(...)`](../../../tf/raw_ops/OptimizeDatasetV2.md): Creates a dataset by applying related optimizations to `input_dataset`.
+
 [`OptionalFromValue(...)`](../../../tf/raw_ops/OptionalFromValue.md): Constructs an Optional variant from a tuple of tensors.
 
 [`OptionalGetValue(...)`](../../../tf/raw_ops/OptionalGetValue.md): Returns the value stored in an Optional variant or raises an error if none exists.
@@ -1370,6 +1386,10 @@ Public API for tf.raw_ops namespace.
 [`OutfeedDequeue(...)`](../../../tf/raw_ops/OutfeedDequeue.md): Retrieves a single tensor from the computation outfeed.
 
 [`OutfeedDequeueTuple(...)`](../../../tf/raw_ops/OutfeedDequeueTuple.md): Retrieve multiple values from the computation outfeed.
+
+[`OutfeedDequeueTupleV2(...)`](../../../tf/raw_ops/OutfeedDequeueTupleV2.md): Retrieve multiple values from the computation outfeed. Device ordinal is a
+
+[`OutfeedDequeueV2(...)`](../../../tf/raw_ops/OutfeedDequeueV2.md): Retrieves a single tensor from the computation outfeed. Device ordinal is a
 
 [`OutfeedEnqueue(...)`](../../../tf/raw_ops/OutfeedEnqueue.md): Enqueue a Tensor on the computation outfeed.
 
@@ -1470,6 +1490,10 @@ Public API for tf.raw_ops namespace.
 [`QuantizeAndDequantizeV2(...)`](../../../tf/raw_ops/QuantizeAndDequantizeV2.md): Quantizes then dequantizes a tensor.
 
 [`QuantizeAndDequantizeV3(...)`](../../../tf/raw_ops/QuantizeAndDequantizeV3.md): Quantizes then dequantizes a tensor.
+
+[`QuantizeAndDequantizeV4(...)`](../../../tf/raw_ops/QuantizeAndDequantizeV4.md): Returns the gradient of `QuantizeAndDequantizeV4`.
+
+[`QuantizeAndDequantizeV4Grad(...)`](../../../tf/raw_ops/QuantizeAndDequantizeV4Grad.md): Returns the gradient of `QuantizeAndDequantizeV4`.
 
 [`QuantizeDownAndShrinkRange(...)`](../../../tf/raw_ops/QuantizeDownAndShrinkRange.md): Convert the quantized 'input' tensor into a lower-precision 'output', using the
 
@@ -1603,6 +1627,8 @@ Public API for tf.raw_ops namespace.
 
 [`RaggedTensorToVariant(...)`](../../../tf/raw_ops/RaggedTensorToVariant.md): Encodes a `RaggedTensor` into a `variant` Tensor.
 
+[`RaggedTensorToVariantGradient(...)`](../../../tf/raw_ops/RaggedTensorToVariantGradient.md): Helper used to compute the gradient for `RaggedTensorToVariant`.
+
 [`RandomCrop(...)`](../../../tf/raw_ops/RandomCrop.md): Randomly crop `image`.
 
 [`RandomDataset(...)`](../../../tf/raw_ops/RandomDataset.md): Creates a Dataset that returns pseudorandom numbers.
@@ -1670,6 +1696,8 @@ Public API for tf.raw_ops namespace.
 [`RealDiv(...)`](../../../tf/raw_ops/RealDiv.md): Returns x / y element-wise for real types.
 
 [`RebatchDataset(...)`](../../../tf/raw_ops/RebatchDataset.md): Creates a dataset that changes the batch size.
+
+[`RebatchDatasetV2(...)`](../../../tf/raw_ops/RebatchDatasetV2.md): Creates a dataset that changes the batch size.
 
 [`Reciprocal(...)`](../../../tf/raw_ops/Reciprocal.md): Computes the reciprocal of x element-wise.
 
@@ -1898,6 +1926,8 @@ Public API for tf.raw_ops namespace.
 [`RightShift(...)`](../../../tf/raw_ops/RightShift.md): Elementwise computes the bitwise right-shift of `x` and `y`.
 
 [`Rint(...)`](../../../tf/raw_ops/Rint.md): Returns element-wise integer closest to x.
+
+[`RngReadAndSkip(...)`](../../../tf/raw_ops/RngReadAndSkip.md): Advance the counter of a counter-based RNG.
 
 [`RngSkip(...)`](../../../tf/raw_ops/RngSkip.md): Advance the counter of a counter-based RNG.
 
@@ -2219,7 +2249,7 @@ Public API for tf.raw_ops namespace.
 
 [`Square(...)`](../../../tf/raw_ops/Square.md): Computes square of x element-wise.
 
-[`SquaredDifference(...)`](../../../tf/raw_ops/SquaredDifference.md): Returns (x - y)(x - y) element-wise.
+[`SquaredDifference(...)`](../../../tf/raw_ops/SquaredDifference.md): Returns conj(x - y)(x - y) element-wise.
 
 [`Squeeze(...)`](../../../tf/raw_ops/Squeeze.md): Removes dimensions of size 1 from the shape of a tensor.
 
@@ -2263,6 +2293,8 @@ Public API for tf.raw_ops namespace.
 
 [`StatefulUniformInt(...)`](../../../tf/raw_ops/StatefulUniformInt.md): Outputs random integers from a uniform distribution.
 
+[`StatelessCase(...)`](../../../tf/raw_ops/StatelessCase.md): An n-way switch statement which calls a single branch function.
+
 [`StatelessIf(...)`](../../../tf/raw_ops/StatelessIf.md): output = cond ? then_branch(input) : else_branch(input)
 
 [`StatelessMultinomial(...)`](../../../tf/raw_ops/StatelessMultinomial.md): Draws samples from a multinomial distribution.
@@ -2273,7 +2305,11 @@ Public API for tf.raw_ops namespace.
 
 [`StatelessRandomGammaV2(...)`](../../../tf/raw_ops/StatelessRandomGammaV2.md): Outputs deterministic pseudorandom random numbers from a gamma distribution.
 
+[`StatelessRandomGetKeyCounterAlg(...)`](../../../tf/raw_ops/StatelessRandomGetKeyCounterAlg.md): Picks the best algorithm based on device, and scrambles seed into key and counter.
+
 [`StatelessRandomNormal(...)`](../../../tf/raw_ops/StatelessRandomNormal.md): Outputs deterministic pseudorandom values from a normal distribution.
+
+[`StatelessRandomNormalV2(...)`](../../../tf/raw_ops/StatelessRandomNormalV2.md): Outputs deterministic pseudorandom values from a normal distribution.
 
 [`StatelessRandomPoisson(...)`](../../../tf/raw_ops/StatelessRandomPoisson.md): Outputs deterministic pseudorandom random numbers from a Poisson distribution.
 
@@ -2281,9 +2317,19 @@ Public API for tf.raw_ops namespace.
 
 [`StatelessRandomUniformFullInt(...)`](../../../tf/raw_ops/StatelessRandomUniformFullInt.md): Outputs deterministic pseudorandom random integers from a uniform distribution.
 
+[`StatelessRandomUniformFullIntV2(...)`](../../../tf/raw_ops/StatelessRandomUniformFullIntV2.md): Outputs deterministic pseudorandom random integers from a uniform distribution.
+
 [`StatelessRandomUniformInt(...)`](../../../tf/raw_ops/StatelessRandomUniformInt.md): Outputs deterministic pseudorandom random integers from a uniform distribution.
 
+[`StatelessRandomUniformIntV2(...)`](../../../tf/raw_ops/StatelessRandomUniformIntV2.md): Outputs deterministic pseudorandom random integers from a uniform distribution.
+
+[`StatelessRandomUniformV2(...)`](../../../tf/raw_ops/StatelessRandomUniformV2.md): Outputs deterministic pseudorandom random values from a uniform distribution.
+
+[`StatelessSampleDistortedBoundingBox(...)`](../../../tf/raw_ops/StatelessSampleDistortedBoundingBox.md): Generate a randomly distorted bounding box for an image deterministically.
+
 [`StatelessTruncatedNormal(...)`](../../../tf/raw_ops/StatelessTruncatedNormal.md): Outputs deterministic pseudorandom values from a truncated normal distribution.
+
+[`StatelessTruncatedNormalV2(...)`](../../../tf/raw_ops/StatelessTruncatedNormalV2.md): Outputs deterministic pseudorandom values from a truncated normal distribution.
 
 [`StatelessWhile(...)`](../../../tf/raw_ops/StatelessWhile.md): output = input; While (Cond(output)) { output = Body(output) }
 
@@ -2615,21 +2661,21 @@ Public API for tf.raw_ops namespace.
 
 [`WrapDatasetVariant(...)`](../../../tf/raw_ops/WrapDatasetVariant.md)
 
-[`WriteAudioSummary(...)`](../../../tf/raw_ops/WriteAudioSummary.md)
+[`WriteAudioSummary(...)`](../../../tf/raw_ops/WriteAudioSummary.md): Writes an audio summary.
 
 [`WriteFile(...)`](../../../tf/raw_ops/WriteFile.md): Writes contents to the file at input filename. Creates file and recursively
 
-[`WriteGraphSummary(...)`](../../../tf/raw_ops/WriteGraphSummary.md)
+[`WriteGraphSummary(...)`](../../../tf/raw_ops/WriteGraphSummary.md): Writes a graph summary.
 
-[`WriteHistogramSummary(...)`](../../../tf/raw_ops/WriteHistogramSummary.md)
+[`WriteHistogramSummary(...)`](../../../tf/raw_ops/WriteHistogramSummary.md): Writes a histogram summary.
 
-[`WriteImageSummary(...)`](../../../tf/raw_ops/WriteImageSummary.md)
+[`WriteImageSummary(...)`](../../../tf/raw_ops/WriteImageSummary.md): Writes an image summary.
 
-[`WriteRawProtoSummary(...)`](../../../tf/raw_ops/WriteRawProtoSummary.md)
+[`WriteRawProtoSummary(...)`](../../../tf/raw_ops/WriteRawProtoSummary.md): Writes a serialized proto summary.
 
-[`WriteScalarSummary(...)`](../../../tf/raw_ops/WriteScalarSummary.md)
+[`WriteScalarSummary(...)`](../../../tf/raw_ops/WriteScalarSummary.md): Writes a scalar summary.
 
-[`WriteSummary(...)`](../../../tf/raw_ops/WriteSummary.md)
+[`WriteSummary(...)`](../../../tf/raw_ops/WriteSummary.md): Writes a tensor summary.
 
 [`Xdivy(...)`](../../../tf/raw_ops/Xdivy.md): Returns 0 if x == 0, and x / y otherwise, elementwise.
 

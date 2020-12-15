@@ -11,7 +11,7 @@ description: Enable the V2 dtype behavior for Keras layers.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/base_layer_utils.py#L709-L741">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/base_layer_utils.py#L717-L749">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -55,6 +55,6 @@ passing `autocast=False` to the base Layer's constructor. This disables the
 autocasting part of the V2 behavior for that layer, but not the defaulting to
 floatx part of the V2 behavior.
 
-When a global <a href="../../../../../tf/keras/mixed_precision/experimental/Policy.md"><code>tf.keras.mixed_precision.experimental.Policy</code></a> is set, a Keras
-layer's dtype will default to the global policy instead of floatx. Layers
-will automatically cast inputs to the policy's compute_dtype.
+When a global <a href="../../../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a> is set, a Keras layer's dtype
+will default to the global policy instead of floatx. Layers will automatically
+cast inputs to the policy's compute_dtype.

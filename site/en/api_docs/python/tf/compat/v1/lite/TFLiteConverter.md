@@ -18,7 +18,7 @@ description: Convert a TensorFlow model into output_format.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1628-L1970">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1608-L1947">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,24 +48,26 @@ model into either a TFLite FlatBuffer or graph visualization.
 
 ```python
 # Converting a GraphDef from session.
-converter = tf.compat.v1.TFLiteConverter.from_session(
+converter = tf.compat.v1.lite.TFLiteConverter.from_session(
   sess, in_tensors, out_tensors)
 tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 
 # Converting a GraphDef from file.
-converter = tf.compat.v1.TFLiteConverter.from_frozen_graph(
+converter = tf.compat.v1.lite.TFLiteConverter.from_frozen_graph(
   graph_def_file, input_arrays, output_arrays)
 tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 
 # Converting a SavedModel.
-converter = tf.compat.v1.TFLiteConverter.from_saved_model(saved_model_dir)
+converter = tf.compat.v1.lite.TFLiteConverter.from_saved_model(
+    saved_model_dir)
 tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 
 # Converting a tf.keras model.
-converter = tf.compat.v1.TFLiteConverter.from_keras_model_file(keras_model)
+converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file(
+    keras_model)
 tflite_model = converter.convert()
 open("converted_model.tflite", "wb").write(tflite_model)
 ```
@@ -170,14 +172,13 @@ parameter is ignored. (default tf.float32)
 </td>
 <td>
 Target data type of real-number input arrays. Allows
-for a different type for input arrays.
-If an integer type is provided and `optimizations` are not used,
-`quantized_inputs_stats` must be provided.
-If `inference_type` is tf.uint8, signaling conversion to a fully quantized
+for a different type for input arrays. If an integer type is provided and
+`optimizations` are not used, `quantized_input_stats` must be provided. If
+`inference_type` is tf.uint8, signaling conversion to a fully quantized
 model from a quantization-aware trained input model, then
-`inference_input_type` defaults to tf.uint8.
-In all other cases, `inference_input_type` defaults to tf.float32.
-Must be `{tf.float32, tf.uint8, tf.int8}`
+`inference_input_type` defaults to tf.uint8. In all other cases,
+`inference_input_type` defaults to tf.float32. Must be `{tf.float32,
+tf.uint8, tf.int8}`
 </td>
 </tr><tr>
 <td>
@@ -185,13 +186,11 @@ Must be `{tf.float32, tf.uint8, tf.int8}`
 </td>
 <td>
 Target data type of real-number output arrays. Allows
-for a different type for output arrays.
-If `inference_type` is tf.uint8, signaling conversion to a fully quantized
-model from a quantization-aware trained output model, then
-`inference_output_type` defaults to tf.uint8.
+for a different type for output arrays. If `inference_type` is tf.uint8,
+signaling conversion to a fully quantized model from a quantization-aware
+trained output model, then `inference_output_type` defaults to tf.uint8.
 In all other cases, `inference_output_type` must be tf.float32, an error
-will be thrown otherwise.
-Must be `{tf.float32, tf.uint8, tf.int8}`
+will be thrown otherwise. Must be `{tf.float32, tf.uint8, tf.int8}`
 </td>
 </tr><tr>
 <td>
@@ -209,9 +208,8 @@ GRAPHVIZ_DOT}`. (default TFLITE)
 Dict of strings representing input tensor names
 mapped to tuple of floats representing the mean and standard deviation
 of the training data (e.g., {"foo" : (0., 1.)}). Only need if
-`inference_input_type` is `QUANTIZED_UINT8`.
-real_input_value = (quantized_input_value - mean_value) / std_dev_value.
-(default {})
+`inference_input_type` is `QUANTIZED_UINT8`. real_input_value =
+(quantized_input_value - mean_value) / std_dev_value. (default {})
 </td>
 </tr><tr>
 <td>
@@ -259,8 +257,8 @@ the ranges of concat operator overlap when true. (default False)
 Boolean indicating whether to allow custom operations.
 When false any unknown operation is an error. When true, custom ops are
 created for any op that is unknown. The developer will need to provide
-these to the TensorFlow Lite runtime with a custom resolver.
-(default False)
+these to the TensorFlow Lite runtime with a custom resolver. (default
+False)
 </td>
 </tr><tr>
 <td>
@@ -270,8 +268,8 @@ these to the TensorFlow Lite runtime with a custom resolver.
 Deprecated. Please specify `[Optimize.DEFAULT]` for
 `optimizations` instead. Boolean indicating whether to quantize the
 weights of the converted float model.  Model size will be reduced and
-there will be latency improvements (at the cost of accuracy).
-(default False)
+there will be latency improvements (at the cost of accuracy). (default
+False)
 </td>
 </tr><tr>
 <td>
@@ -305,8 +303,8 @@ conversion logs.
 </td>
 <td>
 Deprecated. Please specify `target_spec.supported_ops` instead.
-Set of OpsSet options indicating which converter to use.
-(default set([OpsSet.TFLITE_BUILTINS]))
+Set of OpsSet options indicating which converter to use. (default
+set([OpsSet.TFLITE_BUILTINS]))
 </td>
 </tr><tr>
 <td>
@@ -330,16 +328,16 @@ to apply when converting the model. E.g. `[Optimize.DEFAULT]`
 </td>
 <td>
 A representative dataset that can be used to
-generate input and output samples for the model. The converter can use
-the dataset to evaluate different optimizations.
+generate input and output samples for the model. The converter can use the
+dataset to evaluate different optimizations.
 </td>
 </tr><tr>
 <td>
 `experimental_new_converter`
 </td>
 <td>
-Experimental flag, subject to change.
-Enables MLIR-based conversion instead of TOCO conversion. (default True)
+Experimental flag, subject to change. Enables
+MLIR-based conversion instead of TOCO conversion. (default True)
 </td>
 </tr>
 </table>
@@ -350,7 +348,7 @@ Enables MLIR-based conversion instead of TOCO conversion. (default True)
 
 <h3 id="convert"><code>convert</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1958-L1970">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1935-L1947">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>convert()
@@ -394,7 +392,7 @@ None value for dimension in input_tensor.
 
 <h3 id="from_frozen_graph"><code>from_frozen_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1789-L1880">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1766-L1857">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -490,7 +488,7 @@ input_shapes is not correctly defined when required
 
 <h3 id="from_keras_model_file"><code>from_keras_model_file</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1929-L1955">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1906-L1932">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -570,7 +568,7 @@ TFLiteConverter class.
 
 <h3 id="from_saved_model"><code>from_saved_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1882-L1927">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1859-L1904">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -658,7 +656,7 @@ TFLiteConverter class.
 
 <h3 id="from_session"><code>from_session</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1769-L1787">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1746-L1764">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -718,7 +716,7 @@ TFLiteConverter class.
 
 <h3 id="get_input_arrays"><code>get_input_arrays</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L1346-L1355">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L1326-L1335">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_input_arrays()

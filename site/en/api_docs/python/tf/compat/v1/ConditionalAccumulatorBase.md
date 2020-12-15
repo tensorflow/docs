@@ -14,7 +14,7 @@ description: A conditional accumulator for aggregating gradients.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1240-L1316">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1240-L1316">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -110,7 +110,7 @@ The name of the underlying accumulator.
 
 <h3 id="num_accumulated"><code>num_accumulated</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1285-L1298">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1285-L1298">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accumulated(
@@ -154,7 +154,7 @@ Number of accumulated gradients currently in accumulator.
 
 <h3 id="set_global_step"><code>set_global_step</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L1300-L1316">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L1300-L1316">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_global_step(

@@ -71,8 +71,8 @@ str, the help message.
 `comma_compat`
 </td>
 <td>
-bool - Whether to support comma as an additional separator.
-If false then only whitespace is supported.  This is intended only for
+bool - Whether to support comma as an additional separator. If
+false then only whitespace is supported.  This is intended only for
 backwards compatibility with flags that used to be comma-separated.
 </td>
 </tr><tr>
@@ -80,17 +80,31 @@ backwards compatibility with flags that used to be comma-separated.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance with which the flag will
-be registered. This should almost never need to be overridden.
+FlagValues, the FlagValues instance with which the flag will be
+registered. This should almost never need to be overridden.
 </td>
 </tr><tr>
 <td>
 `**args`
 </td>
 <td>
-Dictionary with extra keyword args that are passed to the
-Flag __init__.
+Dictionary with extra keyword args that are passed to the Flag
+__init__.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

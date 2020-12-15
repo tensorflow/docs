@@ -13,7 +13,7 @@ description: 1D convolution layer (e.g. temporal convolution).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/convolutional.py#L374-L508">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/convolutional.py#L375-L512">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -128,7 +128,10 @@ any `dilation_rate` value != 1.
 `padding`
 </td>
 <td>
-One of `"valid"`, `"causal"` or `"same"` (case-insensitive).
+One of `"valid"`, `"same"` or `"causal"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to
+the left/right or up/down of the input such that output has the same
+height/width dimension as the input.
 `"causal"` results in causal (dilated) convolutions, e.g. `output[t]`
 does not depend on `input[t+1:]`. Useful when modeling temporal data
 where the model should not violate the temporal order.

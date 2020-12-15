@@ -14,7 +14,7 @@ description: An in-process tf.data service worker server.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L145-L256">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L263-L365">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -27,7 +27,7 @@ An in-process tf.data service worker server.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.data.experimental.service.WorkerServer(
-    port, dispatcher_address, worker_address=None, protocol=None, start=(True)
+    config, start=(True)
 )
 </code></pre>
 
@@ -41,10 +41,11 @@ RPC. A worker is associated with a single
 <a href="../../../../tf/data/experimental/service/DispatchServer.md"><code>tf.data.experimental.service.DispatchServer</code></a>.
 
 ```
->>> dispatcher = tf.data.experimental.service.DispatchServer(port=0)
+>>> dispatcher = tf.data.experimental.service.DispatchServer()
 >>> dispatcher_address = dispatcher.target.split("://")[1]
 >>> worker = tf.data.experimental.service.WorkerServer(
-...     port=0, dispatcher_address=dispatcher_address)
+...     tf.data.experimental.service.WorkerConfig(
+...         dispatcher_address=dispatcher_address))
 >>> dataset = tf.data.Dataset.range(10)
 >>> dataset = dataset.apply(tf.data.experimental.service.distribute(
 ...     processing_mode="parallel_epochs", service=dispatcher.target))
@@ -68,37 +69,10 @@ worker.join()
 
 <tr>
 <td>
-`port`
+`config`
 </td>
 <td>
-Specifies the port to bind to. A value of 0 indicates that the
-worker can bind to any available port.
-</td>
-</tr><tr>
-<td>
-`dispatcher_address`
-</td>
-<td>
-Specifies the address of the dispatcher.
-</td>
-</tr><tr>
-<td>
-`worker_address`
-</td>
-<td>
-(Optional.) Specifies the address of the worker server.
-This address is passed to the dispatcher so that the dispatcher can
-tell clients how to connect to this worker. Defaults to
-`"localhost:%port%"`, where `%port%` will be replaced with the port used
-by the worker.
-</td>
-</tr><tr>
-<td>
-`protocol`
-</td>
-<td>
-(Optional.) Specifies the protocol to be used by the server.
-Acceptable values include `"grpc", "grpc+local"`. Defaults to `"grpc"`.
+A <a href="../../../../tf/data/experimental/service/WorkerConfig.md"><code>tf.data.experimental.service.WorkerConfig</code></a> configration.
 </td>
 </tr><tr>
 <td>
@@ -106,25 +80,7 @@ Acceptable values include `"grpc", "grpc+local"`. Defaults to `"grpc"`.
 </td>
 <td>
 (Optional.) Boolean, indicating whether to start the server after
-creating it. Defaults to `True`.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
-
-<tr>
-<td>
-`tf.errors.OpError`
-</td>
-<td>
-Or one of its subclasses if an error occurs while
-creating the TensorFlow server.
+creating it. Defaults to True.
 </td>
 </tr>
 </table>
@@ -135,7 +91,7 @@ creating the TensorFlow server.
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L219-L236">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L324-L341">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>join()
@@ -173,7 +129,7 @@ joining the server.
 
 <h3 id="start"><code>start</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/service/server_lib.py#L210-L217">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/service/server_lib.py#L315-L322">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>start()

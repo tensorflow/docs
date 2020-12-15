@@ -1,3 +1,5 @@
+description: Writes a scalar summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteScalarSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes a scalar summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes scalar `value` at `step` with `tag` using summary `writer`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

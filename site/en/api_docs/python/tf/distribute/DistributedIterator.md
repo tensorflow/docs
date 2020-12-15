@@ -14,7 +14,7 @@ description: An iterator over <a href="../../tf/distribute/DistributedDataset.md
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/input_lib.py#L146-L271">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/input_lib.py#L173-L281">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -56,21 +56,10 @@ The type specification of an element of <a href="../../tf/distribute/Distributed
 
 ```
 >>> global_batch_size = 16
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> dataset = tf.data.Dataset.from_tensors(([1.],[2])).repeat(100).batch(global_batch_size)
 >>> distributed_iterator = iter(strategy.experimental_distribute_dataset(dataset))
 >>> distributed_iterator.element_spec
-(TensorSpec(shape=(None, 1), dtype=tf.float32, name=None),
-TensorSpec(shape=(None, 1), dtype=tf.int32, name=None))
-```
-
-The above example corresponds to the case where you have only one device. If
-you have two devices, for example,
-```python
-strategy = tf.distribute.MirroredStrategy(['/gpu:0', '/gpu:1'])
-```
-Then the final line will print out:
-```python
 (PerReplicaSpec(TensorSpec(shape=(None, 1), dtype=tf.float32, name=None),
 TensorSpec(shape=(None, 1), dtype=tf.float32, name=None)),
 PerReplicaSpec(TensorSpec(shape=(None, 1), dtype=tf.int32, name=None),
@@ -86,7 +75,7 @@ TensorSpec(shape=(None, 1), dtype=tf.int32, name=None)))
 
 <h3 id="get_next"><code>get_next</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/input_lib.py#L163-L200">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/input_lib.py#L190-L217">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_next()
@@ -100,7 +89,7 @@ Returns the next input from the iterator for all replicas.
 
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> dataset = tf.data.Dataset.range(100).batch(2)
 >>> dist_dataset = strategy.experimental_distribute_dataset(dataset)
 >>> dist_dataset_iterator = iter(dist_dataset)
@@ -111,16 +100,6 @@ Returns the next input from the iterator for all replicas.
 >>> for _ in range(step_num):
 ...   strategy.run(one_step, args=(dist_dataset_iterator.get_next(),))
 >>> strategy.experimental_local_results(dist_dataset_iterator.get_next())
-(<tf.Tensor: shape=(2,), dtype=int64, numpy=array([10, 11])>,)
-```
-
-The above example corresponds to the case where you have only one device. If
-you have two devices, for example,
-```python
-strategy = tf.distribute.MirroredStrategy(['/gpu:0', '/gpu:1'])
-```
-Then the final line will print out:
-```python
 (<tf.Tensor: shape=(1,), dtype=int64, numpy=array([10])>,
  <tf.Tensor: shape=(1,), dtype=int64, numpy=array([11])>)
 ```
@@ -156,7 +135,7 @@ the next input for all replicas.
 
 <h3 id="get_next_as_optional"><code>get_next_as_optional</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/input_lib.py#L239-L271">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/input_lib.py#L245-L281">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_next_as_optional()
@@ -172,13 +151,14 @@ sequence, the returned <a href="../../tf/experimental/Optional.md"><code>tf.expe
 
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> global_batch_size = 2
 >>> steps_per_loop = 2
 >>> dataset = tf.data.Dataset.range(10).batch(global_batch_size)
 >>> distributed_iterator = iter(
 ...     strategy.experimental_distribute_dataset(dataset))
 >>> def step_fn(x):
+...   # train the model with inputs
 ...   return x
 >>> @tf.function
 ... def train_fn(distributed_iterator):
@@ -186,10 +166,11 @@ sequence, the returned <a href="../../tf/experimental/Optional.md"><code>tf.expe
 ...     optional_data = distributed_iterator.get_next_as_optional()
 ...     if not optional_data.has_value():
 ...       break
-...     tf.print(strategy.run(step_fn, args=(optional_data.get_value(),)))
+...     per_replica_results = strategy.run(step_fn, args=(optional_data.get_value(),))
+...     tf.print(strategy.experimental_local_results(per_replica_results))
 >>> train_fn(distributed_iterator)
-... # ([0 1],)
-... # ([2 3],)
+... # ([0 1], [2 3])
+... # ([4], [])
 ```
 
 <!-- Tabular view -->

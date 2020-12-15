@@ -45,7 +45,7 @@ description: A Dataset comprising records from one or more TFRecord files.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/readers.py#L290-L350">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/readers.py#L290-L350">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -170,7 +170,7 @@ TensorSpec(shape=(), dtype=tf.int32, name=None)
 
 <h3 id="apply"><code>apply</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1864-L1892">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1974-L2002">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply(
@@ -231,7 +231,7 @@ dataset.
 
 <h3 id="as_numpy_iterator"><code>as_numpy_iterator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L472-L526">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L479-L535">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_numpy_iterator()
@@ -322,7 +322,7 @@ if eager execution is not enabled.
 
 <h3 id="batch"><code>batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1398-L1429">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1508-L1539">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch(
@@ -400,7 +400,7 @@ A `Dataset`.
 
 <h3 id="cache"><code>cache</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1242-L1290">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1352-L1400">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cache(
@@ -489,7 +489,7 @@ A `Dataset`.
 
 <h3 id="cardinality"><code>cardinality</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L2139-L2165">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2249-L2275">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cardinality()
@@ -535,7 +535,7 @@ named constants <a href="../../tf/data.md#INFINITE_CARDINALITY"><code>tf.data.IN
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1002-L1029">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1112-L1139">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>concatenate(
@@ -601,7 +601,7 @@ A `Dataset`.
 
 <h3 id="enumerate"><code>enumerate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1149-L1180">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1259-L1290">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>enumerate(
@@ -671,7 +671,7 @@ A `Dataset`.
 
 <h3 id="filter"><code>filter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1841-L1862">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1951-L1972">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>filter(
@@ -731,7 +731,7 @@ The `Dataset` containing the elements of this dataset for which
 
 <h3 id="flat_map"><code>flat_map</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1704-L1727">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1814-L1837">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>flat_map(
@@ -793,37 +793,55 @@ A `Dataset`.
 
 <h3 id="from_generator"><code>from_generator</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L720-L918">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L729-L1028">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
 <code>from_generator(
-    generator, output_types, output_shapes=None, args=None
+    generator, output_types=None, output_shapes=None, args=None,
+    output_signature=None
 )
 </code></pre>
 
-Creates a `Dataset` whose elements are generated by `generator`.
+Creates a `Dataset` whose elements are generated by `generator`. (deprecated arguments)
+
+Warning: SOME ARGUMENTS ARE DEPRECATED: `(output_shapes, output_types)`. They will be removed in a future version.
+Instructions for updating:
+Use output_signature instead
 
 The `generator` argument must be a callable object that returns
 an object that supports the `iter()` protocol (e.g. a generator function).
-The elements generated by `generator` must be compatible with the given
-`output_types` and (optional) `output_shapes` arguments.
+
+The elements generated by `generator` must be compatible with either the
+given `output_signature` argument or with the given `output_types` and
+(optionally) `output_shapes` arguments, whichiver was specified.
+
+The recommended way to call `from_generator` is to use the
+`output_signature` argument. In this case the output will be assumed to
+consist of objects with the classes, shapes and types defined by
+<a href="../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> objects from `output_signature` argument:
 
 ```
->>> import itertools
->>>
 >>> def gen():
-...   for i in itertools.count(1):
-...     yield (i, [1] * i)
+...   ragged_tensor = tf.ragged.constant([[1, 2], [3]])
+...   yield 42, ragged_tensor
 >>>
 >>> dataset = tf.data.Dataset.from_generator(
 ...      gen,
-...      (tf.int64, tf.int64),
-...      (tf.TensorShape([]), tf.TensorShape([None])))
+...      output_signature=(
+...          tf.TensorSpec(shape=(), dtype=tf.int32),
+...          tf.RaggedTensorSpec(shape=(2, None), dtype=tf.int32)))
 >>>
->>> list(dataset.take(3).as_numpy_iterator())
-[(1, array([1])), (2, array([1, 1])), (3, array([1, 1, 1]))]
+>>> list(dataset.take(1))
+[(<tf.Tensor: shape=(), dtype=int32, numpy=42>,
+<tf.RaggedTensor [[1, 2], [3]]>)]
 ```
+
+There is also a deprecated way to call `from_generator` by either with
+`output_types` argument alone or together with `output_shapes` argument.
+In this case the output of the function will be assumed to consist of
+<a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> objects with with the types defined by `output_types` and with
+the shapes which are either unknown or defined by `output_shapes`.
 
 Note: The current implementation of <a href="../../tf/data/Dataset.md#from_generator"><code>Dataset.from_generator()</code></a> uses
 <a href="../../tf/numpy_function.md"><code>tf.numpy_function</code></a> and inherits the same constraints. In particular, it
@@ -862,8 +880,8 @@ in `args`.
 `output_types`
 </td>
 <td>
-A nested structure of <a href="../../tf/dtypes/DType.md"><code>tf.DType</code></a> objects corresponding to
-each component of an element yielded by `generator`.
+(Optional.) A nested structure of <a href="../../tf/dtypes/DType.md"><code>tf.DType</code></a> objects
+corresponding to each component of an element yielded by `generator`.
 </td>
 </tr><tr>
 <td>
@@ -880,6 +898,14 @@ corresponding to each component of an element yielded by `generator`.
 <td>
 (Optional.) A tuple of <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> objects that will be evaluated
 and passed to `generator` as NumPy-array arguments.
+</td>
+</tr><tr>
+<td>
+`output_signature`
+</td>
+<td>
+(Optional.) A nested structure of <a href="../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> objects
+corresponding to each component of an element yielded by `generator`.
 </td>
 </tr>
 </table>
@@ -905,7 +931,7 @@ A `Dataset`.
 
 <h3 id="from_tensor_slices"><code>from_tensor_slices</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L606-L682">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L615-L691">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -1028,7 +1054,7 @@ A `Dataset`.
 
 <h3 id="from_tensors"><code>from_tensors</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L569-L604">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L578-L613">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -1104,7 +1130,7 @@ A `Dataset`.
 
 <h3 id="interleave"><code>interleave</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1729-L1839">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1839-L1949">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>interleave(
@@ -1180,7 +1206,7 @@ isn't required, it can also improve performance to set
 ...              "/var/data/file3.txt", "/var/data/file4.txt"]
 >>> dataset = tf.data.Dataset.from_tensor_slices(filenames)
 >>> dataset = dataset.interleave(lambda x: tf.data.TFRecordDataset(x),
-...     cycle_length=4, num_parallel_calls=tf.data.experimental.AUTOTUNE,
+...     cycle_length=4, num_parallel_calls=tf.data.AUTOTUNE,
 ...     deterministic=False)
 ```
 
@@ -1204,7 +1230,7 @@ A function mapping a dataset element to a dataset.
 (Optional.) The number of input elements that will be
 processed concurrently. If not set, the tf.data runtime decides what it
 should be based on available CPU. If `num_parallel_calls` is set to
-<a href="../../tf/data/experimental.md#AUTOTUNE"><code>tf.data.experimental.AUTOTUNE</code></a>, the `cycle_length` argument identifies
+<a href="../../tf/data.md#AUTOTUNE"><code>tf.data.AUTOTUNE</code></a>, the `cycle_length` argument identifies
 the maximum degree of parallelism.
 </td>
 </tr><tr>
@@ -1225,7 +1251,7 @@ set, defaults to 1.
 threadpool, which is used to fetch inputs from cycle elements
 asynchronously and in parallel. The default behavior is to fetch inputs
 from cycle elements synchronously with no parallelism. If the value
-<a href="../../tf/data/experimental.md#AUTOTUNE"><code>tf.data.experimental.AUTOTUNE</code></a> is used, then the number of parallel
+<a href="../../tf/data.md#AUTOTUNE"><code>tf.data.AUTOTUNE</code></a> is used, then the number of parallel
 calls is set dynamically based on available CPU.
 </td>
 </tr><tr>
@@ -1264,7 +1290,7 @@ A `Dataset`.
 
 <h3 id="list_files"><code>list_files</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1059-L1126">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1169-L1236">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -1356,7 +1382,7 @@ A `Dataset` of strings corresponding to file names.
 
 <h3 id="map"><code>map</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1557-L1702">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1667-L1812">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>map(
@@ -1492,7 +1518,7 @@ isn't required, it can also improve performance to set
 ```
 >>> dataset = Dataset.range(1, 6)  # ==> [ 1, 2, 3, 4, 5 ]
 >>> dataset = dataset.map(lambda x: x + 1,
-...     num_parallel_calls=tf.data.experimental.AUTOTUNE,
+...     num_parallel_calls=tf.data.AUTOTUNE,
 ...     deterministic=False)
 ```
 
@@ -1516,7 +1542,7 @@ A function mapping a dataset element to another dataset element.
 (Optional.) A <a href="../../tf.md#int32"><code>tf.int32</code></a> scalar <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a>,
 representing the number elements to process asynchronously in parallel.
 If not specified, elements will be processed sequentially. If the value
-<a href="../../tf/data/experimental.md#AUTOTUNE"><code>tf.data.experimental.AUTOTUNE</code></a> is used, then the number of parallel
+<a href="../../tf/data.md#AUTOTUNE"><code>tf.data.AUTOTUNE</code></a> is used, then the number of parallel
 calls is set dynamically based on available CPU.
 </td>
 </tr><tr>
@@ -1555,7 +1581,7 @@ A `Dataset`.
 
 <h3 id="options"><code>options</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L348-L354">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L352-L358">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>options()
@@ -1580,7 +1606,7 @@ A <a href="../../tf/data/Options.md"><code>tf.data.Options</code></a> object rep
 
 <h3 id="padded_batch"><code>padded_batch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1431-L1555">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1541-L1665">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>padded_batch(
@@ -1762,7 +1788,7 @@ argument is not set.
 
 <h3 id="prefetch"><code>prefetch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1031-L1057">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1141-L1167">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>prefetch(
@@ -1827,7 +1853,7 @@ A `Dataset`.
 
 <h3 id="range"><code>range</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L920-L955">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1030-L1065">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -1920,7 +1946,7 @@ if len(args) == 0.
 
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1975-L2086">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2085-L2196">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reduce(
@@ -1986,7 +2012,7 @@ A dataset element corresponding to the final state of the transformation.
 
 <h3 id="repeat"><code>repeat</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1128-L1147">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1238-L1257">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>repeat(
@@ -2044,7 +2070,7 @@ A `Dataset`.
 
 <h3 id="shard"><code>shard</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1330-L1396">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1440-L1506">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>shard(
@@ -2171,7 +2197,7 @@ in an error during a session.run call.)
 
 <h3 id="shuffle"><code>shuffle</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1182-L1240">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1292-L1350">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>shuffle(
@@ -2286,7 +2312,7 @@ A `Dataset`.
 
 <h3 id="skip"><code>skip</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1311-L1328">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1421-L1438">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>skip(
@@ -2342,7 +2368,7 @@ A `Dataset`.
 
 <h3 id="take"><code>take</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1292-L1309">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1402-L1419">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>take(
@@ -2398,7 +2424,7 @@ A `Dataset`.
 
 <h3 id="unbatch"><code>unbatch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L2088-L2110">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2198-L2220">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>unbatch()
@@ -2439,7 +2465,7 @@ A `Dataset`.
 
 <h3 id="window"><code>window</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L1894-L1973">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2004-L2083">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>window(
@@ -2550,7 +2576,7 @@ The default value of 1 means "retain every input element".
 </td>
 <td>
 (Optional.) A <a href="../../tf.md#bool"><code>tf.bool</code></a> scalar <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a>, representing
-whether the last window should be dropped if its size is smaller than
+whether the last windows should be dropped if their size is smaller than
 `size`.
 </td>
 </tr>
@@ -2578,7 +2604,7 @@ elements created from the (nests of) input elements.
 
 <h3 id="with_options"><code>with_options</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L2112-L2137">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L2222-L2247">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_options(
@@ -2656,7 +2682,7 @@ when an option is set more than once to a non-default value
 
 <h3 id="zip"><code>zip</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L957-L1000">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L1067-L1110">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -2738,7 +2764,7 @@ A `Dataset`.
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L420-L421">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L427-L428">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__bool__()
@@ -2749,7 +2775,7 @@ A `Dataset`.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L403-L418">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L409-L425">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
@@ -2792,7 +2818,7 @@ If not inside of tf.function and not executing eagerly.
 
 <h3 id="__len__"><code>__len__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L425-L448">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L432-L455">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__len__()
@@ -2839,7 +2865,7 @@ execution is not enabled.
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/dataset_ops.py#L420-L421">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/dataset_ops.py#L427-L428">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__nonzero__()

@@ -21,7 +21,7 @@ description: A queue implementation that dequeues elements in a random order.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L625-L706">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L625-L706">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -184,7 +184,7 @@ The list of shapes for each component of a queue element.
 
 <h3 id="close"><code>close</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L543-L576">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L543-L576">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>close(
@@ -246,7 +246,7 @@ The operation that closes the queue.
 
 <h3 id="dequeue"><code>dequeue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L421-L457">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L421-L457">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>dequeue(
@@ -300,7 +300,7 @@ The tuple of tensors that was dequeued.
 
 <h3 id="dequeue_many"><code>dequeue_many</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L459-L500">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L459-L500">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>dequeue_many(
@@ -365,7 +365,7 @@ The list of concatenated tensors that was dequeued.
 
 <h3 id="dequeue_up_to"><code>dequeue_up_to</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L502-L541">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L502-L541">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>dequeue_up_to(
@@ -431,7 +431,7 @@ The tuple of concatenated tensors that was dequeued.
 
 <h3 id="enqueue"><code>enqueue</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L311-L348">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L311-L348">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>enqueue(
@@ -494,7 +494,7 @@ The operation that enqueues a new tuple of tensors to the queue.
 
 <h3 id="enqueue_many"><code>enqueue_many</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L350-L396">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L350-L396">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>enqueue_many(
@@ -561,7 +561,7 @@ The operation that enqueues a batch of tuples of tensors to the queue.
 
 <h3 id="from_list"><code>from_list</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L184-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L184-L223">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -632,7 +632,7 @@ or when the data types of `queues` are not all the same.
 
 <h3 id="is_closed"><code>is_closed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L578-L595">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L578-L595">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_closed(
@@ -678,7 +678,7 @@ True if the queue is closed and false if the queue is open.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/data_flow_ops.py#L597-L611">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/data_flow_ops.py#L597-L611">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(

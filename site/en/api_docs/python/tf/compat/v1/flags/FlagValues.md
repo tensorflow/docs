@@ -18,6 +18,7 @@ description: Registry of 'Flag' objects.
 <meta itemprop="property" content="flags_by_module_id_dict"/>
 <meta itemprop="property" content="flags_into_string"/>
 <meta itemprop="property" content="get_flag_value"/>
+<meta itemprop="property" content="get_flags_for_module"/>
 <meta itemprop="property" content="get_help"/>
 <meta itemprop="property" content="get_key_flags_for_module"/>
 <meta itemprop="property" content="is_gnu_getopt"/>
@@ -34,6 +35,7 @@ description: Registry of 'Flag' objects.
 <meta itemprop="property" content="set_default"/>
 <meta itemprop="property" content="set_gnu_getopt"/>
 <meta itemprop="property" content="unparse_flags"/>
+<meta itemprop="property" content="validate_all_flags"/>
 <meta itemprop="property" content="write_help_in_xml_format"/>
 </div>
 
@@ -187,8 +189,7 @@ str, name of the flag to lookup.
 `default`
 </td>
 <td>
-Value to return if flagname is not defined. Defaults
-to None.
+Value to return if flagname is not defined. Defaults to None.
 </td>
 </tr>
 </table>
@@ -239,8 +240,7 @@ str, name of the flag to lookup.
 `default`
 </td>
 <td>
-Value to return if flagname is not defined. Defaults
-to None.
+Value to return if flagname is not defined. Defaults to None.
 </td>
 </tr>
 </table>
@@ -394,6 +394,56 @@ Requested flag value or default.
 </td>
 </tr>
 
+</table>
+
+
+
+<h3 id="get_flags_for_module"><code>get_flags_for_module</code></h3>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>get_flags_for_module(
+    module
+)
+</code></pre>
+
+Returns the list of flags defined by a module.
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`module`
+</td>
+<td>
+module|str, the module to get flags from.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+[Flag], a new list of Flag instances.  Caller may update this list as
+</td>
+</tr>
+<tr>
+<td>
+`desired`
+</td>
+<td>
+none of those changes will affect the internals of this
+FlagValue instance.
+</td>
+</tr>
 </table>
 
 
@@ -648,8 +698,8 @@ Note that the name of the program (sys.argv[0]) should be omitted.
 </td>
 <td>
 bool, if False, --flagfile parsing obeys the
-FLAGS.is_gnu_getopt() value. If True, ignore the value and always
-follow gnu_getopt semantics.
+FLAGS.is_gnu_getopt() value. If True, ignore the value and always follow
+gnu_getopt semantics.
 </td>
 </tr>
 </table>
@@ -942,6 +992,40 @@ bool, whether or not to use GNU style scanning.
 </code></pre>
 
 Unparses all flags to the point before any FLAGS(argv) was called.
+
+
+<h3 id="validate_all_flags"><code>validate_all_flags</code></h3>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>validate_all_flags()
+</code></pre>
+
+Verifies whether all flags pass validation.
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Raises</th></tr>
+
+<tr>
+<td>
+`AttributeError`
+</td>
+<td>
+Raised if validators work with a non-existing flag.
+</td>
+</tr><tr>
+<td>
+`IllegalFlagValueError`
+</td>
+<td>
+Raised if validation fails for at least one
+validator.
+</td>
+</tr>
+</table>
+
 
 
 <h3 id="write_help_in_xml_format"><code>write_help_in_xml_format</code></h3>

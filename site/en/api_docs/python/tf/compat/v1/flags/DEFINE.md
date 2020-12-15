@@ -83,8 +83,8 @@ str, the help message.
 `flag_values`
 </td>
 <td>
-FlagValues, the FlagValues instance with which the flag will
-be registered. This should almost never need to be overridden.
+FlagValues, the FlagValues instance with which the flag will be
+registered. This should almost never need to be overridden.
 </td>
 </tr><tr>
 <td>
@@ -98,8 +98,8 @@ ArgumentSerializer, the flag serializer instance.
 `module_name`
 </td>
 <td>
-str, the name of the Python module declaring this flag.
-If not provided, it will be computed using the stack trace of this call.
+str, the name of the Python module declaring this flag. If not
+provided, it will be computed using the stack trace of this call.
 </td>
 </tr><tr>
 <td>
@@ -109,5 +109,19 @@ If not provided, it will be computed using the stack trace of this call.
 dict, the extra keyword args that are passed to Flag __init__.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

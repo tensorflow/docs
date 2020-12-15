@@ -21,5 +21,7 @@ Public API for tf.mlir.experimental namespace.
 
 ## Functions
 
+[`convert_function(...)`](../../../../tf/mlir/experimental/convert_function.md): Import a ConcreteFunction and convert it to a textual MLIR module.
+
 [`convert_graph_def(...)`](../../../../tf/mlir/experimental/convert_graph_def.md): Import a GraphDef and convert it to a textual MLIR module.
 

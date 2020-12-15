@@ -28,7 +28,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.AutoShardDataset(
     input_dataset, num_workers, index, output_types, output_shapes,
-    auto_shard_policy=0, name=None
+    auto_shard_policy=0, num_replicas=0, name=None
 )
 </code></pre>
 
@@ -90,6 +90,13 @@ A list of shapes (each a <a href="../../tf/TensorShape.md"><code>tf.TensorShape<
 </tr><tr>
 <td>
 `auto_shard_policy`
+</td>
+<td>
+An optional `int`. Defaults to `0`.
+</td>
+</tr><tr>
+<td>
+`num_replicas`
 </td>
 <td>
 An optional `int`. Defaults to `0`.

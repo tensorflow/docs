@@ -11,6 +11,7 @@ description: Class to keep track of the specification for TPU embeddings.
 <meta itemprop="property" content="optimization_parameters"/>
 <meta itemprop="property" content="partition_strategy"/>
 <meta itemprop="property" content="pipeline_execution_with_tensor_core"/>
+<meta itemprop="property" content="profile_data_directory"/>
 <meta itemprop="property" content="table_to_config_dict"/>
 <meta itemprop="property" content="tensor_core_feature_columns"/>
 </div>
@@ -37,7 +38,7 @@ Class to keep track of the specification for TPU embeddings.
     feature_columns=None, optimization_parameters=None, clipping_limit=None,
     pipeline_execution_with_tensor_core=(False),
     experimental_gradient_multiplier_fn=None, feature_to_config_dict=None,
-    table_to_config_dict=None, partition_strategy='div'
+    table_to_config_dict=None, partition_strategy='div', profile_data_directory=None
 )
 </code></pre>
 
@@ -81,6 +82,7 @@ estimator = tf.estimator.tpu.TPUEstimator(
         column=tpu_columns,
         optimization_parameters=(
             tf.estimator.tpu.experimental.AdagradParameters(0.1))))
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -134,8 +136,8 @@ input returning the current multiplier for all embedding gradients.
 `feature_to_config_dict`
 </td>
 <td>
-A dictionary mapping features names to instances
-of the class `FeatureConfig`. Either features_columns or the pair of
+A dictionary mapping feature names to instances of
+the class `FeatureConfig`. Either features_columns or the pair of
 `feature_to_config_dict` and `table_to_config_dict` must be specified.
 </td>
 </tr><tr>
@@ -143,7 +145,7 @@ of the class `FeatureConfig`. Either features_columns or the pair of
 `table_to_config_dict`
 </td>
 <td>
-A dictionary mapping features names to instances of
+A dictionary mapping feature names to instances of
 the class `TableConfig`. Either features_columns or the pair of
 `feature_to_config_dict` and `table_to_config_dict` must be specified.
 </td>
@@ -156,6 +158,27 @@ A string, determining how tensors are sharded to the
 tpu hosts. See <a href="../../../../../../tf/nn/safe_embedding_lookup_sparse.md"><code>tf.nn.safe_embedding_lookup_sparse</code></a> for more details.
 Allowed value are `"div"` and `"mod"'. If `"mod"` is used, evaluation
 and exporting the model to CPU will not work as expected.
+</td>
+</tr><tr>
+<td>
+`profile_data_directory`
+</td>
+<td>
+Directory where embedding lookup statistics are
+stored. These statistics summarize information about the inputs to the
+embedding lookup operation, in particular, the average number of
+embedding IDs per example and how well the embedding IDs are load
+balanced across the system. The lookup statistics are used during TPU
+initialization for embedding table partitioning. Collection of lookup
+statistics is done at runtime by  profiling the embedding inputs: only
+3% of input samples are profiled to minimize host CPU overhead. Once
+a suitable number of samples are profiled, the lookup statistics are
+saved to table-specific files in the profile data directory generally
+at the end of a TPU training loop. The filename corresponding to each
+table is obtained by hashing table specific parameters (e.g., table
+name and number of features) and global configuration parameters (e.g.,
+sharding strategy and task count). The same profile data directory can
+be shared among several models to reuse embedding lookup statistics.
 </td>
 </tr>
 </table>
@@ -265,6 +288,13 @@ If `optimization_parameters` is not one of the required types.
 <td>
 
 </td>
+</tr><tr>
+<td>
+`profile_data_directory`
+</td>
+<td>
+
+</td>
 </tr>
 </table>
 
@@ -279,5 +309,6 @@ If `optimization_parameters` is not one of the required types.
 * `optimization_parameters` <a id="optimization_parameters"></a>
 * `partition_strategy` <a id="partition_strategy"></a>
 * `pipeline_execution_with_tensor_core` <a id="pipeline_execution_with_tensor_core"></a>
+* `profile_data_directory` <a id="profile_data_directory"></a>
 * `table_to_config_dict` <a id="table_to_config_dict"></a>
 * `tensor_core_feature_columns` <a id="tensor_core_feature_columns"></a>

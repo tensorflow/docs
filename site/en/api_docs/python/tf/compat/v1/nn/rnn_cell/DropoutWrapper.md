@@ -15,7 +15,7 @@ description: Operator adding dropout to inputs and outputs of the given cell.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1174-L1181">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L1185-L1192">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -180,11 +180,7 @@ if any of the keep_probs are not between 0 and 1.
 `graph`
 </td>
 <td>
-DEPRECATED FUNCTION
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Stop using this property because tf.layers layers no longer track their graph.
 </td>
 </tr><tr>
 <td>
@@ -223,7 +219,7 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="get_initial_state"><code>get_initial_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L281-L309">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_impl.py#L284-L312">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_initial_state(
@@ -236,7 +232,7 @@ Stop using this property because tf.layers layers no longer track their graph.
 
 <h3 id="zero_state"><code>zero_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_wrapper_impl.py#L201-L203">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/legacy_rnn/rnn_cell_wrapper_impl.py#L201-L203">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>zero_state(

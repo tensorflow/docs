@@ -18,7 +18,7 @@ description: Represents a (possibly partial) specification for a TensorFlow devi
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L51-L393">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L52-L394">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -191,7 +191,7 @@ unspecified, device represents 'any' device_index.
 
 <h3 id="from_string"><code>from_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L142-L157">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L143-L158">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -241,7 +241,7 @@ A DeviceSpec.
 
 <h3 id="make_merged_spec"><code>make_merged_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L212-L234">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L213-L235">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_merged_spec(
@@ -297,7 +297,7 @@ A new `DeviceSpec` which combines `self` and `dev`
 
 <h3 id="parse_from_string"><code>parse_from_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L159-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L160-L211">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>parse_from_string(
@@ -396,7 +396,7 @@ if the spec was not valid.
 
 <h3 id="replace"><code>replace</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L236-L258">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L237-L259">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>replace(
@@ -449,7 +449,7 @@ A DeviceSpec with the fields specified in kwargs overridden.
 
 <h3 id="to_string"><code>to_string</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L133-L140">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L134-L141">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_string()
@@ -475,7 +475,7 @@ a string of the form
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/device_spec.py#L376-L390">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/device_spec.py#L377-L391">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(

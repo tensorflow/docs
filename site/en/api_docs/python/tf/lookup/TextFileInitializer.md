@@ -13,7 +13,7 @@ description: Table initializers from a text file.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L551-L729">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L586-L766">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -64,9 +64,11 @@ the `key_index` and `value_index`.
 For example if we have a file with the following content:
 
 ```
-emerson 10
-lake 20
-palmer 30
+>>> import tempfile
+>>> f = tempfile.NamedTemporaryFile(delete=False)
+>>> content='\n'.join(["emerson 10", "lake 20", "palmer 30",])
+>>> f.file.write(content.encode('utf-8'))
+>>> f.file.close()
 ```
 
 The following snippet initializes a table with the first column as keys and
@@ -76,11 +78,14 @@ second column as values:
 * `lake -> 20`
 * `palmer -> 30`
 
-```python
-table = tf.lookup.StaticHashTable(tf.lookup.TextFileInitializer(
-    "test.txt", tf.string, 0, tf.int64, 1, delimiter=" "), -1)
-...
-table.init.run()
+```
+>>> init= tf.lookup.TextFileInitializer(
+...    filename=f.name,
+...    key_dtype=tf.string, key_index=0,
+...    value_dtype=tf.int64, value_index=1,
+...    delimiter=" ")
+>>> table = tf.lookup.StaticHashTable(init, default_value=-1)
+>>> table.lookup(tf.constant(['palmer','lake','tarkus'])).numpy()
 ```
 
 Similarly to initialize the whole line as keys and the line number as values.
@@ -89,12 +94,15 @@ Similarly to initialize the whole line as keys and the line number as values.
 * `lake 20 -> 1`
 * `palmer 30 -> 2`
 
-```python
-table = tf.lookup.StaticHashTable(tf.lookup.TextFileInitializer(
-    "test.txt", tf.string, tf.lookup.TextFileIndex.WHOLE_LINE,
-    tf.int64, tf.lookup.TextFileIndex.LINE_NUMBER, delimiter=" "), -1)
-...
-table.init.run()
+```
+>>> init = tf.lookup.TextFileInitializer(
+...   filename=f.name,
+...   key_dtype=tf.string, key_index=tf.lookup.TextFileIndex.WHOLE_LINE,
+...   value_dtype=tf.int64, value_index=tf.lookup.TextFileIndex.LINE_NUMBER,
+...   delimiter=" ")
+>>> table = tf.lookup.StaticHashTable(init, -1)
+>>> table.lookup(tf.constant('palmer 30')).numpy()
+2
 ```
 
 <!-- Tabular view -->
@@ -215,7 +223,7 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L688-L714">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L725-L751">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>initialize(

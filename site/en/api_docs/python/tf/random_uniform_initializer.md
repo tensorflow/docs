@@ -15,7 +15,7 @@ description: Initializer that generates tensors with a uniform distribution.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/init_ops_v2.py#L270-L330">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/init_ops_v2.py#L297-L361">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -98,7 +98,7 @@ A Python integer. Used to create random seeds. See
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/init_ops_v2.py#L70-L90">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/init_ops_v2.py#L80-L100">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -154,7 +154,7 @@ An Initializer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/init_ops_v2.py#L325-L330">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/init_ops_v2.py#L356-L361">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -179,11 +179,11 @@ A JSON-serializable Python dict.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/init_ops_v2.py#L308-L323">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/init_ops_v2.py#L335-L354">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__(
-    shape, dtype=tf.dtypes.float32
+    shape, dtype=tf.dtypes.float32, **kwargs
 )
 </code></pre>
 
@@ -209,6 +209,13 @@ Shape of the tensor.
 <td>
 Optional dtype of the tensor. Only floating point and integer
 types are supported.
+</td>
+</tr><tr>
+<td>
+`**kwargs`
+</td>
+<td>
+Additional keyword arguments.
 </td>
 </tr>
 </table>

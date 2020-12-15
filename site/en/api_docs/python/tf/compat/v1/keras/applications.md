@@ -35,6 +35,8 @@ Keras Applications are canned architectures with pre-trained weights.
 
 [`mobilenet_v2`](../../../../tf/compat/v1/keras/applications/mobilenet_v2.md) module: MobileNet v2 models for Keras.
 
+[`mobilenet_v3`](../../../../tf/compat/v1/keras/applications/mobilenet_v3.md) module: MobileNet v3 models for Keras.
+
 [`nasnet`](../../../../tf/compat/v1/keras/applications/nasnet.md) module: NASNet-A models for Keras.
 
 [`resnet`](../../../../tf/compat/v1/keras/applications/resnet.md) module: ResNet models for Keras.
@@ -80,6 +82,10 @@ Keras Applications are canned architectures with pre-trained weights.
 [`MobileNet(...)`](../../../../tf/keras/applications/MobileNet.md): Instantiates the MobileNet architecture.
 
 [`MobileNetV2(...)`](../../../../tf/keras/applications/MobileNetV2.md): Instantiates the MobileNetV2 architecture.
+
+[`MobileNetV3Large(...)`](../../../../tf/keras/applications/MobileNetV3Large.md): Instantiates the MobileNetV3Large architecture.
+
+[`MobileNetV3Small(...)`](../../../../tf/keras/applications/MobileNetV3Small.md): Instantiates the MobileNetV3Small architecture.
 
 [`NASNetLarge(...)`](../../../../tf/keras/applications/NASNetLarge.md): Instantiates a NASNet model in ImageNet mode.
 

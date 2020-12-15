@@ -1,4 +1,4 @@
-description: Returns list of all variables in the checkpoint.
+description: Lists the checkpoint keys and shapes of variables in a checkpoint.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.train.list_variables" />
@@ -11,7 +11,7 @@ description: Returns list of all variables in the checkpoint.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/checkpoint_utils.py#L88-L104">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/checkpoint_utils.py#L88-L118">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Returns list of all variables in the checkpoint.
 
 
 
-Returns list of all variables in the checkpoint.
+Lists the checkpoint keys and shapes of variables in a checkpoint.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -43,6 +43,21 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Checkpoint keys are paths in a checkpoint graph.
+
+#### Example usage:
+
+
+```python
+
+import tensorflow as tf
+import os
+ckpt_directory = "/tmp/training_checkpoints/ckpt"
+ckpt = tf.train.Checkpoint(optimizer=optimizer, model=model)
+manager = tf.train.CheckpointManager(ckpt, ckpt_directory, max_to_keep=3)
+train_and_checkpoint(model, manager)
+tf.train.list_variables(manager.latest_checkpoint)
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -67,7 +82,7 @@ Directory with checkpoints file or path to checkpoint.
 <tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
 <tr class="alt">
 <td colspan="2">
-List of tuples `(name, shape)`.
+List of tuples `(key, shape)`.
 </td>
 </tr>
 

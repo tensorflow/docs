@@ -37,7 +37,7 @@ description: Represents the shape of a Tensor.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L724-L1227">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L726-L1227">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -159,7 +159,7 @@ Returns the rank of this shape, or None if it is unspecified.
 
 <h3 id="as_list"><code>as_list</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1180-L1191">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1180-L1191">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_list()
@@ -201,7 +201,7 @@ If `self` is an unknown shape with an unknown rank.
 
 <h3 id="as_proto"><code>as_proto</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1193-L1201">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1193-L1201">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>as_proto()
@@ -212,7 +212,7 @@ Returns this shape as a `TensorShapeProto`.
 
 <h3 id="assert_has_rank"><code>assert_has_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1004-L1014">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1004-L1014">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_has_rank(
@@ -259,7 +259,7 @@ If `self` does not represent a shape with the given `rank`.
 
 <h3 id="assert_is_compatible_with"><code>assert_is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1121-L1134">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1121-L1134">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_is_compatible_with(
@@ -308,7 +308,7 @@ If `self` and `other` do not represent the same shape.
 
 <h3 id="assert_is_fully_defined"><code>assert_is_fully_defined</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1171-L1178">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1171-L1178">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_is_fully_defined()
@@ -336,7 +336,7 @@ If `self` does not have a known value for every dimension.
 
 <h3 id="assert_same_rank"><code>assert_same_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L988-L1002">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L988-L1002">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>assert_same_rank(
@@ -384,7 +384,7 @@ same rank.
 
 <h3 id="concatenate"><code>concatenate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L965-L986">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L965-L986">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>concatenate(
@@ -433,7 +433,7 @@ dimensions in `self` and `other`.
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1074-L1119">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1074-L1119">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_compatible_with(
@@ -504,7 +504,7 @@ True iff `self` is compatible with `other`.
 
 <h3 id="is_fully_defined"><code>is_fully_defined</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1166-L1169">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1166-L1169">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_fully_defined()
@@ -515,7 +515,7 @@ Returns True iff `self` is fully defined in every dimension.
 
 <h3 id="merge_with"><code>merge_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L926-L953">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L925-L955">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>merge_with(
@@ -579,7 +579,7 @@ If `self` and `other` are not compatible.
 
 <h3 id="most_specific_compatible_shape"><code>most_specific_compatible_shape</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1136-L1164">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1136-L1164">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>most_specific_compatible_shape(
@@ -632,7 +632,7 @@ and `other`.
 
 <h3 id="num_elements"><code>num_elements</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L916-L924">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L918-L923">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_elements()
@@ -643,7 +643,7 @@ Returns the total number of elements, or none for incomplete shapes.
 
 <h3 id="with_rank"><code>with_rank</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1016-L1034">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1016-L1034">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_rank(
@@ -706,7 +706,7 @@ If `self` does not represent a shape with the given `rank`.
 
 <h3 id="with_rank_at_least"><code>with_rank_at_least</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1036-L1053">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1036-L1053">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_rank_at_least(
@@ -769,7 +769,7 @@ If `self` does not represent a shape with at least the given
 
 <h3 id="with_rank_at_most"><code>with_rank_at_most</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1055-L1072">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1055-L1072">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>with_rank_at_most(
@@ -832,7 +832,7 @@ If `self` does not represent a shape with at most the given
 
 <h3 id="__add__"><code>__add__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L955-L958">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L957-L958">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__add__(
@@ -845,7 +845,7 @@ If `self` does not represent a shape with at most the given
 
 <h3 id="__bool__"><code>__bool__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L849-L851">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L851-L853">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__bool__()
@@ -856,7 +856,7 @@ Returns True if this shape contains non-zero information.
 
 <h3 id="__concat__"><code>__concat__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1226-L1227">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1226-L1227">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__concat__(
@@ -869,7 +869,7 @@ Returns True if this shape contains non-zero information.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1203-L1209">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1203-L1209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -882,7 +882,7 @@ Returns True if `self` is equivalent to `other`.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L866-L914">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L868-L916">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__getitem__(
@@ -947,7 +947,7 @@ the step is set.
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L856-L864">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L858-L866">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
@@ -958,7 +958,7 @@ Returns `self.dims` if the rank is known, otherwise raises ValueError.
 
 <h3 id="__len__"><code>__len__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L843-L847">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L845-L849">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__len__()
@@ -969,7 +969,7 @@ Returns the rank of this shape, or raises ValueError if unspecified.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L1211-L1221">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L1211-L1221">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(
@@ -982,7 +982,7 @@ Returns True if `self` is known to be different from `other`.
 
 <h3 id="__nonzero__"><code>__nonzero__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L849-L851">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L851-L853">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__nonzero__()
@@ -993,7 +993,7 @@ Returns True if this shape contains non-zero information.
 
 <h3 id="__radd__"><code>__radd__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/tensor_shape.py#L960-L963">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/tensor_shape.py#L960-L963">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__radd__(

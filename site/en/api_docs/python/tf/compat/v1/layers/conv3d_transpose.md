@@ -1,4 +1,4 @@
-description: Functional interface for transposed 3D convolution layer. (deprecated)
+description: Functional interface for transposed 3D convolution layer.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.conv3d_transpose" />
@@ -11,7 +11,7 @@ description: Functional interface for transposed 3D convolution layer. (deprecat
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1364-L1453">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1404-L1496">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Functional interface for transposed 3D convolution layer. (deprecat
 
 
 
-Functional interface for transposed 3D convolution layer. (deprecated)
+Functional interface for transposed 3D convolution layer.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.conv3d_transpose(
@@ -37,9 +37,6 @@ Functional interface for transposed 3D convolution layer. (deprecated)
 
 <!-- Placeholder for "Used in" -->
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use <a href="../../../../tf/keras/layers/Conv3DTranspose.md"><code>tf.keras.layers.Conv3DTranspose</code></a> instead.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -85,6 +82,9 @@ all spatial dimensions.
 </td>
 <td>
 one of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

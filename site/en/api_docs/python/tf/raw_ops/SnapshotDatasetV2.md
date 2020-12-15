@@ -28,7 +28,8 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.SnapshotDatasetV2(
     input_dataset, path, reader_func_other_args, shard_func_other_args,
-    output_types, output_shapes, reader_func, shard_func, compression='', name=None
+    output_types, output_shapes, reader_func, shard_func, compression='',
+    reader_prefix='', writer_prefix='', name=None
 )
 </code></pre>
 
@@ -113,6 +114,20 @@ Optional. A function to control how to shard data when writing a snapshot.
 <td>
 An optional `string`. Defaults to `""`.
 The type of compression to be applied to the saved snapshot files.
+</td>
+</tr><tr>
+<td>
+`reader_prefix`
+</td>
+<td>
+An optional `string`. Defaults to `""`.
+</td>
+</tr><tr>
+<td>
+`writer_prefix`
+</td>
+<td>
+An optional `string`. Defaults to `""`.
 </td>
 </tr><tr>
 <td>

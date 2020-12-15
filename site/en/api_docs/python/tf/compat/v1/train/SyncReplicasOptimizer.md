@@ -25,7 +25,7 @@ description: Class to synchronize, aggregate gradients and pass them to the opti
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L45-L462">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L45-L462">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -222,7 +222,7 @@ string. Optional name of the returned operation.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L225-L358">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L225-L358">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_gradients(
@@ -314,7 +314,7 @@ checked.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L207-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L207-L223">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_gradients(
@@ -370,7 +370,7 @@ A list of (gradient, variable) pairs.
 
 <h3 id="get_chief_queue_runner"><code>get_chief_queue_runner</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L360-L378">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L360-L378">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_chief_queue_runner()
@@ -417,7 +417,7 @@ If this is called before apply_gradients().
 
 <h3 id="get_init_tokens_op"><code>get_init_tokens_op</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L419-L458">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L419-L458">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_init_tokens_op(
@@ -491,7 +491,7 @@ total_num_replicas.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_name()
@@ -502,7 +502,7 @@ total_num_replicas.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L380-L392">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L380-L392">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot(
@@ -554,7 +554,7 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L405-L417">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L405-L417">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot_names(
@@ -606,7 +606,7 @@ A list of strings.
 
 <h3 id="make_session_run_hook"><code>make_session_run_hook</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L460-L462">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L460-L462">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_session_run_hook(
@@ -619,7 +619,7 @@ Creates a hook to handle SyncReplicasHook ops such as initialization.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>minimize(
@@ -754,7 +754,7 @@ execution is enabled.
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/sync_replicas_optimizer.py#L394-L403">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/sync_replicas_optimizer.py#L394-L403">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variables()

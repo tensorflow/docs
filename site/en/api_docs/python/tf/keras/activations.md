@@ -27,6 +27,8 @@ Built-in activation functions.
 
 [`exponential(...)`](../../tf/keras/activations/exponential.md): Exponential activation function.
 
+[`gelu(...)`](../../tf/keras/activations/gelu.md): Applies the Gaussian error linear unit (GELU) activation function.
+
 [`get(...)`](../../tf/keras/activations/get.md): Returns function.
 
 [`hard_sigmoid(...)`](../../tf/keras/activations/hard_sigmoid.md): Hard sigmoid activation function.

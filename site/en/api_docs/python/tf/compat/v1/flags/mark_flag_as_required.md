@@ -42,15 +42,12 @@ Registers a flag validator, which will follow usual validator rules.
 Important note: validator will pass for any non-None value, such as False,
 0 (zero), '' (empty string) and so on.
 
-It is recommended to call this method like this:
+If your module might be imported by others, and you only wish to make the flag
+required when the module is directly executed, call this method like this:
 
   if __name__ == '__main__':
     flags.mark_flag_as_required('your_flag_name')
     app.run()
-
-Because validation happens at app.run() we want to ensure required-ness
-is enforced at that time. You generally do not want to force users who import
-your code to have additional required flags for their own binaries or tests.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

@@ -1,4 +1,4 @@
-description: Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
+description: Average pooling layer for 3D inputs (e.g. volumes).
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.average_pooling3d" />
@@ -11,7 +11,7 @@ description: Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/pooling.py#L349-L388">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/pooling.py#L354-L394">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
 
 
 
-Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
+Average pooling layer for 3D inputs (e.g. volumes).
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.average_pooling3d(
@@ -33,9 +33,6 @@ Average pooling layer for 3D inputs (e.g. volumes). (deprecated)
 
 <!-- Placeholder for "Used in" -->
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.AveragePooling3D instead.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

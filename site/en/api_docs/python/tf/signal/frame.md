@@ -11,7 +11,7 @@ description: Expands signal's axis dimension into frames of frame_length.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/signal/shape_ops.py#L58-L216">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/signal/shape_ops.py#L58-L224">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -57,19 +57,29 @@ end of the dimension. Otherwise, only window positions that fully overlap the
 
 
 
+```
+>>> # A batch size 3 tensor of 9152 audio samples.
+>>> audio = tf.random.normal([3, 9152])
+>>> 
+>>> # Compute overlapping frames of length 512 with a step of 180 (frames overlap
+>>> # by 332 samples). By default, only 49 frames are generated since a frame
+>>> # with start position j*180 for j > 48 would overhang the end.
+>>> frames = tf.signal.frame(audio, 512, 180)
+>>> frames.shape.assert_is_compatible_with([3, 49, 512])
+>>> 
+>>> # When pad_end is enabled, the final two frames are kept (padded with zeros).
+>>> frames = tf.signal.frame(audio, 512, 180, pad_end=True)
+>>> frames.shape.assert_is_compatible_with([3, 51, 512])
+```
+
+If the dimension along `axis` is N, and `pad_end=False`, the number of frames
+can be computed by:
+ ```python
+ num_frames = 1 + (N - frame_size) // frame_step
+ ```
+ If `pad_end=True`, the number of frames can be computed by:
 ```python
-# A batch size 3 tensor of 9152 audio samples.
-audio = tf.random.normal([3, 9152])
-
-# Compute overlapping frames of length 512 with a step of 180 (frames overlap
-# by 332 samples). By default, only 50 frames are generated since the last
-# 152 samples do not form a full frame.
-frames = tf.signal.frame(audio, 512, 180)
-frames.shape.assert_is_compatible_with([3, 50, 512])
-
-# When pad_end is enabled, the final frame is kept (padded with zeros).
-frames = tf.signal.frame(audio, 512, 180, pad_end=True)
-frames.shape.assert_is_compatible_with([3, 51, 512])
+num_frames = -(-N // frame_step) # ceiling division
 ```
 
 <!-- Tabular view -->
@@ -140,7 +150,7 @@ An optional name for the operation.
 <tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
 <tr class="alt">
 <td colspan="2">
-A `Tensor` of frames with shape `[..., frames, frame_length, ...]`.
+A `Tensor` of frames with shape `[..., num_frames, frame_length, ...]`.
 </td>
 </tr>
 

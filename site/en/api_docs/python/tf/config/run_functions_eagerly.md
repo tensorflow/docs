@@ -11,7 +11,7 @@ description: Enables / disables eager execution of <a href="../../tf/function.md
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/def_function.py#L363-L411">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/def_function.py#L340-L382">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,39 +47,41 @@ Calling <a href="../../tf/config/run_functions_eagerly.md"><code>tf.config.run_f
 invocations of <a href="../../tf/function.md"><code>tf.function</code></a> run eagerly instead of running as a traced graph
 function.
 
-This can be useful for debugging or profiling. For example, let's say you
-implemented a simple iterative sqrt function, and you want to collect the
-intermediate values and plot the convergence.  Appending the values to a list
-in `@tf.function` normally wouldn't work since it will just record the Tensors
-being traced, not the values.  Instead, you can do the following.
+This can be useful for debugging.
 
 ```
->>> ys = []
->>>
->>> @tf.function
-... def sqrt(x):
-...   y = x / 2
-...   d = y
-...   for _ in range(10):
-...     d /= 2
-...     if y * y < x:
-...       y += d
-...     else:
-...       y -= d
-...     ys.append(y.numpy())
-...   return y
->>>
+>>> def my_func(a):
+...  print("Python side effect")
+...  return a + a
+>>> a_fn = tf.function(my_func)
+```
+
+```
+>>> # A side effect the first time the function is traced
+>>> a_fn(tf.constant(1))
+Python side effect
+<tf.Tensor: shape=(), dtype=int32, numpy=2>
+```
+
+```
+>>> # No further side effect, as the traced function is called
+>>> a_fn(tf.constant(2))
+<tf.Tensor: shape=(), dtype=int32, numpy=4>
+```
+
+```
+>>> # Now, switch to eager running
 >>> tf.config.run_functions_eagerly(True)
->>> sqrt(tf.constant(2.))
-<tf.Tensor: shape=(), dtype=float32, numpy=1.4150391>
->>> ys
-[1.5, 1.25, 1.375, 1.4375, 1.40625, 1.421875, 1.4140625, 1.4179688, 1.4160156,
-1.4150391]
+>>> # Side effect, as the function is called directly
+>>> a_fn(tf.constant(2))
+Python side effect
+<tf.Tensor: shape=(), dtype=int32, numpy=4>
+```
+
+```
+>>> # Turn this back off
 >>> tf.config.run_functions_eagerly(False)
 ```
-
-Calling <a href="../../tf/config/run_functions_eagerly.md"><code>tf.config.run_functions_eagerly(False)</code></a> will undo this
-behavior.
 
 Note: This flag has no effect on functions passed into tf.data transformations
 as arguments. tf.data functions are never executed eagerly and are always

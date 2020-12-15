@@ -34,7 +34,7 @@ See [Importing Data](https://tensorflow.org/guide/datasets) for an overview.
 
 ## Modules
 
-[`service`](../../tf/data/experimental/service.md) module: Experimental API for using the tf.data service.
+[`service`](../../tf/data/experimental/service.md) module: API for using the tf.data service.
 
 ## Classes
 

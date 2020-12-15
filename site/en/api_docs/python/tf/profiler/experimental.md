@@ -29,13 +29,13 @@ Public API for tf.profiler.experimental namespace.
 
 [`class Profile`](../../tf/profiler/experimental/Profile.md): Context-manager profile API.
 
-[`class ProfilerOptions`](../../tf/profiler/experimental/ProfilerOptions.md): Options to control profiler behaviors.
+[`class ProfilerOptions`](../../tf/profiler/experimental/ProfilerOptions.md): Options for finer control over the profiler.
 
 [`class Trace`](../../tf/profiler/experimental/Trace.md): Context manager that generates a trace event in the profiler.
 
 ## Functions
 
-[`start(...)`](../../tf/profiler/experimental/start.md): Starts profiling.
+[`start(...)`](../../tf/profiler/experimental/start.md): Start profiling TensorFlow performance.
 
 [`stop(...)`](../../tf/profiler/experimental/stop.md): Stops the current profiling session.
 

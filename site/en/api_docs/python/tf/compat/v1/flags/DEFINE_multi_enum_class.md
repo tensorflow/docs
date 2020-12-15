@@ -31,7 +31,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.flags.DEFINE_multi_enum_class(
     name, default, enum_class, help, flag_values=_flagvalues.FLAGS,
-    module_name=None, **args
+    module_name=None, case_sensitive=(False), **args
 )
 </code></pre>
 
@@ -60,11 +60,10 @@ str, the flag name.
 </td>
 <td>
 Union[Iterable[Enum], Iterable[Text], Enum, Text, None], the
-default value of the flag; see
-`DEFINE_multi`; only differences are documented here. If the value is
-a single Enum, it is treated as a single-item list of that Enum value.
-If it is an iterable, text values within the iterable will be converted
-to the equivalent Enum objects.
+default value of the flag; see `DEFINE_multi`; only differences are
+documented here. If the value is a single Enum, it is treated as a
+single-item list of that Enum value. If it is an iterable, text values
+within the iterable will be converted to the equivalent Enum objects.
 </td>
 </tr><tr>
 <td>
@@ -92,6 +91,14 @@ not provided, it will be computed using the stack trace of this call.
 </td>
 </tr><tr>
 <td>
+`case_sensitive`
+</td>
+<td>
+bool, whether to map strings to members of the enum_class
+without considering case.
+</td>
+</tr><tr>
+<td>
 `**args`
 </td>
 <td>
@@ -99,5 +106,19 @@ Dictionary with extra keyword args that are passed to the Flag
 __init__.
 </td>
 </tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
+<tr class="alt">
+<td colspan="2">
+a handle to defined flag.
+</td>
+</tr>
+
 </table>
 

@@ -38,15 +38,12 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+If your module might be imported by others, and you only wish to make the flag
+required when the module is directly executed, call this method like this:
 
-#### Recommended usage:
-
-
-if __name__ == '__main__':
-  flags.mark_flags_as_required(['flag1', 'flag2', 'flag3'])
-  app.run()
-
-
+  if __name__ == '__main__':
+    flags.mark_flags_as_required(['flag1', 'flag2', 'flag3'])
+    app.run()
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

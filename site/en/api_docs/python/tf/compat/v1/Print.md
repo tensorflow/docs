@@ -11,7 +11,7 @@ description: Prints a list of tensors. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/logging_ops.py#L66-L114">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/logging_ops.py#L65-L108">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -43,11 +43,6 @@ of printing `data` when evaluating.
 Note: This op prints to the standard error. It is not currently compatible
   with jupyter notebook (printing to the notebook *server's* output, not into
   the notebook).
-
-Additionally, to use tf.print in python 2.7, users must make sure to import
-the following:
-
-`from __future__ import print_function`
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

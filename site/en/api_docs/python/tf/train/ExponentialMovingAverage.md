@@ -16,7 +16,7 @@ description: Maintains moving averages of variables by employing an exponential 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/moving_averages.py#L285-L575">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/moving_averages.py#L285-L575">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -188,7 +188,7 @@ The name of this ExponentialMovingAverage object.
 
 <h3 id="apply"><code>apply</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/moving_averages.py#L403-L487">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/moving_averages.py#L403-L487">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply(
@@ -267,7 +267,7 @@ If the arguments are not an allowed type.
 
 <h3 id="average"><code>average</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/moving_averages.py#L489-L499">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/moving_averages.py#L489-L499">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>average(
@@ -312,7 +312,7 @@ is not maintained.
 
 <h3 id="average_name"><code>average_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/moving_averages.py#L501-L526">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/moving_averages.py#L501-L526">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>average_name(
@@ -368,7 +368,7 @@ by the `ExponentialMovingAverage class` to hold the moving average of
 
 <h3 id="variables_to_restore"><code>variables_to_restore</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/moving_averages.py#L528-L575">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/moving_averages.py#L528-L575">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variables_to_restore(

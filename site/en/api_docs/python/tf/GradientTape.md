@@ -21,7 +21,7 @@ description: Record operations for automatic differentiation.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L736-L1315">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L736-L1360">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -67,25 +67,31 @@ manager.
 For example, consider the function `y = x * x`. The gradient at `x = 3.0` can
 be computed as:
 
-```python
-x = tf.constant(3.0)
-with tf.GradientTape() as g:
-  g.watch(x)
-  y = x * x
-dy_dx = g.gradient(y, x) # Will compute to 6.0
+```
+>>> x = tf.constant(3.0)
+>>> with tf.GradientTape() as g:
+...   g.watch(x)
+...   y = x * x
+>>> dy_dx = g.gradient(y, x)
+>>> print(dy_dx)
+tf.Tensor(6.0, shape=(), dtype=float32)
 ```
 
 GradientTapes can be nested to compute higher-order derivatives. For example,
 
-```python
-x = tf.constant(3.0)
-with tf.GradientTape() as g:
-  g.watch(x)
-  with tf.GradientTape() as gg:
-    gg.watch(x)
-    y = x * x
-  dy_dx = gg.gradient(y, x)     # Will compute to 6.0
-d2y_dx2 = g.gradient(dy_dx, x)  # Will compute to 2.0
+```
+>>> x = tf.constant(5.0)
+>>> with tf.GradientTape() as g:
+...   g.watch(x)
+...   with tf.GradientTape() as gg:
+...     gg.watch(x)
+...     y = x * x
+...   dy_dx = gg.gradient(y, x)  # dy_dx = 2 * x
+>>> d2y_dx2 = g.gradient(dy_dx, x)  # d2y_dx2 = 2
+>>> print(dy_dx)
+tf.Tensor(10.0, shape=(), dtype=float32)
+>>> print(d2y_dx2)
+tf.Tensor(2.0, shape=(), dtype=float32)
 ```
 
 By default, the resources held by a GradientTape are released as soon as
@@ -94,15 +100,18 @@ the same computation, create a persistent gradient tape. This allows multiple
 calls to the gradient() method as resources are released when the tape object
 is garbage collected. For example:
 
-```python
-x = tf.constant(3.0)
-with tf.GradientTape(persistent=True) as g:
-  g.watch(x)
-  y = x * x
-  z = y * y
-dz_dx = g.gradient(z, x)  # 108.0 (4*x^3 at x = 3)
-dy_dx = g.gradient(y, x)  # 6.0
-del g  # Drop the reference to the tape
+```
+>>> x = tf.constant(3.0)
+>>> with tf.GradientTape(persistent=True) as g:
+...   g.watch(x)
+...   y = x * x
+...   z = y * y
+>>> dz_dx = g.gradient(z, x)  # (4*x^3 at x = 3)
+>>> print(dz_dx)
+tf.Tensor(108.0, shape=(), dtype=float32)
+>>> dy_dx = g.gradient(y, x)
+>>> print(dy_dx)
+tf.Tensor(6.0, shape=(), dtype=float32)
 ```
 
 By default GradientTape will automatically watch any trainable variables that
@@ -110,12 +119,21 @@ are accessed inside the context. If you want fine grained control over which
 variables are watched you can disable automatic tracking by passing
 `watch_accessed_variables=False` to the tape constructor:
 
-```python
-with tf.GradientTape(watch_accessed_variables=False) as tape:
-  tape.watch(variable_a)
-  y = variable_a ** 2  # Gradients will be available for `variable_a`.
-  z = variable_b ** 3  # No gradients will be available since `variable_b` is
-                       # not being watched.
+```
+>>> x = tf.Variable(2.0)
+>>> w = tf.Variable(5.0)
+>>> with tf.GradientTape(
+...     watch_accessed_variables=False, persistent=True) as tape:
+...   tape.watch(x)
+...   y = x ** 2  # Gradients will be available for `x`.
+...   z = w ** 3  # No gradients will be available as `w` isn't being watched.
+>>> dy_dx = tape.gradient(y, x)
+>>> print(dy_dx)
+tf.Tensor(4.0, shape=(), dtype=float32)
+>>> # No gradients will be available as `w` isn't being watched.
+>>> dz_dy = tape.gradient(z, w)
+>>> print(dz_dy)
+None
 ```
 
 Note that when using models you should ensure that your variables exist when
@@ -173,7 +191,7 @@ request gradients from.
 
 <h3 id="batch_jacobian"><code>batch_jacobian</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L1196-L1315">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L1221-L1360">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>batch_jacobian(
@@ -184,8 +202,8 @@ request gradients from.
 
 Computes and stacks per-example jacobians.
 
-See [wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant) for the
-definition of a Jacobian. This function is essentially an efficient
+See [wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant)
+for the definition of a Jacobian. This function is essentially an efficient
 implementation of the following:
 
 `tf.stack([self.jacobian(y[i], x[i]) for i in range(x.shape[0])])`.
@@ -197,6 +215,9 @@ assumption allows more efficient computation as compared to
 <a href="../tf/GradientTape.md#jacobian"><code>GradientTape.jacobian</code></a>. The output, as well as intermediate activations,
 are lower dimensional and avoid a bunch of redundant zeros which would
 result in the jacobian computation given the independence assumption.
+
+Note: Unless you set `persistent=True` a GradientTape can only be used to
+compute one set of gradients (or jacobians).
 
 #### Example usage:
 
@@ -288,6 +309,13 @@ per-example jacobians.
 `RuntimeError`
 </td>
 <td>
+If called on a used, non-persistent tape.
+</td>
+</tr><tr>
+<td>
+`RuntimeError`
+</td>
+<td>
 If called on a non-persistent tape with eager execution
 enabled and without enabling experimental_use_pfor.
 </td>
@@ -306,7 +334,7 @@ dimension of `target` and `source` do not match.
 
 <h3 id="gradient"><code>gradient</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L983-L1084">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L993-L1101">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>gradient(
@@ -317,6 +345,8 @@ dimension of `target` and `source` do not match.
 
 Computes the gradient using operations recorded in context of this tape.
 
+Note: Unless you set `persistent=True` a GradientTape can only be used to
+compute one set of gradients (or jacobians).
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -388,15 +418,21 @@ the structure of `sources`.
 `RuntimeError`
 </td>
 <td>
-if called inside the context of the tape, or if called more
-than once on a non-persistent tape.
+If called on a used, non-persistent tape.
+</td>
+</tr><tr>
+<td>
+`RuntimeError`
+</td>
+<td>
+If called inside the context of the tape.
 </td>
 </tr><tr>
 <td>
 `ValueError`
 </td>
 <td>
-if the target is a variable or if unconnected gradients is
+If the target is a variable or if unconnected gradients is
 called with an unknown value.
 </td>
 </tr>
@@ -406,7 +442,7 @@ called with an unknown value.
 
 <h3 id="jacobian"><code>jacobian</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L1086-L1194">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L1103-L1219">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>jacobian(
@@ -417,8 +453,11 @@ called with an unknown value.
 
 Computes the jacobian using operations recorded in context of this tape.
 
-See [wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant) for the
-definition of a Jacobian.
+Note: Unless you set `persistent=True` a GradientTape can only be used to
+compute one set of gradients (or jacobians).
+
+See[wikipedia article](http://en.wikipedia.org/wiki/jacobian_matrix_and_determinant)
+for the definition of a Jacobian.
 
 #### Example usage:
 
@@ -514,6 +553,13 @@ the future.
 `RuntimeError`
 </td>
 <td>
+If called on a used, non-persistent tape.
+</td>
+</tr><tr>
+<td>
+`RuntimeError`
+</td>
+<td>
 If called on a non-persistent tape with eager execution
 enabled and without enabling experimental_use_pfor.
 </td>
@@ -531,7 +577,7 @@ If vectorization of jacobian computation fails.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L941-L975">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L951-L985">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset()
@@ -570,7 +616,7 @@ with tf.GradientTape() as t:
 
 <h3 id="stop_recording"><code>stop_recording</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L909-L939">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L919-L949">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@tf_contextlib.contextmanager</code>
@@ -588,11 +634,13 @@ all computations.
 
 
 ```
-  with tf.GradientTape(persistent=True) as t:
-    loss = compute_loss(model)
-    with t.stop_recording():
-      # The gradient computation below is not traced, saving memory.
-      grads = t.gradient(loss, model.variables)
+>>> x = tf.constant(4.0)
+>>> with tf.GradientTape() as tape:
+...   with tape.stop_recording():
+...     y = x ** 2
+>>> dy_dx = tape.gradient(y, x)
+>>> print(dy_dx)
+None
 ```
 
 #### Yields:
@@ -619,7 +667,7 @@ if the tape is not currently recording.
 
 <h3 id="watch"><code>watch</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L884-L907">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L894-L917">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>watch(
@@ -666,7 +714,7 @@ if it encounters something that is not a tensor.
 
 <h3 id="watched_variables"><code>watched_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L977-L981">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L987-L991">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>watched_variables()
@@ -677,7 +725,7 @@ Returns variables watched by this tape in order of construction.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L846-L849">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L856-L859">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__enter__()
@@ -688,7 +736,7 @@ Enters a context inside which operations are recorded on this tape.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/eager/backprop.py#L851-L854">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/eager/backprop.py#L861-L864">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__exit__(

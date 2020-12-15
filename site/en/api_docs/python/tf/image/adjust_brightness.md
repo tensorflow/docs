@@ -11,7 +11,7 @@ description: Adjust the brightness of RGB or Grayscale images.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L1831-L1880">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L2024-L2073">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -51,8 +51,8 @@ minimize the number of redundant conversions.
 The value `delta` is added to all components of the tensor `image`. `image` is
 converted to `float` and scaled appropriately if it is in fixed-point
 representation, and `delta` is converted to the same data type. For regular
-images, `delta` should be in the range `[0,1)`, as it is added to the image in
-floating point representation, where pixel values are in the `[0,1)` range.
+images, `delta` should be in the range `(-1,1)`, as it is added to the image
+in floating point representation, where pixel values are in the `[0,1)` range.
 
 #### Usage Example:
 

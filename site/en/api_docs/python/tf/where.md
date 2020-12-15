@@ -11,7 +11,7 @@ description: Return the elements where condition is True (multiplexing x and y).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L4368-L4463">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L4488-L4600">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -91,7 +91,7 @@ and `y` that all three shapes are
 
 The `condition` tensor acts as a mask that chooses whether the corresponding
 element / row in the output should be taken from `x`
-(if the element in `condition is True) or `y` (if it is false).
+(if the element in `condition` is True) or `y` (if it is false).
 
 ```
 >>> tf.where([True, False, False, True], [1,2,3,4], [100,200,300,400])
@@ -115,6 +115,27 @@ dtype=int32)>
 >>> tf.where(False, [1,2,3,4], 100)
 <tf.Tensor: shape=(4,), dtype=int32, numpy=array([100, 100, 100, 100],
 dtype=int32)>
+```
+
+Note that if the gradient of either branch of the tf.where generates
+a NaN, then the gradient of the entire tf.where will be NaN.
+A workaround is to use an inner tf.where to ensure the function has
+no asymptote, and to avoid computing a value whose gradient is NaN by
+replacing dangerous inputs with safe inputs.
+
+Instead of this,
+
+```
+>>> y = tf.constant(-1, dtype=tf.float32)
+>>> tf.where(y > 0, tf.sqrt(y), y)
+<tf.Tensor: shape=(), dtype=float32, numpy=-1.0>
+```
+
+Use this
+
+```
+>>> tf.where(y > 0, tf.sqrt(tf.where(y > 0, y, 1)), y)
+<tf.Tensor: shape=(), dtype=float32, numpy=-1.0>
 ```
 
 <!-- Tabular view -->
@@ -142,7 +163,7 @@ broadcastable with `condition` and `y`.
 `y`
 </td>
 <td>
-If provided, a Tensor which is of the same type as `y`, and has a shape
+If provided, a Tensor which is of the same type as `x`, and has a shape
 broadcastable with `condition` and `x`.
 </td>
 </tr><tr>

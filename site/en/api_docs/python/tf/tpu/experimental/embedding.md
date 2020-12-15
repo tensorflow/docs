@@ -33,3 +33,7 @@ Public API for tf.tpu.experimental.embedding namespace.
 
 [`class TableConfig`](../../../tf/tpu/experimental/embedding/TableConfig.md): Configuration data for one embedding table.
 
+## Functions
+
+[`serving_embedding_lookup(...)`](../../../tf/tpu/experimental/embedding/serving_embedding_lookup.md): Apply standard lookup ops with <a href="../../../tf/tpu/experimental/embedding.md"><code>tf.tpu.experimental.embedding</code></a> configs.
+

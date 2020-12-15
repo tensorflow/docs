@@ -1,4 +1,4 @@
-description: Functional interface for 1D convolution layer (e.g. temporal convolution). (deprecated)
+description: Functional interface for 1D convolution layer (e.g. temporal convolution).
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.conv1d" />
@@ -11,7 +11,7 @@ description: Functional interface for 1D convolution layer (e.g. temporal convol
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L118-L218">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L122-L225">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Functional interface for 1D convolution layer (e.g. temporal convol
 
 
 
-Functional interface for 1D convolution layer (e.g. temporal convolution). (deprecated)
+Functional interface for 1D convolution layer (e.g. temporal convolution).
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.conv1d(
@@ -36,10 +36,6 @@ Functional interface for 1D convolution layer (e.g. temporal convolution). (depr
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use <a href="../../../../tf/keras/layers/Conv1D.md"><code>tf.keras.layers.Conv1D</code></a> instead.
 
 This layer creates a convolution kernel that is convolved
 (actually cross-correlated) with the layer input to produce a tensor of
@@ -91,6 +87,9 @@ any `dilation_rate` value != 1.
 </td>
 <td>
 One of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

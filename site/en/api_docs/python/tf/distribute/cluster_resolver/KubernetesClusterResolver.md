@@ -15,7 +15,7 @@ description: ClusterResolver for Kubernetes.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L35-L185">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L35-L185">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -280,7 +280,7 @@ For more information, please see
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L149-L185">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L149-L185">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cluster_spec()
@@ -325,7 +325,7 @@ If any of the pods returned by the master is not in the
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L121-L147">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/kubernetes_cluster_resolver.py#L121-L147">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>master(
@@ -389,7 +389,7 @@ The name or URL of the session master.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L134-L171">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/cluster_resolver.py#L134-L171">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accelerators(

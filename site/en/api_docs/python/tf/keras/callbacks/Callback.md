@@ -30,7 +30,7 @@ description: Abstract base class used to build new callbacks.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L593-L830">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L607-L869">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -96,7 +96,7 @@ Reference of the model being trained.
 
 <h3 id="on_batch_begin"><code>on_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L622-L625">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L636-L639">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_batch_begin(
@@ -109,7 +109,7 @@ A backwards compatibility alias for `on_train_batch_begin`.
 
 <h3 id="on_batch_end"><code>on_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L627-L630">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L641-L644">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_batch_end(
@@ -122,7 +122,7 @@ A backwards compatibility alias for `on_train_batch_end`.
 
 <h3 id="on_epoch_begin"><code>on_epoch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L632-L643">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L646-L657">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_epoch_begin(
@@ -162,7 +162,7 @@ but that may change in the future.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L645-L657">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L659-L672">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_epoch_end(
@@ -194,7 +194,8 @@ Integer, index of epoch.
 <td>
 Dict, metric results for this training epoch, and for the
 validation epoch if validation is performed. Validation result keys
-are prefixed with `val_`.
+are prefixed with `val_`. For training epoch, the values of the  
+`Model`'s metrics are returned. Example : `{'loss': 0.2, 'acc': 0.7}`.
 </td>
 </tr>
 </table>
@@ -203,7 +204,7 @@ are prefixed with `val_`.
 
 <h3 id="on_predict_batch_begin"><code>on_predict_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L721-L733">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L752-L768">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_predict_batch_begin(
@@ -214,6 +215,10 @@ are prefixed with `val_`.
 Called at the beginning of a batch in `predict` methods.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -243,7 +248,7 @@ the model's outputs.
 
 <h3 id="on_predict_batch_end"><code>on_predict_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L735-L745">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L770-L784">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_predict_batch_end(
@@ -254,6 +259,10 @@ the model's outputs.
 Called at the end of a batch in `predict` methods.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -281,7 +290,7 @@ Dict. Aggregated metric results up until this batch.
 
 <h3 id="on_predict_begin"><code>on_predict_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L793-L802">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L832-L841">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_predict_begin(
@@ -313,7 +322,7 @@ but that may change in the future.
 
 <h3 id="on_predict_end"><code>on_predict_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L804-L813">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L843-L852">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_predict_end(
@@ -345,7 +354,7 @@ but that may change in the future.
 
 <h3 id="on_test_batch_begin"><code>on_test_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L689-L704">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L712-L731">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_test_batch_begin(
@@ -359,6 +368,10 @@ Also called at the beginning of a validation batch in the `fit`
 methods, if validation data is provided.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -388,7 +401,7 @@ the values of the `Model`'s metrics are returned.  Example:
 
 <h3 id="on_test_batch_end"><code>on_test_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L706-L719">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L733-L750">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_test_batch_end(
@@ -402,6 +415,10 @@ Also called at the end of a validation batch in the `fit`
 methods, if validation data is provided.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -429,7 +446,7 @@ Dict. Aggregated metric results up until this batch.
 
 <h3 id="on_test_begin"><code>on_test_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L770-L779">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L809-L818">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_test_begin(
@@ -461,7 +478,7 @@ but that may change in the future.
 
 <h3 id="on_test_end"><code>on_test_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L781-L791">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L820-L830">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_test_end(
@@ -494,7 +511,7 @@ but that may change in the future.
 
 <h3 id="on_train_batch_begin"><code>on_train_batch_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L659-L673">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L674-L692">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_train_batch_begin(
@@ -505,6 +522,10 @@ but that may change in the future.
 Called at the beginning of a training batch in `fit` methods.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -534,7 +555,7 @@ the values of the `Model`'s metrics are returned.  Example:
 
 <h3 id="on_train_batch_end"><code>on_train_batch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L675-L687">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L694-L710">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_train_batch_end(
@@ -545,6 +566,10 @@ the values of the `Model`'s metrics are returned.  Example:
 Called at the end of a training batch in `fit` methods.
 
 Subclasses should override for any actions to run.
+
+Note that if the `steps_per_execution` argument to `compile` in
+<a href="../../../tf/keras/Model.md"><code>tf.keras.Model</code></a> is set to `N`, this method will only be called every `N`
+batches.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -572,7 +597,7 @@ Dict. Aggregated metric results up until this batch.
 
 <h3 id="on_train_begin"><code>on_train_begin</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L747-L756">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L786-L795">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_train_begin(
@@ -604,7 +629,7 @@ but that may change in the future.
 
 <h3 id="on_train_end"><code>on_train_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L758-L768">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L797-L807">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_train_end(
@@ -637,7 +662,7 @@ the future.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L619-L620">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L633-L634">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_model(
@@ -650,7 +675,7 @@ the future.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L616-L617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L630-L631">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_params(

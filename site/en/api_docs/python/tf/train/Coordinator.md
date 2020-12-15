@@ -20,7 +20,7 @@ description: A coordinator for threads.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L34-L407">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L34-L407">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -194,7 +194,7 @@ is common to add `StopIteration` to this list.
 
 <h3 id="clear_stop"><code>clear_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L246-L255">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L246-L255">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>clear_stop()
@@ -206,7 +206,7 @@ After this is called, calls to `should_stop()` will return `False`.
 
 <h3 id="join"><code>join</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L322-L397">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L322-L397">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>join(
@@ -284,7 +284,7 @@ is called and the grace period expires.
 
 <h3 id="raise_requested_exception"><code>raise_requested_exception</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L403-L407">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L403-L407">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>raise_requested_exception()
@@ -295,7 +295,7 @@ If an exception has been passed to `request_stop`, this raises it.
 
 <h3 id="register_thread"><code>register_thread</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L313-L320">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L313-L320">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>register_thread(
@@ -325,7 +325,7 @@ A Python thread to join.
 
 <h3 id="request_stop"><code>request_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L187-L244">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L187-L244">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>request_stop(
@@ -362,7 +362,7 @@ corresponding exception is recorded and re-raised from `join()`.
 
 <h3 id="should_stop"><code>should_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L257-L263">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L257-L263">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>should_stop()
@@ -387,7 +387,7 @@ True if a stop was requested.
 
 <h3 id="stop_on_exception"><code>stop_on_exception</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L265-L299">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L265-L299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@contextlib.contextmanager</code>
@@ -427,7 +427,7 @@ nothing.
 
 <h3 id="wait_for_stop"><code>wait_for_stop</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/coordinator.py#L301-L311">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/coordinator.py#L301-L311">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>wait_for_stop(

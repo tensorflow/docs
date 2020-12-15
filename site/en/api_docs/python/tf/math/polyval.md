@@ -11,7 +11,7 @@ description: Computes the elementwise value of a polynomial.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L4537-L4605">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L4638-L4706">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -46,12 +46,12 @@ more details.</p>
 If `x` is a tensor and `coeffs` is a list n + 1 tensors,
 this function returns the value of the n-th order polynomial
 
-   p(x) = coeffs[n-1] + coeffs[n-2] * x + ...  + coeffs[0] * x**(n-1)
+`p(x) = coeffs[n-1] + coeffs[n-2] * x + ...  + coeffs[0] * x**(n-1)`
 
 evaluated using Horner's method, i.e.
 
-   p(x) = coeffs[n-1] + x * (coeffs[n-2] + ... + x * (coeffs[1] +
-          x * coeffs[0]))
+`p(x) = coeffs[n-1] + x * (coeffs[n-2] + ... + x * (coeffs[1]
+        + x * coeffs[0]))`
 
 #### Usage Example:
 

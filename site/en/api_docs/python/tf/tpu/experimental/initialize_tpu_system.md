@@ -11,7 +11,7 @@ description: Initialize the TPU devices.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_strategy_util.py#L40-L135">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_strategy_util.py#L40-L137">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -68,7 +68,8 @@ which provides information about the TPU cluster.
 <tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
 <tr class="alt">
 <td colspan="2">
-The tf.tpu.Topology object for the topology of the TPU cluster.
+The tf.tpu.Topology object for the topology of the TPU cluster. If called
+inside tf.function, it returns the serialized topology object instead.
 </td>
 </tr>
 

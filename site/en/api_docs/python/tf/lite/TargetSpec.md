@@ -12,7 +12,7 @@ description: Specification of target device.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/lite/python/lite.py#L157-L178">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/lite/python/lite.py#L156-L176">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -68,9 +68,8 @@ supported by the device. (default set([OpsSet.TFLITE_BUILTINS]))
 </td>
 <td>
 List of types for constant values on the target device.
-Supported values are types exported by lite.constants. Frequently, an
-optimization choice is driven by the most compact (i.e. smallest) type in
-this list (default [constants.FLOAT])
+Frequently, an optimization choice is driven by the most compact
+(i.e. smallest) type in this list (default [tf.float32])
 </td>
 </tr>
 </table>

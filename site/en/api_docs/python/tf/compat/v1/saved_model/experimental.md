@@ -19,6 +19,10 @@ Public API for tf.saved_model.experimental namespace.
 
 
 
+## Classes
+
+[`class VariablePolicy`](../../../../tf/saved_model/experimental/VariablePolicy.md): Enum defining options for variable handling when saving.
+
 ## Functions
 
 [`save(...)`](../../../../tf/saved_model/save.md): Exports the Trackable object `obj` to [SavedModel format](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md).

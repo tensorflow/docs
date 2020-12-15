@@ -11,7 +11,7 @@ description: Instantiates the VGG19 architecture.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/vgg19.py#L45-L230">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/vgg19.py#L45-L231">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -63,8 +63,9 @@ This model can be built both with 'channels_first' data format
 
 The default input size for this model is 224x224.
 
-Caution: Be sure to properly pre-process your inputs to the application.
-Please see <a href="../../../tf/keras/applications/vgg19/preprocess_input.md"><code>applications.vgg19.preprocess_input</code></a> for an example.
+Note: each Keras Application expects a specific kind of input preprocessing.
+For VGG19, call <a href="../../../tf/keras/applications/vgg19/preprocess_input.md"><code>tf.keras.applications.vgg19.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

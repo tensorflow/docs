@@ -1,3 +1,5 @@
+description: Writes an image summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteImageSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes an image summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,8 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes image `tensor` at `step` with `tag` using summary `writer`.
+`tensor` is image with shape [height, width, channels].
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

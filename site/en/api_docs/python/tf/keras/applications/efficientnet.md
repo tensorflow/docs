@@ -19,10 +19,10 @@ EfficientNet models for Keras.
 
 
 
-#### Reference paper:
+#### Reference:
 
-- [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks]
-  (https://arxiv.org/abs/1905.11946) (ICML 2019)
+- [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](
+    https://arxiv.org/abs/1905.11946) (ICML 2019)
 
 
 ## Functions

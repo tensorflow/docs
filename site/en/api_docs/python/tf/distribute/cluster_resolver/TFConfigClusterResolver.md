@@ -15,7 +15,7 @@ description: Implementation of a ClusterResolver which reads the TF_CONFIG EnvVa
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L52-L204">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L52-L204">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -252,7 +252,7 @@ For more information, please see
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L153-L162">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L153-L162">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cluster_spec()
@@ -277,7 +277,7 @@ A ClusterSpec with information from the TF_CONFIG environment variable.
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L164-L204">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L164-L204">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>master(
@@ -357,7 +357,7 @@ If the task_type or task_id is not specified and the
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L144-L151">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tfconfig_cluster_resolver.py#L144-L151">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accelerators(

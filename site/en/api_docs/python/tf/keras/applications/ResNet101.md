@@ -11,7 +11,7 @@ description: Instantiates the ResNet101 architecture.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/applications/resnet.py#L478-L496">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/applications/resnet.py#L475-L493">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,15 +48,19 @@ more details.</p>
 <!-- Placeholder for "Used in" -->
 
 
-#### Reference paper:
+#### Reference:
 
 
-- [Deep Residual Learning for Image Recognition]
-(https://arxiv.org/abs/1512.03385) (CVPR 2015)
+- [Deep Residual Learning for Image Recognition](
+    https://arxiv.org/abs/1512.03385) (CVPR 2015)
 
 Optionally loads weights pre-trained on ImageNet.
 Note that the data format convention used by the model is
 the one specified in your Keras config at `~/.keras/keras.json`.
+
+Note: each Keras Application expects a specific kind of input preprocessing.
+For ResNet, call <a href="../../../tf/keras/applications/resnet/preprocess_input.md"><code>tf.keras.applications.resnet.preprocess_input</code></a> on your
+inputs before passing them to the model.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

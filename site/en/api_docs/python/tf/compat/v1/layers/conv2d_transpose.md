@@ -1,4 +1,4 @@
-description: Functional interface for transposed 2D convolution layer. (deprecated)
+description: Functional interface for transposed 2D convolution layer.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.conv2d_transpose" />
@@ -11,7 +11,7 @@ description: Functional interface for transposed 2D convolution layer. (deprecat
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1184-L1279">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1218-L1316">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Functional interface for transposed 2D convolution layer. (deprecat
 
 
 
-Functional interface for transposed 2D convolution layer. (deprecated)
+Functional interface for transposed 2D convolution layer.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.conv2d_transpose(
@@ -36,10 +36,6 @@ Functional interface for transposed 2D convolution layer. (deprecated)
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use <a href="../../../../tf/keras/layers/Conv2DTranspose.md"><code>tf.keras.layers.Conv2DTranspose</code></a> instead.
 
 The need for transposed convolutions generally arises
 from the desire to use a transformation going in the opposite direction
@@ -92,6 +88,9 @@ all spatial dimensions.
 </td>
 <td>
 one of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

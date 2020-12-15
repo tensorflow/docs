@@ -11,7 +11,7 @@ description: Returns activation function given a string identifier.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/activations.py#L457-L492">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/activations.py#L504-L536">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -47,14 +47,22 @@ more details.</p>
 <!-- Tabular view -->
  <table class="responsive fixed orange">
 <colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Arguments</h2></th></tr>
+<tr><th colspan="2"><h2 class="add-link">Args</h2></th></tr>
 
 <tr>
 <td>
-`x`
+`name`
 </td>
 <td>
-String identifier.
+The name of the activation function.
+</td>
+</tr><tr>
+<td>
+`custom_objects`
+</td>
+<td>
+Optional `{function_name: function_obj}`
+dictionary listing user-provided activation functions.
 </td>
 </tr>
 </table>
@@ -89,31 +97,6 @@ Traceback (most recent call last):
 ...
 ValueError: Unknown activation function:abcd
 ```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Args</h2></th></tr>
-
-<tr>
-<td>
-`name`
-</td>
-<td>
-The name of the activation function.
-</td>
-</tr><tr>
-<td>
-`custom_objects`
-</td>
-<td>
-Optional `{function_name: function_obj}`
-dictionary listing user-provided activation functions.
-</td>
-</tr>
-</table>
-
-
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

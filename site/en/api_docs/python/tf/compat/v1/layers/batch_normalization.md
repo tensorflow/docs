@@ -1,4 +1,4 @@
-description: Functional interface for the batch normalization layer from_config(Ioffe et al., 2015). (deprecated)
+description: Functional interface for the batch normalization layer from_config(Ioffe et al., 2015).
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.batch_normalization" />
@@ -11,7 +11,7 @@ description: Functional interface for the batch normalization layer from_config(
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/normalization.py#L175-L336">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/normalization.py#L175-L338">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Functional interface for the batch normalization layer from_config(
 
 
 
-Functional interface for the batch normalization layer from_config(Ioffe et al., 2015). (deprecated)
+Functional interface for the batch normalization layer from_config(Ioffe et al., 2015).
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.batch_normalization(
@@ -39,10 +39,6 @@ Functional interface for the batch normalization layer from_config(Ioffe et al.,
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.BatchNormalization instead.  In particular, <a href="../../../../tf/control_dependencies.md"><code>tf.control_dependencies(tf.GraphKeys.UPDATE_OPS)</code></a> should not be used (consult the <a href="../../../../tf/keras/layers/BatchNormalization.md"><code>tf.keras.layers.BatchNormalization</code></a> documentation).
 
 Note: when training, the moving_mean and moving_variance need to be updated.
 By default the update ops are placed in `tf.GraphKeys.UPDATE_OPS`, so they

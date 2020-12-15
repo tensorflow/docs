@@ -17,7 +17,7 @@ description: Describes a set of TPU devices.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L45-L235">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L45-L235">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -179,7 +179,7 @@ Returns the number of TPU devices per task in the TPU slice.
 
 <h3 id="cpu_device_name_at_coordinates"><code>cpu_device_name_at_coordinates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L204-L207">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L204-L207">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cpu_device_name_at_coordinates(
@@ -192,7 +192,7 @@ Returns the CPU device attached to a logical core.
 
 <h3 id="serialized"><code>serialized</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L225-L235">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L225-L235">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>serialized()
@@ -203,7 +203,7 @@ Returns the serialized form of the topology.
 
 <h3 id="task_ordinal_at_coordinates"><code>task_ordinal_at_coordinates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L178-L189">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L178-L189">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>task_ordinal_at_coordinates(
@@ -249,7 +249,7 @@ physical coordinates.
 
 <h3 id="tpu_device_name_at_coordinates"><code>tpu_device_name_at_coordinates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L209-L213">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L209-L213">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tpu_device_name_at_coordinates(
@@ -262,7 +262,7 @@ Returns the name of the TPU device assigned to a logical core.
 
 <h3 id="tpu_device_ordinal_at_coordinates"><code>tpu_device_ordinal_at_coordinates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/topology.py#L191-L202">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/topology.py#L191-L202">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tpu_device_ordinal_at_coordinates(

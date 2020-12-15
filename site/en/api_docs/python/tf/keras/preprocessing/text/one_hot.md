@@ -11,7 +11,7 @@ description: One-hot encodes a text into a list of word indexes of size n.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/text.py#L60-L85">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/text.py#L60-L88">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -73,7 +73,10 @@ int. Size of vocabulary.
 </td>
 <td>
 list (or concatenation) of characters to filter out, such as
-punctuation. Default: ``!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n``,
+punctuation. Default:
+```
+'!"#$%&()*+,-./:;<=>?@[\]^_`{|}~\t\n
+```,
 includes basic punctuation, tabs, and newlines.
 </td>
 </tr><tr>

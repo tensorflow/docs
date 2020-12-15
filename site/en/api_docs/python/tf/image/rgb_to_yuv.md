@@ -11,7 +11,7 @@ description: Converts one or more images from RGB to YUV.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/image_ops_impl.py#L3252-L3272">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/image_ops_impl.py#L3759-L3782">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -45,7 +45,10 @@ more details.</p>
 
 Outputs a tensor of the same shape as the `images` tensor, containing the YUV
 value of the pixels.
-The output is only well defined if the value in images are in [0,1].
+The output is only well defined if the value in images are in [0, 1].
+There are two ways of representing an image: [0, 255] pixel values range or 
+[0, 1] (as float) pixel values range. Users need to convert the input image 
+into a float [0, 1] range.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

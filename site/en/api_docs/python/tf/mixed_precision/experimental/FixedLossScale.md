@@ -16,7 +16,7 @@ description: Loss scale with a fixed value.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L208-L252">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L222-L278">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -39,7 +39,7 @@ Inherits From: [`LossScale`](../../../tf/mixed_precision/experimental/LossScale.
 <p>See
 <a href="https://www.tensorflow.org/guide/migrate">Migration guide</a> for
 more details.</p>
-<p>`tf.compat.v1.mixed_precision.experimental.FixedLossScale`, `tf.compat.v1.train.experimental.FixedLossScale`</p>
+<p>`tf.compat.v1.mixed_precision.FixedLossScale`, `tf.compat.v1.mixed_precision.experimental.FixedLossScale`, `tf.compat.v1.train.experimental.FixedLossScale`</p>
 </p>
 </section>
 
@@ -52,6 +52,14 @@ more details.</p>
 
 
 <!-- Placeholder for "Used in" -->
+
+WARNING: This class is deprecated and will be unexposed from the TF 2
+namespace starting in TensorFlow 2.5. In TensorFlow 2.5, this class will only
+be accessible as <a href="../../../tf/mixed_precision/experimental/FixedLossScale.md"><code>tf.compat.v1.mixed_precision.FixedLossScale</code></a>. Additionally
+in 2.5, you will no longer be able to pass a `FixedLossScale` to a
+<a href="../../../tf/keras/mixed_precision/Policy.md"><code>tf.keras.mixed_precision.Policy</code></a>. All the functionality in this class has
+been merged into <a href="../../../tf/keras/mixed_precision/LossScaleOptimizer.md"><code>tf.keras.mixed_precision.LossScaleOptimizer</code></a>, so this class
+is no longer needed.
 
 The loss scale is not updated for the lifetime of instances of this class.
 A given instance of this class always returns the same number when called.
@@ -98,7 +106,7 @@ If loss_scale_value is less than 1.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L195-L198">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L206-L209">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -112,7 +120,7 @@ Creates the LossScale from its config.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L251-L252">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L277-L278">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -123,7 +131,7 @@ Returns the config of this loss scale.
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L244-L246">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L270-L272">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>update(
@@ -200,7 +208,7 @@ step.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/experimental/loss_scale.py#L241-L242">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/experimental/loss_scale.py#L267-L268">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__()

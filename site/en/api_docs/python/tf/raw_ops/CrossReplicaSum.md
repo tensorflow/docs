@@ -52,7 +52,7 @@ and `B, D, F, H` as group 1. Thus we get the outputs:
 `input`
 </td>
 <td>
-A `Tensor`. Must be one of the following types: `bfloat16`, `float32`, `int32`, `uint32`.
+A `Tensor`. Must be one of the following types: `half`, `bfloat16`, `float32`, `int32`, `uint32`.
 The local input to the sum.
 </td>
 </tr><tr>

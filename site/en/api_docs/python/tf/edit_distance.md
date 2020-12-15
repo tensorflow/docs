@@ -11,7 +11,7 @@ description: Computes the Levenshtein distance between sequences.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/array_ops.py#L3541-L3618">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/array_ops.py#L3620-L3722">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -48,7 +48,41 @@ each provided as a `SparseTensor`, and computes the Levenshtein distance.
 You can normalize the edit distance by length of `truth` by setting
 `normalize` to true.
 
-For example, given the following input:
+#### For example:
+
+
+
+Given the following input,
+* `hypothesis` is a <a href="../tf/sparse/SparseTensor.md"><code>tf.SparseTensor</code></a> of shape `[2, 1, 1]`
+* `truth` is a <a href="../tf/sparse/SparseTensor.md"><code>tf.SparseTensor</code></a> of shape `[2, 2, 2]`
+
+```
+>>> hypothesis = tf.SparseTensor(
+...   [[0, 0, 0],
+...    [1, 0, 0]],
+...   ["a", "b"],
+...   (2, 1, 1))
+>>> truth = tf.SparseTensor(
+...   [[0, 1, 0],
+...    [1, 0, 0],
+...    [1, 0, 1],
+...    [1, 1, 0]],
+...    ["a", "b", "c", "a"],
+...    (2, 2, 2))
+>>> tf.edit_distance(hypothesis, truth, normalize=True)
+<tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[inf, 1. ],
+       [0.5, 1. ]], dtype=float32)>
+```
+
+The operaton returns a dense Tensor of shape `[2, 2]` with
+edit distances normalized by `truth` lengths.
+
+**Note**: It is possible to calculate edit distance between two
+sparse tensors with variable-length values. However, attempting to create
+them while eager execution is enabled will result in a `ValueError`.
+
+For the following  inputs,
 
 ```python
 # 'hypothesis' is a tensor of shape `[2, 1]` with variable-length values:
@@ -74,15 +108,10 @@ truth = tf.sparse.SparseTensor(
     (2, 2, 2))
 
 normalize = True
-```
 
-This operation would return the following:
-
-```python
-# 'output' is a tensor of shape `[2, 2]` with edit distances normalized
-# by 'truth' lengths.
-output ==> [[inf, 1.0],  # (0,0): no truth, (0,1): no hypothesis
-           [0.5, 1.0]]  # (1,0): addition, (1,1): no hypothesis
+# The output would be a dense Tensor of shape `(2,)`, with edit distances
+noramlized by 'truth' lengths.
+# output => array([0., 0.5], dtype=float32)
 ```
 
 <!-- Tabular view -->

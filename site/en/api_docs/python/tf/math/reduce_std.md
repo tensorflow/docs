@@ -11,7 +11,7 @@ description: Computes the standard deviation of elements across dimensions of a 
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/math_ops.py#L2376-L2423">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L2436-L2483">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -45,8 +45,8 @@ more details.</p>
 
 Reduces `input_tensor` along the dimensions given in `axis`.
 Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
-entry in `axis`. If `keepdims` is true, the reduced dimensions
-are retained with length 1.
+of the entries in `axis`, which must be unique. If `keepdims` is true, the
+reduced dimensions are retained with length 1.
 
 If `axis` is None, all dimensions are reduced, and a
 tensor with a single element is returned.

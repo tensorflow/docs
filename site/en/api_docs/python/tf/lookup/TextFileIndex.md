@@ -13,7 +13,7 @@ description: The key and value content to get from each line.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L531-L547">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L566-L582">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -37,7 +37,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-This class defines the key and value used for tf.lookup.TextFileInitializer.
+This class defines the key and value used for <a href="../../tf/lookup/TextFileInitializer.md"><code>tf.lookup.TextFileInitializer</code></a>.
 
 The key and value content to get from each line is specified either
 by the following, or a value `>=0`.

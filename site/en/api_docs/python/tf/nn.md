@@ -107,7 +107,11 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`fractional_max_pool(...)`](../tf/nn/fractional_max_pool.md): Performs fractional max pooling on the input.
 
+[`gelu(...)`](../tf/nn/gelu.md): Compute the Gaussian Error Linear Unit (GELU) activation function.
+
 [`in_top_k(...)`](../tf/math/in_top_k.md): Says whether the targets are in the top `K` predictions.
+
+[`isotonic_regression(...)`](../tf/nn/isotonic_regression.md): Solves isotonic regression problems along the given axis.
 
 [`l2_loss(...)`](../tf/nn/l2_loss.md): L2 Loss.
 
@@ -161,6 +165,8 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sigmoid_cross_entropy_with_logits(...)`](../tf/nn/sigmoid_cross_entropy_with_logits.md): Computes sigmoid cross entropy given `logits`.
 
+[`silu(...)`](../tf/nn/silu.md): Computes the SiLU or Swish activation function: `x * sigmoid(x)`.
+
 [`softmax(...)`](../tf/nn/softmax.md): Computes softmax activations.
 
 [`softmax_cross_entropy_with_logits(...)`](../tf/nn/softmax_cross_entropy_with_logits.md): Computes softmax cross entropy between `logits` and `labels`.
@@ -177,7 +183,7 @@ Wrappers for primitive Neural Net (NN) Operations.
 
 [`sufficient_statistics(...)`](../tf/nn/sufficient_statistics.md): Calculate the sufficient statistics for the mean and variance of `x`.
 
-[`swish(...)`](../tf/nn/swish.md): Computes the Swish activation function: `x * sigmoid(x)`.
+[`swish(...)`](../tf/nn/silu.md): Computes the SiLU or Swish activation function: `x * sigmoid(x)`.
 
 [`tanh(...)`](../tf/math/tanh.md): Computes hyperbolic tangent of `x` element-wise.
 

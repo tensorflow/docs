@@ -13,7 +13,7 @@ description: Max pooling operation for 2D spatial data.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/pooling.py#L330-L461">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/pooling.py#L334-L466">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -168,8 +168,9 @@ for each pooling step. If None, it will default to `pool_size`.
 </td>
 <td>
 One of `"valid"` or `"same"` (case-insensitive).
-"valid" adds no zero padding.  "same" adds padding such that if the stride
-is 1, the output shape is the same as input shape.
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>

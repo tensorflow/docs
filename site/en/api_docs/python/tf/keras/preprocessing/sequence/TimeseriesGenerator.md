@@ -18,7 +18,7 @@ description: Utility class for generating batches of temporal data.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/preprocessing/sequence.py#L34-L89">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/preprocessing/sequence.py#L34-L89">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -109,6 +109,8 @@ assert np.array_equal(y,
 
 <h3 id="get_config"><code>get_config</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/sequence.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
 </code></pre>
@@ -120,7 +122,7 @@ Returns the TimeseriesGenerator configuration as Python dictionary.
 
 <h3 id="on_epoch_end"><code>on_epoch_end</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/utils/data_utils.py#L479-L482">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/utils/data_utils.py#L476-L479">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>on_epoch_end()
@@ -130,6 +132,8 @@ Method called at the end of every epoch.
     
 
 <h3 id="to_json"><code>to_json</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/sequence.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>to_json(
@@ -150,6 +154,8 @@ configuration. To load a generator from a JSON string, use
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/sequence.py">View source</a>
+
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__getitem__(
     index
@@ -161,7 +167,7 @@ configuration. To load a generator from a JSON string, use
 
 <h3 id="__iter__"><code>__iter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/utils/data_utils.py#L484-L487">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/utils/data_utils.py#L481-L484">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__iter__()
@@ -171,6 +177,8 @@ Create a generator that iterate over the Sequence.
 
 
 <h3 id="__len__"><code>__len__</code></h3>
+
+<a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/sequence.py">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__len__()

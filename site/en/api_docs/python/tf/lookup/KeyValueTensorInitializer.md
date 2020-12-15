@@ -13,7 +13,7 @@ description: Table initializers given keys and values tensors.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L475-L527">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L498-L562">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -45,6 +45,17 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+```
+>>> keys_tensor = tf.constant(['a', 'b', 'c'])
+>>> vals_tensor = tf.constant([7, 8, 9])
+>>> input_tensor = tf.constant(['a', 'f'])
+>>> init = tf.lookup.KeyValueTensorInitializer(keys_tensor, vals_tensor)
+>>> table = tf.lookup.StaticHashTable(
+...     init,
+...     default_value=-1)
+>>> table.lookup(input_tensor).numpy()
+array([ 7, -1], dtype=int32)
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -121,7 +132,7 @@ The expected table value dtype.
 
 <h3 id="initialize"><code>initialize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L508-L527">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L543-L562">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>initialize(

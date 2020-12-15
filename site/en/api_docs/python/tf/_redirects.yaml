@@ -45,8 +45,6 @@ redirects:
   to: /tf/math/greater_equal
 - from: /tf/Tensor/__gt__
   to: /tf/math/greater
-- from: /tf/Tensor/__invert__
-  to: /tf/math/logical_not
 - from: /tf/Tensor/__le__
   to: /tf/math/less_equal
 - from: /tf/Tensor/__lt__
@@ -187,8 +185,6 @@ redirects:
   to: /tf/math/greater_equal
 - from: /tf/compat/v1/Tensor/__gt__
   to: /tf/math/greater
-- from: /tf/compat/v1/Tensor/__invert__
-  to: /tf/math/logical_not
 - from: /tf/compat/v1/Tensor/__le__
   to: /tf/math/less_equal
 - from: /tf/compat/v1/Tensor/__lt__
@@ -295,6 +291,8 @@ redirects:
   to: /tf/compat/v1/flags/FLAGS
 - from: /tf/compat/v1/app/flags/Flag
   to: /tf/compat/v1/flags/Flag
+- from: /tf/compat/v1/app/flags/FlagHolder
+  to: /tf/compat/v1/flags/FlagHolder
 - from: /tf/compat/v1/app/flags/FlagNameConflictsWithMethodError
   to: /tf/compat/v1/flags/FlagNameConflictsWithMethodError
 - from: /tf/compat/v1/app/flags/FlagValues
@@ -489,12 +487,16 @@ redirects:
   to: /tf/config/experimental/enable_mlir_bridge
 - from: /tf/compat/v1/config/experimental/enable_mlir_graph_optimization
   to: /tf/config/experimental/enable_mlir_graph_optimization
+- from: /tf/compat/v1/config/experimental/enable_tensor_float_32_execution
+  to: /tf/config/experimental/enable_tensor_float_32_execution
 - from: /tf/compat/v1/config/experimental/get_device_details
   to: /tf/config/experimental/get_device_details
 - from: /tf/compat/v1/config/experimental/get_device_policy
   to: /tf/config/experimental/get_device_policy
 - from: /tf/compat/v1/config/experimental/get_memory_growth
   to: /tf/config/experimental/get_memory_growth
+- from: /tf/compat/v1/config/experimental/get_memory_usage
+  to: /tf/config/experimental/get_memory_usage
 - from: /tf/compat/v1/config/experimental/get_synchronous_execution
   to: /tf/config/experimental/get_synchronous_execution
 - from: /tf/compat/v1/config/experimental/get_virtual_device_configuration
@@ -515,6 +517,8 @@ redirects:
   to: /tf/config/set_logical_device_configuration
 - from: /tf/compat/v1/config/experimental/set_visible_devices
   to: /tf/config/set_visible_devices
+- from: /tf/compat/v1/config/experimental/tensor_float_32_execution_enabled
+  to: /tf/config/experimental/tensor_float_32_execution_enabled
 - from: /tf/compat/v1/config/experimental_connect_to_cluster
   to: /tf/config/experimental_connect_to_cluster
 - from: /tf/compat/v1/config/experimental_connect_to_host
@@ -653,8 +657,16 @@ redirects:
   to: /tf/data/experimental/rejection_resample
 - from: /tf/compat/v1/data/experimental/scan
   to: /tf/data/experimental/scan
+- from: /tf/compat/v1/data/experimental/service/DispatcherConfig
+  to: /tf/data/experimental/service/DispatcherConfig
+- from: /tf/compat/v1/data/experimental/service/WorkerConfig
+  to: /tf/data/experimental/service/WorkerConfig
 - from: /tf/compat/v1/data/experimental/service/distribute
   to: /tf/data/experimental/service/distribute
+- from: /tf/compat/v1/data/experimental/service/from_dataset_id
+  to: /tf/data/experimental/service/from_dataset_id
+- from: /tf/compat/v1/data/experimental/service/register_dataset
+  to: /tf/data/experimental/service/register_dataset
 - from: /tf/compat/v1/data/experimental/shuffle_and_repeat
   to: /tf/data/experimental/shuffle_and_repeat
 - from: /tf/compat/v1/data/experimental/snapshot
@@ -769,8 +781,6 @@ redirects:
   to: /tf/distribute/ReduceOp
 - from: /tf/compat/v1/distribute/ReductionToOneDevice
   to: /tf/distribute/ReductionToOneDevice
-- from: /tf/compat/v1/distribute/ReplicaContext
-  to: /tf/distribute/ReplicaContext
 - from: /tf/compat/v1/distribute/RunOptions
   to: /tf/distribute/RunOptions
 - from: /tf/compat/v1/distribute/Server
@@ -792,9 +802,13 @@ redirects:
 - from: /tf/compat/v1/distribute/cluster_resolver/UnionResolver
   to: /tf/distribute/cluster_resolver/UnionResolver
 - from: /tf/compat/v1/distribute/experimental/CollectiveCommunication
-  to: /tf/distribute/experimental/CollectiveCommunication
+  to: /tf/distribute/experimental/CommunicationImplementation
 - from: /tf/compat/v1/distribute/experimental/CollectiveHints
   to: /tf/distribute/experimental/CollectiveHints
+- from: /tf/compat/v1/distribute/experimental/CommunicationImplementation
+  to: /tf/distribute/experimental/CommunicationImplementation
+- from: /tf/compat/v1/distribute/experimental/CommunicationOptions
+  to: /tf/distribute/experimental/CommunicationOptions
 - from: /tf/compat/v1/distribute/experimental_set_strategy
   to: /tf/distribute/experimental_set_strategy
 - from: /tf/compat/v1/distribute/get_replica_context
@@ -1001,6 +1015,8 @@ redirects:
   to: /tf/experimental/async_scope
 - from: /tf/compat/v1/experimental/function_executor_type
   to: /tf/experimental/function_executor_type
+- from: /tf/compat/v1/experimental/register_filesystem_plugin
+  to: /tf/experimental/register_filesystem_plugin
 - from: /tf/compat/v1/expm1
   to: /tf/math/expm1
 - from: /tf/compat/v1/extract_volume_patches
@@ -1473,6 +1489,10 @@ redirects:
   to: /tf/keras/applications/MobileNet
 - from: /tf/compat/v1/keras/applications/MobileNetV2
   to: /tf/keras/applications/MobileNetV2
+- from: /tf/compat/v1/keras/applications/MobileNetV3Large
+  to: /tf/keras/applications/MobileNetV3Large
+- from: /tf/compat/v1/keras/applications/MobileNetV3Small
+  to: /tf/keras/applications/MobileNetV3Small
 - from: /tf/compat/v1/keras/applications/NASNetLarge
   to: /tf/keras/applications/NASNetLarge
 - from: /tf/compat/v1/keras/applications/NASNetMobile
@@ -1553,6 +1573,10 @@ redirects:
   to: /tf/keras/applications/mobilenet_v2/decode_predictions
 - from: /tf/compat/v1/keras/applications/mobilenet_v2/preprocess_input
   to: /tf/keras/applications/mobilenet_v2/preprocess_input
+- from: /tf/compat/v1/keras/applications/mobilenet_v3/decode_predictions
+  to: /tf/keras/applications/mobilenet_v3/decode_predictions
+- from: /tf/compat/v1/keras/applications/mobilenet_v3/preprocess_input
+  to: /tf/keras/applications/mobilenet_v3/preprocess_input
 - from: /tf/compat/v1/keras/applications/nasnet/NASNetLarge
   to: /tf/keras/applications/NASNetLarge
 - from: /tf/compat/v1/keras/applications/nasnet/NASNetMobile
@@ -1605,294 +1629,28 @@ redirects:
   to: /tf/keras/applications/xception/decode_predictions
 - from: /tf/compat/v1/keras/applications/xception/preprocess_input
   to: /tf/keras/applications/xception/preprocess_input
-- from: /tf/compat/v1/keras/backend/abs
-  to: /tf/keras/backend/abs
-- from: /tf/compat/v1/keras/backend/all
-  to: /tf/keras/backend/all
-- from: /tf/compat/v1/keras/backend/any
-  to: /tf/keras/backend/any
-- from: /tf/compat/v1/keras/backend/arange
-  to: /tf/keras/backend/arange
-- from: /tf/compat/v1/keras/backend/argmax
-  to: /tf/keras/backend/argmax
-- from: /tf/compat/v1/keras/backend/argmin
-  to: /tf/keras/backend/argmin
-- from: /tf/compat/v1/keras/backend/backend
-  to: /tf/keras/backend/backend
-- from: /tf/compat/v1/keras/backend/batch_dot
-  to: /tf/keras/backend/batch_dot
-- from: /tf/compat/v1/keras/backend/batch_flatten
-  to: /tf/keras/backend/batch_flatten
-- from: /tf/compat/v1/keras/backend/batch_get_value
-  to: /tf/keras/backend/batch_get_value
-- from: /tf/compat/v1/keras/backend/batch_normalization
-  to: /tf/keras/backend/batch_normalization
-- from: /tf/compat/v1/keras/backend/batch_set_value
-  to: /tf/keras/backend/batch_set_value
-- from: /tf/compat/v1/keras/backend/bias_add
-  to: /tf/keras/backend/bias_add
-- from: /tf/compat/v1/keras/backend/binary_crossentropy
-  to: /tf/keras/backend/binary_crossentropy
-- from: /tf/compat/v1/keras/backend/cast
-  to: /tf/keras/backend/cast
-- from: /tf/compat/v1/keras/backend/cast_to_floatx
-  to: /tf/keras/backend/cast_to_floatx
-- from: /tf/compat/v1/keras/backend/categorical_crossentropy
-  to: /tf/keras/backend/categorical_crossentropy
 - from: /tf/compat/v1/keras/backend/clear_session
   to: /tf/keras/backend/clear_session
-- from: /tf/compat/v1/keras/backend/clip
-  to: /tf/keras/backend/clip
-- from: /tf/compat/v1/keras/backend/concatenate
-  to: /tf/keras/backend/concatenate
-- from: /tf/compat/v1/keras/backend/constant
-  to: /tf/keras/backend/constant
-- from: /tf/compat/v1/keras/backend/conv1d
-  to: /tf/keras/backend/conv1d
-- from: /tf/compat/v1/keras/backend/conv2d
-  to: /tf/keras/backend/conv2d
-- from: /tf/compat/v1/keras/backend/conv2d_transpose
-  to: /tf/keras/backend/conv2d_transpose
-- from: /tf/compat/v1/keras/backend/conv3d
-  to: /tf/keras/backend/conv3d
-- from: /tf/compat/v1/keras/backend/cos
-  to: /tf/keras/backend/cos
-- from: /tf/compat/v1/keras/backend/count_params
-  to: /tf/keras/backend/count_params
-- from: /tf/compat/v1/keras/backend/ctc_batch_cost
-  to: /tf/keras/backend/ctc_batch_cost
-- from: /tf/compat/v1/keras/backend/ctc_decode
-  to: /tf/keras/backend/ctc_decode
-- from: /tf/compat/v1/keras/backend/ctc_label_dense_to_sparse
-  to: /tf/keras/backend/ctc_label_dense_to_sparse
-- from: /tf/compat/v1/keras/backend/cumprod
-  to: /tf/keras/backend/cumprod
-- from: /tf/compat/v1/keras/backend/cumsum
-  to: /tf/keras/backend/cumsum
-- from: /tf/compat/v1/keras/backend/depthwise_conv2d
-  to: /tf/keras/backend/depthwise_conv2d
-- from: /tf/compat/v1/keras/backend/dot
-  to: /tf/keras/backend/dot
-- from: /tf/compat/v1/keras/backend/dropout
-  to: /tf/keras/backend/dropout
-- from: /tf/compat/v1/keras/backend/dtype
-  to: /tf/keras/backend/dtype
-- from: /tf/compat/v1/keras/backend/elu
-  to: /tf/keras/backend/elu
 - from: /tf/compat/v1/keras/backend/epsilon
   to: /tf/keras/backend/epsilon
-- from: /tf/compat/v1/keras/backend/equal
-  to: /tf/keras/backend/equal
-- from: /tf/compat/v1/keras/backend/eval
-  to: /tf/keras/backend/eval
-- from: /tf/compat/v1/keras/backend/exp
-  to: /tf/keras/backend/exp
-- from: /tf/compat/v1/keras/backend/expand_dims
-  to: /tf/keras/backend/expand_dims
-- from: /tf/compat/v1/keras/backend/eye
-  to: /tf/keras/backend/eye
-- from: /tf/compat/v1/keras/backend/flatten
-  to: /tf/keras/backend/flatten
 - from: /tf/compat/v1/keras/backend/floatx
   to: /tf/keras/backend/floatx
-- from: /tf/compat/v1/keras/backend/foldl
-  to: /tf/keras/backend/foldl
-- from: /tf/compat/v1/keras/backend/foldr
-  to: /tf/keras/backend/foldr
-- from: /tf/compat/v1/keras/backend/function
-  to: /tf/keras/backend/function
-- from: /tf/compat/v1/keras/backend/gather
-  to: /tf/keras/backend/gather
 - from: /tf/compat/v1/keras/backend/get_uid
   to: /tf/keras/backend/get_uid
-- from: /tf/compat/v1/keras/backend/get_value
-  to: /tf/keras/backend/get_value
-- from: /tf/compat/v1/keras/backend/gradients
-  to: /tf/keras/backend/gradients
-- from: /tf/compat/v1/keras/backend/greater
-  to: /tf/keras/backend/greater
-- from: /tf/compat/v1/keras/backend/greater_equal
-  to: /tf/keras/backend/greater_equal
-- from: /tf/compat/v1/keras/backend/hard_sigmoid
-  to: /tf/keras/backend/hard_sigmoid
 - from: /tf/compat/v1/keras/backend/image_data_format
   to: /tf/keras/backend/image_data_format
-- from: /tf/compat/v1/keras/backend/in_test_phase
-  to: /tf/keras/backend/in_test_phase
-- from: /tf/compat/v1/keras/backend/in_top_k
-  to: /tf/keras/backend/in_top_k
-- from: /tf/compat/v1/keras/backend/in_train_phase
-  to: /tf/keras/backend/in_train_phase
-- from: /tf/compat/v1/keras/backend/int_shape
-  to: /tf/keras/backend/int_shape
 - from: /tf/compat/v1/keras/backend/is_keras_tensor
   to: /tf/keras/backend/is_keras_tensor
-- from: /tf/compat/v1/keras/backend/is_sparse
-  to: /tf/keras/backend/is_sparse
-- from: /tf/compat/v1/keras/backend/l2_normalize
-  to: /tf/keras/backend/l2_normalize
-- from: /tf/compat/v1/keras/backend/learning_phase
-  to: /tf/keras/backend/learning_phase
-- from: /tf/compat/v1/keras/backend/learning_phase_scope
-  to: /tf/keras/backend/learning_phase_scope
-- from: /tf/compat/v1/keras/backend/less
-  to: /tf/keras/backend/less
-- from: /tf/compat/v1/keras/backend/less_equal
-  to: /tf/keras/backend/less_equal
-- from: /tf/compat/v1/keras/backend/local_conv1d
-  to: /tf/keras/backend/local_conv1d
-- from: /tf/compat/v1/keras/backend/local_conv2d
-  to: /tf/keras/backend/local_conv2d
-- from: /tf/compat/v1/keras/backend/log
-  to: /tf/keras/backend/log
-- from: /tf/compat/v1/keras/backend/manual_variable_initialization
-  to: /tf/keras/backend/manual_variable_initialization
-- from: /tf/compat/v1/keras/backend/map_fn
-  to: /tf/keras/backend/map_fn
-- from: /tf/compat/v1/keras/backend/max
-  to: /tf/keras/backend/max
-- from: /tf/compat/v1/keras/backend/maximum
-  to: /tf/keras/backend/maximum
-- from: /tf/compat/v1/keras/backend/mean
-  to: /tf/keras/backend/mean
-- from: /tf/compat/v1/keras/backend/min
-  to: /tf/keras/backend/min
-- from: /tf/compat/v1/keras/backend/minimum
-  to: /tf/keras/backend/minimum
-- from: /tf/compat/v1/keras/backend/moving_average_update
-  to: /tf/keras/backend/moving_average_update
-- from: /tf/compat/v1/keras/backend/ndim
-  to: /tf/keras/backend/ndim
-- from: /tf/compat/v1/keras/backend/normalize_batch_in_training
-  to: /tf/keras/backend/normalize_batch_in_training
-- from: /tf/compat/v1/keras/backend/not_equal
-  to: /tf/keras/backend/not_equal
-- from: /tf/compat/v1/keras/backend/one_hot
-  to: /tf/keras/backend/one_hot
-- from: /tf/compat/v1/keras/backend/ones
-  to: /tf/keras/backend/ones
-- from: /tf/compat/v1/keras/backend/ones_like
-  to: /tf/keras/backend/ones_like
-- from: /tf/compat/v1/keras/backend/permute_dimensions
-  to: /tf/keras/backend/permute_dimensions
-- from: /tf/compat/v1/keras/backend/placeholder
-  to: /tf/keras/backend/placeholder
-- from: /tf/compat/v1/keras/backend/pool2d
-  to: /tf/keras/backend/pool2d
-- from: /tf/compat/v1/keras/backend/pool3d
-  to: /tf/keras/backend/pool3d
-- from: /tf/compat/v1/keras/backend/pow
-  to: /tf/keras/backend/pow
-- from: /tf/compat/v1/keras/backend/print_tensor
-  to: /tf/keras/backend/print_tensor
-- from: /tf/compat/v1/keras/backend/prod
-  to: /tf/keras/backend/prod
-- from: /tf/compat/v1/keras/backend/random_bernoulli
-  to: /tf/keras/backend/random_bernoulli
-- from: /tf/compat/v1/keras/backend/random_binomial
-  to: /tf/keras/backend/random_binomial
-- from: /tf/compat/v1/keras/backend/random_normal
-  to: /tf/keras/backend/random_normal
-- from: /tf/compat/v1/keras/backend/random_normal_variable
-  to: /tf/keras/backend/random_normal_variable
-- from: /tf/compat/v1/keras/backend/random_uniform
-  to: /tf/keras/backend/random_uniform
-- from: /tf/compat/v1/keras/backend/random_uniform_variable
-  to: /tf/keras/backend/random_uniform_variable
-- from: /tf/compat/v1/keras/backend/relu
-  to: /tf/keras/backend/relu
-- from: /tf/compat/v1/keras/backend/repeat
-  to: /tf/keras/backend/repeat
-- from: /tf/compat/v1/keras/backend/repeat_elements
-  to: /tf/keras/backend/repeat_elements
 - from: /tf/compat/v1/keras/backend/reset_uids
   to: /tf/keras/backend/reset_uids
-- from: /tf/compat/v1/keras/backend/reshape
-  to: /tf/keras/backend/reshape
-- from: /tf/compat/v1/keras/backend/resize_images
-  to: /tf/keras/backend/resize_images
-- from: /tf/compat/v1/keras/backend/resize_volumes
-  to: /tf/keras/backend/resize_volumes
-- from: /tf/compat/v1/keras/backend/reverse
-  to: /tf/keras/backend/reverse
 - from: /tf/compat/v1/keras/backend/rnn
   to: /tf/keras/backend/rnn
-- from: /tf/compat/v1/keras/backend/round
-  to: /tf/keras/backend/round
-- from: /tf/compat/v1/keras/backend/separable_conv2d
-  to: /tf/keras/backend/separable_conv2d
 - from: /tf/compat/v1/keras/backend/set_epsilon
   to: /tf/keras/backend/set_epsilon
 - from: /tf/compat/v1/keras/backend/set_floatx
   to: /tf/keras/backend/set_floatx
 - from: /tf/compat/v1/keras/backend/set_image_data_format
   to: /tf/keras/backend/set_image_data_format
-- from: /tf/compat/v1/keras/backend/set_learning_phase
-  to: /tf/keras/backend/set_learning_phase
-- from: /tf/compat/v1/keras/backend/set_value
-  to: /tf/keras/backend/set_value
-- from: /tf/compat/v1/keras/backend/shape
-  to: /tf/keras/backend/shape
-- from: /tf/compat/v1/keras/backend/sigmoid
-  to: /tf/keras/backend/sigmoid
-- from: /tf/compat/v1/keras/backend/sign
-  to: /tf/keras/backend/sign
-- from: /tf/compat/v1/keras/backend/sin
-  to: /tf/keras/backend/sin
-- from: /tf/compat/v1/keras/backend/softmax
-  to: /tf/keras/backend/softmax
-- from: /tf/compat/v1/keras/backend/softplus
-  to: /tf/keras/backend/softplus
-- from: /tf/compat/v1/keras/backend/softsign
-  to: /tf/keras/backend/softsign
-- from: /tf/compat/v1/keras/backend/sparse_categorical_crossentropy
-  to: /tf/keras/backend/sparse_categorical_crossentropy
-- from: /tf/compat/v1/keras/backend/spatial_2d_padding
-  to: /tf/keras/backend/spatial_2d_padding
-- from: /tf/compat/v1/keras/backend/spatial_3d_padding
-  to: /tf/keras/backend/spatial_3d_padding
-- from: /tf/compat/v1/keras/backend/sqrt
-  to: /tf/keras/backend/sqrt
-- from: /tf/compat/v1/keras/backend/square
-  to: /tf/keras/backend/square
-- from: /tf/compat/v1/keras/backend/squeeze
-  to: /tf/keras/backend/squeeze
-- from: /tf/compat/v1/keras/backend/stack
-  to: /tf/keras/backend/stack
-- from: /tf/compat/v1/keras/backend/std
-  to: /tf/keras/backend/std
-- from: /tf/compat/v1/keras/backend/stop_gradient
-  to: /tf/keras/backend/stop_gradient
-- from: /tf/compat/v1/keras/backend/sum
-  to: /tf/keras/backend/sum
-- from: /tf/compat/v1/keras/backend/switch
-  to: /tf/keras/backend/switch
-- from: /tf/compat/v1/keras/backend/tanh
-  to: /tf/keras/backend/tanh
-- from: /tf/compat/v1/keras/backend/temporal_padding
-  to: /tf/keras/backend/temporal_padding
-- from: /tf/compat/v1/keras/backend/tile
-  to: /tf/keras/backend/tile
-- from: /tf/compat/v1/keras/backend/to_dense
-  to: /tf/keras/backend/to_dense
-- from: /tf/compat/v1/keras/backend/transpose
-  to: /tf/keras/backend/transpose
-- from: /tf/compat/v1/keras/backend/truncated_normal
-  to: /tf/keras/backend/truncated_normal
-- from: /tf/compat/v1/keras/backend/update
-  to: /tf/keras/backend/update
-- from: /tf/compat/v1/keras/backend/update_add
-  to: /tf/keras/backend/update_add
-- from: /tf/compat/v1/keras/backend/update_sub
-  to: /tf/keras/backend/update_sub
-- from: /tf/compat/v1/keras/backend/var
-  to: /tf/keras/backend/var
-- from: /tf/compat/v1/keras/backend/variable
-  to: /tf/keras/backend/variable
-- from: /tf/compat/v1/keras/backend/zeros
-  to: /tf/keras/backend/zeros
-- from: /tf/compat/v1/keras/backend/zeros_like
-  to: /tf/keras/backend/zeros_like
 - from: /tf/compat/v1/keras/callbacks/BaseLogger
   to: /tf/keras/callbacks/BaseLogger
 - from: /tf/compat/v1/keras/callbacks/CSVLogger
@@ -1981,8 +1739,6 @@ redirects:
   to: /tf/keras/experimental/SequenceFeatures
 - from: /tf/compat/v1/keras/experimental/WideDeepModel
   to: /tf/keras/experimental/WideDeepModel
-- from: /tf/compat/v1/keras/experimental/terminate_keras_multiprocessing_pools
-  to: /tf/keras/experimental/terminate_keras_multiprocessing_pools
 - from: /tf/compat/v1/keras/initializers/Initializer
   to: /tf/keras/initializers/Initializer
 - from: /tf/compat/v1/keras/initializers/constant
@@ -2153,6 +1909,8 @@ redirects:
   to: /tf/keras/layers/Maximum
 - from: /tf/compat/v1/keras/layers/Minimum
   to: /tf/keras/layers/Minimum
+- from: /tf/compat/v1/keras/layers/MultiHeadAttention
+  to: /tf/keras/layers/MultiHeadAttention
 - from: /tf/compat/v1/keras/layers/Multiply
   to: /tf/keras/layers/Multiply
 - from: /tf/compat/v1/keras/layers/PReLU
@@ -2467,6 +2225,10 @@ redirects:
   to: /tf/keras/losses/KLD
 - from: /tf/compat/v1/keras/metrics/kullback_leibler_divergence
   to: /tf/keras/losses/KLD
+- from: /tf/compat/v1/keras/metrics/log_cosh
+  to: /tf/keras/losses/log_cosh
+- from: /tf/compat/v1/keras/metrics/logcosh
+  to: /tf/keras/losses/log_cosh
 - from: /tf/compat/v1/keras/metrics/mae
   to: /tf/keras/losses/MAE
 - from: /tf/compat/v1/keras/metrics/mape
@@ -2497,6 +2259,8 @@ redirects:
   to: /tf/keras/losses/squared_hinge
 - from: /tf/compat/v1/keras/metrics/top_k_categorical_accuracy
   to: /tf/keras/metrics/top_k_categorical_accuracy
+- from: /tf/compat/v1/keras/mixed_precision/LossScaleOptimizer
+  to: /tf/keras/mixed_precision/LossScaleOptimizer
 - from: /tf/compat/v1/keras/mixed_precision/experimental/LossScaleOptimizer
   to: /tf/keras/mixed_precision/experimental/LossScaleOptimizer
 - from: /tf/compat/v1/keras/models/Model
@@ -2629,8 +2393,6 @@ redirects:
   to: /tf/keras/utils/CustomObjectScope
 - from: /tf/compat/v1/keras/utils/GeneratorEnqueuer
   to: /tf/keras/utils/GeneratorEnqueuer
-- from: /tf/compat/v1/keras/utils/HDF5Matrix
-  to: /tf/keras/utils/HDF5Matrix
 - from: /tf/compat/v1/keras/utils/OrderedEnqueuer
   to: /tf/keras/utils/OrderedEnqueuer
 - from: /tf/compat/v1/keras/utils/Progbar
@@ -2639,8 +2401,6 @@ redirects:
   to: /tf/keras/utils/Sequence
 - from: /tf/compat/v1/keras/utils/SequenceEnqueuer
   to: /tf/keras/utils/SequenceEnqueuer
-- from: /tf/compat/v1/keras/utils/convert_all_kernels_in_model
-  to: /tf/keras/utils/convert_all_kernels_in_model
 - from: /tf/compat/v1/keras/utils/custom_object_scope
   to: /tf/keras/utils/CustomObjectScope
 - from: /tf/compat/v1/keras/utils/deserialize_keras_object
@@ -2657,8 +2417,6 @@ redirects:
   to: /tf/keras/utils/get_source_inputs
 - from: /tf/compat/v1/keras/utils/model_to_dot
   to: /tf/keras/utils/model_to_dot
-- from: /tf/compat/v1/keras/utils/multi_gpu_model
-  to: /tf/keras/utils/multi_gpu_model
 - from: /tf/compat/v1/keras/utils/normalize
   to: /tf/keras/utils/normalize
 - from: /tf/compat/v1/keras/utils/plot_model
@@ -2949,6 +2707,8 @@ redirects:
   to: /tf/math/erf
 - from: /tf/compat/v1/math/erfc
   to: /tf/math/erfc
+- from: /tf/compat/v1/math/erfcinv
+  to: /tf/math/erfcinv
 - from: /tf/compat/v1/math/erfinv
   to: /tf/math/erfinv
 - from: /tf/compat/v1/math/exp
@@ -3193,12 +2953,20 @@ redirects:
   to: /tf/meshgrid
 - from: /tf/compat/v1/minimum
   to: /tf/math/minimum
+- from: /tf/compat/v1/mixed_precision/DynamicLossScale
+  to: /tf/mixed_precision/experimental/DynamicLossScale
+- from: /tf/compat/v1/mixed_precision/FixedLossScale
+  to: /tf/mixed_precision/experimental/FixedLossScale
+- from: /tf/compat/v1/mixed_precision/LossScale
+  to: /tf/mixed_precision/experimental/LossScale
 - from: /tf/compat/v1/mixed_precision/experimental/DynamicLossScale
   to: /tf/mixed_precision/experimental/DynamicLossScale
 - from: /tf/compat/v1/mixed_precision/experimental/FixedLossScale
   to: /tf/mixed_precision/experimental/FixedLossScale
 - from: /tf/compat/v1/mixed_precision/experimental/LossScale
   to: /tf/mixed_precision/experimental/LossScale
+- from: /tf/compat/v1/mlir/experimental/convert_function
+  to: /tf/mlir/experimental/convert_function
 - from: /tf/compat/v1/mlir/experimental/convert_graph_def
   to: /tf/mlir/experimental/convert_graph_def
 - from: /tf/compat/v1/mod
@@ -3309,6 +3077,8 @@ redirects:
   to: /tf/nn/selu
 - from: /tf/compat/v1/nn/sigmoid
   to: /tf/math/sigmoid
+- from: /tf/compat/v1/nn/silu
+  to: /tf/nn/silu
 - from: /tf/compat/v1/nn/softmax
   to: /tf/compat/v1/math/softmax
 - from: /tf/compat/v1/nn/softplus
@@ -3320,7 +3090,7 @@ redirects:
 - from: /tf/compat/v1/nn/space_to_depth
   to: /tf/compat/v1/space_to_depth
 - from: /tf/compat/v1/nn/swish
-  to: /tf/nn/swish
+  to: /tf/nn/silu
 - from: /tf/compat/v1/nn/tanh
   to: /tf/math/tanh
 - from: /tf/compat/v1/nn/top_k
@@ -3391,10 +3161,14 @@ redirects:
   to: /tf/quantization/quantize
 - from: /tf/compat/v1/quantization/quantize_and_dequantize
   to: /tf/quantization/quantize_and_dequantize
+- from: /tf/compat/v1/quantization/quantize_and_dequantize_v2
+  to: /tf/quantization/quantize_and_dequantize_v2
 - from: /tf/compat/v1/quantization/quantized_concat
   to: /tf/quantization/quantized_concat
 - from: /tf/compat/v1/quantize
   to: /tf/quantization/quantize
+- from: /tf/compat/v1/quantize_and_dequantize_v4
+  to: /tf/quantize_and_dequantize_v4
 - from: /tf/compat/v1/quantized_concat
   to: /tf/quantization/quantized_concat
 - from: /tf/compat/v1/queue/FIFOQueue
@@ -3849,6 +3623,8 @@ redirects:
   to: /tf/raw_ops/CSRSparseMatrixToSparseTensor
 - from: /tf/compat/v1/raw_ops/CSVDataset
   to: /tf/raw_ops/CSVDataset
+- from: /tf/compat/v1/raw_ops/CSVDatasetV2
+  to: /tf/raw_ops/CSVDatasetV2
 - from: /tf/compat/v1/raw_ops/CTCBeamSearchDecoder
   to: /tf/raw_ops/CTCBeamSearchDecoder
 - from: /tf/compat/v1/raw_ops/CTCGreedyDecoder
@@ -3889,10 +3665,14 @@ redirects:
   to: /tf/raw_ops/CollectiveBcastSend
 - from: /tf/compat/v1/raw_ops/CollectiveGather
   to: /tf/raw_ops/CollectiveGather
+- from: /tf/compat/v1/raw_ops/CollectiveGatherV2
+  to: /tf/raw_ops/CollectiveGatherV2
 - from: /tf/compat/v1/raw_ops/CollectivePermute
   to: /tf/raw_ops/CollectivePermute
 - from: /tf/compat/v1/raw_ops/CollectiveReduce
   to: /tf/raw_ops/CollectiveReduce
+- from: /tf/compat/v1/raw_ops/CollectiveReduceV2
+  to: /tf/raw_ops/CollectiveReduceV2
 - from: /tf/compat/v1/raw_ops/CombinedNonMaxSuppression
   to: /tf/raw_ops/CombinedNonMaxSuppression
 - from: /tf/compat/v1/raw_ops/CompareAndBitpack
@@ -3905,6 +3685,8 @@ redirects:
   to: /tf/raw_ops/CompressElement
 - from: /tf/compat/v1/raw_ops/ComputeAccidentalHits
   to: /tf/raw_ops/ComputeAccidentalHits
+- from: /tf/compat/v1/raw_ops/ComputeBatchSize
+  to: /tf/raw_ops/ComputeBatchSize
 - from: /tf/compat/v1/raw_ops/Concat
   to: /tf/raw_ops/Concat
 - from: /tf/compat/v1/raw_ops/ConcatOffset
@@ -4043,6 +3825,8 @@ redirects:
   to: /tf/raw_ops/DecodeCompressed
 - from: /tf/compat/v1/raw_ops/DecodeGif
   to: /tf/raw_ops/DecodeGif
+- from: /tf/compat/v1/raw_ops/DecodeImage
+  to: /tf/raw_ops/DecodeImage
 - from: /tf/compat/v1/raw_ops/DecodeJSONExample
   to: /tf/raw_ops/DecodeJSONExample
 - from: /tf/compat/v1/raw_ops/DecodeJpeg
@@ -4443,6 +4227,8 @@ redirects:
   to: /tf/raw_ops/Imag
 - from: /tf/compat/v1/raw_ops/ImageProjectiveTransformV2
   to: /tf/raw_ops/ImageProjectiveTransformV2
+- from: /tf/compat/v1/raw_ops/ImageProjectiveTransformV3
+  to: /tf/raw_ops/ImageProjectiveTransformV3
 - from: /tf/compat/v1/raw_ops/ImageSummary
   to: /tf/raw_ops/ImageSummary
 - from: /tf/compat/v1/raw_ops/ImmutableConst
@@ -4501,6 +4287,8 @@ redirects:
   to: /tf/raw_ops/IsNan
 - from: /tf/compat/v1/raw_ops/IsVariableInitialized
   to: /tf/raw_ops/IsVariableInitialized
+- from: /tf/compat/v1/raw_ops/IsotonicRegression
+  to: /tf/raw_ops/IsotonicRegression
 - from: /tf/compat/v1/raw_ops/Iterator
   to: /tf/raw_ops/Iterator
 - from: /tf/compat/v1/raw_ops/IteratorFromStringHandle
@@ -4835,6 +4623,8 @@ redirects:
   to: /tf/raw_ops/OnesLike
 - from: /tf/compat/v1/raw_ops/OptimizeDataset
   to: /tf/raw_ops/OptimizeDataset
+- from: /tf/compat/v1/raw_ops/OptimizeDatasetV2
+  to: /tf/raw_ops/OptimizeDatasetV2
 - from: /tf/compat/v1/raw_ops/OptionalFromValue
   to: /tf/raw_ops/OptionalFromValue
 - from: /tf/compat/v1/raw_ops/OptionalGetValue
@@ -4861,6 +4651,10 @@ redirects:
   to: /tf/raw_ops/OutfeedDequeue
 - from: /tf/compat/v1/raw_ops/OutfeedDequeueTuple
   to: /tf/raw_ops/OutfeedDequeueTuple
+- from: /tf/compat/v1/raw_ops/OutfeedDequeueTupleV2
+  to: /tf/raw_ops/OutfeedDequeueTupleV2
+- from: /tf/compat/v1/raw_ops/OutfeedDequeueV2
+  to: /tf/raw_ops/OutfeedDequeueV2
 - from: /tf/compat/v1/raw_ops/OutfeedEnqueue
   to: /tf/raw_ops/OutfeedEnqueue
 - from: /tf/compat/v1/raw_ops/OutfeedEnqueueTuple
@@ -4961,6 +4755,10 @@ redirects:
   to: /tf/raw_ops/QuantizeAndDequantizeV2
 - from: /tf/compat/v1/raw_ops/QuantizeAndDequantizeV3
   to: /tf/raw_ops/QuantizeAndDequantizeV3
+- from: /tf/compat/v1/raw_ops/QuantizeAndDequantizeV4
+  to: /tf/raw_ops/QuantizeAndDequantizeV4
+- from: /tf/compat/v1/raw_ops/QuantizeAndDequantizeV4Grad
+  to: /tf/raw_ops/QuantizeAndDequantizeV4Grad
 - from: /tf/compat/v1/raw_ops/QuantizeDownAndShrinkRange
   to: /tf/raw_ops/QuantizeDownAndShrinkRange
 - from: /tf/compat/v1/raw_ops/QuantizeV2
@@ -5093,6 +4891,8 @@ redirects:
   to: /tf/raw_ops/RaggedTensorToTensor
 - from: /tf/compat/v1/raw_ops/RaggedTensorToVariant
   to: /tf/raw_ops/RaggedTensorToVariant
+- from: /tf/compat/v1/raw_ops/RaggedTensorToVariantGradient
+  to: /tf/raw_ops/RaggedTensorToVariantGradient
 - from: /tf/compat/v1/raw_ops/RandomCrop
   to: /tf/raw_ops/RandomCrop
 - from: /tf/compat/v1/raw_ops/RandomDataset
@@ -5161,6 +4961,8 @@ redirects:
   to: /tf/raw_ops/RealDiv
 - from: /tf/compat/v1/raw_ops/RebatchDataset
   to: /tf/raw_ops/RebatchDataset
+- from: /tf/compat/v1/raw_ops/RebatchDatasetV2
+  to: /tf/raw_ops/RebatchDatasetV2
 - from: /tf/compat/v1/raw_ops/Reciprocal
   to: /tf/raw_ops/Reciprocal
 - from: /tf/compat/v1/raw_ops/ReciprocalGrad
@@ -5389,6 +5191,8 @@ redirects:
   to: /tf/raw_ops/RightShift
 - from: /tf/compat/v1/raw_ops/Rint
   to: /tf/raw_ops/Rint
+- from: /tf/compat/v1/raw_ops/RngReadAndSkip
+  to: /tf/raw_ops/RngReadAndSkip
 - from: /tf/compat/v1/raw_ops/RngSkip
   to: /tf/raw_ops/RngSkip
 - from: /tf/compat/v1/raw_ops/Roll
@@ -5753,6 +5557,8 @@ redirects:
   to: /tf/raw_ops/StatefulUniformFullInt
 - from: /tf/compat/v1/raw_ops/StatefulUniformInt
   to: /tf/raw_ops/StatefulUniformInt
+- from: /tf/compat/v1/raw_ops/StatelessCase
+  to: /tf/raw_ops/StatelessCase
 - from: /tf/compat/v1/raw_ops/StatelessIf
   to: /tf/raw_ops/StatelessIf
 - from: /tf/compat/v1/raw_ops/StatelessMultinomial
@@ -5763,18 +5569,32 @@ redirects:
   to: /tf/raw_ops/StatelessRandomBinomial
 - from: /tf/compat/v1/raw_ops/StatelessRandomGammaV2
   to: /tf/raw_ops/StatelessRandomGammaV2
+- from: /tf/compat/v1/raw_ops/StatelessRandomGetKeyCounterAlg
+  to: /tf/raw_ops/StatelessRandomGetKeyCounterAlg
 - from: /tf/compat/v1/raw_ops/StatelessRandomNormal
   to: /tf/raw_ops/StatelessRandomNormal
+- from: /tf/compat/v1/raw_ops/StatelessRandomNormalV2
+  to: /tf/raw_ops/StatelessRandomNormalV2
 - from: /tf/compat/v1/raw_ops/StatelessRandomPoisson
   to: /tf/raw_ops/StatelessRandomPoisson
 - from: /tf/compat/v1/raw_ops/StatelessRandomUniform
   to: /tf/raw_ops/StatelessRandomUniform
 - from: /tf/compat/v1/raw_ops/StatelessRandomUniformFullInt
   to: /tf/raw_ops/StatelessRandomUniformFullInt
+- from: /tf/compat/v1/raw_ops/StatelessRandomUniformFullIntV2
+  to: /tf/raw_ops/StatelessRandomUniformFullIntV2
 - from: /tf/compat/v1/raw_ops/StatelessRandomUniformInt
   to: /tf/raw_ops/StatelessRandomUniformInt
+- from: /tf/compat/v1/raw_ops/StatelessRandomUniformIntV2
+  to: /tf/raw_ops/StatelessRandomUniformIntV2
+- from: /tf/compat/v1/raw_ops/StatelessRandomUniformV2
+  to: /tf/raw_ops/StatelessRandomUniformV2
+- from: /tf/compat/v1/raw_ops/StatelessSampleDistortedBoundingBox
+  to: /tf/raw_ops/StatelessSampleDistortedBoundingBox
 - from: /tf/compat/v1/raw_ops/StatelessTruncatedNormal
   to: /tf/raw_ops/StatelessTruncatedNormal
+- from: /tf/compat/v1/raw_ops/StatelessTruncatedNormalV2
+  to: /tf/raw_ops/StatelessTruncatedNormalV2
 - from: /tf/compat/v1/raw_ops/StatelessWhile
   to: /tf/raw_ops/StatelessWhile
 - from: /tf/compat/v1/raw_ops/StaticRegexFullMatch
@@ -6173,6 +5993,8 @@ redirects:
   to: /tf/saved_model/SaveOptions
 - from: /tf/compat/v1/saved_model/builder/SavedModelBuilder
   to: /tf/compat/v1/saved_model/Builder
+- from: /tf/compat/v1/saved_model/experimental/VariablePolicy
+  to: /tf/saved_model/experimental/VariablePolicy
 - from: /tf/compat/v1/saved_model/experimental/save
   to: /tf/saved_model/save
 - from: /tf/compat/v1/saved_model/load_v2
@@ -6605,6 +6427,8 @@ redirects:
   to: /tf/tpu/experimental/embedding/TPUEmbedding
 - from: /tf/compat/v1/tpu/experimental/embedding/TableConfig
   to: /tf/tpu/experimental/embedding/TableConfig
+- from: /tf/compat/v1/tpu/experimental/embedding/serving_embedding_lookup
+  to: /tf/tpu/experimental/embedding/serving_embedding_lookup
 - from: /tf/compat/v1/tpu/experimental/initialize_tpu_system
   to: /tf/tpu/experimental/initialize_tpu_system
 - from: /tf/compat/v1/tpu/experimental/shutdown_tpu_system
@@ -6699,8 +6523,14 @@ redirects:
   to: /tf/mixed_precision/experimental/FixedLossScale
 - from: /tf/compat/v1/train/experimental/LossScale
   to: /tf/mixed_precision/experimental/LossScale
+- from: /tf/compat/v1/train/experimental/MixedPrecisionLossScaleOptimizer
+  to: /tf/compat/v1/mixed_precision/MixedPrecisionLossScaleOptimizer
 - from: /tf/compat/v1/train/experimental/PythonState
   to: /tf/train/experimental/PythonState
+- from: /tf/compat/v1/train/experimental/disable_mixed_precision_graph_rewrite
+  to: /tf/compat/v1/mixed_precision/disable_mixed_precision_graph_rewrite
+- from: /tf/compat/v1/train/experimental/enable_mixed_precision_graph_rewrite
+  to: /tf/compat/v1/mixed_precision/enable_mixed_precision_graph_rewrite
 - from: /tf/compat/v1/train/get_checkpoint_state
   to: /tf/train/get_checkpoint_state
 - from: /tf/compat/v1/train/latest_checkpoint
@@ -6733,6 +6563,8 @@ redirects:
   to: /tf/truncatemod
 - from: /tf/compat/v1/type_spec_from_value
   to: /tf/type_spec_from_value
+- from: /tf/compat/v1/types/experimental/TensorLike
+  to: /tf/types/experimental/TensorLike
 - from: /tf/compat/v1/unique
   to: /tf/unique
 - from: /tf/compat/v1/unique_with_counts
@@ -6795,6 +6627,8 @@ redirects:
   to: /tf/math/cumsum
 - from: /tf/data/experimental/Optional
   to: /tf/experimental/Optional
+- from: /tf/distribute/experimental/CollectiveCommunication
+  to: /tf/distribute/experimental/CommunicationImplementation
 - from: /tf/divide
   to: /tf/math/divide
 - from: /tf/dtypes/cast
@@ -6807,6 +6641,22 @@ redirects:
   to: /tf/math/equal
 - from: /tf/exp
   to: /tf/math/exp
+- from: /tf/experimental/numpy/complex_
+  to: /tf/experimental/numpy/complex128
+- from: /tf/experimental/numpy/float_
+  to: /tf/experimental/numpy/float64
+- from: /tf/experimental/numpy/int_
+  to: /tf/experimental/numpy/int64
+- from: /tf/experimental/numpy/ndarray/__abs__
+  to: /tf/experimental/numpy/absolute
+- from: /tf/experimental/numpy/ndarray/__invert__
+  to: /tf/experimental/numpy/logical_not
+- from: /tf/experimental/numpy/ndarray/clip
+  to: /tf/experimental/numpy/clip
+- from: /tf/experimental/numpy/ndarray/ravel
+  to: /tf/experimental/numpy/ravel
+- from: /tf/experimental/numpy/ndarray/transpose
+  to: /tf/experimental/numpy/transpose
 - from: /tf/floor
   to: /tf/math/floor
 - from: /tf/greater
@@ -7091,6 +6941,10 @@ redirects:
   to: /tf/keras/losses/KLD
 - from: /tf/keras/metrics/kullback_leibler_divergence
   to: /tf/keras/losses/KLD
+- from: /tf/keras/metrics/log_cosh
+  to: /tf/keras/losses/log_cosh
+- from: /tf/keras/metrics/logcosh
+  to: /tf/keras/losses/log_cosh
 - from: /tf/keras/metrics/mae
   to: /tf/keras/losses/MAE
 - from: /tf/keras/metrics/mape
@@ -7113,6 +6967,10 @@ redirects:
   to: /tf/keras/losses/sparse_categorical_crossentropy
 - from: /tf/keras/metrics/squared_hinge
   to: /tf/keras/losses/squared_hinge
+- from: /tf/keras/mixed_precision/experimental/global_policy
+  to: /tf/keras/mixed_precision/global_policy
+- from: /tf/keras/mixed_precision/experimental/set_policy
+  to: /tf/keras/mixed_precision/set_global_policy
 - from: /tf/keras/models/Model
   to: /tf/keras/Model
 - from: /tf/keras/models/Sequential
@@ -7369,6 +7227,10 @@ redirects:
   to: /tf/keras/losses/KLD
 - from: /tf/metrics/kullback_leibler_divergence
   to: /tf/keras/losses/KLD
+- from: /tf/metrics/log_cosh
+  to: /tf/keras/losses/log_cosh
+- from: /tf/metrics/logcosh
+  to: /tf/keras/losses/log_cosh
 - from: /tf/metrics/mae
   to: /tf/keras/losses/MAE
 - from: /tf/metrics/mape
@@ -7423,6 +7285,8 @@ redirects:
   to: /tf/math/softplus
 - from: /tf/nn/space_to_batch
   to: /tf/space_to_batch
+- from: /tf/nn/swish
+  to: /tf/nn/silu
 - from: /tf/nn/tanh
   to: /tf/math/tanh
 - from: /tf/nn/top_k

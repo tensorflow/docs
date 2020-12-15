@@ -17,7 +17,7 @@ description: Type specification for a <a href="../tf/RaggedTensor.md"><code>tf.R
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L2117-L2296">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L2179-L2492">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -42,7 +42,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.RaggedTensorSpec(
     shape=None, dtype=tf.dtypes.float32, ragged_rank=None,
-    row_splits_dtype=tf.dtypes.int64
+    row_splits_dtype=tf.dtypes.int64, flat_values_spec=None
 )
 </code></pre>
 
@@ -76,8 +76,8 @@ shape is specified, then all ragged dimensions must have size `None`.
 `ragged_rank`
 </td>
 <td>
-Python integer, the ragged rank of the RaggedTensor to be
-described.  Defaults to `shape.ndims - 1`.
+Python integer, the number of times the RaggedTensor's
+flat_values is partitioned.  Defaults to `shape.ndims - 1`.
 </td>
 </tr><tr>
 <td>
@@ -86,6 +86,16 @@ described.  Defaults to `shape.ndims - 1`.
 <td>
 `dtype` for the RaggedTensor's `row_splits` tensor. One
 of <a href="../tf.md#int32"><code>tf.int32</code></a> or <a href="../tf.md#int64"><code>tf.int64</code></a>.
+</td>
+</tr><tr>
+<td>
+`flat_values_spec`
+</td>
+<td>
+TypeSpec for flat_value of the RaggedTensor. It shall be
+provided when the flat_values is a CompositeTensor rather then Tensor.
+If both `dtype` and `flat_values_spec` and  are provided, `dtype` must
+be the same as `flat_values_spec.dtype`. (experimental)
 </td>
 </tr>
 </table>
@@ -100,6 +110,82 @@ of <a href="../tf.md#int32"><code>tf.int32</code></a> or <a href="../tf.md#int64
 <tr><th colspan="2"><h2 class="add-link">Attributes</h2></th></tr>
 
 <tr>
+<td>
+`dtype`
+</td>
+<td>
+The <a href="../tf/dtypes/DType.md"><code>tf.dtypes.DType</code></a> specified by this type for the RaggedTensor.
+
+
+```
+>>> rt = tf.ragged.constant([["a"], ["b", "c"]], dtype=tf.string)
+>>> tf.type_spec_from_value(rt).dtype
+tf.string
+```
+</td>
+</tr><tr>
+<td>
+`flat_values_spec`
+</td>
+<td>
+The `TypeSpec` of the flat_values of RaggedTensor.
+</td>
+</tr><tr>
+<td>
+`ragged_rank`
+</td>
+<td>
+The number of times the RaggedTensor's flat_values is partitioned.
+
+Defaults to `shape.ndims - 1`.
+
+```
+>>> values = tf.ragged.constant([[1, 2, 3], [4], [5, 6], [7, 8, 9, 10]])
+>>> tf.type_spec_from_value(values).ragged_rank
+1
+```
+
+```
+>>> rt1 = tf.RaggedTensor.from_uniform_row_length(values, 2)
+>>> tf.type_spec_from_value(rt1).ragged_rank
+2
+```
+</td>
+</tr><tr>
+<td>
+`row_splits_dtype`
+</td>
+<td>
+The <a href="../tf/dtypes/DType.md"><code>tf.dtypes.DType</code></a> of the RaggedTensor's `row_splits`.
+
+
+```
+>>> rt = tf.ragged.constant([[1, 2, 3], [4]], row_splits_dtype=tf.int64)
+>>> tf.type_spec_from_value(rt).row_splits_dtype
+tf.int64
+```
+</td>
+</tr><tr>
+<td>
+`shape`
+</td>
+<td>
+The statically known shape of the RaggedTensor.
+
+
+```
+>>> rt = tf.ragged.constant([[0], [1, 2]])
+>>> tf.type_spec_from_value(rt).shape
+TensorShape([2, None])
+```
+
+```
+>>> rt = tf.ragged.constant([[[0, 1]], [[1, 2], [3, 4]]], ragged_rank=1)
+>>> tf.type_spec_from_value(rt).shape
+TensorShape([2, None, 2])
+```
+</td>
+</tr><tr>
 <td>
 `value_type`
 </td>
@@ -118,7 +204,7 @@ instance of this type.
 
 <h3 id="from_value"><code>from_value</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L2290-L2296">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L2477-L2492">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -132,7 +218,7 @@ instance of this type.
 
 <h3 id="is_compatible_with"><code>is_compatible_with</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/ragged/ragged_tensor.py#L2160-L2166">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/ragged/ragged_tensor.py#L2323-L2332">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>is_compatible_with(
@@ -145,7 +231,7 @@ Returns true if `spec_or_value` is compatible with this TypeSpec.
 
 <h3 id="most_specific_compatible_type"><code>most_specific_compatible_type</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/type_spec.py#L110-L132">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/type_spec.py#L110-L132">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>most_specific_compatible_type(
@@ -193,7 +279,7 @@ and `other`.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/type_spec.py#L293-L296">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/type_spec.py#L293-L296">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -206,7 +292,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/framework/type_spec.py#L298-L299">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/framework/type_spec.py#L298-L299">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(

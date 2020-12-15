@@ -1,4 +1,4 @@
-description: Normalize and scale inputs or activations.
+description: Layer that normalizes its inputs.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.keras.layers.BatchNormalization" />
@@ -13,7 +13,7 @@ description: Normalize and scale inputs or activations.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/normalization.py#L934-L945">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/normalization.py#L981-L992">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -22,7 +22,7 @@ description: Normalize and scale inputs or activations.
 
 
 
-Normalize and scale inputs or activations.
+Layer that normalizes its inputs.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.keras.layers.BatchNormalization(
@@ -40,24 +40,41 @@ Normalize and scale inputs or activations.
 
 <!-- Placeholder for "Used in" -->
 
-Normalize the activations of the previous layer at each batch,
-i.e. applies a transformation that maintains the mean activation
-close to 0 and the activation standard deviation close to 1.
+Batch normalization applies a transformation that maintains the mean output
+close to 0 and the output standard deviation close to 1.
 
-Batch normalization differs from other layers in several key aspects:
+Importantly, batch normalization works differently during training and
+during inference.
 
-1) Adding BatchNormalization with `training=True` to a model causes the
-result of one example to depend on the contents of all other examples in a
-minibatch. Be careful when padding batches or masking examples, as these can
-change the minibatch statistics and affect other examples.
+**During training** (i.e. when using `fit()` or when calling the layer/model
+with the argument `training=True`), the layer normalizes its output using
+the mean and standard deviation of the current batch of inputs. That is to
+say, for each channel being normalized, the layer returns
+`(batch - mean(batch)) / (var(batch) + epsilon) * gamma + beta`, where:
 
-2) Updates to the weights (moving statistics) are based on the forward pass
-of a model rather than the result of gradient computations.
+- `epsilon` is small constant (configurable as part of the constructor
+arguments)
+- `gamma` is a learned scaling factor (initialized as 1), which
+can be disabled by passing `scale=False` to the constructor.
+- `beta` is a learned offset factor (initialized as 0), which
+can be disabled by passing `center=False` to the constructor.
 
-3) When performing inference using a model containing batch normalization, it
-is generally (though not always) desirable to use accumulated statistics
-rather than mini-batch statistics. This is accomplished by passing
-`training=False` when calling the model, or using `model.predict`.
+**During inference** (i.e. when using `evaluate()` or `predict()` or when
+calling the layer/model with the argument `training=False` (which is the
+default), the layer normalizes its output using a moving average of the
+mean and standard deviation of the batches it has seen during training. That
+is to say, it returns
+`(batch - self.moving_mean) / (self.moving_var + epsilon) * gamma + beta`.
+
+`self.moving_mean` and `self.moving_var` are non-trainable variables that
+are updated each time the layer in called in training mode, as such:
+
+- `moving_mean = moving_mean * momentum + mean(batch) * (1 - momentum)`
+- `moving_var = moving_var * momentum + var(batch) * (1 - momentum)`
+
+As such, the layer will only normalize its inputs during inference
+*after having been trained on data that has similar statistics as the
+inference data*.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -69,8 +86,8 @@ rather than mini-batch statistics. This is accomplished by passing
 `axis`
 </td>
 <td>
-Integer, the axis that should be normalized (typically the features
-axis). For instance, after a `Conv2D` layer with
+Integer or a list of integers, the axis that should be normalized
+(typically the features axis). For instance, after a `Conv2D` layer with
 `data_format="channels_first"`, set `axis=1` in `BatchNormalization`.
 </td>
 </tr><tr>
@@ -255,18 +272,11 @@ virtual_batch_size is specified.
 Input shape: Arbitrary. Use the keyword argument `input_shape` (tuple of
   integers, does not include the samples axis) when using this layer as the
   first layer in a model.
+
 Output shape: Same shape as input.  
-Normalization equations: Consider the intermediate activations \(x\) of a
-  mini-batch of size
-  \\(m\\):  We can compute the mean and variance of the batch  \\({\mu_B} =
-    \frac{1}{m} \sum_{i=1}^{m} {x_i}\\)  \\({\sigma_B^2} = \frac{1}{m}
-    \sum_{i=1}^{m} ({x_i} - {\mu_B})^2\\)  and then compute a normalized
-    \\(x\\), including a small factor \\({\epsilon}\\) for numerical
-    stability.  \\(\hat{x_i} = \frac{x_i - \mu_B}{\sqrt{\sigma_B^2 +
-    \epsilon}}\\)  And finally \\(\hat{x}\) is linearly transformed by
-    \({\gamma}\\)
-  and \\({\beta}\\), which are learned parameters:  \\({y_i} = {\gamma *
-    \hat{x_i} + \beta}\\)
-Reference:
-  - [Ioffe and Szegedy, 2015](https://arxiv.org/abs/1502.03167).
+
+#### Reference:
+
+- [Ioffe and Szegedy, 2015](https://arxiv.org/abs/1502.03167).
+
 

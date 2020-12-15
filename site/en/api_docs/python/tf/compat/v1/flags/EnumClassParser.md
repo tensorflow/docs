@@ -36,7 +36,7 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.flags.EnumClassParser(
-    enum_class
+    enum_class, case_sensitive=(True)
 )
 </code></pre>
 
@@ -56,6 +56,14 @@ more details.</p>
 </td>
 <td>
 class, the Enum class with all possible flag values.
+</td>
+</tr><tr>
+<td>
+`case_sensitive`
+</td>
+<td>
+bool, whether or not the enum is to be case-sensitive. If
+False, all member names must be unique when case is ignored.
 </td>
 </tr>
 </table>
@@ -80,6 +88,25 @@ When enum_class is not a subclass of Enum.
 </td>
 <td>
 When enum_class is empty.
+</td>
+</tr>
+</table>
+
+
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2"><h2 class="add-link">Attributes</h2></th></tr>
+
+<tr>
+<td>
+`member_names`
+</td>
+<td>
+The accepted enum names, in lowercase if not case sensitive.
 </td>
 </tr>
 </table>

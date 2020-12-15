@@ -11,7 +11,7 @@ description: Returns a list of files that match the given pattern(s).
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/lib/io/file_io.py#L337-L350">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/lib/io/file_io.py#L338-L352">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -74,3 +74,4 @@ A list of strings containing filenames that match the given pattern(s).
 
 
 *  errors.OpError: If there are filesystem / directory listing errors.
+*  errors.NotFoundError: If pattern to be matched is an invalid directory.

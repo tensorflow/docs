@@ -11,7 +11,7 @@ description: Exports the Trackable object obj to [SavedModel format](https://git
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/save.py#L788-L1011">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/save.py#L844-L1071">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -216,14 +216,15 @@ A directory in which to write the SavedModel.
 `signatures`
 </td>
 <td>
-Optional, either a <a href="../../tf/function.md"><code>tf.function</code></a> with an input signature
-specified or the result of `f.get_concrete_function` on a
-`@tf.function`-decorated function `f`, in which case `f` will be used to
-generate a signature for the SavedModel under the default serving
-signature key. `signatures` may also be a dictionary, in which case it
-maps from signature keys to either <a href="../../tf/function.md"><code>tf.function</code></a> instances with input
-signatures or concrete functions. The keys of such a dictionary may be
-arbitrary strings, but will typically be from the
+Optional, one of three types:
+* a <a href="../../tf/function.md"><code>tf.function</code></a> with an input signature specified, which will use the
+default serving signature key,
+* the result of `f.get_concrete_function` on a `@tf.function`-decorated
+function `f`, in which case `f` will be used to generate a signature for
+the SavedModel under the default serving signature key,
+* a dictionary, which maps signature keys to either <a href="../../tf/function.md"><code>tf.function</code></a>
+instances with input signatures or concrete functions. Keys of such a
+dictionary may be arbitrary strings, but will typically be from the
 `tf.saved_model.signature_constants` module.
 </td>
 </tr><tr>

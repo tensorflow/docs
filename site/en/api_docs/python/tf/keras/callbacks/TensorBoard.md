@@ -15,7 +15,7 @@ description: Enable visualizations for TensorBoard.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L1823-L2266">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L1924-L2430">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -58,30 +58,6 @@ tensorboard --logdir=path_to_your_logs
 
 You can find more information about TensorBoard
 [here](https://www.tensorflow.org/get_started/summaries_and_tensorboard).
-
-Example (Basic):
-
-```python
-tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs")
-model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
-# run the tensorboard command to view the visualizations.
-```
-
-Example (Profile):
-
-```python
-# profile a single batch, e.g. the 5th batch.
-tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs',
-                                                      profile_batch=5)
-model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
-# Now run the tensorboard command to view the visualizations (profile plugin).
-
-# profile a range of batches, e.g. from 10 to 20.
-tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs',
-                                                      profile_batch='10,20')
-model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
-# Now run the tensorboard command to view the visualizations (profile plugin).
-```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -170,28 +146,85 @@ used for all embedding layers, string can be passed.
 
 
 
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2"><h2 class="add-link">Raises</h2></th></tr>
-
-<tr>
-<td>
-`ValueError`
-</td>
-<td>
-If histogram_freq is set and no validation data is provided.
-</td>
-</tr>
-</table>
+#### Examples:
 
 
+
+
+#### Basic usage:
+
+
+
+```python
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./logs")
+model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
+# Then run the tensorboard command to view the visualizations.
+```
+
+Custom batch-level summaries in a subclassed Model:
+
+```python
+class MyModel(tf.keras.Model):
+
+  def build(self, _):
+    self.dense = tf.keras.layers.Dense(10)
+
+  def call(self, x):
+    outputs = self.dense(x)
+    tf.summary.histogram('outputs', outputs)
+    return outputs
+
+model = MyModel()
+model.compile('sgd', 'mse')
+
+# Make sure to set `update_freq=N` to log a batch-level summary every N batches.
+# In addition to any `tf.summary` contained in `Model.call`, metrics added in
+# `Model.compile` will be logged every N batches.
+tb_callback = tf.keras.callbacks.TensorBoard('./logs', update_freq=1)
+model.fit(x_train, y_train, callbacks=[tb_callback])
+```
+
+Custom batch-level summaries in a Functional API Model:
+
+```python
+def my_summary(x):
+  tf.summary.histogram('x', x)
+  return x
+
+inputs = tf.keras.Input(10)
+x = tf.keras.layers.Dense(10)(inputs)
+outputs = tf.keras.layers.Lambda(my_summary)(x)
+model = tf.keras.Model(inputs, outputs)
+model.compile('sgd', 'mse')
+
+# Make sure to set `update_freq=N` to log a batch-level summary every N batches.
+# In addition to any `tf.summary` contained in `Model.call`, metrics added in
+# `Model.compile` will be logged every N batches.
+tb_callback = tf.keras.callbacks.TensorBoard('./logs', update_freq=1)
+model.fit(x_train, y_train, callbacks=[tb_callback])
+```
+
+#### Profiling:
+
+
+
+```python
+# Profile a single batch, e.g. the 5th batch.
+tensorboard_callback = tf.keras.callbacks.TensorBoard(
+    log_dir='./logs', profile_batch=5)
+model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
+
+# Profile a range of batches, e.g. from 10 to 20.
+tensorboard_callback = tf.keras.callbacks.TensorBoard(
+    log_dir='./logs', profile_batch=(10,20))
+model.fit(x_train, y_train, epochs=2, callbacks=[tensorboard_callback])
+```
 
 ## Methods
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L1966-L1982">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L2107-L2125">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_model(
@@ -204,7 +237,7 @@ Sets Keras model and writes graph if specified.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/callbacks.py#L616-L617">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/callbacks.py#L630-L631">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_params(

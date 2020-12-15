@@ -19,7 +19,7 @@ Inception V3 model for Keras.
 
 
 
-#### Reference paper:
+#### Reference:
 
 - [Rethinking the Inception Architecture for Computer Vision](
     http://arxiv.org/abs/1512.00567) (CVPR 2016)

@@ -21,7 +21,7 @@ description: Cluster Resolver for Google Cloud TPUs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L51-L389">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L59-L422">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -80,7 +80,8 @@ Cloud TPUs.
 <td>
 A string corresponding to the TPU to use. It can be the TPU name or
 TPU worker gRPC address. If not set, it will try automatically resolve
-the TPU address on Cloud TPUs.
+the TPU address on Cloud TPUs. If set to "local", it will assume that
+the TPU is directly connected to the VM instead of over the network.
 </td>
 </tr><tr>
 <td>
@@ -305,7 +306,7 @@ For more information, please see
 
 <h3 id="cluster_spec"><code>cluster_spec</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L287-L321">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L305-L342">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>cluster_spec()
@@ -350,7 +351,7 @@ If the provided TPU is not healthy.
 
 <h3 id="connect"><code>connect</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L66-L106">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L74-L114">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@staticmethod</code>
@@ -447,7 +448,7 @@ If no TPU devices found in eager mode.
 
 <h3 id="get_job_name"><code>get_job_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L259-L260">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L277-L278">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_job_name()
@@ -458,7 +459,7 @@ If no TPU devices found in eager mode.
 
 <h3 id="get_master"><code>get_master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L256-L257">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L274-L275">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_master()
@@ -469,7 +470,7 @@ If no TPU devices found in eager mode.
 
 <h3 id="get_tpu_system_metadata"><code>get_tpu_system_metadata</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L262-L285">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L280-L303">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_tpu_system_metadata()
@@ -502,7 +503,7 @@ A <a href="../../../tf/tpu/experimental/TPUSystemMetadata.md"><code>tf.tpu.exper
 
 <h3 id="master"><code>master</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L215-L254">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L230-L272">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>master(
@@ -587,7 +588,7 @@ If none of the TPUs specified exists.
 
 <h3 id="num_accelerators"><code>num_accelerators</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L323-L365">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L344-L398">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>num_accelerators(
@@ -653,7 +654,7 @@ number of TPU devices per host is different.
 
 <h3 id="__enter__"><code>__enter__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L209-L210">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L224-L225">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__enter__()
@@ -664,7 +665,7 @@ number of TPU devices per host is different.
 
 <h3 id="__exit__"><code>__exit__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L212-L213">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/cluster_resolver/tpu/tpu_cluster_resolver.py#L227-L228">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__exit__(

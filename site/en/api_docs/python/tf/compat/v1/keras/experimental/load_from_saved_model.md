@@ -1,4 +1,4 @@
-description: Loads a keras Model from a SavedModel created by export_saved_model(). (deprecated)
+description: Loads a keras Model from a SavedModel created by export_saved_model().
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.keras.experimental.load_from_saved_model" />
@@ -11,7 +11,7 @@ description: Loads a keras Model from a SavedModel created by export_saved_model
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/saving/saved_model_experimental.py#L374-L430">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/saving/saved_model_experimental.py#L375-L431">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Loads a keras Model from a SavedModel created by export_saved_model
 
 
 
-Loads a keras Model from a SavedModel created by `export_saved_model()`. (deprecated)
+Loads a keras Model from a SavedModel created by `export_saved_model()`.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.keras.experimental.load_from_saved_model(
@@ -31,10 +31,6 @@ Loads a keras Model from a SavedModel created by `export_saved_model()`. (deprec
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-The experimental save and load functions have been  deprecated. Please switch to <a href="../../../../../tf/keras/models/load_model.md"><code>tf.keras.models.load_model</code></a>.
 
 This function reinstantiates model state by:
 1) loading model topology from json (this will eventually come

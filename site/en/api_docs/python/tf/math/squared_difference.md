@@ -1,4 +1,4 @@
-description: Returns (x - y)(x - y) element-wise.
+description: Returns conj(x - y)(x - y) element-wise.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.math.squared_difference" />
@@ -15,7 +15,7 @@ description: Returns (x - y)(x - y) element-wise.
 
 
 
-Returns (x - y)(x - y) element-wise.
+Returns conj(x - y)(x - y) element-wise.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>

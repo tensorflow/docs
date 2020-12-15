@@ -15,7 +15,7 @@ description: Builds the SavedModel protocol buffer and saves variables and asset
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/builder_impl.py#L432-L621">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/builder_impl.py#L432-L621">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -93,7 +93,7 @@ object-based method of creating SavedModels.
 
 <h3 id="add_meta_graph"><code>add_meta_graph</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/builder_impl.py#L513-L555">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/builder_impl.py#L513-L555">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_meta_graph(
@@ -197,7 +197,7 @@ yet, or if the graph already contains one or more legacy init ops.
 
 <h3 id="add_meta_graph_and_variables"><code>add_meta_graph_and_variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/builder_impl.py#L557-L615">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/builder_impl.py#L557-L615">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_meta_graph_and_variables(
@@ -300,7 +300,7 @@ all variables will be used.
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/saved_model/builder_impl.py#L395-L428">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/saved_model/builder_impl.py#L395-L428">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>save(

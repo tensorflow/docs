@@ -14,7 +14,7 @@ description: Specifies the rank, dtype and shape of every input to a layer.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/input_spec.py#L34-L106">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/input_spec.py#L34-L133">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -38,7 +38,8 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.layers.InputSpec(
-    dtype=None, shape=None, ndim=None, max_ndim=None, min_ndim=None, axes=None
+    dtype=None, shape=None, ndim=None, max_ndim=None, min_ndim=None, axes=None,
+    allow_last_axis_squeeze=(False), name=None
 )
 </code></pre>
 
@@ -73,7 +74,7 @@ Expected DataType of the input.
 </td>
 <td>
 Shape tuple, expected shape of the input
-(may include None for unchecked axes).
+(may include None for unchecked axes). Includes the batch size.
 </td>
 </tr><tr>
 <td>
@@ -104,16 +105,48 @@ Integer, minimum rank of the input.
 Dictionary mapping integer axes to
 a specific dimension value.
 </td>
+</tr><tr>
+<td>
+`allow_last_axis_squeeze`
+</td>
+<td>
+If True, then allow inputs of rank N+1 as long
+as the last axis of the input is 1, as well as inputs of rank N-1
+as long as the last axis of the spec is 1.
+</td>
+</tr><tr>
+<td>
+`name`
+</td>
+<td>
+Expected key corresponding to this input when passing data as
+a dictionary.
+</td>
 </tr>
 </table>
 
 
 
+#### Example:
+
+
+
+```python
+class MyLayer(Layer):
+    def __init__(self):
+        super(MyLayer, self).__init__()
+        # The layer will accept inputs with shape (?, 28, 28) & (?, 28, 28, 1)
+        # and raise an appropriate error message otherwise.
+        self.input_spec = InputSpec(
+            shape=(None, 28, 28, 1),
+            allow_last_axis_squeeze=True)
+```
+
 ## Methods
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/input_spec.py#L104-L106">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/input_spec.py#L131-L133">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -127,7 +160,7 @@ a specific dimension value.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/engine/input_spec.py#L95-L102">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/engine/input_spec.py#L122-L129">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()

@@ -27,7 +27,7 @@ description: Random-number generator.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L259-L904">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L271-L974">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -212,7 +212,7 @@ The internal state of the RNG.
 
 <h3 id="binomial"><code>binomial</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L759-L815">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L829-L885">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>binomial(
@@ -319,7 +319,7 @@ success probs[i].
 
 <h3 id="from_key_counter"><code>from_key_counter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L472-L504">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L484-L516">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -393,7 +393,7 @@ The new generator.
 
 <h3 id="from_non_deterministic_state"><code>from_non_deterministic_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L443-L470">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L455-L482">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -451,7 +451,7 @@ The new generator.
 
 <h3 id="from_seed"><code>from_seed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L409-L441">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L421-L453">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -521,7 +521,7 @@ The new generator.
 
 <h3 id="from_state"><code>from_state</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L386-L407">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L398-L419">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -585,7 +585,7 @@ The new generator.
 
 <h3 id="make_seeds"><code>make_seeds</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L826-L854">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L896-L924">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>make_seeds(
@@ -642,7 +642,7 @@ A tensor of shape [2, count] and dtype int64.
 
 <h3 id="normal"><code>normal</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L602-L624">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L637-L659">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>normal(
@@ -717,7 +717,7 @@ A tensor of the specified shape filled with random normal values.
 
 <h3 id="reset"><code>reset</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L506-L516">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L518-L528">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset(
@@ -748,7 +748,7 @@ the new state.
 
 <h3 id="reset_from_key_counter"><code>reset_from_key_counter</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L529-L545">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L541-L557">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_from_key_counter(
@@ -786,7 +786,7 @@ the new counter.
 
 <h3 id="reset_from_seed"><code>reset_from_seed</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L518-L527">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L530-L539">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reset_from_seed(
@@ -817,7 +817,7 @@ the new seed.
 
 <h3 id="skip"><code>skip</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L589-L598">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L607-L623">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>skip(
@@ -850,7 +850,7 @@ counter is an unspecified implementation detail.
 
 <h3 id="split"><code>split</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L856-L904">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L926-L974">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>split(
@@ -924,7 +924,7 @@ The new generators have the same RNG algorithm as the old one.
 
 <h3 id="truncated_normal"><code>truncated_normal</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L630-L662">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L673-L705">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>truncated_normal(
@@ -1003,7 +1003,7 @@ values.
 
 <h3 id="uniform"><code>uniform</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L673-L737">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L733-L807">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>uniform(
@@ -1117,7 +1117,7 @@ If `dtype` is integral and `maxval` is not specified.
 
 <h3 id="uniform_full_int"><code>uniform_full_int</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/stateful_random_ops.py#L739-L757">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/stateful_random_ops.py#L809-L827">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>uniform_full_int(

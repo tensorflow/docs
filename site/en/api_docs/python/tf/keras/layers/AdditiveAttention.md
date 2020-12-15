@@ -13,7 +13,7 @@ description: Additive attention layer, a.k.a. Bahdanau-style attention.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/dense_attention.py#L344-L486">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/dense_attention.py#L359-L505">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -112,12 +112,16 @@ attention scores.
     `mask==False` do not contribute to the result.
 * <b>`training`</b>: Python boolean indicating whether the layer should behave in
   training mode (adding dropout) or in inference mode (no dropout).
+* <b>`return_attention_scores`</b>: bool, it `True`, returns the attention scores
+  (after masking and softmax) as an additional output argument.
 
 
-#### Output shape:
+#### Output:
 
 
 Attention outputs of shape `[batch_size, Tq, dim]`.
+[Optional] Attention scores after masking and softmax with shape
+  `[batch_size, Tq, Tv]`.
 
 
 The meaning of `query`, `value` and `key` depend on the application. In the

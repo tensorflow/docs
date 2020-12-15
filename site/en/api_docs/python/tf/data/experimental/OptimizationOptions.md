@@ -14,7 +14,7 @@ description: Represents options for dataset optimizations.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/experimental/ops/optimization_options.py#L70-L262">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/experimental/ops/optimization_options.py#L74-L329">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -93,6 +93,13 @@ When autotuning is enabled (through `autotune`), determines the CPU budget to us
 </td>
 </tr><tr>
 <td>
+`autotune_ram_budget`
+</td>
+<td>
+When autotuning is enabled (through `autotune`), determines the RAM budget to use. Values greater than the available RAM in bytes may result in OOM. If None, defaults to half of the available RAM in bytes.
+</td>
+</tr><tr>
+<td>
 `filter_fusion`
 </td>
 <td>
@@ -159,7 +166,14 @@ Whether to eliminate no-op transformations. If None, defaults to True.
 `parallel_batch`
 </td>
 <td>
-Whether to parallelize copying of batch elements. If None, defaults to False.
+Whether to parallelize copying of batch elements. This optimization is highly experimental and can cause performance degradation (e.g. when the parallelization overhead exceeds the benefits of performing the data copies in parallel). You should only enable this optimization if a) your input pipeline is bottlenecked on batching and b) you have validated that this optimization improves performance. If None, defaults to False.
+</td>
+</tr><tr>
+<td>
+`reorder_data_discarding_ops`
+</td>
+<td>
+Whether to reorder ops that will discard data to the front of unary cardinality preserving transformations, e.g. dataset.map(...).take(3) will be optimized to dataset.take(3).map(...). For now this optimization will move `skip`, `shard` and `take` to the front of `map` and `prefetch`. This optimization is only for performance; it will not affect the output of the dataset. If None, defaults to True.
 </td>
 </tr><tr>
 <td>
@@ -177,7 +191,7 @@ Whether to fuse shuffle and repeat transformations. If None, defaults to True.
 
 <h3 id="__eq__"><code>__eq__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/util/options.py#L37-L43">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/util/options.py#L41-L47">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__eq__(
@@ -190,7 +204,7 @@ Return self==value.
 
 <h3 id="__ne__"><code>__ne__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/util/options.py#L45-L49">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/util/options.py#L49-L53">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__ne__(

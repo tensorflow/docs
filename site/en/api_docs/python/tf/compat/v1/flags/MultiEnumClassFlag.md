@@ -42,7 +42,7 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.flags.MultiEnumClassFlag(
-    name, default, help_string, enum_class, **args
+    name, default, help_string, enum_class, case_sensitive=(False), **args
 )
 </code></pre>
 

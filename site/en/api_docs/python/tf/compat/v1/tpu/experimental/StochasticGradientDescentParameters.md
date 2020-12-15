@@ -12,7 +12,7 @@ description: Optimization parameters for stochastic gradient descent for TPU emb
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/tpu/tpu_embedding.py#L711-L750">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/tpu/tpu_embedding.py#L958-L1010">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,8 +25,13 @@ Optimization parameters for stochastic gradient descent for TPU embeddings.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.tpu.experimental.StochasticGradientDescentParameters(
-    learning_rate, clip_weight_min=None, clip_weight_max=None,
-    weight_decay_factor=None, multiply_weight_decay_factor_by_learning_rate=None
+    learning_rate: float,
+    clip_weight_min: Optional[float] = None,
+    clip_weight_max: Optional[float] = None,
+    weight_decay_factor: Optional[float] = None,
+    multiply_weight_decay_factor_by_learning_rate: Optional[bool] = None,
+    clip_gradient_min: Optional[float] = None,
+    clip_gradient_max: Optional[float] = None
 )
 </code></pre>
 
@@ -89,6 +94,20 @@ weights are not decayed.
 <td>
 if true,
 `weight_decay_factor` is multiplied by the current learning rate.
+</td>
+</tr><tr>
+<td>
+`clip_gradient_min`
+</td>
+<td>
+the minimum value to clip by; None means -infinity.
+</td>
+</tr><tr>
+<td>
+`clip_gradient_max`
+</td>
+<td>
+the maximum value to clip by; None means +infinity.
 </td>
 </tr>
 </table>

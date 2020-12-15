@@ -14,7 +14,7 @@ description: Initializer base class: all Keras initializers inherit from this cl
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L30-L107">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L30-L108">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -45,7 +45,7 @@ Initializers should implement a `__call__` method with the following
 signature:
 
 ```python
-def __call__(self, shape, dtype=None)`:
+def __call__(self, shape, dtype=None, **kwargs):
   # returns a tensor of shape `shape` and dtype `dtype`
   # containing values drawn from a distribution of your choice.
 ```
@@ -65,7 +65,7 @@ class ExampleRandomNormal(tf.keras.initializers.Initializer):
     self.mean = mean
     self.stddev = stddev
 
-  def __call__(self, shape, dtype=None)`:
+  def __call__(self, shape, dtype=None, **kwargs):
     return tf.random.normal(
         shape, mean=self.mean, stddev=self.stddev, dtype=dtype)
 
@@ -82,7 +82,7 @@ works fine.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L88-L107">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L89-L108">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -137,7 +137,7 @@ A <a href="../../../tf/keras/initializers/Initializer.md"><code>tf.keras.initial
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L80-L86">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L81-L87">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_config()
@@ -162,11 +162,11 @@ A JSON-serializable Python dict.
 
 <h3 id="__call__"><code>__call__</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/initializers/initializers_v2.py#L71-L78">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/initializers/initializers_v2.py#L71-L79">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>__call__(
-    shape, dtype=None
+    shape, dtype=None, **kwargs
 )
 </code></pre>
 
@@ -191,6 +191,13 @@ Shape of the tensor.
 </td>
 <td>
 Optional dtype of the tensor.
+</td>
+</tr><tr>
+<td>
+`**kwargs`
+</td>
+<td>
+Additional keyword arguments.
 </td>
 </tr>
 </table>

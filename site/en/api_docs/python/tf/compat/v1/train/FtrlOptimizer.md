@@ -22,7 +22,7 @@ description: Optimizer that implements the FTRL algorithm.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/ftrl.py#L29-L279">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/ftrl.py#L29-L290">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -40,7 +40,7 @@ Inherits From: [`Optimizer`](../../../../tf/compat/v1/train/Optimizer.md)
     learning_rate, learning_rate_power=-0.5, initial_accumulator_value=0.1,
     l1_regularization_strength=0.0, l2_regularization_strength=0.0,
     use_locking=(False), name='Ftrl', accum_name=None, linear_name=None,
-    l2_shrinkage_regularization_strength=0.0
+    l2_shrinkage_regularization_strength=0.0, beta=None
 )
 </code></pre>
 
@@ -149,10 +149,17 @@ w_{t+1} = argmin_w(\hat{g}_{1:t}w + L1*||w||_1 + L2*||w||_2^2), where
 function w.r.t. the weights w.
 Specifically, in the absence of L1 regularization, it is equivalent to
 the following update rule:
-w_{t+1} = w_t - lr_t / (1 + 2*L2*lr_t) * g_t -
-2*L2_shrinkage*lr_t / (1 + 2*L2*lr_t) * w_t
+w_{t+1} = w_t - lr_t / (beta + 2*L2*lr_t) * g_t -
+2*L2_shrinkage*lr_t / (beta + 2*L2*lr_t) * w_t
 where lr_t is the learning rate at t.
 When input is sparse shrinkage will only happen on the active weights.
+</td>
+</tr><tr>
+<td>
+`beta`
+</td>
+<td>
+A float value; corresponds to the beta parameter in the paper.
 </td>
 </tr>
 </table>
@@ -180,7 +187,7 @@ If one of the arguments is invalid.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L531-L640">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L531-L640">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_gradients(
@@ -275,7 +282,7 @@ If you should use `_distributed_apply()` instead.
 
 <h3 id="compute_gradients"><code>compute_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L415-L519">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>compute_gradients(
@@ -407,7 +414,7 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_name"><code>get_name</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L352-L353">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_name()
@@ -418,7 +425,7 @@ and `colocate_gradients_with_ops` are ignored.
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L737-L773">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L737-L773">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot(
@@ -475,7 +482,7 @@ The `Variable` for the slot if it was created, `None` otherwise.
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L775-L783">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L775-L783">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot_names()
@@ -501,7 +508,7 @@ A list of strings.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L355-L413">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>minimize(
@@ -636,7 +643,7 @@ execution is enabled.
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/training/optimizer.py#L785-L811">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/training/optimizer.py#L785-L811">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variables()

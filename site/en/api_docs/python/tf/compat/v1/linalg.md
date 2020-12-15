@@ -97,7 +97,7 @@ Operations for linear algebra.
 
 [`global_norm(...)`](../../../tf/linalg/global_norm.md): Computes the global norm of multiple tensors.
 
-[`inv(...)`](../../../tf/linalg/inv.md): Computes the inverse of one or more square invertible matrices or their
+[`inv(...)`](../../../tf/linalg/inv.md): Computes the inverse of one or more square invertible matrices or their adjoints (conjugate transposes).
 
 [`l2_normalize(...)`](../../../tf/compat/v1/linalg/l2_normalize.md): Normalizes along dimension `axis` using an L2 norm. (deprecated arguments)
 

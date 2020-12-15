@@ -23,5 +23,5 @@ Public API for tf.profiler.experimental.client namespace.
 
 [`monitor(...)`](../../../tf/profiler/experimental/client/monitor.md): Sends grpc requests to profiler server to perform on-demand monitoring.
 
-[`trace(...)`](../../../tf/profiler/experimental/client/trace.md): Sends grpc requests to profiler server to perform on-demand profiling.
+[`trace(...)`](../../../tf/profiler/experimental/client/trace.md): Sends gRPC requests to one or more profiler servers to perform on-demand profiling.
 

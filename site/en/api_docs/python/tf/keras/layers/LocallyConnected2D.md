@@ -13,7 +13,7 @@ description: Locally-connected layer for 2D inputs.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/layers/local.py#L338-L661">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/layers/local.py#L342-L666">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -117,6 +117,7 @@ all spatial dimensions.
 <td>
 Currently only support `"valid"` (case-insensitive).
 `"same"` will be supported in future.
+`"valid"` means no padding.
 </td>
 </tr><tr>
 <td>

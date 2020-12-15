@@ -1,3 +1,5 @@
+description: Writes a graph summary.
+
 robots: noindex
 
 # tf.raw_ops.WriteGraphSummary
@@ -10,7 +12,7 @@ robots: noindex
 
 
 
-
+Writes a graph summary.
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -33,6 +35,7 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Writes TensorFlow graph `tensor` at `step` using summary `writer`.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

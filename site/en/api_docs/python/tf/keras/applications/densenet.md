@@ -19,10 +19,10 @@ DenseNet models for Keras.
 
 
 
-#### Reference paper:
+#### Reference:
 
-- [Densely Connected Convolutional Networks]
-  (https://arxiv.org/abs/1608.06993) (CVPR 2017 Best Paper Award)
+- [Densely Connected Convolutional Networks](
+    https://arxiv.org/abs/1608.06993) (CVPR 2017)
 
 
 ## Functions

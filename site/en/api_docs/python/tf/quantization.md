@@ -37,7 +37,9 @@ Public API for tf.quantization namespace.
 
 [`quantize(...)`](../tf/quantization/quantize.md): Quantize the 'input' tensor of type float to 'output' tensor of type 'T'.
 
-[`quantize_and_dequantize(...)`](../tf/quantization/quantize_and_dequantize.md): Quantizes then dequantizes a tensor.
+[`quantize_and_dequantize(...)`](../tf/quantization/quantize_and_dequantize.md): Quantizes then dequantizes a tensor. (deprecated)
+
+[`quantize_and_dequantize_v2(...)`](../tf/quantization/quantize_and_dequantize_v2.md): Quantizes then dequantizes a tensor.
 
 [`quantized_concat(...)`](../tf/quantization/quantized_concat.md): Concatenates quantized tensors along one dimension.
 

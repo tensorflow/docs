@@ -10,7 +10,12 @@ description: Returns element-wise largest integer not greater than x.
 <!-- Insert buttons and diff -->
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
-
+<td>
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/math_ops.py#L5040-L5062">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td>
 </table>
 
 
@@ -41,6 +46,18 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
+Both input range is `(-inf, inf)` and the
+ouput range consists of all integer values.
+
+#### For example:
+
+
+
+```
+>>> x = tf.constant([1.3324, -1.5, 5.555, -2.532, 0.99, float("inf")])
+>>> tf.floor(x).numpy()
+array([ 1., -2.,  5., -3.,  0., inf], dtype=float32)
+```
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -52,7 +69,8 @@ more details.</p>
 `x`
 </td>
 <td>
-A `Tensor`. Must be one of the following types: `bfloat16`, `half`, `float32`, `float64`.
+A `Tensor`. Must be one of the following types: `bfloat16`, `half`,
+`float32`, `float64`.
 </td>
 </tr><tr>
 <td>
@@ -72,7 +90,7 @@ A name for the operation (optional).
 <tr><th colspan="2"><h2 class="add-link">Returns</h2></th></tr>
 <tr class="alt">
 <td colspan="2">
-A `Tensor`. Has the same type as `x`.
+A `Tensor`. Has the same type as x.
 </td>
 </tr>
 

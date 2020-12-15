@@ -11,7 +11,7 @@ description: Constructs an Estimator instance from given keras model.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/estimator/__init__.py#L132-L278">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/estimator/__init__.py#L184-L369">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -25,7 +25,8 @@ Constructs an `Estimator` instance from given keras model.
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.estimator.model_to_estimator(
     keras_model=None, keras_model_path=None, custom_objects=None, model_dir=None,
-    config=None, checkpoint_format='checkpoint', metric_names_map=None
+    config=None, checkpoint_format='checkpoint', metric_names_map=None,
+    export_outputs=None
 )
 </code></pre>
 
@@ -56,6 +57,28 @@ keras_model = tf.keras.Model(...)
 keras_model.compile(...)
 
 estimator = tf.keras.estimator.model_to_estimator(keras_model)
+
+def input_fn():
+  return dataset_ops.Dataset.from_tensors(
+      ({'features': features, 'sample_weights': sample_weights},
+       targets))
+
+estimator.train(input_fn, steps=1)
+```
+
+Example with customized export signature:
+```python
+inputs = {'a': tf.keras.Input(..., name='a'),
+          'b': tf.keras.Input(..., name='b')}
+outputs = {'c': tf.keras.layers.Dense(..., name='c')(inputs['a']),
+           'd': tf.keras.layers.Dense(..., name='d')(inputs['b'])}
+keras_model = tf.keras.Model(inputs, outputs)
+keras_model.compile(...)
+export_outputs = {'c': tf.estimator.export.RegressionOutput,
+                  'd': tf.estimator.export.ClassificationOutput}
+
+estimator = tf.keras.estimator.model_to_estimator(
+    keras_model, export_outputs=export_outputs)
 
 def input_fn():
   return dataset_ops.Dataset.from_tensors(
@@ -189,6 +212,27 @@ with `mse` loss and `acc` metric, then `model.metrics_names` will be
 `['loss', 'out_1_loss', 'out_2_loss', 'out_1_acc', 'out_2_acc']`.
 The model metric names excluding the loss metrics will be
 `['out_1_acc', 'out_2_acc']`.
+</td>
+</tr><tr>
+<td>
+`export_outputs`
+</td>
+<td>
+Optional dictionary. This can be used to override the
+default Keras model output exports in a multi IO model use case and
+provide custom names for the `export_outputs` in
+<a href="../../../tf/estimator/EstimatorSpec.md"><code>tf.estimator.EstimatorSpec</code></a>. Default is None, which is equivalent to
+{'serving_default': <a href="../../../tf/estimator/export/PredictOutput.md"><code>tf.estimator.export.PredictOutput</code></a>}. If not None,
+the keys must match the keys of `model.output_names`.
+A dict `{name: output}` where:
+* name: An arbitrary name for this output.
+* output: an `ExportOutput` class such as `ClassificationOutput`,
+`RegressionOutput`, or `PredictOutput`. Single-headed models only need
+to specify one entry in this dictionary. Multi-headed models should
+specify one entry for each head, one of which must be named using
+`tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`
+If no entry is provided, a default `PredictOutput` mapping to
+`predictions` will be created.
 </td>
 </tr>
 </table>

@@ -21,7 +21,7 @@ Public API for tf.xla.experimental namespace.
 
 ## Functions
 
-[`compile(...)`](../../tf/xla/experimental/compile.md): Builds an operator that compiles and runs `computation` with XLA.
+[`compile(...)`](../../tf/xla/experimental/compile.md): Builds an operator that compiles and runs `computation` with XLA. (deprecated)
 
 [`jit_scope(...)`](../../tf/xla/experimental/jit_scope.md): Enable or disable JIT compilation of operators within the scope.
 

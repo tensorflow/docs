@@ -1,4 +1,4 @@
-description: Max pooling layer for 3D inputs (e.g. (deprecated)
+description: Max pooling layer for 3D inputs (e.g.
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.max_pooling3d" />
@@ -11,7 +11,7 @@ description: Max pooling layer for 3D inputs (e.g. (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/pooling.py#L426-L463">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/pooling.py#L432-L470">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Max pooling layer for 3D inputs (e.g. (deprecated)
 
 
 
-Max pooling layer for 3D inputs (e.g. (deprecated)
+Max pooling layer for 3D inputs (e.g.
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.max_pooling3d(
@@ -32,10 +32,6 @@ Max pooling layer for 3D inputs (e.g. (deprecated)
 
 
 <!-- Placeholder for "Used in" -->
-
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.MaxPooling3D instead.
 
 volumes).
 

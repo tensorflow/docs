@@ -17,7 +17,7 @@ description: Types of loss reduction.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/losses/loss_reduction.py#L21-L68">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/losses/loss_reduction.py#L21-L68">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -61,7 +61,7 @@ Contains the following values:
      loss_obj = tf.keras.losses.CategoricalCrossentropy(
          reduction=tf.keras.losses.Reduction.NONE)
      ....
-     loss = tf.reduce_sum(loss_object(labels, predictions)) *
+     loss = tf.reduce_sum(loss_obj(labels, predictions)) *
          (1. / global_batch_size)
    ```
 
@@ -73,7 +73,7 @@ for more details on this.
 
 <h3 id="all"><code>all</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/losses/loss_reduction.py#L61-L63">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/losses/loss_reduction.py#L61-L63">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -85,7 +85,7 @@ for more details on this.
 
 <h3 id="validate"><code>validate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/losses/loss_reduction.py#L65-L68">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/losses/loss_reduction.py#L65-L68">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>

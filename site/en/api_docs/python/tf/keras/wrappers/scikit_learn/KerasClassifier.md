@@ -20,7 +20,7 @@ description: Implementation of the scikit-learn classifier API for Keras.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L191-L310">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L191-L310">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -57,7 +57,7 @@ more details.</p>
 
 <h3 id="check_params"><code>check_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L79-L106">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L79-L106">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>check_params(
@@ -104,7 +104,7 @@ if any member of `params` is not a valid argument.
 
 <h3 id="filter_sk_params"><code>filter_sk_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L170-L187">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L170-L187">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>filter_sk_params(
@@ -159,7 +159,7 @@ in both `sk_params` and `fn`'s arguments.
 
 <h3 id="fit"><code>fit</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L195-L223">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L195-L223">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>fit(
@@ -242,7 +242,7 @@ In case of invalid shape for `y` argument.
 
 <h3 id="get_params"><code>get_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L108-L119">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L108-L119">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_params(
@@ -286,7 +286,7 @@ Dictionary of parameter names mapped to their values.
 
 <h3 id="predict"><code>predict</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L225-L242">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L225-L242">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict(
@@ -345,7 +345,7 @@ Class predictions.
 
 <h3 id="predict_proba"><code>predict_proba</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L244-L270">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L244-L270">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>predict_proba(
@@ -408,7 +408,7 @@ will return an array of shape `(n_samples, 2)`
 
 <h3 id="score"><code>score</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L272-L310">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L272-L310">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>score(
@@ -493,7 +493,7 @@ the `.compile()` method of the model.
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/wrappers/scikit_learn.py#L121-L132">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/wrappers/scikit_learn.py#L121-L132">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_params(

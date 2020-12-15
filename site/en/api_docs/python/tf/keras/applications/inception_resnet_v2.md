@@ -19,7 +19,7 @@ Inception-ResNet V2 model for Keras.
 
 
 
-#### Reference paper:
+#### Reference:
 
 - [Inception-v4, Inception-ResNet and the Impact of
    Residual Connections on Learning](https://arxiv.org/abs/1602.07261)

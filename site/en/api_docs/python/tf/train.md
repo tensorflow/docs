@@ -28,7 +28,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`class BytesList`](../tf/train/BytesList.md): A ProtocolMessage
 
-[`class Checkpoint`](../tf/train/Checkpoint.md): Groups trackable objects, saving and restoring them.
+[`class Checkpoint`](../tf/train/Checkpoint.md): Manages saving/restoring trackable values to disk.
 
 [`class CheckpointManager`](../tf/train/CheckpointManager.md): Manages multiple checkpoints by keeping some and deleting unneeded ones.
 
@@ -70,7 +70,7 @@ See the [Training](https://tensorflow.org/api_guides/python/train) guide.
 
 [`latest_checkpoint(...)`](../tf/train/latest_checkpoint.md): Finds the filename of latest saved checkpoint file.
 
-[`list_variables(...)`](../tf/train/list_variables.md): Returns list of all variables in the checkpoint.
+[`list_variables(...)`](../tf/train/list_variables.md): Lists the checkpoint keys and shapes of variables in a checkpoint.
 
 [`load_checkpoint(...)`](../tf/train/load_checkpoint.md): Returns `CheckpointReader` for checkpoint found in `ckpt_dir_or_file`.
 

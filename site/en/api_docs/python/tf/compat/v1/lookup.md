@@ -29,7 +29,7 @@ Public API for tf.lookup namespace.
 
 [`class StaticHashTable`](../../../tf/compat/v1/lookup/StaticHashTable.md): A generic hash table that is immutable once initialized.
 
-[`class StaticVocabularyTable`](../../../tf/compat/v1/lookup/StaticVocabularyTable.md): String to Id table wrapper that assigns out-of-vocabulary keys to buckets.
+[`class StaticVocabularyTable`](../../../tf/compat/v1/lookup/StaticVocabularyTable.md): String to Id table that assigns out-of-vocabulary keys to hash buckets.
 
 [`class TextFileIndex`](../../../tf/lookup/TextFileIndex.md): The key and value content to get from each line.
 

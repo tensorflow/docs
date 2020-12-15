@@ -13,7 +13,7 @@ description: Transposed 3D convolution layer (sometimes called 3D Deconvolution)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1283-L1361">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/convolutional.py#L1320-L1401">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -81,6 +81,9 @@ dimensions.
 </td>
 <td>
 One of `"valid"` or `"same"` (case-insensitive).
+`"valid"` means no padding. `"same"` results in padding evenly to 
+the left/right or up/down of the input such that output has the same 
+height/width dimension as the input.
 </td>
 </tr><tr>
 <td>
@@ -197,11 +200,7 @@ A string, the name of the layer.
 `graph`
 </td>
 <td>
-DEPRECATED FUNCTION
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Stop using this property because tf.layers layers no longer track their graph.
 </td>
 </tr><tr>
 <td>

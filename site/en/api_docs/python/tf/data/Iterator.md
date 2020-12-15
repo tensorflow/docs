@@ -14,7 +14,7 @@ description: Represents an iterator of a <a href="../../tf/data/Dataset.md"><cod
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L546-L636">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L544-L634">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -95,7 +95,7 @@ tf.TensorSpec(shape=(), dtype=tf.int32, name=None)
 
 <h3 id="get_next"><code>get_next</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L598-L613">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L596-L611">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>
@@ -141,7 +141,7 @@ A nested structure of <a href="../../tf/Tensor.md"><code>tf.Tensor</code></a> ob
 
 <h3 id="get_next_as_optional"><code>get_next_as_optional</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/data/ops/iterator_ops.py#L615-L636">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/data/ops/iterator_ops.py#L613-L634">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>

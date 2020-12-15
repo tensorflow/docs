@@ -4,14 +4,11 @@ description: Synchronous training on TPUs and TPU Pods.
 <meta itemprop="name" content="tf.distribute.experimental.TPUStrategy" />
 <meta itemprop="path" content="Stable" />
 <meta itemprop="property" content="__init__"/>
-<meta itemprop="property" content="experimental_assign_to_logical_device"/>
+<meta itemprop="property" content="distribute_datasets_from_function"/>
 <meta itemprop="property" content="experimental_distribute_dataset"/>
-<meta itemprop="property" content="experimental_distribute_datasets_from_function"/>
 <meta itemprop="property" content="experimental_distribute_values_from_function"/>
 <meta itemprop="property" content="experimental_local_results"/>
-<meta itemprop="property" content="experimental_make_numpy_dataset"/>
-<meta itemprop="property" content="experimental_replicate_to_logical_devices"/>
-<meta itemprop="property" content="experimental_split_to_logical_devices"/>
+<meta itemprop="property" content="gather"/>
 <meta itemprop="property" content="reduce"/>
 <meta itemprop="property" content="run"/>
 <meta itemprop="property" content="scope"/>
@@ -23,7 +20,7 @@ description: Synchronous training on TPUs and TPU Pods.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/tpu_strategy.py#L284-L358">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/tpu_strategy.py#L478-L552">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -135,332 +132,76 @@ Returns number of replicas over which gradients are aggregated.
 
 ## Methods
 
-<h3 id="experimental_assign_to_logical_device"><code>experimental_assign_to_logical_device</code></h3>
+<h3 id="distribute_datasets_from_function"><code>distribute_datasets_from_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1507-L1554">View source</a>
-
-<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_assign_to_logical_device(
-    tensor, logical_device_id
-)
-</code></pre>
-
-Adds annotation that `tensor` will be assigned to a logical device.
-
-NOTE: This API is only supported in TPUStrategy for now.
-This adds an annotation to `tensor` specifying that operations on
-`tensor` will be invoked on logical core device id `logical_device_id`.
-When model parallelism is used, the default behavior is that all ops
-are placed on zero-th logical device.
-
-```python
-
-# Initializing TPU system with 2 logical devices and 4 replicas.
-resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu='')
-tf.config.experimental_connect_to_cluster(resolver)
-topology = tf.tpu.experimental.initialize_tpu_system(resolver)
-device_assignment = tf.tpu.experimental.DeviceAssignment.build(
-    topology,
-    computation_shape=[1, 1, 1, 2],
-    num_replicas=4)
-strategy = tf.distribute.TPUStrategy(
-    resolver, experimental_device_assignment=device_assignment)
-iterator = iter(inputs)
-
-@tf.function()
-def step_fn(inputs):
-  output = tf.add(inputs, inputs)
-
-  # Add operation will be executed on logical device 0.
-  output = strategy.experimental_assign_to_logical_device(output, 0)
-  return output
-
-strategy.run(step_fn, args=(next(iterator),))
-```
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`tensor`
-</td>
-<td>
-Input tensor to annotate.
-</td>
-</tr><tr>
-<td>
-`logical_device_id`
-</td>
-<td>
-Id of the logical core to which the tensor will be
-assigned.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Raises</th></tr>
-
-<tr>
-<td>
-`ValueError`
-</td>
-<td>
-The logical device id presented is not consistent with total
-number of partitions specified by the device assignment.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-Annotated tensor with idential value as `tensor`.
-</td>
-</tr>
-
-</table>
-
-
-
-<h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L943-L1052">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1061-L1135">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_distribute_dataset(
-    dataset, options=None
-)
-</code></pre>
-
-Creates <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> from <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>.
-
-The returned <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> can be iterated over
-similar to how regular datasets can.
-NOTE: The user cannot add any more transformations to a
-<a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a>.
-
-The following is an example:
-
-```python
-strategy = tf.distribute.MirroredStrategy()
-
-# Create a dataset
-dataset = dataset_ops.Dataset.TFRecordDataset([
-  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", "/a/4.tfr"])
-
-# Distribute that dataset
-dist_dataset = strategy.experimental_distribute_dataset(dataset)
-
-# Iterate over the `tf.distribute.DistributedDataset`
-for x in dist_dataset:
-  # process dataset elements
-  strategy.run(replica_fn, args=(x,))
-```
-
-In the code snippet above, the <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a>
-`dist_dataset` is batched by `GLOBAL_BATCH_SIZE`, and we iterate through it
-using `for x in dist_dataset`. `x` a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a>
-containing data for all replicas, which aggregates to a batch of
-`GLOBAL_BATCH_SIZE`. <a href="../../../tf/distribute/Strategy.md#run"><code>tf.distribute.Strategy.run</code></a> will take care of feeding
-the right per-replica data in `x` to the right `replica_fn` executed on each
-replica.
-
-What's under the hood of this method, when we say the <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>
-instance - `dataset` - gets distributed? It depends on how you set the
-<a href="../../../tf/data/experimental/AutoShardPolicy.md"><code>tf.data.experimental.AutoShardPolicy</code></a> through
-<a href="../../../tf/data/experimental/DistributeOptions.md"><code>tf.data.experimental.DistributeOptions</code></a>. By default, it is set to
-<a href="../../../tf/data/experimental/AutoShardPolicy.md#AUTO"><code>tf.data.experimental.AutoShardPolicy.AUTO</code></a>. In a multi-worker setting, we
-will first attempt to distribute `dataset` by detecting whether `dataset` is
-being created out of reader datasets (e.g. <a href="../../../tf/data/TFRecordDataset.md"><code>tf.data.TFRecordDataset</code></a>,
-<a href="../../../tf/data/TextLineDataset.md"><code>tf.data.TextLineDataset</code></a>, etc.) and if so, try to shard the input files.
-Note that there has to be at least one input file per worker. If you have
-less than one input file per worker, we suggest that you disable dataset
-sharding across workers, by setting the
-<a href="../../../tf/data/experimental/DistributeOptions.md#auto_shard_policy"><code>tf.data.experimental.DistributeOptions.auto_shard_policy</code></a> to be
-<a href="../../../tf/data/experimental/AutoShardPolicy.md#OFF"><code>tf.data.experimental.AutoShardPolicy.OFF</code></a>.
-
-If the attempt to shard by file is unsuccessful (i.e. the dataset is not
-read from files), we will shard the dataset evenly at the end by
-appending a `.shard` operation to the end of the processing pipeline. This
-will cause the entire preprocessing pipeline for all the data to be run on
-every worker, and each worker will do redundant work. We will print a
-warning if this route is selected.
-
-As mentioned before, within each worker, we will also split the data among
-all the worker devices (if more than one a present). This will happen
-even if multi-worker sharding is disabled.
-
-If the above batch splitting and dataset sharding logic is undesirable,
-please use
-<a href="../../../tf/distribute/Strategy.md#experimental_distribute_datasets_from_function"><code>tf.distribute.Strategy.experimental_distribute_datasets_from_function</code></a>
-instead, which does not do any automatic splitting or sharding.
-
-You can also use the `element_spec` property of the
-<a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> instance returned by this API to query
-the <a href="../../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> of the elements returned
-by the iterator. This can be used to set the `input_signature` property
-of a <a href="../../../tf/function.md"><code>tf.function</code></a>.
-
-```python
-strategy = tf.distribute.MirroredStrategy()
-
-# Create a dataset
-dataset = dataset_ops.Dataset.TFRecordDataset([
-  "/a/1.tfr", "/a/2.tfr", "/a/3.tfr", "/a/4.tfr"])
-
-# Distribute that dataset
-dist_dataset = strategy.experimental_distribute_dataset(dataset)
-
-@tf.function(input_signature=[dist_dataset.element_spec])
-def train_step(inputs):
-  # train model with inputs
-  return
-
-# Iterate over the `tf.distribute.DistributedDataset`
-for x in dist_dataset:
-  # process dataset elements
-  strategy.run(train_step, args=(x,))
-```
-
-Note: The order in which the data is processed by the workers when using
-<a href="../../../tf/distribute/Strategy.md#experimental_distribute_dataset"><code>tf.distribute.Strategy.experimental_distribute_dataset</code></a> or
-<a href="../../../tf/distribute/Strategy.md#experimental_distribute_datasets_from_function"><code>tf.distribute.Strategy.experimental_distribute_datasets_from_function</code></a> is
-not guaranteed. This is typically required if you are using
-<a href="../../../tf/distribute.md"><code>tf.distribute</code></a> to scale prediction. You can however insert an index for
-each element in the batch and order outputs accordingly. Refer to [this
-snippet](https://www.tensorflow.org/tutorials/distribute/input#caveats)
-for an example of how to order outputs.
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Args</th></tr>
-
-<tr>
-<td>
-`dataset`
-</td>
-<td>
-<a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> that will be sharded across all replicas using
-the rules stated above.
-</td>
-</tr><tr>
-<td>
-`options`
-</td>
-<td>
-<a href="../../../tf/distribute/InputOptions.md"><code>tf.distribute.InputOptions</code></a> used to control options on how this
-dataset is distributed.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-A <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a>.
-</td>
-</tr>
-
-</table>
-
-
-
-<h3 id="experimental_distribute_datasets_from_function"><code>experimental_distribute_datasets_from_function</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1054-L1128">View source</a>
-
-<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_distribute_datasets_from_function(
+<code>distribute_datasets_from_function(
     dataset_fn, options=None
 )
 </code></pre>
 
 Distributes <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> instances created by calls to `dataset_fn`.
 
-`dataset_fn` will be called once for each worker in the strategy. Each
-replica on that worker will dequeue one batch of inputs from the local
-`Dataset` (i.e. if a worker has two replicas, two batches will be dequeued
-from the `Dataset` every step).
+The argument `dataset_fn` that users pass in is an input function that has a
+<a href="../../../tf/distribute/InputContext.md"><code>tf.distribute.InputContext</code></a> argument and returns a <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>
+instance. It is expected that the returned dataset from `dataset_fn` is
+already batched by per-replica batch size (i.e. global batch size divided by
+the number of replicas in sync) and sharded.
+<a href="../../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function</code></a> does
+not batch or shard the <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> instance
+returned from the input function. `dataset_fn` will be called on the CPU
+device of each of the workers and each generates a dataset where every
+replica on that worker will dequeue one batch of inputs (i.e. if a worker
+has two replicas, two batches will be dequeued from the `Dataset` every
+step).
 
-This method can be used for several purposes. For example, where
+This method can be used for several purposes. First, it allows you to
+specify your own batching and sharding logic. (In contrast,
+`tf.distribute.experimental_distribute_dataset` does batching and sharding
+for you.) For example, where
 `experimental_distribute_dataset` is unable to shard the input files, this
 method might be used to manually shard the dataset (avoiding the slow
 fallback behavior in `experimental_distribute_dataset`). In cases where the
 dataset is infinite, this sharding can be done by creating dataset replicas
 that differ only in their random seed.
-`experimental_distribute_dataset` may also sometimes fail to split the
-batch across replicas on a worker. In that case, this method can be used
-where that limitation does not exist.
 
 The `dataset_fn` should take an <a href="../../../tf/distribute/InputContext.md"><code>tf.distribute.InputContext</code></a> instance where
 information about batching and input replication can be accessed.
 
-You can also use the `element_spec` property of the
+You can use `element_spec` property of the
 <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> returned by this API to query the
 <a href="../../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> of the elements returned by the iterator. This can be used to
-set the `input_signature` property of a <a href="../../../tf/function.md"><code>tf.function</code></a>.
-
-```
->>> global_batch_size = 8
->>> def dataset_fn(input_context):
-...   batch_size = input_context.get_per_replica_batch_size(
-...                    global_batch_size)
-...   d = tf.data.Dataset.from_tensors([[1.]]).repeat().batch(batch_size)
-...   return d.shard(
-...       input_context.num_input_pipelines,
-...       input_context.input_pipeline_id)
-```
-
-```
->>> strategy = tf.distribute.MirroredStrategy()
->>> ds = strategy.experimental_distribute_datasets_from_function(dataset_fn)
-```
-
-```
->>> def train(ds):
-...   @tf.function(input_signature=[ds.element_spec])
-...   def step_fn(inputs):
-...     # train the model with inputs
-...     return inputs
-```
-
-...   for batch in ds:
-...     replica_results = strategy.run(replica_fn, args=(batch,))
->>> train(ds)
+set the `input_signature` property of a <a href="../../../tf/function.md"><code>tf.function</code></a>. Follow
+<a href="../../../tf/distribute/DistributedDataset.md#element_spec"><code>tf.distribute.DistributedDataset.element_spec</code></a> to see an example.
 
 IMPORTANT: The <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> returned by `dataset_fn` should have a
 per-replica batch size, unlike `experimental_distribute_dataset`, which uses
-the global batch size.  This may be computed using
+the global batch size. This may be computed using
 `input_context.get_per_replica_batch_size`.
 
-
-Note: The order in which the data is processed by the workers when using
+Note: If you are using TPUStrategy, the order in which the data is processed
+by the workers when using
 <a href="../../../tf/distribute/Strategy.md#experimental_distribute_dataset"><code>tf.distribute.Strategy.experimental_distribute_dataset</code></a> or
-<a href="../../../tf/distribute/Strategy.md#experimental_distribute_datasets_from_function"><code>tf.distribute.Strategy.experimental_distribute_datasets_from_function</code></a> is
+<a href="../../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function</code></a> is
 not guaranteed. This is typically required if you are using
 <a href="../../../tf/distribute.md"><code>tf.distribute</code></a> to scale prediction. You can however insert an index for
 each element in the batch and order outputs accordingly. Refer to [this
 snippet](https://www.tensorflow.org/tutorials/distribute/input#caveats)
 for an example of how to order outputs.
+
+Note: Stateful dataset transformations are currently not supported with
+`tf.distribute.experimental_distribute_dataset` or
+`tf.distribute.distribute_datasets_from_function`. Any stateful
+ops that the dataset may have are currently ignored. For example, if your
+dataset has a `map_fn` that uses <a href="../../../tf/random/uniform.md"><code>tf.random.uniform</code></a> to rotate an image,
+then you have a dataset graph that depends on state (i.e the random seed) on
+the local machine where the python process is being executed.
+
+For a tutorial on more usage and properties of this method, refer to the
+[tutorial on distributed input](https://www.tensorflow.org/tutorials/distribute/input#tfdistributestrategyexperimental_distribute_datasets_from_function)).
+If you are interested in last partial batch handling, read [this section](https://www.tensorflow.org/tutorials/distribute/input#partial_batches).
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -502,9 +243,166 @@ A <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.Dis
 
 
 
+<h3 id="experimental_distribute_dataset"><code>experimental_distribute_dataset</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L942-L1059">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>experimental_distribute_dataset(
+    dataset, options=None
+)
+</code></pre>
+
+Creates <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> from <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a>.
+
+The returned <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> can be iterated over
+similar to regular datasets.
+NOTE: The user cannot add any more transformations to a
+<a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a>. You can only create an iterator or
+examine the <a href="../../../tf/TypeSpec.md"><code>tf.TypeSpec</code></a> of the data generated by it. See API docs of
+<a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a> to learn more.
+
+The following is an example:
+
+```
+>>> global_batch_size = 2
+>>> # Passing the devices is optional.
+... strategy = tf.distribute.MirroredStrategy(devices=["GPU:0", "GPU:1"])
+>>> # Create a dataset
+... dataset = tf.data.Dataset.range(4).batch(global_batch_size)
+>>> # Distribute that dataset
+... dist_dataset = strategy.experimental_distribute_dataset(dataset)
+>>> @tf.function
+... def replica_fn(input):
+...   return input*2
+>>> result = []
+>>> # Iterate over the `tf.distribute.DistributedDataset`
+... for x in dist_dataset:
+...   # process dataset elements
+...   result.append(strategy.run(replica_fn, args=(x,)))
+>>> print(result)
+[PerReplica:{
+  0: <tf.Tensor: shape=(1,), dtype=int64, numpy=array([0])>,
+  1: <tf.Tensor: shape=(1,), dtype=int64, numpy=array([2])>
+}, PerReplica:{
+  0: <tf.Tensor: shape=(1,), dtype=int64, numpy=array([4])>,
+  1: <tf.Tensor: shape=(1,), dtype=int64, numpy=array([6])>
+}]
+```
+
+
+Three key actions happending under the hood of this method are batching,
+sharding, and prefetching.
+
+In the code snippet above, `dataset` is batched by `global_batch_size`, and
+calling `experimental_distribute_dataset` on it rebatches `dataset` to a
+new batch size that is equal to the global batch size divided by the number
+of replicas in sync. We iterate through it using a Pythonic for loop.
+`x` is a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> containing data for all replicas,
+and each replica gets data of the new batch size.
+<a href="../../../tf/distribute/Strategy.md#run"><code>tf.distribute.Strategy.run</code></a> will take care of feeding the right per-replica
+data in `x` to the right `replica_fn` executed on each replica.
+
+Sharding contains autosharding across multiple workers and within every
+worker. First, in multi-worker distributed training (i.e. when you use
+<a href="../../../tf/distribute/experimental/MultiWorkerMirroredStrategy.md"><code>tf.distribute.experimental.MultiWorkerMirroredStrategy</code></a>
+or <a href="../../../tf/distribute/TPUStrategy.md"><code>tf.distribute.TPUStrategy</code></a>), autosharding a dataset over a set of
+workers means that each worker is assigned a subset of the entire dataset
+(if the right <a href="../../../tf/data/experimental/AutoShardPolicy.md"><code>tf.data.experimental.AutoShardPolicy</code></a> is set). This is to
+ensure that at each step, a global batch size of non-overlapping dataset
+elements will be processed by each worker. Autosharding has a couple of
+different options that can be specified using
+<a href="../../../tf/data/experimental/DistributeOptions.md"><code>tf.data.experimental.DistributeOptions</code></a>. Then, sharding within each worker
+means the method will split the data among all the worker devices (if more
+than one a present). This will happen regardless of multi-worker
+autosharding.
+
+Note: for autosharding across multiple workers, the default mode is
+<a href="../../../tf/data/experimental/AutoShardPolicy.md#AUTO"><code>tf.data.experimental.AutoShardPolicy.AUTO</code></a>. This mode
+will attempt to shard the input dataset by files if the dataset is
+being created out of reader datasets (e.g. <a href="../../../tf/data/TFRecordDataset.md"><code>tf.data.TFRecordDataset</code></a>,
+<a href="../../../tf/data/TextLineDataset.md"><code>tf.data.TextLineDataset</code></a>, etc.) or otherwise shard the dataset by data,
+where each of the workers will read the entire dataset and only process the
+shard assigned to it. However, if you have less than one input file per
+worker, we suggest that you disable dataset autosharding across workers by
+setting the <a href="../../../tf/data/experimental/DistributeOptions.md#auto_shard_policy"><code>tf.data.experimental.DistributeOptions.auto_shard_policy</code></a> to be
+<a href="../../../tf/data/experimental/AutoShardPolicy.md#OFF"><code>tf.data.experimental.AutoShardPolicy.OFF</code></a>.
+
+By default, this method adds a prefetch transformation at the end of the
+user provided <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> instance. The argument to the prefetch
+transformation which is `buffer_size` is equal to the number of replicas in
+sync.
+
+If the above batch splitting and dataset sharding logic is undesirable,
+please use
+<a href="../../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function</code></a>
+instead, which does not do any automatic batching or sharding for you.
+
+Note: If you are using TPUStrategy, the order in which the data is processed
+by the workers when using
+<a href="../../../tf/distribute/Strategy.md#experimental_distribute_dataset"><code>tf.distribute.Strategy.experimental_distribute_dataset</code></a> or
+<a href="../../../tf/distribute/Strategy.md#distribute_datasets_from_function"><code>tf.distribute.Strategy.distribute_datasets_from_function</code></a> is
+not guaranteed. This is typically required if you are using
+<a href="../../../tf/distribute.md"><code>tf.distribute</code></a> to scale prediction. You can however insert an index for
+each element in the batch and order outputs accordingly. Refer to [this
+snippet](https://www.tensorflow.org/tutorials/distribute/input#caveats)
+for an example of how to order outputs.
+
+Note: Stateful dataset transformations are currently not supported with
+`tf.distribute.experimental_distribute_dataset` or
+`tf.distribute.distribute_datasets_from_function`. Any stateful
+ops that the dataset may have are currently ignored. For example, if your
+dataset has a `map_fn` that uses <a href="../../../tf/random/uniform.md"><code>tf.random.uniform</code></a> to rotate an image,
+then you have a dataset graph that depends on state (i.e the random seed) on
+the local machine where the python process is being executed.
+
+For a tutorial on more usage and properties of this method, refer to the
+[tutorial on distributed input](https://www.tensorflow.org/tutorials/distribute/input#tfdistributestrategyexperimental_distribute_dataset).
+If you are interested in last partial batch handling, read [this section](https://www.tensorflow.org/tutorials/distribute/input#partial_batches).
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Args</th></tr>
+
+<tr>
+<td>
+`dataset`
+</td>
+<td>
+<a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> that will be sharded across all replicas using
+the rules stated above.
+</td>
+</tr><tr>
+<td>
+`options`
+</td>
+<td>
+<a href="../../../tf/distribute/InputOptions.md"><code>tf.distribute.InputOptions</code></a> used to control options on how this
+dataset is distributed.
+</td>
+</tr>
+</table>
+
+
+
+<!-- Tabular view -->
+ <table class="responsive fixed orange">
+<colgroup><col width="214px"><col></colgroup>
+<tr><th colspan="2">Returns</th></tr>
+<tr class="alt">
+<td colspan="2">
+A <a href="../../../tf/distribute/DistributedDataset.md"><code>tf.distribute.DistributedDataset</code></a>.
+</td>
+</tr>
+
+</table>
+
+
+
 <h3 id="experimental_distribute_values_from_function"><code>experimental_distribute_values_from_function</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1668-L1741">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1616-L1690">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>experimental_distribute_values_from_function(
@@ -558,7 +456,7 @@ A <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.Dist
 1. Return constant value per replica:
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> def value_fn(ctx):
 ...   return tf.constant(1.)
 >>> distributed_values = (
@@ -566,13 +464,14 @@ A <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.Dist
 ...        value_fn))
 >>> local_result = strategy.experimental_local_results(distributed_values)
 >>> local_result
-(<tf.Tensor: shape=(), dtype=float32, numpy=1.0>,)
+(<tf.Tensor: shape=(), dtype=float32, numpy=1.0>,
+ <tf.Tensor: shape=(), dtype=float32, numpy=1.0>)
 ```
 
 2. Distribute values in array based on replica_id:
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> array_value = np.array([3., 2., 1.])
 >>> def value_fn(ctx):
 ...   return array_value[ctx.replica_id_in_sync_group]
@@ -581,13 +480,13 @@ A <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.Dist
 ...        value_fn))
 >>> local_result = strategy.experimental_local_results(distributed_values)
 >>> local_result
-(3.0,)
+(3.0, 2.0)
 ```
 
 3. Specify values using num_replicas_in_sync:
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> def value_fn(ctx):
 ...   return ctx.num_replicas_in_sync
 >>> distributed_values = (
@@ -595,7 +494,7 @@ A <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.Dist
 ...        value_fn))
 >>> local_result = strategy.experimental_local_results(distributed_values)
 >>> local_result
-(1,)
+(2, 2)
 ```
 
 4. Place values on devices and distribute:
@@ -618,7 +517,7 @@ distributed_values = strategy.
 
 <h3 id="experimental_local_results"><code>experimental_local_results</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1373-L1390">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1482-L1499">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>experimental_local_results(
@@ -667,42 +566,97 @@ value, this returns `(value,).`
 
 
 
-<h3 id="experimental_make_numpy_dataset"><code>experimental_make_numpy_dataset</code></h3>
+<h3 id="gather"><code>gather</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L903-L934">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1692-L1796">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_make_numpy_dataset(
-    numpy_input
+<code>gather(
+    value, axis
 )
 </code></pre>
 
-Makes a <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> from a numpy array. (deprecated)
+Gather `value` across replicas along `axis` to the current device.
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed after 2020-09-30.
-Instructions for updating:
-Please use tf.data.Dataset.from_tensor_slices instead
+Given a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> or <a href="../../../tf/Tensor.md"><code>tf.Tensor</code></a>-like
+object `value`, this API gathers and concatenates `value` across replicas
+along the `axis`-th dimension. The result is copied to the "current" device
+- which would typically be the CPU of the worker on which the program is
+running. For <a href="../../../tf/distribute/TPUStrategy.md"><code>tf.distribute.TPUStrategy</code></a>, it is the first TPU host. For
+multi-client `MultiWorkerMirroredStrategy`, this is CPU of each worker.
 
-This avoids adding `numpy_input` as a large constant in the graph,
-and copies the data to the machine or machines that will be processing
-the input.
+This API can only be called in the cross-replica context. For a counterpart
+in the replica context, see <a href="../../../tf/distribute/ReplicaContext.md#all_gather"><code>tf.distribute.ReplicaContext.all_gather</code></a>.
 
-Note that you will likely need to use `experimental_distribute_dataset`
-with the returned dataset to further distribute it with the strategy.
+Note: For all strategies except <a href="../../../tf/distribute/TPUStrategy.md"><code>tf.distribute.TPUStrategy</code></a>, the input
+`value` on different replicas must have the same rank, and their shapes must
+be the same in all dimensions except the `axis`-th dimension. In other
+words, their shapes cannot be different in a dimension `d` where `d` does
+not equal to the `axis` argument. For example, given a
+<a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> with component tensors of shape
+`(1, 2, 3)` and `(1, 3, 3)` on two replicas, you can call
+`gather(..., axis=1, ...)` on it, but not `gather(..., axis=0, ...)` or
+`gather(..., axis=2, ...)`. However, for <a href="../../../tf/distribute/TPUStrategy.md#gather"><code>tf.distribute.TPUStrategy.gather</code></a>,
+all tensors must have exactly the same rank and same shape.
 
-#### Example:
-
-
+Note: Given a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> `value`, its component
+tensors must have a non-zero rank. Otherwise, consider using
+<a href="../../../tf/expand_dims.md"><code>tf.expand_dims</code></a> before gathering them.
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
->>> numpy_input = np.ones([10], dtype=np.float32)
->>> dataset = strategy.experimental_make_numpy_dataset(numpy_input)
->>> dataset
-<TensorSliceDataset shapes: (), types: tf.float32>
->>> dataset = dataset.batch(2)
->>> dist_dataset = strategy.experimental_distribute_dataset(dataset)
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
+>>> # A DistributedValues with component tensor of shape (2, 1) on each replica
+... distributed_values = strategy.experimental_distribute_values_from_function(lambda _: tf.identity(tf.constant([[1], [2]])))
+>>> @tf.function
+... def run():
+...   return strategy.gather(distributed_values, axis=0)
+>>> run()
+<tf.Tensor: shape=(4, 1), dtype=int32, numpy=
+array([[1],
+       [2],
+       [1],
+       [2]], dtype=int32)>
 ```
+
+
+Consider the following example for more combinations:
+
+```
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1", "GPU:2", "GPU:3"])
+>>> single_tensor = tf.reshape(tf.range(6), shape=(1,2,3))
+>>> distributed_values = strategy.experimental_distribute_values_from_function(lambda _: tf.identity(single_tensor))
+>>> @tf.function
+... def run(axis):
+...   return strategy.gather(distributed_values, axis=axis)
+>>> axis=0
+>>> run(axis)
+<tf.Tensor: shape=(4, 2, 3), dtype=int32, numpy=
+array([[[0, 1, 2],
+        [3, 4, 5]],
+       [[0, 1, 2],
+        [3, 4, 5]],
+       [[0, 1, 2],
+        [3, 4, 5]],
+       [[0, 1, 2],
+        [3, 4, 5]]], dtype=int32)>
+>>> axis=1
+>>> run(axis)
+<tf.Tensor: shape=(1, 8, 3), dtype=int32, numpy=
+array([[[0, 1, 2],
+        [3, 4, 5],
+        [0, 1, 2],
+        [3, 4, 5],
+        [0, 1, 2],
+        [3, 4, 5],
+        [0, 1, 2],
+        [3, 4, 5]]], dtype=int32)>
+>>> axis=2
+>>> run(axis)
+<tf.Tensor: shape=(1, 2, 12), dtype=int32, numpy=
+array([[[0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2],
+        [3, 4, 5, 3, 4, 5, 3, 4, 5, 3, 4, 5]]], dtype=int32)>
+```
+
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -711,12 +665,22 @@ with the returned dataset to further distribute it with the strategy.
 
 <tr>
 <td>
-`numpy_input`
+`value`
 </td>
 <td>
-a nest of NumPy input arrays that will be converted into a
-dataset. Note that the NumPy arrays are stacked, as that is normal
-<a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> behavior.
+a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> instance, e.g. returned by
+<a href="../../../tf/distribute/MirroredStrategy.md#run"><code>Strategy.run</code></a>, to be combined into a single tensor. It can also be a
+regular tensor when used with <a href="../../../tf/distribute/OneDeviceStrategy.md"><code>tf.distribute.OneDeviceStrategy</code></a> or the
+default strategy. The tensors that constitute the DistributedValues
+can only be dense tensors with non-zero rank, NOT a <a href="../../../tf/IndexedSlices.md"><code>tf.IndexedSlices</code></a>.
+</td>
+</tr><tr>
+<td>
+`axis`
+</td>
+<td>
+0-D int32 Tensor. Dimension along which to gather. Must be in the
+range [0, rank(value)).
 </td>
 </tr>
 </table>
@@ -729,168 +693,8 @@ dataset. Note that the NumPy arrays are stacked, as that is normal
 <tr><th colspan="2">Returns</th></tr>
 <tr class="alt">
 <td colspan="2">
-A <a href="../../../tf/data/Dataset.md"><code>tf.data.Dataset</code></a> representing `numpy_input`.
-</td>
-</tr>
-
-</table>
-
-
-
-<h3 id="experimental_replicate_to_logical_devices"><code>experimental_replicate_to_logical_devices</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1619-L1666">View source</a>
-
-<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_replicate_to_logical_devices(
-    tensor
-)
-</code></pre>
-
-Adds annotation that `tensor` will be replicated to all logical devices.
-
-NOTE: This API is only supported in TPUStrategy for now.
-This adds an annotation to tensor `tensor` specifying that operations on
-`tensor` will be invoked on all logical devices.
-
-```python
-# Initializing TPU system with 2 logical devices and 4 replicas.
-resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu='')
-tf.config.experimental_connect_to_cluster(resolver)
-topology = tf.tpu.experimental.initialize_tpu_system(resolver)
-device_assignment = tf.tpu.experimental.DeviceAssignment.build(
-    topology,
-    computation_shape=[1, 1, 1, 2],
-    num_replicas=4)
-strategy = tf.distribute.TPUStrategy(
-    resolver, experimental_device_assignment=device_assignment)
-
-iterator = iter(inputs)
-
-@tf.function()
-def step_fn(inputs):
-  images, labels = inputs
-  images = strategy.experimental_split_to_logical_devices(
-    inputs, [1, 2, 4, 1])
-
-  # model() function will be executed on 8 logical devices with `inputs`
-  # split 2 * 4  ways.
-  output = model(inputs)
-
-  # For loss calculation, all logical devices share the same logits
-  # and labels.
-  labels = strategy.experimental_replicate_to_logical_devices(labels)
-  output = strategy.experimental_replicate_to_logical_devices(output)
-  loss = loss_fn(labels, output)
-
-  return loss
-
-strategy.run(step_fn, args=(next(iterator),))
-```
-Args:
-  tensor: Input tensor to annotate.
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-Annotated tensor with idential value as `tensor`.
-</td>
-</tr>
-
-</table>
-
-
-
-<h3 id="experimental_split_to_logical_devices"><code>experimental_split_to_logical_devices</code></h3>
-
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1556-L1617">View source</a>
-
-<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
-<code>experimental_split_to_logical_devices(
-    tensor, partition_dimensions
-)
-</code></pre>
-
-Adds annotation that `tensor` will be split across logical devices.
-
-NOTE: This API is only supported in TPUStrategy for now.
-This adds an annotation to tensor `tensor` specifying that operations on
-`tensor` will be be split among multiple logical devices. Tensor `tensor`
-will be split across dimensions specified by `partition_dimensions`.
-The dimensions of `tensor` must be divisible by corresponding value in
-`partition_dimensions`.
-
-For example, for system with 8 logical devices, if `tensor` is an image
-tensor with shape (batch_size, width, height, channel) and
-`partition_dimensions` is [1, 2, 4, 1], then `tensor` will be split
-2 in width dimension and 4 way in height dimension and the split
-tensor values will be fed into 8 logical devices.
-
-```python
-# Initializing TPU system with 8 logical devices and 1 replica.
-resolver = tf.distribute.cluster_resolver.TPUClusterResolver(tpu='')
-tf.config.experimental_connect_to_cluster(resolver)
-topology = tf.tpu.experimental.initialize_tpu_system(resolver)
-device_assignment = tf.tpu.experimental.DeviceAssignment.build(
-    topology,
-    computation_shape=[1, 2, 2, 2],
-    num_replicas=1)
-strategy = tf.distribute.TPUStrategy(
-    resolver, experimental_device_assignment=device_assignment)
-
-iterator = iter(inputs)
-
-@tf.function()
-def step_fn(inputs):
-  inputs = strategy.experimental_split_to_logical_devices(
-    inputs, [1, 2, 4, 1])
-
-  # model() function will be executed on 8 logical devices with `inputs`
-  # split 2 * 4  ways.
-  output = model(inputs)
-  return output
-
-strategy.run(step_fn, args=(next(iterator),))
-```
-Args:
-  tensor: Input tensor to annotate.
-  partition_dimensions: An unnested list of integers with the size equal to
-    rank of `tensor` specifying how `tensor` will be partitioned. The
-    product of all elements in `partition_dimensions` must be equal to the
-    total number of logical devices per replica.
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Raises</th></tr>
-
-<tr>
-<td>
-`ValueError`
-</td>
-<td>
-1) If the size of partition_dimensions does not equal to rank
-of `tensor` or 2) if product of elements of `partition_dimensions` does
-not match the number of logical devices per replica defined by the
-implementing DistributionStrategy's device specification or
-3) if a known size of `tensor` is not divisible by corresponding
-value in `partition_dimensions`.
-</td>
-</tr>
-</table>
-
-
-
-<!-- Tabular view -->
- <table class="responsive fixed orange">
-<colgroup><col width="214px"><col></colgroup>
-<tr><th colspan="2">Returns</th></tr>
-<tr class="alt">
-<td colspan="2">
-Annotated tensor with idential value as `tensor`.
+A `Tensor` that's the concatenation of `value` across replicas along
+`axis` dimension.
 </td>
 </tr>
 
@@ -900,7 +704,7 @@ Annotated tensor with idential value as `tensor`.
 
 <h3 id="reduce"><code>reduce</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L1219-L1349">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L1261-L1458">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>reduce(
@@ -908,20 +712,87 @@ Annotated tensor with idential value as `tensor`.
 )
 </code></pre>
 
-Reduce `value` across replicas.
+Reduce `value` across replicas and return result on current device.
+
+```
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
+>>> def step_fn():
+...   i = tf.distribute.get_replica_context().replica_id_in_sync_group
+...   return tf.identity(i)
+>>>
+>>> per_replica_result = strategy.run(step_fn)
+>>> total = strategy.reduce("SUM", per_replica_result, axis=None)
+>>> total
+<tf.Tensor: shape=(), dtype=int32, numpy=1>
+```
+
+To see how this would look with multiple replicas, consider the same
+example with MirroredStrategy with 2 GPUs:
+
+```python
+strategy = tf.distribute.MirroredStrategy(devices=["GPU:0", "GPU:1"])
+def step_fn():
+  i = tf.distribute.get_replica_context().replica_id_in_sync_group
+  return tf.identity(i)
+
+per_replica_result = strategy.run(step_fn)
+# Check devices on which per replica result is:
+strategy.experimental_local_results(per_replica_result)[0].device
+# /job:localhost/replica:0/task:0/device:GPU:0
+strategy.experimental_local_results(per_replica_result)[1].device
+# /job:localhost/replica:0/task:0/device:GPU:1
+
+total = strategy.reduce("SUM", per_replica_result, axis=None)
+# Check device on which reduced result is:
+total.device
+# /job:localhost/replica:0/task:0/device:CPU:0
+
+```
+
+This API is typically used for aggregating the results returned from
+different replicas, for reporting etc. For example, loss computed from
+different replicas can be averaged using this API before printing.
+
+Note: The result is copied to the "current" device - which would typically
+be the CPU of the worker on which the program is running. For `TPUStrategy`,
+it is the first TPU host. For multi client `MultiWorkerMirroredStrategy`,
+this is CPU of each worker.
+
+There are a number of different tf.distribute APIs for reducing values
+across replicas:
+* <a href="../../../tf/distribute/ReplicaContext.md#all_reduce"><code>tf.distribute.ReplicaContext.all_reduce</code></a>: This differs from
+<a href="../../../tf/distribute/MirroredStrategy.md#reduce"><code>Strategy.reduce</code></a> in that it is for replica context and does
+not copy the results to the host device. `all_reduce` should be typically
+used for reductions inside the training step such as gradients.
+* <a href="../../../tf/distribute/StrategyExtended.md#reduce_to"><code>tf.distribute.StrategyExtended.reduce_to</code></a> and
+<a href="../../../tf/distribute/StrategyExtended.md#batch_reduce_to"><code>tf.distribute.StrategyExtended.batch_reduce_to</code></a>: These APIs are more
+advanced versions of <a href="../../../tf/distribute/MirroredStrategy.md#reduce"><code>Strategy.reduce</code></a> as they allow customizing the
+destination of the result. They are also called in cross replica context.
+
+_What should axis be?_
 
 Given a per-replica value returned by `run`, say a
 per-example loss, the batch will be divided across all the replicas.  This
 function allows you to aggregate across replicas and optionally also across
-batch elements.  For example, if you have a global batch size of 8 and 2
+batch elements by specifying the axis parameter accordingly.
+
+For example, if you have a global batch size of 8 and 2
 replicas, values for examples `[0, 1, 2, 3]` will be on replica 0 and
-`[4, 5, 6, 7]` will be on replica 1. By default, `reduce` will just
-aggregate across replicas, returning `[0+4, 1+5, 2+6, 3+7]`. This is useful
-when each replica is computing a scalar or some other value that doesn't
-have a "batch" dimension (like a gradient). More often you will want to
-aggregate across the global batch, which you can get by specifying the batch
+`[4, 5, 6, 7]` will be on replica 1. With `axis=None`, `reduce` will
+aggregate only across replicas, returning `[0+4, 1+5, 2+6, 3+7]`.
+This is useful when each replica is computing a scalar or some other value
+that doesn't have a "batch" dimension (like a gradient or loss).
+```
+strategy.reduce("sum", per_replica_result, axis=None)
+```
+
+Sometimes, you will want to aggregate across both the global batch _and_
+all replicas. You can get this behavior by specifying the batch
 dimension as the `axis`, typically `axis=0`. In this case it would return a
 scalar `0+1+2+3+4+5+6+7`.
+```
+strategy.reduce("sum", per_replica_result, axis=0)
+```
 
 If there is a last partial batch, you will need to specify an axis so
 that the resulting shape is consistent across replicas. So if the last
@@ -942,23 +813,25 @@ which will weigh some values `1/8` and others `1/4`.
 `reduce_op`
 </td>
 <td>
-A <a href="../../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> value specifying how values should
-be combined.
+a <a href="../../../tf/distribute/ReduceOp.md"><code>tf.distribute.ReduceOp</code></a> value specifying how values should
+be combined. Allows using string representation of the enum such as
+"SUM", "MEAN".
 </td>
 </tr><tr>
 <td>
 `value`
 </td>
 <td>
-A "per replica" value, e.g. returned by `run` to
-be combined into a single tensor.
+a <a href="../../../tf/distribute/DistributedValues.md"><code>tf.distribute.DistributedValues</code></a> instance, e.g. returned by
+<a href="../../../tf/distribute/MirroredStrategy.md#run"><code>Strategy.run</code></a>, to be combined into a single tensor. It can also be a
+regular tensor when used with `OneDeviceStrategy` or default strategy.
 </td>
 </tr><tr>
 <td>
 `axis`
 </td>
 <td>
-Specifies the dimension to reduce along within each
+specifies the dimension to reduce along within each
 replica's tensor. Should typically be set to the batch dimension, or
 `None` to only reduce across replicas (e.g. if the tensor has no batch
 dimension).
@@ -984,7 +857,7 @@ A `Tensor`.
 
 <h3 id="run"><code>run</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/tpu_strategy.py#L338-L346">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/tpu_strategy.py#L532-L540">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>run(
@@ -997,7 +870,7 @@ See base class.
 
 <h3 id="scope"><code>scope</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/distribute/distribute_lib.py#L791-L878">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/distribute/distribute_lib.py#L822-L910">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>scope()
@@ -1008,13 +881,14 @@ Context manager to make the strategy current and distribute variables.
 This method returns a context manager, and is used as follows:
 
 ```
->>> strategy = tf.distribute.MirroredStrategy()
+>>> strategy = tf.distribute.MirroredStrategy(["GPU:0", "GPU:1"])
 >>> # Variable created inside scope:
 >>> with strategy.scope():
 ...   mirrored_variable = tf.Variable(1.)
 >>> mirrored_variable
 MirroredVariable:{
-  0: <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>
+  0: <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>,
+  1: <tf.Variable 'Variable/replica_1:0' shape=() dtype=float32, numpy=1.0>
 }
 >>> # Variable created outside scope:
 >>> regular_variable = tf.Variable(1.)
@@ -1080,13 +954,13 @@ explicitly (i.e. calling those either inside or outside the scope is OK).
   `model.evaluate`, `model.predict` and `model.save` can all be called
   inside or outside the scope.
 * The following can be either inside or outside the scope:
-  ** Creating the input datasets
-  ** Defining <a href="../../../tf/function.md"><code>tf.function</code></a>s that represent your training step
-  ** Saving APIs such as <a href="../../../tf/saved_model/save.md"><code>tf.saved_model.save</code></a>. Loading creates variables,
-     so that should go inside the scope if you want to train the model in a
-     distributed way.
-  ** Checkpoint saving. As mentioned above - `checkpoint.restore` may
-     sometimes need to be inside scope if it creates variables.
+    * Creating the input datasets
+    * Defining <a href="../../../tf/function.md"><code>tf.function</code></a>s that represent your training step
+    * Saving APIs such as <a href="../../../tf/saved_model/save.md"><code>tf.saved_model.save</code></a>. Loading creates variables,
+      so that should go inside the scope if you want to train the model in a
+      distributed way.
+    * Checkpoint saving. As mentioned above - `checkpoint.restore` may
+      sometimes need to be inside scope if it creates variables.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">

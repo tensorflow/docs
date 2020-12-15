@@ -1,4 +1,4 @@
-description: Computes the inverse of one or more square invertible matrices or their
+description: Computes the inverse of one or more square invertible matrices or their adjoints (conjugate transposes).
 
 robots: noindex
 
@@ -12,7 +12,7 @@ robots: noindex
 
 
 
-Computes the inverse of one or more square invertible matrices or their
+Computes the inverse of one or more square invertible matrices or their adjoints (conjugate transposes).
 
 <section class="expandable">
   <h4 class="showalways">View aliases</h4>
@@ -35,7 +35,6 @@ more details.</p>
 
 <!-- Placeholder for "Used in" -->
 
-adjoints (conjugate transposes).
 
 The input is a tensor of shape `[..., M, M]` whose inner-most 2 dimensions
 form square matrices. The output is a tensor of the same shape as the input

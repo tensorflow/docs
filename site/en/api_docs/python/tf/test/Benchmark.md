@@ -16,7 +16,7 @@ description: Abstract class that provides helpers for TensorFlow benchmarks.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/benchmark.py#L288-L420">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/benchmark.py#L288-L420">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -51,7 +51,7 @@ more details.</p>
 
 <h3 id="evaluate"><code>evaluate</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/benchmark.py#L410-L420">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/benchmark.py#L410-L420">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>evaluate(
@@ -95,7 +95,7 @@ tensors numpy values.
 
 <h3 id="is_abstract"><code>is_abstract</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/benchmark.py#L297-L301">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/benchmark.py#L297-L301">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -107,7 +107,7 @@ tensors numpy values.
 
 <h3 id="report_benchmark"><code>report_benchmark</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/benchmark.py#L242-L271">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/benchmark.py#L242-L271">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>report_benchmark(
@@ -186,7 +186,7 @@ max_value (optional), double, maximum acceptable metric value
 
 <h3 id="run_op_benchmark"><code>run_op_benchmark</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/platform/benchmark.py#L303-L408">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/platform/benchmark.py#L303-L408">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>run_op_benchmark(

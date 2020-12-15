@@ -25,7 +25,7 @@ description: Base class for Keras optimizers.
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L81-L1253">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L89-L1345">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -52,7 +52,7 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.keras.optimizers.Optimizer(
-    name, **kwargs
+    name, gradient_aggregator=None, gradient_transformers=None, **kwargs
 )
 </code></pre>
 
@@ -266,19 +266,42 @@ this class and override the following methods:
 `name`
 </td>
 <td>
-A non-empty string.  The name to use for accumulators created
-for the optimizer.
+String. The name to use for momentum accumulator weights created
+by the optimizer.
+</td>
+</tr><tr>
+<td>
+`gradient_aggregator`
+</td>
+<td>
+The function to use to aggregate gradients across
+devices (when using <a href="../../../tf/distribute/Strategy.md"><code>tf.distribute.Strategy</code></a>). If `None`, defaults to
+summing the gradients across devices. The function should accept and
+return a list of `(gradient, variable)` tuples.
+</td>
+</tr><tr>
+<td>
+`gradient_transformers`
+</td>
+<td>
+Optional. List of functions to use to transform
+gradients before applying updates to Variables. The functions are
+applied after `gradient_aggregator`. The functions should accept and
+return a list of `(gradient, variable)` tuples.
 </td>
 </tr><tr>
 <td>
 `**kwargs`
 </td>
 <td>
-keyword arguments. Allowed to be {`clipnorm`, `clipvalue`, `lr`,
-`decay`}. `clipnorm` is clip gradients by norm; `clipvalue` is clip
-gradients by value, `decay` is included for backward compatibility to
-allow time inverse decay of learning rate. `lr` is included for backward
-compatibility, recommended to use `learning_rate` instead.
+keyword arguments. Allowed arguments are `clipvalue`,
+`clipnorm`, `global_clipnorm`.
+If `clipvalue` (float) is set, the gradient of each weight
+is clipped to be no higher than this value.
+If `clipnorm` (float) is set, the gradient of each weight
+is individually clipped so that its norm is no higher than this value.
+If `global_clipnorm` (float) is set the gradient of all weights is
+clipped so that their global norm is no higher than this value.
 </td>
 </tr>
 </table>
@@ -295,7 +318,7 @@ compatibility, recommended to use `learning_rate` instead.
 `ValueError`
 </td>
 <td>
-If name is malformed.
+in case of any invalid argument.
 </td>
 </tr>
 </table>
@@ -310,6 +333,27 @@ If name is malformed.
 <tr><th colspan="2"><h2 class="add-link">Attributes</h2></th></tr>
 
 <tr>
+<td>
+`clipnorm`
+</td>
+<td>
+`float` or `None`. If set, clips gradients to a maximum norm.
+</td>
+</tr><tr>
+<td>
+`clipvalue`
+</td>
+<td>
+`float` or `None`. If set, clips gradients to a maximum value.
+</td>
+</tr><tr>
+<td>
+`global_clipnorm`
+</td>
+<td>
+`float` or `None`. If set, clips gradients to a maximum norm.
+</td>
+</tr><tr>
 <td>
 `iterations`
 </td>
@@ -332,7 +376,7 @@ Returns variables of this Optimizer based on the order created.
 
 <h3 id="add_slot"><code>add_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L735-L771">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L822-L858">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_slot(
@@ -345,7 +389,7 @@ Add a new slot variable for `var`.
 
 <h3 id="add_weight"><code>add_weight</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L1003-L1043">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L1095-L1135">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>add_weight(
@@ -360,7 +404,7 @@ Add a new slot variable for `var`.
 
 <h3 id="apply_gradients"><code>apply_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L473-L550">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L557-L636">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>apply_gradients(
@@ -458,6 +502,13 @@ If `grads_and_vars` is malformed.
 <td>
 If none of the variables have gradients.
 </td>
+</tr><tr>
+<td>
+`RuntimeError`
+</td>
+<td>
+If called in a cross-replica context.
+</td>
 </tr>
 </table>
 
@@ -465,7 +516,7 @@ If none of the variables have gradients.
 
 <h3 id="from_config"><code>from_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L879-L902">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L971-L994">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@classmethod</code>
@@ -522,7 +573,7 @@ An optimizer instance.
 
 <h3 id="get_config"><code>get_config</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L860-L877">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L950-L969">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>@abc.abstractmethod</code>
@@ -552,7 +603,7 @@ Python dictionary.
 
 <h3 id="get_gradients"><code>get_gradients</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L445-L471">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L697-L724">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_gradients(
@@ -562,6 +613,7 @@ Python dictionary.
 
 Returns gradients of `loss` with respect to `params`.
 
+Should be used only in legacy v1 graph mode.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
@@ -621,7 +673,7 @@ function not implemented).
 
 <h3 id="get_slot"><code>get_slot</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L773-L776">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L860-L863">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot(
@@ -634,7 +686,7 @@ function not implemented).
 
 <h3 id="get_slot_names"><code>get_slot_names</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L731-L733">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L818-L820">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_slot_names()
@@ -645,7 +697,7 @@ A list of names for this optimizer's slots.
 
 <h3 id="get_updates"><code>get_updates</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L647-L654">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L726-L733">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_updates(
@@ -658,7 +710,7 @@ A list of names for this optimizer's slots.
 
 <h3 id="get_weights"><code>get_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L924-L952">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L1016-L1044">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>get_weights()
@@ -705,11 +757,11 @@ Weights values as a list of numpy arrays.
 
 <h3 id="minimize"><code>minimize</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L348-L377">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L465-L498">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>minimize(
-    loss, var_list, grad_loss=None, name=None
+    loss, var_list, grad_loss=None, name=None, tape=None
 )
 </code></pre>
 
@@ -730,7 +782,9 @@ of using this function.
 `loss`
 </td>
 <td>
-A callable taking no arguments which returns the value to minimize.
+`Tensor` or callable. If a callable, `loss` should take no arguments
+and return the value to minimize. If a `Tensor`, the `tape` argument
+must be passed.
 </td>
 </tr><tr>
 <td>
@@ -748,14 +802,23 @@ called.
 `grad_loss`
 </td>
 <td>
-Optional. A `Tensor` holding the gradient computed for `loss`.
+(Optional). A `Tensor` holding the gradient computed for
+`loss`.
 </td>
 </tr><tr>
 <td>
 `name`
 </td>
 <td>
-Optional name for the returned operation.
+(Optional) str. Name for the returned operation.
+</td>
+</tr><tr>
+<td>
+`tape`
+</td>
+<td>
+(Optional) <a href="../../../tf/GradientTape.md"><code>tf.GradientTape</code></a>. If `loss` is provided as a `Tensor`,
+the tape that computed the `loss` must be provided.
 </td>
 </tr>
 </table>
@@ -796,7 +859,7 @@ If some of the variables are not `Variable` objects.
 
 <h3 id="set_weights"><code>set_weights</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L955-L1001">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L1047-L1093">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>set_weights(
@@ -850,7 +913,7 @@ weight values as a list of numpy arrays.
 
 <h3 id="variables"><code>variables</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L915-L917">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/optimizer_v2/optimizer_v2.py#L1007-L1009">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>variables()

@@ -30,7 +30,7 @@ more details.</p>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.flags.flag_dict_to_args(
-    flag_map
+    flag_map, multi_flags=None
 )
 </code></pre>
 
@@ -57,8 +57,18 @@ values are treated according to their type:
 * If value is True, then only the name is emitted.
 * If value is False, then only the name prepended with 'no' is emitted.
 * If value is a string then --name=value is emitted.
-* If value is a collection, this will emit --name=value1,value2,value3.
+* If value is a collection, this will emit --name=value1,value2,value3,
+unless the flag name is in multi_flags, in which case this will emit
+--name=value1 --name=value2 --name=value3.
 * Everything else is converted to string an passed as such.
+</td>
+</tr><tr>
+<td>
+`multi_flags`
+</td>
+<td>
+set, names (strings) of flags that should be treated as
+multi-flags.
 </td>
 </tr>
 </table>

@@ -28,7 +28,7 @@ more details.</p>
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.raw_ops.PrefetchDataset(
     input_dataset, buffer_size, output_types, output_shapes, slack_period=0,
-    legacy_autotune=(True), name=None
+    legacy_autotune=(True), buffer_size_min=0, name=None
 )
 </code></pre>
 
@@ -85,6 +85,13 @@ An optional `int`. Defaults to `0`.
 </td>
 <td>
 An optional `bool`. Defaults to `True`.
+</td>
+</tr><tr>
+<td>
+`buffer_size_min`
+</td>
+<td>
+An optional `int`. Defaults to `0`.
 </td>
 </tr><tr>
 <td>

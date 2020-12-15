@@ -48,7 +48,7 @@ Detailed documentation and user guides are available at
 
 [`metrics`](../tf/keras/metrics.md) module: Built-in metrics.
 
-[`mixed_precision`](../tf/keras/mixed_precision.md) module: Public API for tf.keras.mixed_precision namespace.
+[`mixed_precision`](../tf/keras/mixed_precision.md) module: Keras mixed precision API.
 
 [`models`](../tf/keras/models.md) module: Code for model cloning, plus model-related API entries.
 

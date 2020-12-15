@@ -3,6 +3,7 @@ description: A generic mutable hash table implementation using tensors as backin
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.lookup.experimental.DenseHashTable" />
 <meta itemprop="path" content="Stable" />
+<meta itemprop="property" content="__getitem__"/>
 <meta itemprop="property" content="__init__"/>
 <meta itemprop="property" content="erase"/>
 <meta itemprop="property" content="export"/>
@@ -19,7 +20,7 @@ description: A generic mutable hash table implementation using tensors as backin
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L1901-L2195">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L1954-L2251">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -65,16 +66,19 @@ temporary tensors created during checkpointing and restore operations.
 
 
 
-```python
-table = tf.lookup.DenseHashTable(key_dtype=tf.int64,
-                                 value_dtype=tf.int64,
-                                 default_value=-1,
-                                 empty_key=0,
-                                 deleted_key=-1)
-
-sess.run(table.insert(keys, values))
-out = table.lookup(query_keys)
-print(out.eval())
+```
+>>> table = tf.lookup.experimental.DenseHashTable(
+...     key_dtype=tf.string,
+...     value_dtype=tf.int64,
+...     default_value=-1,
+...     empty_key='',
+...     deleted_key='$')
+>>> keys = tf.constant(['a', 'b', 'c'])
+>>> values = tf.constant([0, 1, 2], dtype=tf.int64)
+>>> table.insert(keys, values)
+>>> table.remove(tf.constant(['c']))
+>>> table.lookup(tf.constant(['a', 'b', 'c','d'])).numpy()
+array([ 0,  1, -1, -1])
 ```
 
 <!-- Tabular view -->
@@ -209,7 +213,7 @@ The table value dtype.
 
 <h3 id="erase"><code>erase</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2103-L2128">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2159-L2184">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>erase(
@@ -279,7 +283,7 @@ when `keys` do not match the table data types.
 
 <h3 id="export"><code>export</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2148-L2164">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2204-L2220">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>export(
@@ -324,7 +328,7 @@ second tensors containing all values in the table.
 
 <h3 id="insert"><code>insert</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2084-L2101">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2140-L2157">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>insert(
@@ -402,7 +406,7 @@ types.
 
 <h3 id="insert_or_assign"><code>insert_or_assign</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2057-L2082">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2113-L2138">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>insert_or_assign(
@@ -480,7 +484,7 @@ types.
 
 <h3 id="lookup"><code>lookup</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2031-L2055">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2087-L2111">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>lookup(
@@ -551,7 +555,7 @@ when `keys` do not match the table data types.
 
 <h3 id="remove"><code>remove</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2130-L2146">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2186-L2202">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>remove(
@@ -621,7 +625,7 @@ when `keys` do not match the table data types.
 
 <h3 id="size"><code>size</code></h3>
 
-<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/ops/lookup_ops.py#L2018-L2029">View source</a>
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L2074-L2085">View source</a>
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>size(
@@ -661,6 +665,19 @@ A scalar tensor containing the number of elements in this table.
 
 </table>
 
+
+
+<h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/ops/lookup_ops.py#L149-L151">View source</a>
+
+<pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
+<code>__getitem__(
+    keys
+)
+</code></pre>
+
+Looks up `keys` in a table, outputs the corresponding values.
 
 
 

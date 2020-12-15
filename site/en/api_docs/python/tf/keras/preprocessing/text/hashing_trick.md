@@ -10,7 +10,12 @@ description: Converts a text to a sequence of indexes in a fixed-size hashing sp
 <!-- Insert buttons and diff -->
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
-
+<td>
+  <a target="_blank" href="https://github.com/keras-team/keras-preprocessing/tree/master/keras_preprocessing/text.py">
+    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
+    View source on GitHub
+  </a>
+</td>
 </table>
 
 

@@ -36,10 +36,10 @@ The below table describes the performance on ImageNet 2012:
 |   NASNet-A (6 @ 4032)  |   82.7 %  |   96.2 %  |      23.8 B    |    88.9    |
 --------------------------------------------------------------------------------
 
-#### Reference paper:
+#### Reference:
 
-- [Learning Transferable Architectures for Scalable Image Recognition]
-  (https://arxiv.org/abs/1707.07012) (CVPR 2018)
+- [Learning Transferable Architectures for Scalable Image Recognition](
+    https://arxiv.org/abs/1707.07012) (CVPR 2018)
 
 
 ## Functions

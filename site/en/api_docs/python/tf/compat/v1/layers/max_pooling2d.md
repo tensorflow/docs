@@ -1,4 +1,4 @@
-description: Max pooling layer for 2D inputs (e.g. images). (deprecated)
+description: Max pooling layer for 2D inputs (e.g. images).
 
 <div itemscope itemtype="http://developers.google.com/ReferenceObject">
 <meta itemprop="name" content="tf.compat.v1.layers.max_pooling2d" />
@@ -11,7 +11,7 @@ description: Max pooling layer for 2D inputs (e.g. images). (deprecated)
 
 <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 <td>
-  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.3/tensorflow/python/keras/legacy_tf_layers/pooling.py#L274-L311">
+  <a target="_blank" href="https://github.com/tensorflow/tensorflow/blob/r2.4/tensorflow/python/keras/legacy_tf_layers/pooling.py#L278-L316">
     <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />
     View source on GitHub
   </a>
@@ -20,7 +20,7 @@ description: Max pooling layer for 2D inputs (e.g. images). (deprecated)
 
 
 
-Max pooling layer for 2D inputs (e.g. images). (deprecated)
+Max pooling layer for 2D inputs (e.g. images).
 
 <pre class="devsite-click-to-copy prettyprint lang-py tfo-signature-link">
 <code>tf.compat.v1.layers.max_pooling2d(
@@ -33,9 +33,6 @@ Max pooling layer for 2D inputs (e.g. images). (deprecated)
 
 <!-- Placeholder for "Used in" -->
 
-Warning: THIS FUNCTION IS DEPRECATED. It will be removed in a future version.
-Instructions for updating:
-Use keras.layers.MaxPooling2D instead.
 
 <!-- Tabular view -->
  <table class="responsive fixed orange">
