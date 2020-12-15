@@ -18,6 +18,9 @@ toc:
   path: /install/source_windows
 - title: Raspberry Pi
   path: /install/source_rpi
+- title: SIG Build
+  path: https://github.com/tensorflow/build
+  status: external
 - heading: Language bindings
 - title: Java
   path: /install/lang_java

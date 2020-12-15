@@ -1,5 +1,10 @@
 # Build from source for the Raspberry Pi
 
+Note: TensorFlow for the Raspberry Pi is not an officially supported build (last
+tested on 2.3.0rc2). See the
+[Build TensorFlow Lite for Raspberry Pi](https://www.tensorflow.org/lite/guide/build_rpi)
+guide.
+
 This guide builds a TensorFlow package for a
 [Raspberry Pi](https://www.raspberrypi.org/){:.external} device running
 [Raspbian 9.0](https://www.raspberrypi.org/downloads/raspbian/){:.external}.
