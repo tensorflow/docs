@@ -684,8 +684,8 @@ def _build_collapsable_aliases(aliases: List[str]) -> str:
 
   collapsable_template = textwrap.dedent("""\
     <section class="expandable">
-      <h4 class="showalways">View aliases</h4>
-      <p>{content}</p>
+    <h4 class="showalways">View aliases</h4>
+    <p>{content}</p>
     </section>
     """)
 
