@@ -322,4 +322,8 @@ ImportError: cannot import name 'descriptor'</pre>
   <td><pre>sed: /var/folders/y4/85hx48054tbd2y04jkf3l6880000gn/T/tmp.XXXXXXXXXX.Ty6dzcrU/tensorflow/__init__.py: 
   in-place editing only works for regular files</pre></td>
 </tr>
+<tr>
+  <td><a href="https://stackoverflow.com/questions/55224016/importerror-libcublas-so-10-0-cannot-open-shared-object-file-no-such-file-or/64472380#64472380">55224016</a></td>
+  <td><pre>ImportError: libcublas.so.10.0: cannot open shared object file: No such file or directory</pre></td>
+</tr>
 </table>
