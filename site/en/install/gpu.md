@@ -117,22 +117,15 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get install nvidia-driver-460</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends \
-    cuda-11-0 \
-    libcudnn8=8.0.4.30-1+cuda11.0  \
-    libcudnn8-dev=8.0.4.30-1+cuda11.0
-</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends cuda-11-0 libcudnn8=8.0.4.30-1+cuda11.0 libcudnn8-dev=8.0.4.30-1+cuda11.0</code>
 
 # Install TensorRT. Requires that libcudnn8 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 \
-    libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0
-</code>
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 libnvinfer-dev=7.1.3-1+cuda11.0 libnvinfer-plugin7=7.1.3-1+cuda11.0</code>
 </pre>
 
 #### Ubuntu 18.04 (CUDA 11.0)
@@ -163,17 +156,10 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends \
-    cuda-11-0 \
-    libcudnn8=8.0.4.30-1+cuda11.0  \
-    libcudnn8-dev=8.0.4.30-1+cuda11.0
-</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends cuda-11-0 libcudnn8=8.0.4.30-1+cuda11.0 libcudnn8-dev=8.0.4.30-1+cuda11.0</code>
 
 # Install TensorRT. Requires that libcudnn8 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 \
-    libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0
-</code>
+<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 libnvinfer-dev=7.1.3-1+cuda11.0 libnvinfer-plugin7=7.1.3-1+cuda11.0</code>
 </pre>
 
 
