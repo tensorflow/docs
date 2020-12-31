@@ -110,7 +110,11 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install NVIDIA driver
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-450</code>
+# Find the latest NVIDIA driver using
+<code class="devsite-terminal">sudo apt search nvidia-driver</code>
+
+# Choose the driver that looks like "nvidia-driver-*"
+<code class="devsite-terminal">sudo apt-get install nvidia-driver-460</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
@@ -147,7 +151,11 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install NVIDIA driver
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-450</code>
+# Find the latest NVIDIA driver using
+<code class="devsite-terminal">sudo apt search nvidia-driver</code>
+
+# Choose the driver that looks like "nvidia-driver-*"
+<code class="devsite-terminal">sudo apt-get install nvidia-driver-460</code>
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
