@@ -122,10 +122,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends cuda-11-0 libcudnn8=8.0.5.39-1+cuda11.0 libcudnn8-dev=8.0.5.39-1+cuda11.0</code>
-
-# Install TensorRT. Requires that libcudnn8 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 libnvinfer-dev=7.1.3-1+cuda11.0 libnvinfer-plugin7=7.1.3-1+cuda11.0</code>
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends cuda-10-0 libcudnn8=8.0.5.39-1+cuda11.0 libcudnn8-dev=8.0.5.39-1+cuda11.0</code>
 </pre>
 
 #### Ubuntu 18.04 (CUDA 11.0)
@@ -157,7 +154,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends cuda-11-0 libcudnn8=8.0.5.39-1+cuda11.0 libcudnn8-dev=8.0.5.39-1+cuda11.0</code>
-
+</pre>
 
 #### Ubuntu 16.04 (CUDA 11.0)
 
