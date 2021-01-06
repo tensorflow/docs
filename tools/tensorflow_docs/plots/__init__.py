@@ -37,7 +37,7 @@ def _smooth(values, std):
     The smoothed array.
   """
   width = std * 4
-  x = np.linspace(-width, width, 2 * width + 1)
+  x = np.linspace(-width, width, min(2 * width + 1, len(values)))
   kernel = np.exp(-(x / 5)**2)
 
   values = np.array(values)

@@ -236,6 +236,31 @@ class DocControlsTest(absltest.TestCase):
     self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
     self.assertFalse(doc_controls.should_skip_class_attr(Child, 'my_method'))
 
+  def test_doc_in_current_and_subclasses(self):
+
+    class Parent:
+
+      @doc_controls.do_not_doc_in_subclasses
+      def my_method(self):
+        pass
+
+    class Child1(Parent):
+
+      @doc_controls.doc_in_current_and_subclasses
+      def my_method(self):
+        pass
+
+    class Child11(Child1):
+      pass
+
+    class Child2(Parent):
+      pass
+
+    self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child1, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child11, 'my_method'))
+    self.assertTrue(doc_controls.should_skip_class_attr(Child2, 'my_method'))
+
 
 if __name__ == '__main__':
   absltest.main()

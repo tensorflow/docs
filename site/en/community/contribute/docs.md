@@ -270,36 +270,29 @@ top buttons always link to the TensorFlow Docs `master` branch.
 
 ### Notebook formatting
 
-To create a new notebook, copy and edit the
-<a href="https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb" external="class">TensorFlow
-notebook template</a>.
-
-Notebooks are stored on disk as JSON and the various notebook implementations
-format the JSON differently. Diff tools and version control don't handle this
-very well, so TensorFlow Docs enforces a standard notebook formatting.
-
-Use the `nbfmt` command to apply this formattng:
+A notebook formatting tool makes Jupyter notebook source diffs consistent and
+easier to review. Since notebook authoring environments differ with regards to
+file output, indentation, metadata and other non-specified fields; `nbfmt` uses
+opinionated defaults with a preference for the TensorFlow docs Colab workflow.
+To format a notebook, install the
+<a href="https://&#103;ithub.com/tensorflow/docs/tree/master/tools/tensorflow_docs/tools/" external="class">TensorFlow
+docs notebook tools</a> and run the `nbfmt` tool:
 
 ```
 # Install the tensorflow-docs package:
 $ python3 -m pip install -U [--user] git+https://github.com/tensorflow/docs
 
-# Format individual notebooks:
-$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebook.ipynb [...]
-
-# Or a directory of notebooks:
-$ python3 -m tensorflow_docs.tools.nbfmt ./path/to/notebooks/
+$ python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
 ```
 
-For the same reasons notebook output should be cleared before submission
-(except in a few special cases). In Colab the "private outputs" option is used
-to enforce this. Other notebook implementations do not recognize this option.
-You can clear the outputs by passing `--preserve_outputs=False` to `nbfmt`:
+For TensorFlow docs projects, notebooks *without* output cells are executed and
+tested; notebooks *with* saved output cells are published as-is. `nbfmt`
+respects the notebook state and uses the `--remove_outputs` option to explicitly
+remove output cells.
 
-```
-$ python3 -m tensorflow_docs.tools.nbfmt --preserve_outputs=False \
-    path/to/notebooks/example.ipynb
-```
+To create a new notebook, copy and edit the
+<a href="https://github.com/tensorflow/docs/blob/master/tools/templates/notebook.ipynb" external="class">TensorFlow
+docs notebook template</a>.
 
 ### Edit in Colab
 
@@ -335,61 +328,31 @@ edit and update your forked GitHub repo directly from Google Colab:
 
 Success: Your changes have been accepted to the TensorFlow documentation.
 
+## Translations
 
-## Community translations
+The TensorFlow team works with the community and vendors to provide translations
+for tensorflow.org. Translations of notebooks and other technical content are
+located in the
+<a class="external" href="https://github.com/tensorflow/docs-l10n">tensorflow/docs-l10n</a>
+GitHub repo. Please submit pull requests through the
+<a class="external" href="https://gitlocalize.com/tensorflow/docs-l10n">TensorFlow
+GitLocalize project</a>.
 
-Community translations are a great way to make TensorFlow accessible all over
-the world. To update a translation, find or add a file in the
-[language directory](https://github.com/tensorflow/docs/tree/master/site) that
-matches the same directory structure of the `en/` directory. The English docs
-are the *source-of-truth* and translations should follow these guides as close
-as possible. That said, translations are written for the communities they serve.
-If the English terminology, phrasing, style, or tone does not translate to
-another language, please use a translation appropriate for the reader.
+The English docs are the *source-of-truth* and translations should follow these
+guides as close as possible. That said, translations are written for the
+communities they serve. If the English terminology, phrasing, style, or tone
+does not translate to another language, please use a translation appropriate for
+the reader.
 
-Note: The API reference is *not* translated for tensorflow.org.
+Language support is determined by a number of factors including—but not limited
+to—site metrics and demand, community support,
+<a class="external" href="https://en.wikipedia.org/wiki/EF_English_Proficiency_Index">English
+proficiency</a>, audience preference, and other indicators. Since each supported
+language incurs a cost, unmaintained languages are removed. Support for new
+languages will be announced on the
+<a class="external" href="https://blog.tensorflow.org/">TensorFlow blog</a> or
+<a class="external" href="https://twitter.com/TensorFlow">Twitter</a>.
 
-There are language-specific docs groups that make it easier for translation
-contributors to organize. Please join if you're an author, reviewer, or just
-interested in building out TensorFlow.org content for the community:
-
-* Chinese (Simplified): [docs-zh-cn@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-zh-cn)
-* Italian: [docs-it@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-it)
-* Japanese: [docs-ja@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ja)
-* Korean: [docs-ko@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ko)
-* Russian: [docs-ru@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-ru)
-* Turkish: [docs-tr@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs-tr)
-
-### Review notifications
-
-All documentation updates require a review. To collaborate more efficiently with
-the TensorFlow translation communities, here are some ways to keep on top of
-language-specific activity:
-
-* Join a language group listed above to receive an email for any *created* pull
-  request that touches the <code><a
-  href="https://github.com/tensorflow/docs/tree/master/site">site/<var>lang</var></a></code>
-  directory for that language.
-* Add your GitHub username to the `site/<lang>/REVIEWERS` file to get
-  automatically comment-tagged in a pull request. When comment-tagged, GitHub
-  will send you notifications for all changes and discussion in that pull
-  request.
-
-### Keep code up-to-date in translations
-
-For an open source project like TensorFlow, keeping documentation up-to-date is
-challenging. After talking with the community, readers of translated content
-will tolerate text that is a little out-of-date, but out-of-date code is
-frustrating. To make it easier to keep the code in sync, use the
-[nb-code-sync](https://github.com/tensorflow/docs/blob/master/tools/nb_code_sync.py)
-tool for the translated notebooks:
-
-<pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">./tools/nb_code_sync.py [--lang=en] site/<var>lang</var>/notebook.ipynb</code>
-</pre>
-
-This script reads the code cells of a language notebook and checks it against the
-English version. After stripping the comments, it compares the code blocks and
-updates the language notebook if they are different. This tool is particularly
-useful with an interactive git workflow to selectively add hunks of the file to
-the commit using: `git add --patch site/lang/notebook.ipynb`
+If your preferred language is not supported, you are welcome to maintain a
+community fork for open source contributors. These are not published to
+tensorflow.org.

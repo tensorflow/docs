@@ -1,10 +1,10 @@
 toc:
-- name: "Forums & user groups"
+- name: "Groups"
   contents:
-  - title: "Forums"
-    path: /community/forums
   - title: "User groups"
     path: /community/groups
+  - title: "Mailing lists"
+    path: /community/mailing-lists
 
   - heading: "Community resources"
   - title: "SIG playbook"

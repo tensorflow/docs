@@ -13,10 +13,8 @@ toc:
   path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
   status: external
 
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
-
 - heading: "TensorFlow basics"
+  status: new
 - title: "Eager execution"
   path: /guide/eager
 - title: "Tensor"
@@ -27,12 +25,19 @@ toc:
   path: /guide/autodiff
 - title: "Intro to graphs and functions"
   path: /guide/intro_to_graphs
-  status: new
-- title: "Advanced auto-diff"
+- title: "Intro to modules, layers, and models"
+  path: /guide/intro_to_modules
+- title: "Training loops"
+  path: /guide/basic_training_loops
+- title: "Advanced autodiff"
   path: /guide/advanced_autodiff
-  status: new
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "NumPy API"
+  path: /guide/tf_numpy
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
 
 - heading: "Customization"
 - title: "Create an op"
@@ -40,17 +45,12 @@ toc:
 - title: "Random number generation"
   path: /guide/random_numbers
 
-- heading: "Estimators"
-- title: "Estimator overview"
-  path: /guide/estimator
-
 - heading: "Data input pipelines"
 - title: "tf.data"
   path: /guide/data
 - title: "Optimize pipeline performance"
   path: /guide/data_performance
 - title: "Analyze pipeline performance"
-  status: new
   path: /guide/data_performance_analysis
 
 - heading: "Save a model"
@@ -66,7 +66,6 @@ toc:
 - title: "GPU"
   path: /guide/gpu
 - title: "TPU"
-  status: new
   path: /guide/tpu
 
 - heading: "Performance"
@@ -74,11 +73,17 @@ toc:
   path: /guide/function
 - title: "Profile TensorFlow performance"
   path: /guide/profiler
+- title: "Optimize GPU Performance"
+  path: /guide/gpu_performance_analysis
 - title: "Graph optimization"
   path: /guide/graph_optimization
 - title: "Mixed precision"
   path: /guide/mixed_precision
   status: experimental
+
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
 
 - heading: "Appendix"
 - title: "Version compatibility"

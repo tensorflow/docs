@@ -22,7 +22,7 @@ import typing
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 
-_TYPING = frozenset(
+TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
     if not doc_generator_visitor.maybe_singleton(obj))
@@ -46,7 +46,7 @@ def ignore_typing(path, parent, children):
 
   children = [(name, child_obj)
               for (name, child_obj) in children
-              if id(child_obj) not in _TYPING]
+              if id(child_obj) not in TYPING_IDS]
 
   return children
 
@@ -199,6 +199,19 @@ def explicit_package_contents_filter(path, parent, children):
   return filtered_children
 
 
+ALLOWED_DUNDER_METHODS = frozenset([
+    '__abs__', '__add__', '__and__', '__bool__', '__call__', '__concat__',
+    '__contains__', '__div__', '__enter__', '__eq__', '__exit__',
+    '__floordiv__', '__ge__', '__getitem__', '__gt__', '__init__', '__invert__',
+    '__iter__', '__le__', '__len__', '__lt__', '__matmul__', '__mod__',
+    '__mul__', '__new__', '__ne__', '__neg__', '__pos__', '__nonzero__',
+    '__or__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rfloordiv__',
+    '__rmatmul__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rsub__',
+    '__rtruediv__', '__rxor__', '__sub__', '__truediv__', '__xor__',
+    '__version__'
+])
+
+
 class PublicAPIFilter(object):
   """Visitor to use with `traverse` to filter just the public API."""
 
@@ -216,23 +229,15 @@ class PublicAPIFilter(object):
     self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
 
-  ALLOWED_PRIVATES = frozenset([
-      '__abs__', '__add__', '__and__', '__bool__', '__call__', '__concat__',
-      '__contains__', '__div__', '__enter__', '__eq__', '__exit__',
-      '__floordiv__', '__ge__', '__getitem__', '__gt__', '__init__',
-      '__invert__', '__iter__', '__le__', '__len__', '__lt__', '__matmul__',
-      '__mod__', '__mul__', '__new__', '__ne__', '__neg__', '__pos__',
-      '__nonzero__', '__or__', '__pow__', '__radd__', '__rand__', '__rdiv__',
-      '__rfloordiv__', '__rmatmul__', '__rmod__', '__rmul__', '__ror__',
-      '__rpow__', '__rsub__', '__rtruediv__', '__rxor__', '__sub__',
-      '__truediv__', '__xor__', '__version__'
-  ])
-
   def _is_private(self, path, name, obj):
-    """Return whether a name is private."""
+    """Returns whether a name is private or not."""
+
     # Skip objects blocked by doc_controls.
     if doc_controls.should_skip(obj):
       return True
+
+    if doc_controls.should_doc_private(obj):
+      return False
 
     # Skip modules outside of the package root.
     if inspect.ismodule(obj):
@@ -250,7 +255,7 @@ class PublicAPIFilter(object):
       return True
 
     # Skip "_" hidden attributes
-    if name.startswith('_') and name not in self.ALLOWED_PRIVATES:
+    if name.startswith('_') and name not in ALLOWED_DUNDER_METHODS:
       return True
 
     return False

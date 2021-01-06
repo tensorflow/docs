@@ -1,0 +1,48 @@
+# This workflow adds the community approval label ("lgtm") to pull requests. It
+# does *not* indicate maintainer approval. This a way to visually highlight that
+# someone in the world thinks the pull request is ready for further review. This
+# event is triggered by a pull request approval, or simply a comment that
+# contains the text "lgtm".
+# Webhook events: Issue comments, Pull request reviews
+name: Community approval
+on:
+  repository_dispatch:
+    # From: issue_comment, pull_request_review
+    types: [created, edited, submitted]
+
+jobs:
+  lgtm-comment:
+    # Check the comment. contains() is case-insensitive.
+    if: >-
+      ${{ github.actor == 'tfdocsbot' &&
+          contains(github.event.client_payload.comment.body, 'LGTM') }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add label
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ISSUE_URL: ${{ github.event.client_payload.comment.issue_url }}
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          "${ISSUE_URL}/labels" \
+          --data '{"labels":["lgtm"]}'
+
+  review-approval:
+    # Check the pull request review.
+    if: >-
+      ${{ github.actor == 'tfdocsbot' &&
+          contains(github.event.client_payload.review.state, 'approved') }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add label
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ISSUE_URL: ${{ github.event.client_payload.pull_request.issue_url }}
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          "${ISSUE_URL}/labels" \
+          --data '{"labels":["lgtm"]}'

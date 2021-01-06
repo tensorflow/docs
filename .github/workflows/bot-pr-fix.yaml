@@ -1,0 +1,48 @@
+# Automatically add commits to fix pull requests. This workflow must initiate
+# from an authenticated bot repo collaborator. Check for opt-out label.
+# Webhook events: Pull requests
+name: Auto-fix pull request
+on:
+  repository_dispatch:
+    types: [opened, synchronize]
+
+jobs:
+  nbfmt:
+    # Check for opt-out label.
+    if: >-
+      ${{ github.actor == 'tfdocsbot' &&
+          !contains(github.event.client_payload.pull_request.labels.*.name, 'nbfmt-disable') }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Install tensorflow-docs
+      run: python3 -m pip install -U git+https://github.com/tensorflow/docs
+    - name: Fetch pull request branch
+      uses: actions/checkout@v2
+      with:
+        # Head repo is the user's fork. Ref is the branch name.
+        repository: ${{ github.event.client_payload.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.client_payload.pull_request.head.ref }}
+    - name: Fetch base master branch
+      run: git fetch -u "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" master:master
+    - name: Format notebooks
+      run: |
+        # Only want notebooks modified in this pull request.
+        readarray -t changed_files < <(git diff --name-only master | grep '\.ipynb$' || true)
+        if [[ ${#changed_files[@]} == 0 ]]; then
+          echo "No notebooks modified in this pull request."
+          exit 0
+        fi
+        python3 -m tensorflow_docs.tools.nbfmt "${changed_files[@]}"
+
+        if [[ -z $(git ls-files --modified) ]]; then
+          echo "Notebooks already formatted."
+          exit 0
+        fi
+        # Set author and commit.
+        git config --global user.name "$GITHUB_ACTOR"
+        git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+        git commit -am "nbfmt"
+        # Push to the pull request branch submitted by head.
+        git push

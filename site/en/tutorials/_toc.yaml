@@ -26,21 +26,20 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
-    status: new
 
 - title: "Load and preprocess data"
   style: accordion
   section:
+  - title: "Images"
+    path: /tutorials/load_data/images
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
-  - title: "Images"
-    path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
@@ -64,6 +63,8 @@ toc:
     path: /tutorials/estimator/boosted_trees_model_understanding
   - title: "Keras model to Estimator"
     path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
 
 - heading: "Advanced"
   style: divider
@@ -75,8 +76,6 @@ toc:
     path: /tutorials/customization/basics
   - title: "Custom layers"
     path: /tutorials/customization/custom_layers
-  - title: "Custom training"
-    path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
     path: /tutorials/customization/custom_training_walkthrough
 
@@ -89,8 +88,9 @@ toc:
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
     path: /tutorials/distribute/multi_worker_with_keras
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Parameter Server Training"
+    path: /tutorials/distribute/parameter_server_training
+    status: experimental
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
   - title: "Distributed input"
@@ -103,16 +103,16 @@ toc:
     path: /tutorials/images/cnn
   - title: "Image classification"
     path: /tutorials/images/classification
+  - title: "Transfer learning and fine-tuning"
+    path: /tutorials/images/transfer_learning
   - title: "Transfer learning with TF Hub"
     path: /tutorials/images/transfer_learning_with_hub
-  - title: "Transfer learning with pretrained CNN"
-    path: /tutorials/images/transfer_learning
   - title: "Data Augmentation"
     path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
   - title: "Object detection with TF Hub"
-    path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
     status: external
 
 - title: "Text"
@@ -120,8 +120,19 @@ toc:
   section:
   - title: "Word embeddings"
     path: /tutorials/text/word_embeddings
+  - title: "Word2Vec"
+    path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
+  - title: "Classify Text with BERT"
+    status: new
+    path: /tutorials/text/classify_text_with_bert
+  - title: "Solve GLUE tasks using BERT on TPU"
+    status: new
+    path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
+  - title: "Fine tuning BERT"
+    path: /official_models/fine_tuning_bert
+  - heading: Generation
   - title: "Text generation with an RNN"
     path: /tutorials/text/text_generation
   - title: "Neural machine translation with attention"
@@ -130,19 +141,28 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
-  - title: "Fine tuning BERT"
-    status: New
-    path: /official_models/fine_tuning_bert
+
+- title: "Audio"
+  style: accordion
+  section:
+  - title: "Simple Audio Recognition"
+    path: /tutorials/audio/simple_audio
 
 - title: "Structured data"
   style: accordion
   section:
   - title: "Classify structured data with feature columns"
     path: /tutorials/structured_data/feature_columns
+  - title: "Classify structured data with preprocessing layers"
+    path: /tutorials/structured_data/preprocessing_layers
+    status: experimental
   - title: "Classification on imbalanced data"
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
     path: /tutorials/structured_data/time_series
+  - title: "Recommenders"
+    status: external
+    path: /recommenders/examples/quickstart
 
 - title: "Generative"
   style: accordion
@@ -159,12 +179,22 @@ toc:
     path: /tutorials/generative/cyclegan
   - title: "Adversarial FGSM"
     path: /tutorials/generative/adversarial_fgsm
+  - title: "Intro to Autoencoders"
+    path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 
 - title: "Interpretability"
   style: accordion
-  status: new
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
+
+- title: "Reinforcement learning"
+  style: accordion
+  section:
+  - title: "Actor-Critic method"
+    path: /tutorials/reinforcement_learning/actor_critic
+  - title: "TensorFlow agents"
+    status: external
+    path: /agents
