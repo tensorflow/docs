@@ -107,23 +107,20 @@ class _FileLocation(object):
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
-  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
-    self.rel_path = rel_path
+  def __init__(
+      self,
+      url: Optional[str] = None,
+      start_line: Optional[int] = None,
+      end_line: Optional[int] = None,
+  ) -> None:
     self.url = url
-    self.start_line = start_line
-    self.end_line = end_line
+    self._start_line = start_line
+    self._end_line = end_line
 
-    github_main_re = 'github.com.*?(blob|tree)/master'
-    suffix = ''
-    # Only attach a line number for github URLs that are not using "main"
-    if self.start_line and not re.search(github_main_re, self.url):
+    if self._start_line:
       if 'github.com' in self.url:
-        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
-            start_line=self.start_line, end_line=self.end_line)
-
-        self.url = self.url + suffix
+        self.url = f'{self.url}#L{self._start_line}-L{self._end_line}'
 
 
 def is_class_attr(full_name, index):
@@ -239,7 +236,8 @@ class _StripPylints(object):
 
 
 class _DowngradeH1Keywords():
-  """ Convert keras docstring keyword format to google format."""
+  """Convert keras docstring keyword format to google format."""
+
   KEYWORD_H1_RE = re.compile(
       r"""
     ^                 # Start of line
@@ -2447,17 +2445,15 @@ def _get_defined_in(py_object: Any,
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _FileLocation(rel_path)
+    return _FileLocation()
   if 'genfiles' in rel_path:
-    return _FileLocation(rel_path)
+    return _FileLocation()
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
     rel_path = rel_path[:-7] + '.proto'
-    return _FileLocation(
-        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
+    return _FileLocation(url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
     return _FileLocation(
-        rel_path=rel_path,
         url=os.path.join(code_url_prefix, rel_path),
         start_line=start_line,
         end_line=end_line)  # pylint: disable=undefined-loop-variable

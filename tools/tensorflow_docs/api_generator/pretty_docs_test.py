@@ -15,13 +15,7 @@
 # ==============================================================================
 """Tests for MD page generator."""
 
-import collections
-import inspect
-import os
-import tempfile
 import textwrap
-
-from typing import Union, List, Dict, Callable
 
 from absl.testing import absltest
 
@@ -33,7 +27,7 @@ class ParserTest(absltest.TestCase):
 
   def test_github_source_link_in_table(self):
     url = "https://github.com/tensorflow/docs/blob/master/path/to/file"
-    location = parser._FileLocation(rel_path="test", url=url)
+    location = parser._FileLocation(url=url)
     table = pretty_docs._top_source_link(location)
 
     expected = textwrap.dedent(f"""
@@ -51,7 +45,7 @@ class ParserTest(absltest.TestCase):
 
   def test_other_source_link_after_table(self):
     url = "somewhere/else"
-    location = parser._FileLocation(rel_path="test", url=url)
+    location = parser._FileLocation(url=url)
     table = pretty_docs._top_source_link(location)
 
     expected = textwrap.dedent(f"""
@@ -65,10 +59,10 @@ class ParserTest(absltest.TestCase):
     self.assertEqual(expected, table)
 
   def test_no_source_link(self):
-    location = parser._FileLocation(rel_path="test")
+    location = parser._FileLocation()
     table = pretty_docs._top_source_link(location)
 
-    expected = textwrap.dedent(f"""
+    expected = textwrap.dedent("""
        <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
 
        </table>

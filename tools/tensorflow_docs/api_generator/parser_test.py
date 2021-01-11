@@ -233,10 +233,6 @@ class ParserTest(parameterized.TestCase):
     # Make sure there is a link to the child class and it points the right way.
     self.assertIs(TestClass.ChildClass, page_info.classes[0].py_object)
 
-    # Make sure this file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
-
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
                                              {'z', 'y', 'x', 'w', 'v', 'u'})
@@ -428,11 +424,6 @@ class ParserTest(parameterized.TestCase):
     classes = {cls_info.py_object for cls_info in page_info.classes}
     self.assertEqual({TestClass}, classes)
 
-    # Make sure the module's file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(test_module.__file__.rstrip('c'), '/'),
-        page_info.defined_in.rel_path)
-
   def test_docs_for_function(self):
     index = {'test_function': test_function}
 
@@ -464,10 +455,6 @@ class ParserTest(parameterized.TestCase):
     # Make sure the extracted signature is good.
     self.assertEqual(['unused_arg', 'unused_kwarg=&#x27;default&#x27;'],
                      page_info.signature.arguments)
-
-    # Make sure this file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
     index = {'test_function_with_args_kwargs': test_function_with_args_kwargs}
