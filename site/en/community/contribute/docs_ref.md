@@ -1,5 +1,7 @@
 # Contribute to the TensorFlow API documentation
 
+<a id=doctest></a>
+
 ## Testable docstrings
 
 TensorFlow uses [DocTest](https://docs.python.org/3/library/doctest.html) to
