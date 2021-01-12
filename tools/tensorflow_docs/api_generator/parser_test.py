@@ -26,6 +26,7 @@ from typing import Union, List, Dict, Callable
 from absl.testing import absltest
 from absl.testing import parameterized
 import attr
+import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -218,7 +219,7 @@ class ParserTest(parameterized.TestCase):
     self.assertIs(method_infos['a_method'].py_object, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
-    self.assertEqual(["arg='default'"],
+    self.assertEqual(['arg=&#x27;default&#x27;'],
                      method_infos['a_method'].signature.arguments)
 
     self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
@@ -231,10 +232,6 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure there is a link to the child class and it points the right way.
     self.assertIs(TestClass.ChildClass, page_info.classes[0].py_object)
-
-    # Make sure this file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
@@ -427,11 +424,6 @@ class ParserTest(parameterized.TestCase):
     classes = {cls_info.py_object for cls_info in page_info.classes}
     self.assertEqual({TestClass}, classes)
 
-    # Make sure the module's file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(test_module.__file__.rstrip('c'), '/'),
-        page_info.defined_in.rel_path)
-
   def test_docs_for_function(self):
     index = {'test_function': test_function}
 
@@ -461,12 +453,8 @@ class ParserTest(parameterized.TestCase):
         inspect.getdoc(test_function).split('\n')[0], page_info.doc.brief)
 
     # Make sure the extracted signature is good.
-    self.assertEqual(['unused_arg', "unused_kwarg='default'"],
+    self.assertEqual(['unused_arg', 'unused_kwarg=&#x27;default&#x27;'],
                      page_info.signature.arguments)
-
-    # Make sure this file is contained as the definition location.
-    self.assertEqual(
-        os.path.relpath(__file__, '/'), page_info.defined_in.rel_path)
 
   def test_docs_for_function_with_kwargs(self):
     index = {'test_function_with_args_kwargs': test_function_with_args_kwargs}
@@ -733,7 +721,7 @@ class ParserTest(parameterized.TestCase):
 
     pop_default_arg = page_info.methods[0].signature.arguments[1]
     self.assertNotIn('object at 0x', pop_default_arg)
-    self.assertIn('<object>', pop_default_arg)
+    self.assertIn('&lt;object&gt;', pop_default_arg)
 
   @parameterized.named_parameters(
       ('mutable_mapping', 'ConcreteMutableMapping', '__contains__',
@@ -1089,9 +1077,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
     sig = parser.generate_signature(
         example_fun, parser_config=self.parser_config, func_full_name='')
-    self.assertEqual(
-        sig.arguments,
-        ['a=5', 'b=5.0', 'c=None', 'd=True', "e='hello'", 'f=(1, (2, 3))'])
+    self.assertEqual(sig.arguments, [
+        'a=5', 'b=5.0', 'c=None', 'd=True', 'e=&#x27;hello&#x27;',
+        'f=(1, (2, 3))'
+    ])
 
   def test_dotted_name(self):
     # pylint: disable=g-bad-name
@@ -1116,8 +1105,9 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
     sig = parser.generate_signature(
         example_fun, parser_config=self.parser_config, func_full_name='')
-    self.assertEqual(sig.arguments,
-                     ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', "arg3=e['f']"])
+    self.assertEqual(
+        sig.arguments,
+        ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', 'arg3=e[&#x27;f&#x27;]'])
 
   def test_compulsory_kwargs_without_defaults(self):
 
@@ -1126,9 +1116,9 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
     sig = parser.generate_signature(
         example_fun, parser_config=self.parser_config, func_full_name='')
-    self.assertEqual(
-        sig.arguments,
-        ['x', 'z', 'a=True', "b='test'", '*', 'y=None', 'c', '**kwargs'])
+    self.assertEqual(sig.arguments, [
+        'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'y=None', 'c', '**kwargs'
+    ])
     self.assertEqual(sig.return_type, 'bool')
     self.assertEqual(sig.arguments_typehint_exists, False)
     self.assertEqual(sig.return_typehint_exists, True)
@@ -1141,7 +1131,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = parser.generate_signature(
         example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(sig.arguments, [
-        'x', 'z', 'cls', '*args', 'a=True', "b='test'", 'y=None', 'c',
+        'x', 'z', 'cls', '*args', 'a=True', 'b=&#x27;test&#x27;', 'y=None', 'c',
         '**kwargs'
     ])
     self.assertEqual(sig.arguments_typehint_exists, False)
@@ -1158,7 +1148,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                     b: str = 'test',
                     *,
                     y: bool = False,
-                    c: int,
+                    c: Callable[..., int],
                     **kwargs) -> None:
       pass
 
@@ -1167,12 +1157,47 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = parser.generate_signature(
         example_fun, parser_config=self.parser_config, func_full_name='')
     self.assertEqual(sig.arguments, [
-        'cls', 'x: List[str]', 'z: int', 'a: Union[List[str], str, int] = None',
-        "b: str = 'test'", '*', 'y: bool = False', 'c: int', '**kwargs'
+        'cls',
+        'x: List[str]',
+        'z: int',
+        'a: Union[List[str], str, int] = None',
+        'b: str = &#x27;test&#x27;',
+        '*',
+        'y: bool = False',
+        'c: Callable[..., int]',
+        '**kwargs',
     ])
     self.assertEqual(sig.return_type, 'None')
     self.assertEqual(sig.arguments_typehint_exists, True)
     self.assertEqual(sig.return_typehint_exists, True)
+
+  def test_dataclasses_type_annotations(self):
+
+    @dataclasses.dataclass
+    class ExampleClass:
+      x: List[str]
+      z: int
+      c: List[int] = dataclasses.field(default_factory=list)
+      a: Union[List[str], str, int] = None
+      b: str = 'test'
+      y: bool = False
+
+      def add(self, x: int, y: int) -> int:
+        return x + y
+
+    sig = parser.generate_signature(
+        ExampleClass, parser_config=self.parser_config, func_full_name='')
+
+    self.assertEqual(sig.arguments, [
+        'x: List[str]',
+        'z: int',
+        'c: List[int] = &lt;factory&gt;',
+        'a: Union[List[str], str, int] = None',
+        'b: str = &#x27;test&#x27;',
+        'y: bool = False',
+    ])
+    self.assertEqual(sig.return_type, 'None')
+    self.assertEqual(sig.arguments_typehint_exists, True)
 
   @parameterized.named_parameters(
       ('deep_objects', Union[Dict[str, Dict[bool, parser.extract_decorators]],

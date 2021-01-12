@@ -1,4 +1,4 @@
-# Forums
+# Mailing lists
 
 As a community, we do much of our collaboration on public mailing lists. Please
 note that if you're looking for help using TensorFlow,

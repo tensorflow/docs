@@ -214,6 +214,6 @@ Compile and execute:
 mvn -q compile exec:java
 </pre>
 
-The command outputs: `Hello TensorFlow 2.3.1 10 doubled is 20`
+The command prints: <code>TensorFlow version and a simple calculation.</code>
 
 Success! TensorFlow Java is configured.

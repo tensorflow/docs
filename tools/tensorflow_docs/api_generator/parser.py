@@ -19,6 +19,7 @@ import ast
 import collections
 import enum
 import functools
+import html
 import inspect
 import itertools
 import json
@@ -30,9 +31,11 @@ import typing
 from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
+import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import public_api
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -104,23 +107,20 @@ class _FileLocation(object):
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
-  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
-    self.rel_path = rel_path
+  def __init__(
+      self,
+      url: Optional[str] = None,
+      start_line: Optional[int] = None,
+      end_line: Optional[int] = None,
+  ) -> None:
     self.url = url
-    self.start_line = start_line
-    self.end_line = end_line
+    self._start_line = start_line
+    self._end_line = end_line
 
-    github_main_re = 'github.com.*?(blob|tree)/master'
-    suffix = ''
-    # Only attach a line number for github URLs that are not using "main"
-    if self.start_line and not re.search(github_main_re, self.url):
+    if self._start_line:
       if 'github.com' in self.url:
-        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
-            start_line=self.start_line, end_line=self.end_line)
-
-        self.url = self.url + suffix
+        self.url = f'{self.url}#L{self._start_line}-L{self._end_line}'
 
 
 def is_class_attr(full_name, index):
@@ -205,7 +205,7 @@ class _AddDoctestFences(object):
   """Adds ``` fences around doctest caret blocks >>> that don't have them."""
   CARET_BLOCK_RE = re.compile(
       r"""
-    (?<=\n)\ *\n                           # After a blank line.
+    \n                                     # After a blank line.
     (?P<indent>\ *)(?P<content>\>\>\>.*?)  # Whitespace and a triple caret.
     \n\s*?(?=\n|$)                         # Followed by a blank line""",
       re.VERBOSE | re.DOTALL)
@@ -236,7 +236,8 @@ class _StripPylints(object):
 
 
 class _DowngradeH1Keywords():
-  """ Convert keras docstring keyword format to google format."""
+  """Convert keras docstring keyword format to google format."""
+
   KEYWORD_H1_RE = re.compile(
       r"""
     ^                 # Start of line
@@ -1045,6 +1046,22 @@ class TypeAnnotationExtractor(ast.NodeVisitor):
         self.arguments_typehint_exists = True
 
 
+class DataclassTypeAnnotationExtractor(ast.NodeVisitor):
+  """Extracts the type annotations by parsing the AST of a dataclass."""
+
+  def __init__(self):
+    self.annotation_dict = {}
+    self.arguments_typehint_exists = False
+    self.return_typehint_exists = False
+
+  def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
+    """Vists an assignment with a type annotation. Dataclasses is an example."""
+    arg = astor.to_source(node.target).strip()
+    anno = astor.to_source(node.annotation).strip()
+    self.annotation_dict[arg] = anno
+    self.arguments_typehint_exists = True
+
+
 class ASTDefaultValueExtractor(ast.NodeVisitor):
   """Extracts the default values by parsing the AST of a function."""
 
@@ -1102,9 +1119,10 @@ class FormatArguments(object):
       list(typing.__dict__.keys()) +
       ['int', 'str', 'bytes', 'float', 'complex', 'bool', 'None'])
 
-  _IMMUTABLE_TYPES = frozenset(
-      [int, str, bytes, float, complex, bool,
-       type(None), tuple, frozenset])
+  _IMMUTABLE_TYPES = frozenset([
+      int, str, bytes, float, complex, bool, Ellipsis,
+      type(None), tuple, frozenset
+  ])
 
   def __init__(
       self,
@@ -1155,8 +1173,8 @@ class FormatArguments(object):
     for anno in annotations:
       if self._reverse_index.get(id(anno), None):
         non_builtin_types.append(anno)
-      elif (anno in self._IMMUTABLE_TYPES or anno in typing.__dict__.values() or
-            anno is Ellipsis):
+      elif (anno in self._IMMUTABLE_TYPES or
+            id(type(anno)) in public_api.TYPING_IDS):
         continue
       elif hasattr(anno, '__args__'):
         self._extract_non_builtin_types(anno, non_builtin_types)
@@ -1318,6 +1336,7 @@ class FormatArguments(object):
         # Strip object memory addresses to avoid unnecessary doc churn.
         default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
             r'<\g<type>>', repr(default_val))
+      default_text = html.escape(str(default_text))
 
       # Format the kwargs to add the type annotation and default values.
       if kname in self._type_annotations:
@@ -1386,7 +1405,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     sig_values = []
     return_anno = None
 
-  type_annotation_visitor = TypeAnnotationExtractor()
+  if dataclasses.is_dataclass(func):
+    type_annotation_visitor = DataclassTypeAnnotationExtractor()
+  else:
+    type_annotation_visitor = TypeAnnotationExtractor()
+
   ast_defaults_visitor = ASTDefaultValueExtractor()
 
   try:
@@ -1958,8 +1981,17 @@ class ClassPageInfo(PageInfo):
         member_info.short_name in ['__del__', '__copy__']):
       return
 
-    signature = generate_signature(member_info.py_object, parser_config,
-                                   member_info.full_name)
+    # If the curent class py_object is a dataclass then use the class object
+    # instead of the __init__ method object because __init__ is a
+    # generated method on dataclasses and `inspect.getsource` doesn't work
+    # on generated methods (as the source file doesn't exist) which is
+    # required for signature generation.
+    if (dataclasses.is_dataclass(self.py_object) and
+        member_info.short_name == '__init__'):
+      py_obj = self.py_object
+    else:
+      py_obj = member_info.py_object
+    signature = generate_signature(py_obj, parser_config, member_info.full_name)
 
     decorators = extract_decorators(member_info.py_object)
 
@@ -2413,17 +2445,15 @@ def _get_defined_in(py_object: Any,
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _FileLocation(rel_path)
+    return _FileLocation()
   if 'genfiles' in rel_path:
-    return _FileLocation(rel_path)
+    return _FileLocation()
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
     rel_path = rel_path[:-7] + '.proto'
-    return _FileLocation(
-        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
+    return _FileLocation(url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
     return _FileLocation(
-        rel_path=rel_path,
         url=os.path.join(code_url_prefix, rel_path),
         start_line=start_line,
         end_line=end_line)  # pylint: disable=undefined-loop-variable

@@ -144,7 +144,6 @@ toc:
 
 - title: "Audio"
   style: accordion
-  status: new
   section:
   - title: "Simple Audio Recognition"
     path: /tutorials/audio/simple_audio
@@ -193,7 +192,6 @@ toc:
 
 - title: "Reinforcement learning"
   style: accordion
-  status: new
   section:
   - title: "Actor-Critic method"
     path: /tutorials/reinforcement_learning/actor_critic
