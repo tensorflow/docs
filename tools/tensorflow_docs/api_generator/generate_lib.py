@@ -23,7 +23,7 @@ import pathlib
 import shutil
 import tempfile
 
-from typing import List, Union, Optional, Dict
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -739,20 +739,22 @@ class DocGenerator:
 
   def __init__(
       self,
-      root_title,
-      py_modules,
-      base_dir=None,
-      code_url_prefix=(),
-      search_hints=True,
-      site_path='api_docs/python',
-      private_map=None,
-      do_not_descend_map=None,
-      visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
-      api_cache=True,
-      callbacks=None,
-      yaml_toc=True,
-      gen_redirects=True,
-      gen_report=False,
+      root_title: str,
+      py_modules: Sequence[Tuple[str, Any]],
+      base_dir: Optional[Sequence[Union[str, pathlib.Path]]] = None,
+      code_url_prefix: Sequence[str] = (),
+      search_hints: bool = True,
+      site_path: str = 'api_docs/python',
+      private_map: Optional[Dict[str, str]] = None,
+      do_not_descend_map: Optional[Dict[str, str]] = None,
+      visitor_cls: Type[
+          doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
+      .DocGeneratorVisitor,
+      api_cache: bool = True,
+      callbacks: Optional[List[callable]] = None,
+      yaml_toc: bool = True,
+      gen_redirects: bool = True,
+      gen_report: bool = False,
       extra_docs: Optional[Dict[int, str]] = None,
   ):
     """Creates a doc-generator.
@@ -795,16 +797,16 @@ class DocGenerator:
     self._py_module = py_modules[0][1]
 
     if base_dir is None:
-      # If the user passes a single-file module, only document code defined in
-      # that file.
-      base_dir = self._py_module.__file__
-      if base_dir.endswith('__init__.py'):
-        # If they passed a package, document anything defined in that directory.
-        base_dir = os.path.dirname(base_dir)
-    if isinstance(base_dir, str):
-      base_dir = (base_dir,)
-    self._base_dir = tuple(base_dir)
-    assert self._base_dir, '`base_dir` cannot be empty'
+      # Determine the base_dir for the module
+      base_dir = public_api.get_module_base_dirs(self._py_module)
+    else:
+      if isinstance(base_dir, (str, pathlib.Path)):
+        base_dir = (base_dir,)
+      base_dir = tuple(pathlib.Path(d) for d in base_dir)
+    self._base_dir = base_dir
+
+    if not self._base_dir:
+      raise ValueError('`base_dir` cannot be empty')
 
     if isinstance(code_url_prefix, str):
       code_url_prefix = (code_url_prefix,)

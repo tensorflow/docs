@@ -17,7 +17,10 @@
 
 import ast
 import inspect
+import os
+import pathlib
 import typing
+from typing import Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -26,6 +29,36 @@ TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
     if not doc_generator_visitor.maybe_singleton(obj))
+
+
+def get_module_base_dirs(module) -> Tuple[pathlib.Path, ...]:
+  """Returns the list of base_dirs.
+
+  Args:
+    module: A python module object.
+
+  Returns:
+    A tuple of paths. Usually 1 unless the module is a namespace package.
+  """
+  if not hasattr(module, '__file__'):
+    return ()
+
+  mod_file = module.__file__
+  if mod_file is None:
+    # namespace packages have `__file__=None` but the directory *paths* are
+    # available in `__path__._path`.
+    # https://www.python.org/dev/peps/pep-0451/
+    # This is a **list of paths**.
+    base_dirs = module.__path__._path  # pylint: disable=protected-access
+  elif mod_file.endswith('__init__.py'):
+    # A package directory will have an `__init__.py`,
+    # accept anything in that directory.
+    base_dirs = [os.path.dirname(mod_file)]
+  else:
+    # This is a single file module. The file is the base_dir.
+    base_dirs = [mod_file]
+
+  return tuple(pathlib.Path(b) for b in base_dirs)
 
 
 def ignore_typing(path, parent, children):
@@ -239,15 +272,14 @@ class PublicAPIFilter(object):
     if doc_controls.should_doc_private(obj):
       return False
 
-    # Skip modules outside of the package root.
     if inspect.ismodule(obj):
-      if hasattr(obj, '__file__'):
-        # `startswith` will match any item in a tuple if a tuple of base_dir
-        # are passed.
-        # It's important that this is a string comparison not a `relpath`,
-        # because in some cases `base_dir` may not a directory but a single
-        # file path.
-        if not obj.__file__.startswith(self._base_dir):
+      mod_base_dirs = get_module_base_dirs(obj)
+      # This check only handles normal packages/modules. Namespace-package
+      # contents will get filtered when the submodules are checked.
+      if len(mod_base_dirs) == 1:
+        mod_base_dir = mod_base_dirs[0]
+        # Check that module is in one of the `self._base_dir`s
+        if not any(base in mod_base_dir.parents for base in self._base_dir):
           return True
 
     # Skip objects blocked by the private_map
