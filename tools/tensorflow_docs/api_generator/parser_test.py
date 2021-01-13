@@ -130,6 +130,20 @@ class ClassUsingAttrs(object):
   member = attr.ib(type=int)
 
 
+@dataclasses.dataclass
+class ExampleDataclass:
+  x: List[str]
+  z: int
+  c: List[int] = dataclasses.field(default_factory=list)
+  a: Union[List[str], str, int] = None
+  b: str = 'test'
+  y: bool = False
+
+  def add(self, x: int, y: int) -> int:
+    q: int = x + y
+    return q
+
+
 class ParserTest(parameterized.TestCase):
 
   def test_documentation_path(self):
@@ -232,6 +246,37 @@ class ParserTest(parameterized.TestCase):
 
     # Make sure there is a link to the child class and it points the right way.
     self.assertIs(TestClass.ChildClass, page_info.classes[0].py_object)
+
+  def test_dataclass_attributes_table(self):
+
+    index = {
+        'ExampleDataclass': ExampleDataclass,
+    }
+
+    visitor = DummyVisitor(index=index, duplicate_of={})
+
+    reference_resolver = parser.ReferenceResolver.from_visitor(
+        visitor=visitor, py_module_names=['tf'])
+
+    tree = {'ExampleDataclass': []}
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=reference_resolver,
+        duplicates={},
+        duplicate_of={},
+        tree=tree,
+        index=index,
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    page_info = parser.docs_for_object(
+        full_name='ExampleDataclass',
+        py_object=ExampleDataclass,
+        parser_config=parser_config)
+
+    self.assertCountEqual(['a', 'b', 'c', 'x', 'y', 'z'],
+                          [name for name, value in page_info.attr_block.items])
 
   def test_namedtuple_field_order(self):
     namedtupleclass = collections.namedtuple('namedtupleclass',
@@ -1173,20 +1218,8 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
   def test_dataclasses_type_annotations(self):
 
-    @dataclasses.dataclass
-    class ExampleClass:
-      x: List[str]
-      z: int
-      c: List[int] = dataclasses.field(default_factory=list)
-      a: Union[List[str], str, int] = None
-      b: str = 'test'
-      y: bool = False
-
-      def add(self, x: int, y: int) -> int:
-        return x + y
-
     sig = parser.generate_signature(
-        ExampleClass, parser_config=self.parser_config, func_full_name='')
+        ExampleDataclass, parser_config=self.parser_config, func_full_name='')
 
     self.assertEqual(sig.arguments, [
         'x: List[str]',

@@ -1054,6 +1054,13 @@ class DataclassTypeAnnotationExtractor(ast.NodeVisitor):
     self.arguments_typehint_exists = False
     self.return_typehint_exists = False
 
+  def visit_ClassDef(self, node) -> None:  # pylint: disable=invalid-name
+    # Don't visit all nodes. Only visit top-level AnnAssign nodes so that
+    # If there's an AnnAssign in a method it doesn't get picked up.
+    for sub in node.body:
+      if isinstance(sub, ast.AnnAssign):
+        self.visit_AnnAssign(sub)
+
   def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
     """Vists an assignment with a type annotation. Dataclasses is an example."""
     arg = astor.to_source(node.target).strip()
@@ -2115,7 +2122,7 @@ class ClassPageInfo(PageInfo):
 
     + `namedtuple` fields first, in order.
     + Then the docstring `Attr:` block.
-    + Then any `properties` not mentioned above.
+    + Then any `properties` or `dataclass` fields not mentioned above.
 
     Args:
       docstring_parts: A list of docstring parts.
@@ -2142,10 +2149,16 @@ class ClassPageInfo(PageInfo):
     attrs.update(self._namedtuplefields)
     # the contents of the `Attrs:` block from the docstring
     attrs.update(raw_attrs)
-    # properties last.
+
+    # properties and dataclass fields last.
     for name, desc in self._properties.items():
       # Don't overwrite existing items
       attrs.setdefault(name, desc)
+
+    if dataclasses.is_dataclass(self.py_object):
+      for name, desc in self._dataclass_fields().items():
+        # Don't overwrite existing items
+        attrs.setdefault(name, desc)
 
     if attrs:
       attribute_block = TitleBlock(
@@ -2155,6 +2168,15 @@ class ClassPageInfo(PageInfo):
     del docstring_parts[attr_block_index]
 
     return attribute_block
+
+  def _dataclass_fields(self):
+    fields = {
+        name: 'Dataclass field'
+        for name in self.py_object.__dataclass_fields__.keys()
+        if not name.startswith('_')
+    }
+
+    return fields
 
 
 class ModulePageInfo(PageInfo):
