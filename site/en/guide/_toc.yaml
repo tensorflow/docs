@@ -33,6 +33,8 @@ toc:
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "Sparse tensor"
+  path: /guide/sparse_tensor_guide
 - title: "NumPy API"
   path: /guide/tf_numpy
 
