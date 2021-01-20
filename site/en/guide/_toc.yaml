@@ -34,6 +34,7 @@ toc:
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
+  status: new
   path: /guide/sparse_tensor_guide
 - title: "NumPy API"
   path: /guide/tf_numpy
