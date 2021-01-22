@@ -840,13 +840,12 @@ class TitleBlock(object):
                                       # (a new-line followed by non-whitespace)
     """, re.VERBOSE | re.DOTALL)
 
-  # This
   ITEM_RE = re.compile(
       r"""
-      ^(\*?\*?          # Capture optional *s to allow *args, **kwargs.
-          \w[\w.]*?     # Capture a word character followed by word characters
-                        # or "."s.
-      )\s*:\s           # Allow any whitespace around the colon.""",
+      ^(\*?\*?'?"?     # Capture optional *s to allow *args, **kwargs and quotes
+          \w[\w.'"]*?  # Capture a word character followed by word characters
+                       # or "."s or ending quotes.
+      )\s*:\s          # Allow any whitespace around the colon.""",
       re.MULTILINE | re.VERBOSE)
 
   @classmethod
