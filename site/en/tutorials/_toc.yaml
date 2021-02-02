@@ -32,18 +32,20 @@ toc:
   section:
   - title: "Images"
     path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
     path: /tutorials/tensorflow_text/intro
+  - title: "Subword Tokenization"
+    path: /tutorials/tensorflow_text/subwords_tokenizer
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
   - title: "Additional formats with tf.io"
