@@ -23,7 +23,7 @@ import pathlib
 import shutil
 import tempfile
 
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Type, Union
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -67,7 +67,7 @@ class TocNode(object):
     deprecated: Whether the module is deprecated or not.
   """
 
-  def __init__(self, module, py_object, path):
+  def __init__(self, module: str, py_object: Any, path: str):
     self._module = module
     self._py_object = py_object
     self._path = path
@@ -375,7 +375,7 @@ class GenerateToc(object):
 
     return collections.OrderedDict(submod_yaml_content)
 
-  def generate(self):
+  def generate(self) -> Dict[str, Any]:
     """Generates the final toc.
 
     Returns:
@@ -751,7 +751,7 @@ class DocGenerator:
           doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
       .DocGeneratorVisitor,
       api_cache: bool = True,
-      callbacks: Optional[List[callable]] = None,
+      callbacks: Optional[List[Callable]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
       gen_report: bool = False,
