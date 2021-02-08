@@ -1081,6 +1081,37 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     strip_todos = parser._StripTODOs()
     self.assertEqual(expected, strip_todos(input_str))
 
+  def test_strip_pylintandpyformat(self):
+    input_str = textwrap.dedent("""
+        hello  #  pyformat: disable
+        middle  # pyformat: enable
+        goodbye  TODO  # pylint: disable=g-top-imports
+
+        # pyformat: disable
+        xyz
+        # pyformat: enable
+
+        # pylint: disable=g-top-imports
+        abc
+        # pylint: enable=g-top-imports
+        """)
+
+    expected = textwrap.dedent("""
+        hello  
+        middle  
+        goodbye  TODO  
+
+
+        xyz
+
+
+
+        abc
+
+        """)
+    strip_todos = parser._StripPylintAndPyformat()
+    self.assertEqual(expected, strip_todos(input_str))
+
 
 class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
