@@ -23,7 +23,7 @@ import pathlib
 import shutil
 import tempfile
 
-from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Type, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -615,7 +615,6 @@ def add_dict_to_dict(add_from, add_to):
 def extract(py_modules,
             base_dir,
             private_map,
-            do_not_descend_map,
             visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
             callbacks=None):
   """Walks the module contents, returns an index of all visited objects.
@@ -630,8 +629,6 @@ def extract(py_modules,
       directory is documented.
     private_map: A {'path':["name"]} dictionary listing particular object
       locations that should be ignored in the doc generator.
-    do_not_descend_map: A {'path':["name"]} dictionary listing particular object
-      locations where the children should not be listed.
     visitor_cls: A class, typically a subclass of
       `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
       objects to document.
@@ -652,7 +649,6 @@ def extract(py_modules,
 
   api_filter = public_api.PublicAPIFilter(
       base_dir=base_dir,
-      do_not_descend_map=do_not_descend_map,
       private_map=private_map)
 
   accumulator = visitor_cls()
@@ -746,12 +742,11 @@ class DocGenerator:
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
-      do_not_descend_map: Optional[Dict[str, str]] = None,
       visitor_cls: Type[
           doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
       .DocGeneratorVisitor,
       api_cache: bool = True,
-      callbacks: Optional[List[Callable]] = None,
+      callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
       gen_report: bool = False,
@@ -773,16 +768,14 @@ class DocGenerator:
       site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
         aliases that should not be shown in the resulting docs.
-      do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
-        Specific aliases that will be shown, but not expanded.
       visitor_cls: An option to override the default visitor class
         `doc_generator_visitor.DocGeneratorVisitor`.
       api_cache: Bool. Generate an api_cache file. This is used to easily add
         api links for backticked symbols (like `tf.add`) in other docs.
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-        primary use case for these is to filter the listy of children (see:
-          `public_api.local_definitions_filter`)
+        primary use case for these is to filter the list of children (see:
+          `public_api.ApiFilter` for the required signature)
       yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
       gen_redirects: Bool which decides whether to generate _redirects.yaml file
         or not.
@@ -822,7 +815,6 @@ class DocGenerator:
     self._search_hints = search_hints
     self._site_path = site_path
     self._private_map = private_map or {}
-    self._do_not_descend_map = do_not_descend_map or {}
     self._visitor_cls = visitor_cls
     self.api_cache = api_cache
     if callbacks is None:
@@ -860,7 +852,6 @@ class DocGenerator:
         py_modules=self._py_modules,
         base_dir=self._base_dir,
         private_map=self._private_map,
-        do_not_descend_map=self._do_not_descend_map,
         visitor_cls=self._visitor_cls,
         callbacks=self._callbacks)
 
