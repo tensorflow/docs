@@ -78,25 +78,6 @@ class PublicApiTest(absltest.TestCase):
     self.assertEqual([('name1', 'thing1')], visitor.last_children)
     self.assertEqual([('name1', 'thing1')], children)
 
-  def test_no_descent_child_removal(self):
-    visitor = self.TestVisitor()
-
-    api_visitors = [
-        public_api.PublicAPIFilter(
-            base_dir='/', do_not_descend_map={'tf.test': ['mock']}), visitor
-    ]
-
-    children = [('name1', 'thing1'), ('name2', 'thing2')]
-    path = ('tf', 'test', 'mock')
-    parent = 'dummy'
-
-    for api_visitor in api_visitors:
-      children = api_visitor(path, parent, children)
-
-    # Make sure not-to-be-descended-into symbols's children are removed.
-    self.assertEqual([], visitor.last_children)
-    self.assertEqual([], children)
-
   def test_private_map_child_removal(self):
     visitor = self.TestVisitor()
 

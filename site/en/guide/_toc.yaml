@@ -27,17 +27,17 @@ toc:
   path: /guide/intro_to_graphs
 - title: "Intro to modules, layers, and models"
   path: /guide/intro_to_modules
-  status: new
 - title: "Training loops"
   path: /guide/basic_training_loops
-  status: new
 - title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "Sparse tensor"
+  status: new
+  path: /guide/sparse_tensor
 - title: "NumPy API"
   path: /guide/tf_numpy
-  status: new
 
 - heading: "Keras"
 - include: /guide/keras/_toc.yaml
@@ -78,7 +78,6 @@ toc:
   path: /guide/profiler
 - title: "Optimize GPU Performance"
   path: /guide/gpu_performance_analysis
-  status: new
 - title: "Graph optimization"
   path: /guide/graph_optimization
 - title: "Mixed precision"

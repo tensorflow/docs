@@ -72,7 +72,6 @@ def gen_api_docs():
       code_url_prefix=FLAGS.code_url_prefix,
       search_hints=FLAGS.search_hints,
       site_path=FLAGS.site_path,
-      private_map={},
       gen_report=FLAGS.gen_report,
       # This callback cleans up a lot of aliases caused by internal imports.
       callbacks=[public_api.local_definitions_filter],

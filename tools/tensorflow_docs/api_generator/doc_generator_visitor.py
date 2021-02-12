@@ -18,8 +18,12 @@
 import collections
 import inspect
 
+from typing import Any, Dict, List, Optional, Tuple
 
-def maybe_singleton(py_object):
+ApiPath = Tuple[str, ...]
+
+
+def maybe_singleton(py_object: Any) -> bool:
   """Returns `True` if `py_object` might be a singleton value .
 
   Many immutable values in python act like singletons: small ints, some strings,
@@ -58,18 +62,18 @@ class ApiTreeNode(object):
     full_name: All path components joined with "."
   """
 
-  def __init__(self, path, obj, parent):
+  def __init__(self, path: ApiPath, obj: Any, parent: Optional['ApiTreeNode']):
     self.path = path
     self.py_object = obj
-    self.children = {}
+    self.children: Dict[str, 'ApiTreeNode'] = {}
     self.parent = parent
 
   @property
-  def short_name(self):
+  def short_name(self) -> str:
     return self.path[-1]
 
   @property
-  def full_name(self):
+  def full_name(self) -> str:
     return '.'.join(self.path)
 
 
@@ -86,12 +90,13 @@ class ApiTree(object):
   """
 
   def __init__(self):
-    root = ApiTreeNode((), None, None)
-    self.index = {(): root}
-    self.aliases = collections.defaultdict(list)
-    self.root = root
+    root = ApiTreeNode(path=(), obj=None, parent=None)
+    self.index: Dict[ApiPath, ApiTreeNode] = {(): root}
+    self.aliases: Dict[ApiPath,
+                       List[ApiTreeNode]] = collections.defaultdict(list)
+    self.root: ApiTreeNode = root
 
-  def __contains__(self, path):
+  def __contains__(self, path: ApiPath) -> bool:
     """Returns `True` if path exists in the tree.
 
     Args:
@@ -102,7 +107,7 @@ class ApiTree(object):
     """
     return path in self.index
 
-  def __getitem__(self, path):
+  def __getitem__(self, path: ApiPath) -> ApiTreeNode:
     """Fetch an item from the tree.
 
     Args:
@@ -116,7 +121,7 @@ class ApiTree(object):
     """
     return self.index[path]
 
-  def __setitem__(self, path, obj):
+  def __setitem__(self, path: ApiPath, obj: Any):
     """Add an object to the tree.
 
     Args:
@@ -163,11 +168,11 @@ class DocGeneratorVisitor(object):
       duplicates: A mapping from main names to lists of other fully qualified
         names for the object.
     """
-    self._index = {}
-    self._tree = {}
-    self._reverse_index = None
-    self._duplicates = None
-    self._duplicate_of = None
+    self._index: Dict[str, Any] = {}
+    self._tree: Dict[str, List[str]] = {}
+    self._reverse_index: Dict[int, str] = None
+    self._duplicates: Dict[str, List[str]] = None
+    self._duplicate_of: Dict[str, str] = None
 
     self._api_tree = ApiTree()
 

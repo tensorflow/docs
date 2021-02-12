@@ -13,8 +13,8 @@ message ParameterLint {
   // section of a docstring.
   optional float num_empty_param_desc_args = 1;
 
-  // The total number of parameters in the args section of a docstring.
-  optional float total_args_param = 2;
+  // The total number of parameters in the signature of an method/function.
+  optional float num_args_in_code = 2;
 
   // The number of empty parameter descriptions that are present in the
   // attributes section of a docstring.
@@ -22,6 +22,9 @@ message ParameterLint {
 
   // The total number of parameters in the attributes section of a docstring.
   optional float total_attr_param = 4;
+
+  // The total number of parameters in the args section of a docstring.
+  optional float num_args_in_doc = 5;
 }
 
 // This message is used to track the description of a docstring. It tracks the
