@@ -411,6 +411,26 @@ class GenerateToc(object):
     return {'toc': toc}
 
 
+def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
+  """Returns the list of header lines for this page."""
+  hidden = doc_controls.should_hide_from_search(page_info.py_object)
+  brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
+  headers = []
+  if brief_no_backticks:
+    headers.append(f'description: {brief_no_backticks}')
+
+  # It's easier to read if there's a blank line after the `name:value` headers.
+  if search_hints and not hidden:
+    if headers:
+      headers.append('')
+    headers.append(page_info.get_metadata_html())
+  else:
+    headers.append('robots: noindex')
+    headers.append('')
+
+  return headers
+
+
 def write_docs(
     *,
     output_dir: Union[str, pathlib.Path],
@@ -526,22 +546,12 @@ def write_docs(
       continue
 
     path = output_dir / parser.documentation_path(full_name)
+
+    content = _get_headers(page_info, search_hints)
+    content.append(pretty_docs.build_md_page(page_info))
+    text = '\n'.join(content)
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
-      # This function returns unicode in PY3.
-      hidden = doc_controls.should_hide_from_search(page_info.py_object)
-      brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
-      content = []
-      if brief_no_backticks:
-        content.append(f'description: {brief_no_backticks}\n')
-
-      if search_hints and not hidden:
-        content.append(page_info.get_metadata_html())
-      else:
-        content.append('robots: noindex\n')
-
-      content.append(pretty_docs.build_md_page(page_info))
-      text = '\n'.join(content)
       path.write_text(text, encoding='utf-8')
     except OSError:
       raise OSError('Cannot write documentation for '
