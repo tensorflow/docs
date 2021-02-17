@@ -26,7 +26,10 @@ landing_page:
             </ul>
           </td><td>
             <ul>
-              <li>macOS &gt;=10.12.6 (Sierra) but &lt;11 (Big Sur) (no GPU support)</li>
+              <li>
+                macOS &gt;=10.12.6 (Sierra) but &lt;11 (Big Sur) (no GPU support).
+                For Big Sur and GPU support, use <a href="https://github.com/apple/tensorflow_macos">tensorflow_macos</a>.
+              </li>
               <li>Raspbian 9.0 or later</li>
             </ul>
           </td></tr>
