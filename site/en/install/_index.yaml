@@ -26,7 +26,7 @@ landing_page:
             </ul>
           </td><td>
             <ul>
-              <li>macOS &gt;10.12.6 (Sierra) but &lt;11 (Big Sur) (no GPU support)</li>
+              <li>macOS &gt;=10.12.6 (Sierra) but &lt;11 (Big Sur) (no GPU support)</li>
               <li>Raspbian 9.0 or later</li>
             </ul>
           </td></tr>
