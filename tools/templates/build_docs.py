@@ -73,8 +73,10 @@ def gen_api_docs():
       search_hints=FLAGS.search_hints,
       site_path=FLAGS.site_path,
       gen_report=FLAGS.gen_report,
-      # This callback cleans up a lot of aliases caused by internal imports.
-      callbacks=[public_api.local_definitions_filter],
+      # This callback ensures that docs are only generated for objects that
+      # are explicitly imported in your __init__.py files. There are other
+      # options but this is a good starting point.
+      callbacks=[public_api.explicit_package_contents_filter],
   )
 
   doc_generator.build(FLAGS.output_dir)
