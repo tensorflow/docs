@@ -13,11 +13,14 @@ To avoid duplicating work, please review [current RFCs](https://github.com/tenso
 
 ## Issues for new contributors
 
-New contributors should look for the following tags when searching for a first contribution to the TensorFlow code base. We strongly recommend that new contributors tackle “easy” and "good first issue" projects first; this helps the contributor become familiar with the contribution workflow, and for the core devs to become acquainted with the contributor.
+New contributors should look for the following tags when searching for a first
+contribution to the TensorFlow code base. We strongly recommend that new
+contributors tackle “good first issue” and "contributions welcome" projects
+first; this helps the contributor become familiar with the contribution
+workflow, and for the core devs to become acquainted with the contributor.
 
-- `good first issue`
-- `easy`
-- `contributions welcome`
+-   [good first issue](https://github.com/tensorflow/tensorflow/labels/good%20first%20issue)
+-   [contributions welcome](https://github.com/tensorflow/tensorflow/labels/stat%3Acontributions%20welcome)
 
 If you are interested in recruiting a team to help tackle a large-scale problem or a new feature, please email the [developers@ group](https://groups.google.com/a/tensorflow.org/forum/#!forum/developers) and review our current list of RFCs. 
 
