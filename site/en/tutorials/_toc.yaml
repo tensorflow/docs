@@ -150,8 +150,11 @@ toc:
 - title: "Audio"
   style: accordion
   section:
-  - title: "Simple Audio Recognition"
+  - title: "Simple audio recognition"
     path: /tutorials/audio/simple_audio
+  - title: "Transfer learning for audio recognition"
+    path: /tutorials/audio/transfer_learning_audio
+    status: new
 
 - title: "Structured data"
   style: accordion
