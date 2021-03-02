@@ -55,22 +55,6 @@ toc:
     path: https://github.com/tensorflow/io#tensorflow-io
     status: external
 
-- title: "Estimator"
-  style: accordion
-  section:
-  - title: "Premade estimator"
-    path: /tutorials/estimator/premade
-  - title: "Linear model"
-    path: /tutorials/estimator/linear
-  - title: "Boosted trees"
-    path: /tutorials/estimator/boosted_trees
-  - title: "Boosted trees model understanding"
-    path: /tutorials/estimator/boosted_trees_model_understanding
-  - title: "Keras model to Estimator"
-    path: /tutorials/estimator/keras_model_to_estimator
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
-
 - heading: "Advanced"
   style: divider
 
@@ -206,3 +190,19 @@ toc:
   - title: "TensorFlow agents"
     status: external
     path: /agents
+
+- title: "tf.Estimator"
+  style: accordion
+  section:
+  - title: "Premade estimator"
+    path: /tutorials/estimator/premade
+  - title: "Linear model"
+    path: /tutorials/estimator/linear
+  - title: "Boosted trees"
+    path: /tutorials/estimator/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /tutorials/estimator/boosted_trees_model_understanding
+  - title: "Keras model to Estimator"
+    path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
