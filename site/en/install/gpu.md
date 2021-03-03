@@ -109,10 +109,6 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
-# Install NVIDIA driver
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-450</code>
-# Reboot. Check that GPUs are visible using the command: nvidia-smi
-
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
@@ -149,12 +145,6 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
-
-# Install NVIDIA driver
-# Issue with driver install requires creating /usr/lib/nvidia
-<code class="devsite-terminal">sudo mkdir /usr/lib/nvidia</code>
-<code class="devsite-terminal">sudo apt-get install --no-install-recommends nvidia-driver-450</code>
-# Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install development and runtime libraries (~4GB)
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
