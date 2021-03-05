@@ -26,43 +26,34 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
+  - title: "More examples on keras.io"
+    path: https://keras.io/examples/
+    status: external
 
 - title: "Load and preprocess data"
   style: accordion
   section:
   - title: "Images"
     path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
     path: /tutorials/tensorflow_text/intro
+  - title: "Subword Tokenization"
+    path: /tutorials/tensorflow_text/subwords_tokenizer
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
   - title: "Additional formats with tf.io"
     path: https://github.com/tensorflow/io#tensorflow-io
     status: external
-
-- title: "Estimator"
-  style: accordion
-  section:
-  - title: "Premade estimator"
-    path: /tutorials/estimator/premade
-  - title: "Linear model"
-    path: /tutorials/estimator/linear
-  - title: "Boosted trees"
-    path: /tutorials/estimator/boosted_trees
-  - title: "Boosted trees model understanding"
-    path: /tutorials/estimator/boosted_trees_model_understanding
-  - title: "Keras model to Estimator"
-    path: /tutorials/estimator/keras_model_to_estimator
 
 - heading: "Advanced"
   style: divider
@@ -86,8 +77,9 @@ toc:
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
     path: /tutorials/distribute/multi_worker_with_keras
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Parameter Server Training"
+    path: /tutorials/distribute/parameter_server_training
+    status: experimental
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
   - title: "Distributed input"
@@ -117,8 +109,19 @@ toc:
   section:
   - title: "Word embeddings"
     path: /tutorials/text/word_embeddings
+  - title: "Word2Vec"
+    path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
     path: /tutorials/text/text_classification_rnn
+  - title: "Classify Text with BERT"
+    status: new
+    path: /tutorials/text/classify_text_with_bert
+  - title: "Solve GLUE tasks using BERT on TPU"
+    status: new
+    path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
+  - title: "Fine tuning BERT"
+    path: /official_models/fine_tuning_bert
+  - heading: Generation
   - title: "Text generation with an RNN"
     path: /tutorials/text/text_generation
   - title: "Neural machine translation with attention"
@@ -127,15 +130,15 @@ toc:
     path: /tutorials/text/image_captioning
   - title: "Transformer model for language understanding"
     path: /tutorials/text/transformer
-  - title: "Fine tuning BERT"
-    path: /official_models/fine_tuning_bert
 
 - title: "Audio"
   style: accordion
-  status: new
   section:
-  - title: "Simple Audio Recognition"
+  - title: "Simple audio recognition"
     path: /tutorials/audio/simple_audio
+  - title: "Transfer learning for audio recognition"
+    path: /tutorials/audio/transfer_learning_audio
+    status: new
 
 - title: "Structured data"
   style: accordion
@@ -181,7 +184,6 @@ toc:
 
 - title: "Reinforcement learning"
   style: accordion
-  status: new
   section:
   - title: "Actor-Critic method"
     path: /tutorials/reinforcement_learning/actor_critic
@@ -189,3 +191,18 @@ toc:
     status: external
     path: /agents
 
+- title: "tf.Estimator"
+  style: accordion
+  section:
+  - title: "Premade estimator"
+    path: /tutorials/estimator/premade
+  - title: "Linear model"
+    path: /tutorials/estimator/linear
+  - title: "Boosted trees"
+    path: /tutorials/estimator/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /tutorials/estimator/boosted_trees_model_understanding
+  - title: "Keras model to Estimator"
+    path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator

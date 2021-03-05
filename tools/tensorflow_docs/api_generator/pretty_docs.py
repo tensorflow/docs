@@ -387,11 +387,14 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
 
 
 def _method_sort(method_name):
-  # All dunder methods will be at the end of the list in an alphabetically
-  # sorted order. Rest of the methods will be promoted to the top in an
-  # alphabetically sorted order.
+  # All private methods will be at the end of the list in an alphabetically
+  # sorted order. All dunder methods will be above private methods and below
+  # public methods. Public methods will be at the top in an alphabetically
+  # sorted order.
   if method_name.startswith('__'):
     return (1, method_name)
+  if method_name.startswith('_'):
+    return (2, method_name)
   return (-1, method_name)
 
 

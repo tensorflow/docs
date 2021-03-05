@@ -72,7 +72,7 @@ class TestClass:
       temp_d:
 
     Raises:
-      ValuesError: Temp_a value not allowed.
+      ValueError: Temp_a value not allowed.
       TypeError: Type not allowed.
     """
     self.temp_a = temp_a
@@ -148,7 +148,6 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.raises_lint.num_raises_defined, 2)
         self.assertEqual(test_report.raises_lint.total_raises_in_code, 2)
-        self.assertEqual(test_report.raises_lint.num_raises_mismatch, 1)
 
   def test_method_return_lint(self):
     class_page_info = parser.docs_for_object(
@@ -198,7 +197,8 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          2)
-        self.assertEqual(test_report.parameter_lint.total_args_param, 4)
+        self.assertEqual(test_report.parameter_lint.num_args_in_doc, 4)
+        self.assertEqual(test_report.parameter_lint.num_args_in_code, 3)
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
                          1)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 2)
@@ -207,7 +207,8 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          0)
-        self.assertEqual(test_report.parameter_lint.total_args_param, 1)
+        self.assertEqual(test_report.parameter_lint.num_args_in_doc, 1)
+        self.assertEqual(test_report.parameter_lint.num_args_in_code, 1)
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
                          0)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 0)

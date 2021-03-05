@@ -20,24 +20,18 @@ successfully keeps the GPU occupied by offloading enough work.
 ### Performance Optimization Workflow
 
 This guide outlines how to debug performance issues starting with a single GPU,
-then moving to a single host with multiple GPUs, and finally a multi-host
-system. It is recommended to debug performance issues in this order. For
-example, if you are using a TensorFlow distribution strategy to train a model on
-a single host with multiple GPUs and notice suboptimal GPU utilization, you
-should first optimize and debug performance for 1 GPU, before debugging the
-multi-GPU system. The recommended order is as follows:
+then moving to a single host with multiple GPUs. It is recommended to debug
+performance issues in this order. For example, if you are using a TensorFlow
+distribution strategy to train a model on a single host with multiple GPUs and
+notice suboptimal GPU utilization, you should first optimize and debug
+performance for 1 GPU, before debugging the multi-GPU system. The recommended
+order is as follows:
 
 1.  Optimize and debug performance on 1 GPU
     1.  Check if input pipeline is a bottleneck
     2.  Debug performance of 1 GPU
     3.  Enable fp16 and optionally enable XLA
 2.  Optimize and debug performance on multi-GPU single host
-3.  Optimize and debug performance on multi-host systems
-
-While the TensorFlow Profiler currently supports multiple GPU profiling for a
-single host, multiple GPU profiling for multi-host systems is currently not
-supported. This feature is actively being worked on and this guide will be
-updated accordingly.
 
 As a baseline for getting performant code on GPU, this guide assumes you are
 already using `tf.function`. The Keras compile/fit API will utilize
