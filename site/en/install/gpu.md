@@ -87,7 +87,7 @@ environmental variable:
 
 ### Install CUDA with apt
 
-This section shows how to install CUDA® 10 (TensorFlow >= 1.13.0) on Ubuntu
+This section shows how to install CUDA® 11 (TensorFlow >= 2.4.0) on Ubuntu
 16.04 and 18.04. These instructions may work for other Debian-based distros.
 
 Caution: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
