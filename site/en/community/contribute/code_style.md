@@ -11,19 +11,16 @@ and use [pylint](https://www.pylint.org/) to check your Python changes.
 
 ### pylint
 
-To install `pylint` and retrieve TensorFlow's custom style definition:
+To install `pylint`:
 
 ```bash
-
 $ pip install pylint
-$ wget -O /tmp/pylintrc https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/tools/ci_build/pylintrc
-
 ```
 
-To check a file with `pylint`:
+To check a file with `pylint` from the TensorFlow source code root directory:
 
 ```bash
-$ pylint --rcfile=/tmp/pylintrc myfile.py
+$ pylint --rcfile=tensorflow/tools/ci_build/pylintrc tensorflow/python/keras/losses.py
 ```
 
 ### Supported Python versions
