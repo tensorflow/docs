@@ -131,9 +131,9 @@ Additional `git` and GitHub resources:
 
 ## Contributor checklist
 
-*   Read contributing guidelines.
-*   Read the Code of Conduct.
-*   Ensure you have signed the Contributor License Agreement (CLA).
-*   Check if your changes are consistent with the guidelines.
-*   Check if your changes are consistent with the TensorFlow coding style.
-*   Run unit tests.
+*   Read the [contributing guidelines](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).
+*   Read the [Code of Conduct](https://github.com/tensorflow/tensorflow/blob/master/CODE_OF_CONDUCT.md).
+*   Ensure you have signed the [Contributor License Agreement (CLA)](https://cla.developers.google.com/).
+*   Check if your changes are consistent with the [guidelines](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md#general-guidelines-and-philosophy-for-contribution).
+*   Check if your changes are consistent with the [TensorFlow coding style](https://www.tensorflow.org/community/contribute/code_style).
+*   [Run the unit tests](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md#running-unit-tests).
