@@ -25,8 +25,8 @@ $ pylint --rcfile=tensorflow/tools/ci_build/pylintrc tensorflow/python/keras/los
 
 ### Supported Python versions
 
-TensorFlow supports Python 3.6-3.8. See the
-[installation guide](https://www.tensorflow.org/install) for details.
+For supported Python versions, see the TensorFlow
+[installation guide](https://www.tensorflow.org/install).
 
 See the TensorFlow
 [continuous build status](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
