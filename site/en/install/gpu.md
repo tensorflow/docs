@@ -119,6 +119,7 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
     libcudnn8=8.0.4.30-1+cuda11.0  \
     libcudnn8-dev=8.0.4.30-1+cuda11.0
 </code>
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install TensorRT. Requires that libcudnn8 is installed above.
 <code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 \
@@ -152,6 +153,8 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
     libcudnn8=8.0.4.30-1+cuda11.0  \
     libcudnn8-dev=8.0.4.30-1+cuda11.0
 </code>
+
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
 
 # Install TensorRT. Requires that libcudnn7 is installed above.
 <code class="devsite-terminal">sudo apt-get install -y --no-install-recommends \
