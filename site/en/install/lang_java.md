@@ -48,7 +48,7 @@ version:
 *   `tensorflow-core-platform-gpu`: Support for CUDA® on Linux and Windows
     platforms
 *   `tensorflow-core-platform-mkl-gpu`: Support for Intel® MKL-DNN and CUDA® on
-    Linux and Windows platforms.
+    Linux platform.
 
 In addition, a separate dependency on the `tensorflow-framework` library can be
 added to benefit from a rich set of utilities for TensorFlow-based machine
@@ -64,7 +64,7 @@ For example,
 <dependency>
   <groupId>org.tensorflow</groupId>
   <artifactId>tensorflow-core-platform</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.1</version>
 </dependency>
 ```
 
@@ -107,7 +107,7 @@ snapshots repository in your `pom.xml`.
     <dependency>
         <groupId>org.tensorflow</groupId>
         <artifactId>tensorflow-core-platform</artifactId>
-        <version>0.3.0-SNAPSHOT</version>
+        <version>0.4.0-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
@@ -124,7 +124,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.tensorflow', name: 'tensorflow-core-platform', version: '0.2.0'
+    compile group: 'org.tensorflow', name: 'tensorflow-core-platform', version: '0.3.1'
 }
 ```
 
@@ -141,7 +141,7 @@ Please read at Gradle JavaCPP
 
 To build TensorFlow Java from sources, and possibly customize it, please read
 the following
-[instructions](https://github.com/tensorflow/java/blob/master/README.md#building-sources).
+[instructions](https://github.com/tensorflow/java/blob/master/CONTRIBUTING.md#building).
 
 *Note: Only official builds distributed by TensorFlow are supported by its
 maintainers and custom builds should be used at the user's risk.*
@@ -160,17 +160,17 @@ add the TensorFlow dependency to the project's `pom.xml` file:
 
     <properties>
         <exec.mainClass>HelloTensorFlow</exec.mainClass>
-    <!-- Minimal version for compiling TensorFlow Java is JDK 8 -->
+        <!-- Minimal version for compiling TensorFlow Java is JDK 8 -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
-    <!-- Include TensorFlow (pure CPU only) for all supported platforms -->
+        <!-- Include TensorFlow (pure CPU only) for all supported platforms -->
         <dependency>
             <groupId>org.tensorflow</groupId>
             <artifactId>tensorflow-core-platform</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.1</version>
         </dependency>
     </dependencies>
 </project>
@@ -194,14 +194,14 @@ public class HelloTensorFlow {
     System.out.println("Hello TensorFlow " + TensorFlow.version());
 
     try (ConcreteFunction dbl = ConcreteFunction.create(HelloTensorFlow::dbl);
-        Tensor<TInt32> x = TInt32.scalarOf(10);
-        Tensor<TInt32> dblX = dbl.call(x).expect(TInt32.DTYPE)) {
-      System.out.println(x.data().getInt() + " doubled is " + dblX.data().getInt());
+        TInt32 x = TInt32.scalarOf(10);
+        Tensor dblX = dbl.call(x)) {
+      System.out.println(x.getInt() + " doubled is " + ((TInt32)dblX).getInt());
     }
   }
 
   private static Signature dbl(Ops tf) {
-    Placeholder<TInt32> x = tf.placeholder(TInt32.DTYPE);
+    Placeholder<TInt32> x = tf.placeholder(TInt32.class);
     Add<TInt32> dblX = tf.math.add(x, x);
     return Signature.builder().input("x", x).output("dbl", dblX).build();
   }
@@ -214,6 +214,6 @@ Compile and execute:
 mvn -q compile exec:java
 </pre>
 
-The command prints: <code>TensorFlow version and a simple calculation.</code>
+The command prints TensorFlow version and a simple calculation.
 
 Success! TensorFlow Java is configured.
