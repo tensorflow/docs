@@ -9,7 +9,7 @@ you get started. Thank you for work and interest in improving TensorFlow.
 Before you contribute source code to a TensorFlow project, please review the `CONTRIBUTING.md` file in the GitHub repo of the project. (For example, see the
 [CONTRIBUTING.md file for the core TensorFlow repo](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).) All code contributors are required to sign a [Contributor License Agreement](https://cla.developers.google.com/clas) (CLA).
 
-To avoid duplicating work, please review [current](https://github.com/tensorflow/community/tree/master/rfcs) or [proposed](https://github.com/tensorflow/community/labels/RFC%3A%20Proposed) RFCs and contact the developers on the TensorFlow forums (developers@tensorflow.org) before you start work on a non-trivial feature. We are somewhat selective when deciding to add new functionality, and the best way to contribute and help the project is to work on known issues. 
+To avoid duplicating work, please review [current](https://github.com/tensorflow/community/tree/master/rfcs) or [proposed](https://github.com/tensorflow/community/labels/RFC%3A%20Proposed) RFCs and contact the developers on the TensorFlow forums ([developers@tensorflow.org](https://groups.google.com/u/1/a/tensorflow.org/g/developers)) before you start work on a non-trivial feature. We are somewhat selective when deciding to add new functionality, and the best way to contribute and help the project is to work on known issues. 
 
 ## Issues for new contributors
 
