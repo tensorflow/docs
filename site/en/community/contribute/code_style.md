@@ -39,7 +39,7 @@ for official and community supported builds.
 ## C++ coding style
 
 Changes to TensorFlow C++ code should conform to the [Google C++ Style
-Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-format` to check your C/C++ changes.
+Guide](https://google.github.io/styleguide/cppguide.html) and [TF specific style details](https://github.com/tensorflow/community/blob/master/governance/cpp-style.md). Use `clang-format` to check your C/C++ changes.
 
 To install on Ubuntu 16+, do:
 
