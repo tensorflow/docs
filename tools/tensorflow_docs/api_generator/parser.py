@@ -195,7 +195,7 @@ def _get_raw_docstring(py_object):
     result = ''
 
   result = _StripTODOs()(result)
-  result = _StripPylints()(result)
+  result = _StripPylintAndPyformat()(result)
   result = _AddDoctestFences()(result + '\n')
   result = _DowngradeH1Keywords()(result)
   return result
@@ -228,11 +228,11 @@ class _StripTODOs(object):
     return self.TODO_RE.sub('', content)
 
 
-class _StripPylints(object):
-  PYLINT_RE = re.compile('# *?pylint:.*')
+class _StripPylintAndPyformat(object):
+  STRIP_RE = re.compile('# *?(pylint|pyformat):.*', re.I)
 
   def __call__(self, content: str) -> str:
-    return self.PYLINT_RE.sub('', content)
+    return self.STRIP_RE.sub('', content)
 
 
 class _DowngradeH1Keywords():
@@ -840,13 +840,12 @@ class TitleBlock(object):
                                       # (a new-line followed by non-whitespace)
     """, re.VERBOSE | re.DOTALL)
 
-  # This
   ITEM_RE = re.compile(
       r"""
-      ^(\*?\*?          # Capture optional *s to allow *args, **kwargs.
-          \w[\w.]*?     # Capture a word character followed by word characters
-                        # or "."s.
-      )\s*:\s           # Allow any whitespace around the colon.""",
+      ^(\*?\*?'?"?     # Capture optional *s to allow *args, **kwargs and quotes
+          \w[\w.'"]*?  # Capture a word character followed by word characters
+                       # or "."s or ending quotes.
+      )\s*:\s          # Allow any whitespace around the colon.""",
       re.MULTILINE | re.VERBOSE)
 
   @classmethod

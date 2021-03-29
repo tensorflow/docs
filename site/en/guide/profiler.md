@@ -17,9 +17,6 @@ and some recommended best practices to optimize model performance.
 If you want to profile your model performance on Cloud TPUs, refer to the
 [Cloud TPU guide](https://cloud.google.com/tpu/docs/cloud-tpu-tools#capture_profile).
 
-Note: You cannot use the Profiler to get profiles for the
-`tf.data.experimental.service` available with `tf.data`.
-
 ## Install the Profiler and GPU prerequisites
 
 Install the Profiler by downloading and running the

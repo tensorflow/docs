@@ -67,7 +67,7 @@ class TocNode(object):
     deprecated: Whether the module is deprecated or not.
   """
 
-  def __init__(self, module, py_object, path):
+  def __init__(self, module: str, py_object: Any, path: str):
     self._module = module
     self._py_object = py_object
     self._path = path
@@ -375,7 +375,7 @@ class GenerateToc(object):
 
     return collections.OrderedDict(submod_yaml_content)
 
-  def generate(self):
+  def generate(self) -> Dict[str, Any]:
     """Generates the final toc.
 
     Returns:
@@ -409,6 +409,26 @@ class GenerateToc(object):
       toc.append(collections.OrderedDict(module_yaml_content))
 
     return {'toc': toc}
+
+
+def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
+  """Returns the list of header lines for this page."""
+  hidden = doc_controls.should_hide_from_search(page_info.py_object)
+  brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
+  headers = []
+  if brief_no_backticks:
+    headers.append(f'description: {brief_no_backticks}')
+
+  # It's easier to read if there's a blank line after the `name:value` headers.
+  if search_hints and not hidden:
+    if headers:
+      headers.append('')
+    headers.append(page_info.get_metadata_html())
+  else:
+    headers.append('robots: noindex')
+    headers.append('')
+
+  return headers
 
 
 def write_docs(
@@ -526,22 +546,12 @@ def write_docs(
       continue
 
     path = output_dir / parser.documentation_path(full_name)
+
+    content = _get_headers(page_info, search_hints)
+    content.append(pretty_docs.build_md_page(page_info))
+    text = '\n'.join(content)
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
-      # This function returns unicode in PY3.
-      hidden = doc_controls.should_hide_from_search(page_info.py_object)
-      brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
-      content = []
-      if brief_no_backticks:
-        content.append(f'description: {brief_no_backticks}\n')
-
-      if search_hints and not hidden:
-        content.append(page_info.get_metadata_html())
-      else:
-        content.append('robots: noindex\n')
-
-      content.append(pretty_docs.build_md_page(page_info))
-      text = '\n'.join(content)
       path.write_text(text, encoding='utf-8')
     except OSError:
       raise OSError('Cannot write documentation for '
@@ -615,7 +625,6 @@ def add_dict_to_dict(add_from, add_to):
 def extract(py_modules,
             base_dir,
             private_map,
-            do_not_descend_map,
             visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
             callbacks=None):
   """Walks the module contents, returns an index of all visited objects.
@@ -630,8 +639,6 @@ def extract(py_modules,
       directory is documented.
     private_map: A {'path':["name"]} dictionary listing particular object
       locations that should be ignored in the doc generator.
-    do_not_descend_map: A {'path':["name"]} dictionary listing particular object
-      locations where the children should not be listed.
     visitor_cls: A class, typically a subclass of
       `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
       objects to document.
@@ -652,7 +659,6 @@ def extract(py_modules,
 
   api_filter = public_api.PublicAPIFilter(
       base_dir=base_dir,
-      do_not_descend_map=do_not_descend_map,
       private_map=private_map)
 
   accumulator = visitor_cls()
@@ -746,12 +752,11 @@ class DocGenerator:
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
-      do_not_descend_map: Optional[Dict[str, str]] = None,
       visitor_cls: Type[
           doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
       .DocGeneratorVisitor,
       api_cache: bool = True,
-      callbacks: Optional[List[callable]] = None,
+      callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
       gen_report: bool = False,
@@ -773,16 +778,14 @@ class DocGenerator:
       site_path: Path prefix in the "_toc.yaml"
       private_map: A {"module.path.to.object": ["names"]} dictionary. Specific
         aliases that should not be shown in the resulting docs.
-      do_not_descend_map: A {"module.path.to.object": ["names"]} dictionary.
-        Specific aliases that will be shown, but not expanded.
       visitor_cls: An option to override the default visitor class
         `doc_generator_visitor.DocGeneratorVisitor`.
       api_cache: Bool. Generate an api_cache file. This is used to easily add
         api links for backticked symbols (like `tf.add`) in other docs.
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-        primary use case for these is to filter the listy of children (see:
-          `public_api.local_definitions_filter`)
+        primary use case for these is to filter the list of children (see:
+          `public_api.ApiFilter` for the required signature)
       yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
       gen_redirects: Bool which decides whether to generate _redirects.yaml file
         or not.
@@ -822,7 +825,6 @@ class DocGenerator:
     self._search_hints = search_hints
     self._site_path = site_path
     self._private_map = private_map or {}
-    self._do_not_descend_map = do_not_descend_map or {}
     self._visitor_cls = visitor_cls
     self.api_cache = api_cache
     if callbacks is None:
@@ -860,7 +862,6 @@ class DocGenerator:
         py_modules=self._py_modules,
         base_dir=self._base_dir,
         private_map=self._private_map,
-        do_not_descend_map=self._do_not_descend_map,
         visitor_cls=self._visitor_cls,
         callbacks=self._callbacks)
 

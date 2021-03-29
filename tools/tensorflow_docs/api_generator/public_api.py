@@ -20,7 +20,7 @@ import inspect
 import os
 import pathlib
 import typing
-from typing import Tuple
+from typing import Any, Callable, List, Sequence, Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -29,6 +29,10 @@ TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
     if not doc_generator_visitor.maybe_singleton(obj))
+
+
+Children = List[Tuple[str, Any]]
+ApiFilter = Callable[[Tuple[str, ...], Any, Children], Children]
 
 
 def get_module_base_dirs(module) -> Tuple[pathlib.Path, ...]:
@@ -61,11 +65,12 @@ def get_module_base_dirs(module) -> Tuple[pathlib.Path, ...]:
   return tuple(pathlib.Path(b) for b in base_dirs)
 
 
-def ignore_typing(path, parent, children):
+def ignore_typing(path: Sequence[str], parent: Any,
+                  children: Children) -> Children:
   """Removes all children that are members of the typing module.
 
   Arguments:
-    path: A tuple or name parts forming the attribute-lookup path to this
+    path: A tuple of name parts forming the attribute-lookup path to this
       object. For `tf.keras.layers.Dense` path is:
         ("tf","keras","layers","Dense")
     parent: The parent object.
@@ -84,7 +89,8 @@ def ignore_typing(path, parent, children):
   return children
 
 
-def local_definitions_filter(path, parent, children):
+def local_definitions_filter(path: Sequence[str], parent: Any,
+                             children: Children) -> Children:
   """Filters children recursively.
 
   Only returns those defined in this package.
@@ -186,7 +192,8 @@ def _get_imported_symbols(obj):
   return visitor.imported_symbols
 
 
-def explicit_package_contents_filter(path, parent, children):
+def explicit_package_contents_filter(path: Sequence[str], parent: Any,
+                                     children: Children) -> Children:
   """Filter modules to only include explicit contents.
 
   This function returns the children explicitly included by this module, meaning
@@ -248,18 +255,15 @@ ALLOWED_DUNDER_METHODS = frozenset([
 class PublicAPIFilter(object):
   """Visitor to use with `traverse` to filter just the public API."""
 
-  def __init__(self, base_dir, do_not_descend_map=None, private_map=None):
+  def __init__(self, base_dir, private_map=None):
     """Constructor.
 
     Args:
       base_dir: The directory to take source file paths relative to.
-      do_not_descend_map: A mapping from dotted path like "tf.symbol" to a list
-        of names. Included names will have no children listed.
       private_map: A mapping from dotted path like "tf.symbol" to a list of
         names. Included names will not be listed at that location.
     """
     self._base_dir = base_dir
-    self._do_not_descend_map = do_not_descend_map or {}
     self._private_map = private_map or {}
 
   def _is_private(self, path, name, obj):
@@ -292,7 +296,8 @@ class PublicAPIFilter(object):
 
     return False
 
-  def __call__(self, path, parent, children):
+  def __call__(self, path: Sequence[str], parent: Any,
+               children: Children) -> Children:
     """Visitor interface, see `traverse` for details."""
 
     # Avoid long waits in cases of pretty unambiguous failure.
@@ -300,12 +305,6 @@ class PublicAPIFilter(object):
       raise RuntimeError('Modules nested too deep:\n\n{}\n\nThis is likely a '
                          'problem with an accidental public import.'.format(
                              '.'.join(path)))
-
-    # No children if "do_not_descend" is set.
-    parent_path = '.'.join(path[:-1])
-    name = path[-1]
-    if name in self._do_not_descend_map.get(parent_path, []):
-      del children[:]
 
     # Remove things that are not visible.
     children = [(child_name, child_obj)

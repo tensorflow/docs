@@ -19,10 +19,12 @@ import os
 import pathlib
 import sys
 import tempfile
+import textwrap
 
 from absl import flags
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 
@@ -243,6 +245,60 @@ class GenerateTest(absltest.TestCase):
       # This should fail. The OWNERS file should not be copied
       with open(os.path.join(test_out_dir, 'b/OWNERS')) as f:
         content = f.read()
+
+  def _get_test_page_info(self):
+    page_info = parser.FunctionPageInfo(
+        full_name='abc', py_object=test_function)
+    docstring_info = parser._DocstringInfo(
+        brief='hello `tensorflow`',
+        docstring_parts=['line1', 'line2'],
+        compatibility={})
+    page_info.set_doc(docstring_info)
+    return page_info
+
+  def test_get_headers_global_hints(self):
+    page_info = self._get_test_page_info()
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=True))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+
+      <div itemscope itemtype="http://developers.google.com/ReferenceObject">
+      <meta itemprop="name" content="abc" />
+      <meta itemprop="path" content="Stable" />
+      </div>
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_global_no_hints(self):
+    page_info = self._get_test_page_info()
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=False))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_local_no_hints(self):
+    page_info = self._get_test_page_info()
+
+    @doc_controls.hide_from_search
+    def py_object():
+      pass
+
+    page_info.py_object = py_object
+
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=True))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':

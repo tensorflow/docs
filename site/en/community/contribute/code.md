@@ -13,11 +13,14 @@ To avoid duplicating work, please review [current RFCs](https://github.com/tenso
 
 ## Issues for new contributors
 
-New contributors should look for the following tags when searching for a first contribution to the TensorFlow code base. We strongly recommend that new contributors tackle “easy” and "good first issue" projects first; this helps the contributor become familiar with the contribution workflow, and for the core devs to become acquainted with the contributor.
+New contributors should look for the following tags when searching for a first
+contribution to the TensorFlow code base. We strongly recommend that new
+contributors tackle “good first issue” and "contributions welcome" projects
+first; this helps the contributor become familiar with the contribution
+workflow, and for the core devs to become acquainted with the contributor.
 
-- `good first issue`
-- `easy`
-- `contributions welcome`
+-   [good first issue](https://github.com/tensorflow/tensorflow/labels/good%20first%20issue)
+-   [contributions welcome](https://github.com/tensorflow/tensorflow/labels/stat%3Acontributions%20welcome)
 
 If you are interested in recruiting a team to help tackle a large-scale problem or a new feature, please email the [developers@ group](https://groups.google.com/a/tensorflow.org/forum/#!forum/developers) and review our current list of RFCs. 
 
@@ -128,9 +131,9 @@ Additional `git` and GitHub resources:
 
 ## Contributor checklist
 
-*   Read contributing guidelines.
-*   Read the Code of Conduct.
-*   Ensure you have signed the Contributor License Agreement (CLA).
-*   Check if your changes are consistent with the guidelines.
-*   Check if your changes are consistent with the TensorFlow coding style.
-*   Run unit tests.
+*   Read the [contributing guidelines](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md).
+*   Read the [Code of Conduct](https://github.com/tensorflow/tensorflow/blob/master/CODE_OF_CONDUCT.md).
+*   Ensure you have signed the [Contributor License Agreement (CLA)](https://cla.developers.google.com/).
+*   Check if your changes are consistent with the [guidelines](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md#general-guidelines-and-philosophy-for-contribution).
+*   Check if your changes are consistent with the [TensorFlow coding style](https://www.tensorflow.org/community/contribute/code_style).
+*   [Run the unit tests](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md#running-unit-tests).

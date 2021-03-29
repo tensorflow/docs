@@ -400,7 +400,7 @@ Install and verify the package within the container and check for a GPU:
 
 <code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
-<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.experimental.list_physical_devices('GPU')))"</code>
+<code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.list_physical_devices('GPU')))"</code>
 </pre>
 
 Success: TensorFlow is now installed.

@@ -905,7 +905,7 @@ RELU_DOC = """Computes rectified linear: `max(features, 0)`
 RELU is an activation
 
 Args:
-  features: A `Tensor`. Must be one of the following types: `float32`,
+  'features': A `Tensor`. Must be one of the following types: `float32`,
     `float64`, `int32`, `int64`, `uint8`, `int16`, `int8`, `uint16`,
     `half`.
   name: A name for the operation (optional)
@@ -935,7 +935,7 @@ class TestParseDocstring(absltest.TestCase):
     self.assertEqual(args.title, 'Args')
     self.assertEqual(args.text, '\n')
     self.assertLen(args.items, 2)
-    self.assertEqual(args.items[0][0], 'features')
+    self.assertEqual(args.items[0][0], "'features'")
     self.assertEqual(
         args.items[0][1],
         'A `Tensor`. Must be one of the following types: `float32`,\n'
@@ -1079,6 +1079,37 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
         goodbye
         """)
     strip_todos = parser._StripTODOs()
+    self.assertEqual(expected, strip_todos(input_str))
+
+  def test_strip_pylintandpyformat(self):
+    input_str = textwrap.dedent("""
+        hello  #  pyformat: disable
+        middle  # pyformat: enable
+        goodbye  TODO  # pylint: disable=g-top-imports
+
+        # pyformat: disable
+        xyz
+        # pyformat: enable
+
+        # pylint: disable=g-top-imports
+        abc
+        # pylint: enable=g-top-imports
+        """)
+
+    expected = textwrap.dedent("""
+        hello  
+        middle  
+        goodbye  TODO  
+
+
+        xyz
+
+
+
+        abc
+
+        """)
+    strip_todos = parser._StripPylintAndPyformat()
     self.assertEqual(expected, strip_todos(input_str))
 
 

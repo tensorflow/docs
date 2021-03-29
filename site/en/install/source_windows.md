@@ -318,7 +318,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 <tr><td>tensorflow_gpu-1.15.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.26.1</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.14.0</td><td>3.5-3.7</td><td>MSVC 2017</td><td>Bazel 0.24.1-0.25.2</td><td>7.4</td><td>10</td></tr>
 <tr><td>tensorflow_gpu-1.13.0</td><td>3.5-3.7</td><td>MSVC 2015 update 3</td><td>Bazel 0.19.0-0.21.0</td><td>7.4</td><td>10</td></tr>
-<tr><td>tensorflow_gpu-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
+<tr><td>tensorflow_gpu-1.12.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7.2</td><td>9.0</td></tr>
 <tr><td>tensorflow_gpu-1.11.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Bazel 0.15.0</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.10.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td><td>7</td><td>9</td></tr>
 <tr><td>tensorflow_gpu-1.9.0</td><td>3.5-3.6</td><td>MSVC 2015 update 3</td><td>Cmake v3.6.3</td><td>7</td><td>9</td></tr>

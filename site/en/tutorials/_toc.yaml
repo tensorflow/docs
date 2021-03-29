@@ -26,45 +26,34 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
+  - title: "More examples on keras.io"
+    path: https://keras.io/examples/
+    status: external
 
 - title: "Load and preprocess data"
   style: accordion
   section:
   - title: "Images"
     path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
+  - title: "Text"
+    path: /tutorials/load_data/text
   - title: "Unicode"
     path: /tutorials/load_data/unicode
   - title: "TF.Text"
     path: /tutorials/tensorflow_text/intro
+  - title: "Subword Tokenization"
+    path: /tutorials/tensorflow_text/subwords_tokenizer
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
   - title: "Additional formats with tf.io"
     path: https://github.com/tensorflow/io#tensorflow-io
     status: external
-
-- title: "Estimator"
-  style: accordion
-  section:
-  - title: "Premade estimator"
-    path: /tutorials/estimator/premade
-  - title: "Linear model"
-    path: /tutorials/estimator/linear
-  - title: "Boosted trees"
-    path: /tutorials/estimator/boosted_trees
-  - title: "Boosted trees model understanding"
-    path: /tutorials/estimator/boosted_trees_model_understanding
-  - title: "Keras model to Estimator"
-    path: /tutorials/estimator/keras_model_to_estimator
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
 
 - heading: "Advanced"
   style: divider
@@ -145,8 +134,11 @@ toc:
 - title: "Audio"
   style: accordion
   section:
-  - title: "Simple Audio Recognition"
+  - title: "Simple audio recognition"
     path: /tutorials/audio/simple_audio
+  - title: "Transfer learning for audio recognition"
+    path: /tutorials/audio/transfer_learning_audio
+    status: new
 
 - title: "Structured data"
   style: accordion
@@ -198,3 +190,19 @@ toc:
   - title: "TensorFlow agents"
     status: external
     path: /agents
+
+- title: "tf.Estimator"
+  style: accordion
+  section:
+  - title: "Premade estimator"
+    path: /tutorials/estimator/premade
+  - title: "Linear model"
+    path: /tutorials/estimator/linear
+  - title: "Boosted trees"
+    path: /tutorials/estimator/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /tutorials/estimator/boosted_trees_model_understanding
+  - title: "Keras model to Estimator"
+    path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator
