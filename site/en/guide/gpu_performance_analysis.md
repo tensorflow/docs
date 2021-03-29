@@ -258,7 +258,7 @@ be a multiple of 8.
 
 ##### Fusing Ops
 
-With the `tf.xla.xperimental_compile` feature, TensorFlow can fuse smaller ops
+With the `tf.xla.experimental_compile` feature, TensorFlow can fuse smaller ops
 to form bigger kernels leading to significant performance gains. More details
 are discussed in the Enable XLA section below.
 
