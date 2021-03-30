@@ -53,10 +53,6 @@ We post regularly to the [TensorFlow Blog](http://blog.tensorflow.org/), with co
 
 For news and updates from around the universe of TensorFlow projects, follow [@tensorflow](https://twitter.com/tensorflow) on Twitter. To watch TensorFlow-related content, check out our [YouTube](http://youtube.com/tensorflow/) channel.
 
-### Development roadmap
-
-The [Roadmap](https://www.tensorflow.org/community/roadmap) summarizes plans for upcoming additions to TensorFlow.
-
 ### User groups
 
 TensorFlow has many communities all over the world! For a complete listing, please refer to the [Community](https://www.tensorflow.org/community/groups) section on the TensorFlow website.
