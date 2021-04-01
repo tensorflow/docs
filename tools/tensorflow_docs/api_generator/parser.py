@@ -927,21 +927,29 @@ def _get_other_member_doc(
     extra_docs: Optional[Dict[int, str]],
 ) -> str:
   """Returns the docs for other members of a module."""
-  if extra_docs is not None:
-    other_member_extra_doc = extra_docs.get(id(obj), None)
-  else:
-    other_member_extra_doc = None
 
-  if other_member_extra_doc is not None:
-    description = other_member_extra_doc
+  # An object's __doc__ attribute will mask the class'.
+  # Get both and compare them.
+  my_doc = inspect.getdoc(obj)
+  class_doc = inspect.getdoc(type(obj))
+
+  if my_doc != class_doc:
+    if my_doc is not None:
+      return my_doc
+
+  description = None
+  if extra_docs is not None:
+    description = extra_docs.get(id(obj), None)
   elif doc_generator_visitor.maybe_singleton(obj):
     description = f'`{repr(obj)}`'
   else:
     class_name = parser_config.reverse_index.get(id(type(obj)), None)
     if class_name is not None:
       description = f'`{class_name}`'
-    else:
-      description = ''
+
+  if description is None:
+    description = ''
+
   return description
 
 
