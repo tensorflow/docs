@@ -2,6 +2,8 @@
 
 An open source project isn't just about the code, it's also about the community of users, developers, writers, researchers, and other contributors. You can help grow and support this community.
 
+Please read the TensorFlow [Code and Collaboration governance](https://github.com/tensorflow/community/blob/master/governance/code-and-collaboration.md)
+
 ## Community support
 
 Many people [ask questions about TensorFlow on Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow). Answering those questions and pointing people to the relevant documentation is a great service to the community.
