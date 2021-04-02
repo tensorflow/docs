@@ -188,6 +188,8 @@ Here is an example implementation.
 #ifndef KERNEL_EXAMPLE_H_
 #define KERNEL_EXAMPLE_H_
 
+#include <unsupported/Eigen/CXX11/Tensor>
+
 template <typename Device, typename T>
 struct ExampleFunctor {
   void operator()(const Device& d, int size, const T* in, T* out);
@@ -207,12 +209,24 @@ struct ExampleFunctor<Eigen::GpuDevice, T> {
 ```c++
 // kernel_example.cc
 #include "kernel_example.h"
+
+#include "tensorflow/core/framework/op.h"
+#include "tensorflow/core/framework/shape_inference.h"
 #include "tensorflow/core/framework/op_kernel.h"
 
 using namespace tensorflow;
 
 using CPUDevice = Eigen::ThreadPoolDevice;
 using GPUDevice = Eigen::GpuDevice;
+
+REGISTER_OP("Example")
+    .Attr("T: numbertype")
+    .Input("input: T")
+    .Output("input_times_two: T")
+    .SetShapeFn([](::tensorflow::shape_inference::InferenceContext* c) {
+      c->set_output(0, c->input(0));
+      return Status::OK();
+    });
 
 // CPU specialization of actual computation.
 template <typename T>
@@ -276,7 +290,7 @@ REGISTER_GPU(int32);
 // kernel_example.cu.cc
 #ifdef GOOGLE_CUDA
 #define EIGEN_USE_GPU
-#include "example.h"
+#include "kernel_example.h"
 #include "tensorflow/core/util/gpu_kernel_helper.h"
 
 using namespace tensorflow;
@@ -374,6 +388,27 @@ Run the following command to build `zero_out.so`.
 $ bazel build --config opt //tensorflow/core/user_ops:zero_out.so
 ```
 
+For compiling the `Example` operation, with the CUDA Kernel, you need to use the `gpu_srcs` parameter
+of `tf_custom_op_library`. Place a BUILD file with the following Bazel build rule in a new folder
+inside the [`tensorflow/core/user_ops`][user_ops] directory (e.g. "example_gpu").
+
+```python
+load("//tensorflow:tensorflow.bzl", "tf_custom_op_library")
+
+tf_custom_op_library(
+    # kernel_example.cc  kernel_example.cu.cc  kernel_example.h
+    name = "kernel_example.so",
+    srcs = ["kernel_example.h", "kernel_example.cc"],
+    gpu_srcs = ["kernel_example.cu.cc", "kernel_example.h"],
+)
+```
+
+Run the following command to build `kernel_example.so`.
+
+```bash
+$ bazel build --config opt //tensorflow/core/user_ops/example_gpu:kernel_example.so
+```
+
 Note: As explained above, if you are compiling with gcc>=5 add
 `--cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0"` to the Bazel command line arguments.
 
@@ -395,8 +430,7 @@ do the following to run it from Python:
 ```python
 import tensorflow as tf
 zero_out_module = tf.load_op_library('./zero_out.so')
-with tf.Session(''):
-  zero_out_module.zero_out([[1, 2], [3, 4]]).eval()
+print(zero_out_module.zero_out([[1, 2], [3, 4]]).numpy())
 
 # Prints
 array([[1, 0], [0, 0]], dtype=int32)
