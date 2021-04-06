@@ -821,6 +821,101 @@ class ParserTest(parameterized.TestCase):
 
     self.assertIsNone(function_info.defined_in)
 
+  def test_get_other_member_doc_object_doc_attr(self):
+
+    class A():
+      """Class docs"""
+      pass
+
+    a = A()
+    a.__doc__ = 'Object doc'
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+
+    expected = textwrap.dedent("""\
+      Instance of `__main__.A`
+
+      Object doc""")
+
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_doc_extra_doc(self):
+    # This will get sorted.
+    a = {4, 2, 1, 3}
+    # You can't set __doc__ on a list or a set so use extra_docs
+    doc = 'Object doc'
+    extra_docs = {id(a): doc}
+
+    result = parser._get_other_member_doc(a, None, extra_docs)
+
+    expected = textwrap.dedent("""\
+      `{1, 2, 3, 4}`
+
+      Object doc""")
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_basic_type(self):
+    a = 5
+    result = parser._get_other_member_doc(a, None, {})
+
+    self.assertEqual('`5`', result)
+
+  def test_get_other_member_doc_unknown_class(self):
+
+    class A():
+      """Class docs"""
+      pass
+
+    a = A()
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+    expected = textwrap.dedent("""\
+      Instance of `__main__.A`""")
+
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_doc_known_class(self):
+
+    class A():
+      """Class docs"""
+      pass
+
+    a = A()
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={id(A): 'tf.test.A'},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+
+    self.assertEqual('Instance of `tf.test.A`', result)
+
 
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()

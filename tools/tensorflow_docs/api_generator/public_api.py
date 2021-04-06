@@ -25,7 +25,7 @@ from typing import Any, Callable, List, Sequence, Tuple
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 
-TYPING_IDS = frozenset(
+_TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
     if not doc_generator_visitor.maybe_singleton(obj))
@@ -84,7 +84,7 @@ def ignore_typing(path: Sequence[str], parent: Any,
 
   children = [(name, child_obj)
               for (name, child_obj) in children
-              if id(child_obj) not in TYPING_IDS]
+              if id(child_obj) not in _TYPING_IDS]
 
   return children
 

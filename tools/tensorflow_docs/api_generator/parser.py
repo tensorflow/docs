@@ -24,6 +24,7 @@ import inspect
 import itertools
 import json
 import os
+import pprint
 import re
 import textwrap
 import typing
@@ -929,28 +930,41 @@ def _get_other_member_doc(
   """Returns the docs for other members of a module."""
 
   # An object's __doc__ attribute will mask the class'.
-  # Get both and compare them.
   my_doc = inspect.getdoc(obj)
   class_doc = inspect.getdoc(type(obj))
 
-  if my_doc != class_doc:
-    if my_doc is not None:
-      return my_doc
-
   description = None
-  if extra_docs is not None:
+  if my_doc != class_doc:
+    # If they're different it's because __doc__ is set on the instance.
+    if my_doc is not None:
+      description = my_doc
+
+  if description is None and extra_docs is not None:
     description = extra_docs.get(id(obj), None)
-  elif doc_generator_visitor.maybe_singleton(obj):
-    description = f'`{repr(obj)}`'
+
+  info = None
+  if (doc_generator_visitor.maybe_singleton(obj) or
+      isinstance(obj, (list, tuple, set, frozenset, dict, enum.Enum)) or
+      obj is None):
+    # use pformat instead of repr so dicts and sets are sorted (deterministic)
+    info = f'`{pprint.pformat(obj)}`'
   else:
-    class_name = parser_config.reverse_index.get(id(type(obj)), None)
-    if class_name is not None:
-      description = f'`{class_name}`'
+    class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
+    if class_full_name is None:
+      module = getattr(type(obj), '__module__', None)
+      class_name = type(obj).__name__
+      if module is None or module == 'builtins':
+        class_full_name = class_name
+      else:
+        class_full_name = f'{module}.{class_name}'
+    info = f'Instance of `{class_full_name}`'
 
   if description is None:
-    description = ''
+    result = info
+  else:
+    result = f'{info}\n\n{description}'
 
-  return description
+  return result
 
 
 def _parse_md_docstring(
@@ -1188,7 +1202,7 @@ class FormatArguments(object):
       if self._reverse_index.get(id(anno), None):
         non_builtin_types.append(anno)
       elif (anno in self._IMMUTABLE_TYPES or
-            id(type(anno)) in public_api.TYPING_IDS):
+            id(type(anno)) in public_api._TYPING_IDS):  # pylint: disable=protected-access
         continue
       elif hasattr(anno, '__args__'):
         self._extract_non_builtin_types(anno, non_builtin_types)
