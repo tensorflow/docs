@@ -102,9 +102,9 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600</code>
 <code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub</code>
 <code class="devsite-terminal">sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"</code>
-<code class="devsite-terminal">sudo apt-get update
+<code class="devsite-terminal">sudo apt-get update</code>
 
-wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
 
 <code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
@@ -127,7 +127,6 @@ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1
     libnvinfer-plugin7=7.1.3-1+cuda11.0
 </code>
 </pre>
-
 
 #### Ubuntu 16.04 (CUDA 11.0)
 
