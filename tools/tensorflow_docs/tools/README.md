@@ -51,6 +51,28 @@ up-to-date formatted state. See the tensorflow/docs
 [GitHub Actions workflow](https://github.com/tensorflow/docs/blob/master/.github/workflows/ci.yaml)
 for an example.
 
+### Pre-commit
+
+You can set up the nbfmt tool as a pre-commit check in other repos.
+To do this, use a standard Git hook or use the [https://pre-commit.com/](https://pre-commit.com/) framework to create the hook for you.
+
+If you want to use pre-commit to handle the hook installation for you, include the .pre-commit-config.yaml file in your repo with the following contents:
+
+```
+repos:
+- repo: https://github.com/tensorflow/docs
+  rev: pre-commit
+```
+
+Someone who clones that repo for development would then install the hook with:
+
+```
+# Install pre-commit framework
+pip3 install pre-commit
+
+# Install hooks
+pre-commit install
+```
 
 ## nblint
 
