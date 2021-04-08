@@ -53,10 +53,14 @@ for an example.
 
 ### Pre-commit
 
-You can set up the nbfmt tool as a pre-commit check in other repos.
-To do this, use a standard Git hook or use the [https://pre-commit.com/](https://pre-commit.com/) framework to create the hook for you.
+You can set up the `nbfmt` tool as a pre-commit check in other repos. To do
+this, use a standard Git hook or use the
+[https://pre-commit.com/](https://pre-commit.com/) framework to create the hook
+for you.
 
-If you want to use pre-commit to handle the hook installation for you, include the .pre-commit-config.yaml file in your repo with the following contents:
+If you want to use pre-commit to handle the hook installation for you, include
+the [.pre-commit-hooks.yaml](./.pre-commit-hooks.yaml) file in your repo with
+the following contents:
 
 ```
 repos:
