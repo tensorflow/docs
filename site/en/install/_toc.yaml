@@ -21,8 +21,8 @@ toc:
   status: external
 - heading: Language bindings
 - title: Java
-  path: /install/lang_java
-  status: experimental
+  path: /jvm/install
+  status: external
 - title: Java (legacy)
   status: deprecated
   path: /install/lang_java_legacy
