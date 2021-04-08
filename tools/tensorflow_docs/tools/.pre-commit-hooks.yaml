@@ -1,0 +1,11 @@
+# Example using the https://pre-commit.com/ framework.
+# See: https://github.com/tensorflow/docs/blob/master/tools/tensorflow_docs/tools/README.md#pre-commit
+- id: nbformat
+  name: nbformat
+  description: "Run 'nbformat' on a Jupyter Notebook"
+  entry: python -m tensorflow_docs.tools.nbfmt
+  language: python
+  language_version: python3
+  require_serial: true
+  types: [jupyter]
+  additional_dependencies: []
