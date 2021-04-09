@@ -537,8 +537,9 @@ def write_docs(
     try:
       page_info = parser.docs_for_object(full_name, py_object, parser_config,
                                          extra_docs)
-    except:
-      raise ValueError(f'Failed to generate docs for symbol: `{full_name}`')
+    except Exception as e:
+      raise ValueError(
+          f'Failed to generate docs for symbol: `{full_name}`') from e
 
     if gen_report and not full_name.startswith(
         ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',

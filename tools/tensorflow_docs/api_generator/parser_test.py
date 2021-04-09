@@ -859,7 +859,14 @@ class ParserTest(parameterized.TestCase):
     result = parser._get_other_member_doc(a, None, extra_docs)
 
     expected = textwrap.dedent("""\
-      `{1, 2, 3, 4}`
+      ```
+      {
+       1,
+       2,
+       3,
+       4
+      }
+      ```
 
       Object doc""")
     self.assertEqual(expected, result)

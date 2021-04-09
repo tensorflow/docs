@@ -943,9 +943,22 @@ def _get_other_member_doc(
     description = extra_docs.get(id(obj), None)
 
   info = None
-  if (doc_generator_visitor.maybe_singleton(obj) or
-      isinstance(obj, (list, tuple, set, frozenset, dict, enum.Enum)) or
-      obj is None):
+  if isinstance(obj, dict):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [
+        f' {name!r}: {value!r}'
+        for name, value in sorted(obj.items(), key=repr)
+    ]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+
+  elif isinstance(obj, (set, frozenset)):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [f' {value!r}' for value in sorted(obj, key=repr)]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+  elif (doc_generator_visitor.maybe_singleton(obj) or
+        isinstance(obj, (list, tuple, enum.Enum))):
     # use pformat instead of repr so dicts and sets are sorted (deterministic)
     info = f'`{pprint.pformat(obj)}`'
   else:
