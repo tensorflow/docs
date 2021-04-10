@@ -496,6 +496,7 @@ def write_docs(
     api_report_obj = utils.ApiReport()
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
+  num_docs_output = 0
   for full_name in sorted(parser_config.index.keys(), key=lambda k: k.lower()):
     py_object = parser_config.index[full_name]
 
@@ -555,6 +556,7 @@ def write_docs(
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
       path.write_text(text, encoding='utf-8')
+      num_docs_output += 1
     except OSError:
       raise OSError('Cannot write documentation for '
                     f'{full_name} to {path.parent}')
@@ -570,6 +572,12 @@ def write_docs(
         from_path = site_path / dup.replace('.', '/')
         to_path = site_path / full_name.replace('.', '/')
         redirects.append({'from': str(from_path), 'to': str(to_path)})
+
+  if num_docs_output == 0:
+    raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
+                     'your arguments (`base_dir` and `callbacks`). '
+                     'Everything you want documented should be within '
+                     '`base_dir`.')
 
   if gen_report:
     serialized_proto = api_report_obj.api_report.SerializeToString()
