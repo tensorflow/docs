@@ -266,12 +266,16 @@ class PublicAPIFilter(object):
     self._base_dir = base_dir
     self._private_map = private_map or {}
 
-  def _is_private(self, path, name, obj):
+  def _is_private(self, path, parent, name, obj):
     """Returns whether a name is private or not."""
 
     # Skip objects blocked by doc_controls.
     if doc_controls.should_skip(obj):
       return True
+
+    if isinstance(obj, type):
+      if doc_controls.should_skip_class_attr(parent, name):
+        return True
 
     if doc_controls.should_doc_private(obj):
       return False
@@ -309,6 +313,6 @@ class PublicAPIFilter(object):
     # Remove things that are not visible.
     children = [(child_name, child_obj)
                 for child_name, child_obj in list(children)
-                if not self._is_private(path, child_name, child_obj)]
+                if not self._is_private(path, parent, child_name, child_obj)]
 
     return children
