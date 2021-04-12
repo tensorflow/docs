@@ -573,17 +573,17 @@ def write_docs(
         to_path = site_path / full_name.replace('.', '/')
         redirects.append({'from': str(from_path), 'to': str(to_path)})
 
-  if num_docs_output == 0:
-    raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
-                     'your arguments (`base_dir` and `callbacks`). '
-                     'Everything you want documented should be within '
-                     '`base_dir`.')
-
   if gen_report:
     serialized_proto = api_report_obj.api_report.SerializeToString()
     raw_proto = output_dir / 'api_report.pb'
     raw_proto.write_bytes(serialized_proto)
     return
+
+  if num_docs_output == 0 and not gen_report:
+    raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
+                     'your arguments (`base_dir` and `callbacks`). '
+                     'Everything you want documented should be within '
+                     '`base_dir`.')
 
   if yaml_toc:
     toc_gen = GenerateToc(module_children)
