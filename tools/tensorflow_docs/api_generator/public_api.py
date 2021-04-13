@@ -273,7 +273,7 @@ class PublicAPIFilter(object):
     if doc_controls.should_skip(obj):
       return True
 
-    if isinstance(obj, type):
+    if isinstance(parent, type):
       if doc_controls.should_skip_class_attr(parent, name):
         return True
 

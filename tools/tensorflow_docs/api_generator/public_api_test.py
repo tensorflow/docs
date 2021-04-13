@@ -23,6 +23,7 @@ import typing
 from absl.testing import absltest
 # This import is using to test
 from tensorflow_docs import api_generator
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import public_api
 
 
@@ -177,6 +178,22 @@ class PublicApiTest(absltest.TestCase):
     children_after = public_api.ignore_typing('ignored', 'ignored',
                                               children_before)
     self.assertEqual(children_after, children_before[:-1])
+
+  def test_ignore_class_attr(self):
+
+    class MyClass:
+
+      @doc_controls.do_not_doc_inheritable
+      def my_method(self):
+        pass
+
+    private = public_api.PublicAPIFilter._is_private(
+        self=None,
+        path=('a', 'b'),
+        parent=MyClass,
+        name='my_method',
+        obj=MyClass.my_method)
+    self.assertTrue(private)
 
 
 if __name__ == '__main__':
