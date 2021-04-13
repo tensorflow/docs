@@ -1357,7 +1357,7 @@ class FormatArguments(object):
     kwargs_text_repr = []
 
     if len(ast_defaults) < len(kwargs):
-      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))
+      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))  # pytype: disable=container-type-mismatch
 
     for kwarg, ast_default in zip(kwargs, ast_defaults):
       kname = kwarg.name
