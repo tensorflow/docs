@@ -465,10 +465,8 @@ def should_skip_class_attr(cls, name):
   try:
     obj = getattr(cls, name)
   except AttributeError:
-    # Avoid error caused by enum metaclasses in python3
-    if name in ("name", "value"):
-      return True
-    raise
+    # This can fail for a variety of reasons. Always skip if `getattr` fails.
+    return True
 
   # Unwrap fget if the object is a property
   obj = _unwrap_func(obj)
