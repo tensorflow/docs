@@ -1416,8 +1416,18 @@ class _SignatureComponents(NamedTuple):
     return full_signature
 
 
-def generate_signature(func: Any, parser_config: ParserConfig,
-                       func_full_name: str) -> _SignatureComponents:
+class FuncType(enum.Enum):
+  """Enum to recognize type of function passed to `generate_signature`."""
+  FUNCTION = 'function'
+  METHOD = 'method'
+
+
+def generate_signature(
+    func: Any,
+    parser_config: ParserConfig,
+    func_full_name: str,
+    func_type: FuncType,
+) -> _SignatureComponents:
   """Given a function, returns a list of strings representing its args.
 
   This function uses `__name__` for callables if it is available. This can lead
@@ -1431,6 +1441,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     parser_config: `ParserConfig` for the method/function whose signature is
       generated.
     func_full_name: The full name of a function whose signature is generated.
+    func_type: Type of the current `func`. This is required because there isn't
+      a clear distinction between function and method being passed to
+      `generate_signature`. Sometimes methods are detected as function by
+      `inspect`. Since we know the type of `func` when generate_signature is
+      called, use that to pass the type of `func`.
 
   Returns:
     A `_SignatureComponents` NamedTuple.
@@ -1482,7 +1497,8 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     kind = param.kind
     default = param.default
 
-    if index == 0 and param.name in ('self', 'cls', '_cls'):
+    if (index == 0 and param.name in ('self', 'cls', '_cls') and
+        func_type == FuncType.METHOD):
       # Only skip the first parameter. If the function contains both
       # `self` and `cls`, skip only the first one.
       continue
@@ -1739,8 +1755,12 @@ class FunctionPageInfo(PageInfo):
     """
 
     assert self.signature is None
-    self._signature = generate_signature(self.py_object, parser_config,
-                                         self.full_name)
+    self._signature = generate_signature(
+        self.py_object,
+        parser_config,
+        self.full_name,
+        func_type=FuncType.FUNCTION,
+    )
     self._decorators = extract_decorators(self.py_object)
 
   @property
@@ -2032,7 +2052,8 @@ class ClassPageInfo(PageInfo):
       py_obj = self.py_object
     else:
       py_obj = member_info.py_object
-    signature = generate_signature(py_obj, parser_config, member_info.full_name)
+    signature = generate_signature(
+        py_obj, parser_config, member_info.full_name, func_type=FuncType.METHOD)
 
     decorators = extract_decorators(member_info.py_object)
 

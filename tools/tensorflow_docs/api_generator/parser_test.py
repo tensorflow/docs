@@ -824,7 +824,7 @@ class ParserTest(parameterized.TestCase):
   def test_get_other_member_doc_object_doc_attr(self):
 
     class A():
-      """Class docs"""
+      """Class docs."""
       pass
 
     a = A()
@@ -880,7 +880,7 @@ class ParserTest(parameterized.TestCase):
   def test_get_other_member_doc_unknown_class(self):
 
     class A():
-      """Class docs"""
+      """Class docs."""
       pass
 
     a = A()
@@ -904,7 +904,7 @@ class ParserTest(parameterized.TestCase):
   def test_get_other_member_doc_known_class(self):
 
     class A():
-      """Class docs"""
+      """Class docs."""
       pass
 
     a = A()
@@ -1245,19 +1245,34 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
 
-    def example_fun(a=5, b=5.0, c=None, d=True, e='hello', f=(1, (2, 3))):  # pylint: disable=g-bad-name, unused-argument
+    def example_fun(
+        self,
+        cls,
+        a=5,
+        b=5.0,
+        c=None,
+        d=True,
+        e='hello',
+        f=(1, (2, 3)),
+    ):  # pylint: disable=g-bad-name, unused-argument
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
-        'a=5', 'b=5.0', 'c=None', 'd=True', 'e=&#x27;hello&#x27;',
-        'f=(1, (2, 3))'
+        'self', 'cls', 'a=5', 'b=5.0', 'c=None', 'd=True',
+        'e=&#x27;hello&#x27;', 'f=(1, (2, 3))'
     ])
 
   def test_dotted_name(self):
@@ -1282,7 +1297,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(
         sig.arguments,
         ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', 'arg3=e[&#x27;f&#x27;]'])
@@ -1293,7 +1311,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       return True
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
         'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'y=None', 'c', '**kwargs'
     ])
@@ -1307,7 +1328,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       return True
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
         'x', 'z', 'cls', '*args', 'a=True', 'b=&#x27;test&#x27;', 'y=None', 'c',
         '**kwargs'
@@ -1318,24 +1342,28 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def test_type_annotations(self):
     # pylint: disable=unused-argument
 
-    def example_fun(self,
-                    cls,
-                    x: List[str],
-                    z: int,
-                    a: Union[List[str], str, int] = None,
-                    b: str = 'test',
-                    *,
-                    y: bool = False,
-                    c: Callable[..., int],
-                    **kwargs) -> None:
-      pass
+    class TestMethodSig:
+
+      def example_fun(self,
+                      x: List[str],
+                      z: int,
+                      a: Union[List[str], str, int] = None,
+                      b: str = 'test',
+                      *,
+                      y: bool = False,
+                      c: Callable[..., int],
+                      **kwargs) -> None:
+        pass
 
     # pylint: enable=unused-argument
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        TestMethodSig.example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.METHOD,
+    )
     self.assertEqual(sig.arguments, [
-        'cls',
         'x: List[str]',
         'z: int',
         'a: Union[List[str], str, int] = None',
@@ -1352,7 +1380,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def test_dataclasses_type_annotations(self):
 
     sig = parser.generate_signature(
-        ExampleDataclass, parser_config=self.parser_config, func_full_name='')
+        ExampleDataclass,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
 
     self.assertEqual(sig.arguments, [
         'x: List[str]',
