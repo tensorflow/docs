@@ -1420,6 +1420,7 @@ class FuncType(enum.Enum):
   """Enum to recognize type of function passed to `generate_signature`."""
   FUNCTION = 'function'
   METHOD = 'method'
+  CLASSMETHOD = 'classmethod'
 
 
 def generate_signature(
@@ -1497,10 +1498,14 @@ def generate_signature(
     kind = param.kind
     default = param.default
 
-    if (index == 0 and param.name in ('self', 'cls', '_cls') and
-        func_type == FuncType.METHOD):
-      # Only skip the first parameter. If the function contains both
-      # `self` and `cls`, skip only the first one.
+    if (index == 0 and func_type == FuncType.METHOD and
+        kind != param.VAR_POSITIONAL):
+      # - Skip the first arg for regular methods.
+      # - Some wrapper methods forget `self` and just use `(*args, **kwargs)`.
+      #   That's still valid, don't drop `*args`.
+      # - For classmethods the `cls` arg already bound here (it's not in
+      #   `sig_values`).
+      # - For regular functions (or staticmethods) you never need to skip.
       continue
     elif kind == param.POSITIONAL_ONLY:
       pos_only_args.append(param)
@@ -2052,8 +2057,21 @@ class ClassPageInfo(PageInfo):
       py_obj = self.py_object
     else:
       py_obj = member_info.py_object
+
+    if isinstance(original_method, classmethod):
+      func_type = FuncType.CLASSMETHOD
+    elif member_info.short_name == '__new__':
+      # __new__ acts like a regular method for this.
+      # - At this point all args are visible in the signature.
+      # - When used the first argument gets boound (like self).
+      # - Sometimes users wrap it with a `staticmethod` but that gets ignored.
+      func_type = FuncType.METHOD
+    elif isinstance(original_method, staticmethod):
+      func_type = FuncType.FUNCTION
+    else:
+      func_type = FuncType.METHOD
     signature = generate_signature(
-        py_obj, parser_config, member_info.full_name, func_type=FuncType.METHOD)
+        py_obj, parser_config, member_info.full_name, func_type=func_type)
 
     decorators = extract_decorators(member_info.py_object)
 

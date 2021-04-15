@@ -1435,6 +1435,73 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     info_obj.collect_docs(self.parser_config)
     self.assertEqual(info_obj.signature, expected_sig)
 
+  def _setup_class_info(self, cls, method_name):
+    pc = self.parser_config
+    pc.tree['x.Cls'] = [method_name]
+    full_name = f'x.Cls.{method_name}'
+    pc.index[full_name] = getattr(cls, method_name)
+    pc.reference_resolver._duplicate_of[full_name] = full_name
+    pc.reference_resolver._is_fragment[full_name] = True
+    pc.reference_resolver._all_names.add(full_name)
+
+    info = parser.ClassPageInfo(full_name='x.Cls', py_object=cls)
+    info._doc = parser._DocstringInfo('doc', ['doc'], {})
+    info.collect_docs(self.parser_config)
+
+    return info
+
+  def test_signature_method_wrong_self_name(self):
+
+    class Cls:
+
+      def method(x):  # pylint: disable=no-self-argument
+        pass
+
+    info = self._setup_class_info(Cls, 'method')
+    self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_method_star_args(self):
+
+    class Cls:
+
+      def method(*args):  # pylint: disable=no-method-argument
+        pass
+
+    info = self._setup_class_info(Cls, 'method')
+    self.assertEqual('(\n    *args\n)', str(info.methods[0].signature))
+
+  def test_signature_classmethod_wrong_cls_name(self):
+
+    class Cls:
+
+      @classmethod
+      def method(x):  # pylint: disable=bad-classmethod-argument
+        pass
+
+    info = self._setup_class_info(Cls, 'method')
+    self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_staticmethod(self):
+
+    class Cls:
+
+      @staticmethod
+      def method(x):
+        pass
+
+    info = self._setup_class_info(Cls, 'method')
+    self.assertEqual('(\n    x\n)', str(info.methods[0].signature))
+
+  def test_signature_new(self):
+
+    class Cls:
+
+      def __new__(x):  # pylint: disable=bad-classmethod-argument
+        pass
+
+    info = self._setup_class_info(Cls, '__new__')
+    self.assertEqual('()', str(info.methods[0].signature))
+
 
 if __name__ == '__main__':
   absltest.main()
