@@ -18,6 +18,7 @@
 import collections
 import inspect
 import os
+import sys
 import tempfile
 import textwrap
 
@@ -1402,10 +1403,11 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                              List[Dict[int, parser.extract_decorators]]],
        textwrap.dedent("""\
         Union[
-            Dict[str, Dict[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]],
+            dict[str, dict[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]],
             int,
+            bool,
             <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>,
-            List[Dict[int, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]]
+            list[dict[int, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]]
         ]""")), ('callable_ellipsis_sig', Union[Callable[..., int], str],
                  textwrap.dedent("""\
         Union[
@@ -1433,6 +1435,15 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         full_name='tfdocs.api_generator.generate_lib.DocGenerator',
         py_object=alias)
     info_obj.collect_docs(self.parser_config)
+    if sys.version_info[:2] <= (3, 6):
+      # TypeAliasPageInfo.signature is built using the __origin__ attribute of
+      # type annotations. Before Python 3.7, __origin__ stored typing constructs
+      # (e.g., typing.List); in 3.7+, it stores the equivalent runtime class
+      # (e.g., builtins.list).
+      expected_sig = expected_sig.replace('dict[',
+                                          'Dict[').replace('list[', 'List[')
+      # For some reason, bool is missing from the deep_objects signature in 3.6.
+      expected_sig = expected_sig.replace('    bool,\n', '')
     self.assertEqual(info_obj.signature, expected_sig)
 
   def _setup_class_info(self, cls, method_name):

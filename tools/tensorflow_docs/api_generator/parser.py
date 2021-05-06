@@ -1894,7 +1894,10 @@ class TypeAliasPageInfo(PageInfo):
 
     # pytype: enable=module-attr
 
-    self._signature = sig.replace('typing.', '')
+    # Starting in Python 3.7, the __origin__ attribute of typing constructs
+    # contains the equivalent runtime class rather than the construct itself
+    # (e.g., typing.Callable.__origin__ is collections.abc.Callable).
+    self._signature = sig.replace('typing.', '').replace('collections.abc.', '')
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
