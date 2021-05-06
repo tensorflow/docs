@@ -103,7 +103,7 @@ landing_page:
       path: https://js.tensorflow.org
       description: >
         TensorFlow.js is a WebGL accelerated, JavaScript library to train and
-        deploy ML models in the browser and for Node.js.
+        deploy ML models in the browser, Node.js, mobile, and more.
     - classname: tfo-landing-row-item-inset-white
       heading: Mobile developers
       path: /lite/
