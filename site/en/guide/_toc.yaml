@@ -38,6 +38,9 @@ toc:
   path: /guide/sparse_tensor
 - title: "NumPy API"
   path: /guide/tf_numpy
+- title: "Tensor slicing"
+  status: new
+  path: /guide/tensor_slicing
 
 - heading: "Keras"
 - include: /guide/keras/_toc.yaml
@@ -82,7 +85,6 @@ toc:
   path: /guide/graph_optimization
 - title: "Mixed precision"
   path: /guide/mixed_precision
-  status: experimental
 
 - heading: "Estimators"
 - title: "Estimator overview"
