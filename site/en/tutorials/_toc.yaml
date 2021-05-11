@@ -188,12 +188,16 @@ toc:
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 
-- title: "Interpretability"
+- title: "Model Understanding"
   style: accordion
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
-
+  - title: "Uncertainty quantification with SNGP"
+    path: /tutorials/understanding/sngp
+  - title: "Probabalistic regression"
+    path: /probability/examples/Probabilistic_Layers_Regression
+    status: external
 - title: "Reinforcement learning"
   style: accordion
   section:
