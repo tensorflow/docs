@@ -1,5 +1,7 @@
 # Contribute to the TensorFlow API documentation
 
+<a id=doctest></a>
+
 ## Testable docstrings
 
 TensorFlow uses [DocTest](https://docs.python.org/3/library/doctest.html) to
@@ -142,6 +144,28 @@ TensorFlow uses a few customizations to the builtin doctest logic:
     ...
     ValueError: Unexpectedly found an instance of type `<class 'numpy.ndarray'>`.
     ```
+
+### Use a project-local copy of tf-doctest.
+
+Note: The tf-doctest utility is only setup to test source files within the
+`tensorflow` repository. If the files you are editing are in TensorFlow you can
+skip to the next section. Otherwise keep reading this section.
+
+Some API's in TensorFlow come from an external project:
+
+*   `tf.estimator` (from
+    [tensorflow_estimator](https://github.com/tensorflow/estimator))
+*   `tf.summary` [tensorboard](https://github.com/tensorflow/tensorboard))
+*   `tf.keras.preprocessing` (from
+    [keras-preprocessing](https://github.com/keras-team/keras-preprocessing))
+
+If you're working on an external project, or on TensorFlow APIs that are housed
+in an external project, these instructions won't work unless that project has
+its own local copy of `tf_doctest`, and you use that copy instead of
+TensorFlow's.
+
+For example:
+[tf_estimator_doctest.py](https://github.com/tensorflow/estimator/python/estimator/tf_estimator_doctest.py).
 
 ### Test on your local machine
 

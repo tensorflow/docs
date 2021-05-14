@@ -23,6 +23,7 @@ import typing
 from absl.testing import absltest
 # This import is using to test
 from tensorflow_docs import api_generator
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import public_api
 
 
@@ -77,25 +78,6 @@ class PublicApiTest(absltest.TestCase):
     # Make sure the private symbols are removed before the visitor is called.
     self.assertEqual([('name1', 'thing1')], visitor.last_children)
     self.assertEqual([('name1', 'thing1')], children)
-
-  def test_no_descent_child_removal(self):
-    visitor = self.TestVisitor()
-
-    api_visitors = [
-        public_api.PublicAPIFilter(
-            base_dir='/', do_not_descend_map={'tf.test': ['mock']}), visitor
-    ]
-
-    children = [('name1', 'thing1'), ('name2', 'thing2')]
-    path = ('tf', 'test', 'mock')
-    parent = 'dummy'
-
-    for api_visitor in api_visitors:
-      children = api_visitor(path, parent, children)
-
-    # Make sure not-to-be-descended-into symbols's children are removed.
-    self.assertEqual([], visitor.last_children)
-    self.assertEqual([], children)
 
   def test_private_map_child_removal(self):
     visitor = self.TestVisitor()
@@ -196,6 +178,22 @@ class PublicApiTest(absltest.TestCase):
     children_after = public_api.ignore_typing('ignored', 'ignored',
                                               children_before)
     self.assertEqual(children_after, children_before[:-1])
+
+  def test_ignore_class_attr(self):
+
+    class MyClass:
+
+      @doc_controls.do_not_doc_inheritable
+      def my_method(self):
+        pass
+
+    private = public_api.PublicAPIFilter._is_private(
+        self=None,
+        path=('a', 'b'),
+        parent=MyClass,
+        name='my_method',
+        obj=MyClass.my_method)
+    self.assertTrue(private)
 
 
 if __name__ == '__main__':

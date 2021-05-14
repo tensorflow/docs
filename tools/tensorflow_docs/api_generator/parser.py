@@ -19,10 +19,12 @@ import ast
 import collections
 import enum
 import functools
+import html
 import inspect
 import itertools
 import json
 import os
+import pprint
 import re
 import textwrap
 import typing
@@ -30,9 +32,11 @@ import typing
 from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
+import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import public_api
 
 from google.protobuf.message import Message as ProtoMessage
 
@@ -104,23 +108,20 @@ class _FileLocation(object):
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
-  GITHUB_LINE_NUMBER_TEMPLATE = '#L{start_line:d}-L{end_line:d}'
 
-  def __init__(self, rel_path, url=None, start_line=None, end_line=None):
-    self.rel_path = rel_path
+  def __init__(
+      self,
+      url: Optional[str] = None,
+      start_line: Optional[int] = None,
+      end_line: Optional[int] = None,
+  ) -> None:
     self.url = url
-    self.start_line = start_line
-    self.end_line = end_line
+    self._start_line = start_line
+    self._end_line = end_line
 
-    github_main_re = 'github.com.*?(blob|tree)/master'
-    suffix = ''
-    # Only attach a line number for github URLs that are not using "main"
-    if self.start_line and not re.search(github_main_re, self.url):
+    if self._start_line:
       if 'github.com' in self.url:
-        suffix = self.GITHUB_LINE_NUMBER_TEMPLATE.format(
-            start_line=self.start_line, end_line=self.end_line)
-
-        self.url = self.url + suffix
+        self.url = f'{self.url}#L{self._start_line}-L{self._end_line}'
 
 
 def is_class_attr(full_name, index):
@@ -195,8 +196,9 @@ def _get_raw_docstring(py_object):
     result = ''
 
   result = _StripTODOs()(result)
-  result = _StripPylints()(result)
+  result = _StripPylintAndPyformat()(result)
   result = _AddDoctestFences()(result + '\n')
+  result = _DowngradeH1Keywords()(result)
   return result
 
 
@@ -204,7 +206,7 @@ class _AddDoctestFences(object):
   """Adds ``` fences around doctest caret blocks >>> that don't have them."""
   CARET_BLOCK_RE = re.compile(
       r"""
-    (?<=\n)\ *\n                           # After a blank line.
+    \n                                     # After a blank line.
     (?P<indent>\ *)(?P<content>\>\>\>.*?)  # Whitespace and a triple caret.
     \n\s*?(?=\n|$)                         # Followed by a blank line""",
       re.VERBOSE | re.DOTALL)
@@ -227,11 +229,40 @@ class _StripTODOs(object):
     return self.TODO_RE.sub('', content)
 
 
-class _StripPylints(object):
-  PYLINT_RE = re.compile('# *?pylint:.*')
+class _StripPylintAndPyformat(object):
+  STRIP_RE = re.compile('# *?(pylint|pyformat):.*', re.I)
 
   def __call__(self, content: str) -> str:
-    return self.PYLINT_RE.sub('', content)
+    return self.STRIP_RE.sub('', content)
+
+
+class _DowngradeH1Keywords():
+  """Convert keras docstring keyword format to google format."""
+
+  KEYWORD_H1_RE = re.compile(
+      r"""
+    ^                 # Start of line
+    (?P<indent>\s*)   # Capture leading whitespace as <indent
+    \#\s*             # A literal "#" and more spaces
+                      # Capture any of these keywords as <keyword>
+    (?P<keyword>Args|Arguments|Returns|Raises|Yields|Examples?|Notes?)
+    \s*:?             # Optional whitespace and optional ":"
+    """, re.VERBOSE)
+
+  def __call__(self, docstring):
+    lines = docstring.splitlines()
+
+    new_lines = []
+    is_code = False
+    for line in lines:
+      if line.strip().startswith('```'):
+        is_code = not is_code
+      elif not is_code:
+        line = self.KEYWORD_H1_RE.sub(r'\g<indent>\g<keyword>:', line)
+      new_lines.append(line)
+
+    docstring = '\n'.join(new_lines)
+    return docstring
 
 
 class IgnoreLineInBlock(object):
@@ -810,13 +841,12 @@ class TitleBlock(object):
                                       # (a new-line followed by non-whitespace)
     """, re.VERBOSE | re.DOTALL)
 
-  # This
   ITEM_RE = re.compile(
       r"""
-      ^(\*?\*?          # Capture optional *s to allow *args, **kwargs.
-          \w[\w.]*?     # Capture a word character followed by word characters
-                        # or "."s.
-      )\s*:\s           # Allow any whitespace around the colon.""",
+      ^(\*?\*?'?"?     # Capture optional *s to allow *args, **kwargs and quotes
+          \w[\w.'"]*?  # Capture a word character followed by word characters
+                       # or "."s or ending quotes.
+      )\s*:\s          # Allow any whitespace around the colon.""",
       re.MULTILINE | re.VERBOSE)
 
   @classmethod
@@ -898,22 +928,60 @@ def _get_other_member_doc(
     extra_docs: Optional[Dict[int, str]],
 ) -> str:
   """Returns the docs for other members of a module."""
-  if extra_docs is not None:
-    other_member_extra_doc = extra_docs.get(id(obj), None)
-  else:
-    other_member_extra_doc = None
 
-  if other_member_extra_doc is not None:
-    description = other_member_extra_doc
-  elif doc_generator_visitor.maybe_singleton(obj):
-    description = f'`{repr(obj)}`'
+  # An object's __doc__ attribute will mask the class'.
+  my_doc = inspect.getdoc(obj)
+  class_doc = inspect.getdoc(type(obj))
+
+  description = None
+  if my_doc != class_doc:
+    # If they're different it's because __doc__ is set on the instance.
+    if my_doc is not None:
+      description = my_doc
+
+  if description is None and extra_docs is not None:
+    description = extra_docs.get(id(obj), None)
+
+  info = None
+  if isinstance(obj, dict):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [
+        f' {name!r}: {value!r}'
+        for name, value in sorted(obj.items(), key=repr)
+    ]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+
+  elif isinstance(obj, (set, frozenset)):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [f' {value!r}' for value in sorted(obj, key=repr)]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+  elif (doc_generator_visitor.maybe_singleton(obj) or
+        isinstance(obj, (list, tuple, enum.Enum))):
+    # * Use pformat instead of repr so dicts and sets are sorted (deterministic)
+    # * Escape ` so it doesn't break code formatting. You can't use "&#96;"
+    #   here since it will diaplay as a literal. I'm not sure why <pre></pre>
+    #   breaks on the site.
+    info = pprint.pformat(obj).replace('`', r'\`')
+    info = f'`{info}`'
   else:
-    class_name = parser_config.reverse_index.get(id(type(obj)), None)
-    if class_name is not None:
-      description = f'`{class_name}`'
-    else:
-      description = ''
-  return description
+    class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
+    if class_full_name is None:
+      module = getattr(type(obj), '__module__', None)
+      class_name = type(obj).__name__
+      if module is None or module == 'builtins':
+        class_full_name = class_name
+      else:
+        class_full_name = f'{module}.{class_name}'
+    info = f'Instance of `{class_full_name}`'
+
+  if description is None:
+    result = info
+  else:
+    result = f'{info}\n\n{description}'
+
+  return result
 
 
 def _parse_md_docstring(
@@ -1016,6 +1084,29 @@ class TypeAnnotationExtractor(ast.NodeVisitor):
         self.arguments_typehint_exists = True
 
 
+class DataclassTypeAnnotationExtractor(ast.NodeVisitor):
+  """Extracts the type annotations by parsing the AST of a dataclass."""
+
+  def __init__(self):
+    self.annotation_dict = {}
+    self.arguments_typehint_exists = False
+    self.return_typehint_exists = False
+
+  def visit_ClassDef(self, node) -> None:  # pylint: disable=invalid-name
+    # Don't visit all nodes. Only visit top-level AnnAssign nodes so that
+    # If there's an AnnAssign in a method it doesn't get picked up.
+    for sub in node.body:
+      if isinstance(sub, ast.AnnAssign):
+        self.visit_AnnAssign(sub)
+
+  def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
+    """Vists an assignment with a type annotation. Dataclasses is an example."""
+    arg = astor.to_source(node.target).strip()
+    anno = astor.to_source(node.annotation).strip()
+    self.annotation_dict[arg] = anno
+    self.arguments_typehint_exists = True
+
+
 class ASTDefaultValueExtractor(ast.NodeVisitor):
   """Extracts the default values by parsing the AST of a function."""
 
@@ -1073,9 +1164,10 @@ class FormatArguments(object):
       list(typing.__dict__.keys()) +
       ['int', 'str', 'bytes', 'float', 'complex', 'bool', 'None'])
 
-  _IMMUTABLE_TYPES = frozenset(
-      [int, str, bytes, float, complex, bool,
-       type(None), tuple, frozenset])
+  _IMMUTABLE_TYPES = frozenset([
+      int, str, bytes, float, complex, bool, Ellipsis,
+      type(None), tuple, frozenset
+  ])
 
   def __init__(
       self,
@@ -1126,8 +1218,8 @@ class FormatArguments(object):
     for anno in annotations:
       if self._reverse_index.get(id(anno), None):
         non_builtin_types.append(anno)
-      elif (anno in self._IMMUTABLE_TYPES or anno in typing.__dict__.values() or
-            anno is Ellipsis):
+      elif (anno in self._IMMUTABLE_TYPES or
+            id(type(anno)) in public_api._TYPING_IDS):  # pylint: disable=protected-access
         continue
       elif hasattr(anno, '__args__'):
         self._extract_non_builtin_types(anno, non_builtin_types)
@@ -1269,7 +1361,7 @@ class FormatArguments(object):
     kwargs_text_repr = []
 
     if len(ast_defaults) < len(kwargs):
-      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))
+      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))  # pytype: disable=container-type-mismatch
 
     for kwarg, ast_default in zip(kwargs, ast_defaults):
       kname = kwarg.name
@@ -1289,6 +1381,7 @@ class FormatArguments(object):
         # Strip object memory addresses to avoid unnecessary doc churn.
         default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
             r'<\g<type>>', repr(default_val))
+      default_text = html.escape(str(default_text))
 
       # Format the kwargs to add the type annotation and default values.
       if kname in self._type_annotations:
@@ -1327,8 +1420,19 @@ class _SignatureComponents(NamedTuple):
     return full_signature
 
 
-def generate_signature(func: Any, parser_config: ParserConfig,
-                       func_full_name: str) -> _SignatureComponents:
+class FuncType(enum.Enum):
+  """Enum to recognize type of function passed to `generate_signature`."""
+  FUNCTION = 'function'
+  METHOD = 'method'
+  CLASSMETHOD = 'classmethod'
+
+
+def generate_signature(
+    func: Any,
+    parser_config: ParserConfig,
+    func_full_name: str,
+    func_type: FuncType,
+) -> _SignatureComponents:
   """Given a function, returns a list of strings representing its args.
 
   This function uses `__name__` for callables if it is available. This can lead
@@ -1342,6 +1446,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     parser_config: `ParserConfig` for the method/function whose signature is
       generated.
     func_full_name: The full name of a function whose signature is generated.
+    func_type: Type of the current `func`. This is required because there isn't
+      a clear distinction between function and method being passed to
+      `generate_signature`. Sometimes methods are detected as function by
+      `inspect`. Since we know the type of `func` when generate_signature is
+      called, use that to pass the type of `func`.
 
   Returns:
     A `_SignatureComponents` NamedTuple.
@@ -1357,7 +1466,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     sig_values = []
     return_anno = None
 
-  type_annotation_visitor = TypeAnnotationExtractor()
+  if dataclasses.is_dataclass(func):
+    type_annotation_visitor = DataclassTypeAnnotationExtractor()
+  else:
+    type_annotation_visitor = TypeAnnotationExtractor()
+
   ast_defaults_visitor = ASTDefaultValueExtractor()
 
   try:
@@ -1384,16 +1497,20 @@ def generate_signature(func: Any, parser_config: ParserConfig,
   only_kwargs = []
   varargs = None
   varkwargs = None
-  skip_self_cls = True
 
   for index, param in enumerate(sig_values):
     kind = param.kind
     default = param.default
 
-    if skip_self_cls and param.name in ('self', 'cls', '_cls'):
-      # Only skip the first parameter. If the function contains both
-      # `self` and `cls`, skip only the first one.
-      skip_self_cls = False
+    if (index == 0 and func_type == FuncType.METHOD and
+        kind != param.VAR_POSITIONAL):
+      # - Skip the first arg for regular methods.
+      # - Some wrapper methods forget `self` and just use `(*args, **kwargs)`.
+      #   That's still valid, don't drop `*args`.
+      # - For classmethods the `cls` arg already bound here (it's not in
+      #   `sig_values`).
+      # - For regular functions (or staticmethods) you never need to skip.
+      continue
     elif kind == param.POSITIONAL_ONLY:
       pos_only_args.append(param)
     elif default is param.empty and kind == param.POSITIONAL_OR_KEYWORD:
@@ -1647,8 +1764,12 @@ class FunctionPageInfo(PageInfo):
     """
 
     assert self.signature is None
-    self._signature = generate_signature(self.py_object, parser_config,
-                                         self.full_name)
+    self._signature = generate_signature(
+        self.py_object,
+        parser_config,
+        self.full_name,
+        func_type=FuncType.FUNCTION,
+    )
     self._decorators = extract_decorators(self.py_object)
 
   @property
@@ -1777,7 +1898,10 @@ class TypeAliasPageInfo(PageInfo):
 
     # pytype: enable=module-attr
 
-    self._signature = sig.replace('typing.', '')
+    # Starting in Python 3.7, the __origin__ attribute of typing constructs
+    # contains the equivalent runtime class rather than the construct itself
+    # (e.g., typing.Callable.__origin__ is collections.abc.Callable).
+    self._signature = sig.replace('typing.', '').replace('collections.abc.', '')
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
@@ -1851,8 +1975,7 @@ class ClassPageInfo(PageInfo):
       parser_config: An instance of `ParserConfig`.
     """
     bases = []
-    obj = parser_config.py_name_to_object(self.full_name)
-    for base in obj.__bases__:
+    for base in self.py_object.__mro__[1:]:
       base_full_name = parser_config.reverse_index.get(id(base), None)
       if base_full_name is None:
         continue
@@ -1931,8 +2054,31 @@ class ClassPageInfo(PageInfo):
         member_info.short_name in ['__del__', '__copy__']):
       return
 
-    signature = generate_signature(member_info.py_object, parser_config,
-                                   member_info.full_name)
+    # If the curent class py_object is a dataclass then use the class object
+    # instead of the __init__ method object because __init__ is a
+    # generated method on dataclasses and `inspect.getsource` doesn't work
+    # on generated methods (as the source file doesn't exist) which is
+    # required for signature generation.
+    if (dataclasses.is_dataclass(self.py_object) and
+        member_info.short_name == '__init__'):
+      py_obj = self.py_object
+    else:
+      py_obj = member_info.py_object
+
+    if isinstance(original_method, classmethod):
+      func_type = FuncType.CLASSMETHOD
+    elif member_info.short_name == '__new__':
+      # __new__ acts like a regular method for this.
+      # - At this point all args are visible in the signature.
+      # - When used the first argument gets boound (like self).
+      # - Sometimes users wrap it with a `staticmethod` but that gets ignored.
+      func_type = FuncType.METHOD
+    elif isinstance(original_method, staticmethod):
+      func_type = FuncType.FUNCTION
+    else:
+      func_type = FuncType.METHOD
+    signature = generate_signature(
+        py_obj, parser_config, member_info.full_name, func_type=func_type)
 
     decorators = extract_decorators(member_info.py_object)
 
@@ -2056,7 +2202,7 @@ class ClassPageInfo(PageInfo):
 
     + `namedtuple` fields first, in order.
     + Then the docstring `Attr:` block.
-    + Then any `properties` not mentioned above.
+    + Then any `properties` or `dataclass` fields not mentioned above.
 
     Args:
       docstring_parts: A list of docstring parts.
@@ -2083,10 +2229,16 @@ class ClassPageInfo(PageInfo):
     attrs.update(self._namedtuplefields)
     # the contents of the `Attrs:` block from the docstring
     attrs.update(raw_attrs)
-    # properties last.
+
+    # properties and dataclass fields last.
     for name, desc in self._properties.items():
       # Don't overwrite existing items
       attrs.setdefault(name, desc)
+
+    if dataclasses.is_dataclass(self.py_object):
+      for name, desc in self._dataclass_fields().items():
+        # Don't overwrite existing items
+        attrs.setdefault(name, desc)
 
     if attrs:
       attribute_block = TitleBlock(
@@ -2096,6 +2248,15 @@ class ClassPageInfo(PageInfo):
     del docstring_parts[attr_block_index]
 
     return attribute_block
+
+  def _dataclass_fields(self):
+    fields = {
+        name: 'Dataclass field'
+        for name in self.py_object.__dataclass_fields__.keys()
+        if not name.startswith('_')
+    }
+
+    return fields
 
 
 class ModulePageInfo(PageInfo):
@@ -2386,17 +2547,15 @@ def _get_defined_in(py_object: Any,
     return None
 
   if re.match(r'.*/gen_[^/]*\.py$', rel_path):
-    return _FileLocation(rel_path)
+    return _FileLocation()
   if 'genfiles' in rel_path:
-    return _FileLocation(rel_path)
+    return _FileLocation()
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
     rel_path = rel_path[:-7] + '.proto'
-    return _FileLocation(
-        rel_path=rel_path, url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
+    return _FileLocation(url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
   else:
     return _FileLocation(
-        rel_path=rel_path,
         url=os.path.join(code_url_prefix, rel_path),
         start_line=start_line,
         end_line=end_line)  # pylint: disable=undefined-loop-variable

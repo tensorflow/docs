@@ -25,6 +25,7 @@ experts, and communicating design changes broadly.
 
 2.  Draft your RFC.
 
+    *   Read the [design review criteria](https://github.com/tensorflow/community/blob/master/governance/design-reviews.md)
     *   Follow the
         [RFC template](https://github.com/tensorflow/community/blob/master/rfcs/yyyymmdd-rfc-template.md).
     *   Name your RFC file `YYYYMMDD-descriptive-name.md`, where `YYYYMMDD` is

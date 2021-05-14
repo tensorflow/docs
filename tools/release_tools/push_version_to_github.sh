@@ -34,15 +34,7 @@ git merge upstream/$OLD_BRANCH --message "merge $OLD_BRANCH" ||  (grep -l "<<<<<
 
 # Overwrite the ditectory with the contents from tensorflow/en/versions
 rm -rf site/en/api_docs/python
-python ../tensorflow/tensorflow/tools/docs/generate2.py --output_dir=site/en/api_docs/python
-
-# Strip some devsite headers and stuff.
-# The sed call is independant of the number of files per call so there's
-# no problem to a simple "xargs" here.
-find site/en/api_docs/ -name "*.md" | xargs sed -i '/Book:/d'
-find site/en/api_docs/ -name "*.md" | xargs sed -i '/Project:/d'
-find site/en/api_docs/ -name "*.html" | xargs sed -i '/name=\"book_path\"/d'
-find site/en/api_docs/ -name "*.html" | xargs sed -i '/name=\"project_path\"/d'
+python ../tensorflow/tensorflow/tools/docs/generate2.py --output_dir=site/en/api_docs/python --code_url_prefix="https://github.com/tensorflow/tensorflow/blob/${NEW_BRANCH}/tensorflow"
 
 # Commit and push to your github.
 git add site/en/api_docs/

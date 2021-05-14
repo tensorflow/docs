@@ -16,28 +16,28 @@ jobs:
         path: keras-io
     - uses: actions/checkout@v2
       with:
+        # tensorflow/docs branch to save generated notebooks.
         ref: snapshot-keras
-        fetch-depth: 0
         path: docs
     - name: Set up repo
       run: |
         # Set commit author.
         git config --global user.name "$GITHUB_ACTOR"
         git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        # Update branch.
-        cd docs
-        if ! git merge origin/master; then
-          echo "[${GITHUB_WORKFLOW}] Unable to update from master branch." >&2
-          exit 1
-        fi
     - name: Set up Python
       uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
     - name: Install requirements
       run: |
+        python3 -m pip install -U pip
         python3 -m pip install -U -r keras-io/requirements.txt
         python3 -m pip install -U git+https://github.com/tensorflow/docs
     - name: Generate Keras notebooks
       run: |
+        # Autogen requires formated code
+        echo "[${GITHUB_WORKFLOW}] Format Python files ..."
+        python -m black keras-io/guides/
         mkdir -p keras-io/tf  # Make sure output dir exists.
         cd keras-io/scripts/
         echo "[${GITHUB_WORKFLOW}] Generate Keras guides ..."

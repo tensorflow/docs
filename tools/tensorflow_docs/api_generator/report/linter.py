@@ -58,10 +58,27 @@ def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
   """
   param_lint = api_report_pb2.ParameterLint()
 
+  reserved_keywords = frozenset(['self', 'cls', '_cls'])
+
+  if page_info.py_object is not None:
+    try:
+      sig = inspect.signature(page_info.py_object)
+      args_in_code = sig.parameters.keys()
+      num_args_in_code = len(args_in_code)
+      for arg in args_in_code:
+        if arg in reserved_keywords:
+          num_args_in_code -= 1
+          break
+      param_lint.num_args_in_code = num_args_in_code
+    except (ValueError, TypeError):
+      param_lint.num_args_in_code = 0
+  else:
+    param_lint.num_args_in_code = 0
+
   for part in page_info.doc.docstring_parts:
     if isinstance(part, parser.TitleBlock):
-      if part.title.lower().startswith('args'):
-        param_lint.total_args_param = len(part.items)
+      if part.title.lower().startswith('arg'):
+        param_lint.num_args_in_doc = len(part.items)
         param_lint.num_empty_param_desc_args = _count_empty_param(part.items)
 
       if part.title.lower().startswith('attr'):
@@ -153,10 +170,10 @@ class ReturnVisitor(ast.NodeVisitor):
 
 def lint_returns(
     page_info: parser.PageInfo) -> Optional[api_report_pb2.ReturnLint]:
-  """"Lints the returns block in the docstring.
+  """"Lints the returns/yields block in the docstring.
 
-  This linter only checks if a `Returns` block exists in the docstring
-  if it finds `return` keyword in the source code.
+  This linter only checks if a `Returns`/`Yields` block exists in the docstring
+  if it finds `return`/`yield` keyword in the source code.
 
   Args:
     page_info: A `PageInfo` object containing the information of a page
@@ -174,14 +191,16 @@ def lint_returns(
     except Exception:  # pylint: disable=broad-except
       pass
 
-  if source is not None and 'return' in source:
+  keywords = ('return', 'yield')
+
+  if source is not None and any(word in source for word in keywords):
     for item in page_info.doc.docstring_parts:
       if isinstance(item, parser.TitleBlock):
-        if item.title.lower().startswith('return'):
+        if item.title.lower().startswith(keywords):
           return api_report_pb2.ReturnLint(returns_defined=True)
-    # If "Returns" word is present in the brief docstring then having a separate
-    # `Returns` section is not needed.
-    if 'return' in page_info.doc.brief.lower():
+    # If "Returns"/"Yields" word is present in the brief docstring then having
+    # a separate `Returns`/`Yields` section is not needed.
+    if page_info.doc.brief.lower().startswith(keywords):
       return api_report_pb2.ReturnLint(returns_defined=True)
     # If the code only returns None then `Returns` section in the docstring is
     # not required.

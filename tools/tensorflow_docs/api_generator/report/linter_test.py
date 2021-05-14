@@ -197,7 +197,8 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          2)
-        self.assertEqual(test_report.parameter_lint.total_args_param, 4)
+        self.assertEqual(test_report.parameter_lint.num_args_in_doc, 4)
+        self.assertEqual(test_report.parameter_lint.num_args_in_code, 3)
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
                          1)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 2)
@@ -206,7 +207,8 @@ class LinterTest(absltest.TestCase):
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          0)
-        self.assertEqual(test_report.parameter_lint.total_args_param, 1)
+        self.assertEqual(test_report.parameter_lint.num_args_in_doc, 1)
+        self.assertEqual(test_report.parameter_lint.num_args_in_code, 1)
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_attr,
                          0)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 0)
