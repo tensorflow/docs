@@ -39,6 +39,8 @@ GEN_JAVA_DIR = pathlib.Path(__file__).resolve().parent
 
 TEMPLATES = GEN_JAVA_DIR / 'templates'
 DOCLAVA_FOR_TF = GEN_JAVA_DIR / 'run-javadoc-for-tf.sh'
+ROOT_PATH = GEN_JAVA_DIR.parents[4]
+DOCLAVA_PRODUCT_RESOURCE_PATH = ROOT_PATH / 'third_party/android/sdk/api'
 
 
 def gen_java_docs(package: str, source_path: pathlib.Path,
@@ -48,6 +50,9 @@ def gen_java_docs(package: str, source_path: pathlib.Path,
   os.environ['OUTPUT_DIR'] = str(output_dir)
   os.environ['SITE_PATH'] = str(pathlib.Path('/') / site_path)
   os.environ['TEMPLATES'] = str(TEMPLATES)
+  os.environ['DOCLAVA_PRODUCT_RESOURCE_PATH'] = str(
+      DOCLAVA_PRODUCT_RESOURCE_PATH)
+  os.environ['ROOT_PATH'] = str(ROOT_PATH)
   subprocess.check_call(['bash', DOCLAVA_FOR_TF], cwd=GEN_JAVA_DIR)
 
   yaml_path = pathlib.Path(output_dir) / '_toc.yaml'
