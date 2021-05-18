@@ -164,6 +164,9 @@ toc:
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
     path: /tutorials/structured_data/time_series
+  - title: "Decision forest models"
+    status: external
+    path: /decision_forests/tutorials/beginner_colab
   - title: "Recommenders"
     status: external
     path: /recommenders/examples/quickstart
