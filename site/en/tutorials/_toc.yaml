@@ -164,6 +164,9 @@ toc:
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
     path: /tutorials/structured_data/time_series
+  - title: "Decision forest models"
+    status: external
+    path: /decision_forests/tutorials/beginner_colab
   - title: "Recommenders"
     status: external
     path: /recommenders/examples/quickstart
@@ -188,12 +191,16 @@ toc:
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 
-- title: "Interpretability"
+- title: "Model Understanding"
   style: accordion
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
-
+  - title: "Uncertainty quantification with SNGP"
+    path: /tutorials/understanding/sngp
+  - title: "Probabalistic regression"
+    path: /probability/examples/Probabilistic_Layers_Regression
+    status: external
 - title: "Reinforcement learning"
   style: accordion
   section:

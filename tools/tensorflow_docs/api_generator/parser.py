@@ -959,8 +959,12 @@ def _get_other_member_doc(
     info = f'```\n{{\n{items}\n}}\n```'
   elif (doc_generator_visitor.maybe_singleton(obj) or
         isinstance(obj, (list, tuple, enum.Enum))):
-    # use pformat instead of repr so dicts and sets are sorted (deterministic)
-    info = f'`{pprint.pformat(obj)}`'
+    # * Use pformat instead of repr so dicts and sets are sorted (deterministic)
+    # * Escape ` so it doesn't break code formatting. You can't use "&#96;"
+    #   here since it will diaplay as a literal. I'm not sure why <pre></pre>
+    #   breaks on the site.
+    info = pprint.pformat(obj).replace('`', r'\`')
+    info = f'`{info}`'
   else:
     class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
     if class_full_name is None:
