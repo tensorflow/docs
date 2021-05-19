@@ -2,10 +2,10 @@
 # Last matching pattern takes preecedence.
 
 # Default owners for everything in repo.
-*  @lamberta @MarkDaoust @yashk2810 @anirudh161
+*  @lamberta @MarkDaoust @8bitmp3
 
 # Docs
-/site/en/guide/keras/ @fchollet @lamberta @MarkDaoust @yashk2810 @anirudh161
+/site/en/guide/keras/ @fchollet @lamberta @MarkDaoust @8bitmp3
 
 # Community
 /site/en/community/ @ewilderj @lamberta @theadactyl @joanafilipa
