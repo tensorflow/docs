@@ -22,7 +22,7 @@ import sys
 import tempfile
 import textwrap
 
-from typing import Union, List, Dict, Callable
+from typing import Callable, Dict, List, Optional, Union
 
 from absl.testing import absltest
 from absl.testing import parameterized
@@ -1463,55 +1463,83 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
   def test_signature_method_wrong_self_name(self):
 
-    class Cls:
+    # Calling these classes all `Cls` confuses inspect.getsource.
+    # Use unique names.
+    class Cls1:
 
       def method(x):  # pylint: disable=no-self-argument
         pass
 
-    info = self._setup_class_info(Cls, 'method')
+    info = self._setup_class_info(Cls1, 'method')
     self.assertEqual('()', str(info.methods[0].signature))
 
   def test_signature_method_star_args(self):
 
-    class Cls:
+    class Cls2:
 
       def method(*args):  # pylint: disable=no-method-argument
         pass
 
-    info = self._setup_class_info(Cls, 'method')
+    info = self._setup_class_info(Cls2, 'method')
     self.assertEqual('(\n    *args\n)', str(info.methods[0].signature))
 
   def test_signature_classmethod_wrong_cls_name(self):
 
-    class Cls:
+    class Cls3:
 
       @classmethod
       def method(x):  # pylint: disable=bad-classmethod-argument
         pass
 
-    info = self._setup_class_info(Cls, 'method')
+    info = self._setup_class_info(Cls3, 'method')
     self.assertEqual('()', str(info.methods[0].signature))
 
   def test_signature_staticmethod(self):
 
-    class Cls:
+    class Cls4:
 
       @staticmethod
       def method(x):
         pass
 
-    info = self._setup_class_info(Cls, 'method')
+    info = self._setup_class_info(Cls4, 'method')
     self.assertEqual('(\n    x\n)', str(info.methods[0].signature))
 
   def test_signature_new(self):
 
-    class Cls:
+    class Cls5:
 
       def __new__(x):  # pylint: disable=bad-classmethod-argument
         pass
 
-    info = self._setup_class_info(Cls, '__new__')
+    info = self._setup_class_info(Cls5, '__new__')
     self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_dataclass_auto_init(self):
+
+    @dataclasses.dataclass
+    class Cls6:
+      a: Optional[int]
+      b: Optional[str]
+
+    info = self._setup_class_info(Cls6, '__init__')
+    self.assertEqual('(\n    a: Optional[int],\n    b: Optional[str]\n)',
+                     str(info.methods[0].signature))
+
+  def test_signature_dataclass_custom_init(self):
+
+    @dataclasses.dataclass(init=False)
+    class Cls7:
+      a: Optional[int]
+      b: Optional[str]
+
+      def __init__(self, x: Optional[Union[int, str]]):
+        self.a = int(x)
+        self.b = str(x)
+
+    info = self._setup_class_info(Cls7, '__init__')
+    self.assertEqual('(\n    x: Optional[Union[int, str]]\n)',
+                     str(info.methods[0].signature))
 
 
 if __name__ == '__main__':

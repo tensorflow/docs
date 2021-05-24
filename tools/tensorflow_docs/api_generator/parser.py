@@ -2056,13 +2056,16 @@ class ClassPageInfo(PageInfo):
 
     # If the curent class py_object is a dataclass then use the class object
     # instead of the __init__ method object because __init__ is a
-    # generated method on dataclasses and `inspect.getsource` doesn't work
-    # on generated methods (as the source file doesn't exist) which is
-    # required for signature generation.
+    # generated method on dataclasses (unless the definition used init=False)
+    # and `inspect.getsource` doesn't work on generated methods (as the source
+    # file doesn't exist) which is required for signature generation.
     if (dataclasses.is_dataclass(self.py_object) and
-        member_info.short_name == '__init__'):
+        member_info.short_name == '__init__' and
+        self.py_object.__dataclass_params__.init):
+      is_dataclass = True
       py_obj = self.py_object
     else:
+      is_dataclass = False
       py_obj = member_info.py_object
 
     if isinstance(original_method, classmethod):
@@ -2074,6 +2077,11 @@ class ClassPageInfo(PageInfo):
       # - Sometimes users wrap it with a `staticmethod` but that gets ignored.
       func_type = FuncType.METHOD
     elif isinstance(original_method, staticmethod):
+      func_type = FuncType.FUNCTION
+    elif is_dataclass:
+      # When building the init signature directly from a dataclass-class (for
+      # the auto-generated __init__) `self` is already removed from the
+      # signature.
       func_type = FuncType.FUNCTION
     else:
       func_type = FuncType.METHOD
