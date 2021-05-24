@@ -41,21 +41,19 @@ toc:
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
-  - title: "Text"
-    path: /tutorials/load_data/text
-  # TODO(b/179933543): Remove these files and redirect to tensorflow.org/text
-  # {
-  - title: "Unicode"
-    path: /tutorials/load_data/unicode
-  - title: "TF.Text"
-    path: /tutorials/tensorflow_text/intro
-  - title: "Subword Tokenization"
-    path: /tutorials/tensorflow_text/subwords_tokenizer
-  # }
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
   - title: "Additional formats with tf.io"
     path: https://github.com/tensorflow/io#tensorflow-io
+    status: external
+  - title: "Text"
+    path: /tutorials/load_data/text
+  - heading: More text loading
+  - title: "Unicode"
+    path: /text/guide/unicode
+    status: external
+  - title: "Subword Tokenization"
+    path: /text/guide/subwords_tokenizer
     status: external
 
 - heading: "Advanced"
@@ -112,37 +110,25 @@ toc:
 - title: "Text"
   style: accordion
   section:
-  # TODO(b/179933543): Remove this file and redirect to tensorflow.org/text
-  # {
   - title: "Word embeddings"
-    path: /tutorials/text/word_embeddings
-  # }
+    path: /text/guide/word_embeddings
+    status: external
   - title: "Word2Vec"
     path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
-    path: /tutorials/text/text_classification_rnn
-  # TODO(b/179933543): Remove these files and redirect to tensorflow.org/text
-  # {
+    path: /text/tutorials/text_classification_rnn
+    status: external
   - title: "Classify Text with BERT"
-    status: new
-    path: /tutorials/text/classify_text_with_bert
+    path: /text/tutorials/classify_text_with_bert
+    status: external
   - title: "Solve GLUE tasks using BERT on TPU"
-    status: new
-    path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
-  - title: "Fine tuning BERT"
-    path: /official_models/fine_tuning_bert
-  - heading: Generation
-  - title: "Text generation with an RNN"
-    path: /tutorials/text/text_generation
+    path: /text/tutorials/bert_glue
+    status: external
   - title: "Neural machine translation with attention"
-    path: /tutorials/text/nmt_with_attention
-  # }
+    path: /text/tutorials/nmt_with_attention
+    status: external
   - title: "Image captioning"
     path: /tutorials/text/image_captioning
-  # TODO(b/179933543): Remove this file and redirect to tensorflow.org/text
-  - title: "Transformer model for language understanding"
-    path: /tutorials/text/transformer
-
 - title: "Audio"
   style: accordion
   section:
