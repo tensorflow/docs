@@ -59,12 +59,12 @@ enable compute capabilities by [building TensorFlow from source](./source.md).
 The following NVIDIA® software must be installed on your system:
 
 *   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external} —CUDA®
-    11.0 requires 450.x or higher.
+    11.2 requires 460.x or higher.
 *   [CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit-archive){:.external}
-    —TensorFlow supports CUDA® 11 (TensorFlow >= 2.4.0)
+    —TensorFlow supports CUDA® 11.2 (TensorFlow >= 2.5.0)
 *   [CUPTI](http://docs.nvidia.com/cuda/cupti/){:.external} ships with the CUDA®
     Toolkit.
-*   [cuDNN SDK 8.0.4](https://developer.nvidia.com/cudnn){:.external}
+*   [cuDNN SDK 8.1.0](https://developer.nvidia.com/cudnn){:.external}
     [cuDNN versions](https://developer.nvidia.com/rdp/cudnn-archive){:.external}).
 *   *(Optional)*
     [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
