@@ -50,7 +50,7 @@ jobs:
 
           msg+="If commits are added to the pull request, synchronize your local branch: <code>git pull origin $HEAD_REF</code>\n"
         fi
-        echo "::set-env name=MESSAGE::$msg"
+        echo "MESSAGE=$msg" >> $GITHUB_ENV
     - name: Post comment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

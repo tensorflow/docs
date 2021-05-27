@@ -37,8 +37,8 @@ landing_page:
       path: /install
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/effective_tf2"><h3 class="no-link">TensorFlow 2</h3></a>
-        TensorFlow 2 best practices and tools to migrate your code.
+        <a href="/guide/effective_tf2"><h3 class="no-link">Migrate to TensorFlow 2</h3></a>
+        Learn TensorFlow 2 best practices and tools to migrate your TF1 code to TF2.
       path: /guide/effective_tf2
     - classname: tfo-landing-page-card
       description: >

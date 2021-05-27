@@ -18,10 +18,11 @@
 import collections
 import inspect
 import os
+import sys
 import tempfile
 import textwrap
 
-from typing import Union, List, Dict, Callable
+from typing import Callable, Dict, List, Optional, Union
 
 from absl.testing import absltest
 from absl.testing import parameterized
@@ -821,6 +822,108 @@ class ParserTest(parameterized.TestCase):
 
     self.assertIsNone(function_info.defined_in)
 
+  def test_get_other_member_doc_object_doc_attr(self):
+
+    class A():
+      """Class docs."""
+      pass
+
+    a = A()
+    a.__doc__ = 'Object doc'
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+
+    expected = textwrap.dedent("""\
+      Instance of `__main__.A`
+
+      Object doc""")
+
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_doc_extra_doc(self):
+    # This will get sorted.
+    a = {4, 2, 1, 3}
+    # You can't set __doc__ on a list or a set so use extra_docs
+    doc = 'Object doc'
+    extra_docs = {id(a): doc}
+
+    result = parser._get_other_member_doc(a, None, extra_docs)
+
+    expected = textwrap.dedent("""\
+      ```
+      {
+       1,
+       2,
+       3,
+       4
+      }
+      ```
+
+      Object doc""")
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_basic_type(self):
+    a = 5
+    result = parser._get_other_member_doc(a, None, {})
+
+    self.assertEqual('`5`', result)
+
+  def test_get_other_member_doc_unknown_class(self):
+
+    class A():
+      """Class docs."""
+      pass
+
+    a = A()
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+    expected = textwrap.dedent("""\
+      Instance of `__main__.A`""")
+
+    self.assertEqual(expected, result)
+
+  def test_get_other_member_doc_known_class(self):
+
+    class A():
+      """Class docs."""
+      pass
+
+    a = A()
+
+    parser_config = parser.ParserConfig(
+        reference_resolver=None,
+        duplicates={},
+        duplicate_of={},
+        tree={},
+        index={},
+        reverse_index={id(A): 'tf.test.A'},
+        base_dir='/',
+        code_url_prefix='/')
+
+    result = parser._get_other_member_doc(a, parser_config, {})
+
+    self.assertEqual('Instance of `tf.test.A`', result)
+
 
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
@@ -1081,6 +1184,37 @@ class TestIgnoreLineInBlock(parameterized.TestCase):
     strip_todos = parser._StripTODOs()
     self.assertEqual(expected, strip_todos(input_str))
 
+  def test_strip_pylintandpyformat(self):
+    input_str = textwrap.dedent("""
+        hello  #  pyformat: disable
+        middle  # pyformat: enable
+        goodbye  TODO  # pylint: disable=g-top-imports
+
+        # pyformat: disable
+        xyz
+        # pyformat: enable
+
+        # pylint: disable=g-top-imports
+        abc
+        # pylint: enable=g-top-imports
+        """)
+
+    expected = textwrap.dedent("""
+        hello  
+        middle  
+        goodbye  TODO  
+
+
+        xyz
+
+
+
+        abc
+
+        """)
+    strip_todos = parser._StripPylintAndPyformat()
+    self.assertEqual(expected, strip_todos(input_str))
+
 
 class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
@@ -1112,19 +1246,34 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, ['arg=location.of.object.in.api'])
 
   def test_literals(self):
 
-    def example_fun(a=5, b=5.0, c=None, d=True, e='hello', f=(1, (2, 3))):  # pylint: disable=g-bad-name, unused-argument
+    def example_fun(
+        self,
+        cls,
+        a=5,
+        b=5.0,
+        c=None,
+        d=True,
+        e='hello',
+        f=(1, (2, 3)),
+    ):  # pylint: disable=g-bad-name, unused-argument
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
-        'a=5', 'b=5.0', 'c=None', 'd=True', 'e=&#x27;hello&#x27;',
-        'f=(1, (2, 3))'
+        'self', 'cls', 'a=5', 'b=5.0', 'c=None', 'd=True',
+        'e=&#x27;hello&#x27;', 'f=(1, (2, 3))'
     ])
 
   def test_dotted_name(self):
@@ -1149,7 +1298,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       pass
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(
         sig.arguments,
         ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', 'arg3=e[&#x27;f&#x27;]'])
@@ -1160,7 +1312,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       return True
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
         'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'y=None', 'c', '**kwargs'
     ])
@@ -1174,7 +1329,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       return True
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
         'x', 'z', 'cls', '*args', 'a=True', 'b=&#x27;test&#x27;', 'y=None', 'c',
         '**kwargs'
@@ -1185,24 +1343,28 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def test_type_annotations(self):
     # pylint: disable=unused-argument
 
-    def example_fun(self,
-                    cls,
-                    x: List[str],
-                    z: int,
-                    a: Union[List[str], str, int] = None,
-                    b: str = 'test',
-                    *,
-                    y: bool = False,
-                    c: Callable[..., int],
-                    **kwargs) -> None:
-      pass
+    class TestMethodSig:
+
+      def example_fun(self,
+                      x: List[str],
+                      z: int,
+                      a: Union[List[str], str, int] = None,
+                      b: str = 'test',
+                      *,
+                      y: bool = False,
+                      c: Callable[..., int],
+                      **kwargs) -> None:
+        pass
 
     # pylint: enable=unused-argument
 
     sig = parser.generate_signature(
-        example_fun, parser_config=self.parser_config, func_full_name='')
+        TestMethodSig.example_fun,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.METHOD,
+    )
     self.assertEqual(sig.arguments, [
-        'cls',
         'x: List[str]',
         'z: int',
         'a: Union[List[str], str, int] = None',
@@ -1219,7 +1381,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def test_dataclasses_type_annotations(self):
 
     sig = parser.generate_signature(
-        ExampleDataclass, parser_config=self.parser_config, func_full_name='')
+        ExampleDataclass,
+        parser_config=self.parser_config,
+        func_full_name='',
+        func_type=parser.FuncType.FUNCTION)
 
     self.assertEqual(sig.arguments, [
         'x: List[str]',
@@ -1238,10 +1403,11 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                              List[Dict[int, parser.extract_decorators]]],
        textwrap.dedent("""\
         Union[
-            Dict[str, Dict[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]],
+            dict[str, dict[bool, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]],
             int,
+            bool,
             <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>,
-            List[Dict[int, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]]
+            list[dict[int, <a href="../../../tfdocs/api_generator/parser/extract_decorators.md"><code>tfdocs.api_generator.parser.extract_decorators</code></a>]]
         ]""")), ('callable_ellipsis_sig', Union[Callable[..., int], str],
                  textwrap.dedent("""\
         Union[
@@ -1269,7 +1435,111 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         full_name='tfdocs.api_generator.generate_lib.DocGenerator',
         py_object=alias)
     info_obj.collect_docs(self.parser_config)
+    if sys.version_info[:2] <= (3, 6):
+      # TypeAliasPageInfo.signature is built using the __origin__ attribute of
+      # type annotations. Before Python 3.7, __origin__ stored typing constructs
+      # (e.g., typing.List); in 3.7+, it stores the equivalent runtime class
+      # (e.g., builtins.list).
+      expected_sig = expected_sig.replace('dict[',
+                                          'Dict[').replace('list[', 'List[')
+      # For some reason, bool is missing from the deep_objects signature in 3.6.
+      expected_sig = expected_sig.replace('    bool,\n', '')
     self.assertEqual(info_obj.signature, expected_sig)
+
+  def _setup_class_info(self, cls, method_name):
+    pc = self.parser_config
+    pc.tree['x.Cls'] = [method_name]
+    full_name = f'x.Cls.{method_name}'
+    pc.index[full_name] = getattr(cls, method_name)
+    pc.reference_resolver._duplicate_of[full_name] = full_name
+    pc.reference_resolver._is_fragment[full_name] = True
+    pc.reference_resolver._all_names.add(full_name)
+
+    info = parser.ClassPageInfo(full_name='x.Cls', py_object=cls)
+    info._doc = parser._DocstringInfo('doc', ['doc'], {})
+    info.collect_docs(self.parser_config)
+
+    return info
+
+  def test_signature_method_wrong_self_name(self):
+
+    # Calling these classes all `Cls` confuses inspect.getsource.
+    # Use unique names.
+    class Cls1:
+
+      def method(x):  # pylint: disable=no-self-argument
+        pass
+
+    info = self._setup_class_info(Cls1, 'method')
+    self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_method_star_args(self):
+
+    class Cls2:
+
+      def method(*args):  # pylint: disable=no-method-argument
+        pass
+
+    info = self._setup_class_info(Cls2, 'method')
+    self.assertEqual('(\n    *args\n)', str(info.methods[0].signature))
+
+  def test_signature_classmethod_wrong_cls_name(self):
+
+    class Cls3:
+
+      @classmethod
+      def method(x):  # pylint: disable=bad-classmethod-argument
+        pass
+
+    info = self._setup_class_info(Cls3, 'method')
+    self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_staticmethod(self):
+
+    class Cls4:
+
+      @staticmethod
+      def method(x):
+        pass
+
+    info = self._setup_class_info(Cls4, 'method')
+    self.assertEqual('(\n    x\n)', str(info.methods[0].signature))
+
+  def test_signature_new(self):
+
+    class Cls5:
+
+      def __new__(x):  # pylint: disable=bad-classmethod-argument
+        pass
+
+    info = self._setup_class_info(Cls5, '__new__')
+    self.assertEqual('()', str(info.methods[0].signature))
+
+  def test_signature_dataclass_auto_init(self):
+
+    @dataclasses.dataclass
+    class Cls6:
+      a: Optional[int]
+      b: Optional[str]
+
+    info = self._setup_class_info(Cls6, '__init__')
+    self.assertEqual('(\n    a: Optional[int],\n    b: Optional[str]\n)',
+                     str(info.methods[0].signature))
+
+  def test_signature_dataclass_custom_init(self):
+
+    @dataclasses.dataclass(init=False)
+    class Cls7:
+      a: Optional[int]
+      b: Optional[str]
+
+      def __init__(self, x: Optional[Union[int, str]]):
+        self.a = int(x)
+        self.b = str(x)
+
+    info = self._setup_class_info(Cls7, '__init__')
+    self.assertEqual('(\n    x: Optional[Union[int, str]]\n)',
+                     str(info.methods[0].signature))
 
 
 if __name__ == '__main__':
