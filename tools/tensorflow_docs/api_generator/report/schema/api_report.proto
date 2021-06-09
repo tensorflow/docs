@@ -1,0 +1,117 @@
+// LINT.IfChange
+syntax = "proto2";
+
+package tensorflow_docs.api_report.schema;
+
+// Available externally too.
+import "google/protobuf/timestamp.proto";
+
+// This message is used to track the parameters in a docstring and lint it. This
+// includes `Args` and `Attributes`.
+message ParameterLint {
+  // The number of empty parameter descriptions that are present in the args
+  // section of a docstring.
+  optional float num_empty_param_desc_args = 1;
+
+  // The total number of parameters in the signature of an method/function.
+  optional float num_args_in_code = 2;
+
+  // The number of empty parameter descriptions that are present in the
+  // attributes section of a docstring.
+  optional float num_empty_param_desc_attr = 3;
+
+  // The total number of parameters in the attributes section of a docstring.
+  optional float total_attr_param = 4;
+
+  // The total number of parameters in the args section of a docstring.
+  optional float num_args_in_doc = 5;
+}
+
+// This message is used to track the description of a docstring. It tracks the
+// one-line brief and the multi-line description.
+message DescriptionLint {
+  // Length of the one line brief description of a docstring. If 0, it means
+  // that the one line brief doesn't exist.
+  optional float len_brief = 1;
+
+  // Length of the multi-line description of a docstring. If 0, it means
+  // that the multi-line description doesn't exist.
+  optional float len_long_desc = 3;
+}
+
+// This message is used to track the examples in a docstring that demonstrate
+// how to use that API.
+message UsageExampleLint {
+  // Number of testable examples in a docstring. go/testable-docstrings
+  // describes how to write a testable example.
+  optional float num_doctest = 1;
+
+  // Number of untested examples in a docstring. These examples are usually
+  // wrapped in triple backticks (```).
+  optional float num_untested_examples = 2;
+}
+
+// This message is used to track if `Returns` is defined in a docstring if
+// `return` keyword is used in the code.
+message ReturnLint {
+  // Whether a `Returns` block exists in the docstring.
+  optional bool returns_defined = 1;
+}
+
+// This message is used to track if `Raises` is defined in a docstring if
+// `raise` keyword is used in the code.
+message RaisesLint {
+  // Number of raises that are defined in the docstring. If two raises
+  // are of the same name (`ValueError`) but the error raised is different then
+  // both of them should be documented.
+  optional float num_raises_defined = 1;
+
+  // Total number of unique raises that are present in the code.
+  optional float total_raises_in_code = 2;
+}
+
+// This Enum is used to describe the type of object. `api_generator` traverses
+// and extracts docstrings from the objects in the pip package of a library.
+enum ObjectType {
+  CLASS = 0;
+  METHOD = 1;
+  FUNCTION = 2;
+  MODULE = 3;
+  TYPE_ALIAS = 4;
+}
+
+// This message tracks the symbol and the statistics of the lints that are run
+// on the docstring of the symbol.
+message ApiSymbolMetric {
+  // The full name of the symbol being linted.
+  optional string symbol_name = 1;
+  // The type of object the symbol is.
+  optional ObjectType object_type = 2;
+  // Statistics after linting the parameters of the docstring of the symbol.
+  optional ParameterLint parameter_lint = 3;
+  // Statistics after linting the description of the docstring of the symbol.
+  optional DescriptionLint desc_lint = 4;
+  // Statistics after linting the usage examples in the docstring of the symbol.
+  optional UsageExampleLint usage_example_lint = 5;
+  // Statistics after linting the return blocks in the docstring of the symbol.
+  optional ReturnLint return_lint = 6;
+  // Statistics after linting the raises blocks in the docstring of the symbol.
+  optional RaisesLint raises_lint = 7;
+  // The package group a symbol belongs too.
+  // For example:
+  //   tf.keras.layers.Conv2D -> tf.keras
+  //   tf.Variable -> tf
+  //   tf.Variable.assign (method) -> tf
+  //   tf.data.tensor_slices -> tf.data
+  optional string package_group = 8;
+}
+
+message ApiReport {
+  optional .google.protobuf.Timestamp timestamp = 1;
+  // Will be filled in via Timestamp().ToJsonString().
+  optional string date = 2;
+  // Repeated field to lint each API symbol in the package as traversed by the
+  // api_generator.
+  repeated ApiSymbolMetric symbol_metric = 3;
+}
+// LINT.ThenChange(docs/tools/api_generator/report/schema/api_report_generated_pb2.py)

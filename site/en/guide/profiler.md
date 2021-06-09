@@ -17,9 +17,6 @@ and some recommended best practices to optimize model performance.
 If you want to profile your model performance on Cloud TPUs, refer to the
 [Cloud TPU guide](https://cloud.google.com/tpu/docs/cloud-tpu-tools#capture_profile).
 
-Note: You cannot use the Profiler to get profiles for the
-`tf.data.experimental.service` available with `tf.data`.
-
 ## Install the Profiler and GPU prerequisites
 
 Install the Profiler by downloading and running the
@@ -28,12 +25,9 @@ script from the [GitHub repository](https://github.com/tensorflow/profiler).
 
 To profile on the GPU, you must:
 
-1.  [Install CUDA® Toolkit 10.1](https://www.tensorflow.org/install/gpu#linux_setup)
-    or newer. CUDA® Toolkit 10.1 supports only single GPU profiling. To profile
-    multiple GPUs, see [Profile multiple GPUs](#profile_multiple_gpus). Ensure
-    that the CUDA® driver version you install is at least 440.33 for Linux or
-    441.22 for Windows.
-1.  Ensure CUPTI exists on the path:
+1.  Meet the NVIDIA® GPU drivers and CUDA® Toolkit requirements listed on
+    [TensorFlow GPU support software requirements](https://www.tensorflow.org/install/gpu#linux_setup).
+2.  Ensure CUPTI exists on the path:
 
     ```shell
     /sbin/ldconfig -N -v $(sed 's/:/ /g' <<< $LD_LIBRARY_PATH) | \
@@ -50,27 +44,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 Run the `ldconfig` command above again to verify that the CUPTI library is
 found.
 
-<a name="profile_multiple_gpus"></a>
-
-### Profile multiple GPUs
-
-TensorFlow does not officially support multiple GPU profiling yet. You can
-install CUDA® Toolkit 10.2 or later to profile multiple GPUs. As TensorFlow
-supports CUDA® Toolkit versions only up to 10.1 , create symbolic links to
-`libcudart.so.10.1` and `libcupti.so.10.1`.
-
-```shell
-sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
-sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.1
-```
-
-To profile multi-worker GPU configurations, profile individual workers
-independently.
-
 ### Resolve privilege issues
 
-When you run profiling with CUDA® Toolkit 10.1 in a Docker environment or on
-Linux, you may encounter issues related to insufficient CUPTI privileges
+When you run profiling with CUDA® Toolkit in a Docker environment or on Linux,
+you may encounter issues related to insufficient CUPTI privileges
 (`CUPTI_ERROR_INSUFFICIENT_PRIVILEGES`). See the
 [NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters){:.external}
 to learn more about how you can resolve these issues on Linux.
@@ -101,6 +78,7 @@ The Profiler has a selection of tools to help with performance analysis:
 -   Trace viewer
 -   GPU kernel stats
 -   Memory profile tool
+-   Pod viewer
 
 <a name="overview_page"></a>
 
@@ -421,8 +399,8 @@ The tool displays information in two panes:
 
 ### Memory profile tool {: id = 'memory_profile_tool'}
 
-The Memory Profile tool monitors the memory usage of your host or device during
-the profiling interval. You can use this tool to:
+The Memory Profile tool monitors the memory usage of your device during the
+profiling interval. You can use this tool to:
 
 *   Debug out of memory (OOM) issues by pinpointing peak memory usage and the
     corresponding memory allocation to TensorFlow ops. You can also debug OOM
@@ -445,9 +423,8 @@ TensorFlow program as shown below:
 
 The memory profile summary has six fields:
 
-1.  Memory ID - Dropdown which lists all available memory systems (host and
-    device). Select the memory system you want to view from the dropdown. Note
-    that the host is listed as `gpu_host_bfc`
+1.  Memory ID - Dropdown which lists all available device memory systems. Select
+    the memory system you want to view from the dropdown
 1.  #Allocation - The number of memory allocations made during the profiling
     interval
 1.  #Deallocation - The number of memory deallocations in the profiling interval
@@ -522,6 +499,119 @@ There is one row for each TensorFlow Op and each row has the following columns:
 
 Note: You can sort any column in the table and also filter rows by op name.
 
+<a name="pod_viewer"></a>
+
+### Pod viewer
+
+The Pod Viewer tool shows the breakdown of a training step across all workers.
+
+![image](./images/tf_profiler/pod_viewer.png)
+
+-   The upper pane has slider for selecting the step number.
+-   The lower pane displays a stacked column chart. This is a high level view of
+    broken down step-time categories placed atop one another. Each stacked
+    column represents a unique worker.
+-   When you hover over a stacked column, the card on the left-hand side shows
+    more details about the step breakdown.
+
+<a name="tf_data_bottleneck_analysis"></a>
+
+### tf.data bottleneck analysis
+
+Warning: This tool is experimental. Please report
+[here](https://github.com/tensorflow/profiler/issues) if the analysis result
+seems off.
+
+tf.data bottleneck analysis automatically detects bottlenecks in tf.data input
+pipelines in your program and provides recommendations on how to fix them. It
+works with any program using tf.data regardless of the platform (CPU/GPU/TPU) or
+the framework (TensorFlow/JAX). Its analysis and recommendations are based on
+this [guide](https://www.tensorflow.org/guide/data_performance_analysis).
+
+It detects a bottleneck by following these steps:
+
+1.  Find the most input bound host.
+1.  Find the slowest execution of tf.data input pipeline.
+1.  Reconstruct the input pipeline graph from the profiler trace.
+1.  Find the critical path in the input pipeline graph.
+1.  Identify the slowest transformation on the critical path as a bottleneck.
+
+The UI is divided into three sections: Performance Analysis Summary, Summary of
+All Input Pipelines and Input Pipeline Graph.
+
+#### Performance analysis summary
+
+![image](./images/tf_profiler/tf_data_summary.png)
+
+This section provides the summary of the analysis. It tells whether a slow
+tf.data input pipeline is detected in the profile. If so, it shows the most
+input bound host and its slowest input pipeline with the max latency. And most
+importantly, it tells which part of the input pipeline is the bottleneck and how
+to fix it. The bottleneck information is provided with the iterator type and its
+long name.
+
+##### How to read tf.data iterator's long name
+
+A long name is formatted as `Iterator::<Dataset_1>::...::<Dataset_n>`. In the
+long name, `<Dataset_n>` matches the iterator type and the other datasets in the
+long name represent downstream transformations.
+
+For example, consider the following input pipeline dataset:
+
+```python
+dataset = tf.data.Dataset.range(10).map(lambda x: x).repeat(2).batch(5)
+```
+
+The long names for the iterators from the above dataset will be:
+
+Iterator Type | Long Name
+:------------ | :----------------------------------
+Range         | Iterator::Batch::Repeat::Map::Range
+Map           | Iterator::Batch::Repeat::Map
+Repeat        | Iterator::Batch::Repeat
+Batch         | Iterator::Batch
+
+#### Summary of All Input Pipelines
+
+![image](./images/tf_profiler/tf_data_all_hosts.png)
+
+This section provides the summary of all input pipelines across all hosts.
+Typically there is one input pipeline. When using the distribution strategy,
+there are one host input pipeline running the program's tf.data code and
+multiple device input pipelines retrieving data from the host input pipeline and
+transferring it to the devices.
+
+For each input pipeline, it shows the statistics of its execution time. A call
+is counted as slow if it takes longer than 50 μs.
+
+#### Input Pipeline Graph
+
+![image](./images/tf_profiler/tf_data_graph_selector.png)
+
+This section shows the input pipeline graph with the execution time information.
+You can use "Host" and "Input Pipeline" to choose which host and input pipeline
+to see. Executions of the input pipeline are sorted by the execution time in
+descending order which you can use "Rank" to choose.
+
+![image](./images/tf_profiler/tf_data_graph.png)
+
+The nodes on the critical path have bold outlines. The bottleneck node, which is
+the node with the longest self time on the critical path, has a red outline. The
+other non-critical nodes have gray dashed outlines.
+
+In each node, "Start Time" indicates the start time of the execution. The same
+node may be executed multiple times, for example, if there is Batch in the input
+pipeline. If it is executed multiple times, it is the start time of the first
+execution.
+
+"Total Duration" is the wall time of the execution. If it is executed multiple
+times, it is the sum of the wall times of all executions.
+
+"Self Time" is "Total Time" without the overlapped time with its immediate child
+nodes.
+
+"# Calls" is the number of times the input pipeline is executed.
+
 <a name="collect_performance_data"></a>
 
 ## Collect performance data
@@ -570,6 +660,8 @@ Note: Running the Profiler for too long can cause it to run out of memory. It is
 recommended to profile no more than 10 steps at a time. Avoid profiling the
 first few batches to avoid inaccuracies due to initialization overhead.
 
+<a name="sampling_mode"></a>
+
 *   Sampling mode - Perform on-demand profiling by using
     `tf.profiler.experimental.server.start()` to start a gRPC server with your
     TensorFlow model run. After starting the gRPC server and running your model,
@@ -580,20 +672,36 @@ first few batches to avoid inaccuracies due to initialization overhead.
     As an example,
 
     ```python
-    # Start a gRPC server at port 6009
+    # Start a profiler server before your model runs.
     tf.profiler.experimental.server.start(6009)
-    # ... TensorFlow program ...
+    # (Model code goes here).
+    #  Send a request to the profiler server to collect a trace of your model.
+    tf.profiler.experimental.client.trace('grpc://localhost:6009',
+                                          'gs://your_tb_logdir', 2000)
     ```
+
+    An example for profiling multiple workers:
+
+    ```python
+    # E.g. your worker IP addresses are 10.0.0.2, 10.0.0.3, 10.0.0.4, and you
+    # would like to profile for a duration of 2 seconds.
+    tf.profiler.experimental.client.trace(
+        'grpc://10.0.0.2:8466,grpc://10.0.0.3:8466,grpc://10.0.0.4:8466',
+        'gs://your_tb_logdir',
+        2000)
+    ```
+
+<a name="capture_dialog"></a>
 
 <img src="./images/tf_profiler/capture_profile.png" width="400", height="450">
 
 Use the **Capture Profile** dialog to specify:
 
-*   The profile Service URL or TPU name
-*   The profiling duration
-*   The level of device, host, and Python function call tracing
+*   A comma delimited list of profile service URLs or TPU name.
+*   A profiling duration.
+*   The level of device, host, and Python function call tracing.
 *   How many times you want the Profiler to retry capturing profiles if
-    unsuccessful at first
+    unsuccessful at first.
 
 ### Profiling custom training loops
 
@@ -646,19 +754,24 @@ Some of the use cases are:
 *   Hardware platform: Profile CPUs, GPUs, and TPUs.
 
 The table below is a quick overview of which of the above use cases are
-supported by the various profiling APIs in TensorFlow 2.3:
+supported by the various profiling APIs in TensorFlow:
+
+<a name="profiling_api_table"></a>
 
 | Profiling API                | Local     | Remote    | Multiple  | Hardware  |
 :                              :           :           : workers   : Platforms :
 | :--------------------------- | :-------- | :-------- | :-------- | :-------- |
 | **TensorBoard Keras          | Supported | Not       | Not       | CPU, GPU  |
 : Callback**                   :           : Supported : Supported :           :
-| **`tf.experimental.profiler` | Supported | Not       | Not       | CPU, GPU  |
-: Function API**               :           : Supported : Supported :           :
+| **`tf.profiler.experimental` | Supported | Not       | Not       | CPU, GPU  |
+: start/stop [API][API_0]**    :           : Supported : Supported :           :
+| **`tf.profiler.experimental` | Supported | Supported | Supported | CPU, GPU, |
+: client.trace [API][API_1]**  :           :           :           : TPU       :
 | **Context manager API**      | Supported | Not       | Not       | CPU, GPU  |
 :                              :           : supported : Supported :           :
-| **On demand API**            | Not       | Supported | Limited   | CPU, GPU, |
-:                              : supported :           : Support   : TPU       :
+
+[API_0]: https://www.tensorflow.org/api_docs/python/tf/profiler/experimental#functions_2
+[API_1]: https://www.tensorflow.org/api_docs/python/tf/profiler/experimental/client/trace
 
 <a name="performance_best_practices"></a>
 
@@ -719,3 +832,23 @@ pipeline is a performance bottleneck.
 *   Watch the
     [Performance profiling in TF 2](https://www.youtube.com/watch?v=pXHAQIhhMhI)
     talk from the TensorFlow Dev Summit 2020.
+
+## Known limitations
+
+### Profiling multiple GPUs on TensorFlow 2.2 and TensorFlow 2.3
+
+TensorFlow 2.2 and 2.3 support multiple GPU profiling for single host systems
+only; multiple GPU profiling for multi-host systems is not supported. To profile
+multi-worker GPU configurations, each worker has to be profiled independently.
+On TensorFlow 2.4, multiple workers can be profiled using the
+[`tf.profiler.experimental.trace`](https://www.tensorflow.org/api_docs/python/tf/profiler/experimental/client/trace)
+API.
+
+CUDA® Toolkit 10.2 or later is required to profile multiple GPUs. As TensorFlow
+2.2 and 2.3 support CUDA® Toolkit versions only up to 10.1 , create symbolic
+links to `libcudart.so.10.1` and `libcupti.so.10.1`.
+
+```shell
+sudo ln -s /usr/local/cuda/lib64/libcudart.so.10.2 /usr/local/cuda/lib64/libcudart.so.10.1
+sudo ln -s /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.2 /usr/local/cuda/extras/CUPTI/lib64/libcupti.so.10.1
+```

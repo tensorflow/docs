@@ -28,26 +28,28 @@ Lint callback functions are passed an `args` dict with the following entries:
   path: Filepath of notebook
   user: Dict of args passed at the command-line
 """
-import pathlib
 import re
 
+from tensorflow_docs.tools.nblint import fix
+from tensorflow_docs.tools.nblint.decorator import fail
 from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
+from tensorflow_docs.tools.nblint.style.tensorflow import is_button_cell_re
 from tensorflow_docs.tools.nblint.style.tensorflow import split_doc_path
 
 
 @lint(
-    message="Edit en/ source files over here: https://github.com/tensorflow/docs",
+    message="Only edit translated files. Source files are here: https://github.com/tensorflow/docs",
     scope=Options.Scope.FILE)
 def is_translation(args):
-  """Only doc translations in this repo; edit source files elsewhere."""
-  fp_parents = args["path"].resolve().parents
+  """Translations live in the site/<lang>/ directory of the docs-l10n repo."""
+  path_str = str(args["path"].resolve())
 
-  if pathlib.Path("site") not in fp_parents:
-    return True  # Not a doc translation, ignore.
-  elif pathlib.Path("site/en") in fp_parents:
+  if "site/" not in path_str:
     return False
-  elif pathlib.Path("site/en-snapshot") in fp_parents:
+  elif "site/en/" in path_str:
+    return False
+  elif "site/en-snapshot/" in path_str:
     return False
   else:
     return True
@@ -55,9 +57,10 @@ def is_translation(args):
 
 # Catch tensorflow.org hostname usage in Chinese docs. Ignore false positives
 # for the Google Group (../a/tensorflow.org/..), email (docs*@tensorflow.org),
-# and subdomains like (download|js).tensorflow.org.
+# and subdomains like (blog|download|js).tensorflow.org.
 has_tf_hostname_re = re.compile(
-    r"(?<!/a/)(?<!@)(?<!download\.)(?<!js\.)(www\.)?tensorflow\.org")
+    r"(?<!/a/)(?<!@)(?<!download\.)(?<!js\.)(www\.)(blog\.)?tensorflow\.org",
+    re.IGNORECASE)
 
 
 @lint(
@@ -77,10 +80,54 @@ def china_hostname_url(args):
   """
   docs_dir, _ = split_doc_path(args["path"])
 
-  if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
-    if has_tf_hostname_re.search(args["cell_source"]):
-      return False
-    else:
-      return True
+  # Only applicable for China docs.
+  if str(docs_dir) != "site/zh-cn" and str(docs_dir) != "site/zh-tw":
+    return True
+
+  if has_tf_hostname_re.search(args["cell_source"]):
+    fail(
+        fix=fix.regex_replace_all,
+        fix_args=[has_tf_hostname_re.pattern, "tensorflow.google.cn"])
   else:
     return True
+
+
+has_rtl_div_re = re.compile(r"<div\s*dir\s*=\s*[\"']rtl[\"'].*>", re.IGNORECASE)
+has_copyright_re = re.compile(r"Copyright 20[1-9][0-9]")
+
+
+@lint(
+    message="RTL languages must wrap all text cell elements with: <div dir=\"rtl\">...</div>",
+    scope=Options.Scope.TEXT,
+    cond=Options.Cond.ALL)
+def rtl_language_wrap(args):
+  """Check that RTL languages wrap text elemenst in a directional div.
+
+  Required for languages like Arabic to render correctly in Colab. Some care
+  must be taken or any Markdown syntax within the div will break.
+
+  Args:
+    args: Nested dict of runtime arguments.
+
+  Returns:
+    Boolean: True if lint test passes, False if not.
+  """
+  docs_dir, _ = split_doc_path(args["path"])
+
+  # Only applicable for RTL languages.
+  if str(docs_dir) != "site/ar":
+    return True
+
+  cell_source = args["cell_source"]
+
+  # Ignore the text cells for copyright and buttons.
+  if (has_copyright_re.search(cell_source) or
+      is_button_cell_re.search(cell_source)):
+    return True
+
+  if has_rtl_div_re.search(cell_source):
+    return True
+  else:
+    fail(
+        "Wrap all text elements in `<div dir=\"rtl\">...</div>` for Colab. But check this doesn't break any Markdown syntax within."
+    )

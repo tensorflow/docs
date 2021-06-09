@@ -88,7 +88,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         [('tf', tf)],
         base_dir=os.path.dirname(tf.__file__),
         private_map={},
-        do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
 
     self.assertEqual(
@@ -135,7 +134,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         [('tf', tf)],
         base_dir=os.path.dirname(tf.__file__),
         private_map={},
-        do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
 
     self.assertEqual(
@@ -170,7 +168,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         [('tf', tf)],
         base_dir=os.path.dirname(tf.__file__),
         private_map={},
-        do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
 
     self.assertEqual(
@@ -206,7 +203,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         [('tf', tf)],
         base_dir=os.path.dirname(tf.__file__),
         private_map={},
-        do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
 
     self.assertEqual(
@@ -240,7 +236,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         [('tf', tf)],
         base_dir=os.path.dirname(tf.__file__),
         private_map={},
-        do_not_descend_map={},
         visitor_cls=NoDunderVisitor)
     self.assertEqual(
         sorted([
@@ -285,7 +280,7 @@ class ApiTreeTest(absltest.TestCase):
 
     node = tree[('tf', 'sub')]
     self.assertEqual(node.full_name, 'tf.sub')
-    self.assertIs(node.obj, tf.sub)
+    self.assertIs(node.py_object, tf.sub)
     self.assertIs(node.parent, tree[('tf',)])
     self.assertLen(node.children, 1)
     self.assertIs(node.children['thing'], tree[('tf', 'sub', 'thing')])

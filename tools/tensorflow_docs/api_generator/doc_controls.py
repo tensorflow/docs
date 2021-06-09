@@ -14,12 +14,27 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-from typing import Callable, Iterable
+from typing import Iterable, TypeVar
+
+T = TypeVar("T")
+
+_DEPRECATED = "_tf_docs_deprecated"
+
+
+def set_deprecated(obj: T) -> T:
+  """Explicitly tag an object as deprecated for the doc generator."""
+  setattr(obj, _DEPRECATED, None)
+  return obj
+
+
+def is_deprecated(obj) -> bool:
+  return hasattr(obj, _DEPRECATED)
+
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
 
 
-def hide_from_search(obj):
+def hide_from_search(obj: T) -> T:
   """Marks an object so metadata search hints will not be included on it's page.
 
   The page is set to "noindex" to hide it from search.
@@ -37,7 +52,7 @@ def hide_from_search(obj):
   return obj
 
 
-def should_hide_from_search(obj):
+def should_hide_from_search(obj) -> bool:
   """Returns true if metadata search hints should not be included."""
   return hasattr(obj, _NO_SEARCH_HINTS)
 
@@ -58,7 +73,7 @@ def get_custom_page_content(obj):
 _DO_NOT_DOC = "_tf_docs_do_not_document"
 
 
-def do_not_generate_docs(obj):
+def do_not_generate_docs(obj: T) -> T:
   """A decorator: Do not generate docs for this object.
 
   For example the following classes:
@@ -139,7 +154,7 @@ def do_not_generate_docs(obj):
 _DO_NOT_DOC_INHERITABLE = "_tf_docs_do_not_doc_inheritable"
 
 
-def do_not_doc_inheritable(obj):
+def do_not_doc_inheritable(obj: T) -> T:
   """A decorator: Do not generate docs for this method.
 
   This version of the decorator is "inherited" by subclasses. No docs will be
@@ -202,7 +217,7 @@ def do_not_doc_inheritable(obj):
 _FOR_SUBCLASS_IMPLEMENTERS = "_tf_docs_tools_for_subclass_implementers"
 
 
-def for_subclass_implementers(obj):
+def for_subclass_implementers(obj: T) -> T:
   """A decorator: Only generate docs for this method in the defining class.
 
   Also group this method's docs with and `@abstractmethod` in the class's docs.
@@ -279,11 +294,111 @@ def for_subclass_implementers(obj):
 
 do_not_doc_in_subclasses = for_subclass_implementers
 
+_DOC_PRIVATE = "_tf_docs_doc_private"
 
-def should_skip(obj):
+
+def doc_private(obj: T) -> T:
+  """A decorator: Generates docs for private methods/functions.
+
+  For example:
+
+  ```
+  class Try:
+
+    @doc_controls.doc_private
+    def _private(self):
+      ...
+  ```
+
+  As a rule of thumb, private(beginning with `_`) methods/functions are
+  not documented.
+
+  This decorator allows to force document a private method/function.
+
+  Args:
+    obj: The class-attribute to hide from the generated docs.
+
+  Returns:
+    obj
+  """
+
+  setattr(obj, _DOC_PRIVATE, None)
+  return obj
+
+
+def should_doc_private(obj) -> bool:
+  return hasattr(obj, _DOC_PRIVATE)
+
+
+_DOC_IN_CURRENT_AND_SUBCLASSES = "_tf_docs_doc_in_current_and_subclasses"
+
+
+def doc_in_current_and_subclasses(obj: T) -> T:
+  """Overrides `do_not_doc_in_subclasses` decorator.
+
+  If this decorator is set on a child class's method whose parent's method
+  contains `do_not_doc_in_subclasses`, then that will be overriden and the
+  child method will get documented. All classes inherting from the child will
+  also document that method.
+
+  For example:
+
+  ```
+  class Parent:
+    @do_not_doc_in_subclasses
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child1(Parent):
+    @doc_in_current_and_subclasses
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child2(Parent):
+    def method1(self):
+      pass
+    def method2(self):
+      pass
+
+  class Child11(Child1):
+    pass
+  ```
+
+  This will produce the following docs:
+
+  ```
+  /Parent.md
+    # method1
+    # method2
+  /Child1.md
+    # method1
+    # method2
+  /Child2.md
+    # method2
+  /Child11.md
+    # method1
+    # method2
+  ```
+
+  Args:
+    obj: The class-attribute to hide from the generated docs.
+
+  Returns:
+    obj
+  """
+
+  setattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES, None)
+  return obj
+
+
+def should_skip(obj) -> bool:
   """Returns true if docs generation should be skipped for this object.
 
-  checks for the `do_not_generate_docs` or `do_not_doc_inheritable` decorators.
+  Checks for the `do_not_generate_docs` or `do_not_doc_inheritable` decorators.
 
   Args:
     obj: The object to document, or skip.
@@ -316,6 +431,25 @@ def _unwrap_func(obj):
   return obj
 
 
+def _cls_attr_has_tag(cls, attr, tag):
+  """Check if a class attribute `attr` is decorated with `dec`."""
+  # Use __dict__, it doesn't go up the __mro__ like getattr.
+  obj = cls.__dict__.get(attr, None)
+  if obj is None:
+    return False
+  obj = _unwrap_func(obj)
+
+  if isinstance(obj, type):
+    # The attribute is a class. Check __dict__ to see if the attribute is set
+    # on _this_ class, not its parents.
+    if tag in obj.__dict__:
+      return True
+    else:
+      return False
+
+  return hasattr(obj, tag)
+
+
 def should_skip_class_attr(cls, name):
   """Returns true if docs should be skipped for this class attribute.
 
@@ -331,10 +465,8 @@ def should_skip_class_attr(cls, name):
   try:
     obj = getattr(cls, name)
   except AttributeError:
-    # Avoid error caused by enum metaclasses in python3
-    if name in ("name", "value"):
-      return True
-    raise
+    # This can fail for a variety of reasons. Always skip if `getattr` fails.
+    return True
 
   # Unwrap fget if the object is a property
   obj = _unwrap_func(obj)
@@ -344,44 +476,43 @@ def should_skip_class_attr(cls, name):
   if should_skip(obj):
     return True
 
-  # Use __dict__ lookup to get the version defined in *this* class.
-  obj = cls.__dict__.get(name, None)
-  obj = _unwrap_func(obj)
+  classes = getattr(cls, "__mro__", [cls])
 
-  if obj is not None:
-    # If not none, the object is defined in *this* class.
-    # Do not skip if decorated with `for_subclass_implementers`.
-    if hasattr(obj, _FOR_SUBCLASS_IMPLEMENTERS):
-      return False
+  # Find where all the decorators turn docs on and off.
+  # All these lists contain `(level, skip)` pairs.
+  for_subclass_levels = [
+      # The [1:] is because `for_subclass_implementers` turns off docs
+      # one level down (and you don't want to consider level -1).
+      (i, True)
+      for (i, mro_cls) in enumerate(classes[1:])
+      if _cls_attr_has_tag(mro_cls, name, _FOR_SUBCLASS_IMPLEMENTERS)
+  ]
+  not_below_levels = [
+      (i, True)
+      for (i, mro_cls) in enumerate(classes)
+      if _cls_attr_has_tag(mro_cls, name, _DO_NOT_DOC_INHERITABLE)
+  ]
+  doc_below_levels = [
+      (i, False)
+      for (i, mro_cls) in enumerate(classes)
+      if _cls_attr_has_tag(mro_cls, name, _DOC_IN_CURRENT_AND_SUBCLASSES)
+  ]
 
-  # for each parent class
-  for parent in getattr(cls, "__mro__", [])[1:]:
-    obj = getattr(parent, name, None)
+  all_levels = not_below_levels + for_subclass_levels + doc_below_levels
+  if all_levels:
+    # Find the lowest `(level, skip)` pair, and return `skip`
+    return min(all_levels)[1]
 
-    if obj is None:
-      continue
-
-    obj = _unwrap_func(obj)
-
-    # Skip if the parent's definition is decorated with `do_not_doc_inheritable`
-    # or `for_subclass_implementers`
-    if hasattr(obj, _DO_NOT_DOC_INHERITABLE):
-      return True
-
-    if hasattr(obj, _FOR_SUBCLASS_IMPLEMENTERS):
-      return True
-
-  # No blockng decorators --> don't skip
+  # No decorators --> don't skip
   return False
 
 
-def decorate_all_class_attributes(decorator: Callable, cls: type,
-                                  skip: Iterable[str]):
+def decorate_all_class_attributes(decorator, cls, skip: Iterable[str]):
   """Applies `decorator` to every attribute defined in `cls`.
 
   Args:
     decorator: The decorator to apply.
-    cls: The class to aply the decorator to.
+    cls: The class to apply the decorator to.
     skip: A collection of attribute names that the decorator should not be
       aplied to.
   """

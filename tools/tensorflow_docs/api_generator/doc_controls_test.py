@@ -176,7 +176,7 @@ class DocControlsTest(absltest.TestCase):
     self.assertTrue(
         doc_controls.should_skip_class_attr(Grand2Child, 'my_method'))
 
-  def test_for_subclass_implementers_short_circuit(self):
+  def test_lowest_decorator_wins(self):
 
     class GrandParent(object):
 
@@ -191,7 +191,7 @@ class DocControlsTest(absltest.TestCase):
 
     class Child(Parent):
 
-      @doc_controls.do_not_doc_inheritable
+      @doc_controls.doc_in_current_and_subclasses
       def my_method(self):
         pass
 
@@ -201,17 +201,58 @@ class DocControlsTest(absltest.TestCase):
       def my_method(self):
         pass
 
-    class Grand2Child(Child):
+    class Grand2Child(GrandChild):
       pass
 
     self.assertFalse(
         doc_controls.should_skip_class_attr(GrandParent, 'my_method'))
     self.assertTrue(doc_controls.should_skip_class_attr(Parent, 'my_method'))
-    self.assertTrue(doc_controls.should_skip_class_attr(Child, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child, 'my_method'))
     self.assertFalse(
         doc_controls.should_skip_class_attr(GrandChild, 'my_method'))
     self.assertTrue(
         doc_controls.should_skip_class_attr(Grand2Child, 'my_method'))
+
+  def test_nested_class_do_not_document(self):
+
+    class Outer1:
+
+      @doc_controls.do_not_generate_docs
+      class Inner:
+        pass
+
+    class Outer2:
+      Inner = Outer1.Inner
+
+    class Outer3:
+
+      class Inner(Outer1.Inner):
+        pass
+
+    self.assertTrue(doc_controls.should_skip_class_attr(Outer1, 'Inner'))
+    self.assertTrue(doc_controls.should_skip_class_attr(Outer2, 'Inner'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Outer3, 'Inner'))
+
+  def test_nested_class_inheritable_decorators(self):
+
+    class Outer1:
+
+      @doc_controls.do_not_doc_inheritable
+      class Inner:
+        pass
+
+    class Outer2(Outer1):
+      pass
+
+    class Outer3(Outer2):
+
+      @doc_controls.doc_in_current_and_subclasses
+      class Inner(Outer2.Inner):
+        pass
+
+    self.assertTrue(doc_controls.should_skip_class_attr(Outer1, 'Inner'))
+    self.assertTrue(doc_controls.should_skip_class_attr(Outer2, 'Inner'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Outer3, 'Inner'))
 
   def test_skip_class_short_circuit(self):
 
@@ -235,6 +276,31 @@ class DocControlsTest(absltest.TestCase):
         doc_controls.should_skip_class_attr(GrandParent, 'my_method'))
     self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
     self.assertFalse(doc_controls.should_skip_class_attr(Child, 'my_method'))
+
+  def test_doc_in_current_and_subclasses(self):
+
+    class Parent:
+
+      @doc_controls.do_not_doc_in_subclasses
+      def my_method(self):
+        pass
+
+    class Child1(Parent):
+
+      @doc_controls.doc_in_current_and_subclasses
+      def my_method(self):
+        pass
+
+    class Child11(Child1):
+      pass
+
+    class Child2(Parent):
+      pass
+
+    self.assertFalse(doc_controls.should_skip_class_attr(Parent, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child1, 'my_method'))
+    self.assertFalse(doc_controls.should_skip_class_attr(Child11, 'my_method'))
+    self.assertTrue(doc_controls.should_skip_class_attr(Child2, 'my_method'))
 
 
 if __name__ == '__main__':

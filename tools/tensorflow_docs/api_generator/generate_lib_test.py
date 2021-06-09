@@ -19,10 +19,12 @@ import os
 import pathlib
 import sys
 import tempfile
+import textwrap
 
 from absl import flags
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 
@@ -76,14 +78,20 @@ class GenerateTest(absltest.TestCase):
     module = sys.modules[__name__]
 
     index = {
-        'tf': sys,  # Can be any module, this test doesn't care about content.
-        'tf.TestModule': module,
-        'tf.test_function': test_function,
-        'tf.TestModule.test_function': test_function,
-        'tf.TestModule.TestClass': TestClass,
-        'tf.TestModule.TestClass.ChildClass': TestClass.ChildClass,
+        'tf':
+            sys,  # Can be any module, this test doesn't care about content.
+        'tf.TestModule':
+            module,
+        'tf.test_function':
+            test_function,
+        'tf.TestModule.test_function':
+            test_function,
+        'tf.TestModule.TestClass':
+            TestClass,
+        'tf.TestModule.TestClass.ChildClass':
+            TestClass.ChildClass,
         'tf.TestModule.TestClass.ChildClass.GrandChildClass':
-        TestClass.ChildClass.GrandChildClass,
+            TestClass.ChildClass.GrandChildClass,
     }
 
     tree = {
@@ -126,10 +134,14 @@ class GenerateTest(absltest.TestCase):
 
     output_dir = pathlib.Path(self.workdir)
 
-    generate_lib.write_docs(output_dir, parser_config, yaml_toc=True)
+    generate_lib.write_docs(
+        output_dir=output_dir,
+        parser_config=parser_config,
+        root_module_name='tf',
+        yaml_toc=True)
 
     # Check redirects
-    redirects_file = output_dir / '_redirects.yaml'
+    redirects_file = output_dir / 'tf/_redirects.yaml'
     self.assertTrue(redirects_file.exists())
     redirects = yaml.safe_load(redirects_file.read_text())
     self.assertEqual(
@@ -143,7 +155,7 @@ class GenerateTest(absltest.TestCase):
             }]
         })
 
-    toc_file = output_dir / '_toc.yaml'
+    toc_file = output_dir / 'tf/_toc.yaml'
     self.assertTrue(toc_file.exists())
     toc_list = yaml.safe_load(toc_file.read_text())['toc']
 
@@ -159,29 +171,18 @@ class GenerateTest(absltest.TestCase):
     self.assertEqual(test_function_toc['status'], 'deprecated')
 
     # Make sure that the right files are written to disk.
-    self.assertTrue(os.path.exists(os.path.join(output_dir, 'index.md')))
-    self.assertTrue(os.path.exists(os.path.join(output_dir, 'tf.md')))
-    self.assertTrue(os.path.exists(os.path.join(output_dir, '_toc.yaml')))
+    self.assertTrue((output_dir / 'tf/all_symbols.md').exists())
+    self.assertTrue((output_dir / 'tf.md').exists())
+    self.assertTrue((output_dir / 'tf/TestModule.md').exists())
+    self.assertFalse((output_dir / 'tf/test_function.md').exists())
+    self.assertTrue((output_dir / 'tf/TestModule/TestClass.md').exists())
     self.assertTrue(
-        os.path.exists(os.path.join(output_dir, 'tf/TestModule.md')))
-    self.assertFalse(
-        os.path.exists(os.path.join(output_dir, 'tf/test_function.md')))
+        (output_dir / 'tf/TestModule/TestClass/ChildClass.md').exists())
     self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir, 'tf/TestModule/TestClass.md')))
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir,
-                         'tf/TestModule/TestClass/ChildClass.md')))
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(
-                output_dir,
-                'tf/TestModule/TestClass/ChildClass/GrandChildClass.md')))
+        (output_dir /
+         'tf/TestModule/TestClass/ChildClass/GrandChildClass.md').exists())
     # Make sure that duplicates are not written
-    self.assertTrue(
-        os.path.exists(
-            os.path.join(output_dir, 'tf/TestModule/test_function.md')))
+    self.assertTrue((output_dir / 'tf/TestModule/test_function.md').exists())
 
   def test_replace_refes(self):
     test_dir = self.workdir
@@ -218,7 +219,7 @@ class GenerateTest(absltest.TestCase):
 
     reference_resolver, _ = self.get_test_objects()
     generate_lib.replace_refs(test_in_dir, test_out_dir, [reference_resolver],
-                              ['api_docs'], '*.md')
+                              ['api_docs/python'], '*.md')
 
     with open(os.path.join(test_out_dir, 'a/file1.md')) as f:
       content = f.read()
@@ -244,6 +245,60 @@ class GenerateTest(absltest.TestCase):
       # This should fail. The OWNERS file should not be copied
       with open(os.path.join(test_out_dir, 'b/OWNERS')) as f:
         content = f.read()
+
+  def _get_test_page_info(self):
+    page_info = parser.FunctionPageInfo(
+        full_name='abc', py_object=test_function)
+    docstring_info = parser._DocstringInfo(
+        brief='hello `tensorflow`',
+        docstring_parts=['line1', 'line2'],
+        compatibility={})
+    page_info.set_doc(docstring_info)
+    return page_info
+
+  def test_get_headers_global_hints(self):
+    page_info = self._get_test_page_info()
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=True))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+
+      <div itemscope itemtype="http://developers.google.com/ReferenceObject">
+      <meta itemprop="name" content="abc" />
+      <meta itemprop="path" content="Stable" />
+      </div>
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_global_no_hints(self):
+    page_info = self._get_test_page_info()
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=False))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_local_no_hints(self):
+    page_info = self._get_test_page_info()
+
+    @doc_controls.hide_from_search
+    def py_object():
+      pass
+
+    page_info.py_object = py_object
+
+    result = '\n'.join(generate_lib._get_headers(page_info, search_hints=True))
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':

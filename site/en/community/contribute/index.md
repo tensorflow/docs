@@ -41,8 +41,8 @@ contributions include *code*, *documentation*, and *community support*.
 - [Improve documentation](docs.md).
 - Answer questions on
   [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow).
-- Participate in the discussion on the
-  [TensorFlow forums](https://www.tensorflow.org/community/forums).
+- Participate in the discussion on our
+  [mailing lists](../mailing-lists.md).
 - Contribute [example notebooks](http://www.github.com/tensorflow/examples).
 - Investigate [bugs and issues](https://github.com/tensorflow/tensorflow/issues)
   on GitHub.

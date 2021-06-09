@@ -26,43 +26,35 @@ toc:
     path: /tutorials/keras/save_and_load
   - title: "Tune hyperparameters with the Keras Tuner"
     path: /tutorials/keras/keras_tuner
+  - title: "More examples on keras.io"
+    path: https://keras.io/examples/
+    status: external
 
 - title: "Load and preprocess data"
   style: accordion
   section:
+  - title: "Images"
+    path: /tutorials/load_data/images
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
     path: /tutorials/load_data/numpy
   - title: "pandas.DataFrame"
     path: /tutorials/load_data/pandas_dataframe
-  - title: "Images"
-    path: /tutorials/load_data/images
-  - title: "Text"
-    path: /tutorials/load_data/text
-  - title: "Unicode"
-    path: /tutorials/load_data/unicode
-  - title: "TF.Text"
-    path: /tutorials/tensorflow_text/intro
   - title: "TFRecord and tf.Example"
     path: /tutorials/load_data/tfrecord
   - title: "Additional formats with tf.io"
     path: https://github.com/tensorflow/io#tensorflow-io
     status: external
-
-- title: "Estimator"
-  style: accordion
-  section:
-  - title: "Premade estimator"
-    path: /tutorials/estimator/premade
-  - title: "Linear model"
-    path: /tutorials/estimator/linear
-  - title: "Boosted trees"
-    path: /tutorials/estimator/boosted_trees
-  - title: "Boosted trees model understanding"
-    path: /tutorials/estimator/boosted_trees_model_understanding
-  - title: "Keras model to Estimator"
-    path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Text"
+    path: /tutorials/load_data/text
+  - heading: More text loading
+  - title: "Unicode"
+    path: /text/guide/unicode
+    status: external
+  - title: "Subword Tokenization"
+    path: /text/guide/subwords_tokenizer
+    status: external
 
 - heading: "Advanced"
   style: divider
@@ -74,8 +66,6 @@ toc:
     path: /tutorials/customization/basics
   - title: "Custom layers"
     path: /tutorials/customization/custom_layers
-  - title: "Custom training"
-    path: /tutorials/customization/custom_training
   - title: "Custom training: walkthrough"
     path: /tutorials/customization/custom_training_walkthrough
 
@@ -88,8 +78,11 @@ toc:
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
     path: /tutorials/distribute/multi_worker_with_keras
-  - title: "Multi-worker training with Estimator"
-    path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Multi-worker training with CTL"
+    path: /tutorials/distribute/multi_worker_with_ctl
+  - title: "Parameter Server Training"
+    path: /tutorials/distribute/parameter_server_training
+    status: experimental
   - title: "Save and load"
     path: /tutorials/distribute/save_and_load
   - title: "Distributed input"
@@ -111,36 +104,58 @@ toc:
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
   - title: "Object detection with TF Hub"
-    path: https://github.com/tensorflow/hub/blob/master/examples/colab/object_detection.ipynb
+    path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
     status: external
 
 - title: "Text"
   style: accordion
   section:
   - title: "Word embeddings"
-    path: /tutorials/text/word_embeddings
+    path: /text/guide/word_embeddings
+    status: external
+  - title: "Word2Vec"
+    path: /tutorials/text/word2vec
   - title: "Text classification with an RNN"
-    path: /tutorials/text/text_classification_rnn
-  - title: "Text generation with an RNN"
-    path: /tutorials/text/text_generation
+    path: /text/tutorials/text_classification_rnn
+    status: external
+  - title: "Classify Text with BERT"
+    path: /text/tutorials/classify_text_with_bert
+    status: external
+  - title: "Solve GLUE tasks using BERT on TPU"
+    path: /text/tutorials/bert_glue
+    status: external
   - title: "Neural machine translation with attention"
-    path: /tutorials/text/nmt_with_attention
+    path: /text/tutorials/nmt_with_attention
+    status: external
   - title: "Image captioning"
     path: /tutorials/text/image_captioning
-  - title: "Transformer model for language understanding"
-    path: /tutorials/text/transformer
-  - title: "Fine tuning BERT"
-    path: /official_models/fine_tuning_bert
+- title: "Audio"
+  style: accordion
+  section:
+  - title: "Simple audio recognition"
+    path: /tutorials/audio/simple_audio
+  - title: "Transfer learning for audio recognition"
+    path: /tutorials/audio/transfer_learning_audio
+    status: new
 
 - title: "Structured data"
   style: accordion
   section:
   - title: "Classify structured data with feature columns"
     path: /tutorials/structured_data/feature_columns
+  - title: "Classify structured data with preprocessing layers"
+    path: /tutorials/structured_data/preprocessing_layers
+    status: experimental
   - title: "Classification on imbalanced data"
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
     path: /tutorials/structured_data/time_series
+  - title: "Decision forest models"
+    status: external
+    path: /decision_forests/tutorials/beginner_colab
+  - title: "Recommenders"
+    status: external
+    path: /recommenders/examples/quickstart
 
 - title: "Generative"
   style: accordion
@@ -157,11 +172,42 @@ toc:
     path: /tutorials/generative/cyclegan
   - title: "Adversarial FGSM"
     path: /tutorials/generative/adversarial_fgsm
+  - title: "Intro to Autoencoders"
+    path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
 
-- title: "Interpretability"
+- title: "Model Understanding"
   style: accordion
   section:
   - title: "Integrated gradients"
     path: /tutorials/interpretability/integrated_gradients
+  - title: "Uncertainty quantification with SNGP"
+    path: /tutorials/understanding/sngp
+  - title: "Probabalistic regression"
+    path: /probability/examples/Probabilistic_Layers_Regression
+    status: external
+- title: "Reinforcement learning"
+  style: accordion
+  section:
+  - title: "Actor-Critic method"
+    path: /tutorials/reinforcement_learning/actor_critic
+  - title: "TensorFlow agents"
+    status: external
+    path: /agents
+
+- title: "tf.Estimator"
+  style: accordion
+  section:
+  - title: "Premade estimator"
+    path: /tutorials/estimator/premade
+  - title: "Linear model"
+    path: /tutorials/estimator/linear
+  - title: "Boosted trees"
+    path: /tutorials/estimator/boosted_trees
+  - title: "Boosted trees model understanding"
+    path: /tutorials/estimator/boosted_trees_model_understanding
+  - title: "Keras model to Estimator"
+    path: /tutorials/estimator/keras_model_to_estimator
+  - title: "Multi-worker training with Estimator"
+    path: /tutorials/distribute/multi_worker_with_estimator

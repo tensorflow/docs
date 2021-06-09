@@ -11,25 +11,22 @@ and use [pylint](https://www.pylint.org/) to check your Python changes.
 
 ### pylint
 
-To install `pylint` and retrieve TensorFlow's custom style definition:
+To install `pylint`:
 
 ```bash
-
 $ pip install pylint
-$ wget -O /tmp/pylintrc https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/tools/ci_build/pylintrc
-
 ```
 
-To check a file with `pylint`:
+To check a file with `pylint` from the TensorFlow source code root directory:
 
 ```bash
-$ pylint --rcfile=/tmp/pylintrc myfile.py
+$ pylint --rcfile=tensorflow/tools/ci_build/pylintrc tensorflow/python/keras/losses.py
 ```
 
 ### Supported Python versions
 
-TensorFlow supports Python >= 3.5. See the
-[installation guide](https://www.tensorflow.org/install) for details.
+For supported Python versions, see the TensorFlow
+[installation guide](https://www.tensorflow.org/install).
 
 See the TensorFlow
 [continuous build status](https://github.com/tensorflow/tensorflow/blob/master/README.md#continuous-build-status)
@@ -39,7 +36,7 @@ for official and community supported builds.
 ## C++ coding style
 
 Changes to TensorFlow C++ code should conform to the [Google C++ Style
-Guide](https://google.github.io/styleguide/cppguide.html). Use `clang-format` to check your C/C++ changes.
+Guide](https://google.github.io/styleguide/cppguide.html) and [TensorFlow specific style details](https://github.com/tensorflow/community/blob/master/governance/cpp-style.md). Use `clang-format` to check your C/C++ changes.
 
 To install on Ubuntu 16+, do:
 

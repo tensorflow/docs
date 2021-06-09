@@ -85,8 +85,7 @@ available resources. In general, even when running your model on an accelerator
 like a GPU or TPU, the `tf.data` pipelines are run on the CPU. You can check
 your utilization with tools like [sar](https://linux.die.net/man/1/sar) and
 [htop](https://en.wikipedia.org/wiki/Htop), or in the
-[cloud monitoring console](console.cloud.google.com/compute/instances) if you’re
-running on GCP.
+[cloud monitoring console](https://cloud.google.com/monitoring/docs/monitoring_in_console) if you’re running on GCP.
 
 **If your utilization is low,** this suggests that your input pipeline may not
 be taking full advantage of the host CPU. You should consult the
@@ -250,7 +249,7 @@ If you’ve identified a dataset source as the bottleneck, such as reading from
 TFRecord files, you can improve performance by parallelizing data extraction. To
 do so, ensure that your data is sharded across multiple files and use
 `tf.data.Dataset.interleave` with the `num_parallel_calls` parameter set to
-`tf.data.experimental.AUTOTUNE`. If determinism is not important to your
+`tf.data.AUTOTUNE`. If determinism is not important to your
 program, you can further improve performance by setting the
 `deterministic=False` flag on `tf.data.Dataset.interleave` as of TF 2.2. For
 example, if you’re reading from TFRecords, you can do the following:
@@ -258,7 +257,7 @@ example, if you’re reading from TFRecords, you can do the following:
 ```python
 dataset = tf.data.Dataset.from_tensor_slices(filenames)
 dataset = dataset.interleave(tf.data.TFRecordDataset,
-  num_parallel_calls=tf.data.experimental.AUTOTUNE,
+  num_parallel_calls=tf.data.AUTOTUNE,
   deterministic=False)
 ```
 
@@ -299,8 +298,8 @@ def make_dataset(shard_index):
 
 indices = tf.data.Dataset.range(NUM_SHARDS)
 dataset = indices.interleave(make_dataset,
-                             num_parallel_calls=tf.data.experimental.AUTOTUNE)
-dataset = dataset.prefetch(tf.data.experimental.AUTOTUNE)
+                             num_parallel_calls=tf.data.AUTOTUNE)
+dataset = dataset.prefetch(tf.data.AUTOTUNE)
 ```
 
 ## Additional resources

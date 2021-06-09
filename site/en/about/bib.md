@@ -1,6 +1,9 @@
-# TensorFlow White Papers
+# Citing TensorFlow
 
-This document identifies white papers about TensorFlow.
+TensorFlow publishes a DOI for the open-source code base using Zenodo.org:
+[10.5281/zenodo.4724125](https://doi.org/10.5281/zenodo.4724125)
+
+TensorFlow's white papers are listed for citation below.
 
 ## Large-Scale Machine Learning on Heterogeneous Distributed Systems
 

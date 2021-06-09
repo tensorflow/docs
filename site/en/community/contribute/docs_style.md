@@ -12,11 +12,10 @@
 
 ## Markdown
 
-With a few exceptions, TensorFlow uses a Markdown syntax similiar to
+With a few exceptions, TensorFlow uses a Markdown syntax similar to
 [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
 (GFM). This section explains differences between GFM Markdown syntax and the
 Markdown used for TensorFlow documentation.
-
 
 ### Write about code
 
@@ -166,13 +165,20 @@ not the technical content.
 
 ### Ops
 
-Use `# ⇒` instead of a single equal sign when you want to show what an op
-returns.
+In markdown files, use `# ⇒` instead of a single equal sign when you want to
+show what an op returns.
 
 ```python
-# 'input' is a tensor of shape [2, 3, 5] 
-(tf.expand_dims(input, 0))  # ⇒ [1, 2, 3, 5]
+# 'input' is a tensor of shape [2, 3, 5]
+tf.expand_dims(input, 0)  # ⇒ [1, 2, 3, 5]
 ```
+
+In notebooks, display the result instead of adding a comment (If the last
+expression in a notebook cell is not assigned to a variable, it is automatically
+displayed.)
+
+In API reference docs prefer using [doctest](docs_ref.md#doctest) to show
+results.
 
 ### Tensors
 
@@ -185,10 +191,15 @@ Don't use the word *Tensors* (plural) to describe multiple `Tensor` objects
 unless you really are talking about a `Tensors` object. Instead, say "a list (or
 collection) of `Tensor` objects".
 
-Use the word *shape* to detail the dimensions of a tensor, and show the shape in
+Use the word *shape* to detail the axes of a tensor, and show the shape in
 square brackets with backticks. For example:
 
 <pre><code>
-If `input` is a three-dimensional tensor with shape `[3, 4, 3]`, this operation
-returns a three-dimensional tensor with shape `[6, 8, 6]`.
+If `input` is a three-axis `Tensor` with shape `[3, 4, 3]`, this operation
+returns a three-axis `Tensor` with shape `[6, 8, 6]`.
 </code></pre>
+
+As above, prefer "axis" or "index" over "dimension" when talking about the
+elements of a `Tensor`'s shape. Otherwise it's easy to confuse "dimension" with
+the dimension of a vector space. A "three-dimensional vector" has a single axis
+with length 3.

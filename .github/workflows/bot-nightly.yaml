@@ -1,0 +1,65 @@
+# Nightly jobs run by a bot collaborator.
+name: Nightly jobs
+on:
+  repository_dispatch:
+    types: [nightly]
+
+jobs:
+  snapshot-source:
+    name: Update Keras guides
+    if : ${{ github.actor == 'tfdocsbot' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: keras-team/keras-io
+        path: keras-io
+    - uses: actions/checkout@v2
+      with:
+        # tensorflow/docs branch to save generated notebooks.
+        ref: snapshot-keras
+        path: docs
+    - name: Set up repo
+      run: |
+        # Set commit author.
+        git config --global user.name "$GITHUB_ACTOR"
+        git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install requirements
+      run: |
+        python3 -m pip install -U pip
+        python3 -m pip install -U -r keras-io/requirements.txt
+        python3 -m pip install -U git+https://github.com/tensorflow/docs
+    - name: Generate Keras notebooks
+      run: |
+        # Autogen requires formated code
+        echo "[${GITHUB_WORKFLOW}] Format Python files ..."
+        python -m black keras-io/guides/
+        mkdir -p keras-io/tf  # Make sure output dir exists.
+        cd keras-io/scripts/
+        echo "[${GITHUB_WORKFLOW}] Generate Keras guides ..."
+        python3 autogen.py generate_tf_guides
+        echo "[${GITHUB_WORKFLOW}] Format notebooks ..."
+        python3 -m tensorflow_docs.tools.nbfmt ../tf/
+    - name: Sync docs repo
+      env:
+        KERAS_GUIDES_DIR: site/en/guide/keras/
+      run: |
+        rsync --archive --del --checksum ./keras-io/tf/ "./docs/${KERAS_GUIDES_DIR}"
+        cd docs
+        if [[ -z $(git status -s | grep "$KERAS_GUIDES_DIR") ]]; then
+          echo "[${GITHUB_WORKFLOW}] No Keras guides updated, exiting."
+          exit 0
+        fi
+        # Match timestamp format to other snapshot messages.
+        fmt_rfc7231="%a, %d %b %Y %H:%M:%S %Z"
+        TIMESTAMP_STR=$(TZ=GMT date +"$fmt_rfc7231")
+
+        git add "./${KERAS_GUIDES_DIR}"
+        git commit -m "Keras guides snapshot: ${TIMESTAMP_STR}"
+        # Push to current branch.
+        echo "[${GITHUB_WORKFLOW}] Push changes to repo ..."
+        git push origin

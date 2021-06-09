@@ -16,12 +16,18 @@ toc:
   path: /install/source
 - title: Windows
   path: /install/source_windows
-- title: Raspberry Pi
-  path: /install/source_rpi
+- title: SIG Build
+  path: https://github.com/tensorflow/build
+  status: external
 - heading: Language bindings
 - title: Java
-  path: /install/lang_java
+  path: /jvm/install
+  status: external
+- title: Java (legacy)
+  status: deprecated
+  path: /install/lang_java_legacy
 - title: C
   path: /install/lang_c
 - title: Go
-  path: /install/lang_go
+  path: https://github.com/tensorflow/build/tree/master/golang_install_guide
+  status: external

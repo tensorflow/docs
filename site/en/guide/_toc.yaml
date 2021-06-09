@@ -13,9 +13,6 @@ toc:
   path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
   status: external
 
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
-
 - heading: "TensorFlow basics"
   status: new
 - title: "Eager execution"
@@ -30,24 +27,29 @@ toc:
   path: /guide/intro_to_graphs
 - title: "Intro to modules, layers, and models"
   path: /guide/intro_to_modules
-  status: new
+- title: "Training loops"
+  path: /guide/basic_training_loops
 - title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
+- title: "Sparse tensor"
+  status: new
+  path: /guide/sparse_tensor
 - title: "NumPy API"
   path: /guide/tf_numpy
+- title: "Tensor slicing"
   status: new
+  path: /guide/tensor_slicing
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
 
 - heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
 - title: "Random number generation"
   path: /guide/random_numbers
-
-- heading: "Estimators"
-- title: "Estimator overview"
-  path: /guide/estimator
 
 - heading: "Data input pipelines"
 - title: "tf.data"
@@ -77,11 +79,16 @@ toc:
   path: /guide/function
 - title: "Profile TensorFlow performance"
   path: /guide/profiler
+- title: "Optimize GPU Performance"
+  path: /guide/gpu_performance_analysis
 - title: "Graph optimization"
   path: /guide/graph_optimization
 - title: "Mixed precision"
   path: /guide/mixed_precision
-  status: experimental
+
+- heading: "Estimators"
+- title: "Estimator overview"
+  path: /guide/estimator
 
 - heading: "Appendix"
 - title: "Version compatibility"
