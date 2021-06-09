@@ -36,7 +36,7 @@ rm -rf "${OUTPUT_DIR}/org"
 ( # Capture the return code. it may be non-zero for minor errors.
   javadoc \
   -sourcepath "${SOURCE_PATH}" \
-  -docletpath "${ROOT_PATH}/third_party/java/doclava/current/doclava.jar":"${ROOT_PATH}/third_party/java/jsilver/v1_0_0/jsilver.jar" \
+  -docletpath "${DOCLAVA_JAR}:${JSILVER_JAR}" \
   -doclet com.google.doclava.Doclava \
   -d "${OUTPUT_DIR}" \
   -toroot "${SITE_PATH}"/ \
@@ -44,9 +44,7 @@ rm -rf "${OUTPUT_DIR}/org"
   -templatedir "${TEMPLATES}" \
   -public \
   -devsite \
-  -subpackages "${PACKAGE}" \
-  -federate AndroidAPI http://developer.android.com \
-  -federationapi AndroidAPI "${DOCLAVA_PRODUCT_RESOURCE_PATH}/26.txt"
+  -subpackages "${PACKAGE}"
 )
 
 
