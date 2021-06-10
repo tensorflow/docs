@@ -112,6 +112,8 @@ def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
     parts.append(_build_signature(page_info, obj_name=page_info.full_name))
     parts.append('\n\n')
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -121,7 +123,7 @@ def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
             item,
             table_title_template='<h2 class="add-link">{title}</h2>'))
 
-  parts.append(_build_compatibility(page_info.doc.compatibility))
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
   if custom_content is not None:
@@ -332,6 +334,8 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
         _build_signature(methods.constructor, obj_name=page_info.full_name))
     parts.append('\n\n')
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -339,8 +343,6 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   parts.extend(
       merge_class_and_constructor_docstring(page_info, methods.constructor))
 
-  # Add the compatibility section to the page.
-  parts.append(_build_compatibility(page_info.doc.compatibility))
   parts.append('\n\n')
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
@@ -382,6 +384,9 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
             page_info.other_members,
             title='<h2 class="add-link">Class Variables</h2>',
         ))
+
+  # Add the compatibility section to the page.
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   return ''.join(parts)
 
@@ -458,10 +463,13 @@ def _build_method_section(method_info, heading_level=3):
 
   parts.append(method_info.doc.brief + '\n')
 
+  parts.append(_top_compat(method_info, h_level=4))
+
   for item in method_info.doc.docstring_parts:
     parts.append(_format_docstring(item, table_title_template=None))
 
-  parts.append(_build_compatibility(method_info.doc.compatibility))
+  parts.append(_bottom_compat(method_info, h_level=4))
+
   parts.append('\n\n')
   return ''.join(parts)
 
@@ -501,11 +509,13 @@ def _build_module_page(page_info: parser.ModulePageInfo) -> str:
 
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # All lines in the docstring, expect the brief introduction.
   for item in page_info.doc.docstring_parts:
     parts.append(_format_docstring(item, table_title_template=None))
 
-  parts.append(_build_compatibility(page_info.doc.compatibility))
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   parts.append('\n\n')
 
@@ -613,16 +623,81 @@ def _build_signature(obj_info: parser.PageInfo,
   return '\n'.join(parts)
 
 
-def _build_compatibility(compatibility):
-  """Return the compatibility section as an md string."""
-  parts = []
-  sorted_keys = sorted(compatibility.keys())
-  for key in sorted_keys:
+def _split_compat_top_bottom(page_info):
+  """Split the compatibility dict between the top and bottom sections."""
+  compat: Dict[str, str] = page_info.doc.compatibility
+  if ('compat.v1' in page_info.full_name or 'estimator' in page_info.full_name):
+    top_compat = {}
+    bottom_compat = {}
+    for key, value in compat.items():
+      if 'TF2' in key:
+        top_compat[key] = value
+      else:
+        bottom_compat[key] = value
+  else:
+    top_compat = {}
+    bottom_compat = compat
 
-    value = compatibility[key]
-    # Dedent so that it does not trigger markdown code formatting.
-    value = textwrap.dedent(value)
-    parts.append(f'\n\n#### {key.title()} Compatibility\n{value}\n')
+  return top_compat, bottom_compat
+
+
+_TOP_COMPAT_TEMPLATE = """
+
+ <aside class="caution">
+<h{h_level}>{title}</h{h_level}>
+
+{value}
+
+ </aside>
+
+"""
+
+
+def _top_compat(page_info: parser.PageInfo, h_level: int):
+  """Add the top section compatibility blocks."""
+  compat, _ = _split_compat_top_bottom(page_info)
+
+  parts = []
+  for key in sorted(compat):
+    value = textwrap.dedent(compat[key])
+    parts.append(
+        _TOP_COMPAT_TEMPLATE.format(title=key, value=value, h_level=h_level))
+
+  return ''.join(parts)
+
+
+_BOTTOM_COMPAT_TEMPLATE = """
+
+ <section><devsite-expandable {expanded}>
+ <h{h_level} class="showalways">{title}</h{h_level}>
+
+{value}
+
+ </devsite-expandable></section>
+
+"""
+
+
+def _bottom_compat(page_info: parser.PageInfo, h_level: int):
+  """Add the bottom section compatibility blocks."""
+  _, compat = _split_compat_top_bottom(page_info)
+
+  def _tf2_key_tuple(key):
+    # False sorts before True.
+    return ('TF2' in key, key)
+
+  parts = []
+  for key in sorted(compat, key=_tf2_key_tuple):
+    value = textwrap.dedent(compat[key])
+    if 'TF2' in key:
+      expanded = ''
+      title = key
+    else:
+      expanded = 'expanded'
+      title = key + ' compatibility'
+    parts.append(
+        _BOTTOM_COMPAT_TEMPLATE.format(
+            title=title, value=value, h_level=h_level, expanded=expanded))
 
   return ''.join(parts)
 
