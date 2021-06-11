@@ -36,4 +36,4 @@ class EpochDots(tf.keras.callbacks.Callback):
       print()
 
     if epoch % self.dot_every == 0:
-      print('.', end='')
+      print('.', end='', flush=True)
