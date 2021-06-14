@@ -243,6 +243,9 @@ class GenerateToc(object):
     toc_base_modules = []
 
     toc_graph = {}
+    min_dots = min(module.count('.') for module in sorted_modules)
+    min_docs = max(min_dots, 1)
+
     for module in sorted_modules:
       mod = self._modules[module]
 
@@ -251,7 +254,7 @@ class GenerateToc(object):
 
       # If the module's name contains more than one dot, it is not a base level
       # module. Hence, add it to its parents submodules list.
-      if module.count('.') > 1:
+      if module.count('.') > min_docs:
         # For example, if module is `tf.keras.applications.densenet` then its
         # parent is `tf.keras.applications`.
         parent_module = '.'.join(module.split('.')[:-1])
@@ -758,7 +761,7 @@ class DocGenerator:
       root_title: str,
       py_modules: Sequence[Tuple[str, Any]],
       base_dir: Optional[Sequence[Union[str, pathlib.Path]]] = None,
-      code_url_prefix: Sequence[str] = (),
+      code_url_prefix: Union[str, Sequence[str]] = (),
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
