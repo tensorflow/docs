@@ -26,7 +26,7 @@ This module contains one public function, which handels the conversion of these
 
 import textwrap
 
-from typing import Dict, List, Optional, NamedTuple
+from typing import Dict, List, Optional, NamedTuple, Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -623,19 +623,19 @@ def _build_signature(obj_info: parser.PageInfo,
   return '\n'.join(parts)
 
 
-def _split_compat_top_bottom(page_info):
+def _split_compat_top_bottom(page_info) -> Tuple[Optional[str], Dict[str, str]]:
   """Split the compatibility dict between the top and bottom sections."""
   compat: Dict[str, str] = page_info.doc.compatibility
+  top_compat = None
+
   if ('compat.v1' in page_info.full_name or 'estimator' in page_info.full_name):
-    top_compat = {}
     bottom_compat = {}
     for key, value in compat.items():
-      if 'TF2' in key:
-        top_compat[key] = value
+      if key == 'TF2':
+        top_compat = value
       else:
         bottom_compat[key] = value
   else:
-    top_compat = {}
     bottom_compat = compat
 
   return top_compat, bottom_compat
@@ -643,27 +643,32 @@ def _split_compat_top_bottom(page_info):
 
 _TOP_COMPAT_TEMPLATE = """
 
- <aside class="caution">
-<h{h_level}>{title}</h{h_level}>
+ <section><devsite-expandable expanded>
+ <h{h_level} class="showalways">Migrate to TF2</h{h_level}>
+
+Caution: This API was designed for TensorFlow v1.
+Continue reading for details on how to migrate from this API to a native
+TensorFlow v2 equivalent. See the
+[TensorFlow v1 to TenorFlow v2 migration guide](https://www.tensorflow.org/guide/migrate)
+for instructions on how to migrate the rest of your code.
 
 {value}
 
- </aside>
+ </aside></devsite-expandable></section>
+
+<h{h_level}>Description</h{h_level}>
 
 """
 
 
-def _top_compat(page_info: parser.PageInfo, h_level: int):
+def _top_compat(page_info: parser.PageInfo, h_level: int) -> str:
   """Add the top section compatibility blocks."""
   compat, _ = _split_compat_top_bottom(page_info)
-
-  parts = []
-  for key in sorted(compat):
-    value = textwrap.dedent(compat[key])
-    parts.append(
-        _TOP_COMPAT_TEMPLATE.format(title=key, value=value, h_level=h_level))
-
-  return ''.join(parts)
+  if compat:
+    value = textwrap.dedent(compat)
+    return _TOP_COMPAT_TEMPLATE.format(value=value, h_level=h_level)
+  else:
+    return ''
 
 
 _BOTTOM_COMPAT_TEMPLATE = """
@@ -678,20 +683,20 @@ _BOTTOM_COMPAT_TEMPLATE = """
 """
 
 
-def _bottom_compat(page_info: parser.PageInfo, h_level: int):
+def _bottom_compat(page_info: parser.PageInfo, h_level: int) -> str:
   """Add the bottom section compatibility blocks."""
   _, compat = _split_compat_top_bottom(page_info)
 
   def _tf2_key_tuple(key):
     # False sorts before True.
-    return ('TF2' in key, key)
+    return (key == 'TF2', key)
 
   parts = []
   for key in sorted(compat, key=_tf2_key_tuple):
     value = textwrap.dedent(compat[key])
-    if 'TF2' in key:
+    if key == 'TF2':
       expanded = ''
-      title = key
+      title = 'Migrate to TF2'
     else:
       expanded = 'expanded'
       title = key + ' compatibility'
