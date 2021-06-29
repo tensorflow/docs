@@ -386,8 +386,8 @@ The tool displays information in two panes:
     *   The total size of shared (static + dynamic shared) memory used in bytes
     *   The block dimension expressed as `blockDim.x, blockDim.y, blockDim.z`
     *   The grid dimensions expressed as `gridDim.x, gridDim.y, gridDim.z`
-    *   Whether the op is eligible to use TensorCores
-    *   Whether the kernel contains TensorCore instructions
+    *   Whether the op is eligible to use Tensor Cores
+    *   Whether the kernel contains Tensor Core instructions
     *   The name of the op that launched this kernel
     *   The number of occurrences of this kernel-op pair
     *   The total elapsed GPU time in microseconds
@@ -522,16 +522,16 @@ Warning: This tool is experimental. Please report
 [here](https://github.com/tensorflow/profiler/issues) if the analysis result
 seems off.
 
-tf.data bottleneck analysis automatically detects bottlenecks in tf.data input
-pipelines in your program and provides recommendations on how to fix them. It
-works with any program using tf.data regardless of the platform (CPU/GPU/TPU) or
-the framework (TensorFlow/JAX). Its analysis and recommendations are based on
-this [guide](https://www.tensorflow.org/guide/data_performance_analysis).
+The `tf.data` bottleneck analysis tool automatically detects bottlenecks in
+`tf.data` input pipelines in your program and provides recommendations on how to
+fix them. It works with any program using `tf.data` regardless of the platform
+(CPU/GPU/TPU). Its analysis and recommendations are based on this
+[guide](https://www.tensorflow.org/guide/data_performance_analysis).
 
 It detects a bottleneck by following these steps:
 
 1.  Find the most input bound host.
-1.  Find the slowest execution of tf.data input pipeline.
+1.  Find the slowest execution of a `tf.data` input pipeline.
 1.  Reconstruct the input pipeline graph from the profiler trace.
 1.  Find the critical path in the input pipeline graph.
 1.  Identify the slowest transformation on the critical path as a bottleneck.
@@ -543,12 +543,12 @@ All Input Pipelines and Input Pipeline Graph.
 
 ![image](./images/tf_profiler/tf_data_summary.png)
 
-This section provides the summary of the analysis. It tells whether a slow
-tf.data input pipeline is detected in the profile. If so, it shows the most
-input bound host and its slowest input pipeline with the max latency. And most
-importantly, it tells which part of the input pipeline is the bottleneck and how
-to fix it. The bottleneck information is provided with the iterator type and its
-long name.
+This section provides the summary of the analysis. It reports on slow `tf.data`
+input pipelines detected in the profile. This section also shows the most input
+bound host and its slowest input pipeline with the max latency. Most
+importantly, it identifies which part of the input pipeline is the bottleneck
+and how to fix it. The bottleneck information is provided with the iterator type
+and its long name.
 
 ##### How to read tf.data iterator's long name
 
@@ -577,7 +577,7 @@ Batch         | Iterator::Batch
 
 This section provides the summary of all input pipelines across all hosts.
 Typically there is one input pipeline. When using the distribution strategy,
-there are one host input pipeline running the program's tf.data code and
+there is one host input pipeline running the program's `tf.data` code and
 multiple device input pipelines retrieving data from the host input pipeline and
 transferring it to the devices.
 
@@ -591,7 +591,7 @@ is counted as slow if it takes longer than 50 μs.
 This section shows the input pipeline graph with the execution time information.
 You can use "Host" and "Input Pipeline" to choose which host and input pipeline
 to see. Executions of the input pipeline are sorted by the execution time in
-descending order which you can use "Rank" to choose.
+descending order which you can choose using the **Rank** dropdown.
 
 ![image](./images/tf_profiler/tf_data_graph.png)
 
@@ -600,9 +600,9 @@ the node with the longest self time on the critical path, has a red outline. The
 other non-critical nodes have gray dashed outlines.
 
 In each node, "Start Time" indicates the start time of the execution. The same
-node may be executed multiple times, for example, if there is Batch in the input
-pipeline. If it is executed multiple times, it is the start time of the first
-execution.
+node may be executed multiple times, for example, if there is a `Batch` op in
+the input pipeline. If it is executed multiple times, it is the start time of
+the first execution.
 
 "Total Duration" is the wall time of the execution. If it is executed multiple
 times, it is the sum of the wall times of all executions.
@@ -786,43 +786,203 @@ platform.
 
 ### Optimize the input data pipeline
 
-An efficient data input pipeline can drastically improve the speed of your model
-execution by reducing device idle time. Consider incorporating the following
-best practices as detailed
-[here](https://www.tensorflow.org/guide/data_performance) to make your data
-input pipeline more efficient:
+Use the data from the [#input_pipeline_analyzer] to optimize your data input
+pipeline. An efficient data input pipeline can drastically improve the speed of
+your model execution by reducing device idle time. Try to incorporate the best
+practices detailed in the TF data performance
+[guide](https://www.tensorflow.org/guide/data_performance) and below to make
+your data input pipeline more efficient.
 
-*   Prefetch data
-*   Parallelize data extraction
-*   Parallelize data transformation
-*   Cache data in memory
-*   Vectorize user-defined functions
-*   Reduce memory usage when applying transformations
+*   In general, parallelizing any ops that do not need to be executed
+    sequentially can significantly optimize the data input pipeline.
 
-Additionally, try running your model with synthetic data to check if the input
-pipeline is a performance bottleneck.
+*   In many cases, it helps to change the order of some calls or to tune the
+    arguments such that it works best for your model. While optimizing the input
+    data pipeline, benchmark only the data loader without the training and
+    backprop steps to quantify the effect of the optimizations independently.
+
+*   Try running your model with synthetic data to check if the input pipeline is
+    a performance bottleneck.
+
+*   Use `tf.data.Dataset.shard` for multi-GPU training. Ensure you shard very
+    early on in the input loop to prevent reductions in throughput. When working
+    with TFRecords, ensure you shard the list of TFRecords and not the contents
+    of the TFRecords.
+
+*   Parallelize several ops by dynamically setting the value of
+    `num_parallel_calls` using `tf.data.AUTOTUNE`.
+
+*   Consider limiting the usage of `tf.data.Dataset.from_generator` as it is
+    slower compared to pure TensorFlow ops.
+
+*   Consider limiting the usage of `tf.py_function` as it cannot be serialized
+    and is not supported to run in distributed TensorFlow.
+
+*   Use `tf.data.Options` to control static optimizations to the input pipeline.
+
+Also read the `tf.data` performance analysis
+[guide](https://www.tensorflow.org/guide/data_performance_analysis) for more
+guidance on optimizing your input pipeline.
+
+#### Optimize data augmentation
+
+When working with image data, make your
+[data augmentation](https://www.tensorflow.org/tutorials/images/data_augmentation)
+more efficient by casting to different data types <b><i>after</i></b> applying
+spatial transformations such as flipping, cropping, rotating etc.
+
+Note: Some ops like `tf.image.resize` transparently change the dtype to `fp32`.
+Ensure you normalize your data to lie between `0` and `1` if its not done
+automatically. Skipping this step could lead to `NaN` errors if you have enabled
+[AMP](https://developer.nvidia.com/automatic-mixed-precision).
+
+#### Use NVIDIA® DALI
+
+In some instances, such as when you have a system with a high GPU to CPU ratio,
+all the above optimizations may not be enough to eliminate bottlenecks in the
+data loader caused due to limitations of CPU cycles. If you are using NVIDIA®
+GPUs for computer vision and audio deep learning applications, consider using
+the Data Loading Library
+([DALI](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/getting%20started.html))
+to accelerate the data pipeline.
+
+See
+[here](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/supported_ops.html)
+for a list of supported DALI ops.
+
+### Use threading and parallel execution
+
+Run ops on multiple CPU threads with the `tf.config.threading` API to execute
+them faster. TensorFlow automatically sets the number of parallelism threads by
+default. The thread pool available for running TensorFlow ops depends on the
+number of CPU threads available.
+
+Control the maximum parallel speedup for a single op by using
+`tf.config.threading.set_intra_op_parallelism_threads`. Note that if you run
+multiple ops in parallel, they will all share the available thread pool.
+
+If you have independent non-blocking ops (ops with no directed path between them
+on the graph), use `tf.config.threading.set_inter_op_parallelism_threads` to run
+them concurrently using the available thread pool.
+
+### Misc
+
+When working with smaller models on NVIDIA® GPUs, you can set
+`tf.compat.v1.ConfigProto.force_gpu_compatible=True` to force all CPU tensors to
+be allocated with CUDA pinned memory to give a significant boost to model
+performance. However, exercise caution while using this option for unknown/very
+large models as this might negatively impact the host (CPU) performance.
 
 ### Improve device performance
 
-*   Increase training mini-batch size (number of training samples used per
-    device in one iteration of the training loop)
-*   Use TF Stats to find out how efficiently on-device ops run
+Follow the best practices detailed here and in the
+[GPU performance optimization guide](https://www.tensorflow.org/guide/gpu_performance_analysis)
+to optimize on-device TensorFlow model performance.
+
+If you are using NVIDIA GPUs, log the GPU and memory utilization to a CSV file
+by running:
+
+```shell
+nvidia-smi
+--query-gpu=utilization.gpu,utilization.memory,memory.total,
+memory.free,memory.used --format=csv
+```
+
+#### Configure data layout
+
+When working with data that contains channel information (like images), optimize
+the data layout format to prefer channels last (NHWC over NCHW). Channel-last
+data formats improve Tensor Core utilization and provide significant performance
+improvements especially in convolutional models when coupled with AMP. NCHW data
+layouts can still be operated on by Tensor Cores, but introduce additional
+overhead due to automatic transpose ops.
+
+You can optimize the data layout to prefer NHWC layouts by setting
+`data_format="channels_last"` for layers such as `tf.keras.layers.Conv2D`,
+`tf.keras.layers.Conv3D`, and
+`tf.keras.layers.experimental.preprocessing.RandomRotation`.
+
+Use `tf.keras.backend.set_image_data_format` to set the default data layout
+format for the Keras backend API.
+
+#### Max out the L2 cache
+
+When working with NVIDIA® GPUs, execute the code snippet below before the
+training loop to max out the L2 fetch granularity to 128 bytes.
+
+```python
+import ctypes
+
+_libcudart = ctypes.CDLL('libcudart.so')
+# Set device limit on the current device
+# cudaLimitMaxL2FetchGranularity = 0x05
+pValue = ctypes.cast((ctypes.c_int*1)(), ctypes.POINTER(ctypes.c_int))
+_libcudart.cudaDeviceSetLimit(ctypes.c_int(0x05), ctypes.c_int(128))
+_libcudart.cudaDeviceGetLimit(pValue, ctypes.c_int(0x05))
+assert pValue.contents.value == 128
+```
+
+#### Configure GPU thread usage
+
+The GPU thread mode decides how GPU threads are used. Set the thread mode to
+`gpu_private` to ensure that preprocessing does not steal all the GPU threads.
+This will reduce the kernel launch delay during training. You can also set the
+number of threads per GPU. Set these values using environment variables.
+
+```python
+import os
+
+os.environ['TF_GPU_THREAD_MODE']='gpu_private'
+os.environ['TF_GPU_THREAD_COUNT']='1'
+```
+
+#### Configure GPU memory options
+
+In general, increase the batch size and scale the model to better utilize GPUs
+and get higher throughput. Note that increasing the batch size will change the
+model’s accuracy so the model needs to be scaled by tuning hyperparameters like
+the learning rate to meet the target accuracy.
+
+Also, use `tf.config.experimental.set_memory_growth` to allow GPU memory to grow
+to prevent all the available memory from being fully allocated to ops that
+require only a fraction of the memory. This allows other processes which consume
+GPU memory to run on the same device.
+
+See the
+[guidance](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth) in
+the GPU guide to learn more.
+
+#### Misc
+
+*   Increase the training mini-batch size (number of training samples used per
+    device in one iteration of the training loop) to the maximum amount that
+    fits without an out of memory (OOM) error on the GPU. Increasing the batch
+    size impacts the model's accuracy so make sure you scale the model by tuning
+    hyperparameters to meet the target accuracy.
+
+*   Disable reporting OOM errors during tensor allocation in production code.
+    Set `report_tensor_allocations_upon_oom=False` in `tf.compat.v1.RunOptions`.
+
+*   For models with convolution layers, remove bias addition if using batch
+    normalization. Batch normalization shifts values by their mean and this
+    removes the need to have a constant bias term.
+
+*   Use TF Stats to find out how efficiently on-device ops run.
+
 *   Use `tf.function` to perform computations and optionally, enable the
-    `experimental_compile` flag
+    `experimental_compile` flag.
+
 *   Minimize host Python operations between steps and reduce callbacks.
-    Calculate metrics every few steps instead of at every step
-*   Keep the device compute units busy
-*   Send data to multiple devices in parallel
-*   Optimize data layout to prefer channels first (e.g. NCHW over NHWC). Certain
-    GPUs like the NVIDIA® V100 perform better with a NHWC data layout.
+    Calculate metrics every few steps instead of at every step.
+
+*   Keep the device compute units busy.
+
+*   Send data to multiple devices in parallel.
+
 *   Consider using 16-bit numerical representations such as `fp16`, the
     half-precision floating point format specified by IEEE or the Brain
-    floating-point [bfloat16](https://cloud.google.com/tpu/docs/bfloat16) format
-*   Consider using the
-    [Keras mixed precision API](https://www.tensorflow.org/guide/keras/mixed_precision)
-*   When training on GPUs, make use of the TensorCore. GPU kernels use the
-    TensorCore when the precision is fp16 and input/output dimensions are
-    divisible by 8 or 16 (for int8)
+    floating-point [bfloat16](https://cloud.google.com/tpu/docs/bfloat16)
+    format.
 
 ## Additional resources
 

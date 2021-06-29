@@ -2,14 +2,17 @@
 
 ## Overview
 
-This guide is for TensorFlow users utilizing GPUs to improve model performance.
-Using the TensorFlow Profiler as the main tool to gain insight into performance,
-this guide will help you debug when one or more of your GPUs are underutilized.
-A quickstart guide to the TensorFlow Profiler can be found in the
-[TensorFlow Profiler](https://www.tensorflow.org/tensorboard/tensorboard_profiling_keras)
-tutorial, and additional ways to obtain a profile are documented in the
-[Optimize TensorFlow performance using the Profiler](https://www.tensorflow.org/guide/profiler#collect_performance_data)
-guide.
+Use the optimizations in this guide to ensure you get the maximum performance
+out of your GPUs. Using the TensorFlow Profiler as the main tool to gain insight
+into performance, this guide will help you debug when one or more of your GPUs
+are underutilized.
+
+Read the
+[Profiler tutorial](https://www.tensorflow.org/tensorboard/tensorboard_profiling_keras)
+to learn more about how to get started with using the Profiler. Also, read the
+[Profiler guide](https://www.tensorflow.org/guide/profiler#profiler_tools) to
+learn more about the various profiling tools available and the various methods
+available to optimize TensorFlow performance on the host (CPU).
 
 Keep in mind that offloading computations to GPU might not always be beneficial,
 particularly for small models. There are overheads due to data transfer between
@@ -46,7 +49,7 @@ to help identify and fix performance bottlenecks.
 
 In an ideal case, your program should have high GPU utilization, minimal CPU
 (host) to GPU (device) communication, and no overhead from the input pipeline.
-The first step to analyzing performance is to get a profile for a model running
+The first step in analyzing performance is to get a profile for a model running
 with one GPU.
 
 The [Overview Page](https://www.tensorflow.org/guide/profiler#overview_page) of
@@ -71,19 +74,20 @@ when diagnosing performance bottlenecks.
 Below is an image of a model trace view running on 1 GPU. From the _Tensorflow
 Name Scope_ and _Tensorflow Ops_ sections, you can identify different parts of
 the model, like the forward pass, the loss function, backward pass/gradient
-calculation, and the optimizer weight update. You can also see the operations
-running on the GPU next to each _Stream_, which refer to CUDA streams. Each
-stream is used for specific tasks. In this trace, _Stream#118_ is used to launch
-compute kernels and device to device copies. _Stream#119_ is used for host to
-device copy and *Stream#120* for device to host copy.
+calculation, and the optimizer weight update. You can also see ops running on
+the GPU next to each _Stream_, which refer to CUDA streams. Each stream is used
+for specific tasks. In this trace, _Stream#118_ is used to launch compute
+kernels and device to device copies. _Stream#119_ is used for host to device
+copy and *Stream#120* for device to host copy.
+
+The trace below shows common characteristics of a performant model.
 
 ![image](images/gpu_perf_analysis/traceview_ideal.png "An example TensorFlow Profiler trace view")
 
-This trace shows common characteristics of a performant model. For example, the
-GPU compute timeline (_Stream#118_) looks busy with very few gaps. There are
-minimal copies from host to device (_Stream #119_) and from device to host
-(_Stream #120_), as well as minimal gaps between steps. When you run the
-TensorFlow Profiler for your program, you might not see these ideal
+For example, the GPU compute timeline (_Stream#118_) looks busy with very few
+gaps. There are minimal copies from host to device (_Stream #119_) and from
+device to host (_Stream #120_), as well as minimal gaps between steps. When you
+run the TensorFlow Profiler for your program, you might not see these ideal
 characteristics in your trace view. The rest of this guide covers common
 scenarios and how to fix them.
 
@@ -111,6 +115,9 @@ contributes significantly to step time:
     random/synthetic data. The only overhead in the synthetic data case will be
     due to input data copy which again can be prefetched and optimized.
 
+Also see the guidance
+[here](https://www.tensorflow.org/guide/profiler#optimize_the_input_data_pipeline).
+
 ### Debug Performance of 1 GPU
 
 There are several factors that can contribute to low GPU utilization. Below are
@@ -127,7 +134,7 @@ meaning that the GPU is idle during that time.
 
 If your trace viewer shows large gaps between steps, this could be an indication
 that your program is input bound. In that case you should refer to the previous
-section on debugging your input pipeline if you haven’t already done so.
+section on debugging your input pipeline if you have not already done so.
 However, even with an optimized input pipeline, you can still see gaps between
 the end of one step and the start of another due to CPU thread contention.
 `tf.data` makes use of background threads to parallelize pipeline processing.
@@ -188,15 +195,16 @@ delays.
 If your trace viewer shows many small gaps between ops on the GPU like the image
 above, you can:
 
-*   Concatenate small tensors and use vectorized operations or use a larger
-    batch size to make each kernel launched do more work, which will keep the
-    GPU busy for longer.
-*   Make sure you’re using `tf.function` to create TF graphs and not running
-    operations in a pure eager mode (Using `tf.keras.Model.compile`
-    automatically does this).
-*   Fuse kernels using XLA. For more details, see the section below on how to
-    enable XLA to get higher performance. This is an experimental feature, but
-    leads to high device utilization.
+*   Concatenate small tensors and use vectorized ops or use a larger batch size
+    to make each launched kernel do more work, which will keep the GPU busy for
+    longer.
+*   Make sure you are using `tf.function` to create TF graphs and not running
+    ops in a pure eager mode. Using `tf.keras.Model.compile` automatically does
+    this.
+*   Fuse kernels using XLA. For more details, see the
+    [section](#enable_mixed_precision_and_xla) below on how to enable XLA to get
+    higher performance. This is an experimental feature, but leads to high
+    device utilization.
 
 ##### Tensorflow Op Placement
 
@@ -239,50 +247,63 @@ Once your program's GPU utilization is acceptable, the next step is to look into
 increasing the efficiency of the GPU kernels by utilizing Tensor Cores or fusing
 ops.
 
-##### Utilizing Tensor Cores
+##### Utilize Tensor Cores
 
 Modern GPUs have specialized tensor cores that can significantly improve the
 performance of kernels that are eligible. The
 [GPU kernel stats page](https://www.tensorflow.org/guide/profiler#gpu_kernel_stats)
 indicates which GPU kernels are Tensor Core eligible, and which kernels are
-using the Tensor Core. Enabling fp16 (see Enabling Mixed Precision section
+using the Tensor Core. Enabling `fp16` (see Enabling Mixed Precision section
 below) is one way to make your program’s General Matrix Multiply (GEMM) kernels
-(matmul ops) utilize the Tensor Core.
+(matmul ops) utilize the Tensor Core. GPU kernels use the Tensor Cores
+efficiently when the precision is fp16 and input/output tensor dimensions are
+divisible by 8 or 16 (for `int8`).
+
+Note: With cuDNN v7.6.3 and later, convolution dimensions will automatically be
+padded where necessary to leverage Tensor Cores.
 
 For other detailed recommendations on how to make kernels efficient for GPUs,
 refer to the
 [NVIDIA Deep Learning Performance](https://docs.nvidia.com/deeplearning/performance/index.html#perf-guidelines)
-guide, which covers a variety of techniques you can experiment with such as
-using NCHW vs NHWC format to represent inputs, or making the input dimensions to
-be a multiple of 8.
+guide.
 
-##### Fusing Ops
+##### Fuse ops
 
-With the `tf.xla.experimental_compile` feature, TensorFlow can fuse smaller ops
-to form bigger kernels leading to significant performance gains. More details
-are discussed in the Enable XLA section below.
+Use `tf.xla.experimental_compile` to fuse smaller ops to form bigger kernels
+leading to significant performance gains.
 
-### Enable fp16 and XLA
+### Enable mixed precision and XLA
 
-After following the above steps, enabling mixed-precision and XLA are two
+After following the above steps, enabling mixed precision and XLA are two
 optional steps you can take to improve performance further. The suggested
 approach is to enable them one by one and verify that the performance benefits
 are as expected.
 
-#### Enabling Mixed Precision
+#### Enable Mixed Precision
 
 The TensorFlow
 [Mixed Precision](https://www.tensorflow.org/guide/keras/mixed_precision) guide
-shows how to enable fp16 precision on GPUs. When it comes to realizing the
-performance benefits of fp16 there are a few pointers to keep in mind.
+shows how to enable `fp16` precision on GPUs. Enable
+[AMP](https://developer.nvidia.com/automatic-mixed-precision) on NVIDIA® GPUs to
+use Tensor Cores and realize up to 3x overall speedups when compared to using
+just `fp32` precision on Volta and newer GPU architectures.
 
-##### Using Optimal fp16 Kernels
+Ensure that matrix/tensor dimensions satisfy requirements for calling kernels
+that use Tensor Cores. GPU kernels use the Tensor Cores efficiently when the
+precision is fp16 and input/output dimensions are divisible by 8 or 16 (for
+int8). Note that with cuDNN v7.6.3 and later, convolution dimensions will
+automatically be padded where necessary to leverage Tensor Cores.
 
-With fp16 enabled, your program’s matrix multiplications (GEMM) kernels, should
-use the corresponding fp16 version that utilizes the Tensor Cores. However, in
-some cases, this does not happen and you do not see the expected speedup from
-enabling fp16, as your program falls back to the inefficient implementation
-instead.
+Follow the best practices below to maximize the performance benefits of `fp16`
+precision.
+
+##### Use optimal fp16 Kernels
+
+With `fp16` enabled, your program’s matrix multiplications (GEMM) kernels,
+should use the corresponding `fp16` version that utilizes the Tensor Cores.
+However, in some cases, this does not happen and you do not see the expected
+speedup from enabling `fp16`, as your program falls back to the inefficient
+implementation instead.
 
 ![image](images/gpu_perf_analysis/gpu_kernels.png "TensorFlow Profile GPU Kernel Stats page")
 
@@ -291,15 +312,23 @@ stats page shows which ops are Tensor Core eligible and which kernels are
 actually using the efficient Tensor Core. The
 [NVIDIA guide on deep learning performance](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#opt-tensor-cores)
 contains additional suggestions on how to leverage Tensor Cores. Additionally,
-the benefits of fp16 will also show in kernels that were previously memory
-bound, as now the operation will take half the time.
+the benefits of using `fp16` will also show in kernels that were previously
+memory bound, as now the ops will take half the time.
 
 ##### Dynamic vs Static Loss Scaling
 
-Loss scaling is necessary when using fp16 to prevent underflow due to low
+Loss scaling is necessary when using `fp16` to prevent underflow due to low
 precision. There are two types of loss scaling, dynamic and static, both of
 which are explained in greater detail in the
-[Mixed Precision](https://www.tensorflow.org/guide/keras/mixed_precision) guide.
+[Mixed Precision guide](https://www.tensorflow.org/guide/keras/mixed_precision).
+You can use the `mixed_float16` policy to automatically enable loss scaling
+within the Keras optimizer.
+
+Note: The Keras mixed precision API defaults to evaluating standalone softmax
+ops (ops not part of a Keras loss function) as `fp16` which can lead to
+numerical issues and poor convergence. Cast such ops to `fp32` for optimal
+performance.
+
 When trying to optimize performance, it is important to remember that dynamic
 loss scaling can introduce additional conditional ops that run on the host, and
 lead to gaps that will be visible between steps in the trace viewer. On the
@@ -307,14 +336,18 @@ other hand, static loss scaling does not have such overheads and can be a better
 option in terms of performance with the catch that you need to specify the
 correct static-loss scale value.
 
-#### Enabling XLA
+#### Enable XLA
 
-As the final step to getting the best performance with a single GPU, you can
+As a final step in getting the best performance with a single GPU, you can
 experiment with enabling XLA, which will fuse ops and lead to better device
 utilization and a lower memory footprint. For details on how to enable XLA in
-your program, refer to the
-[XLA: Optimizing Compiler for Machine Learning](https://www.tensorflow.org/xla)
-guide.
+your program, refer to the [guide](https://www.tensorflow.org/xla).
+
+You can set the global JIT level to `-1` (off), `1`, or `2`. A higher level is
+more aggressive and may reduce parallelism and use more memory. Set the value to
+`1` if you have memory restrictions. Note that XLA does not perform well for
+models with variable input tensor shapes as the XLA compiler would have to keep
+compiling kernels whenever it encounters new shapes.
 
 ## Optimize Performance on Multi-GPU Single Host
 
@@ -349,7 +382,7 @@ optimizing performance in the multi-GPU scenario:
     process much more input data. So after (1) it is recommended to re-check the
     input pipeline performance and make sure it is not a bottleneck.
 3.  Check the GPU timeline in your program's trace view to see if there are
-    uncecessary AllReduce calls, as this results in a synchronization across all
+    unnecessary AllReduce calls, as this results in a synchronization across all
     devices. In the trace view shown above, the AllReduce is done via the NCCL
     kernel, and there is only one NCCL call on each GPU for the gradients on
     each step.
@@ -359,7 +392,7 @@ optimizing performance in the multi-GPU scenario:
     happen that one GPU (typically GPU0) is oversubscribed because the host
     mistakenly ends up putting more work on it.
 6.  Lastly, check the training step across all GPUs in your trace view for any
-    ops that are executing sequntially. This usually happens when your program
+    ops that are executing sequentially. This usually happens when your program
     includes control dependencies from one GPU to another. Debugging performance
     in this situation has been solved on a case-by-case basis in the past. If
     you observe this behavior in your program,
@@ -396,8 +429,8 @@ using fp16, as well as pipelining the gradient AllReduce so it overlaps with the
 gradient computation.
 
 To see benefits of scaling, the step-time needs to be much higher compared to
-these overheads. One way to achieve this is to use a higher-batch size since
-batch size affects step time, but does not affect the communication overheads.
+these overheads. One way to achieve this is to use a higher batch size as batch
+size affects step time, but does not impact the communication overhead.
 
 #### GPU Host Thread Contention
 
@@ -409,7 +442,7 @@ kernels on another GPU in a non-deterministic order. This can cause a skew or
 negative scaling, which can hurt performance.
 
 The trace viewer below shows the overhead when the CPU staggers GPU kernel
-launchs inefficiently, as GPU1 is idle and then starts running ops after GPU2
+launches inefficiently, as GPU1 is idle and then starts running ops after GPU2
 has started.
 
 ![image](images/gpu_perf_analysis/traceview_gpu_idle.png "TensorFlow Profile device trace view demonstrating inefficient kernel launch")
