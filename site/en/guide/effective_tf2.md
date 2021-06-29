@@ -17,7 +17,7 @@ It's assumed you have some familiarity with TensorFlow 1.x.
 
 ## A brief summary of major changes
 
-### API Cleanup
+### API cleanup
 
 Many APIs are either
 [gone or moved](https://github.com/tensorflow/community/blob/master/rfcs/20180827-api-names.md)
@@ -32,30 +32,30 @@ is to use the [v2 upgrade script](upgrade.md).
 
 ### Eager execution
 
-TensorFlow 1.X requires users to manually stitch together an
+TensorFlow 1.x requires users to manually stitch together an
 [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (the
 graph) by making `tf.*` API calls. It then requires users to manually compile
 the abstract syntax tree by passing a set of output tensors and input tensors to
-a `session.run()` call. TensorFlow 2.0 executes eagerly (like Python normally
+a `session.run` call. TensorFlow 2.0 executes eagerly (like Python normally
 does) and in 2.0, graphs and sessions should feel like implementation details.
 
-One notable byproduct of eager execution is that `tf.control_dependencies()` is
-no longer required, as all lines of code execute in order (within a
-`tf.function`, code with side effects execute in the order written).
+One notable byproduct of eager execution is that `tf.control_dependencies` is no
+longer required, as all lines of code execute in order (within a `tf.function`,
+code with side effects executes in the order written).
 
 ### No more globals
 
-TensorFlow 1.X relied heavily on implicitly global namespaces. When you called
-`tf.Variable()`, it would be put into the default graph, and it would remain
+TensorFlow 1.x relied heavily on implicitly global namespaces. When you called
+`tf.Variable`, it would be put into the default graph, and it would remain
 there, even if you lost track of the Python variable pointing to it. You could
 then recover that `tf.Variable`, but only if you knew the name that it had been
 created with. This was difficult to do if you were not in control of the
 variable's creation. As a result, all sorts of mechanisms proliferated to
 attempt to help users find their variables again, and for frameworks to find
 user-created variables: Variable scopes, global collections, helper methods like
-`tf.get_global_step()`, `tf.global_variables_initializer()`, optimizers
-implicitly computing gradients over all trainable variables, and so on.
-TensorFlow 2.0 eliminates all of these mechanisms
+`tf.get_global_step`, `tf.global_variables_initializer`, optimizers implicitly
+computing gradients over all trainable variables, and so on. TensorFlow 2.0
+eliminates all of these mechanisms
 ([Variables 2.0 RFC](https://github.com/tensorflow/community/pull/11)) in favor
 of the default mechanism: Keep track of your variables! If you lose track of a
 `tf.Variable`, it gets garbage collected.
@@ -65,9 +65,9 @@ with Keras objects (see below), the burden is minimized.
 
 ### Functions, not sessions
 
-A `session.run()` call is almost like a function call: You specify the inputs
-and the function to be called, and you get back a set of outputs. In TensorFlow
-2.0, you can decorate a Python function using `tf.function()` to mark it for JIT
+A `session.run` call is almost like a function call: you specify the inputs and
+the function to be called, and you get back a set of outputs. In TensorFlow 2.0,
+you can decorate a Python function using `tf.function` to mark it for JIT
 compilation so that TensorFlow runs it as a single graph
 ([Functions 2.0 RFC](https://github.com/tensorflow/community/pull/20)). This
 mechanism allows TensorFlow 2.0 to gain all of the benefits of graph mode:
@@ -85,11 +85,12 @@ outputs = session.run(f(placeholder), feed_dict={placeholder: input})
 outputs = f(input)
 ```
 
-With the power to freely intersperse Python and TensorFlow code, users can take advantage of Python's expressiveness. But portable
-TensorFlow executes in contexts without a Python interpreter, such as mobile, C++, and
-JavaScript. To help users avoid having to rewrite their code when adding `@tf.function`,
-[AutoGraph](function.ipynb) converts a subset of
-Python constructs into their TensorFlow equivalents:
+With the power to freely intersperse Python and TensorFlow code, users can take
+advantage of Python's expressiveness. But portable TensorFlow executes in
+contexts without a Python interpreter, such as mobile, C++, and JavaScript. To
+help users avoid having to rewrite their code when adding `@tf.function`,
+[AutoGraph](function.ipynb) converts a subset of Python constructs into their
+TensorFlow equivalents:
 
 *   `for`/`while` -> `tf.while_loop` (`break` and `continue` are supported)
 *   `if` -> `tf.cond`
@@ -105,7 +106,7 @@ sequence models, reinforcement learning, custom training loops, and more.
 
 A common usage pattern in TensorFlow 1.X was the "kitchen sink" strategy, where
 the union of all possible computations was preemptively laid out, and then
-selected tensors were evaluated via `session.run()`. In TensorFlow 2.0, users
+selected tensors were evaluated via `session.run`. In TensorFlow 2.0, users
 should refactor their code into smaller functions that are called as needed. In
 general, it's not necessary to decorate each of these smaller functions with
 `tf.function`; only use `tf.function` to decorate high-level computations - for
@@ -148,7 +149,7 @@ perceptron = tf.keras.Sequential(layers)
 Keras layers/models inherit from `tf.train.Checkpointable` and are integrated
 with `@tf.function`, which makes it possible to directly checkpoint or export
 SavedModels from Keras objects. You do not necessarily have to use Keras's
-`.fit()` API to take advantage of these integrations.
+`Model.fit` API to take advantage of these integrations.
 
 Here's a transfer learning example that demonstrates how Keras makes it easy to
 collect a subset of relevant variables. Let's say you're training a multi-headed
@@ -196,7 +197,7 @@ training data from disk. Datasets are
 [iterables (not iterators)](https://docs.python.org/3/glossary.html#term-iterable),
 and work just like other Python iterables in Eager mode. You can fully utilize
 dataset async prefetching/streaming features by wrapping your code in
-`tf.function()`, which replaces Python iteration with the equivalent graph
+`tf.function`, which replaces Python iteration with the equivalent graph
 operations using AutoGraph.
 
 ```python
@@ -212,7 +213,7 @@ def train(model, dataset, optimizer):
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
-If you use the Keras `.fit()` API, you won't have to worry about dataset
+If you use the Keras `Model.fit` API, you won't have to worry about dataset
 iteration.
 
 ```python
@@ -256,7 +257,7 @@ For a more detailed overview of AutoGraph's features, see
 To log summaries, use `tf.summary.(scalar|histogram|...)` and redirect it to a
 writer using a context manager. (If you omit the context manager, nothing
 happens.) Unlike TF 1.x, the summaries are emitted directly to the writer; there
-is no separate "merge" op and no separate `add_summary()` call, which means that
+is no separate "merge" op and no separate `add_summary` call, which means that
 the `step` value must be provided at the callsite.
 
 ```python
@@ -267,7 +268,8 @@ with summary_writer.as_default():
 
 To aggregate data before logging them as summaries, use `tf.metrics`. Metrics
 are stateful: They accumulate values and return a cumulative result when you
-call `.result()`. Clear accumulated values with `.reset_states()`.
+call the `result` method (such as `Mean.result`). Clear accumulated values with
+`Model.reset_states`.
 
 ```python
 def train(model, optimizer, dataset, log_freq=10):
@@ -298,18 +300,17 @@ with test_summary_writer.as_default():
 Visualize the generated summaries by pointing TensorBoard at the summary log
 directory:
 
-
-```
+```shell
 tensorboard --logdir /tmp/summaries
 ```
 
-### Use tf.config.experimental_run_functions_eagerly() when debugging
+### Use tf.config.run_functions_eagerly when debugging
 
 In TensorFlow 2.0, Eager execution lets you run the code step-by-step to inspect
 shapes, data types and values. Certain APIs, like `tf.function`, `tf.keras`,
-etc. are designed to use Graph execution, for performance and portability.
-When debugging, use `tf.config.experimental_run_functions_eagerly(True)` to
-use Eager execution inside this code.
+etc. are designed to use Graph execution, for performance and portability. When
+debugging, use `tf.config.run_functions_eagerly(True)` to use Eager execution
+inside this code.
 
 For example:
 
@@ -322,29 +323,30 @@ def f(x):
     x = x + 1
   return x
 
-tf.config.experimental_run_functions_eagerly(True)
+tf.config.run_functions_eagerly(True)
 f(tf.constant(1))
 ```
+
 ```
 >>> f()
 -> x = x + 1
 (Pdb) l
-  6  	@tf.function
-  7  	def f(x):
-  8  	  if x > 0:
-  9  	    import pdb
- 10  	    pdb.set_trace()
- 11  ->	    x = x + 1
- 12  	  return x
+  6     @tf.function
+  7     def f(x):
+  8       if x > 0:
+  9         import pdb
+ 10         pdb.set_trace()
+ 11  ->     x = x + 1
+ 12       return x
  13
- 14  	tf.config.experimental_run_functions_eagerly(True)
- 15  	f(tf.constant(1))
+ 14     tf.config.run_functions_eagerly(True)
+ 15     f(tf.constant(1))
 [EOF]
 ```
 
 This also works inside Keras models and other APIs that support Eager execution:
 
-```
+```python
 class CustomModel(tf.keras.models.Model):
 
   @tf.function
@@ -357,23 +359,24 @@ class CustomModel(tf.keras.models.Model):
       return input_data // 2
 
 
-tf.config.experimental_run_functions_eagerly(True)
+tf.config.run_functions_eagerly(True)
 model = CustomModel()
 model(tf.constant([-2, -4]))
 ```
+
 ```
 >>> call()
 -> return input_data // 2
 (Pdb) l
- 10  	    if tf.reduce_mean(input_data) > 0:
- 11  	      return input_data
- 12  	    else:
- 13  	      import pdb
- 14  	      pdb.set_trace()
- 15  ->	      return input_data // 2
+ 10         if tf.reduce_mean(input_data) > 0:
+ 11           return input_data
+ 12         else:
+ 13           import pdb
+ 14           pdb.set_trace()
+ 15  ->       return input_data // 2
  16
  17
- 18  	tf.config.experimental_run_functions_eagerly(True)
- 19  	model = CustomModel()
- 20  	model(tf.constant([-2, -4]))
+ 18     tf.config.run_functions_eagerly(True)
+ 19     model = CustomModel()
+ 20     model(tf.constant([-2, -4]))
 ```
