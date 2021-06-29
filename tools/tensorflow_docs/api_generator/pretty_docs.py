@@ -649,7 +649,7 @@ _TOP_COMPAT_TEMPLATE = """
 Caution: This API was designed for TensorFlow v1.
 Continue reading for details on how to migrate from this API to a native
 TensorFlow v2 equivalent. See the
-[TensorFlow v1 to TenorFlow v2 migration guide](https://www.tensorflow.org/guide/migrate)
+[TensorFlow v1 to TensorFlow v2 migration guide](https://www.tensorflow.org/guide/migrate)
 for instructions on how to migrate the rest of your code.
 
 {value}
