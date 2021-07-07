@@ -2,19 +2,7 @@ toc:
 - title: "TensorFlow guide"
   path: /guide/
 
-- heading: "TensorFlow 2"
-- title: "Effective TensorFlow"
-  path: /guide/effective_tf2
-- title: "Migrate from TF1 to TF2"
-  path: /guide/migrate
-- title: "Convert with the upgrade script"
-  path: /guide/upgrade
-- title: "Community testing FAQ"
-  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
-  status: external
-
 - heading: "TensorFlow basics"
-  status: new
 - title: "Eager execution"
   path: /guide/eager
 - title: "Tensor"
@@ -34,12 +22,10 @@ toc:
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
-  status: new
   path: /guide/sparse_tensor
 - title: "NumPy API"
   path: /guide/tf_numpy
 - title: "Tensor slicing"
-  status: new
   path: /guide/tensor_slicing
 
 - heading: "Keras"
@@ -65,7 +51,6 @@ toc:
 - title: "SavedModel"
   path: /guide/saved_model
 
-
 - heading: "Accelerators"
 - title: "Distributed training"
   path: /guide/distributed_training
@@ -85,6 +70,17 @@ toc:
   path: /guide/graph_optimization
 - title: "Mixed precision"
   path: /guide/mixed_precision
+
+- heading: "Migrate to TF2"
+- title: "Effective TensorFlow 2"
+  path: /guide/effective_tf2
+- title: "Migrate from TF1 to TF2"
+  path: /guide/migrate
+- title: "Convert with the upgrade script"
+  path: /guide/upgrade
+- title: "Community testing FAQ"
+  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
+  status: external
 
 - heading: "Estimators"
 - title: "Estimator overview"
