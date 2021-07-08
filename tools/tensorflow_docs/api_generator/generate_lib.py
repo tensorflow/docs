@@ -17,6 +17,7 @@
 
 import collections
 import fnmatch
+import importlib
 import inspect
 import os
 import pathlib
@@ -34,6 +35,26 @@ from tensorflow_docs.api_generator import traverse
 from tensorflow_docs.api_generator.report import utils
 
 import yaml
+
+try:
+  # TODO(markdaoust) delete this when the warning is in a stable release.
+  _estimator = importlib.import_module(
+      'tensorflow_estimator.python.estimator.estimator')
+
+  if doc_controls.get_inheritable_header(_estimator.Estimator) is None:
+    _add_header = doc_controls.inheritable_header("""\
+        Warning: Estimators are not recommended for new code.  Estimators run
+        `v1.Session`-style code which is more difficult to write correctly, and
+        can behave unexpectedly, especially when combined with TF 2 code.
+        Estimators do fall under our
+        [compatibility guarantees](https://tensorflow.org/guide/versions), but
+        will receive no fixes other than security vulnerabilities. See the
+        [migration guide](https://tensorflow.org/guide/migrate) for details.
+        """)
+    _add_header(_estimator.Estimator)
+except ImportError:
+  pass
+
 
 # Used to add a collections.OrderedDict representer to yaml so that the
 # dump doesn't contain !!OrderedDict yaml tags.

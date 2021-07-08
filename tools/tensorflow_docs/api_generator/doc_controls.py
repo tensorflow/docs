@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-from typing import Iterable, TypeVar
+from typing import Iterable, Optional, TypeVar
 
 T = TypeVar("T")
 
@@ -29,6 +29,22 @@ def set_deprecated(obj: T) -> T:
 
 def is_deprecated(obj) -> bool:
   return hasattr(obj, _DEPRECATED)
+
+
+_INHERITABLE_HEADER = "_tf_docs_inheritable_header"
+
+
+def inheritable_header(text: str):
+
+  def _wrapped(cls):
+    setattr(cls, _INHERITABLE_HEADER, text)
+    return cls
+
+  return _wrapped
+
+
+def get_inheritable_header(cls) -> Optional[str]:
+  return getattr(cls, _INHERITABLE_HEADER, None)
 
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"

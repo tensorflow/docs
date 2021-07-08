@@ -311,6 +311,11 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   # Add the one line docstring of the class.
   parts.append(page_info.doc.brief + '\n\n')
 
+  header = doc_controls.get_inheritable_header(page_info.py_object)
+  if header is not None:
+    parts.append(textwrap.dedent(header))
+    parts.append('\n\n')
+
   # If a class is a child class, add which classes it inherits from.
   if page_info.bases:
     parts.append('Inherits From: ')
