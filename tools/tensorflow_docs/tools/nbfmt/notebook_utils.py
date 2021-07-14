@@ -66,6 +66,20 @@ def load_notebook(path: pathlib.Path) -> Tuple[Optional[Dict[str, Any]], str]:
     String: The entire JSON source code of the notebook.
   """
   source = path.read_text(encoding="utf-8")
+  data = parse_source(source)
+
+  return data, source
+
+
+def parse_source(source: str) -> Optional[Dict[str, Any]]:
+  """Parse JSON data from source of a notebook.
+
+  Args:
+    source: The entire JSON source code of the notebook.
+
+  Returns:
+    Dict: Contains data of the parsed JSON notebook, or null if can't read.
+  """
   try:
     data = json.loads(source)
     if not isinstance(data.get("cells"), list):
@@ -80,7 +94,7 @@ def load_notebook(path: pathlib.Path) -> Tuple[Optional[Dict[str, Any]], str]:
         file=sys.stderr)
     data = None
 
-  return data, source
+  return data
 
 
 def warn(msg: str) -> None:
