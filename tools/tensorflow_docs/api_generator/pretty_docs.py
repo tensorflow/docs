@@ -26,7 +26,7 @@ This module contains one public function, which handels the conversion of these
 
 import textwrap
 
-from typing import Dict, List, Optional, NamedTuple
+from typing import Dict, List, Optional, NamedTuple, Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
@@ -112,6 +112,8 @@ def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
     parts.append(_build_signature(page_info, obj_name=page_info.full_name))
     parts.append('\n\n')
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # This will be replaced by the "Used in: <notebooks>" whenever it is run.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -121,7 +123,7 @@ def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
             item,
             table_title_template='<h2 class="add-link">{title}</h2>'))
 
-  parts.append(_build_compatibility(page_info.doc.compatibility))
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
   if custom_content is not None:
@@ -309,6 +311,11 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   # Add the one line docstring of the class.
   parts.append(page_info.doc.brief + '\n\n')
 
+  header = doc_controls.get_inheritable_header(page_info.py_object)
+  if header is not None:
+    parts.append(textwrap.dedent(header))
+    parts.append('\n\n')
+
   # If a class is a child class, add which classes it inherits from.
   if page_info.bases:
     parts.append('Inherits From: ')
@@ -332,6 +339,8 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
         _build_signature(methods.constructor, obj_name=page_info.full_name))
     parts.append('\n\n')
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
   parts.append('<!-- Placeholder for "Used in" -->\n')
 
@@ -339,8 +348,6 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
   parts.extend(
       merge_class_and_constructor_docstring(page_info, methods.constructor))
 
-  # Add the compatibility section to the page.
-  parts.append(_build_compatibility(page_info.doc.compatibility))
   parts.append('\n\n')
 
   custom_content = doc_controls.get_custom_page_content(page_info.py_object)
@@ -382,6 +389,9 @@ def _build_class_page(page_info: parser.ClassPageInfo) -> str:
             page_info.other_members,
             title='<h2 class="add-link">Class Variables</h2>',
         ))
+
+  # Add the compatibility section to the page.
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   return ''.join(parts)
 
@@ -458,10 +468,13 @@ def _build_method_section(method_info, heading_level=3):
 
   parts.append(method_info.doc.brief + '\n')
 
+  parts.append(_top_compat(method_info, h_level=4))
+
   for item in method_info.doc.docstring_parts:
     parts.append(_format_docstring(item, table_title_template=None))
 
-  parts.append(_build_compatibility(method_info.doc.compatibility))
+  parts.append(_bottom_compat(method_info, h_level=4))
+
   parts.append('\n\n')
   return ''.join(parts)
 
@@ -501,11 +514,13 @@ def _build_module_page(page_info: parser.ModulePageInfo) -> str:
 
   parts.append(_build_collapsable_aliases(page_info.aliases))
 
+  parts.append(_top_compat(page_info, h_level=2))
+
   # All lines in the docstring, expect the brief introduction.
   for item in page_info.doc.docstring_parts:
     parts.append(_format_docstring(item, table_title_template=None))
 
-  parts.append(_build_compatibility(page_info.doc.compatibility))
+  parts.append(_bottom_compat(page_info, h_level=2))
 
   parts.append('\n\n')
 
@@ -613,16 +628,86 @@ def _build_signature(obj_info: parser.PageInfo,
   return '\n'.join(parts)
 
 
-def _build_compatibility(compatibility):
-  """Return the compatibility section as an md string."""
-  parts = []
-  sorted_keys = sorted(compatibility.keys())
-  for key in sorted_keys:
+def _split_compat_top_bottom(page_info) -> Tuple[Optional[str], Dict[str, str]]:
+  """Split the compatibility dict between the top and bottom sections."""
+  compat: Dict[str, str] = page_info.doc.compatibility
+  top_compat = None
 
-    value = compatibility[key]
-    # Dedent so that it does not trigger markdown code formatting.
-    value = textwrap.dedent(value)
-    parts.append(f'\n\n#### {key.title()} Compatibility\n{value}\n')
+  if ('compat.v1' in page_info.full_name or 'estimator' in page_info.full_name):
+    bottom_compat = {}
+    for key, value in compat.items():
+      if key == 'TF2':
+        top_compat = value
+      else:
+        bottom_compat[key] = value
+  else:
+    bottom_compat = compat
+
+  return top_compat, bottom_compat
+
+
+_TOP_COMPAT_TEMPLATE = """
+
+ <section><devsite-expandable expanded>
+ <h{h_level} class="showalways">Migrate to TF2</h{h_level}>
+
+Caution: This API was designed for TensorFlow v1.
+Continue reading for details on how to migrate from this API to a native
+TensorFlow v2 equivalent. See the
+[TensorFlow v1 to TensorFlow v2 migration guide](https://www.tensorflow.org/guide/migrate)
+for instructions on how to migrate the rest of your code.
+
+{value}
+
+ </aside></devsite-expandable></section>
+
+<h{h_level}>Description</h{h_level}>
+
+"""
+
+
+def _top_compat(page_info: parser.PageInfo, h_level: int) -> str:
+  """Add the top section compatibility blocks."""
+  compat, _ = _split_compat_top_bottom(page_info)
+  if compat:
+    value = textwrap.dedent(compat)
+    return _TOP_COMPAT_TEMPLATE.format(value=value, h_level=h_level)
+  else:
+    return ''
+
+
+_BOTTOM_COMPAT_TEMPLATE = """
+
+ <section><devsite-expandable {expanded}>
+ <h{h_level} class="showalways">{title}</h{h_level}>
+
+{value}
+
+ </devsite-expandable></section>
+
+"""
+
+
+def _bottom_compat(page_info: parser.PageInfo, h_level: int) -> str:
+  """Add the bottom section compatibility blocks."""
+  _, compat = _split_compat_top_bottom(page_info)
+
+  def _tf2_key_tuple(key):
+    # False sorts before True.
+    return (key == 'TF2', key)
+
+  parts = []
+  for key in sorted(compat, key=_tf2_key_tuple):
+    value = textwrap.dedent(compat[key])
+    if key == 'TF2':
+      expanded = ''
+      title = 'Migrate to TF2'
+    else:
+      expanded = 'expanded'
+      title = key + ' compatibility'
+    parts.append(
+        _BOTTOM_COMPAT_TEMPLATE.format(
+            title=title, value=value, h_level=h_level, expanded=expanded))
 
   return ''.join(parts)
 

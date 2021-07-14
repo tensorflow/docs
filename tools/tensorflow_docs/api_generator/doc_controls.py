@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-from typing import Callable, Iterable, TypeVar
+from typing import Iterable, Optional, TypeVar
 
 T = TypeVar("T")
 
@@ -29,6 +29,22 @@ def set_deprecated(obj: T) -> T:
 
 def is_deprecated(obj) -> bool:
   return hasattr(obj, _DEPRECATED)
+
+
+_INHERITABLE_HEADER = "_tf_docs_inheritable_header"
+
+
+def inheritable_header(text: str):
+
+  def _wrapped(cls):
+    setattr(cls, _INHERITABLE_HEADER, text)
+    return cls
+
+  return _wrapped
+
+
+def get_inheritable_header(cls) -> Optional[str]:
+  return getattr(cls, _INHERITABLE_HEADER, None)
 
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
@@ -431,6 +447,25 @@ def _unwrap_func(obj):
   return obj
 
 
+def _cls_attr_has_tag(cls, attr, tag):
+  """Check if a class attribute `attr` is decorated with `dec`."""
+  # Use __dict__, it doesn't go up the __mro__ like getattr.
+  obj = cls.__dict__.get(attr, None)
+  if obj is None:
+    return False
+  obj = _unwrap_func(obj)
+
+  if isinstance(obj, type):
+    # The attribute is a class. Check __dict__ to see if the attribute is set
+    # on _this_ class, not its parents.
+    if tag in obj.__dict__:
+      return True
+    else:
+      return False
+
+  return hasattr(obj, tag)
+
+
 def should_skip_class_attr(cls, name):
   """Returns true if docs should be skipped for this class attribute.
 
@@ -446,10 +481,8 @@ def should_skip_class_attr(cls, name):
   try:
     obj = getattr(cls, name)
   except AttributeError:
-    # Avoid error caused by enum metaclasses in python3
-    if name in ("name", "value"):
-      return True
-    raise
+    # This can fail for a variety of reasons. Always skip if `getattr` fails.
+    return True
 
   # Unwrap fget if the object is a property
   obj = _unwrap_func(obj)
@@ -459,43 +492,34 @@ def should_skip_class_attr(cls, name):
   if should_skip(obj):
     return True
 
-  # Use __dict__ lookup to get the version defined in *this* class.
-  obj = cls.__dict__.get(name, None)
-  obj = _unwrap_func(obj)
+  classes = getattr(cls, "__mro__", [cls])
 
-  if obj is not None:
-    # If not none, the object is defined in *this* class.
-    # Do not skip if decorated with `for_subclass_implementers`.
-    if hasattr(obj, _FOR_SUBCLASS_IMPLEMENTERS):
-      return False
+  # Find where all the decorators turn docs on and off.
+  # All these lists contain `(level, skip)` pairs.
+  for_subclass_levels = [
+      # The [1:] is because `for_subclass_implementers` turns off docs
+      # one level down (and you don't want to consider level -1).
+      (i, True)
+      for (i, mro_cls) in enumerate(classes[1:])
+      if _cls_attr_has_tag(mro_cls, name, _FOR_SUBCLASS_IMPLEMENTERS)
+  ]
+  not_below_levels = [
+      (i, True)
+      for (i, mro_cls) in enumerate(classes)
+      if _cls_attr_has_tag(mro_cls, name, _DO_NOT_DOC_INHERITABLE)
+  ]
+  doc_below_levels = [
+      (i, False)
+      for (i, mro_cls) in enumerate(classes)
+      if _cls_attr_has_tag(mro_cls, name, _DOC_IN_CURRENT_AND_SUBCLASSES)
+  ]
 
-    # If object is defined in this class, then don't skip if decorated with
-    # `doc_in_current_and_subclasses`.
-    if hasattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES):
-      return False
+  all_levels = not_below_levels + for_subclass_levels + doc_below_levels
+  if all_levels:
+    # Find the lowest `(level, skip)` pair, and return `skip`
+    return min(all_levels)[1]
 
-  # for each parent class
-  parent_classes = getattr(cls, "__mro__", [])[1:]
-  for parent in parent_classes:
-    obj = getattr(parent, name, None)
-
-    if obj is None:
-      continue
-
-    obj = _unwrap_func(obj)
-
-    if hasattr(obj, _DOC_IN_CURRENT_AND_SUBCLASSES):
-      return False
-
-    # Skip if the parent's definition is decorated with `do_not_doc_inheritable`
-    # or `for_subclass_implementers`
-    if hasattr(obj, _DO_NOT_DOC_INHERITABLE):
-      return True
-
-    if hasattr(obj, _FOR_SUBCLASS_IMPLEMENTERS):
-      return True
-
-  # No blockng decorators --> don't skip
+  # No decorators --> don't skip
   return False
 
 

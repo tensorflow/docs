@@ -24,6 +24,7 @@ import inspect
 import itertools
 import json
 import os
+import pprint
 import re
 import textwrap
 import typing
@@ -927,22 +928,60 @@ def _get_other_member_doc(
     extra_docs: Optional[Dict[int, str]],
 ) -> str:
   """Returns the docs for other members of a module."""
-  if extra_docs is not None:
-    other_member_extra_doc = extra_docs.get(id(obj), None)
-  else:
-    other_member_extra_doc = None
 
-  if other_member_extra_doc is not None:
-    description = other_member_extra_doc
-  elif doc_generator_visitor.maybe_singleton(obj):
-    description = f'`{repr(obj)}`'
+  # An object's __doc__ attribute will mask the class'.
+  my_doc = inspect.getdoc(obj)
+  class_doc = inspect.getdoc(type(obj))
+
+  description = None
+  if my_doc != class_doc:
+    # If they're different it's because __doc__ is set on the instance.
+    if my_doc is not None:
+      description = my_doc
+
+  if description is None and extra_docs is not None:
+    description = extra_docs.get(id(obj), None)
+
+  info = None
+  if isinstance(obj, dict):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [
+        f' {name!r}: {value!r}'
+        for name, value in sorted(obj.items(), key=repr)
+    ]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+
+  elif isinstance(obj, (set, frozenset)):
+    # pprint.pformat (next block) doesn't sort dicts until python 3.8
+    items = [f' {value!r}' for value in sorted(obj, key=repr)]
+    items = ',\n'.join(items)
+    info = f'```\n{{\n{items}\n}}\n```'
+  elif (doc_generator_visitor.maybe_singleton(obj) or
+        isinstance(obj, (list, tuple, enum.Enum))):
+    # * Use pformat instead of repr so dicts and sets are sorted (deterministic)
+    # * Escape ` so it doesn't break code formatting. You can't use "&#96;"
+    #   here since it will diaplay as a literal. I'm not sure why <pre></pre>
+    #   breaks on the site.
+    info = pprint.pformat(obj).replace('`', r'\`')
+    info = f'`{info}`'
   else:
-    class_name = parser_config.reverse_index.get(id(type(obj)), None)
-    if class_name is not None:
-      description = f'`{class_name}`'
-    else:
-      description = ''
-  return description
+    class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
+    if class_full_name is None:
+      module = getattr(type(obj), '__module__', None)
+      class_name = type(obj).__name__
+      if module is None or module == 'builtins':
+        class_full_name = class_name
+      else:
+        class_full_name = f'{module}.{class_name}'
+    info = f'Instance of `{class_full_name}`'
+
+  if description is None:
+    result = info
+  else:
+    result = f'{info}\n\n{description}'
+
+  return result
 
 
 def _parse_md_docstring(
@@ -1180,7 +1219,7 @@ class FormatArguments(object):
       if self._reverse_index.get(id(anno), None):
         non_builtin_types.append(anno)
       elif (anno in self._IMMUTABLE_TYPES or
-            id(type(anno)) in public_api.TYPING_IDS):
+            id(type(anno)) in public_api._TYPING_IDS):  # pylint: disable=protected-access
         continue
       elif hasattr(anno, '__args__'):
         self._extract_non_builtin_types(anno, non_builtin_types)
@@ -1322,7 +1361,7 @@ class FormatArguments(object):
     kwargs_text_repr = []
 
     if len(ast_defaults) < len(kwargs):
-      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))
+      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))  # pytype: disable=container-type-mismatch
 
     for kwarg, ast_default in zip(kwargs, ast_defaults):
       kname = kwarg.name
@@ -1381,8 +1420,19 @@ class _SignatureComponents(NamedTuple):
     return full_signature
 
 
-def generate_signature(func: Any, parser_config: ParserConfig,
-                       func_full_name: str) -> _SignatureComponents:
+class FuncType(enum.Enum):
+  """Enum to recognize type of function passed to `generate_signature`."""
+  FUNCTION = 'function'
+  METHOD = 'method'
+  CLASSMETHOD = 'classmethod'
+
+
+def generate_signature(
+    func: Any,
+    parser_config: ParserConfig,
+    func_full_name: str,
+    func_type: FuncType,
+) -> _SignatureComponents:
   """Given a function, returns a list of strings representing its args.
 
   This function uses `__name__` for callables if it is available. This can lead
@@ -1396,6 +1446,11 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     parser_config: `ParserConfig` for the method/function whose signature is
       generated.
     func_full_name: The full name of a function whose signature is generated.
+    func_type: Type of the current `func`. This is required because there isn't
+      a clear distinction between function and method being passed to
+      `generate_signature`. Sometimes methods are detected as function by
+      `inspect`. Since we know the type of `func` when generate_signature is
+      called, use that to pass the type of `func`.
 
   Returns:
     A `_SignatureComponents` NamedTuple.
@@ -1447,9 +1502,14 @@ def generate_signature(func: Any, parser_config: ParserConfig,
     kind = param.kind
     default = param.default
 
-    if index == 0 and param.name in ('self', 'cls', '_cls'):
-      # Only skip the first parameter. If the function contains both
-      # `self` and `cls`, skip only the first one.
+    if (index == 0 and func_type == FuncType.METHOD and
+        kind != param.VAR_POSITIONAL):
+      # - Skip the first arg for regular methods.
+      # - Some wrapper methods forget `self` and just use `(*args, **kwargs)`.
+      #   That's still valid, don't drop `*args`.
+      # - For classmethods the `cls` arg already bound here (it's not in
+      #   `sig_values`).
+      # - For regular functions (or staticmethods) you never need to skip.
       continue
     elif kind == param.POSITIONAL_ONLY:
       pos_only_args.append(param)
@@ -1704,8 +1764,12 @@ class FunctionPageInfo(PageInfo):
     """
 
     assert self.signature is None
-    self._signature = generate_signature(self.py_object, parser_config,
-                                         self.full_name)
+    self._signature = generate_signature(
+        self.py_object,
+        parser_config,
+        self.full_name,
+        func_type=FuncType.FUNCTION,
+    )
     self._decorators = extract_decorators(self.py_object)
 
   @property
@@ -1834,7 +1898,10 @@ class TypeAliasPageInfo(PageInfo):
 
     # pytype: enable=module-attr
 
-    self._signature = sig.replace('typing.', '')
+    # Starting in Python 3.7, the __origin__ attribute of typing constructs
+    # contains the equivalent runtime class rather than the construct itself
+    # (e.g., typing.Callable.__origin__ is collections.abc.Callable).
+    self._signature = sig.replace('typing.', '').replace('collections.abc.', '')
 
   def get_metadata_html(self) -> str:
     return Metadata(self.full_name).build_html()
@@ -1989,15 +2056,37 @@ class ClassPageInfo(PageInfo):
 
     # If the curent class py_object is a dataclass then use the class object
     # instead of the __init__ method object because __init__ is a
-    # generated method on dataclasses and `inspect.getsource` doesn't work
-    # on generated methods (as the source file doesn't exist) which is
-    # required for signature generation.
+    # generated method on dataclasses (unless the definition used init=False)
+    # and `inspect.getsource` doesn't work on generated methods (as the source
+    # file doesn't exist) which is required for signature generation.
     if (dataclasses.is_dataclass(self.py_object) and
-        member_info.short_name == '__init__'):
+        member_info.short_name == '__init__' and
+        self.py_object.__dataclass_params__.init):
+      is_dataclass = True
       py_obj = self.py_object
     else:
+      is_dataclass = False
       py_obj = member_info.py_object
-    signature = generate_signature(py_obj, parser_config, member_info.full_name)
+
+    if isinstance(original_method, classmethod):
+      func_type = FuncType.CLASSMETHOD
+    elif member_info.short_name == '__new__':
+      # __new__ acts like a regular method for this.
+      # - At this point all args are visible in the signature.
+      # - When used the first argument gets boound (like self).
+      # - Sometimes users wrap it with a `staticmethod` but that gets ignored.
+      func_type = FuncType.METHOD
+    elif isinstance(original_method, staticmethod):
+      func_type = FuncType.FUNCTION
+    elif is_dataclass:
+      # When building the init signature directly from a dataclass-class (for
+      # the auto-generated __init__) `self` is already removed from the
+      # signature.
+      func_type = FuncType.FUNCTION
+    else:
+      func_type = FuncType.METHOD
+    signature = generate_signature(
+        py_obj, parser_config, member_info.full_name, func_type=func_type)
 
     decorators = extract_decorators(member_info.py_object)
 
