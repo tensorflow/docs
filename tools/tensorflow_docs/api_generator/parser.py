@@ -676,9 +676,10 @@ def _handle_compatibility(doc) -> Tuple[str, Dict[str, str]]:
     note type to the text of the note.
   """
   compatibility_notes = {}
-  match_compatibility = re.compile(r'[ \t]*@compatibility\((\w+)\)\s*\n'
-                                   r'((?:[^@\n]*\n)+)'
-                                   r'\s*@end_compatibility')
+  match_compatibility = re.compile(
+      r'[ \t]*@compatibility\((\w+)\)\s*\n'
+      r'(.*?)'
+      r'[ \t]*@end_compatibility', re.DOTALL)
   for f in match_compatibility.finditer(doc):
     compatibility_notes[f.group(1)] = f.group(2)
   return match_compatibility.subn(r'', doc)[0], compatibility_notes

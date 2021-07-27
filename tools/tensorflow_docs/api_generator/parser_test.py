@@ -560,6 +560,8 @@ class ParserTest(parameterized.TestCase):
       @compatibility(theano)
       Theano has nothing as awesome as this function.
 
+      @tf.function
+
       Check it out.
       @end_compatibility
 
