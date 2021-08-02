@@ -557,7 +557,7 @@ class ParserTest(parameterized.TestCase):
       NumPy has nothing as awesome as this function.
       @end_compatibility
 
-      @compatibility(theano)
+      @compatibility(two words!)
       Theano has nothing as awesome as this function.
 
       @tf.function
@@ -615,7 +615,8 @@ class ParserTest(parameterized.TestCase):
 
     self.assertLen(title_blocks, 3)
 
-    self.assertCountEqual(doc_info.compatibility.keys(), {'numpy', 'theano'})
+    self.assertCountEqual(doc_info.compatibility.keys(),
+                          {'numpy', 'two words!'})
 
     self.assertEqual(doc_info.compatibility['numpy'],
                      'NumPy has nothing as awesome as this function.\n')

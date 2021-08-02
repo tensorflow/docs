@@ -677,7 +677,7 @@ def _handle_compatibility(doc) -> Tuple[str, Dict[str, str]]:
   """
   compatibility_notes = {}
   match_compatibility = re.compile(
-      r'[ \t]*@compatibility\((\w+)\)\s*\n'
+      r'[ \t]*@compatibility\(([^\n]+?)\)\s*\n'
       r'(.*?)'
       r'[ \t]*@end_compatibility', re.DOTALL)
   for f in match_compatibility.finditer(doc):
