@@ -777,6 +777,15 @@ class TitleBlock(object):
     self.text = text
     self.items = items
 
+  def _dedent_after_first_line(self, text):
+    if '\n' not in text:
+      return text
+
+    first, remainder = text.split('\n', 1)
+    remainder = textwrap.dedent(remainder)
+    result = '\n'.join([first, remainder])
+    return result
+
   def table_view(self, title_template: Optional[str] = None) -> str:
     """Returns a tabular markdown version of the TitleBlock.
 
@@ -797,18 +806,18 @@ class TitleBlock(object):
 
     text = self.text.strip()
     if text:
+      text = self._dedent_after_first_line(text)
       text = TEXT_TEMPLATE.format(text=text)
-      text = self._INDENTATION_REMOVAL_RE.sub(r'\2', text)
 
     items = []
     for name, description in self.items:
       if not description:
         description = ''
       else:
-        description = description.strip()
+        description = description.strip('\n')
+        description = self._dedent_after_first_line(description)
       item_table = ITEMS_TEMPLATE.format(
           name=f'`{name}`', anchor='', description=description)
-      item_table = self._INDENTATION_REMOVAL_RE.sub(r'\2', item_table)
       items.append(item_table)
 
     return '\n' + TABLE_TEMPLATE.format(
@@ -2013,7 +2022,6 @@ class ClassPageInfo(PageInfo):
         for part in doc.docstring_parts
         if not isinstance(part, TitleBlock)
     ])
-    new_parts = [textwrap.indent(part, '  ') for part in new_parts]
     new_parts.append('')
     desc = '\n'.join(new_parts)
 

@@ -678,8 +678,8 @@ def extract(py_modules,
       objects to document.
     callbacks: Additional callbacks passed to `traverse`. Executed between the
       `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-      primary use case for these is to filter the listy of children (see:
-        `public_api.local_definitions_filter`)
+      primary use case for these is to filter the list of children (see:
+      `public_api.local_definitions_filter`)
 
   Returns:
     The accumulator (`DocGeneratorVisitor`)
@@ -821,7 +821,7 @@ class DocGenerator:
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
         primary use case for these is to filter the list of children (see:
-          `public_api.ApiFilter` for the required signature)
+        `public_api.ApiFilter` for the required signature)
       yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
       gen_redirects: Bool which decides whether to generate _redirects.yaml file
         or not.
