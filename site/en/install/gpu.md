@@ -88,7 +88,8 @@ environmental variable:
 ### Install CUDA with apt
 
 This section shows how to install CUDA® 11 (TensorFlow >= 2.4.0) on Ubuntu
-16.04, 18.04, and 20.04. These instructions may work for other Debian-based distros.
+16.04 and 18.04. As well as CUDA® 11.2 (TensorFlow >= 2.5.0) on Ubuntu
+20.04. These instructions may work for other Debian-based distros.
 
 Caution: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
 complicates installation of the NVIDIA driver and is beyond the scope of these instructions.
