@@ -88,11 +88,35 @@ environmental variable:
 ### Install CUDA with apt
 
 This section shows how to install CUDA® 11 (TensorFlow >= 2.4.0) on Ubuntu
-16.04 and 18.04. These instructions may work for other Debian-based distros.
+16.04, 18.04, and 20.04. These instructions may work for other Debian-based distros.
 
 Caution: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
 complicates installation of the NVIDIA driver and is beyond the scope of these instructions.
 
+
+#### Ubuntu 20.04 (CUDA 11.2)
+
+<pre class="prettyprint lang-bsh">
+# Add NVIDIA package repositories
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin</code>
+<code class="devsite-terminal">sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600</code>
+<code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub</code>
+<code class="devsite-terminal">sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+
+<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/nvidia-machine-learning-repo-ubuntu2004_1.0.0-1_amd64.deb</code>
+
+<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu2004_1.0.0-1_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-get update</code>
+
+# Install development and runtime libraries (~4GB)
+<code class="devsite-terminal">sudo apt-get install --no-install-recommends \
+    cuda-11-2 \
+    libcudnn8=8.1.1.33-1+cuda11.2  \
+    libcudnn8-dev=8.1.1.33-1+cuda11.2
+</code>
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
+</pre>
 
 #### Ubuntu 18.04 (CUDA 11.0)
 
