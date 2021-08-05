@@ -599,11 +599,10 @@ def write_docs(
 
   if gen_report:
     serialized_proto = api_report_obj.api_report.SerializeToString()
-    raw_proto = output_dir / 'api_report.pb'
+    raw_proto = output_dir / root_module_name / 'api_report.pb'
     raw_proto.write_bytes(serialized_proto)
-    return
 
-  if num_docs_output == 0 and not gen_report:
+  if num_docs_output <= 1:
     raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
                      'your arguments (`base_dir` and `callbacks`). '
                      'Everything you want documented should be within '
@@ -965,12 +964,7 @@ class DocGenerator:
     # Copy the top level files to the `{output_dir}/`, delete and replace the
     # `{output_dir}/{short_name}/` directory.
 
-    if self._gen_report:
-      glob_pattern = '*.pb'
-    else:
-      glob_pattern = '*'
-
-    for work_path in work_py_dir.glob(glob_pattern):
+    for work_path in work_py_dir.glob('*'):
       out_path = pathlib.Path(output_dir) / work_path.name
       out_path.parent.mkdir(exist_ok=True, parents=True)
 
