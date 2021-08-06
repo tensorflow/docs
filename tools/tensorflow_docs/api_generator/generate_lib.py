@@ -570,7 +570,6 @@ def write_docs(
         ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
          'tf.experimental.numpy')):
       api_report_obj.fill_metrics(page_info)
-      continue
 
     path = output_dir / parser.documentation_path(full_name)
 
