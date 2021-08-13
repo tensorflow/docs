@@ -465,7 +465,7 @@ def write_docs(
     search_hints: bool = True,
     site_path: str = 'api_docs/python',
     gen_redirects: bool = True,
-    gen_report: bool = False,
+    gen_report: bool = True,
     extra_docs: Optional[Dict[int, str]] = None,
 ):
   """Write previously extracted docs to disk.
@@ -791,7 +791,7 @@ class DocGenerator:
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
-      gen_report: bool = False,
+      gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
   ):
     """Creates a doc-generator.
@@ -957,6 +957,7 @@ class DocGenerator:
     #    {short_name}/
     #    _redirects.yaml
     #    _toc.yaml
+    #    api_report.pb
     #    index.md
     #    {short_name}.md
     #
