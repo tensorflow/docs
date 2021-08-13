@@ -7,12 +7,14 @@ set -ex
 # Install with:
 #
 #   $ sudo apt install doclava-aosp #v 6.0.1+r55-1+build1
-DOCLAVA_JAR=/usr/share/java/doclava.jar
+#
+# https://unix.stackexchange.com/questions/594841/how-do-i-assign-a-value-to-a-bash-variable-iff-that-variable-is-null-unassigned
+DOCLAVA_JAR=${DOCLAVA_JAR:-'/usr/share/java/doclava.jar'}
 
 # Install java clear silver templates with:
 #
 #   $ sudo apt install libjsilver-aosp-java #v 6.0.1+r55-1+build1
-JSILVER_JAR=/usr/share/java/jsilver.jar
+JSILVER_JAR=${JSILVER_JAR:-'/usr/share/java/jsilver.jar'}
 
 
 ######### DELETE OUTPUT_DIR #################

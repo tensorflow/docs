@@ -41,14 +41,18 @@ TEMPLATES = GEN_JAVA_DIR / 'templates'
 DOCLAVA_FOR_TF = GEN_JAVA_DIR / 'run-javadoc-for-tf.sh'
 
 
-def gen_java_docs(package: str, source_path: pathlib.Path,
-                  output_dir: pathlib.Path, site_path: pathlib.Path) -> None:
+def gen_java_docs(package: str,
+                  source_path: pathlib.Path,
+                  output_dir: pathlib.Path,
+                  site_path: pathlib.Path,
+                  script_path: pathlib.Path = DOCLAVA_FOR_TF) -> None:
+  """Generate tensorflow.org java-docs for `package`."""
   os.environ['PACKAGE'] = package
   os.environ['SOURCE_PATH'] = str(source_path)
   os.environ['OUTPUT_DIR'] = str(output_dir)
   os.environ['SITE_PATH'] = str(pathlib.Path('/') / site_path)
   os.environ['TEMPLATES'] = str(TEMPLATES)
-  subprocess.check_call(['bash', DOCLAVA_FOR_TF], cwd=GEN_JAVA_DIR)
+  subprocess.check_call(['bash', script_path], cwd=GEN_JAVA_DIR)
 
   yaml_path = pathlib.Path(output_dir) / '_toc.yaml'
   yaml_content = yaml_path.read_text()
