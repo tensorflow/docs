@@ -38,10 +38,11 @@ def _get_source(py_object: Any) -> Optional[str]:
   return None
 
 
-def _count_empty_param(items: List[Tuple[str, str]]) -> int:
+def _count_empty_param(items: List[Tuple[str, Optional[str]]]) -> int:
   count = 0
-  for item in items:
-    if not item[1].strip():
+  for name, description in items:
+    del name
+    if description is None or description.strip() == '':
       count += 1
   return count
 

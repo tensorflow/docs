@@ -562,14 +562,13 @@ def write_docs(
     try:
       page_info = parser.docs_for_object(full_name, py_object, parser_config,
                                          extra_docs)
+      if gen_report and not full_name.startswith(
+          ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
+           'tf.experimental.numpy')):
+        api_report_obj.fill_metrics(page_info)
     except Exception as e:
       raise ValueError(
           f'Failed to generate docs for symbol: `{full_name}`') from e
-
-    if gen_report and not full_name.startswith(
-        ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
-         'tf.experimental.numpy')):
-      api_report_obj.fill_metrics(page_info)
 
     path = output_dir / parser.documentation_path(full_name)
 
