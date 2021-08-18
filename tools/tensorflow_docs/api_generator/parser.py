@@ -17,6 +17,7 @@
 
 import ast
 import collections
+import dataclasses
 import enum
 import functools
 import html
@@ -32,7 +33,6 @@ import typing
 from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
-import dataclasses
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -2011,9 +2011,10 @@ class ClassPageInfo(PageInfo):
       member_info: a `MemberInfo` describing the property.
     """
     doc = member_info.doc
-    # Hide useless namedtuple docs-trings.
+    # Clarify the default namedtuple docs-strings.
     if re.match('Alias for field number [0-9]+', doc.brief):
-      doc = doc._replace(docstring_parts=[], brief='')
+      new_brief = f'A `namedtuple` {doc.brief.lower()}'
+      doc = doc._replace(docstring_parts=[], brief=new_brief)
 
     new_parts = [doc.brief]
     # Strip args/returns/raises from property
@@ -2242,8 +2243,13 @@ class ClassPageInfo(PageInfo):
       docstring_parts.append(None)
 
     attrs = collections.OrderedDict()
-    # namedtuple fields first.
-    attrs.update(self._namedtuplefields)
+    # namedtuple fields first, in order.
+    for name, desc in self._namedtuplefields.items():
+      # If a namedtuple field has been filtered out, it's description will
+      # not have been set in the `member_info` loop, so skip fields with `None`
+      # as the description.
+      if desc is not None:
+        attrs[name] = desc
     # the contents of the `Attrs:` block from the docstring
     attrs.update(raw_attrs)
 
