@@ -5,7 +5,7 @@ toc:
 - title: TF1 vs TF2 behavior comparison
   path: /guide/migrate/tf1_vs_tf2
 - title: Effective TensorFlow 2
-  # TODO (b/196121447) - Merge this with the model mapping guide
+  # TODO (b/196121447) - Merge this with the TF1 vs TF2 behaviors guide
   path: /guide/migrate/effective_tf2
 - title: Idiomatic TensorFlow 2
   # TODO - Rework this guide
@@ -13,10 +13,9 @@ toc:
 - title: Convert with the upgrade script
   path: /guide/migrate/upgrade
 
-
 - heading: Migrate your models
-- title: TF2 modeling code shims
-  path: /guide/migrate/modeling_shims
+- title: TF2 model mapping
+  path: /guide/migrate/model_mapping
 - title: TF Lite models in TF2
   path: /guide/migrate/tflite
 - title: Reuse TF1.x checkpoints
