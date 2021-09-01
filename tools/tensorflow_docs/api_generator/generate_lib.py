@@ -790,7 +790,7 @@ class DocGenerator:
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
-      gen_report: bool = True,
+      gen_report: bool = False,
       extra_docs: Optional[Dict[int, str]] = None,
   ):
     """Creates a doc-generator.
