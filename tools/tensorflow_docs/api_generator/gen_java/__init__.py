@@ -47,12 +47,15 @@ def gen_java_docs(package: str,
                   site_path: pathlib.Path,
                   script_path: pathlib.Path = DOCLAVA_FOR_TF) -> None:
   """Generate tensorflow.org java-docs for `package`."""
+  for path in source_path, output_dir, script_path, TEMPLATES:
+    assert path.is_absolute(), 'All paths used in doc-gen must be absolute'
+
   os.environ['PACKAGE'] = package
   os.environ['SOURCE_PATH'] = str(source_path)
   os.environ['OUTPUT_DIR'] = str(output_dir)
   os.environ['SITE_PATH'] = str(pathlib.Path('/') / site_path)
   os.environ['TEMPLATES'] = str(TEMPLATES)
-  subprocess.check_call(['bash', script_path], cwd=GEN_JAVA_DIR)
+  subprocess.check_call(['bash', script_path])
 
   yaml_path = pathlib.Path(output_dir) / '_toc.yaml'
   yaml_content = yaml_path.read_text()

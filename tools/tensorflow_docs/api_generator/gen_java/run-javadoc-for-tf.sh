@@ -21,7 +21,6 @@ JSILVER_JAR=${JSILVER_JAR:-'/usr/share/java/jsilver.jar'}
 
 # Delete the output directory in case a class has been deleted
 rm -rf "${OUTPUT_DIR}/org"
-
 ############ RUN DOCLAVA ###################
 
 # To install javadoc, for example, use
@@ -55,8 +54,8 @@ mv "${OUTPUT_DIR}"/reference/* "${OUTPUT_DIR}"
 ###################################################################
 ################### START OF POST-PROCESSING ######################
 ###################################################################
-rm "${OUTPUT_DIR}/navtree_data.js"
-rm "${OUTPUT_DIR}/hierarchy.html"
+rm "${OUTPUT_DIR}/navtree_data.js" || true
+rm "${OUTPUT_DIR}/hierarchy.html" || true
 
 find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|${SITE_PATH}/reference|${SITE_PATH}|g"
 find ${OUTPUT_DIR} -name "*.yaml" | xargs sed --in-place "s|${SITE_PATH}/reference|${SITE_PATH}|g"
@@ -67,9 +66,9 @@ find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|a href=\"reference/j
 
 find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place 's|<pre><code>|<pre class="prettyprint"><code>|g'
 
-rm ${OUTPUT_DIR}/timestamp.js
-rm ${OUTPUT_DIR}/lists.js
-rm ${OUTPUT_DIR}/index.html
+rm ${OUTPUT_DIR}/timestamp.js || true
+rm ${OUTPUT_DIR}/lists.js || true
+rm ${OUTPUT_DIR}/index.html || true
 
 cp ${TEMPLATES}/screen.css ${OUTPUT_DIR}/
 
