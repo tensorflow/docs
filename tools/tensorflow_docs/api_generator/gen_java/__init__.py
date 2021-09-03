@@ -15,10 +15,12 @@
 # ==============================================================================
 """Generate javadoc-doclava reference docs for tensorflow.org."""
 
-import contextlib
 import os
 import pathlib
 import subprocess
+from typing import Mapping, Optional
+
+from tensorflow_docs.api_generator.gen_java import processing
 
 import yaml
 
@@ -45,7 +47,8 @@ def gen_java_docs(package: str,
                   source_path: pathlib.Path,
                   output_dir: pathlib.Path,
                   site_path: pathlib.Path,
-                  script_path: pathlib.Path = DOCLAVA_FOR_TF) -> None:
+                  script_path: pathlib.Path = DOCLAVA_FOR_TF,
+                  section_labels: Optional[Mapping[str, str]] = None) -> None:
   """Generate tensorflow.org java-docs for `package`."""
   for path in source_path, output_dir, script_path, TEMPLATES:
     assert path.is_absolute(), 'All paths used in doc-gen must be absolute'
@@ -60,5 +63,8 @@ def gen_java_docs(package: str,
   yaml_path = pathlib.Path(output_dir) / '_toc.yaml'
   yaml_content = yaml_path.read_text()
   yaml_data = yaml.safe_load(yaml_content)
+  if section_labels:
+    yaml_data = processing.add_package_headings(yaml_data, package,
+                                                section_labels)
   yaml_content = yaml.dump(yaml_data, Dumper=Formatter)
   yaml_path.write_text(yaml_content)
