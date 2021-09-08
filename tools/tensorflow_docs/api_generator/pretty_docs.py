@@ -211,7 +211,7 @@ def merge_blocks(class_page_info: parser.ClassPageInfo,
 
   # Get the class docstring. `.doc.docstring_parts` contain the entire
   # docstring except for the one-line docstring that's compulsory.
-  class_doc = class_page_info.doc.docstring_parts
+  class_doc = list(class_page_info.doc.docstring_parts)
 
   # If constructor doesn't exist, return the class docstring as it is.
   if ctor_info is None:

@@ -103,25 +103,23 @@ class ParserConfig(object):
     return self.index[full_name]
 
 
+@dataclasses.dataclass
 class _FileLocation(object):
   """This class indicates that the object is defined in a regular file.
 
   This can be used for the `defined_in` slot of the `PageInfo` objects.
   """
 
-  def __init__(
-      self,
-      url: Optional[str] = None,
-      start_line: Optional[int] = None,
-      end_line: Optional[int] = None,
-  ) -> None:
-    self.url = url
-    self._start_line = start_line
-    self._end_line = end_line
+  base_url: Optional[str] = None
+  start_line: Optional[int] = None
+  end_line: Optional[int] = None
 
-    if self._start_line:
-      if 'github.com' in self.url:
-        self.url = f'{self.url}#L{self._start_line}-L{self._end_line}'
+  @property
+  def url(self) -> Optional[str]:
+    if self.start_line and self.end_line:
+      if 'github.com' in self.base_url:
+        return f'{self.base_url}#L{self.start_line}-L{self.end_line}'
+    return self.base_url
 
 
 def is_class_attr(full_name, index):
@@ -727,6 +725,7 @@ TEXT_TEMPLATE = textwrap.dedent("""\
   </tr>""")
 
 
+@dataclasses.dataclass
 class TitleBlock(object):
   """A class to parse title blocks (like `Args:`) and convert them to markdown.
 
@@ -768,14 +767,9 @@ class TitleBlock(object):
 
   _INDENTATION_REMOVAL_RE = re.compile(r'( *)(.+)')
 
-  def __init__(self,
-               *,
-               title: Optional[str] = None,
-               text: str,
-               items: Iterable[Tuple[str, str]]):
-    self.title = title
-    self.text = text
-    self.items = items
+  title: Optional[str]
+  text: str
+  items: Iterable[Tuple[str, str]]
 
   def _dedent_after_first_line(self, text):
     if '\n' not in text:
@@ -1688,6 +1682,12 @@ class PageInfo:
     self._aliases = None
     self._doc = None
 
+  def __eq__(self, other):
+    if isinstance(other, PageInfo):
+      return self.__dict__ == other.__dict__
+    else:
+      return NotImplemented
+
   @property
   def short_name(self):
     """Returns the documented object's short name."""
@@ -2265,7 +2265,7 @@ class ClassPageInfo(PageInfo):
 
     if attrs:
       attribute_block = TitleBlock(
-          title='Attributes', text='', items=attrs.items())
+          title='Attributes', text='', items=list(attrs.items()))
 
     # Delete the Attrs block if it exists or delete the placeholder.
     del docstring_parts[attr_block_index]
@@ -2576,12 +2576,12 @@ def _get_defined_in(py_object: Any,
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
     rel_path = rel_path[:-7] + '.proto'
-    return _FileLocation(url=os.path.join(code_url_prefix, rel_path))  # pylint: disable=undefined-loop-variable
+    return _FileLocation(base_url=os.path.join(code_url_prefix, rel_path))
   else:
     return _FileLocation(
-        url=os.path.join(code_url_prefix, rel_path),
+        base_url=os.path.join(code_url_prefix, rel_path),
         start_line=start_line,
-        end_line=end_line)  # pylint: disable=undefined-loop-variable
+        end_line=end_line)
 
 
 # TODO(markdaoust): This should just parse, pretty_docs should generate the md.

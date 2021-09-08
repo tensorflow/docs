@@ -790,7 +790,7 @@ class DocGenerator:
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
-      gen_report: bool = False,
+      gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
   ):
     """Creates a doc-generator.
@@ -799,8 +799,8 @@ class DocGenerator:
       root_title: A string. The main title for the project. Like "TensorFlow"
       py_modules: The python module to document.
       base_dir: String or tuple of strings. Directories that "Defined in" links
-        are generated relative to. **Modules outside one of these directories are
-        not documented**. No `base_dir` should be inside another.
+        are generated relative to. **Modules outside one of these directories
+        are not documented**. No `base_dir` should be inside another.
       code_url_prefix: String or tuple of strings. The prefix to add to "Defined
         in" paths. These are zipped with `base-dir`, to set the `defined_in`
         path for each file. The defined in link for `{base_dir}/path/to/file` is
