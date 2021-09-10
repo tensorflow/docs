@@ -8,7 +8,7 @@ simplify installation and avoid library conflicts, we recommend using a
 only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}.
 
 These install instructions are for the latest release of TensorFlow. See the
-[tested build configurations](./source.md#linux) for CUDA® and cuDNN versions to
+[tested build configurations](./source.md#gpu) for CUDA® and cuDNN versions to
 use with older TensorFlow releases.
 
 ## Pip package
