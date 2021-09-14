@@ -137,6 +137,9 @@ toc:
   - title: "Transfer learning for audio recognition"
     path: /tutorials/audio/transfer_learning_audio
     status: new
+  - title: "Generate music with an RNN"
+    path: /tutorials/audio/music_generation
+    status: new
 
 - title: "Structured data"
   style: accordion
