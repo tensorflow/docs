@@ -18,8 +18,8 @@ toc:
   path: /guide/migrate/model_mapping
 - title: TF Lite models in TF2
   path: /guide/migrate/tflite
-- title: Reuse TF1.x checkpoints
-  path: /guide/migrate/reuse_checkpoints
+- title: Migrating checkpoints
+  path: /guide/migrate/migrating_checkpoints
 - title: Canned and boosted tree estimators
   path: /guide/migrate/canned_estimators
 
