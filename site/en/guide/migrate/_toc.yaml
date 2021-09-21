@@ -63,6 +63,8 @@ toc:
   path: /guide/migrate/multi_worker_cpu_gpu_training
 - title: Multi-worker training on TPU
   path: /guide/migrate/tpu_estimator
+- title: TPU embedding_columns to TPUEmbedding layer
+  path: /guide/migrate/tpu_embedding
 # - title: Efficient distributed input processing
 #   path: /guide/migrate/distributed_input_processing
 
