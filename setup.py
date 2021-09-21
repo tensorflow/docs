@@ -24,8 +24,7 @@ project_name = 'tensorflow-docs'
 version = '0.0.0'
 
 try:
-  version += subprocess.check_output(['git', 'rev-parse',
-                                      'HEAD']).decode('utf-8')
+  version = f"{version}+{subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('utf-8')}"
 except subprocess.CalledProcessError:
   pass
 
