@@ -43,15 +43,23 @@ TEMPLATES = GEN_JAVA_DIR / 'templates'
 DOCLAVA_FOR_TF = GEN_JAVA_DIR / 'run-javadoc-for-tf.sh'
 
 
-def gen_java_docs(package: str,
-                  source_path: pathlib.Path,
-                  output_dir: pathlib.Path,
-                  site_path: pathlib.Path,
-                  script_path: pathlib.Path = DOCLAVA_FOR_TF,
-                  section_labels: Optional[Mapping[str, str]] = None) -> None:
+def gen_java_docs(
+    package: str,
+    source_path: pathlib.Path,
+    output_dir: pathlib.Path,
+    site_path: pathlib.Path,
+    script_path: pathlib.Path = DOCLAVA_FOR_TF,
+    section_labels: Optional[Mapping[str, str]] = None,
+    federated_docs: Optional[Mapping[str, pathlib.Path]] = None,
+) -> None:
   """Generate tensorflow.org java-docs for `package`."""
-  for path in source_path, output_dir, script_path, TEMPLATES:
+  fed_paths = list(federated_docs.values()) if federated_docs else []
+  for path in [source_path, output_dir, script_path, TEMPLATES] + fed_paths:
     assert path.is_absolute(), 'All paths used in doc-gen must be absolute'
+
+  if federated_docs:
+    os.environ['FEDERATED_DOCS'] = ' '.join(
+        [f'{url},{file}' for url, file in federated_docs.items()])
 
   os.environ['PACKAGE'] = package
   os.environ['SOURCE_PATH'] = str(source_path)

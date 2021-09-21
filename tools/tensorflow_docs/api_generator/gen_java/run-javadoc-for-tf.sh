@@ -23,6 +23,17 @@ JSILVER_JAR=${JSILVER_JAR:-'/usr/share/java/jsilver.jar'}
 rm -rf "${OUTPUT_DIR}/org"
 ############ RUN DOCLAVA ###################
 
+# $FEDERATED_DOCS is a space-separated string of url,file pairs.
+read -a api_pairs <<< "${FEDERATED_DOCS}"
+FEDERATED_PARAMS=""
+for i in "${!api_pairs[@]}"; do
+  api_pair_str="${api_pairs[$i]}"  # "url,api.txt"
+  read -a api_pair <<< "${api_pair_str//,/ }"
+  # Using the index as the API "name", build the federation params.
+  FEDERATED_PARAMS+=" -federate ${i} ${api_pair[0]}"
+  FEDERATED_PARAMS+=" -federationapi ${i} ${api_pair[1]}"
+done
+
 # To install javadoc, for example, use
 #
 #   sudo apt install openjdk-11-jdk
@@ -45,6 +56,7 @@ rm -rf "${OUTPUT_DIR}/org"
   -templatedir "${TEMPLATES}" \
   -public \
   -devsite \
+  ${FEDERATED_PARAMS} \
   -subpackages "${PACKAGE}"
 )
 
