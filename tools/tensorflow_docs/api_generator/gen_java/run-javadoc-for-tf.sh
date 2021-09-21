@@ -19,8 +19,8 @@ JSILVER_JAR=${JSILVER_JAR:-'/usr/share/java/jsilver.jar'}
 
 ######### DELETE OUTPUT_DIR #################
 
-# Delete the output directory in case a class has been deleted
-rm -rf "${OUTPUT_DIR}/org"
+# Empty the output directory in case a class has been deleted
+rm -rf "${OUTPUT_DIR:?}"/*
 ############ RUN DOCLAVA ###################
 
 # $FEDERATED_DOCS is a space-separated string of url,file pairs.
@@ -29,9 +29,11 @@ FEDERATED_PARAMS=""
 for i in "${!api_pairs[@]}"; do
   api_pair_str="${api_pairs[$i]}"  # "url,api.txt"
   read -a api_pair <<< "${api_pair_str//,/ }"
-  # Using the index as the API "name", build the federation params.
-  FEDERATED_PARAMS+=" -federate ${i} ${api_pair[0]}"
-  FEDERATED_PARAMS+=" -federationapi ${i} ${api_pair[1]}"
+  # Using the index as the API "name", build the federation params. Note that
+  # using 0 as an API name will evaluate to false and cause rendering bugs,
+  # so we preface with "api_".
+  FEDERATED_PARAMS+=" -federate api_${i} ${api_pair[0]}"
+  FEDERATED_PARAMS+=" -federationapi api_${i} ${api_pair[1]}"
 done
 
 # To install javadoc, for example, use
@@ -45,6 +47,12 @@ done
 #   ```
 #   It's used here: https://android.googlesource.com/platform/external/doclava/+/refs/heads/master/src/com/google/doclava/Doclava.java
 
+# Each package in $PACKAGE needs to prefaced with -subpackages, so do that.
+SUBPACKAGES=""
+read -r -a packages <<< "${PACKAGE}"
+for pkg in "${packages[@]}"; do
+  SUBPACKAGES+=" -subpackages ${pkg}"
+done
 ( # Capture the return code. it may be non-zero for minor errors.
   javadoc \
   -sourcepath "${SOURCE_PATH}" \
@@ -57,7 +65,7 @@ done
   -public \
   -devsite \
   ${FEDERATED_PARAMS} \
-  -subpackages "${PACKAGE}"
+  ${SUBPACKAGES}
 )
 
 
@@ -72,6 +80,7 @@ rm "${OUTPUT_DIR}/hierarchy.html" || true
 find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|${SITE_PATH}/reference|${SITE_PATH}|g"
 find ${OUTPUT_DIR} -name "*.yaml" | xargs sed --in-place "s|${SITE_PATH}/reference|${SITE_PATH}|g"
 find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|a href=\"reference/org/tensorflow|a href=\"${SITE_PATH}/org/tensorflow|g"
+find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|a href=\"reference/com/google|a href=\"${SITE_PATH}/com/google|g"
 
 JAVA_LANG=https://docs.oracle.com/javase/8/docs/api
 find ${OUTPUT_DIR} -name "*.html" | xargs sed --in-place "s|a href=\"reference/java/lang|a href=\"${JAVA_LANG}/java/lang|g"

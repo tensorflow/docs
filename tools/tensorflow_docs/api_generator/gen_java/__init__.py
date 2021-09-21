@@ -18,7 +18,7 @@
 import os
 import pathlib
 import subprocess
-from typing import Mapping, Optional
+from typing import Iterable, Mapping, Optional, Union
 
 from tensorflow_docs.api_generator.gen_java import processing
 
@@ -44,7 +44,7 @@ DOCLAVA_FOR_TF = GEN_JAVA_DIR / 'run-javadoc-for-tf.sh'
 
 
 def gen_java_docs(
-    package: str,
+    package: Union[str, Iterable[str]],
     source_path: pathlib.Path,
     output_dir: pathlib.Path,
     site_path: pathlib.Path,
@@ -61,7 +61,13 @@ def gen_java_docs(
     os.environ['FEDERATED_DOCS'] = ' '.join(
         [f'{url},{file}' for url, file in federated_docs.items()])
 
-  os.environ['PACKAGE'] = package
+  if isinstance(package, str):
+    os.environ['PACKAGE'] = package
+    root_pkgs = [package]
+  else:
+    os.environ['PACKAGE'] = ' '.join(package)
+    root_pkgs = package
+
   os.environ['SOURCE_PATH'] = str(source_path)
   os.environ['OUTPUT_DIR'] = str(output_dir)
   os.environ['SITE_PATH'] = str(pathlib.Path('/') / site_path)
@@ -72,7 +78,7 @@ def gen_java_docs(
   yaml_content = yaml_path.read_text()
   yaml_data = yaml.safe_load(yaml_content)
   if section_labels:
-    yaml_data = processing.add_package_headings(yaml_data, package,
+    yaml_data = processing.add_package_headings(yaml_data, root_pkgs,
                                                 section_labels)
   yaml_content = yaml.dump(yaml_data, Dumper=Formatter)
   yaml_path.write_text(yaml_content)

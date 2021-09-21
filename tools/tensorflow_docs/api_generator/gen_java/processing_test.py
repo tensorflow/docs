@@ -55,7 +55,7 @@ class ProcessingTest(absltest.TestCase):
         'org.tf': 'RootLabel',
         'org.tf.foo': 'FooPackage',
     }
-    actual_toc = processing.add_package_headings(toc_in, 'org.tf', labels)
+    actual_toc = processing.add_package_headings(toc_in, ['org.tf'], labels)
     expected_toc = {
         'toc': [
             {
@@ -96,6 +96,71 @@ class ProcessingTest(absltest.TestCase):
                     'path': '/tf/foo/bar/FooBarBuilder.html',
                 }],
             }
+        ]
+    }
+    self.assertDictEqual(actual_toc, expected_toc)
+
+  def test_multiple_roots(self):
+    toc_in = {
+        'toc': [{
+            'title': 'org.tf.one',
+        }, {
+            'title': 'com.google.two',
+        }]
+    }
+    roots = ['org.tf', 'com.google']
+    actual_toc = processing.add_package_headings(toc_in, roots, {})
+    expected_toc = {
+        'toc': [
+            {
+                'heading': 'one'
+            },
+            {
+                'title': 'one'
+            },
+            {
+                'heading': 'two'
+            },
+            {
+                'title': 'two'
+            },
+        ]
+    }
+    self.assertDictEqual(actual_toc, expected_toc)
+
+  def test_ordering(self):
+    toc_in = {
+        'toc': [
+            {
+                'title': 'org.tf.a.third'
+            },
+            {
+                'title': 'org.tf.b.first'
+            },
+            {
+                'title': 'com.google.c.second'
+            },
+            {
+                'title': 'ai.google.d.unspecified'
+            },
+        ]
+    }
+    labels = ['org.tf.b', 'com.google.c', 'org.tf']
+    actual_toc = processing.sort_toc(toc_in, labels)
+    expected_toc = {
+        'toc': [
+            {
+                'title': 'org.tf.b.first'
+            },
+            {
+                'title': 'com.google.c.second'
+            },
+            {
+                'title': 'org.tf.a.third'
+            },
+            {
+                'title': 'ai.google.d.unspecified'
+            },
         ]
     }
     self.assertDictEqual(actual_toc, expected_toc)
