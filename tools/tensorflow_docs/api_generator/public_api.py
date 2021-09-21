@@ -72,7 +72,7 @@ def ignore_typing(path: Sequence[str], parent: Any,
   Arguments:
     path: A tuple of name parts forming the attribute-lookup path to this
       object. For `tf.keras.layers.Dense` path is:
-        ("tf","keras","layers","Dense")
+      ("tf","keras","layers","Dense")
     parent: The parent object.
     children: A list of (name, value) pairs. The attributes of the patent.
 

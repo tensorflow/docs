@@ -258,7 +258,7 @@ class DocGeneratorVisitor(object):
       parent: The Python object referenced by `parent_name`.
       children: A list of `(name, py_object)` pairs enumerating, in alphabetical
         order, the children (as determined by `inspect.getmembers`) of
-          `parent`. `name` is the local name of `py_object` in `parent`.
+        `parent`. `name` is the local name of `py_object` in `parent`.
 
     Returns:
       The list of children, with any __metaclass__ removed.

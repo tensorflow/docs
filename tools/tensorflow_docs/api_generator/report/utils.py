@@ -63,6 +63,36 @@ class ApiReport:
       return name_list[0]
     return '.'.join(name_list[:2])
 
+  def _make_constructor_info(
+      self, class_page_info: parser.ClassPageInfo) -> parser.PageInfo:
+    """Convert a class description into a description of the constructor."""
+    methods = pretty_docs.split_methods(class_page_info.methods)
+
+    constructor_info = parser.PageInfo(
+        full_name=class_page_info.full_name,
+        py_object=class_page_info.py_object)
+
+    # Replace the class py_object with constructors py_object. This is done
+    # because each method is linted separately and class py_object contains the
+    # source code of all its methods too.
+    if methods.constructor is not None:
+      constructor_info.py_object = methods.constructor.py_object
+    else:
+      constructor_info.py_object = None
+
+    # Merge the constructor and class docstrings.
+    class_blocks = pretty_docs.merge_blocks(class_page_info,
+                                            methods.constructor)
+    # Add the `Attributes` sections (if it exists) to the merged class blocks.
+    if class_page_info.attr_block is not None:
+      class_blocks.append(class_page_info.attr_block)
+
+    new_doc = class_page_info.doc._replace(docstring_parts=class_blocks)
+
+    constructor_info.set_doc(new_doc)
+
+    return constructor_info
+
   def _fill_class_metric(self, class_page_info: parser.ClassPageInfo) -> None:
     """Fills in the lint metrics for a class and its methods.
 
@@ -75,33 +105,18 @@ class ApiReport:
       class_page_info: A `ClassPageInfo` object containing information that's
         used to calculate metrics for the class and its methods.
     """
-
-    methods: pretty_docs.Methods = pretty_docs.split_methods(
-        class_page_info.methods)
-    # Merge the constructor and class docstrings.
-    class_blocks = pretty_docs.merge_blocks(class_page_info,
-                                            methods.constructor)
-    # Add the `Attributes` sections (if it exists) to the merged class blocks.
-    if class_page_info.attr_block is not None:
-      class_blocks.append(class_page_info.attr_block)
-    # Replace the class py_object with constructors py_object. This is done
-    # because each method is linted separately and class py_object contains the
-    # source code of all its methods too.
-    if methods.constructor is not None:
-      class_page_info.py_object = methods.constructor.py_object
-    else:
-      class_page_info.py_object = None
-    class_page_info.doc._replace(docstring_parts=class_blocks)
-
+    constructor_info = self._make_constructor_info(class_page_info)
     package_group = self._find_pkg_group(class_page_info.full_name)
 
     self._lint(
         name=class_page_info.full_name,
         object_type=api_report_pb2.ObjectType.CLASS,
         package_group=package_group,
-        page_info=class_page_info,
+        page_info=constructor_info,
     )
 
+    methods: pretty_docs.Methods = pretty_docs.split_methods(
+        class_page_info.methods)
     # Lint each method separately and add its metrics to the proto object.
     for method in methods.info_dict.values():
       # Skip the dunder methods from being in the report.

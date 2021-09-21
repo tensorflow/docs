@@ -9,6 +9,8 @@ toc:
 - heading: Additional setup
 - title: GPU support
   path: /install/gpu
+- title: GPU device plugins
+  path: /install/gpu_plugins
 - title: Problems
   path: /install/errors
 - heading: Build from source

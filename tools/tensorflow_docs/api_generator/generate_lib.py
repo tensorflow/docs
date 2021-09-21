@@ -465,7 +465,7 @@ def write_docs(
     search_hints: bool = True,
     site_path: str = 'api_docs/python',
     gen_redirects: bool = True,
-    gen_report: bool = False,
+    gen_report: bool = True,
     extra_docs: Optional[Dict[int, str]] = None,
 ):
   """Write previously extracted docs to disk.
@@ -562,15 +562,13 @@ def write_docs(
     try:
       page_info = parser.docs_for_object(full_name, py_object, parser_config,
                                          extra_docs)
+      if gen_report and not full_name.startswith(
+          ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
+           'tf.experimental.numpy')):
+        api_report_obj.fill_metrics(page_info)
     except Exception as e:
       raise ValueError(
           f'Failed to generate docs for symbol: `{full_name}`') from e
-
-    if gen_report and not full_name.startswith(
-        ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
-         'tf.experimental.numpy')):
-      api_report_obj.fill_metrics(page_info)
-      continue
 
     path = output_dir / parser.documentation_path(full_name)
 
@@ -599,11 +597,10 @@ def write_docs(
 
   if gen_report:
     serialized_proto = api_report_obj.api_report.SerializeToString()
-    raw_proto = output_dir / 'api_report.pb'
+    raw_proto = output_dir / root_module_name / 'api_report.pb'
     raw_proto.write_bytes(serialized_proto)
-    return
 
-  if num_docs_output == 0 and not gen_report:
+  if num_docs_output <= 1:
     raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
                      'your arguments (`base_dir` and `callbacks`). '
                      'Everything you want documented should be within '
@@ -678,8 +675,8 @@ def extract(py_modules,
       objects to document.
     callbacks: Additional callbacks passed to `traverse`. Executed between the
       `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-      primary use case for these is to filter the listy of children (see:
-        `public_api.local_definitions_filter`)
+      primary use case for these is to filter the list of children (see:
+      `public_api.local_definitions_filter`)
 
   Returns:
     The accumulator (`DocGeneratorVisitor`)
@@ -793,7 +790,7 @@ class DocGenerator:
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
-      gen_report: bool = False,
+      gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
   ):
     """Creates a doc-generator.
@@ -802,8 +799,8 @@ class DocGenerator:
       root_title: A string. The main title for the project. Like "TensorFlow"
       py_modules: The python module to document.
       base_dir: String or tuple of strings. Directories that "Defined in" links
-        are generated relative to. **Modules outside one of these directories are
-        not documented**. No `base_dir` should be inside another.
+        are generated relative to. **Modules outside one of these directories
+        are not documented**. No `base_dir` should be inside another.
       code_url_prefix: String or tuple of strings. The prefix to add to "Defined
         in" paths. These are zipped with `base-dir`, to set the `defined_in`
         path for each file. The defined in link for `{base_dir}/path/to/file` is
@@ -821,7 +818,7 @@ class DocGenerator:
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
         primary use case for these is to filter the list of children (see:
-          `public_api.ApiFilter` for the required signature)
+        `public_api.ApiFilter` for the required signature)
       yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
       gen_redirects: Bool which decides whether to generate _redirects.yaml file
         or not.
@@ -959,18 +956,14 @@ class DocGenerator:
     #    {short_name}/
     #    _redirects.yaml
     #    _toc.yaml
+    #    api_report.pb
     #    index.md
     #    {short_name}.md
     #
     # Copy the top level files to the `{output_dir}/`, delete and replace the
     # `{output_dir}/{short_name}/` directory.
 
-    if self._gen_report:
-      glob_pattern = '*.pb'
-    else:
-      glob_pattern = '*'
-
-    for work_path in work_py_dir.glob(glob_pattern):
+    for work_path in work_py_dir.glob('*'):
       out_path = pathlib.Path(output_dir) / work_path.name
       out_path.parent.mkdir(exist_ok=True, parents=True)
 

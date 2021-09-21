@@ -27,7 +27,7 @@ class ParserTest(absltest.TestCase):
 
   def test_github_source_link_in_table(self):
     url = "https://github.com/tensorflow/docs/blob/master/path/to/file"
-    location = parser._FileLocation(url=url)
+    location = parser._FileLocation(base_url=url)
     table = pretty_docs._top_source_link(location)
 
     expected = textwrap.dedent(f"""
@@ -45,7 +45,7 @@ class ParserTest(absltest.TestCase):
 
   def test_other_source_link_after_table(self):
     url = "somewhere/else"
-    location = parser._FileLocation(url=url)
+    location = parser._FileLocation(base_url=url)
     table = pretty_docs._top_source_link(location)
 
     expected = textwrap.dedent(f"""

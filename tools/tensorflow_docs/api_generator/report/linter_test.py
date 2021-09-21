@@ -15,6 +15,8 @@
 # ==============================================================================
 """Tests for tensorflow_docs.api_generator.report.linter."""
 
+import copy
+
 from typing import Optional
 
 from absl.testing import absltest
@@ -139,9 +141,11 @@ class LinterTest(absltest.TestCase):
         full_name='TestClass',
         py_object=TestClass,
         parser_config=self.parser_config)
+    class_page_info_before = copy.deepcopy(class_page_info)
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
+    self.assertEqual(class_page_info_before, class_page_info)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass' and
@@ -155,8 +159,11 @@ class LinterTest(absltest.TestCase):
         py_object=TestClass,
         parser_config=self.parser_config)
 
+    class_page_info_before = copy.deepcopy(class_page_info)
+
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
+    self.assertEqual(class_page_info_before, class_page_info)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass.method_one' and
@@ -168,9 +175,11 @@ class LinterTest(absltest.TestCase):
         full_name='TestClass',
         py_object=TestClass,
         parser_config=self.parser_config)
+    class_page_info_before = copy.deepcopy(class_page_info)
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
+    self.assertEqual(class_page_info_before, class_page_info)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass' and
@@ -188,9 +197,11 @@ class LinterTest(absltest.TestCase):
         full_name='TestClass',
         py_object=TestClass,
         parser_config=self.parser_config)
+    class_page_info_before = copy.deepcopy(class_page_info)
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
+    self.assertEqual(class_page_info_before, class_page_info)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass' and
@@ -218,9 +229,11 @@ class LinterTest(absltest.TestCase):
         full_name='TestClass',
         py_object=TestClass,
         parser_config=self.parser_config)
+    class_page_info_before = copy.deepcopy(class_page_info)
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(class_page_info)
+    self.assertEqual(class_page_info_before, class_page_info)
 
     for test_report in test_api_report.api_report.symbol_metric:
       if (test_report.symbol_name == 'TestClass' and

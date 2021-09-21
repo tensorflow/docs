@@ -22,6 +22,7 @@ import pkgutil
 
 def _onerror(name):
   logging.exception('Failed to load package: %r', name)
+  logging.error('Continuing')
 
 
 def recursive_import(root, strict=False):
@@ -52,6 +53,6 @@ def recursive_import(root, strict=False):
       if strict:
         raise
       else:
-        logging.exception('Failed to load module: %r', name)
+        _onerror(name)
 
   return modules

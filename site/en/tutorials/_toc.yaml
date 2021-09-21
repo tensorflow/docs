@@ -137,15 +137,15 @@ toc:
   - title: "Transfer learning for audio recognition"
     path: /tutorials/audio/transfer_learning_audio
     status: new
+  - title: "Generate music with an RNN"
+    path: /tutorials/audio/music_generation
+    status: new
 
 - title: "Structured data"
   style: accordion
   section:
-  - title: "Classify structured data with feature columns"
-    path: /tutorials/structured_data/feature_columns
   - title: "Classify structured data with preprocessing layers"
     path: /tutorials/structured_data/preprocessing_layers
-    status: experimental
   - title: "Classification on imbalanced data"
     path: /tutorials/structured_data/imbalanced_data
   - title: "Time series forecasting"
@@ -211,3 +211,5 @@ toc:
     path: /tutorials/estimator/keras_model_to_estimator
   - title: "Multi-worker training with Estimator"
     path: /tutorials/distribute/multi_worker_with_estimator
+  - title: "Feature columns"
+    path: /tutorials/structured_data/feature_columns
