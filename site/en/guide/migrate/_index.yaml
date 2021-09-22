@@ -20,14 +20,18 @@ landing_page:
         <p>Learn how to migrate your TensorFlow code from TensorFlow 1.x to
         TensorFlow 2. It takes a little work to convert code to idiomatic
         TensorFlow 2, but every change results in fewer lines of code,
-        increased clarity and simplicity, and easier debugging. Briefly, the
-        process is:<p>
+        increased clarity and simplicity, and easier debugging. Before
+        starting to migrate,read the <a href="/guide/migrate/tf1_vs_tf2">behaviors guide</a>.
+        Briefly, the migration process is:<p>
         <ol>
-        <li>Run the <a href="/guide/upgrade">upgrade script</a>.</li>
-        <li>Remove old <code>contrib</code> symbols (check <a href="/addons">TF Addons</a>).</li>
-        <li>Switch your models to an <a href="/guide/intro_to_modules">object-oriented style</a>.</li>
-        <li>Use <a href="/guide/keras/train_and_evaluate">built-in training and evaluation loops</a> where possible.</li>
-        <li>Otherwise, use <a href="/guide/basic_training_loops">custom training loops</a>, avoiding sessions and collections.</li>
+        <li>Run the <a href="/guide/migrate/upgrade">automated script</a> to convert your TF1.x API usage to
+        <code>tf.compat.v1</code>.</li>
+        <li>Remove old <code>tf.contrib.layers</code> and replace them with <a href="https://github.com/google-research/tf-slim">TF Slim</a> symbols. Also check <a href="/addons">TF Addons</a> for other <code>tf.contrib</code> symbols.</li>
+        <li>Rewrite your <a href="/guide/migrate/model_mapping">TF1.x model forward passes to run in TF2</a> with eager execution enabled.</li>
+        <li>Upgrade your <a href="/guide/migrate/migrating_estimator">training, evaluation</a> and <a href="/guide/migrate/saved_model">model saving</a> code to TF2 equivalents.</li>
+        <li>(Optional) <a href="/guide/migrate/model_mapping#incremental_migration_to_native_tf2">Migrate your TF2-compatible <code>tf.compat.v1</code> APIs</a> including <a href="https://github.com/google-research/tf-slim">TF Slim</a> usage to idiomatic TF2
+        APIs.</li>
+        <li><a href="/guide/migrate/validate_correctness">Validate the accuracy and numerical correctness</a> of your migrated code</li>
         </ol>
 
   - description: "<h3>Featured migration guides</h3>"
