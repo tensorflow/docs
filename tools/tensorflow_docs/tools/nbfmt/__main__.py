@@ -37,6 +37,7 @@ import sys
 import textwrap
 
 from typing import Any, Dict, List, Tuple
+from stat import S_ISFIFO
 
 from absl import app
 from absl import flags
@@ -44,6 +45,8 @@ from absl import flags
 from tensorflow_docs.tools.nbfmt import notebook_utils
 
 OSS = True
+
+PIPED_INPUT = S_ISFIFO(os.fstat(0).st_mode)
 
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
@@ -351,14 +354,14 @@ def format_textconv(
 
 
 def main(argv):
-  if len(argv) <= 1 and FLAGS.textconv or len(argv) <= 1 and not sys.stdin:
+  if len(argv) <= 1 and not PIPED_INPUT:
     raise app.UsageError("Missing arguments.")
 
   if FLAGS.oss is not None:
     global OSS
     OSS = FLAGS.oss
 
-  if not FLAGS.textconv:
+  if len(argv) > 1 and not FLAGS.textconv:
     exit_code = format_nb(
         notebooks=argv[1:],
         remove_outputs=FLAGS.remove_outputs,
@@ -367,7 +370,7 @@ def main(argv):
   else:
     output_stream = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-    if len(argv) > 1:
+    if len(argv) > 1 and FLAGS.textconv:
       exit_code, expected_output = format_textconv(
         notebook=argv[1],
         remove_outputs=FLAGS.remove_outputs,
