@@ -381,7 +381,6 @@ def main(argv):
           indent=FLAGS.indent)
 
     output_stream.write(expected_output)
-    output_stream.write("\n")
     output_stream.flush()
   else:
     exit_code = format_nb(
