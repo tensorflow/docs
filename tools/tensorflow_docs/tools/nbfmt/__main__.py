@@ -37,7 +37,6 @@ import sys
 import textwrap
 
 from typing import Any, Dict, List, Tuple
-from stat import S_ISFIFO
 
 from absl import app
 from absl import flags
@@ -54,20 +53,21 @@ flags.DEFINE_bool("remove_outputs", False,
 flags.DEFINE_bool("test", False,
                   "Test if the notebook is formatted (useful for CI).")
 flags.DEFINE_bool("textconv", False, "Print results to output", short_name='t')
+flags.DEFINE_string("filepath", None, "String of notebook filepath passed to the command-line.")
 
 FLAGS = flags.FLAGS
 
 
-def clean_notebook(data: Dict[str, Any], nb_source: str, remove_outputs: bool,
-                   indent: int, filepath: pathlib.Path = None) -> str:
+def clean_notebook(data: Dict[str, Any], nb_source: str, filepath: pathlib.Path,
+                   remove_outputs: bool, indent: int) -> bytes:
   """The main notebook formatting logic.
 
   Args:
     data: object representing a parsed JSON notebook.
     nb_source: JSON string of entire notebook contents.
+    filepath: String of notebook filepath passed to the command-line.
     remove_outputs: Boolean to clear cell output.
     indent: Integer indicating the number of spaces to indent the JSON.
-    filepath: String of notebook filepath passed to the command-line.
 
   Returns:
     A string for the JSON formatted notebook.
@@ -87,7 +87,7 @@ def clean_notebook(data: Dict[str, Any], nb_source: str, remove_outputs: bool,
   return nbjson + "\n"
 
 
-def clean_root(data: Dict[str, Any], filepath: pathlib.Path = None) -> None:
+def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
   """Deletes extra top-level notebook fields and metadata.
 
   Jupyter format spec:
@@ -275,7 +275,7 @@ def format_nb(
       continue
 
     # Returns formatted JSON string.
-    expected_output = clean_notebook(data, source, remove_outputs, indent, path)
+    expected_output = clean_notebook(data, source, path, remove_outputs, indent)
 
     if test:
       # Compare formatted contents with original file contents.
@@ -309,6 +309,7 @@ def format_nb(
 
 def format_source(
     *,
+    notebook: str,
     source: str,
     remove_outputs: bool = False,
     indent: int = 2,
@@ -320,7 +321,7 @@ def format_source(
   if not data:
     return Status.FAIL, source
 
-  expected_output = clean_notebook(data, source, remove_outputs, indent)
+  expected_output = clean_notebook(data, source, notebook, remove_outputs, indent)
 
   return Status.PASS, expected_output
 
@@ -346,7 +347,7 @@ def format_textconv(
     return Status.FAIL, source
 
   # Returns formatted JSON string.
-  expected_output = clean_notebook(data, source, remove_outputs, indent)
+  expected_output = clean_notebook(data, source, notebook, remove_outputs, indent)
 
   return Status.PASS, expected_output
 
@@ -374,6 +375,7 @@ def main(argv):
       input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
       source = input_stream.read()
       exit_code, expected_output = format_source(
+          notebook=FLAGS.filepath,
           source=source,
           remove_outputs=FLAGS.remove_outputs,
           indent=FLAGS.indent)
