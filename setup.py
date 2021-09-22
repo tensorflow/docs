@@ -21,7 +21,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 project_name = 'tensorflow-docs'
-version = '0.0.0'
+version = '0.0.0.dev0'
 
 try:
   version = f"{version}+{subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('utf-8')}"
