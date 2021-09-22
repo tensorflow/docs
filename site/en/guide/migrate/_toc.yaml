@@ -37,7 +37,7 @@ toc:
   path: /guide/migrate/migrating_feature_columns
 - title: Metrics and optimizers
   path: /guide/migrate/metrics_optimizers
-- title: Incoroprate fault tolerance in training
+- title: Incorporate fault tolerance in training
   path: /guide/migrate/fault_tolerance
 - title: Evaluate training metrics with SidecarEvaluator
   path: /guide/migrate/evaluator
