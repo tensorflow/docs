@@ -74,9 +74,9 @@ landing_page:
   - items:
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/migrate/mirrored_strategy"><h3 class="no-link">Multi-GPU training workflows</h3></a>
-        Learn to train with multiple GPUs in TF2.
-      path: /guide/migrate/mirrored_strategy
+        <a href="/guide/migrate/multi_worker_cpu_gpu_training"><h3 class="no-link">Multi-worker CPU/GPU training workflows</h3></a>
+        Learn how to migrate multi-worker distributed <code>Estimator</code> to TF2.
+      path: /guide/migrate/multi_worker_cpu_gpu_training
     - classname: tfo-landing-page-card
       description: >
         <a href="/guide/migrate/tpu_estimator"><h3 class="no-link">TPU workflows</h3></a>
