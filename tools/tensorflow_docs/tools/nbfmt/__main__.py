@@ -46,8 +46,6 @@ from tensorflow_docs.tools.nbfmt import notebook_utils
 
 OSS = True
 
-PIPED_INPUT = S_ISFIFO(os.fstat(0).st_mode)
-
 flags.DEFINE_integer(
     "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
 flags.DEFINE_bool("oss", None, "Use OSS formatting.")
@@ -354,23 +352,19 @@ def format_textconv(
 
 
 def main(argv):
-  if len(argv) <= 1 and not PIPED_INPUT:
+  if len(argv) <= 1:
     raise app.UsageError("Missing arguments.")
+
+  shell_piping = argv[1:] == ['-']
 
   if FLAGS.oss is not None:
     global OSS
     OSS = FLAGS.oss
 
-  if len(argv) > 1 and not FLAGS.textconv:
-    exit_code = format_nb(
-        notebooks=argv[1:],
-        remove_outputs=FLAGS.remove_outputs,
-        indent=FLAGS.indent,
-        test=FLAGS.test)
-  else:
+  if shell_piping or FLAGS.textconv:
     output_stream = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-    if len(argv) > 1 and FLAGS.textconv:
+    if FLAGS.textconv:
       exit_code, expected_output = format_textconv(
         notebook=argv[1],
         remove_outputs=FLAGS.remove_outputs,
@@ -387,6 +381,12 @@ def main(argv):
     output_stream.write(expected_output)
     output_stream.write("\n")
     output_stream.flush()
+  else:
+    exit_code = format_nb(
+        notebooks=argv[1:],
+        remove_outputs=FLAGS.remove_outputs,
+        indent=FLAGS.indent,
+        test=FLAGS.test)
 
   if exit_code == Status.FAIL:
     sys.exit(1)
