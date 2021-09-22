@@ -27,6 +27,8 @@ toc:
   path: /guide/tf_numpy
 - title: "Tensor slicing"
   path: /guide/tensor_slicing
+- title: "Thinking in TensorFlow 2"
+  path: /guide/effective_tf2
 
 - heading: "Keras"
 - include: /guide/keras/_toc.yaml
@@ -70,17 +72,6 @@ toc:
   path: /guide/graph_optimization
 - title: "Mixed precision"
   path: /guide/mixed_precision
-
-- heading: "Migrate to TF2"
-- title: "Effective TensorFlow 2"
-  path: /guide/effective_tf2
-- title: "Migrate from TF1 to TF2"
-  path: /guide/migrate
-- title: "Convert with the upgrade script"
-  path: /guide/upgrade
-- title: "Community testing FAQ"
-  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
-  status: external
 
 - heading: "Estimators"
 - title: "Estimator overview"
