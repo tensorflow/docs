@@ -351,14 +351,14 @@ def format_textconv(
 
 
 def main(argv):
-  if len(argv) <= 1 and not sys.stdin:
+  if len(argv) <= 1 and FLAGS.textconv or len(argv) <= 1 and not sys.stdin:
     raise app.UsageError("Missing arguments.")
 
   if FLAGS.oss is not None:
     global OSS
     OSS = FLAGS.oss
 
-  if not FLAGS.textconv and not sys.stdin:
+  if not FLAGS.textconv:
     exit_code = format_nb(
         notebooks=argv[1:],
         remove_outputs=FLAGS.remove_outputs,
@@ -367,7 +367,7 @@ def main(argv):
   else:
     output_stream = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-    if FLAGS.textconv:
+    if len(argv) > 1:
       exit_code, expected_output = format_textconv(
         notebook=argv[1],
         remove_outputs=FLAGS.remove_outputs,
