@@ -37,9 +37,9 @@ landing_page:
       path: /install
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/effective_tf2"><h3 class="no-link">Migrate to TensorFlow 2</h3></a>
-        Learn TensorFlow 2 best practices and tools to migrate your TF1 code to TF2.
-      path: /guide/effective_tf2
+        <a href="/guide/migrate"><h3 class="no-link">Migrate to TensorFlow 2</h3></a>
+        Learn how to migrate your TF1.x code to TF2.
+      path: /guide/migrate
     - classname: tfo-landing-page-card
       description: >
         <a href="/guide/keras/overview"><h3 class="no-link">Keras</h3></a>
@@ -62,10 +62,9 @@ landing_page:
       path: /guide/data
     - classname: tfo-landing-page-card
       description: >
-        <a href="/guide/estimator"><h3 class="no-link">Estimators</h3></a>
-        A high-level API that represents a complete model, designed for scaling
-        and asynchronous training.
-      path: /guide/estimator
+        <a href="/guide/effective_tf2"><h3 class="no-link">TensorFlow 2 best practices</h3></a>
+        Learn about the best practices for effective development using TensorFlow 2.
+      path: /guide/effective_tf2
 
   - items:
     - classname: tfo-landing-page-card

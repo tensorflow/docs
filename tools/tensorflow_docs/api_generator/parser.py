@@ -193,6 +193,9 @@ def _get_raw_docstring(py_object):
   else:
     result = ''
 
+  if result is None:
+    result = ''
+
   result = _StripTODOs()(result)
   result = _StripPylintAndPyformat()(result)
   result = _AddDoctestFences()(result + '\n')
