@@ -138,7 +138,7 @@ class ApiTree(object):
       # We cannot use the duplicate mechanism for some constants, since e.g.,
       # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
       # have no usable docstring and won't be documented automatically.
-      self.aliases[id(obj)].append(node)
+      self.aliases[id(obj)].append(node)  # pytype: disable=unsupported-operands  # attribute-variable-annotations
     parent.children[node.short_name] = node
 
 
