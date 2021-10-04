@@ -919,7 +919,7 @@ transpose ops.
 You can optimize the data layout to prefer NHWC layouts by setting
 `data_format="channels_last"` for layers such as `tf.keras.layers.Conv2D`,
 `tf.keras.layers.Conv3D`, and
-`tf.keras.layers.experimental.preprocessing.RandomRotation`.
+`tf.keras.layers.RandomRotation`.
 
 Use `tf.keras.backend.set_image_data_format` to set the default data layout
 format for the Keras backend API.

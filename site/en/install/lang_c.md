@@ -1,7 +1,8 @@
 # Install TensorFlow for C
 
 TensorFlow provides a C API that can be used to build
-[bindings for other languages](../extend/language_bindings.md). The API is defined in
+[bindings for other languages](https://github.com/tensorflow/docs/tree/master/site/en/r1/guide/extend/bindings.md).
+The API is defined in
 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h" class="external"><code>c_api.h</code></a>
 and designed for simplicity and uniformity rather than convenience.
 
