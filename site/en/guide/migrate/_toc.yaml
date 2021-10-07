@@ -41,7 +41,7 @@ toc:
   path: /guide/migrate/fault_tolerance
 - title: Evaluate training metrics with SidecarEvaluator
   path: /guide/migrate/evaluator
-- title: Tensorboard metric displays
+- title: TensorBoard metric displays
   path: /guide/migrate/tensorboard
 
 - heading: Migrate saving and export workflows
