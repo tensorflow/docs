@@ -24,7 +24,9 @@ To participate in the TensorFlow docs community:
 
 * Watch the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub
   repository.
-* Subscribe to [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
+* Follow the [docs](https://discuss.tensorflow.org/tag/docs) tag on the
+  [TensorFlow Forum](https://discuss.tensorflow.org/).
+
 
 ## API reference
 
