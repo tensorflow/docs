@@ -43,11 +43,12 @@ def concat(values, axis, name="concat"):
   <code here>
 ```
 
-> **Note**: TensorFlow DocTest uses TensorFlow 2 and Python 3.
+Note: TensorFlow DocTest uses TensorFlow 2 and Python 3.
 
-> For reference documentation quality and how to get involved with doc sprints and
-the community, see the
-[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview). Note that, this doc will provide you some examples of how to write/edit any API Symbol Docs using a **`Task Tracker Sheet`** which is from a previous community doc sprint project and is no longer in use now but one can refer it for filing any issue or learning about the ways to edit API Symbol Docs.
+To assess reference documentation quality, see the example section of the
+[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
+(Be aware that the Task Tracker on this sheet is no longer in use.)
+
 
 ### Make the code testable with DocTest
 

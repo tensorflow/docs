@@ -30,7 +30,8 @@ To participate in the TensorFlow docs community:
 
 ## API reference
 
-To update reference documentation, find the
+For details, use the [TensorFlow API docs contributor guide](docs_ref.md). This
+shows you how to find the
 [source file](https://www.tensorflow.org/code/tensorflow/python/)
 and edit the symbol's
 <a href="https://www.python.org/dev/peps/pep-0257/" class="external">docstring</a>.
@@ -39,6 +40,7 @@ where the symbol is defined. Docstrings support
 <a href="https://help.github.com/en/articles/about-writing-and-formatting-on-github" class="external">Markdown</a>
 and can be (approximately) previewed using any
 <a href="http://tmpvar.com/markdown.html" class="external">Markdown previewer</a>.
+
 
 ### Versions and branches
 
