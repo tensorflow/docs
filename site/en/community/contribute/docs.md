@@ -38,10 +38,6 @@ where the symbol is defined. Docstrings support
 and can be (approximately) previewed using any
 <a href="http://tmpvar.com/markdown.html" class="external">Markdown previewer</a>.
 
-For reference documentation quality and how to get involved with doc sprints and
-the community, see the
-[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
-
 ### Versions and branches
 
 The site's [API reference](https://www.tensorflow.org/api_docs/python/tf)
