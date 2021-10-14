@@ -18,7 +18,7 @@ Use `pip` to install the latest `tensorflow-docs` package directly from the
 [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository:
 
 ```
-$ python3 -m pip install -U --user git+https://github.com/tensorflow/docs
+python3 -m pip install -U --user git+https://github.com/tensorflow/docs
 ```
 
 
@@ -32,9 +32,9 @@ workflow. To format a notebook, install the `tensorflow-docs` package and run
 the `nbfmt` tool:
 
 ```
-$ python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
+python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
 
-$ python3 -m tensorflow_docs.tools.nbfmt --help
+python3 -m tensorflow_docs.tools.nbfmt --help
 ```
 
 `nbfmt` accepts directory arguments that format all child notebooks (skipping
@@ -85,18 +85,18 @@ common errors and useful for CI tests. To lint a notebook, install the
 `tensorflow-docs` package and run the `nblint` tool:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
+python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
 
-$ python3 -m tensorflow_docs.tools.nblint --fix [options] notebook.ipynb [...]
+python3 -m tensorflow_docs.tools.nblint --fix [options] notebook.ipynb [...]
 
-$ python3 -m tensorflow_docs.tools.nblint --help
+python3 -m tensorflow_docs.tools.nblint --help
 ```
 
 Some styles require a user-defined argument passed at the command-line. For
 example, the `tensorflow` style (default) uses the `repo` argument to check links:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint --arg=repo:tensorflow/docs notebook.ipynb
+python3 -m tensorflow_docs.tools.nblint --arg=repo:tensorflow/docs notebook.ipynb
 ```
 
 Lints are assertions that test specific sections of the notebook. These lints
@@ -106,7 +106,7 @@ are collected into
 styles can be set with the `--styles` option:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint \
+python3 -m tensorflow_docs.tools.nblint \
     --styles=tensorflow,tensorflow_docs_l10n --arg=repo:tensorflow/docs-1l0n \
     notebook.ipynb
 ```
@@ -115,7 +115,7 @@ A style module may contain some lint checks that do not fit your project. You
 can exclude specific lint checks with the `--exclude_lint` option:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint \
+python3 -m tensorflow_docs.tools.nblint \
     --styles=tensorflow --arg=repo:community/repo-name \
     --exclude_lint=tensorflow::copyright_check \
     --exclude_lint=tensorflow::button_website \
@@ -125,7 +125,7 @@ $ python3 -m tensorflow_docs.tools.nblint \
 Some lint errors can be automatically fixed in the notebook file:
 
 ```
-$ python3 -m tensorflow_docs.tools.nblint --fix \
+python3 -m tensorflow_docs.tools.nblint --fix \
     --arg=repo:tensorflow/docs notebook.ipynb
 ```
 
