@@ -33,7 +33,8 @@ the `nbfmt` tool:
 
 ```
 python3 -m tensorflow_docs.tools.nbfmt [options] notebook.ipynb [...]
-
+```
+```
 python3 -m tensorflow_docs.tools.nbfmt --help
 ```
 
@@ -73,7 +74,8 @@ Someone who clones that repo for development would then install the hook with:
 ```
 # Install pre-commit framework
 pip3 install pre-commit
-
+```
+```
 # Install hooks
 pre-commit install
 ```
@@ -86,9 +88,11 @@ common errors and useful for CI tests. To lint a notebook, install the
 
 ```
 python3 -m tensorflow_docs.tools.nblint [options] notebook.ipynb [...]
-
+```
+```
 python3 -m tensorflow_docs.tools.nblint --fix [options] notebook.ipynb [...]
-
+```
+```
 python3 -m tensorflow_docs.tools.nblint --help
 ```
 
