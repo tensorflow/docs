@@ -65,7 +65,7 @@ toc:
 - heading: Validate model quality and performance
 - title: Validate correctness and numerical equivalence
   path: /guide/migrate/validate_correctness
-#  - title: Quality testing and debugging
-#    path: /guide/migrate/testing_debugging
+- title: Debug TF2 Migrated Training Pipeline
+  path: /guide/migrate/migration_debugging
 #  - title: Testing speed and throughput
 #    path: /guide/migrate/throughput_testing
