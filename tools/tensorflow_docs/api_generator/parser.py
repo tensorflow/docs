@@ -1825,7 +1825,7 @@ class TypeAliasPageInfo(PageInfo):
 
   @property
   def signature(self) -> None:
-    return self._signature
+    return self._signature  # pytype: disable=bad-return-type  # bind-properties
 
   def _custom_join(self, args: List[str], origin: str) -> str:
     """Custom join for Callable and other type hints.
