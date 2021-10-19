@@ -72,10 +72,10 @@ Someone who clones that repo for development would then install the hook with:
 
 ```
 # Install pre-commit framework
-pip3 install pre-commit
+$ pip3 install pre-commit
 
 # Install hooks
-pre-commit install
+$ pre-commit install
 ```
 
 ## nblint
