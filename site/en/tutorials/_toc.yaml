@@ -184,7 +184,7 @@ toc:
     path: /tutorials/interpretability/integrated_gradients
   - title: "Uncertainty quantification with SNGP"
     path: /tutorials/understanding/sngp
-  - title: "Probabalistic regression"
+  - title: "Probabilistic regression"
     path: /probability/examples/Probabilistic_Layers_Regression
     status: external
 - title: "Reinforcement learning"
