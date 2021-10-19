@@ -36,6 +36,9 @@ toc:
 - heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
+- title: "Extension type"
+  path: /guide/extension_type
+  status: experimental
 - title: "Random number generation"
   path: /guide/random_numbers
 
