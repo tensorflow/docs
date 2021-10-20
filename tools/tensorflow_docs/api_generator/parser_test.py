@@ -159,9 +159,9 @@ class ParserTest(parameterized.TestCase):
       def foo(self):
         pass
 
-    string = (
-        'A `tf.reference`, a member `tf.reference.foo`, and a `tf.third`. '
-        'This is `not a symbol`, and this is `tf.not.a.real.symbol`')
+    string = ('A `@tf.reference`, a member `tf.reference.foo`, and a '
+              '`tf.third(what)`. '
+              'This is `not a symbol`, and this is `tf.not.a.real.symbol`')
 
     duplicate_of = {'tf.third': 'tf.fourth'}
     index = {
@@ -179,11 +179,11 @@ class ParserTest(parameterized.TestCase):
     result = reference_resolver.replace_references(string, '../..')
     self.assertEqual(
         'A <a href="../../tf/reference.md">'
-        '<code>tf.reference</code></a>, '
+        '<code>@tf.reference</code></a>, '
         'a member <a href="../../tf/reference.md#foo">'
         '<code>tf.reference.foo</code></a>, '
         'and a <a href="../../tf/fourth.md">'
-        '<code>tf.third</code></a>. '
+        '<code>tf.third(what)</code></a>. '
         'This is `not a symbol`, and this is '
         '`tf.not.a.real.symbol`', result)
 
