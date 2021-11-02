@@ -307,7 +307,7 @@ AUTO_REFERENCE_RE = re.compile(
     r"""
     (?P<brackets>\[.*?\])                    # find characters inside '[]'
     |
-    `(?P<backticks>[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
+    `(?P<backticks>@?[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
     """,
     flags=re.VERBOSE)
 
@@ -612,7 +612,12 @@ class ReferenceResolver(object):
 
     link_text = string
 
-    string = re.sub(r'(.*)[\(\[].*', r'\1', string)
+    # Drop everything after the *last* ( or [ to get the
+    # symbol name. The last is used so complex nested or chained calls are not
+    # recognized as valid links.
+    string = re.sub(r'^(.*)[\(\[].*', r'\1', string)
+    # Drop the optional leading `@`.
+    string = re.sub(r'^@', r'', string)
 
     if string.startswith('compat.v1') or string.startswith('compat.v2'):
       string = 'tf.' + string
