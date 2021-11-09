@@ -31,7 +31,8 @@ def _smooth(values, std):
 
   Args:
     values: A 1D array of values to smooth.
-    std: The standard deviation of the Gaussian distribution. The units are array elements.
+    std: The standard deviation of the Gaussian distribution. The units are
+    array elements.
 
   Returns:
     The smoothed array.
