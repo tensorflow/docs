@@ -25,13 +25,13 @@ COLOR_CYCLE = prop_cycle.by_key()['color']
 
 
 def _smooth(values, std):
-  """Smooths a list of values by convolving with a gussian.
+  """Smooths a list of values by convolving with a gaussian.
 
   Assumes equal spacing.
 
   Args:
     values: A 1D array of values to smooth.
-    std: The standard devistion of the gussian. The units are array elements.
+    std: The standard devistion of the gaussian. The units are array elements.
 
   Returns:
     The smoothed array.
