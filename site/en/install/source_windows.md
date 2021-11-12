@@ -13,16 +13,15 @@ environment.
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.6.x 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
+[Python 3.7+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
 Select *pip* as an optional feature and add it to your `%PATH%` environmental
 variable.
 
 Install the TensorFlow *pip* package dependencies:
 
 <pre class="devsite-click-to-copy">
-<code class="devsite-terminal tfo-terminal-windows">pip3 install six numpy wheel</code>
-<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_applications==1.0.6 --no-deps</code>
-<code class="devsite-terminal tfo-terminal-windows">pip3 install keras_preprocessing==1.0.5 --no-deps</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install -U six numpy wheel</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install -U keras_preprocessing --no-deps</code>
 </pre>
 
 The dependencies are listed in the
