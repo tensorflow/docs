@@ -174,9 +174,9 @@ class ParserTest(parameterized.TestCase):
     visitor = DummyVisitor(index, duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'], link_prefix='../..')
 
-    result = reference_resolver.replace_references(string, '../..')
+    result = reference_resolver.replace_references(string)
     self.assertEqual(
         'A <a href="../../tf/reference.md">'
         '<code>@tf.reference</code></a>, '
@@ -589,7 +589,7 @@ class ParserTest(parameterized.TestCase):
     visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'], link_prefix='../..')
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
@@ -602,7 +602,6 @@ class ParserTest(parameterized.TestCase):
 
     doc_info = parser._parse_md_docstring(
         test_function_with_fancy_docstring,
-        relative_path_to_root='../..',
         full_name=None,
         parser_config=parser_config)
 
@@ -989,23 +988,23 @@ class TestReferenceResolver(absltest.TestCase):
     }
     py_module_names = ['tf']
 
-    reference_resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
-                                                  py_module_names)
+    reference_resolver = parser.ReferenceResolver(
+        duplicate_of, is_fragment, py_module_names, link_prefix='')
 
     # Method references point to the method, in the canonical class alias.
-    result = reference_resolver.reference_to_url('tf.Class1.method', '')
+    result = reference_resolver.reference_to_url('tf.Class1.method')
     self.assertEqual('tf/Class1.md#method', result)
-    result = reference_resolver.reference_to_url('tf.Class2.method', '')
+    result = reference_resolver.reference_to_url('tf.Class2.method')
     self.assertEqual('tf/Class2.md#method', result)
-    result = reference_resolver.reference_to_url('tf.sub.Class2.method', '')
+    result = reference_resolver.reference_to_url('tf.sub.Class2.method')
     self.assertEqual('tf/Class2.md#method', result)
 
     # Class references point to the canonical class alias
-    result = reference_resolver.reference_to_url('tf.Class1', '')
+    result = reference_resolver.reference_to_url('tf.Class1')
     self.assertEqual('tf/Class1.md', result)
-    result = reference_resolver.reference_to_url('tf.Class2', '')
+    result = reference_resolver.reference_to_url('tf.Class2')
     self.assertEqual('tf/Class2.md', result)
-    result = reference_resolver.reference_to_url('tf.sub.Class2', '')
+    result = reference_resolver.reference_to_url('tf.sub.Class2')
     self.assertEqual('tf/Class2.md', result)
 
 
@@ -1094,10 +1093,10 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
 
     py_module_names = ['tf']
 
-    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
-                                        py_module_names)
+    resolver = parser.ReferenceResolver(
+        duplicate_of, is_fragment, py_module_names, link_prefix='..')
     input_string = string.join('``')
-    ref_string = resolver.replace_references(input_string, '..')
+    ref_string = resolver.replace_references(input_string)
 
     if link is None:
       expected = input_string
@@ -1440,17 +1439,9 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     info_obj = parser.TypeAliasPageInfo(
         full_name='tfdocs.api_generator.generate_lib.DocGenerator',
         py_object=alias)
-    info_obj.collect_docs(self.parser_config)
-    if sys.version_info[:2] <= (3, 6):
-      # TypeAliasPageInfo.signature is built using the __origin__ attribute of
-      # type annotations. Before Python 3.7, __origin__ stored typing constructs
-      # (e.g., typing.List); in 3.7+, it stores the equivalent runtime class
-      # (e.g., builtins.list).
-      expected_sig = expected_sig.replace('dict[',
-                                          'Dict[').replace('list[', 'List[')
-      # For some reason, bool is missing from the deep_objects signature in 3.6.
-      expected_sig = expected_sig.replace('    bool,\n', '')
-    self.assertEqual(info_obj.signature, expected_sig)
+    with self.parser_config.reference_resolver.temp_prefix('../../..'):
+      info_obj.collect_docs(self.parser_config)
+      self.assertEqual(info_obj.signature, expected_sig)
 
   def _setup_class_info(self, cls, method_name):
     pc = self.parser_config
@@ -1460,6 +1451,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     pc.reference_resolver._duplicate_of[full_name] = full_name
     pc.reference_resolver._is_fragment[full_name] = True
     pc.reference_resolver._all_names.add(full_name)
+    pc.reference_resolver._link_prefix = '../..'
 
     info = parser.ClassPageInfo(full_name='x.Cls', py_object=cls)
     info._doc = parser._DocstringInfo('doc', ['doc'], {})

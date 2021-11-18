@@ -711,7 +711,6 @@ def replace_refs(
     src_dir: str,
     output_dir: str,
     reference_resolvers: List[parser.ReferenceResolver],
-    api_docs_relpath: List[str],
     file_pattern: str = '*.md',
 ):
   """Link `tf.symbol` references found in files matching `file_pattern`.
@@ -731,15 +730,12 @@ def replace_refs(
     output_dir: The root directory to write the resulting files to.
     reference_resolvers: A list of `parser.ReferenceResolver` to make the
       replacements.
-    api_docs_relpath: List of relative-path strings to the api_docs from the
-      src_dir for each reference_resolver.
     file_pattern: Only replace references in files matching file_patters, using
       `fnmatch`. Non-matching files are copied unchanged.
   """
 
   # Iterate through all the source files and process them.
   for dirpath, _, filenames in os.walk(src_dir):
-    depth = os.path.relpath(src_dir, start=dirpath)
     # Make the directory under output_dir.
     new_dir = os.path.join(output_dir,
                            os.path.relpath(path=dirpath, start=src_dir))
@@ -762,10 +758,9 @@ def replace_refs(
       with open(full_in_path, 'rb') as f:
         content = f.read().decode('utf-8')
 
-      for resolver, rel_path in zip(reference_resolvers, api_docs_relpath):
+      for resolver in reference_resolvers:
         # If `rel_path` is an absolute path, `depth` is just discarded.
-        relative_path_to_root = os.path.join(depth, rel_path)
-        content = resolver.replace_references(content, relative_path_to_root)
+        content = resolver.replace_references(content)
 
       with open(full_out_path, 'wb') as f:
         f.write((content + '\n').encode('utf-8'))
@@ -914,14 +909,6 @@ class DocGenerator:
     # Extract the python api from the _py_modules
     visitor = self.run_extraction()
     reference_resolver = self.make_reference_resolver(visitor)
-    # Replace all the `tf.symbol` references in the workdir.
-    replace_refs(
-        src_dir=str(workdir),
-        output_dir=str(workdir),
-        reference_resolvers=[reference_resolver],
-        api_docs_relpath=['api_docs'],
-        file_pattern='*.md',
-    )
 
     # Write the api docs.
     parser_config = self.make_parser_config(visitor, reference_resolver)

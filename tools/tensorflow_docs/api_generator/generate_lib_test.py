@@ -115,7 +115,7 @@ class GenerateTest(absltest.TestCase):
     visitor = DummyVisitor(index, duplicate_of)
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+        visitor=visitor, py_module_names=['tf'], link_prefix='api_docs/python')
 
     parser_config = parser.ParserConfig(
         reference_resolver=reference_resolver,
@@ -219,20 +219,20 @@ class GenerateTest(absltest.TestCase):
 
     reference_resolver, _ = self.get_test_objects()
     generate_lib.replace_refs(test_in_dir, test_out_dir, [reference_resolver],
-                              ['api_docs/python'], '*.md')
+                              '*.md')
 
     with open(os.path.join(test_out_dir, 'a/file1.md')) as f:
       content = f.read()
       self.assertEqual(
           content,
-          'Use <a href="../api_docs/python/tf/TestModule/test_function.md">'
+          'Use <a href="api_docs/python/tf/TestModule/test_function.md">'
           '<code>tf.test_function</code></a> to test things.\n')
 
     with open(os.path.join(test_out_dir, 'b/file2.md')) as f:
       content = f.read()
       self.assertEqual(
           content, 'Use '
-          '<a href="../api_docs/python/tf/TestModule/TestClass/ChildClass.md">'
+          '<a href="api_docs/python/tf/TestModule/TestClass/ChildClass.md">'
           '<code>tf.TestModule.TestClass.ChildClass</code></a> '
           'to test things.\n'
           '`tf.whatever` doesn\'t exist\n')

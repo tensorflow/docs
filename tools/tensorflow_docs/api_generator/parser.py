@@ -17,6 +17,7 @@
 
 import ast
 import collections
+import contextlib
 import dataclasses
 import enum
 import functools
@@ -153,7 +154,7 @@ def documentation_path(full_name, is_fragment=False):
 
   Args:
     full_name: Fully qualified name of a library symbol.
-    is_fragment: If `False` produce a direct markdown link (`tf.a.b.c` -->
+    is_fragment: If `False` produce a page link (`tf.a.b.c` -->
       `tf/a/b/c.md`). If `True` produce fragment link, `tf.a.b.c` -->
       `tf/a/b.md#c`
 
@@ -300,28 +301,24 @@ class IgnoreLineInBlock(object):
     return self._in_block
 
 
-# ?P<...> helps to find the match by entering the group name instead of the
-# index. For example, instead of doing match.group(1) we can do
-# match.group('brackets')
-AUTO_REFERENCE_RE = re.compile(
-    r"""
-    (?P<brackets>\[.*?\])                    # find characters inside '[]'
-    |
-    `(?P<backticks>@?[\w\(\[\)\]\{\}.,=\s]+?)` # or find characters inside '``'
-    """,
-    flags=re.VERBOSE)
+class ReferenceResolver:
+  """Class for replacing `tf.symbol` references with links."""
 
+  # ?P<...> helps to find the match by entering the group name instead of the
+  # index. For example, instead of doing match.group(1) we can do
+  # match.group('brackets')
+  AUTO_REFERENCE_RE = re.compile(
+      r"""
+      (?P<brackets>\[.*?\])|                      # match a '[]' span
+      `(?P<backticks>@?[\w\(\[\)\]\{\}.,=\s]+?)`  # or a `` span
+      """,
+      flags=re.VERBOSE)
 
-class ReferenceResolver(object):
-  """Class for replacing `tf.symbol` references with Markdown links."""
-
-  def __init__(
-      self,
-      duplicate_of: Dict[str, str],
-      is_fragment: Dict[str, bool],
-      py_module_names: List[str],
-      site_link: Optional[str] = None,
-  ):
+  def __init__(self,
+               duplicate_of: Dict[str, str],
+               is_fragment: Dict[str, bool],
+               py_module_names: List[str],
+               link_prefix: Optional[str] = None):
     """Initializes a Reference Resolver.
 
     Args:
@@ -331,14 +328,14 @@ class ReferenceResolver(object):
         object lives at a page fragment `tf.a.b.c` --> `tf/a/b#c`. If False
         object has a page to itself: `tf.a.b.c` --> `tf/a/b/c`.
       py_module_names: A list of string names of Python modules.
-      site_link: The website to which these symbols should link to. A prefix
-        is added before the links to enable cross-site linking if `site_link`
+      link_prefix: The website to which these symbols should link to. A prefix
+        is added before the links to enable cross-site linking if `link_prefix`
         is not None.
     """
     self._duplicate_of = duplicate_of
     self._is_fragment = is_fragment
     self._py_module_names = py_module_names
-    self._site_link = site_link
+    self._link_prefix = link_prefix
 
     self._all_names = set(is_fragment.keys())
     self._partial_symbols_dict = self._create_partial_symbols_dict()
@@ -369,6 +366,23 @@ class ReferenceResolver(object):
 
     return cls(
         duplicate_of=visitor.duplicate_of, is_fragment=is_fragment, **kwargs)
+
+  def with_prefix(self, prefix):
+    return type(self)(
+        duplicate_of=self._duplicate_of,
+        is_fragment=self._is_fragment,
+        py_module_names=self._py_module_names,
+        link_prefix=prefix,
+    )
+
+  @contextlib.contextmanager
+  def temp_prefix(self, link_prefix):
+    old_prefix = self._link_prefix
+    self._link_prefix = link_prefix
+    try:
+      yield
+    finally:
+      self._link_prefix = old_prefix
 
   def is_fragment(self, full_name: str):
     """Returns True if the object's doc is a subsection of another page."""
@@ -466,34 +480,25 @@ class ReferenceResolver(object):
       json.dump(json_dict, f, indent=2, sort_keys=True)
       f.write('\n')
 
-  def replace_references(self, string, relative_path_to_root, full_name=None):
+  def replace_references(self, string, full_name=None):
     """Replace `tf.symbol` references with links to symbol's documentation page.
 
     This function finds all occurrences of "`tf.symbol`" in `string`
-    and replaces them with markdown links to the documentation page
+    and replaces them with links to the documentation page
     for "symbol".
 
-    `relative_path_to_root` is the relative path from the document
-    that contains the "`tf.symbol`" reference to the root of the API
-    documentation that is linked to. If the containing page is part of
-    the same API docset, `relative_path_to_root` can be set to
-    `os.path.dirname(documentation_path(name))`, where `name` is the
-    python name of the object whose documentation page the reference
-    lives on.
 
     Args:
       string: A string in which "`tf.symbol`" references should be replaced.
-      relative_path_to_root: The relative path from the containing document to
-        the root of the API documentation that is being linked to.
       full_name: (optional) The full name of current object, so replacements can
         depend on context.
 
     Returns:
-      `string`, with "`tf.symbol`" references replaced by Markdown links.
+      `string`, with "`tf.symbol`" references replaced by links.
     """
 
     def one_ref(match):
-      return self._one_ref(match, relative_path_to_root, full_name)
+      return self._one_ref(match, full_name)
 
     fixed_lines = []
 
@@ -507,60 +512,34 @@ class ReferenceResolver(object):
 
     for line in string.splitlines():
       if not any(filter_block(line) for filter_block in filters):
-        line = re.sub(AUTO_REFERENCE_RE, one_ref, line)
+        line = re.sub(self.AUTO_REFERENCE_RE, one_ref, line)
       fixed_lines.append(line)
 
     return '\n'.join(fixed_lines)
 
-  def python_link(self,
-                  link_text,
-                  ref_full_name,
-                  relative_path_to_root,
-                  code_ref=True):
-    """Resolve a "`tf.symbol`" reference to a Markdown link.
+  def python_link(self, link_text, ref_full_name):
+    """Resolve a "`tf.symbol`" reference to a link.
 
-    This will pick the canonical location for duplicate symbols.  The
-    input to this function should already be stripped of the '@' and
-    '{}'.  This function returns a Markdown link. If `code_ref` is
-    true, it is assumed that this is a code reference, so the link
-    text will be rendered as code (using backticks).
-    `link_text` should refer to a library symbol, starting with 'tf.'.
+    This will pick the canonical location for duplicate symbols.
 
     Args:
-      link_text: The text of the Markdown link.
+      link_text: The text of the link.
       ref_full_name: The fully qualified name of the symbol to link to.
-      relative_path_to_root: The relative path from the location of the current
-        document to the root of the API documentation.
-      code_ref: If true (the default), put `link_text` in `...`.
 
     Returns:
-      A markdown link to the documentation page of `ref_full_name`.
+      A link to the documentation page of `ref_full_name`.
     """
-    url = self.reference_to_url(ref_full_name, relative_path_to_root)
-    if self._site_link is not None:
-      if os.path.isabs(url):
-        url = os.path.join(self._site_link, url[1:])
-      else:
-        url = os.path.join(self._site_link, url)
-      url = url.replace('.md', '')
+    link_text = html.escape(link_text, quote=True)
 
-    if code_ref:
-      link_text = link_text.join(['<code>', '</code>'])
-    else:
-      link_text = self._link_text_to_html(link_text)
-
-    return f'<a href="{url}">{link_text}</a>'
-
-  @staticmethod
-  def _link_text_to_html(link_text):
-    code_re = '`(.*?)`'
-    return re.sub(code_re, r'<code>\1</code>', link_text)
+    url = self.reference_to_url(ref_full_name)
+    url = html.escape(url, quote=True)
+    return f'<a href="{url}"><code>{link_text}</code></a>'
 
   def py_main_name(self, full_name):
     """Return the main name for a Python symbol name."""
     return self._duplicate_of.get(full_name, full_name)
 
-  def reference_to_url(self, ref_full_name, relative_path_to_root):
+  def reference_to_url(self, ref_full_name):
     """Resolve a "`tf.symbol`" reference to a relative path.
 
     The input to this function should already be stripped of the '@'
@@ -568,14 +547,10 @@ class ReferenceResolver(object):
 
     If `ref_full_name` is the name of a class member, method, or property, the
     link will point to the page of the containing class, and it will include the
-    method name as an anchor. For example, `tf.module.MyClass.my_method` will be
-    translated into a link to
-    `os.join.path(relative_path_to_root, 'tf/module/MyClass.md#my_method')`.
+    method name as an anchor. For example, `tf.module.MyClass.my_method`.
 
     Args:
       ref_full_name: The fully qualified name of the symbol to link to.
-      relative_path_to_root: The relative path from the location of the current
-        document to the root of the API documentation.
 
     Returns:
       A relative path that links from the documentation page of `from_full_name`
@@ -597,10 +572,14 @@ class ReferenceResolver(object):
     if main_name not in self._all_names:
       raise TFDocsError(f'Cannot make link to {main_name!r}: Not in index.')
 
-    ref_path = documentation_path(main_name, self._is_fragment[main_name])
-    return os.path.join(relative_path_to_root, ref_path)
+    rel_path = documentation_path(main_name, self._is_fragment[main_name])
 
-  def _one_ref(self, match, relative_path_to_root, full_name=None):
+    if self._link_prefix is None:
+      raise ValueError('you must set the `link_prefix`')
+    url = os.path.join(self._link_prefix, rel_path)
+    return url
+
+  def _one_ref(self, match, full_name=None):
     """Return a link for a single "`tf.symbol`" reference."""
 
     if match.group(1):
@@ -631,23 +610,15 @@ class ReferenceResolver(object):
     try:
       if string.startswith('tensorflow::'):
         # C++ symbol
-        return self._cc_link(string, link_text, relative_path_to_root)
+        return self._cc_link(string, link_text)
 
-      is_python = False
-      for py_module_name in self._py_module_names:
-        if string == py_module_name or string.startswith(py_module_name + '.'):
-          is_python = True
-          break
-
-      if is_python:  # Python symbol
-        return self.python_link(
-            link_text, string, relative_path_to_root, code_ref=True)
+      return self.python_link(link_text, string)
     except TFDocsError:
       pass
 
     return match.group(0)
 
-  def _cc_link(self, string, link_text, relative_path_to_root):
+  def _cc_link(self, string, link_text):
     """Generate a link for a `tensorflow::...` reference."""
     # TODO(joshl): Fix this hard-coding of paths.
     if string == 'tensorflow::ClientSession':
@@ -666,7 +637,7 @@ class ReferenceResolver(object):
     # relative_path_to_root gets you to api_docs/python, we go from there
     # to api_docs/cc, and then add ret.
     cc_relative_path = os.path.normpath(
-        os.path.join(relative_path_to_root, '../cc', ret))
+        os.path.join(self._link_prefix, '../cc', ret))
 
     return f'<a href="{cc_relative_path}"><code>{link_text}</code></a>'
 
@@ -998,7 +969,6 @@ def _get_other_member_doc(
 
 def _parse_md_docstring(
     py_object: Any,
-    relative_path_to_root: str,
     full_name: str,
     parser_config: ParserConfig,
     extra_docs: Optional[Dict[int, str]] = None,
@@ -1006,22 +976,11 @@ def _parse_md_docstring(
   """Parse the object's docstring and return a `_DocstringInfo`.
 
   This function clears @@'s from the docstring, and replaces `` references
-  with markdown links.
-
-  For links within the same set of docs, the `relative_path_to_root` for a
-  docstring on the page for `full_name` can be set to:
-
-  ```python
-  relative_path_to_root = os.path.relpath(
-    path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
-  ```
+  with links.
 
   Args:
     py_object: A python object to retrieve the docs for (class, function/method,
       or module).
-    relative_path_to_root: The relative path from the location of the current
-      document to the root of the Python API documentation. This is used to
-      compute links for "`tf.symbol`" references.
     full_name: (optional) The api path to the current object, so replacements
       can depend on context.
     parser_config: An instance of `ParserConfig`.
@@ -1039,10 +998,7 @@ def _parse_md_docstring(
     raw_docstring = _get_raw_docstring(py_object)
 
   raw_docstring = parser_config.reference_resolver.replace_references(
-      raw_docstring,
-      relative_path_to_root,
-      full_name,
-  )
+      raw_docstring, full_name)
 
   atat_re = re.compile(r' *@@[a-zA-Z_.0-9]+ *$')
   raw_docstring = '\n'.join(
@@ -1197,16 +1153,8 @@ class FormatArguments(object):
         self._func_full_name, None)
 
   def get_link(self, obj_full_name: str) -> str:
-    relative_path_to_root = os.path.relpath(
-        path='.',
-        start=os.path.dirname(
-            documentation_path(self._func_full_name, self._is_fragment)) or '.')
-
     return self._reference_resolver.python_link(
-        link_text=obj_full_name,
-        ref_full_name=obj_full_name,
-        relative_path_to_root=relative_path_to_root,
-        code_ref=True)
+        link_text=obj_full_name, ref_full_name=obj_full_name)
 
   def _extract_non_builtin_types(self, arg_obj: Any,
                                  non_builtin_types: List[Any]) -> List[Any]:
@@ -1981,15 +1929,13 @@ class ClassPageInfo(PageInfo):
     assert self.attr_block is None
     self.attr_block = attr_block
 
-  def _set_bases(self, relative_path, parser_config):
+  def _set_bases(self, parser_config):
     """Builds the `bases` attribute, to document this class' parent-classes.
 
     This method sets the `bases` to a list of `MemberInfo` objects point to the
     doc pages for the class' parents.
 
     Args:
-      relative_path: The relative path from the doc this object describes to the
-        documentation root.
       parser_config: An instance of `ParserConfig`.
     """
     bases = []
@@ -1997,10 +1943,10 @@ class ClassPageInfo(PageInfo):
       base_full_name = parser_config.reverse_index.get(id(base), None)
       if base_full_name is None:
         continue
-      base_doc = _parse_md_docstring(base, relative_path, self.full_name,
-                                     parser_config, self._extra_docs)
+      base_doc = _parse_md_docstring(base, self.full_name, parser_config,
+                                     self._extra_docs)
       base_url = parser_config.reference_resolver.reference_to_url(
-          base_full_name, relative_path)
+          base_full_name)
 
       link_info = MemberInfo(
           short_name=base_full_name.split('.')[-1],
@@ -2182,11 +2128,8 @@ class ClassPageInfo(PageInfo):
       parser_config: An instance of ParserConfig.
     """
     py_class = self.py_object
-    doc_path = documentation_path(self.full_name)
-    relative_path = os.path.relpath(
-        path='.', start=os.path.dirname(doc_path) or '.')
 
-    self._set_bases(relative_path, parser_config)
+    self._set_bases(parser_config)
 
     for child_short_name in parser_config.tree[self.full_name]:
       child_full_name = '.'.join([self.full_name, child_short_name])
@@ -2205,11 +2148,11 @@ class ClassPageInfo(PageInfo):
       if doc_controls.should_skip_class_attr(py_class, child_short_name):
         continue
 
-      child_doc = _parse_md_docstring(child, relative_path, self.full_name,
-                                      parser_config, self._extra_docs)
+      child_doc = _parse_md_docstring(child, self.full_name, parser_config,
+                                      self._extra_docs)
 
       child_url = parser_config.reference_resolver.reference_to_url(
-          child_full_name, relative_path)
+          child_full_name)
 
       member_info = MemberInfo(child_short_name, child_full_name, child,
                                child_doc, child_url)
@@ -2396,9 +2339,6 @@ class ModulePageInfo(PageInfo):
     Args:
       parser_config: An instance of ParserConfig.
     """
-    relative_path = os.path.relpath(
-        path='.',
-        start=os.path.dirname(documentation_path(self.full_name)) or '.')
 
     member_names = parser_config.tree.get(self.full_name, [])
     for member_short_name in member_names:
@@ -2417,11 +2357,10 @@ class ModulePageInfo(PageInfo):
 
       member = parser_config.py_name_to_object(member_full_name)
 
-      member_doc = _parse_md_docstring(member, relative_path, self.full_name,
-                                       parser_config, self._extra_docs)
+      member_doc = _parse_md_docstring(member, self.full_name, parser_config,
+                                       self._extra_docs)
 
-      url = parser_config.reference_resolver.reference_to_url(
-          member_full_name, relative_path)
+      url = parser_config.reference_resolver.reference_to_url(member_full_name)
 
       member_info = MemberInfo(member_short_name, member_full_name, member,
                                member_doc, url)
@@ -2489,20 +2428,20 @@ def docs_for_object(
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
 
-  page_info.set_doc(
-      _parse_md_docstring(
-          py_object,
-          relative_path,
-          full_name,
-          parser_config,
-          extra_docs,
-      ))
+  with parser_config.reference_resolver.temp_prefix(relative_path):
+    page_info.set_doc(
+        _parse_md_docstring(
+            py_object,
+            full_name,
+            parser_config,
+            extra_docs,
+        ))
 
-  page_info.collect_docs(parser_config)
+    page_info.collect_docs(parser_config)
 
-  page_info.set_aliases(duplicate_names)
+    page_info.set_aliases(duplicate_names)
 
-  page_info.set_defined_in(_get_defined_in(py_object, parser_config))
+    page_info.set_defined_in(_get_defined_in(py_object, parser_config))
 
   return page_info
 
@@ -2616,8 +2555,9 @@ def generate_global_index(library_name, index, reference_resolver):
     if obj_type is ObjType.CALLABLE:
       if is_class_attr(full_name, index):
         continue
-    symbol_links.append(
-        (full_name, reference_resolver.python_link(full_name, full_name, '..')))
+    with reference_resolver.temp_prefix('..'):
+      symbol_links.append(
+          (full_name, reference_resolver.python_link(full_name, full_name)))
 
   lines = [f'# All symbols in {library_name}', '']
   lines.append('<!-- Insert buttons and diff -->\n')
