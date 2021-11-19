@@ -1313,7 +1313,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
   def test_compulsory_kwargs_without_defaults(self):
 
-    def example_fun(x, z, a=True, b='test', *, y=None, c, **kwargs) -> bool:  # pylint: disable=unused-argument
+    def example_fun(x, z, a=True, b='test', *, c, y=None, d, **kwargs) -> bool:  # pylint: disable=unused-argument
       return True
 
     sig = parser.generate_signature(
@@ -1322,7 +1322,8 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         func_full_name='',
         func_type=parser.FuncType.FUNCTION)
     self.assertEqual(sig.arguments, [
-        'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'y=None', 'c', '**kwargs'
+        'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'c', 'y=None', 'd',
+        '**kwargs'
     ])
     self.assertEqual(sig.return_type, 'bool')
     self.assertEqual(sig.arguments_typehint_exists, False)

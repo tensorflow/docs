@@ -1081,8 +1081,8 @@ class ASTDefaultValueExtractor(ast.NodeVisitor):
   _PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
 
   def __init__(self):
-    self.ast_args_defaults = []
-    self.ast_kw_only_defaults = []
+    self.ast_args_defaults = {}
+    self.ast_kw_only_defaults = {}
 
   def _preprocess(self, val: str) -> str:
     text_default_val = astor.to_source(val).strip().replace(
@@ -1093,15 +1093,20 @@ class ASTDefaultValueExtractor(ast.NodeVisitor):
   def visit_FunctionDef(self, node) -> None:  # pylint: disable=invalid-name
     """Visits the `FunctionDef` node and extracts the default values."""
 
-    for default_val in node.args.defaults:
+    # From https://docs.python.org/3/library/ast.html#ast.arguments:
+    #   `defaults` is a list of default values for arguments that can be passed
+    #   positionally. If there are fewer defaults, they correspond to the last
+    #   n arguments.
+    last_n_pos_args = node.args.args[-1 * len(node.args.defaults):]
+    for arg, default_val in zip(last_n_pos_args, node.args.defaults):
       if default_val is not None:
         text_default_val = self._preprocess(default_val)
-        self.ast_args_defaults.append(text_default_val)
+        self.ast_args_defaults[arg.arg] = text_default_val
 
-    for default_val in node.args.kw_defaults:
+    for kwarg, default_val in zip(node.args.kwonlyargs, node.args.kw_defaults):
       if default_val is not None:
         text_default_val = self._preprocess(default_val)
-        self.ast_kw_only_defaults.append(text_default_val)
+        self.ast_kw_only_defaults[kwarg.arg] = text_default_val
 
 
 class FormatArguments(object):
@@ -1307,7 +1312,7 @@ class FormatArguments(object):
     return args_text_repr
 
   def format_kwargs(self, kwargs: List[inspect.Parameter],
-                    ast_defaults: List[str]) -> List[str]:
+                    ast_defaults: Dict[str, str]) -> List[str]:
     """Creates a text representation of the kwargs in a method/function.
 
     Args:
@@ -1320,11 +1325,9 @@ class FormatArguments(object):
 
     kwargs_text_repr = []
 
-    if len(ast_defaults) < len(kwargs):
-      ast_defaults.extend([None] * (len(kwargs) - len(ast_defaults)))  # pytype: disable=container-type-mismatch
-
-    for kwarg, ast_default in zip(kwargs, ast_defaults):
+    for kwarg in kwargs:
       kname = kwarg.name
+      ast_default = ast_defaults.get(kname)
       default_val = kwarg.default
 
       if id(default_val) in self._reverse_index:
