@@ -16,7 +16,6 @@
 """Generate tensorflow.org style API Reference docs for a Python module."""
 
 import collections
-import fnmatch
 import importlib
 import inspect
 import os
@@ -705,65 +704,6 @@ def extract(py_modules,
 
 
 EXCLUDED = set(['__init__.py', 'OWNERS', 'README.txt'])
-
-
-def replace_refs(
-    src_dir: str,
-    output_dir: str,
-    reference_resolvers: List[parser.ReferenceResolver],
-    file_pattern: str = '*.md',
-):
-  """Link `tf.symbol` references found in files matching `file_pattern`.
-
-  A matching directory structure, with the modified files is
-  written to `output_dir`.
-
-  `{"__init__.py","OWNERS","README.txt"}` are skipped.
-
-  Files not matching `file_pattern` (using `fnmatch`) are copied with no change.
-
-  Also, files in the `api_guides/python` directory get explicit ids set on all
-  heading-2s to ensure back-links work.
-
-  Args:
-    src_dir: The directory to convert files from.
-    output_dir: The root directory to write the resulting files to.
-    reference_resolvers: A list of `parser.ReferenceResolver` to make the
-      replacements.
-    file_pattern: Only replace references in files matching file_patters, using
-      `fnmatch`. Non-matching files are copied unchanged.
-  """
-
-  # Iterate through all the source files and process them.
-  for dirpath, _, filenames in os.walk(src_dir):
-    # Make the directory under output_dir.
-    new_dir = os.path.join(output_dir,
-                           os.path.relpath(path=dirpath, start=src_dir))
-    if not os.path.exists(new_dir):
-      os.makedirs(new_dir)
-
-    for base_name in filenames:
-      if base_name in EXCLUDED:
-        continue
-      full_in_path = os.path.join(dirpath, base_name)
-
-      suffix = os.path.relpath(path=full_in_path, start=src_dir)
-      full_out_path = os.path.join(output_dir, suffix)
-      # Copy files that do not match the file_pattern, unmodified.
-      if not fnmatch.fnmatch(base_name, file_pattern):
-        if full_in_path != full_out_path:
-          shutil.copyfile(full_in_path, full_out_path)
-        continue
-
-      with open(full_in_path, 'rb') as f:
-        content = f.read().decode('utf-8')
-
-      for resolver in reference_resolvers:
-        # If `rel_path` is an absolute path, `depth` is just discarded.
-        content = resolver.replace_references(content)
-
-      with open(full_out_path, 'wb') as f:
-        f.write((content + '\n').encode('utf-8'))
 
 
 class DocGenerator:
