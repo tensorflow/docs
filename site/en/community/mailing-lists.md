@@ -2,7 +2,7 @@
 
 As a community, we do much of our collaboration on public mailing lists. Please
 note that if you're looking for help using TensorFlow,
-[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow) and
+[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow), [TensorFlow Forum](https://discuss.tensorflow.org/) and
 [GitHub issues](https://github.com/tensorflow/tensorflow/issues) are the best
 initial places to look.
 
