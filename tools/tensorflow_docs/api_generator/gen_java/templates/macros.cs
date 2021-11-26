@@ -101,10 +101,13 @@ def:tag_list(tags) ?><?cs
 
 <?cs # Show the short-form description of something.  These come from shortDescr and deprecated ?><?cs
 def:short_descr(obj) ?><?cs
-  if:subcount(obj.deprecated) ?>
-      <em>This <?cs var:obj.kind ?> was deprecated
-      in API level <?cs var:obj.deprecatedsince ?>.
-      <?cs call:tag_list(obj.deprecated) ?></em><?cs
+  if:subcount(obj.deprecated) ?><em><?cs
+      if:obj.deprecatedsince ?>
+        This <?cs var:obj.kind ?> was deprecated
+        in API level <?cs var:obj.deprecatedsince ?>.<?cs
+      else ?>
+        This <?cs var:obj.kind ?> is deprecated.<?cs
+      /if ?> <?cs call:tag_list(obj.deprecated) ?></em><?cs
   else ?><?cs call:tag_list(obj.shortDescr) ?><?cs
   /if ?><?cs
 /def ?>
@@ -113,8 +116,13 @@ def:short_descr(obj) ?><?cs
 def:deprecated_warning(obj) ?><?cs
   if:subcount(obj.deprecated) ?><p>
   <p class="caution">
-      <strong>This <?cs var:obj.kind ?> was deprecated
-      in API level <?cs var:obj.deprecatedsince ?></strong>.<br/> <?cs
+      <strong><?cs
+      if:obj.deprecatedsince ?>
+        This <?cs var:obj.kind ?> was deprecated
+        in API level <?cs var:obj.deprecatedsince ?><?cs
+      else ?>
+        This <?cs var:obj.kind ?> is deprecated<?cs
+      /if ?></strong>.<br/> <?cs
       call:tag_list(obj.deprecated) ?>
   </p><?cs
   /if ?><?cs
