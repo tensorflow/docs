@@ -6,7 +6,7 @@ note that if you're looking for help using TensorFlow,
 [GitHub issues](https://github.com/tensorflow/tensorflow/issues) are the best
 initial places to look.
 
-## General TensorFlow lists
+## General TensorFlow lists and forums
 
 *   [announce](https://groups.google.com/a/tensorflow.org/d/forum/announce) -
     Low-volume announcements of new releases.
@@ -14,7 +14,7 @@ initial places to look.
     General community discussion around TensorFlow.
 *   [developers](https://groups.google.com/a/tensorflow.org/d/forum/developers) -
     Discussion for developers contributing to TensorFlow.
-*   [documentation](https://groups.google.com/a/tensorflow.org/d/forum/docs) -
+*   [documentation](https://discuss.tensorflow.org/tag/docs) -
     Discussion for contributing to TensorFlow documentation. See
     [community translations](https://www.tensorflow.org/community/contribute/docs#community_translations)
     for language-specific docs lists.
