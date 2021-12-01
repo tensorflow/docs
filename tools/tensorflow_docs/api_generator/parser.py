@@ -340,6 +340,14 @@ class ReferenceResolver:
     self._all_names = set(is_fragment.keys())
     self._partial_symbols_dict = self._create_partial_symbols_dict()
 
+  def get_main_name(self, name: str) -> Optional[str]:
+    full_name = self._partial_symbols_dict.get(name, name)
+    main_name = self._duplicate_of.get(full_name, full_name)
+    if main_name in self._all_names:
+      return main_name
+    else:
+      return None
+
   @classmethod
   def from_visitor(cls, visitor, **kwargs):
     """A factory function for building a ReferenceResolver from a visitor.
