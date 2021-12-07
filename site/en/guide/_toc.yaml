@@ -3,44 +3,48 @@ toc:
   path: /guide/
 
 - heading: "TensorFlow basics"
-- title: "Eager execution"
-  path: /guide/eager
-- title: "Tensor"
+- title: "Overview"
+  path: /guide/basics
+- title: "Tensors"
   path: /guide/tensor
-- title: "Variable"
+- title: "Variables"
   path: /guide/variable
 - title: "Automatic differentiation"
   path: /guide/autodiff
-- title: "Intro to graphs and functions"
+- title: "Graphs and functions"
   path: /guide/intro_to_graphs
-- title: "Intro to modules, layers, and models"
+- title: "Modules, layers, and models"
   path: /guide/intro_to_modules
 - title: "Training loops"
   path: /guide/basic_training_loops
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
+
+- heading: "TensorFlow in depth"
+- title: "Tensor slicing"
+  path: /guide/tensor_slicing
 - title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
   path: /guide/sparse_tensor
+
+- title: "Random number generation"
+  path: /guide/random_numbers
 - title: "NumPy API"
+  status: experimental
   path: /guide/tf_numpy
-- title: "Tensor slicing"
-  path: /guide/tensor_slicing
 - title: "Thinking in TensorFlow 2"
   path: /guide/effective_tf2
-
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
 
 - heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
-- title: "Extension type"
+- title: "Extension types"
   path: /guide/extension_type
   status: experimental
-- title: "Random number generation"
-  path: /guide/random_numbers
 
 - heading: "Data input pipelines"
 - title: "tf.data"
