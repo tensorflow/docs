@@ -45,7 +45,7 @@ def maybe_singleton(py_object: Any) -> bool:
   is_immutable_type = isinstance(py_object, immutable_types)
 
   # Check if the object is the empty tuple.
-  return is_immutable_type or py_object is ()  # pylint: disable=literal-comparison
+  return is_immutable_type or py_object == ()
 
 
 class ApiTreeNode(object):

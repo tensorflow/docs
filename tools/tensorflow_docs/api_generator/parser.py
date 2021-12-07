@@ -48,6 +48,7 @@ class ObjType(enum.Enum):
   MODULE = 'module'
   CLASS = 'class'
   CALLABLE = 'callable'
+  # properties or any `descriptor`
   PROPERTY = 'property'
   OTHER = 'other'
 
@@ -62,7 +63,9 @@ def get_obj_type(py_obj: Any) -> ObjType:
     return ObjType.CLASS
   elif callable(py_obj):
     return ObjType.CALLABLE
-  elif isinstance(py_obj, property):
+  elif hasattr(py_obj, '__get__'):
+    # This handles any descriptor not only properties.
+    # https://docs.python.org/3/howto/descriptor.html
     return ObjType.PROPERTY
   else:
     return ObjType.OTHER
@@ -956,6 +959,8 @@ def _get_other_member_doc(
     #   breaks on the site.
     info = pprint.pformat(obj).replace('`', r'\`')
     info = f'`{info}`'
+  elif get_obj_type(obj) is ObjType.PROPERTY:
+    info = None
   else:
     class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
     if class_full_name is None:
@@ -967,12 +972,10 @@ def _get_other_member_doc(
         class_full_name = f'{module}.{class_name}'
     info = f'Instance of `{class_full_name}`'
 
-  if description is None:
-    result = info
-  else:
-    result = f'{info}\n\n{description}'
+  parts = [info, description]
+  parts = [item for item in parts if item is not None]
 
-  return result
+  return '\n\n'.join(parts)
 
 
 def _parse_md_docstring(
@@ -1086,13 +1089,13 @@ class DataclassTypeAnnotationExtractor(ast.NodeVisitor):
 class ASTDefaultValueExtractor(ast.NodeVisitor):
   """Extracts the default values by parsing the AST of a function."""
 
-  _PAREN_NUMBER_RE = re.compile(r'^\(([0-9.e-]+)\)')
+  _PAREN_NUMBER_RE = re.compile(r'^\((True|False|[0-9.e-]+)\)')
 
   def __init__(self):
     self.ast_args_defaults = {}
     self.ast_kw_only_defaults = {}
 
-  def _preprocess(self, val: str) -> str:
+  def _preprocess(self, val) -> str:
     text_default_val = astor.to_source(val).strip().replace(
         '\t', '\\t').replace('\n', '\\n').replace('"""', "'")
     text_default_val = self._PAREN_NUMBER_RE.sub('\\1', text_default_val)
@@ -2208,7 +2211,7 @@ class ClassPageInfo(PageInfo):
     # namedtuple fields first, in order.
     for name, desc in self._namedtuplefields.items():
       # If a namedtuple field has been filtered out, it's description will
-      # not have been set in the `member_info` loop, so skip fields with `None`
+      # not have been set in loop in `collect_docs`, so skip fields with `None`
       # as the description.
       if desc is not None:
         attrs[name] = desc
