@@ -28,6 +28,7 @@ DOCLINES = __doc__.split('\n')
 REQUIRED_PKGS = [
     'astor',
     'absl-py',
+    'jinja2',
     'protobuf>=3.14',
     'pyyaml',
 ]
