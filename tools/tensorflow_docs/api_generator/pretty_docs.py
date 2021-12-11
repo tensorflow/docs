@@ -23,23 +23,13 @@ This module contains one public function, which handels the conversion of these
 
     md_page = build_md_page(page_info)
 """
-import abc
-import os
-import dataclasses
+
 import textwrap
 
 from typing import Dict, List, Optional, NamedTuple, Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
-
-import jinja2
-
-JINJA_ENV = jinja2.Environment(
-    trim_blocks=True,
-    lstrip_blocks=True,
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
-
 
 _TABLE_ITEMS = ('arg', 'return', 'raise', 'attr', 'yield')
 
@@ -58,16 +48,16 @@ def build_md_page(page_info: parser.PageInfo) -> str:
     ValueError: if `page_info` is an instance of an unrecognized class
   """
   if isinstance(page_info, parser.ClassPageInfo):
-    return ClassPageBuilder(page_info).build()
+    return _build_class_page(page_info)
 
   if isinstance(page_info, parser.FunctionPageInfo):
-    return FunctionPageBuilder(page_info).build()
+    return _build_function_page(page_info)
 
   if isinstance(page_info, parser.ModulePageInfo):
-    return ModulePageBuilder(page_info).build()
+    return _build_module_page(page_info)
 
   if isinstance(page_info, parser.TypeAliasPageInfo):
-    return TypeAliasPageBuilder(page_info).build()
+    return _build_type_alias_page(page_info)
 
   raise ValueError(f'Unknown Page Info Type: {type(page_info)}')
 
@@ -95,89 +85,88 @@ def _format_docstring(item,
     return str(item)
 
 
-class PageBuilder(abc.ABC):
+def _build_function_page(page_info: parser.FunctionPageInfo) -> str:
+  """Constructs a markdown page given a `FunctionPageInfo` object.
 
-  def __init__(self, page_info: parser.PageInfo):
-    self.page_info = page_info
+  Args:
+    page_info: A `FunctionPageInfo` object containing information that's used to
+      create a function page.
+      For example, see https://www.tensorflow.org/api_docs/python/tf/concat
 
-  @abc.abstractmethod
-  def build(self) -> str:
-    pass
+  Returns:
+    The function markdown page.
+  """
 
+  parts = [f'# {page_info.full_name}\n\n']
 
-class TemplatePageBuilder(PageBuilder):
-  TEMPLATE = 'templates/page.jinja'
+  parts.append('<!-- Insert buttons and diff -->\n')
 
-  def build(self) -> str:
-    template = JINJA_ENV.get_template(self.TEMPLATE)
-    content = template.render(builder=self, page_info=self.page_info)
-    return content
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
 
-  def top_source_link(self):
-    return _top_source_link(self.page_info.defined_in)
+  parts.append(page_info.doc.brief + '\n\n')
 
-  def build_collapsable_aliases(self):
-    return _build_collapsable_aliases(self.page_info.aliases)
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
-  def top_compat(self):
-    return _top_compat(self.page_info, h_level=2)
-
-  def bottom_compat(self):
-    return _bottom_compat(self.page_info, h_level=2)
-
-  def format_docstring_part(self, part):
-    return str(part)
-
-
-class FunctionPageBuilder(TemplatePageBuilder):
-  TEMPLATE = 'templates/function.jinja'
-  """Builds a markdown page from a `FunctionPageInfo` object."""
-
-  def __init__(self, page_info: parser.FunctionPageInfo):
-    super().__init__(page_info)
-
-  def format_docstring_part(self, part):
-    ttt = '<h2 class="add-link">{title}</h2>'
-    return _format_docstring(part, table_title_template=ttt)
-
-  def build_signature(self):
-    if self.page_info.signature:
-      return _build_signature(self.page_info)
-
-
-class TypeAliasPageBuilder(PageBuilder):
-  """Builds a markdown page from a `TypeAliasPageBuilder` object."""
-
-  def __init__(self, page_info: parser.TypeAliasPageInfo):
-    super().__init__(page_info)
-
-  def build(self) -> str:
-    """Builds and returns a markdown page."""
-    page_info = self.page_info
-
-    parts = [f'# {page_info.full_name}\n\n']
-
-    parts.append('<!-- Insert buttons and diff -->\n')
-
-    parts.append('This symbol is a **type alias**.\n\n')
-    parts.append(page_info.doc.brief)
+  if page_info.signature is not None:
+    parts.append(_build_signature(page_info, obj_name=page_info.full_name))
     parts.append('\n\n')
 
-    if page_info.signature is not None:
-      parts.append('#### Source:\n\n')
-      parts.append(
-          _build_signature(
-              page_info, obj_name=page_info.short_name, type_alias=True))
-      parts.append('\n\n')
+  parts.append(_top_compat(page_info, h_level=2))
 
-    parts.append('<!-- Placeholder for "Used in" -->\n')
+  # This will be replaced by the "Used in: <notebooks>" whenever it is run.
+  parts.append('<!-- Placeholder for "Used in" -->\n')
 
-    for item in page_info.doc.docstring_parts:
-      parts.append(
-          _format_docstring(
-              item, table_title_template='<h2 class="add-link">{title}</h2>'))
+  for item in page_info.doc.docstring_parts:
+    parts.append(
+        _format_docstring(
+            item,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
 
-    return ''.join(parts)
+  parts.append(_bottom_compat(page_info, h_level=2))
+
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
+
+  return ''.join(parts)
+
+
+def _build_type_alias_page(page_info: parser.TypeAliasPageInfo) -> str:
+  """Constructs a markdown page given a `TypeAliasPageInfo` object.
+
+  Args:
+    page_info: A `TypeAliasPageInfo` object containing information that's used
+      to create a type alias page.
+
+  Returns:
+    The type alias's markdown page.
+  """
+
+  parts = [f'# {page_info.full_name}\n\n']
+
+  parts.append('<!-- Insert buttons and diff -->\n')
+
+  parts.append('This symbol is a **type alias**.\n\n')
+  parts.append(page_info.doc.brief)
+  parts.append('\n\n')
+
+  if page_info.signature is not None:
+    parts.append('#### Source:\n\n')
+    parts.append(
+        _build_signature(
+            page_info, obj_name=page_info.short_name, type_alias=True))
+    parts.append('\n\n')
+
+  parts.append('<!-- Placeholder for "Used in" -->\n')
+
+  for item in page_info.doc.docstring_parts:
+    parts.append(
+        _format_docstring(
+            item,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
+
+  return ''.join(parts)
 
 
 class Methods(NamedTuple):
@@ -296,113 +285,115 @@ def merge_class_and_constructor_docstring(
   return _create_class_doc(class_doc)
 
 
-class ClassPageBuilder(PageBuilder):
-  """Builds a markdown page from a `ClassPageInfo` instance."""
+def _build_class_page(page_info: parser.ClassPageInfo) -> str:
+  """Constructs a markdown page given a `ClassPageInfo` object.
 
-  def __init__(self, page_info: parser.ClassPageInfo):
-    super().__init__(page_info)
+  Args:
+    page_info: A `ClassPageInfo` object containing information that's used to
+      create a class page. For example, see
+      https://www.tensorflow.org/api_docs/python/tf/data/Dataset
 
-  def build(self) -> str:
-    """Build and return the markdown page."""
-    page_info = self.page_info
+  Returns:
+    The class markdown page.
+  """
 
-    # Add the full_name of the symbol to the page.
-    parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
+  # Add the full_name of the symbol to the page.
+  parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
 
-    # This is used as a marker to initiate the diffing process later down in the
-    # pipeline.
-    parts.append('<!-- Insert buttons and diff -->\n')
+  # This is used as a marker to initiate the diffing process later down in the
+  # pipeline.
+  parts.append('<!-- Insert buttons and diff -->\n')
 
-    # Add the github button.
-    parts.append(_top_source_link(page_info.defined_in))
+  # Add the github button.
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
+
+  # Add the one line docstring of the class.
+  parts.append(page_info.doc.brief + '\n\n')
+
+  header = doc_controls.get_inheritable_header(page_info.py_object)
+  if header is not None:
+    parts.append(textwrap.dedent(header))
     parts.append('\n\n')
 
-    # Add the one line docstring of the class.
-    parts.append(page_info.doc.brief + '\n\n')
+  # If a class is a child class, add which classes it inherits from.
+  if page_info.bases:
+    parts.append('Inherits From: ')
 
-    header = doc_controls.get_inheritable_header(page_info.py_object)
-    if header is not None:
-      parts.append(textwrap.dedent(header))
-      parts.append('\n\n')
-
-    # If a class is a child class, add which classes it inherits from.
-    if page_info.bases:
-      parts.append('Inherits From: ')
-
-      link_template = '[`{short_name}`]({url})'
-      parts.append(', '.join(
-          link_template.format(**base._asdict()) for base in page_info.bases))
-      parts.append('\n\n')
-
-    # Build the aliases section and keep it collapses by default.
-    parts.append(_build_collapsable_aliases(page_info.aliases))
-
-    # Split the methods into constructor and other methods.
-    methods = split_methods(page_info.methods)
-
-    # If the class has a constructor, build its signature.
-    # The signature will contain the class name followed by the arguments it
-    # takes.
-    if methods.constructor is not None:
-      parts.append(
-          _build_signature(methods.constructor, obj_name=page_info.full_name))
-      parts.append('\n\n')
-
-    parts.append(_top_compat(page_info, h_level=2))
-
-    # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
-    parts.append('<!-- Placeholder for "Used in" -->\n')
-
-    # Merge the class and constructor docstring.
-    parts.extend(
-        merge_class_and_constructor_docstring(page_info, methods.constructor))
-
+    link_template = '[`{short_name}`]({url})'
+    parts.append(', '.join(
+        link_template.format(**base._asdict()) for base in page_info.bases))
     parts.append('\n\n')
 
-    custom_content = doc_controls.get_custom_page_content(page_info.py_object)
-    if custom_content is not None:
-      parts.append(custom_content)
-      return ''.join(parts)
+  # Build the aliases section and keep it collapses by default.
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
-    if page_info.attr_block is not None:
-      parts.append(
-          _format_docstring(
-              page_info.attr_block,
-              table_title_template='<h2 class="add-link">{title}</h2>'))
-      parts.append('\n\n')
+  # Split the methods into constructor and other methods.
+  methods = split_methods(page_info.methods)
 
-    # If the class has child classes, add that information to the page.
-    if page_info.classes:
-      parts.append('## Child Classes\n')
+  # If the class has a constructor, build its signature.
+  # The signature will contain the class name followed by the arguments it
+  # takes.
+  if methods.constructor is not None:
+    parts.append(
+        _build_signature(methods.constructor, obj_name=page_info.full_name))
+    parts.append('\n\n')
 
-      link_template = ('[`class {class_info.short_name}`]'
-                       '({class_info.url})\n\n')
-      class_links = sorted(
-          link_template.format(class_info=class_info)
-          for class_info in page_info.classes)
+  parts.append(_top_compat(page_info, h_level=2))
 
-      parts.extend(class_links)
+  # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
+  parts.append('<!-- Placeholder for "Used in" -->\n')
 
-    # If the class contains methods other than the constructor, then add them
-    # to the page.
-    if methods.info_dict:
-      parts.append('## Methods\n\n')
-      for method_name in sorted(methods.info_dict, key=_method_sort):
-        parts.append(_build_method_section(methods.info_dict[method_name]))
-      parts.append('\n\n')
+  # Merge the class and constructor docstring.
+  parts.extend(
+      merge_class_and_constructor_docstring(page_info, methods.constructor))
 
-    # Add class variables/members if they exist to the page.
-    if page_info.other_members:
-      parts.append(
-          _other_members(
-              page_info.other_members,
-              title='<h2 class="add-link">Class Variables</h2>',
-          ))
+  parts.append('\n\n')
 
-    # Add the compatibility section to the page.
-    parts.append(_bottom_compat(page_info, h_level=2))
-
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
     return ''.join(parts)
+
+  if page_info.attr_block is not None:
+    parts.append(
+        _format_docstring(
+            page_info.attr_block,
+            table_title_template='<h2 class="add-link">{title}</h2>'))
+    parts.append('\n\n')
+
+  # If the class has child classes, add that information to the page.
+  if page_info.classes:
+    parts.append('## Child Classes\n')
+
+    link_template = ('[`class {class_info.short_name}`]'
+                     '({class_info.url})\n\n')
+    class_links = sorted(
+        link_template.format(class_info=class_info)
+        for class_info in page_info.classes)
+
+    parts.extend(class_links)
+
+  # If the class contains methods other than the constructor, then add them
+  # to the page.
+  if methods.info_dict:
+    parts.append('## Methods\n\n')
+    for method_name in sorted(methods.info_dict, key=_method_sort):
+      parts.append(_build_method_section(methods.info_dict[method_name]))
+    parts.append('\n\n')
+
+  # Add class variables/members if they exist to the page.
+  if page_info.other_members:
+    parts.append(
+        _other_members(
+            page_info.other_members,
+            title='<h2 class="add-link">Class Variables</h2>',
+        ))
+
+  # Add the compatibility section to the page.
+  parts.append(_bottom_compat(page_info, h_level=2))
+
+  return ''.join(parts)
 
 
 def _method_sort(method_name):
@@ -499,82 +490,81 @@ def _build_module_parts(module_parts: List[parser.MemberInfo],
   return mod_str_parts
 
 
-class ModulePageBuilder(PageBuilder):
-  """Builds a markdown page from a `ModulePageInfo` instance."""
+def _build_module_page(page_info: parser.ModulePageInfo) -> str:
+  """Constructs a markdown page given a `ModulePageInfo` object.
 
-  def __init__(self, page_info: parser.ModulePageInfo):
-    super().__init__(page_info)
+  Args:
+    page_info: A `ModulePageInfo` object containing information that's used to
+      create a module page.
+      For example, see https://www.tensorflow.org/api_docs/python/tf/data
 
-  def build(self) -> str:
-    """Initialize the object.
+  Returns:
+    The module markdown page.
+  """
 
-    Args:
-      page_info: A `ModulePageInfo` object.
-    """
-    page_info = self.page_info
-    parts = [f'# Module: {page_info.full_name}\n\n']
+  parts = [f'# Module: {page_info.full_name}\n\n']
 
-    parts.append('<!-- Insert buttons and diff -->\n')
+  parts.append('<!-- Insert buttons and diff -->\n')
 
-    parts.append(_top_source_link(page_info.defined_in))
-    parts.append('\n\n')
+  parts.append(_top_source_link(page_info.defined_in))
+  parts.append('\n\n')
 
-    # First line of the docstring i.e. a brief introduction about the symbol.
-    parts.append(page_info.doc.brief + '\n\n')
+  # First line of the docstring i.e. a brief introduction about the symbol.
+  parts.append(page_info.doc.brief + '\n\n')
 
-    parts.append(_build_collapsable_aliases(page_info.aliases))
+  parts.append(_build_collapsable_aliases(page_info.aliases))
 
-    parts.append(_top_compat(page_info, h_level=2))
+  parts.append(_top_compat(page_info, h_level=2))
 
-    # All lines in the docstring, expect the brief introduction.
-    for item in page_info.doc.docstring_parts:
-      parts.append(_format_docstring(item, table_title_template=None))
+  # All lines in the docstring, expect the brief introduction.
+  for item in page_info.doc.docstring_parts:
+    parts.append(_format_docstring(item, table_title_template=None))
 
-    parts.append(_bottom_compat(page_info, h_level=2))
+  parts.append(_bottom_compat(page_info, h_level=2))
 
-    parts.append('\n\n')
+  parts.append('\n\n')
 
-    custom_content = doc_controls.get_custom_page_content(page_info.py_object)
-    if custom_content is not None:
-      parts.append(custom_content)
-      return ''.join(parts)
-
-    if page_info.modules:
-      parts.append('## Modules\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.modules,
-              template='[`{short_name}`]({url}) module'))
-
-    if page_info.classes:
-      parts.append('## Classes\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.classes,
-              template='[`class {short_name}`]({url})'))
-
-    if page_info.functions:
-      parts.append('## Functions\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.functions,
-              template='[`{short_name}(...)`]({url})'))
-
-    if page_info.type_alias:
-      parts.append('## Type Aliases\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.type_alias,
-              template='[`{short_name}`]({url})'))
-
-    if page_info.other_members:
-      parts.append(
-          _other_members(
-              page_info.other_members,
-              title='<h2 class="add-link">Other Members</h2>',
-          ))
-
+  custom_content = doc_controls.get_custom_page_content(page_info.py_object)
+  if custom_content is not None:
+    parts.append(custom_content)
     return ''.join(parts)
+
+  if page_info.modules:
+    parts.append('## Modules\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.modules,
+            template='[`{short_name}`]({url}) module'))
+
+  if page_info.classes:
+    parts.append('## Classes\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.classes,
+            template='[`class {short_name}`]({url})'))
+
+  if page_info.functions:
+    parts.append('## Functions\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.functions,
+            template='[`{short_name}(...)`]({url})'))
+
+  if page_info.type_alias:
+    parts.append('## Type Aliases\n\n')
+    parts.extend(
+        _build_module_parts(
+            module_parts=page_info.type_alias,
+            template='[`{short_name}`]({url})'))
+
+  if page_info.other_members:
+    parts.append(
+        _other_members(
+            page_info.other_members,
+            title='<h2 class="add-link">Other Members</h2>',
+        ))
+
+  return ''.join(parts)
 
 
 DECORATOR_ALLOWLIST = {
@@ -589,7 +579,7 @@ DECORATOR_ALLOWLIST = {
 
 
 def _build_signature(obj_info: parser.PageInfo,
-                     obj_name: Optional[str] = None,
+                     obj_name: str,
                      type_alias: bool = False) -> str:
   """Returns a markdown code block containing the function signature.
 
@@ -606,8 +596,7 @@ def _build_signature(obj_info: parser.PageInfo,
   Returns:
     The signature of the object.
   """
-  if obj_name is None:
-    obj_name = obj_info.full_name
+
   # Special case tf.range, since it has an optional first argument
   if obj_info.full_name == 'tf.range':
     return textwrap.dedent("""
