@@ -2077,7 +2077,7 @@ class ClassPageInfo(PageInfo):
   @property
   def classes(self):
     """Returns a list of `MemberInfo` pointing to any nested classes."""
-    return self._classes
+    return sorted(self._classes, key=lambda x: x.short_name)
 
   def get_metadata_html(self) -> str:
     meta_data = Metadata(self.full_name)

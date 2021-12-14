@@ -131,8 +131,8 @@ class TemplatePageBuilder(PageBuilder):
 
 
 class FunctionPageBuilder(TemplatePageBuilder):
-  TEMPLATE = 'templates/function.jinja'
   """Builds a markdown page from a `FunctionPageInfo` object."""
+  TEMPLATE = 'templates/function.jinja'
 
   def __init__(self, page_info: parser.FunctionPageInfo):
     super().__init__(page_info)
@@ -201,6 +201,7 @@ def split_methods(methods: List[parser.MethodInfo]) -> Methods:
   """
 
   # Create a method_name to methods object dictionary.
+  methods = sorted(methods, key=_method_sort)
   method_info_dict = {method.short_name: method for method in methods}
 
   # Pop the constructors from the dictionary.
@@ -297,120 +298,89 @@ def merge_class_and_constructor_docstring(
   return _create_class_doc(class_doc)
 
 
-class ClassPageBuilder(PageBuilder):
+class ClassPageBuilder(TemplatePageBuilder):
   """Builds a markdown page from a `ClassPageInfo` instance."""
+  TEMPLATE = 'templates/class.jinja'
 
   def __init__(self, page_info: parser.ClassPageInfo):
-    super().__init__(page_info)
+    self.page_info = page_info
+    # Split the methods into constructor and other methods.
+    self.methods = split_methods(page_info.methods)
 
-  def build(self) -> str:
-    """Build and return the markdown page."""
+  def build_inheritable_header(self):
+    header = doc_controls.get_inheritable_header(self.page_info.py_object)
+    if header is None:
+      return ''
+    else:
+      return '\n\n' + textwrap.dedent(header)
+
+  def build_bases(self):
     page_info = self.page_info
-
-    # Add the full_name of the symbol to the page.
-    parts = ['# {page_info.full_name}\n\n'.format(page_info=page_info)]
-
-    # This is used as a marker to initiate the diffing process later down in the
-    # pipeline.
-    parts.append('<!-- Insert buttons and diff -->\n')
-
-    # Add the github button.
-    parts.append(_top_source_link(page_info.defined_in))
-    parts.append('\n\n')
-
-    # Add the one line docstring of the class.
-    parts.append(page_info.doc.brief + '\n\n')
-
-    header = doc_controls.get_inheritable_header(page_info.py_object)
-    if header is not None:
-      parts.append(textwrap.dedent(header))
-      parts.append('\n\n')
-
     # If a class is a child class, add which classes it inherits from.
-    if page_info.bases:
-      parts.append('Inherits From: ')
+    parts = []
+    if self.page_info.bases:
+      parts.append('\nInherits From: ')
 
       link_template = '[`{short_name}`]({url})'
       parts.append(', '.join(
           link_template.format(**base._asdict()) for base in page_info.bases))
-      parts.append('\n\n')
+      parts.append('\n')
 
-    # Build the aliases section and keep it collapses by default.
-    parts.append(_build_collapsable_aliases(page_info.aliases))
+    return ''.join(parts)
 
-    # Split the methods into constructor and other methods.
-    methods = split_methods(page_info.methods)
+  def build_constructor(self):
+    page_info = self.page_info
 
     # If the class has a constructor, build its signature.
     # The signature will contain the class name followed by the arguments it
     # takes.
-    if methods.constructor is not None:
+    parts = []
+    if self.methods.constructor is not None:
       parts.append(
-          _build_signature(methods.constructor, obj_name=page_info.full_name))
+          _build_signature(
+              self.methods.constructor, obj_name=page_info.full_name))
       parts.append('\n\n')
-
-    parts.append(_top_compat(page_info, h_level=2))
-
-    # This will be replaced by the "Used in: <notebooks>" later in the pipeline.
-    parts.append('<!-- Placeholder for "Used in" -->\n')
-
-    # Merge the class and constructor docstring.
-    parts.extend(
-        merge_class_and_constructor_docstring(page_info, methods.constructor))
-
-    parts.append('\n\n')
-
-    custom_content = doc_controls.get_custom_page_content(page_info.py_object)
-    if custom_content is not None:
-      parts.append(custom_content)
-      return ''.join(parts)
-
-    if page_info.attr_block is not None:
-      parts.append(
-          _format_docstring(
-              page_info.attr_block,
-              table_title_template='<h2 class="add-link">{title}</h2>'))
-      parts.append('\n\n')
-
-    # If the class has child classes, add that information to the page.
-    if page_info.classes:
-      parts.append('## Child Classes\n')
-
-      link_template = ('[`class {class_info.short_name}`]'
-                       '({class_info.url})\n\n')
-      class_links = sorted(
-          link_template.format(class_info=class_info)
-          for class_info in page_info.classes)
-
-      parts.extend(class_links)
-
-    # If the class contains methods other than the constructor, then add them
-    # to the page.
-    if methods.info_dict:
-      parts.append('## Methods\n\n')
-      for method_name in sorted(methods.info_dict, key=_method_sort):
-        parts.append(_build_method_section(methods.info_dict[method_name]))
-      parts.append('\n\n')
-
-    # Add class variables/members if they exist to the page.
-    if page_info.other_members:
-      parts.append(
-          _other_members(
-              page_info.other_members,
-              title='<h2 class="add-link">Class Variables</h2>',
-          ))
-
-    # Add the compatibility section to the page.
-    parts.append(_bottom_compat(page_info, h_level=2))
 
     return ''.join(parts)
 
+  def build_class_docstring(self):
 
-def _method_sort(method_name):
+    parts = merge_class_and_constructor_docstring(self.page_info,
+                                                  self.methods.constructor)
+
+    parts.append('\n\n')
+
+    return ''.join(parts)
+
+  def build_attr_block(self):
+    parts = []
+    if self.page_info.attr_block is not None:
+      parts.append(
+          _format_docstring(
+              self.page_info.attr_block,
+              table_title_template='<h2 class="add-link">{title}</h2>'))
+      parts.append('\n\n')
+    return ''.join(parts)
+
+  def build_method_section(self, method):
+    return _build_method_section(method)
+
+  def build_other_member_section(self):
+    if self.page_info.other_members:
+      return _other_members(
+          self.page_info.other_members,
+          title='<h2 class="add-link">Class Variables</h2>',
+      )
+    else:
+      return ''
+
+
+def _method_sort(method):
   # All private methods will be at the end of the list in an alphabetically
   # sorted order. All dunder methods will be above private methods and below
   # public methods. Public methods will be at the top in an alphabetically
   # sorted order.
+  method_name = method.short_name
   if method_name.startswith('__'):
     return (1, method_name)
   if method_name.startswith('_'):
