@@ -1908,6 +1908,7 @@ class ClassPageInfo(PageInfo):
       defined inside the class object (mostly enum style fields).
     attr_block: A `TitleBlock` containing information about the Attributes of
       the class.
+    inheritable_header: A header that may be placed on a base-class.
   """
 
   def __init__(self, *, full_name, py_object, **kwargs):
@@ -1938,6 +1939,13 @@ class ClassPageInfo(PageInfo):
   def bases(self):
     """Returns a list of `MemberInfo` objects pointing to the class' parents."""
     return self._bases
+
+  @property
+  def inheritable_header(self) -> Optional[str]:
+    header = doc_controls.get_inheritable_header(self.py_object)
+    if header is not None:
+      header = textwrap.dedent(header)
+    return header
 
   def set_attr_block(self, attr_block):
     assert self.attr_block is None

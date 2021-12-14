@@ -6,7 +6,13 @@
 {{ builder.top_source_link() }}
 
 {{ page_info.doc.brief -}}
-{{ builder.build_inheritable_header() }}
+
+{% if page_info.inheritable_header %}
+
+
+{{ page_info.inheritable_header -}}
+{% endif %}
+
 {{ builder.build_bases() }}
 {{ builder.build_collapsable_aliases() -}}
 {{ builder.build_constructor() -}}

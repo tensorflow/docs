@@ -142,43 +142,19 @@ class FunctionPageBuilder(TemplatePageBuilder):
     return _format_docstring(part, table_title_template=ttt)
 
   def build_signature(self):
-    if self.page_info.signature:
-      return _build_signature(self.page_info)
+    return _build_signature(self.page_info)
 
 
-class TypeAliasPageBuilder(PageBuilder):
+class TypeAliasPageBuilder(TemplatePageBuilder):
   """Builds a markdown page from a `TypeAliasPageBuilder` object."""
+  TEMPLATE = 'templates/type_alias.jinja'
 
   def __init__(self, page_info: parser.TypeAliasPageInfo):
     super().__init__(page_info)
 
-  def build(self) -> str:
-    """Builds and returns a markdown page."""
-    page_info = self.page_info
-
-    parts = [f'# {page_info.full_name}\n\n']
-
-    parts.append('<!-- Insert buttons and diff -->\n')
-
-    parts.append('This symbol is a **type alias**.\n\n')
-    parts.append(page_info.doc.brief)
-    parts.append('\n\n')
-
-    if page_info.signature is not None:
-      parts.append('#### Source:\n\n')
-      parts.append(
-          _build_signature(
-              page_info, obj_name=page_info.short_name, type_alias=True))
-      parts.append('\n\n')
-
-    parts.append('<!-- Placeholder for "Used in" -->\n')
-
-    for item in page_info.doc.docstring_parts:
-      parts.append(
-          _format_docstring(
-              item, table_title_template='<h2 class="add-link">{title}</h2>'))
-
-    return ''.join(parts)
+  def build_signature(self):
+    return _build_signature(
+        self.page_info, obj_name=self.page_info.short_name, type_alias=True)
 
 
 class Methods(NamedTuple):
@@ -306,13 +282,6 @@ class ClassPageBuilder(TemplatePageBuilder):
     self.page_info = page_info
     # Split the methods into constructor and other methods.
     self.methods = split_methods(page_info.methods)
-
-  def build_inheritable_header(self):
-    header = doc_controls.get_inheritable_header(self.page_info.py_object)
-    if header is None:
-      return ''
-    else:
-      return '\n\n' + textwrap.dedent(header)
 
   def build_bases(self):
     page_info = self.page_info
