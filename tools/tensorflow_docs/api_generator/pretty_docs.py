@@ -39,7 +39,7 @@ import jinja2
 JINJA_ENV = jinja2.Environment(
     trim_blocks=True,
     lstrip_blocks=True,
-    loader=jinja2.FileSystemLoader(pathlib.Path(__file__).parent))
+    loader=jinja2.FileSystemLoader(str(pathlib.Path(__file__).parent)))
 
 
 _TABLE_ITEMS = ('arg', 'return', 'raise', 'attr', 'yield')
