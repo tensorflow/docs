@@ -38,38 +38,10 @@ import astor
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import obj_type as obj_type_lib
 from tensorflow_docs.api_generator import public_api
 
 from google.protobuf.message import Message as ProtoMessage
-
-
-class ObjType(enum.Enum):
-  """Enum to standardize object type checks."""
-  TYPE_ALIAS = 'type_alias'
-  MODULE = 'module'
-  CLASS = 'class'
-  CALLABLE = 'callable'
-  # properties or any `descriptor`
-  PROPERTY = 'property'
-  OTHER = 'other'
-
-
-def get_obj_type(py_obj: Any) -> ObjType:
-  """Get the `ObjType` for the `py_object`."""
-  if getattr(py_obj, '__args__', None) and getattr(py_obj, '__origin__', None):
-    return ObjType.TYPE_ALIAS
-  elif inspect.ismodule(py_obj):
-    return ObjType.MODULE
-  elif inspect.isclass(py_obj):
-    return ObjType.CLASS
-  elif callable(py_obj):
-    return ObjType.CALLABLE
-  elif hasattr(py_obj, '__get__'):
-    # This handles any descriptor not only properties.
-    # https://docs.python.org/3/howto/descriptor.html
-    return ObjType.PROPERTY
-  else:
-    return ObjType.OTHER
 
 
 @dataclasses.dataclass
@@ -152,12 +124,12 @@ def _get_raw_docstring(py_object):
     The docstring, or the empty string if no docstring was found.
   """
 
-  if get_obj_type(py_object) is ObjType.TYPE_ALIAS:
+  if obj_type_lib.ObjType.get(py_object) is obj_type_lib.ObjType.TYPE_ALIAS:
     if inspect.getdoc(py_object) != inspect.getdoc(py_object.__origin__):
       result = inspect.getdoc(py_object)
     else:
       result = ''
-  elif get_obj_type(py_object) is not ObjType.OTHER:
+  elif obj_type_lib.ObjType.get(py_object) is not obj_type_lib.ObjType.OTHER:
     result = inspect.getdoc(py_object) or ''
   else:
     result = ''
@@ -329,10 +301,11 @@ class ReferenceResolver:
     """
     is_fragment = {}
     for full_name, obj in visitor.index.items():
-      obj_type = get_obj_type(obj)
-      if obj_type in (ObjType.CLASS, ObjType.MODULE):
+      obj_type = obj_type_lib.ObjType.get(obj)
+      if obj_type in (obj_type_lib.ObjType.CLASS, obj_type_lib.ObjType.MODULE):
         is_fragment[full_name] = False
-      elif obj_type in (ObjType.CALLABLE, ObjType.TYPE_ALIAS):
+      elif obj_type in (obj_type_lib.ObjType.CALLABLE,
+                        obj_type_lib.ObjType.TYPE_ALIAS):
         if is_class_attr(full_name, visitor.index):
           is_fragment[full_name] = True
         else:
@@ -924,7 +897,7 @@ def _get_other_member_doc(
     #   breaks on the site.
     info = pprint.pformat(obj).replace('`', r'\`')
     info = f'`{info}`'
-  elif get_obj_type(obj) is ObjType.PROPERTY:
+  elif obj_type_lib.ObjType.get(obj) is obj_type_lib.ObjType.PROPERTY:
     info = None
   else:
     class_full_name = parser_config.reverse_index.get(id(type(obj)), None)
@@ -967,7 +940,7 @@ def _parse_md_docstring(
     A _DocstringInfo object, all fields will be empty if no docstring was found.
   """
 
-  if get_obj_type(py_object) is ObjType.OTHER:
+  if obj_type_lib.ObjType.get(py_object) is obj_type_lib.ObjType.OTHER:
     raw_docstring = _get_other_member_doc(
         obj=py_object, parser_config=parser_config, extra_docs=extra_docs)
   else:
@@ -2087,17 +2060,17 @@ class ClassPageInfo(PageInfo):
       parser_config: config.ParserConfig,
   ) -> None:
     """Adds a member to the class page."""
-    obj_type = get_obj_type(member_info.py_object)
+    obj_type = obj_type_lib.ObjType.get(member_info.py_object)
 
-    if obj_type is ObjType.PROPERTY:
+    if obj_type is obj_type_lib.ObjType.PROPERTY:
       self._add_property(member_info)
-    elif obj_type is ObjType.CLASS:
+    elif obj_type is obj_type_lib.ObjType.CLASS:
       if defining_class is None:
         return
       self._add_class(member_info)
-    elif obj_type is ObjType.CALLABLE:
+    elif obj_type is obj_type_lib.ObjType.CALLABLE:
       self._add_method(member_info, defining_class, parser_config)
-    elif obj_type is ObjType.OTHER:
+    elif obj_type is obj_type_lib.ObjType.OTHER:
       # Exclude members defined by protobuf that are useless
       if issubclass(self.py_object, ProtoMessage):
         if (member_info.short_name.endswith('_FIELD_NUMBER') or
@@ -2306,16 +2279,16 @@ class ModulePageInfo(PageInfo):
 
   def _add_member(self, member_info: MemberInfo) -> None:
     """Adds members of the modules to the respective lists."""
-    obj_type = get_obj_type(member_info.py_object)
-    if obj_type is ObjType.MODULE:
+    obj_type = obj_type_lib.ObjType.get(member_info.py_object)
+    if obj_type is obj_type_lib.ObjType.MODULE:
       self._add_module(member_info)
-    elif obj_type is ObjType.CLASS:
+    elif obj_type is obj_type_lib.ObjType.CLASS:
       self._add_class(member_info)
-    elif obj_type is ObjType.CALLABLE:
+    elif obj_type is obj_type_lib.ObjType.CALLABLE:
       self._add_function(member_info)
-    elif obj_type is ObjType.TYPE_ALIAS:
+    elif obj_type is obj_type_lib.ObjType.TYPE_ALIAS:
       self._add_type_alias(member_info)
-    elif obj_type is ObjType.OTHER:
+    elif obj_type is obj_type_lib.ObjType.OTHER:
       self._add_other_member(member_info)
 
   def collect_docs(self, parser_config):
@@ -2396,17 +2369,17 @@ def docs_for_object(
   if main_name in duplicate_names:
     duplicate_names.remove(main_name)
 
-  obj_type = get_obj_type(py_object)
-  if obj_type is ObjType.CLASS:
+  obj_type = obj_type_lib.ObjType.get(py_object)
+  if obj_type is obj_type_lib.ObjType.CLASS:
     page_info = ClassPageInfo(
         full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is ObjType.CALLABLE:
+  elif obj_type is obj_type_lib.ObjType.CALLABLE:
     page_info = FunctionPageInfo(
         full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is ObjType.MODULE:
+  elif obj_type is obj_type_lib.ObjType.MODULE:
     page_info = ModulePageInfo(
         full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is ObjType.TYPE_ALIAS:
+  elif obj_type is obj_type_lib.ObjType.TYPE_ALIAS:
     page_info = TypeAliasPageInfo(
         full_name=main_name, py_object=py_object, extra_docs=extra_docs)
   else:
@@ -2536,11 +2509,11 @@ def generate_global_index(library_name, index, reference_resolver):
   """
   symbol_links = []
   for full_name, py_object in index.items():
-    obj_type = get_obj_type(py_object)
-    if obj_type in (ObjType.OTHER, ObjType.PROPERTY):
+    obj_type = obj_type_lib.ObjType.get(py_object)
+    if obj_type in (obj_type_lib.ObjType.OTHER, obj_type_lib.ObjType.PROPERTY):
       continue
     # In Python 3, unbound methods are functions, so eliminate those.
-    if obj_type is ObjType.CALLABLE:
+    if obj_type is obj_type_lib.ObjType.CALLABLE:
       if is_class_attr(full_name, index):
         continue
     with reference_resolver.temp_prefix('..'):
