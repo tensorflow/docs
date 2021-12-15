@@ -30,6 +30,7 @@ from absl.testing import parameterized
 import attr
 import dataclasses
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 
@@ -210,7 +211,7 @@ class ParserTest(parameterized.TestCase):
             'ChildClass', 'CLASS_MEMBER'
         ]
     }
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -262,7 +263,7 @@ class ParserTest(parameterized.TestCase):
 
     tree = {'ExampleDataclass': []}
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -300,7 +301,7 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'namedtupleclass': {'u', 'v', 'w', 'x', 'y', 'z'}}
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -353,7 +354,7 @@ class ParserTest(parameterized.TestCase):
         'Child': ['a_method'],
     }
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -406,7 +407,7 @@ class ParserTest(parameterized.TestCase):
 
     tree = {'ChildMessage': ['hidden', 'hidden2', 'hidden3', 'my_method']}
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -447,7 +448,7 @@ class ParserTest(parameterized.TestCase):
             'TestClass', 'test_function', 'test_function_with_args_kwargs'
         ]
     }
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -482,7 +483,7 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'': ['test_function']}
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -514,7 +515,7 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'': ['test_function_with_args_kwargs']}
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -590,7 +591,7 @@ class ParserTest(parameterized.TestCase):
 
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='../..')
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -720,7 +721,7 @@ class ParserTest(parameterized.TestCase):
             '__init__', '__getitem__', '__setitem__', 'values', 'get'
         ]
     }
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -755,7 +756,7 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'ConcreteMutableMapping': ['pop']}
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -810,7 +811,7 @@ class ParserTest(parameterized.TestCase):
         visitor=visitor, py_module_names=['tf'])
 
     tree = {cls: [method]}
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
@@ -836,7 +837,7 @@ class ParserTest(parameterized.TestCase):
     a = A()
     a.__doc__ = 'Object doc'
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=None,
         duplicates={},
         duplicate_of={},
@@ -891,7 +892,7 @@ class ParserTest(parameterized.TestCase):
 
     a = A()
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=None,
         duplicates={},
         duplicate_of={},
@@ -915,7 +916,7 @@ class ParserTest(parameterized.TestCase):
 
     a = A()
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=None,
         duplicates={},
         duplicate_of={},
@@ -1230,7 +1231,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         duplicate_of={},
         is_fragment={'tfdocs.api_generator.parser.extract_decorators': False},
         py_module_names=[])
-    self.parser_config = parser.ParserConfig(
+    self.parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},

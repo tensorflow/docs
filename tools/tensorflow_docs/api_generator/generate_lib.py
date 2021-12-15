@@ -25,6 +25,7 @@ import tempfile
 
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
@@ -457,7 +458,7 @@ def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
 def write_docs(
     *,
     output_dir: Union[str, pathlib.Path],
-    parser_config: parser.ParserConfig,
+    parser_config: config.ParserConfig,
     yaml_toc: bool,
     root_module_name: str,
     root_title: str = 'TensorFlow',
@@ -478,7 +479,7 @@ def write_docs(
   Args:
     output_dir: Directory to write documentation markdown files to. Will be
       created if it doesn't exist.
-    parser_config: A `parser.ParserConfig` object, containing all the necessary
+    parser_config: A `config.ParserConfig` object, containing all the necessary
       indices.
     yaml_toc: Set to `True` to generate a "_toc.yaml" file.
     root_module_name: (str) the name of the root module (`tf` for tensorflow).
@@ -809,7 +810,7 @@ class DocGenerator:
         visitor, py_module_names=[self._short_name])
 
   def make_parser_config(self, visitor, reference_resolver):
-    return parser.ParserConfig(
+    return config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates=visitor.duplicates,
         duplicate_of=visitor.duplicate_of,

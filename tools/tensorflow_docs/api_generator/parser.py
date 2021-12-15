@@ -35,6 +35,7 @@ from typing import Any, Dict, List, Tuple, Iterable, NamedTuple, Optional, Union
 
 import astor
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import public_api
@@ -69,42 +70,6 @@ def get_obj_type(py_obj: Any) -> ObjType:
     return ObjType.PROPERTY
   else:
     return ObjType.OTHER
-
-
-class ParserConfig(object):
-  """Stores all indexes required to parse the docs."""
-
-  def __init__(self, reference_resolver, duplicates, duplicate_of, tree, index,
-               reverse_index, base_dir, code_url_prefix):
-    """Object with the common config for docs_for_object() calls.
-
-    Args:
-      reference_resolver: An instance of ReferenceResolver.
-      duplicates: A `dict` mapping fully qualified names to a set of all aliases
-        of this name. This is used to automatically generate a list of all
-        aliases for each name.
-      duplicate_of: A map from duplicate names to preferred names of API
-        symbols.
-      tree: A `dict` mapping a fully qualified name to the names of all its
-        members. Used to populate the members section of a class or module page.
-      index: A `dict` mapping full names to objects.
-      reverse_index: A `dict` mapping object ids to full names.
-      base_dir: A base path that is stripped from file locations written to the
-        docs.
-      code_url_prefix: A Url to pre-pend to the links to file locations.
-    """
-    self.reference_resolver = reference_resolver
-    self.duplicates = duplicates
-    self.duplicate_of = duplicate_of
-    self.tree = tree
-    self.reverse_index = reverse_index
-    self.index = index
-    self.base_dir = base_dir
-    self.code_url_prefix = code_url_prefix
-
-  def py_name_to_object(self, full_name):
-    """Return the Python object for a Python symbol name."""
-    return self.index[full_name]
 
 
 @dataclasses.dataclass
@@ -918,7 +883,7 @@ class _DocstringInfo(typing.NamedTuple):
 
 def _get_other_member_doc(
     obj: Any,
-    parser_config: ParserConfig,
+    parser_config: config.ParserConfig,
     extra_docs: Optional[Dict[int, str]],
 ) -> str:
   """Returns the docs for other members of a module."""
@@ -981,7 +946,7 @@ def _get_other_member_doc(
 def _parse_md_docstring(
     py_object: Any,
     full_name: str,
-    parser_config: ParserConfig,
+    parser_config: config.ParserConfig,
     extra_docs: Optional[Dict[int, str]] = None,
 ) -> _DocstringInfo:
   """Parse the object's docstring and return a `_DocstringInfo`.
@@ -994,7 +959,7 @@ def _parse_md_docstring(
       or module).
     full_name: (optional) The api path to the current object, so replacements
       can depend on context.
-    parser_config: An instance of `ParserConfig`.
+    parser_config: An instance of `config.ParserConfig`.
     extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
       that need to be added to the markdown pages created.
 
@@ -1156,7 +1121,7 @@ class FormatArguments(object):
   def __init__(
       self,
       type_annotations: Dict[str, str],
-      parser_config: ParserConfig,
+      parser_config: config.ParserConfig,
       func_full_name: str,
   ) -> None:
     self._type_annotations = type_annotations
@@ -1403,7 +1368,7 @@ class FuncType(enum.Enum):
 
 def generate_signature(
     func: Any,
-    parser_config: ParserConfig,
+    parser_config: config.ParserConfig,
     func_full_name: str,
     func_type: FuncType,
 ) -> _SignatureComponents:
@@ -1417,7 +1382,7 @@ def generate_signature(
 
   Args:
     func: A function, method, or functools.partial to extract the signature for.
-    parser_config: `ParserConfig` for the method/function whose signature is
+    parser_config: `config.ParserConfig` for the method/function whose signature is
       generated.
     func_full_name: The full name of a function whose signature is generated.
     func_type: Type of the current `func`. This is required because there isn't
@@ -1740,7 +1705,7 @@ class FunctionPageInfo(PageInfo):
     Mainly this is details about the function signature.
 
     Args:
-      parser_config: The ParserConfig for the module being documented.
+      parser_config: The config.ParserConfig for the module being documented.
     """
 
     assert self.signature is None
@@ -1855,7 +1820,7 @@ class TypeAliasPageInfo(PageInfo):
     ```
 
     Args:
-      parser_config: The ParserConfig for the module being documented.
+      parser_config: The config.ParserConfig for the module being documented.
     """
     assert self.signature is None
 
@@ -1958,7 +1923,7 @@ class ClassPageInfo(PageInfo):
     doc pages for the class' parents.
 
     Args:
-      parser_config: An instance of `ParserConfig`.
+      parser_config: An instance of `config.ParserConfig`.
     """
     bases = []
     for base in self.py_object.__mro__[1:]:
@@ -2016,13 +1981,13 @@ class ClassPageInfo(PageInfo):
       self,
       member_info: MemberInfo,
       defining_class: Optional[type],  # pylint: disable=g-bare-generic
-      parser_config: ParserConfig) -> None:
+      parser_config: config.ParserConfig) -> None:
     """Adds a `MethodInfo` entry to the `methods` list.
 
     Args:
       member_info: a `MemberInfo` describing the method.
       defining_class: The `type` object where this method is defined.
-      parser_config: A `ParserConfig`.
+      parser_config: A `config.ParserConfig`.
     """
     if defining_class is None:
       return
@@ -2119,7 +2084,7 @@ class ClassPageInfo(PageInfo):
       self,
       member_info: MemberInfo,
       defining_class: Optional[type],  # pylint: disable=g-bare-generic
-      parser_config: ParserConfig,
+      parser_config: config.ParserConfig,
   ) -> None:
     """Adds a member to the class page."""
     obj_type = get_obj_type(member_info.py_object)
@@ -2147,7 +2112,7 @@ class ClassPageInfo(PageInfo):
     Mainly, this is details about the class's members.
 
     Args:
-      parser_config: An instance of ParserConfig.
+      parser_config: An instance of config.ParserConfig.
     """
     py_class = self.py_object
 
@@ -2359,7 +2324,7 @@ class ModulePageInfo(PageInfo):
     Mainly this is information about the members of the module.
 
     Args:
-      parser_config: An instance of ParserConfig.
+      parser_config: An instance of config.ParserConfig.
     """
 
     member_names = parser_config.tree.get(self.full_name, [])
@@ -2392,7 +2357,7 @@ class ModulePageInfo(PageInfo):
 def docs_for_object(
     full_name: str,
     py_object: Any,
-    parser_config: ParserConfig,
+    parser_config: config.ParserConfig,
     extra_docs: Optional[Dict[int, str]] = None,
 ) -> PageInfo:
   """Return a PageInfo object describing a given object from the TF API.
@@ -2412,7 +2377,7 @@ def docs_for_object(
     full_name: The fully qualified name of the symbol to be documented.
     py_object: The Python object to be documented. Its documentation is sourced
       from `py_object`'s docstring.
-    parser_config: A ParserConfig object.
+    parser_config: A config.ParserConfig object.
     extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
       that need to be added to the markdown pages created.
 
@@ -2477,13 +2442,14 @@ def _unwrap_obj(obj):
   return obj
 
 
-def _get_defined_in(py_object: Any,
-                    parser_config: ParserConfig) -> Optional[_FileLocation]:
+def _get_defined_in(
+    py_object: Any,
+    parser_config: config.ParserConfig) -> Optional[_FileLocation]:
   """Returns a description of where the passed in python object was defined.
 
   Args:
     py_object: The Python object.
-    parser_config: A ParserConfig object.
+    parser_config: A config.ParserConfig object.
 
   Returns:
     A `_FileLocation`

@@ -24,6 +24,7 @@ import textwrap
 from absl import flags
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
@@ -117,7 +118,7 @@ class GenerateTest(absltest.TestCase):
     reference_resolver = parser.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='api_docs/python')
 
-    parser_config = parser.ParserConfig(
+    parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates=duplicates,
         duplicate_of=duplicate_of,

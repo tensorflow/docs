@@ -21,6 +21,7 @@ from typing import Optional
 
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.report import utils
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
@@ -126,7 +127,7 @@ class LinterTest(absltest.TestCase):
         visitor=DummyVisitor(index=index, duplicate_of={}),
         py_module_names=['tf'],
     )
-    self.parser_config = parser.ParserConfig(
+    self.parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates={},
         duplicate_of={},
