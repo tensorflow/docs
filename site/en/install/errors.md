@@ -16,7 +16,7 @@ question on Stack Overflow with the `tensorflow` tag.
     <td>"No matching distribution found for tensorflow": 
       Pip can't find a TensorFlow package compatible with your system. Check the
       <a href="https://tensorflow.org/install">system requirements and
-        python version</a>
+        Python version</a>
     </td>
   </tr>
 <tr>
