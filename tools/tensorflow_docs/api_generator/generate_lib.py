@@ -31,6 +31,7 @@ from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import signature
 from tensorflow_docs.api_generator import traverse
 from tensorflow_docs.api_generator.report import utils
 
@@ -137,15 +138,12 @@ class TocNode(object):
     if 'tf.contrib' in self.full_name:
       return True
 
-    try:
-      # Instead of only checking the docstring, checking for the decorator
-      # provides an additional level of certainty about the correctness of the
-      # the application of `status: deprecated`.
-      decorator_list = parser.extract_decorators(self.py_object)
-      if any('deprecat' in dec for dec in decorator_list):
-        return self._check_docstring()
-    except AttributeError:
-      pass
+    # Instead of only checking the docstring, checking for the decorator
+    # provides an additional level of certainty about the correctness of the
+    # the application of `status: deprecated`.
+    decorator_list = signature.extract_decorators(self.py_object)
+    if any('deprecat' in dec for dec in decorator_list):
+      return self._check_docstring()
 
     return False
 
