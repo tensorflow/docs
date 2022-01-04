@@ -25,6 +25,7 @@ from absl.testing import parameterized
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
 
 @dataclasses.dataclass
@@ -45,7 +46,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def setUp(self):
     super().setUp()
     self.known_object = object()
-    reference_resolver = parser.ReferenceResolver(
+    reference_resolver = reference_resolver_lib.ReferenceResolver(
         duplicate_of={},
         is_fragment={
             'tfdocs.api_generator.signature.extract_decorators': False

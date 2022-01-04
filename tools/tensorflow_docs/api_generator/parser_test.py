@@ -31,6 +31,7 @@ import attr
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 
 # The test needs a real module. `types.ModuleType()` doesn't work, as the result
 # is a `builtin` module. Using "parser" here is arbitraty. The tests don't
@@ -172,7 +173,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index, duplicate_of)
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='../..')
 
     result = reference_resolver.replace_references(string)
@@ -200,7 +201,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
@@ -256,7 +257,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'ExampleDataclass': []}
@@ -295,7 +296,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'namedtupleclass': {'u', 'v', 'w', 'x', 'y', 'z'}}
@@ -345,7 +346,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
@@ -400,7 +401,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'ChildMessage': ['hidden', 'hidden2', 'hidden3', 'my_method']}
@@ -438,7 +439,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
@@ -477,7 +478,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'': ['test_function']}
@@ -509,7 +510,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of={})
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'': ['test_function_with_args_kwargs']}
@@ -587,7 +588,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='../..')
     parser_config = config.ParserConfig(
         reference_resolver=reference_resolver,
@@ -669,7 +670,7 @@ class ParserTest(parameterized.TestCase):
 
     visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     docs = parser.generate_global_index(
@@ -711,7 +712,7 @@ class ParserTest(parameterized.TestCase):
             ConcreteMutableMapping.get
     }
     visitor = DummyVisitor(index=index, duplicate_of={})
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {
@@ -750,7 +751,7 @@ class ParserTest(parameterized.TestCase):
         'ConcreteMutableMapping.pop': ConcreteMutableMapping.pop
     }
     visitor = DummyVisitor(index=index, duplicate_of={})
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {'ConcreteMutableMapping': ['pop']}
@@ -805,7 +806,7 @@ class ParserTest(parameterized.TestCase):
     """
 
     visitor = DummyVisitor(index={}, duplicate_of={})
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'])
 
     tree = {cls: [method]}
@@ -929,38 +930,6 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual('Instance of `tf.test.A`', result)
 
 
-class TestReferenceResolver(absltest.TestCase):
-  _BASE_DIR = tempfile.mkdtemp()
-
-  def setUp(self):
-    super(TestReferenceResolver, self).setUp()
-    self.workdir = os.path.join(self._BASE_DIR, self.id())
-    os.makedirs(self.workdir)
-
-  def testSaveReferenceResolver(self):
-    duplicate_of = {'AClass': ['AClass2']}
-    is_fragment = {
-        'tf': False,
-        'tf.VERSION': True,
-        'tf.AClass': False,
-        'tf.AClass.method': True,
-        'tf.AClass2': False,
-        'tf.function': False
-    }
-    py_module_names = ['tf', 'tfdbg']
-
-    resolver = parser.ReferenceResolver(duplicate_of, is_fragment,
-                                        py_module_names)
-
-    outdir = self.workdir
-
-    filepath = os.path.join(outdir, 'resolver.json')
-
-    resolver.to_json_file(filepath)
-    resolver2 = parser.ReferenceResolver.from_json_file(filepath)
-
-    # There are no __slots__, so all fields are visible in __dict__.
-    self.assertEqual(resolver.__dict__, resolver2.__dict__)
 
   def testIsClasssAttr(self):
     result = parser.is_class_attr('test_module.test_function',
@@ -970,42 +939,6 @@ class TestReferenceResolver(absltest.TestCase):
     result = parser.is_class_attr('TestClass.test_function',
                                   {'TestClass': TestClass})
     self.assertTrue(result)
-
-  def test_duplicate_fragment(self):
-    duplicate_of = {
-        'tf.Class2.method': 'tf.Class1.method',
-        'tf.sub.Class2.method': 'tf.Class1.method',
-        'tf.sub.Class2': 'tf.Class2'
-    }
-    is_fragment = {
-        'tf.Class1.method': True,
-        'tf.Class2.method': True,
-        'tf.sub.Class2.method': True,
-        'tf.Class1': False,
-        'tf.Class2': False,
-        'tf.sub.Class2': False
-    }
-    py_module_names = ['tf']
-
-    reference_resolver = parser.ReferenceResolver(
-        duplicate_of, is_fragment, py_module_names, link_prefix='')
-
-    # Method references point to the method, in the canonical class alias.
-    result = reference_resolver.reference_to_url('tf.Class1.method')
-    self.assertEqual('tf/Class1.md#method', result)
-    result = reference_resolver.reference_to_url('tf.Class2.method')
-    self.assertEqual('tf/Class2.md#method', result)
-    result = reference_resolver.reference_to_url('tf.sub.Class2.method')
-    self.assertEqual('tf/Class2.md#method', result)
-
-    # Class references point to the canonical class alias
-    result = reference_resolver.reference_to_url('tf.Class1')
-    self.assertEqual('tf/Class1.md', result)
-    result = reference_resolver.reference_to_url('tf.Class2')
-    self.assertEqual('tf/Class2.md', result)
-    result = reference_resolver.reference_to_url('tf.sub.Class2')
-    self.assertEqual('tf/Class2.md', result)
-
 
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
@@ -1061,115 +994,6 @@ class TestParseDocstring(absltest.TestCase):
     self.assertLen(returns.items, 2)
 
 
-class TestPartialSymbolAutoRef(parameterized.TestCase):
-  REF_TEMPLATE = '<a href="{link}"><code>{text}</code></a>'
-
-  @parameterized.named_parameters(
-      ('basic1', 'keras.Model.fit', '../tf/keras/Model.md#fit'),
-      ('duplicate_object', 'layers.Conv2D', '../tf/keras/layers/Conv2D.md'),
-      ('parens', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
-      ('duplicate_name', 'tf.matmul', '../tf/linalg/matmul.md'),
-      ('full_name', 'tf.concat', '../tf/concat.md'),
-      ('normal_and_compat', 'linalg.matmul', '../tf/linalg/matmul.md'),
-      ('compat_only', 'math.deprecated', None),
-      ('contrib_only', 'y.z', None),
-  )
-  def test_partial_symbol_references(self, string, link):
-    duplicate_of = {
-        'tf.matmul': 'tf.linalg.matmul',
-        'tf.layers.Conv2d': 'tf.keras.layers.Conv2D',
-    }
-
-    is_fragment = {
-        'tf.keras.Model.fit': True,
-        'tf.concat': False,
-        'tf.keras.layers.Conv2D': False,
-        'tf.linalg.matmul': False,
-        'tf.compat.v1.math.deprecated': False,
-        'tf.compat.v1.linalg.matmul': False,
-        'tf.contrib.y.z': False,
-    }
-
-    py_module_names = ['tf']
-
-    resolver = parser.ReferenceResolver(
-        duplicate_of, is_fragment, py_module_names, link_prefix='..')
-    input_string = string.join('``')
-    ref_string = resolver.replace_references(input_string)
-
-    if link is None:
-      expected = input_string
-    else:
-      expected = self.REF_TEMPLATE.format(link=link, text=string)
-
-    self.assertEqual(expected, ref_string)
-
-
-class TestIgnoreLineInBlock(parameterized.TestCase):
-
-  @parameterized.named_parameters(
-      ('ignore_backticks', ['```'], ['```'],
-       '```\nFiller\n```\n```Same line```\n```python\nDowner\n```'),
-      ('ignore_code_cell_output', ['<pre>{% html %}'], ['{% endhtml %}</pre>'],
-       '<pre>{% html %}\nOutput\nmultiline{% endhtml %}</pre>'),
-      ('ignore_backticks_and_cell_output', ['<pre>{% html %}', '```'
-                                           ], ['{% endhtml %}</pre>', '```'],
-       ('```\nFiller\n```\n```Same line```\n<pre>{% html %}\nOutput\nmultiline'
-        '{% endhtml %}</pre>\n```python\nDowner\n```')))
-  def test_ignore_lines(self, block_start, block_end, expected_ignored_lines):
-
-    text = textwrap.dedent("""\
-    ```
-    Filler
-    ```
-
-    ```Same line```
-
-    <pre>{% html %}
-    Output
-    multiline{% endhtml %}</pre>
-
-    ```python
-    Downer
-    ```
-    """)
-
-    filters = [
-        parser.IgnoreLineInBlock(start, end)
-        for start, end in zip(block_start, block_end)
-    ]
-
-    ignored_lines = []
-    for line in text.splitlines():
-      if any(filter_block(line) for filter_block in filters):
-        ignored_lines.append(line)
-
-    self.assertEqual('\n'.join(ignored_lines), expected_ignored_lines)
-
-  def test_clean_text(self):
-    text = textwrap.dedent("""\
-    ```
-    Ignore lines here.
-    ```
-    Useful information.
-    Don't ignore.
-    ```python
-    Ignore here too.
-    ```
-    Stuff.
-    ```Not useful.```
-    """)
-
-    filters = [parser.IgnoreLineInBlock('```', '```')]
-
-    clean_text = []
-    for line in text.splitlines():
-      if not any(filter_block(line) for filter_block in filters):
-        clean_text.append(line)
-
-    expected_clean_text = 'Useful information.\nDon\'t ignore.\nStuff.'
-
-    self.assertEqual('\n'.join(clean_text), expected_clean_text)
 
   def test_strip_todos(self):
     input_str = ("""#  TODO(blah) blah

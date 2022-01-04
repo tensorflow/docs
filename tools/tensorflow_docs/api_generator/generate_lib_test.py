@@ -28,6 +28,7 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 
 import yaml
 
@@ -115,7 +116,7 @@ class GenerateTest(absltest.TestCase):
 
     visitor = DummyVisitor(index, duplicate_of)
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='api_docs/python')
 
     parser_config = config.ParserConfig(

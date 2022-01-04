@@ -31,6 +31,7 @@ from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
 from tensorflow_docs.api_generator import traverse
 from tensorflow_docs.api_generator.report import utils
@@ -804,7 +805,7 @@ class DocGenerator:
     self._extra_docs = extra_docs
 
   def make_reference_resolver(self, visitor):
-    return parser.ReferenceResolver.from_visitor(
+    return reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor, py_module_names=[self._short_name])
 
   def make_parser_config(self, visitor, reference_resolver):

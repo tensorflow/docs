@@ -23,6 +23,7 @@ from absl.testing import absltest
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator.report import utils
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
 
@@ -123,7 +124,7 @@ class LinterTest(absltest.TestCase):
     tree = {
         'TestClass': ['__init__', 'method_one', 'temp_c'],
     }
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=DummyVisitor(index=index, duplicate_of={}),
         py_module_names=['tf'],
     )
