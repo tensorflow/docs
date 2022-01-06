@@ -20,6 +20,7 @@ import contextlib
 import html
 import json
 import os
+import posixpath
 import re
 
 from typing import Dict, List, Optional
@@ -350,7 +351,7 @@ class ReferenceResolver:
 
     if self._link_prefix is None:
       raise ValueError('you must set the `link_prefix`')
-    url = os.path.join(self._link_prefix, rel_path)
+    url = posixpath.join(self._link_prefix, rel_path)
     return url
 
   def _one_ref(self, match, full_name=None):
@@ -411,6 +412,6 @@ class ReferenceResolver:
     # relative_path_to_root gets you to api_docs/python, we go from there
     # to api_docs/cc, and then add ret.
     cc_relative_path = os.path.normpath(
-        os.path.join(self._link_prefix, '../cc', ret))
+        posixpath.join(self._link_prefix, '../cc', ret))
 
     return f'<a href="{cc_relative_path}"><code>{link_text}</code></a>'

@@ -15,7 +15,6 @@
 # ==============================================================================
 """Turn Python docstrings into Markdown for TensorFlow documentation."""
 
-import ast
 import collections
 import dataclasses
 import enum
@@ -23,6 +22,7 @@ import html
 import inspect
 import itertools
 import os
+import posixpath
 import pprint
 import re
 import textwrap
@@ -98,7 +98,7 @@ def documentation_path(full_name, is_fragment=False):
   if is_fragment:
     parts, fragment = parts[:-1], parts[-1]
 
-  result = os.path.join(*parts) + '.md'
+  result = posixpath.join(*parts) + '.md'
 
   if is_fragment:
     result = result + '#' + fragment
@@ -1437,6 +1437,8 @@ def docs_for_object(
 
   relative_path = os.path.relpath(
       path='.', start=os.path.dirname(documentation_path(full_name)) or '.')
+  # Convert from OS-specific path to URL/POSIX path.
+  relative_path = posixpath.join(*relative_path.split(os.path.sep))
 
   with parser_config.reference_resolver.temp_prefix(relative_path):
     page_info.set_doc(
@@ -1497,6 +1499,9 @@ def _get_defined_in(
       continue
     else:
       code_url_prefix = temp_prefix
+      # rel_path is currently a platform-specific path, so we need to convert
+      # it to a posix path (for lack of a URL path).
+      rel_path = posixpath.join(*rel_path.split(os.path.sep))
       break
 
   # No link if the file was not found in a `base_dir`, or the prefix is None.
@@ -1534,10 +1539,10 @@ def _get_defined_in(
   elif re.match(r'.*_pb2\.py$', rel_path):
     # The _pb2.py files all appear right next to their defining .proto file.
     rel_path = rel_path[:-7] + '.proto'
-    return _FileLocation(base_url=os.path.join(code_url_prefix, rel_path))
+    return _FileLocation(base_url=posixpath.join(code_url_prefix, rel_path))
   else:
     return _FileLocation(
-        base_url=os.path.join(code_url_prefix, rel_path),
+        base_url=posixpath.join(code_url_prefix, rel_path),
         start_line=start_line,
         end_line=end_line)
 

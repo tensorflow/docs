@@ -871,11 +871,7 @@ class DocGenerator:
           str(work_py_dir / self._short_name.replace('.', '/') /
               '_api_cache.json'))
 
-    try:
-      os.makedirs(output_dir)
-    except OSError as e:
-      if e.strerror != 'File exists':
-        raise
+    os.makedirs(output_dir, exist_ok=True)
 
     # Typical results are something like:
     #
