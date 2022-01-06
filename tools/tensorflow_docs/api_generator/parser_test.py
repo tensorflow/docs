@@ -32,6 +32,7 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
+from tensorflow_docs.api_generator.pretty_docs import docs_for_object
 
 # The test needs a real module. `types.ModuleType()` doesn't work, as the result
 # is a `builtin` module. Using "parser" here is arbitraty. The tests don't
@@ -220,7 +221,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='TestClass', py_object=TestClass, parser_config=parser_config)
 
     # Make sure the brief docstring is present
@@ -272,7 +273,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='ExampleDataclass',
         py_object=ExampleDataclass,
         parser_config=parser_config)
@@ -310,7 +311,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='namedtupleclass',
         py_object=namedtupleclass,
         parser_config=parser_config)
@@ -363,7 +364,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='Child', py_object=Child, parser_config=parser_config)
 
     # Make sure the `a_method` is not present
@@ -416,7 +417,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='ChildMessage',
         py_object=ChildMessage,
         parser_config=parser_config)
@@ -457,7 +458,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='TestModule',
         py_object=test_module,
         parser_config=parser_config)
@@ -492,7 +493,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='test_function',
         py_object=test_function,
         parser_config=parser_config)
@@ -524,7 +525,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='test_function_with_args_kwargs',
         py_object=test_function_with_args_kwargs,
         parser_config=parser_config)
@@ -600,7 +601,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    doc_info = parser._parse_md_docstring(
+    doc_info = parser.parse_md_docstring(
         test_function_with_fancy_docstring,
         full_name=None,
         parser_config=parser_config)
@@ -730,7 +731,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='ConcreteMutableMapping',
         py_object=ConcreteMutableMapping,
         parser_config=parser_config)
@@ -765,7 +766,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    page_info = parser.docs_for_object(
+    page_info = docs_for_object.docs_for_object(
         full_name='ConcreteMutableMapping',
         py_object=ConcreteMutableMapping,
         parser_config=parser_config)
@@ -820,7 +821,7 @@ class ParserTest(parameterized.TestCase):
         base_dir='/',
         code_url_prefix='/')
 
-    function_info = parser.docs_for_object(
+    function_info = docs_for_object.docs_for_object(
         full_name='%s.%s' % (cls, method),
         py_object=py_object,
         parser_config=parser_config)

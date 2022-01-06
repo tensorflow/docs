@@ -25,6 +25,7 @@ from typing import Optional, Any, List, Tuple
 import astor
 
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator.pretty_docs import base_page
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
 
 
@@ -47,7 +48,7 @@ def _count_empty_param(items: List[Tuple[str, Optional[str]]]) -> int:
   return count
 
 
-def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
+def lint_params(page_info: base_page.PageInfo) -> api_report_pb2.ParameterLint:
   """Lints the parameters of a docstring.
 
   Args:
@@ -90,7 +91,7 @@ def lint_params(page_info: parser.PageInfo) -> api_report_pb2.ParameterLint:
 
 
 def lint_description(
-    page_info: parser.PageInfo) -> api_report_pb2.DescriptionLint:
+    page_info: base_page.PageInfo) -> api_report_pb2.DescriptionLint:
   """Lints the description of a docstring.
 
   If a field in the proto is assigned 0, then it means that that field doesn't
@@ -124,7 +125,7 @@ _EXAMPLE_RE = re.compile(
 
 
 def lint_usage_example(
-    page_info: parser.PageInfo) -> api_report_pb2.UsageExampleLint:
+    page_info: base_page.PageInfo) -> api_report_pb2.UsageExampleLint:
   """Counts the number of doctests and untested examples in a docstring.
 
   Args:
@@ -170,7 +171,7 @@ class ReturnVisitor(ast.NodeVisitor):
 
 
 def lint_returns(
-    page_info: parser.PageInfo) -> Optional[api_report_pb2.ReturnLint]:
+    page_info: base_page.PageInfo) -> Optional[api_report_pb2.ReturnLint]:
   """"Lints the returns/yields block in the docstring.
 
   This linter only checks if a `Returns`/`Yields` block exists in the docstring
@@ -225,7 +226,7 @@ class RaiseVisitor(ast.NodeVisitor):
     self.total_raises.append(astor.to_source(node.exc.func).strip())
 
 
-def lint_raises(page_info: parser.PageInfo) -> api_report_pb2.RaisesLint:
+def lint_raises(page_info: base_page.PageInfo) -> api_report_pb2.RaisesLint:
   """Lints the raises block in the docstring.
 
   The total raises in code are extracted via an AST and compared against those

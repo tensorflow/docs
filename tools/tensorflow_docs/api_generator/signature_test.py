@@ -27,6 +27,9 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
+from tensorflow_docs.api_generator.pretty_docs import type_alias_page
+from tensorflow_docs.api_generator.pretty_docs import class_page
+
 
 @dataclasses.dataclass
 class ExampleDataclass:
@@ -40,6 +43,7 @@ class ExampleDataclass:
   def add(self, x: int, y: int) -> int:
     q: int = x + y
     return q
+
 
 class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
 
@@ -260,7 +264,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         ]""")),
   )  # pyformat: disable
   def test_type_alias_signature(self, alias, expected_sig):
-    info_obj = parser.TypeAliasPageInfo(
+    info_obj = type_alias_page.TypeAliasPageInfo(
         full_name='tfdocs.api_generator.generate_lib.DocGenerator',
         py_object=alias)
     with self.parser_config.reference_resolver.temp_prefix('../../..'):
@@ -277,8 +281,8 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     pc.reference_resolver._all_names.add(full_name)
     pc.reference_resolver._link_prefix = '../..'
 
-    info = parser.ClassPageInfo(full_name='x.Cls', py_object=cls)
-    info._doc = parser._DocstringInfo('doc', ['doc'], {})
+    info = class_page.ClassPageInfo(full_name='x.Cls', py_object=cls)
+    info._doc = parser.DocstringInfo('doc', ['doc'], {})
     info.collect_docs(self.parser_config)
 
     return info
