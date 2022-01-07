@@ -20,15 +20,15 @@ import textwrap
 from absl.testing import absltest
 
 from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
+from tensorflow_docs.api_generator.pretty_docs import base_page
 
 
 class ParserTest(absltest.TestCase):
 
   def test_github_source_link_in_table(self):
     url = "https://github.com/tensorflow/docs/blob/master/path/to/file"
-    location = parser._FileLocation(base_url=url)
-    table = pretty_docs._top_source_link(location)
+    location = parser.FileLocation(base_url=url)
+    table = base_page.top_source_link(location)
 
     expected = textwrap.dedent(f"""
         <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
@@ -45,8 +45,8 @@ class ParserTest(absltest.TestCase):
 
   def test_other_source_link_after_table(self):
     url = "somewhere/else"
-    location = parser._FileLocation(base_url=url)
-    table = pretty_docs._top_source_link(location)
+    location = parser.FileLocation(base_url=url)
+    table = base_page.top_source_link(location)
 
     expected = textwrap.dedent(f"""
        <table class="tfo-notebook-buttons tfo-api nocontent" align="left">
@@ -59,8 +59,8 @@ class ParserTest(absltest.TestCase):
     self.assertEqual(expected, table)
 
   def test_no_source_link(self):
-    location = parser._FileLocation()
-    table = pretty_docs._top_source_link(location)
+    location = parser.FileLocation()
+    table = base_page.top_source_link(location)
 
     expected = textwrap.dedent("""
        <table class="tfo-notebook-buttons tfo-api nocontent" align="left">

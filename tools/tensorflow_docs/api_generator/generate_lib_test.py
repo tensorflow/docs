@@ -28,6 +28,8 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
+from tensorflow_docs.api_generator.pretty_docs import function_page
 
 import yaml
 
@@ -115,7 +117,7 @@ class GenerateTest(absltest.TestCase):
 
     visitor = DummyVisitor(index, duplicate_of)
 
-    reference_resolver = parser.ReferenceResolver.from_visitor(
+    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor=visitor, py_module_names=['tf'], link_prefix='api_docs/python')
 
     parser_config = config.ParserConfig(
@@ -186,9 +188,9 @@ class GenerateTest(absltest.TestCase):
     self.assertTrue((output_dir / 'tf/TestModule/test_function.md').exists())
 
   def _get_test_page_info(self):
-    page_info = parser.FunctionPageInfo(
+    page_info = function_page.FunctionPageInfo(
         full_name='abc', py_object=test_function)
-    docstring_info = parser._DocstringInfo(
+    docstring_info = parser.DocstringInfo(
         brief='hello `tensorflow`',
         docstring_parts=['line1', 'line2'],
         compatibility={})

@@ -29,10 +29,14 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
 from tensorflow_docs.api_generator import traverse
+from tensorflow_docs.api_generator.pretty_docs import base_page
+
+from tensorflow_docs.api_generator.pretty_docs import docs_for_object
+
 from tensorflow_docs.api_generator.report import utils
 
 import yaml
@@ -433,7 +437,8 @@ class GenerateToc(object):
     return {'toc': toc}
 
 
-def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
+def _get_headers(page_info: base_page.PageInfo,
+                 search_hints: bool) -> List[str]:
   """Returns the list of header lines for this page."""
   hidden = doc_controls.should_hide_from_search(page_info.py_object)
   brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
@@ -558,8 +563,8 @@ def write_docs(
 
     # Generate docs for `py_object`, resolving references.
     try:
-      page_info = parser.docs_for_object(full_name, py_object, parser_config,
-                                         extra_docs)
+      page_info = docs_for_object.docs_for_object(full_name, py_object,
+                                                  parser_config, extra_docs)
       if gen_report and not full_name.startswith(
           ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
            'tf.experimental.numpy')):
@@ -571,7 +576,7 @@ def write_docs(
     path = output_dir / parser.documentation_path(full_name)
 
     content = _get_headers(page_info, search_hints)
-    content.append(pretty_docs.build_md_page(page_info))
+    content.append(page_info.build())
     text = '\n'.join(content)
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
@@ -804,7 +809,7 @@ class DocGenerator:
     self._extra_docs = extra_docs
 
   def make_reference_resolver(self, visitor):
-    return parser.ReferenceResolver.from_visitor(
+    return reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor, py_module_names=[self._short_name])
 
   def make_parser_config(self, visitor, reference_resolver):
@@ -870,11 +875,7 @@ class DocGenerator:
           str(work_py_dir / self._short_name.replace('.', '/') /
               '_api_cache.json'))
 
-    try:
-      os.makedirs(output_dir)
-    except OSError as e:
-      if e.strerror != 'File exists':
-        raise
+    os.makedirs(output_dir, exist_ok=True)
 
     # Typical results are something like:
     #
