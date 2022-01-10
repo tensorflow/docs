@@ -50,11 +50,6 @@ class ModulePageBuilder(base_page.PageBuilder):
 
     parts.append('\n\n')
 
-    custom_content = doc_controls.get_custom_page_content(page_info.py_object)
-    if custom_content is not None:
-      parts.append(custom_content)
-      return ''.join(parts)
-
     if page_info.modules:
       parts.append('## Modules\n\n')
       parts.extend(

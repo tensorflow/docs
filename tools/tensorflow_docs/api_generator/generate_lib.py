@@ -470,6 +470,7 @@ def write_docs(
     gen_redirects: bool = True,
     gen_report: bool = True,
     extra_docs: Optional[Dict[int, str]] = None,
+    page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
 ):
   """Write previously extracted docs to disk.
 
@@ -498,6 +499,8 @@ def write_docs(
     extra_docs: To add docs for a particular object instance set it's __doc__
       attribute. For some classes (list, tuple, etc) __doc__ is not writable.
       Pass those docs like: `extra_docs={id(obj): "docs"}`
+    page_builder_classes: A optional dict of `{ObjectType:Type[PageInfo]}` for
+        overriding the default page builder classes.
 
   Raises:
     ValueError: if `output_dir` is not an absolute path
@@ -564,7 +567,8 @@ def write_docs(
     # Generate docs for `py_object`, resolving references.
     try:
       page_info = docs_for_object.docs_for_object(full_name, py_object,
-                                                  parser_config, extra_docs)
+                                                  parser_config, extra_docs,
+                                                  page_builder_classes)
       if gen_report and not full_name.startswith(
           ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
            'tf.experimental.numpy')):
@@ -731,6 +735,7 @@ class DocGenerator:
       gen_redirects: bool = True,
       gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
+      page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
   ):
     """Creates a doc-generator.
 
@@ -766,6 +771,8 @@ class DocGenerator:
       extra_docs: To add docs for a particular object instance set it's __doc__
         attribute. For some classes (list, tuple, etc) __doc__ is not writable.
         Pass those docs like: `extra_docs={id(obj): "docs"}`
+      page_builder_classes: An optional dict of `{ObjectType:Type[PageInfo]}`
+        for overriding the default page builder classes.
     """
     self._root_title = root_title
     self._py_modules = py_modules
@@ -807,6 +814,7 @@ class DocGenerator:
     self._gen_redirects = gen_redirects
     self._gen_report = gen_report
     self._extra_docs = extra_docs
+    self._page_builder_classes = page_builder_classes
 
   def make_reference_resolver(self, visitor):
     return reference_resolver_lib.ReferenceResolver.from_visitor(
@@ -868,6 +876,7 @@ class DocGenerator:
         gen_redirects=self._gen_redirects,
         gen_report=self._gen_report,
         extra_docs=self._extra_docs,
+        page_builder_classes=self._page_builder_classes,
     )
 
     if self.api_cache:

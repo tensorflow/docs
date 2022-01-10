@@ -18,6 +18,7 @@ import pathlib
 import textwrap
 from typing import Any, Callable, ClassVar, Dict, List, NamedTuple, Optional, Sequence, Tuple, Type
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import signature as signature_lib
 
@@ -101,8 +102,13 @@ class PageInfo:
     self._aliases = None
     self._doc = None
 
+  def collect_docs(self, parser_config: config.ParserConfig):
+    """Collects additional information from the `config.ParserConfig`."""
+    pass
+
   def build(self) -> str:
-    """Builds the documentation"""
+    """Builds the documentation."""
+
     cls = self.DEFAULT_BUILDER_CLASS
     return cls(self).build()
 

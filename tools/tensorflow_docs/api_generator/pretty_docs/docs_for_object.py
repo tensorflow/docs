@@ -17,9 +17,10 @@
 import os
 import posixpath
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Type
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
@@ -28,12 +29,22 @@ from tensorflow_docs.api_generator.pretty_docs import function_page
 from tensorflow_docs.api_generator.pretty_docs import module_page
 from tensorflow_docs.api_generator.pretty_docs import type_alias_page
 
+_DEFAULT_PAGE_BUILDER_CLASSES = {
+    obj_type_lib.ObjType.CLASS: class_page.ClassPageInfo,
+    obj_type_lib.ObjType.CALLABLE: function_page.FunctionPageInfo,
+    obj_type_lib.ObjType.MODULE: module_page.ModulePageInfo,
+    obj_type_lib.ObjType.TYPE_ALIAS: type_alias_page.TypeAliasPageInfo,
+}
+
+PageBuilderDict = Dict[obj_type_lib.ObjType, Type[base_page.PageInfo]]
+
 
 def docs_for_object(
     full_name: str,
     py_object: Any,
     parser_config: config.ParserConfig,
     extra_docs: Optional[Dict[int, str]] = None,
+    page_builder_classes: Optional[PageBuilderDict] = None,
 ) -> base_page.PageInfo:
   """Return a PageInfo object describing a given object from the TF API.
 
@@ -47,6 +58,8 @@ def docs_for_object(
     parser_config: A `config.ParserConfig` object.
     extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
       that need to be added to the markdown pages created.
+    page_builder_classes: An optional dict of `{ObjectType:Type[PageInfo]}` for
+        overriding the default page builder classes.
 
   Returns:
     Either a subclass of `pretty_docs.base_page.PageInfo` depending on the type
@@ -63,21 +76,16 @@ def docs_for_object(
   if main_name in duplicate_names:
     duplicate_names.remove(main_name)
 
-  obj_type = obj_type_lib.ObjType.get(py_object)
-  if obj_type is obj_type_lib.ObjType.CLASS:
-    page_info = class_page.ClassPageInfo(
-        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is obj_type_lib.ObjType.CALLABLE:
-    page_info = function_page.FunctionPageInfo(
-        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is obj_type_lib.ObjType.MODULE:
-    page_info = module_page.ModulePageInfo(
-        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  elif obj_type is obj_type_lib.ObjType.TYPE_ALIAS:
-    page_info = type_alias_page.TypeAliasPageInfo(
-        full_name=main_name, py_object=py_object, extra_docs=extra_docs)
-  else:
-    raise RuntimeError('Cannot make docs for object {full_name}: {py_object!r}')
+  if page_builder_classes is None:
+    page_builder_classes = _DEFAULT_PAGE_BUILDER_CLASSES
+
+  page_info_class = doc_controls.get_custom_page_builder_cls(py_object)
+  if page_info_class is None:
+    obj_type = obj_type_lib.ObjType.get(py_object)
+    page_info_class = page_builder_classes[obj_type]
+
+  page_info = page_info_class(
+      full_name=main_name, py_object=py_object, extra_docs=extra_docs)
 
   relative_path = os.path.relpath(
       path='.',
