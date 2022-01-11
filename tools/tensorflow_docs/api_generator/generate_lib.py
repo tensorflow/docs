@@ -16,7 +16,7 @@
 """Generate tensorflow.org style API Reference docs for a Python module."""
 
 import collections
-import fnmatch
+import importlib
 import inspect
 import os
 import pathlib
@@ -25,15 +25,41 @@ import tempfile
 
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
 
+from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
+from tensorflow_docs.api_generator import signature
 from tensorflow_docs.api_generator import traverse
+from tensorflow_docs.api_generator.pretty_docs import base_page
+
+from tensorflow_docs.api_generator.pretty_docs import docs_for_object
+
 from tensorflow_docs.api_generator.report import utils
 
 import yaml
+
+try:
+  # TODO(markdaoust) delete this when the warning is in a stable release.
+  _estimator = importlib.import_module(
+      'tensorflow_estimator.python.estimator.estimator')
+
+  if doc_controls.get_inheritable_header(_estimator.Estimator) is None:
+    _add_header = doc_controls.inheritable_header("""\
+        Warning: Estimators are not recommended for new code.  Estimators run
+        `v1.Session`-style code which is more difficult to write correctly, and
+        can behave unexpectedly, especially when combined with TF 2 code.
+        Estimators do fall under our
+        [compatibility guarantees](https://tensorflow.org/guide/versions), but
+        will receive no fixes other than security vulnerabilities. See the
+        [migration guide](https://tensorflow.org/guide/migrate) for details.
+        """)
+    _add_header(_estimator.Estimator)
+except ImportError:
+  pass
+
 
 # Used to add a collections.OrderedDict representer to yaml so that the
 # dump doesn't contain !!OrderedDict yaml tags.
@@ -116,15 +142,12 @@ class TocNode(object):
     if 'tf.contrib' in self.full_name:
       return True
 
-    try:
-      # Instead of only checking the docstring, checking for the decorator
-      # provides an additional level of certainty about the correctness of the
-      # the application of `status: deprecated`.
-      decorator_list = parser.extract_decorators(self.py_object)
-      if any('deprecat' in dec for dec in decorator_list):
-        return self._check_docstring()
-    except AttributeError:
-      pass
+    # Instead of only checking the docstring, checking for the decorator
+    # provides an additional level of certainty about the correctness of the
+    # the application of `status: deprecated`.
+    decorator_list = signature.extract_decorators(self.py_object)
+    if any('deprecat' in dec for dec in decorator_list):
+      return self._check_docstring()
 
     return False
 
@@ -414,7 +437,8 @@ class GenerateToc(object):
     return {'toc': toc}
 
 
-def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
+def _get_headers(page_info: base_page.PageInfo,
+                 search_hints: bool) -> List[str]:
   """Returns the list of header lines for this page."""
   hidden = doc_controls.should_hide_from_search(page_info.py_object)
   brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
@@ -437,15 +461,16 @@ def _get_headers(page_info: parser.PageInfo, search_hints: bool) -> List[str]:
 def write_docs(
     *,
     output_dir: Union[str, pathlib.Path],
-    parser_config: parser.ParserConfig,
+    parser_config: config.ParserConfig,
     yaml_toc: bool,
     root_module_name: str,
     root_title: str = 'TensorFlow',
     search_hints: bool = True,
     site_path: str = 'api_docs/python',
     gen_redirects: bool = True,
-    gen_report: bool = False,
+    gen_report: bool = True,
     extra_docs: Optional[Dict[int, str]] = None,
+    page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
 ):
   """Write previously extracted docs to disk.
 
@@ -458,7 +483,7 @@ def write_docs(
   Args:
     output_dir: Directory to write documentation markdown files to. Will be
       created if it doesn't exist.
-    parser_config: A `parser.ParserConfig` object, containing all the necessary
+    parser_config: A `config.ParserConfig` object, containing all the necessary
       indices.
     yaml_toc: Set to `True` to generate a "_toc.yaml" file.
     root_module_name: (str) the name of the root module (`tf` for tensorflow).
@@ -474,6 +499,8 @@ def write_docs(
     extra_docs: To add docs for a particular object instance set it's __doc__
       attribute. For some classes (list, tuple, etc) __doc__ is not writable.
       Pass those docs like: `extra_docs={id(obj): "docs"}`
+    page_builder_classes: A optional dict of `{ObjectType:Type[PageInfo]}` for
+        overriding the default page builder classes.
 
   Raises:
     ValueError: if `output_dir` is not an absolute path
@@ -539,22 +566,21 @@ def write_docs(
 
     # Generate docs for `py_object`, resolving references.
     try:
-      page_info = parser.docs_for_object(full_name, py_object, parser_config,
-                                         extra_docs)
+      page_info = docs_for_object.docs_for_object(full_name, py_object,
+                                                  parser_config, extra_docs,
+                                                  page_builder_classes)
+      if gen_report and not full_name.startswith(
+          ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
+           'tf.experimental.numpy')):
+        api_report_obj.fill_metrics(page_info)
     except Exception as e:
       raise ValueError(
           f'Failed to generate docs for symbol: `{full_name}`') from e
 
-    if gen_report and not full_name.startswith(
-        ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
-         'tf.experimental.numpy')):
-      api_report_obj.fill_metrics(page_info)
-      continue
-
     path = output_dir / parser.documentation_path(full_name)
 
     content = _get_headers(page_info, search_hints)
-    content.append(pretty_docs.build_md_page(page_info))
+    content.append(page_info.build())
     text = '\n'.join(content)
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
@@ -578,11 +604,10 @@ def write_docs(
 
   if gen_report:
     serialized_proto = api_report_obj.api_report.SerializeToString()
-    raw_proto = output_dir / 'api_report.pb'
+    raw_proto = output_dir / root_module_name / 'api_report.pb'
     raw_proto.write_bytes(serialized_proto)
-    return
 
-  if num_docs_output == 0 and not gen_report:
+  if num_docs_output <= 1:
     raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
                      'your arguments (`base_dir` and `callbacks`). '
                      'Everything you want documented should be within '
@@ -657,8 +682,8 @@ def extract(py_modules,
       objects to document.
     callbacks: Additional callbacks passed to `traverse`. Executed between the
       `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-      primary use case for these is to filter the listy of children (see:
-        `public_api.local_definitions_filter`)
+      primary use case for these is to filter the list of children (see:
+      `public_api.local_definitions_filter`)
 
   Returns:
     The accumulator (`DocGeneratorVisitor`)
@@ -689,70 +714,6 @@ def extract(py_modules,
 EXCLUDED = set(['__init__.py', 'OWNERS', 'README.txt'])
 
 
-def replace_refs(
-    src_dir: str,
-    output_dir: str,
-    reference_resolvers: List[parser.ReferenceResolver],
-    api_docs_relpath: List[str],
-    file_pattern: str = '*.md',
-):
-  """Link `tf.symbol` references found in files matching `file_pattern`.
-
-  A matching directory structure, with the modified files is
-  written to `output_dir`.
-
-  `{"__init__.py","OWNERS","README.txt"}` are skipped.
-
-  Files not matching `file_pattern` (using `fnmatch`) are copied with no change.
-
-  Also, files in the `api_guides/python` directory get explicit ids set on all
-  heading-2s to ensure back-links work.
-
-  Args:
-    src_dir: The directory to convert files from.
-    output_dir: The root directory to write the resulting files to.
-    reference_resolvers: A list of `parser.ReferenceResolver` to make the
-      replacements.
-    api_docs_relpath: List of relative-path strings to the api_docs from the
-      src_dir for each reference_resolver.
-    file_pattern: Only replace references in files matching file_patters, using
-      `fnmatch`. Non-matching files are copied unchanged.
-  """
-
-  # Iterate through all the source files and process them.
-  for dirpath, _, filenames in os.walk(src_dir):
-    depth = os.path.relpath(src_dir, start=dirpath)
-    # Make the directory under output_dir.
-    new_dir = os.path.join(output_dir,
-                           os.path.relpath(path=dirpath, start=src_dir))
-    if not os.path.exists(new_dir):
-      os.makedirs(new_dir)
-
-    for base_name in filenames:
-      if base_name in EXCLUDED:
-        continue
-      full_in_path = os.path.join(dirpath, base_name)
-
-      suffix = os.path.relpath(path=full_in_path, start=src_dir)
-      full_out_path = os.path.join(output_dir, suffix)
-      # Copy files that do not match the file_pattern, unmodified.
-      if not fnmatch.fnmatch(base_name, file_pattern):
-        if full_in_path != full_out_path:
-          shutil.copyfile(full_in_path, full_out_path)
-        continue
-
-      with open(full_in_path, 'rb') as f:
-        content = f.read().decode('utf-8')
-
-      for resolver, rel_path in zip(reference_resolvers, api_docs_relpath):
-        # If `rel_path` is an absolute path, `depth` is just discarded.
-        relative_path_to_root = os.path.join(depth, rel_path)
-        content = resolver.replace_references(content, relative_path_to_root)
-
-      with open(full_out_path, 'wb') as f:
-        f.write((content + '\n').encode('utf-8'))
-
-
 class DocGenerator:
   """Main entry point for generating docs."""
 
@@ -772,8 +733,9 @@ class DocGenerator:
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: bool = True,
       gen_redirects: bool = True,
-      gen_report: bool = False,
+      gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
+      page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
   ):
     """Creates a doc-generator.
 
@@ -781,8 +743,8 @@ class DocGenerator:
       root_title: A string. The main title for the project. Like "TensorFlow"
       py_modules: The python module to document.
       base_dir: String or tuple of strings. Directories that "Defined in" links
-        are generated relative to. **Modules outside one of these directories are
-        not documented**. No `base_dir` should be inside another.
+        are generated relative to. **Modules outside one of these directories
+        are not documented**. No `base_dir` should be inside another.
       code_url_prefix: String or tuple of strings. The prefix to add to "Defined
         in" paths. These are zipped with `base-dir`, to set the `defined_in`
         path for each file. The defined in link for `{base_dir}/path/to/file` is
@@ -800,7 +762,7 @@ class DocGenerator:
       callbacks: Additional callbacks passed to `traverse`. Executed between the
         `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
         primary use case for these is to filter the list of children (see:
-          `public_api.ApiFilter` for the required signature)
+        `public_api.ApiFilter` for the required signature)
       yaml_toc: Bool which decides whether to generate _toc.yaml file or not.
       gen_redirects: Bool which decides whether to generate _redirects.yaml file
         or not.
@@ -809,6 +771,8 @@ class DocGenerator:
       extra_docs: To add docs for a particular object instance set it's __doc__
         attribute. For some classes (list, tuple, etc) __doc__ is not writable.
         Pass those docs like: `extra_docs={id(obj): "docs"}`
+      page_builder_classes: An optional dict of `{ObjectType:Type[PageInfo]}`
+        for overriding the default page builder classes.
     """
     self._root_title = root_title
     self._py_modules = py_modules
@@ -850,13 +814,14 @@ class DocGenerator:
     self._gen_redirects = gen_redirects
     self._gen_report = gen_report
     self._extra_docs = extra_docs
+    self._page_builder_classes = page_builder_classes
 
   def make_reference_resolver(self, visitor):
-    return parser.ReferenceResolver.from_visitor(
+    return reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor, py_module_names=[self._short_name])
 
   def make_parser_config(self, visitor, reference_resolver):
-    return parser.ParserConfig(
+    return config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates=visitor.duplicates,
         duplicate_of=visitor.duplicate_of,
@@ -896,14 +861,6 @@ class DocGenerator:
     # Extract the python api from the _py_modules
     visitor = self.run_extraction()
     reference_resolver = self.make_reference_resolver(visitor)
-    # Replace all the `tf.symbol` references in the workdir.
-    replace_refs(
-        src_dir=str(workdir),
-        output_dir=str(workdir),
-        reference_resolvers=[reference_resolver],
-        api_docs_relpath=['api_docs'],
-        file_pattern='*.md',
-    )
 
     # Write the api docs.
     parser_config = self.make_parser_config(visitor, reference_resolver)
@@ -919,6 +876,7 @@ class DocGenerator:
         gen_redirects=self._gen_redirects,
         gen_report=self._gen_report,
         extra_docs=self._extra_docs,
+        page_builder_classes=self._page_builder_classes,
     )
 
     if self.api_cache:
@@ -926,11 +884,7 @@ class DocGenerator:
           str(work_py_dir / self._short_name.replace('.', '/') /
               '_api_cache.json'))
 
-    try:
-      os.makedirs(output_dir)
-    except OSError as e:
-      if e.strerror != 'File exists':
-        raise
+    os.makedirs(output_dir, exist_ok=True)
 
     # Typical results are something like:
     #
@@ -938,18 +892,14 @@ class DocGenerator:
     #    {short_name}/
     #    _redirects.yaml
     #    _toc.yaml
+    #    api_report.pb
     #    index.md
     #    {short_name}.md
     #
     # Copy the top level files to the `{output_dir}/`, delete and replace the
     # `{output_dir}/{short_name}/` directory.
 
-    if self._gen_report:
-      glob_pattern = '*.pb'
-    else:
-      glob_pattern = '*'
-
-    for work_path in work_py_dir.glob(glob_pattern):
+    for work_path in work_py_dir.glob('*'):
       out_path = pathlib.Path(output_dir) / work_path.name
       out_path.parent.mkdir(exist_ok=True, parents=True)
 

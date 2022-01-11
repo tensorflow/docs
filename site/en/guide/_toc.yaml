@@ -2,54 +2,49 @@ toc:
 - title: "TensorFlow guide"
   path: /guide/
 
-- heading: "TensorFlow 2"
-- title: "Effective TensorFlow"
-  path: /guide/effective_tf2
-- title: "Migrate from TF1 to TF2"
-  path: /guide/migrate
-- title: "Convert with the upgrade script"
-  path: /guide/upgrade
-- title: "Community testing FAQ"
-  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
-  status: external
-
 - heading: "TensorFlow basics"
-  status: new
-- title: "Eager execution"
-  path: /guide/eager
-- title: "Tensor"
+- title: "Overview"
+  path: /guide/basics
+- title: "Tensors"
   path: /guide/tensor
-- title: "Variable"
+- title: "Variables"
   path: /guide/variable
 - title: "Automatic differentiation"
   path: /guide/autodiff
-- title: "Intro to graphs and functions"
+- title: "Graphs and functions"
   path: /guide/intro_to_graphs
-- title: "Intro to modules, layers, and models"
+- title: "Modules, layers, and models"
   path: /guide/intro_to_modules
 - title: "Training loops"
   path: /guide/basic_training_loops
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
+
+- heading: "TensorFlow in depth"
+- title: "Tensor slicing"
+  path: /guide/tensor_slicing
 - title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
-  status: new
   path: /guide/sparse_tensor
-- title: "NumPy API"
-  path: /guide/tf_numpy
-- title: "Tensor slicing"
-  status: new
-  path: /guide/tensor_slicing
 
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
+- title: "Random number generation"
+  path: /guide/random_numbers
+- title: "NumPy API"
+  status: experimental
+  path: /guide/tf_numpy
+- title: "Thinking in TensorFlow 2"
+  path: /guide/effective_tf2
 
 - heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
-- title: "Random number generation"
-  path: /guide/random_numbers
+- title: "Extension types"
+  path: /guide/extension_type
+  status: experimental
 
 - heading: "Data input pipelines"
 - title: "tf.data"
@@ -64,7 +59,6 @@ toc:
   path: /guide/checkpoint
 - title: "SavedModel"
   path: /guide/saved_model
-
 
 - heading: "Accelerators"
 - title: "Distributed training"

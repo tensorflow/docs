@@ -1,0 +1,89 @@
+book_path: /overview/_book.yaml
+project_path: /overview/_project.yaml
+title: Migrate to TensorFlow 2
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  nav: left
+  meta_tags:
+  - name: description
+    content: >
+      Learn how to migrate your TensorFlow code from TensorFlow 1.x to
+      TensorFlow 2.
+  rows:
+  - heading: "Migrate from TensorFlow 1.x to TensorFlow 2"
+    classname: tfo-landing-page-heading
+  - classname:
+      devsite-landing-row-100
+      devsite-landing-row-large-headings
+    items:
+    - description: >
+        <p>Learn how to migrate your TensorFlow code from TensorFlow 1.x to
+        TensorFlow 2. It may take a little work to convert your code,
+        but every change results in access to new features and models,
+        increased clarity and simplicity, and easier debugging. Before
+        starting to migrate, read the <a href="/guide/migrate/tf1_vs_tf2">behaviors guide</a>.
+        Briefly, the migration process is:<p>
+        <ol>
+        <li>Run the <a href="/guide/migrate/upgrade">automated script</a> to convert your TF1.x API usage to
+        <code>tf.compat.v1</code>.</li>
+        <li>Remove old <code>tf.contrib.layers</code> and replace them with <a href="https://github.com/google-research/tf-slim">TF Slim</a> symbols. Also check <a href="/addons">TF Addons</a> for other <code>tf.contrib</code> symbols.</li>
+        <li>Rewrite your <a href="/guide/migrate/model_mapping">TF1.x model forward passes to run in TF2</a> with eager execution enabled.</li>
+        <li><a href="/guide/migrate/validate_correctness">Validate the accuracy and numerical correctness</a> of your migrated code.</li>
+        <li>Upgrade your <a href="/guide/migrate/migrating_estimator">training, evaluation</a> and <a href="/guide/migrate/saved_model">model saving</a> code to TF2 equivalents.</li>
+        <li>(Optional) <a href="/guide/migrate/model_mapping#incremental_migration_to_native_tf2">Migrate your TF2-compatible <code>tf.compat.v1</code> APIs</a> including <a href="https://github.com/google-research/tf-slim">TF Slim</a> usage to idiomatic TF2
+        APIs.</li>
+        </ol>
+
+  - description: "<h3>Featured migration guides</h3>"
+    classname:
+      devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/tf1_vs_tf2"><h3 class="no-link">TensorFlow 1.x vs TensorFlow 2</h3></a>
+        Learn how the TF2 API and behaviors differ fundamentally from TF1.x.
+      path: /guide/migrate/tf1_vs_tf2
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/model_mapping"><h3 class="no-link">Map TF1.x models to TF2</h3></a>
+        Begin using TF1.x models in TF2 right away using modeling shims.
+      path: /guide/migrate/model_mapping
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/upgrade"><h3 class="no-link">Rewrite TF1.x API symbols</h3></a>
+        Programmatically upgrade some parts of your TF1.x code to TF2.
+      path: /guide/migrate/upgrade
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/validate_correctness"><h3 class="no-link">Validate migrated TF2 code</h3></a>
+        Verify the correctness of your migrated TF2 code.
+      path: /guide/migrate/validate_correctness
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/migrating_estimator"><h3 class="no-link">Moving off Estimators</h3></a>
+        Migrate from your Estimator training pipelines to TF2.
+      path: /guide/migrate/migrating_estimator
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/migrating_feature_columns"><h3 class="no-link">Moving off feature columns</h3></a>
+        Learn how to migrate to Keras preprocessing layers from <code>tf.feature_column</code>s.
+      path: /guide/migrate/migrating_feature_columns
+
+  - items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/multi_worker_cpu_gpu_training"><h3 class="no-link">Multi-worker CPU/GPU training workflows</h3></a>
+        Learn how to migrate multi-worker distributed <code>Estimator</code> to TF2.
+      path: /guide/migrate/multi_worker_cpu_gpu_training
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/tpu_estimator"><h3 class="no-link">TPU workflows</h3></a>
+        Learn how to migrate the <code>TPUEstimator</code> API to TF2.
+      path: /guide/migrate/tpu_estimator
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/guide/migrate/tflite"><h3 class="no-link">TensorFlow Lite</h3></a>
+        Learn how to migrate TF Lite code created with TF1.x to TF2.
+      path: /guide/migrate/tflite

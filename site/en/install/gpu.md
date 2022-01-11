@@ -8,7 +8,7 @@ simplify installation and avoid library conflicts, we recommend using a
 only requires the [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}.
 
 These install instructions are for the latest release of TensorFlow. See the
-[tested build configurations](./source.md#linux) for CUDA® and cuDNN versions to
+[tested build configurations](./source.md#gpu) for CUDA® and cuDNN versions to
 use with older TensorFlow releases.
 
 ## Pip package
@@ -67,7 +67,7 @@ The following NVIDIA® software must be installed on your system:
 *   [cuDNN SDK 8.1.0](https://developer.nvidia.com/cudnn){:.external}
     [cuDNN versions](https://developer.nvidia.com/rdp/cudnn-archive){:.external}).
 *   *(Optional)*
-    [TensorRT 6.0](https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html){:.external}
+    [TensorRT 7](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
     to improve latency and throughput for inference on some models.
 
 ## Linux setup

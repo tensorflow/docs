@@ -45,6 +45,11 @@ def concat(values, axis, name="concat"):
 
 Note: TensorFlow DocTest uses TensorFlow 2 and Python 3.
 
+To assess reference documentation quality, see the example section of the
+[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
+(Be aware that the Task Tracker on this sheet is no longer in use.)
+
+
 ### Make the code testable with DocTest
 
 Currently, many docstrings use backticks (```) to identify code. To make the

@@ -1,0 +1,71 @@
+toc:
+- title: Migration guide
+  path: /guide/migrate/
+- heading: Migration overview
+- title: Migrate to TensorFlow 2
+  path: /guide/migrate/migrate_tf2
+- title: TF1 vs TF2 behavior comparison
+  path: /guide/migrate/tf1_vs_tf2
+- title: Convert with the upgrade script
+  path: /guide/migrate/upgrade
+
+- heading: Migrate your models
+- title: TF2 model mapping
+  path: /guide/migrate/model_mapping
+- title: TF Lite models in TF2
+  path: /guide/migrate/tflite
+- title: Migrating checkpoints
+  path: /guide/migrate/migrating_checkpoints
+- title: Canned and boosted tree estimators
+  path: /guide/migrate/canned_estimators
+
+- heading: Migrate training and evaluation pipelines
+- title: Estimators
+  path: /guide/migrate/migrating_estimator
+- title: Summary APIs
+  path: https://www.tensorflow.org/tensorboard/migrate
+  status: external
+- title: Estimator logging and stop hooks
+  path: /guide/migrate/logging_stop_hook
+- title: tf.estimator.SessionRunHook API
+  path: /guide/migrate/sessionrunhook_callback
+#  - title: Migrate custom training loops
+#    path: /guide/migrate/custom_training_loops
+- title: Early stopping
+  path: /guide/migrate/early_stopping
+- title: Feature columns to Keras preprocessing layers
+  path: /guide/migrate/migrating_feature_columns
+- title: Metrics and optimizers
+  path: /guide/migrate/metrics_optimizers
+- title: Incorporate fault tolerance in training
+  path: /guide/migrate/fault_tolerance
+- title: Evaluate training metrics with SidecarEvaluator
+  path: /guide/migrate/evaluator
+- title: TensorBoard metric displays
+  path: /guide/migrate/tensorboard
+
+- heading: Migrate saving and export workflows
+- title: Export models to SavedModel
+  path: /guide/migrate/saved_model
+- title: Save checkpoints
+  path: /guide/migrate/checkpoint_saver
+
+- heading: Migrate distributed training workflows
+- title: Multi-GPU training
+  path: /guide/migrate/mirrored_strategy
+- title: Multi-worker training on CPU and GPU
+  path: /guide/migrate/multi_worker_cpu_gpu_training
+- title: Multi-worker training on TPU
+  path: /guide/migrate/tpu_estimator
+- title: TPU embedding_columns to TPUEmbedding layer
+  path: /guide/migrate/tpu_embedding
+# - title: Efficient distributed input processing
+#   path: /guide/migrate/distributed_input_processing
+
+- heading: Validate model quality and performance
+- title: Validate correctness and numerical equivalence
+  path: /guide/migrate/validate_correctness
+- title: Debug TF2 Migrated Training Pipeline
+  path: /guide/migrate/migration_debugging
+#  - title: Testing speed and throughput
+#    path: /guide/migrate/throughput_testing

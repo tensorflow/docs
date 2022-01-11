@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 """Documentation control decorators."""
-from typing import Iterable, TypeVar
+from typing import Iterable, Optional, TypeVar
 
 T = TypeVar("T")
 
@@ -29,6 +29,22 @@ def set_deprecated(obj: T) -> T:
 
 def is_deprecated(obj) -> bool:
   return hasattr(obj, _DEPRECATED)
+
+
+_INHERITABLE_HEADER = "_tf_docs_inheritable_header"
+
+
+def inheritable_header(text: str):
+
+  def _wrapped(cls):
+    setattr(cls, _INHERITABLE_HEADER, text)
+    return cls
+
+  return _wrapped
+
+
+def get_inheritable_header(cls) -> Optional[str]:
+  return getattr(cls, _INHERITABLE_HEADER, None)
 
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
@@ -57,17 +73,17 @@ def should_hide_from_search(obj) -> bool:
   return hasattr(obj, _NO_SEARCH_HINTS)
 
 
-_CUSTOM_PAGE_CONTENT = "_tf_docs_custom_page_content"
+_CUSTOM_PAGE_BUILDER_CLS = "_tf_docs_custom_page_builder_cls"
 
 
-def set_custom_page_content(obj, content):
+def set_custom_page_builder_cls(obj, cls):
   """Replace most of the generated page with custom content."""
-  setattr(obj, _CUSTOM_PAGE_CONTENT, content)
+  setattr(obj, _CUSTOM_PAGE_BUILDER_CLS, cls)
 
 
-def get_custom_page_content(obj):
+def get_custom_page_builder_cls(obj):
   """Gets custom page content if available."""
-  return getattr(obj, _CUSTOM_PAGE_CONTENT, None)
+  return getattr(obj, _CUSTOM_PAGE_BUILDER_CLS, None)
 
 
 _DO_NOT_DOC = "_tf_docs_do_not_document"

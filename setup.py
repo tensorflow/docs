@@ -21,19 +21,14 @@ from setuptools import find_packages
 from setuptools import setup
 
 project_name = 'tensorflow-docs'
-version = '0.0.0'
-
-try:
-  version += subprocess.check_output(['git', 'rev-parse',
-                                      'HEAD']).decode('utf-8')
-except subprocess.CalledProcessError:
-  pass
+version = '0.0.0.dev0'
 
 DOCLINES = __doc__.split('\n')
 
 REQUIRED_PKGS = [
     'astor',
     'absl-py',
+    'jinja2',
     'protobuf>=3.14',
     'pyyaml',
 ]

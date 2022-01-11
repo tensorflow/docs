@@ -45,7 +45,7 @@ def maybe_singleton(py_object: Any) -> bool:
   is_immutable_type = isinstance(py_object, immutable_types)
 
   # Check if the object is the empty tuple.
-  return is_immutable_type or py_object is ()  # pylint: disable=literal-comparison
+  return is_immutable_type or (isinstance(py_object, tuple) and py_object == ())  # pylint: disable=g-explicit-bool-comparison
 
 
 class ApiTreeNode(object):
@@ -138,7 +138,7 @@ class ApiTree(object):
       # We cannot use the duplicate mechanism for some constants, since e.g.,
       # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
       # have no usable docstring and won't be documented automatically.
-      self.aliases[id(obj)].append(node)
+      self.aliases[id(obj)].append(node)  # pytype: disable=unsupported-operands  # attribute-variable-annotations
     parent.children[node.short_name] = node
 
 
@@ -258,7 +258,7 @@ class DocGeneratorVisitor(object):
       parent: The Python object referenced by `parent_name`.
       children: A list of `(name, py_object)` pairs enumerating, in alphabetical
         order, the children (as determined by `inspect.getmembers`) of
-          `parent`. `name` is the local name of `py_object` in `parent`.
+        `parent`. `name` is the local name of `py_object` in `parent`.
 
     Returns:
       The list of children, with any __metaclass__ removed.

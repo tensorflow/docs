@@ -15,9 +15,10 @@
 # ==============================================================================
 """Utilities for generating report for a package."""
 
-from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator.pretty_docs import base_page
+from tensorflow_docs.api_generator.pretty_docs import class_page
+from tensorflow_docs.api_generator.pretty_docs import function_page
 from tensorflow_docs.api_generator.report import linter
 
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
@@ -41,7 +42,7 @@ class ApiReport:
       name: str,
       object_type: api_report_pb2.ObjectType,
       package_group: str,
-      page_info: parser.PageInfo,
+      page_info: base_page.PageInfo,
   ) -> None:
     self.api_report.symbol_metric.add(
         symbol_name=name,
@@ -63,7 +64,37 @@ class ApiReport:
       return name_list[0]
     return '.'.join(name_list[:2])
 
-  def _fill_class_metric(self, class_page_info: parser.ClassPageInfo) -> None:
+  def _make_constructor_info(
+      self, class_page_info: class_page.ClassPageInfo) -> base_page.PageInfo:
+    """Convert a class description into a description of the constructor."""
+    methods = class_page.split_methods(class_page_info.methods)
+
+    constructor_info = base_page.PageInfo(
+        full_name=class_page_info.full_name,
+        py_object=class_page_info.py_object)
+
+    # Replace the class py_object with constructors py_object. This is done
+    # because each method is linted separately and class py_object contains the
+    # source code of all its methods too.
+    if methods.constructor is not None:
+      constructor_info.py_object = methods.constructor.py_object
+    else:
+      constructor_info.py_object = None
+
+    # Merge the constructor and class docstrings.
+    class_blocks = class_page.merge_blocks(class_page_info, methods.constructor)
+    # Add the `Attributes` sections (if it exists) to the merged class blocks.
+    if class_page_info.attr_block is not None:
+      class_blocks.append(class_page_info.attr_block)
+
+    new_doc = class_page_info.doc._replace(docstring_parts=class_blocks)
+
+    constructor_info.set_doc(new_doc)
+
+    return constructor_info
+
+  def _fill_class_metric(self,
+                         class_page_info: class_page.ClassPageInfo) -> None:
     """Fills in the lint metrics for a class and its methods.
 
     The constructor and class's docstring is merged for linting. Class's
@@ -75,33 +106,18 @@ class ApiReport:
       class_page_info: A `ClassPageInfo` object containing information that's
         used to calculate metrics for the class and its methods.
     """
-
-    methods: pretty_docs.Methods = pretty_docs.split_methods(
-        class_page_info.methods)
-    # Merge the constructor and class docstrings.
-    class_blocks = pretty_docs.merge_blocks(class_page_info,
-                                            methods.constructor)
-    # Add the `Attributes` sections (if it exists) to the merged class blocks.
-    if class_page_info.attr_block is not None:
-      class_blocks.append(class_page_info.attr_block)
-    # Replace the class py_object with constructors py_object. This is done
-    # because each method is linted separately and class py_object contains the
-    # source code of all its methods too.
-    if methods.constructor is not None:
-      class_page_info.py_object = methods.constructor.py_object
-    else:
-      class_page_info.py_object = None
-    class_page_info.doc._replace(docstring_parts=class_blocks)
-
+    constructor_info = self._make_constructor_info(class_page_info)
     package_group = self._find_pkg_group(class_page_info.full_name)
 
     self._lint(
         name=class_page_info.full_name,
         object_type=api_report_pb2.ObjectType.CLASS,
         package_group=package_group,
-        page_info=class_page_info,
+        page_info=constructor_info,
     )
 
+    methods: class_page.Methods = class_page.split_methods(
+        class_page_info.methods)
     # Lint each method separately and add its metrics to the proto object.
     for method in methods.info_dict.values():
       # Skip the dunder methods from being in the report.
@@ -115,7 +131,8 @@ class ApiReport:
             page_info=method,
         )
 
-  def _fill_function_metric(self, function_page_info: parser.FunctionPageInfo):
+  def _fill_function_metric(self,
+                            function_page_info: function_page.FunctionPageInfo):
     """Fills in the lint metrics for a function.
 
     Args:
@@ -129,9 +146,9 @@ class ApiReport:
         page_info=function_page_info,
     )
 
-  def fill_metrics(self, page_info: parser.PageInfo) -> None:
-    if isinstance(page_info, parser.ClassPageInfo):
+  def fill_metrics(self, page_info: base_page.PageInfo) -> None:
+    if isinstance(page_info, class_page.ClassPageInfo):
       self._fill_class_metric(page_info)
 
-    if isinstance(page_info, parser.FunctionPageInfo):
+    if isinstance(page_info, function_page.FunctionPageInfo):
       self._fill_function_metric(page_info)
