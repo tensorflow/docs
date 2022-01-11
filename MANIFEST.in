@@ -1,2 +1,2 @@
-recursive-include tools/tensorflow_docs/api_generator/gen_java/ *
-recursive-include tools/tensorflow_docs/api_generator/pretty_docs/templates/ *
+global-include **/templates/*
+global-include *.sh
