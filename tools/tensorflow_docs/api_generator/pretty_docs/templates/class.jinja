@@ -29,7 +29,7 @@
 {{- self.child_classes() -}}
 {{- self.methods() -}}
 
-{{- builder.build_other_member_section() -}}
+{{- self.other_members() -}}
 
 {{- builder.bottom_compat() -}}
 {% endblock body %}
@@ -63,5 +63,7 @@
 {#----------------------------------------------------------------------------#}
 
 {% block other_members %}
-{{ builder.build_other_member_section() -}}
+{%- if page_info.other_members -%}
+{{ builder.build_other_member_section() }}
+{% endif %}
 {% endblock other_members%}

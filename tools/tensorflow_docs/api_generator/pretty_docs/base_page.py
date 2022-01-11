@@ -229,7 +229,7 @@ def build_other_members(other_members: List[MemberInfo], title: str):
             description='\n'.join(description),
         ))
   return '\n' + parser.TABLE_TEMPLATE.format(
-      title=title, text='', items=''.join(items)) + '\n'
+      title=title, text='', items=''.join(items))
 
 
 DECORATOR_ALLOWLIST = frozenset({

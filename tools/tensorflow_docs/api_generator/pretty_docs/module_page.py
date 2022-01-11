@@ -22,70 +22,21 @@ from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
 
 
-class ModulePageBuilder(base_page.PageBuilder):
+class ModulePageBuilder(base_page.TemplatePageBuilder):
   """Builds a markdown page from a `ModulePageInfo` instance."""
+  TEMPLATE = 'templates/module.jinja'
 
-  def build(self) -> str:
-    """Build the page."""
-    page_info = self.page_info
-    parts = [f'# Module: {page_info.full_name}\n\n']
+  def __init__(self, page_info: 'ModulePageInfo'):
+    super().__init__(page_info)
 
-    parts.append('<!-- Insert buttons and diff -->\n')
-
-    parts.append(base_page.top_source_link(page_info.defined_in))
-    parts.append('\n\n')
-
-    # First line of the docstring i.e. a brief introduction about the symbol.
-    parts.append(page_info.doc.brief + '\n\n')
-
-    parts.append(base_page.build_collapsable_aliases(page_info.aliases))
-
-    parts.append(base_page.build_top_compat(page_info, h_level=2))
-
-    # All lines in the docstring, expect the brief introduction.
-    for item in page_info.doc.docstring_parts:
-      parts.append(base_page.format_docstring(item, table_title_template=None))
-
-    parts.append(base_page.build_bottom_compat(page_info, h_level=2))
-
-    parts.append('\n\n')
-
-    if page_info.modules:
-      parts.append('## Modules\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.modules,
-              template='[`{short_name}`]({url}) module'))
-
-    if page_info.classes:
-      parts.append('## Classes\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.classes,
-              template='[`class {short_name}`]({url})'))
-
-    if page_info.functions:
-      parts.append('## Functions\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.functions,
-              template='[`{short_name}(...)`]({url})'))
-
-    if page_info.type_alias:
-      parts.append('## Type Aliases\n\n')
-      parts.extend(
-          _build_module_parts(
-              module_parts=page_info.type_alias,
-              template='[`{short_name}`]({url})'))
-
-    if page_info.other_members:
-      parts.append(
-          base_page.build_other_members(
-              page_info.other_members,
-              title='<h2 class="add-link">Other Members</h2>',
-          ))
-
-    return ''.join(parts)
+  def build_other_member_section(self):
+    if self.page_info.other_members:
+      return base_page.build_other_members(
+          self.page_info.other_members,
+          title='<h2 class="add-link">Other Members</h2>',
+      )
+    else:
+      return ''
 
 
 class ModulePageInfo(base_page.PageInfo):
