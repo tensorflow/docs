@@ -354,7 +354,7 @@ to compile your op into a dynamic library.
 ```bash
 TF_CFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))') )
 TF_LFLAGS=( $(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))') )
-g++ -std=c++11 -shared zero_out.cc -o zero_out.so -fPIC ${TF_CFLAGS[@]} ${TF_LFLAGS[@]} -O2
+g++ -std=c++14 -shared zero_out.cc -o zero_out.so -fPIC ${TF_CFLAGS[@]} ${TF_LFLAGS[@]} -O2
 ```
 
 On macOS, the additional flag "-undefined dynamic_lookup" is required when
@@ -1285,10 +1285,10 @@ and
 into a single dynamically loadable library:
 
 ```bash
-nvcc -std=c++11 -c -o cuda_op_kernel.cu.o cuda_op_kernel.cu.cc \
+nvcc -std=c++14 -c -o cuda_op_kernel.cu.o cuda_op_kernel.cu.cc \
   ${TF_CFLAGS[@]} -D GOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
 
-g++ -std=c++11 -shared -o cuda_op_kernel.so cuda_op_kernel.cc \
+g++ -std=c++14 -shared -o cuda_op_kernel.so cuda_op_kernel.cc \
   cuda_op_kernel.cu.o ${TF_CFLAGS[@]} -fPIC -lcudart ${TF_LFLAGS[@]}
 ```
 
