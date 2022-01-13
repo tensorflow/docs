@@ -19,8 +19,10 @@ import textwrap
 
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
+from tensorflow_docs.api_generator.pretty_docs import function_page
 
 
 class ParserTest(absltest.TestCase):
@@ -69,6 +71,66 @@ class ParserTest(absltest.TestCase):
 
        """)
     self.assertEqual(expected, table)
+
+  def _get_test_page_builder(self, search_hints):
+
+    def test_function():
+      pass
+
+    page_info = function_page.FunctionPageInfo(
+        full_name='abc', py_object=test_function, search_hints=search_hints)
+    docstring_info = parser.DocstringInfo(
+        brief='hello `tensorflow`',
+        docstring_parts=['line1', 'line2'],
+        compatibility={})
+    page_info.set_doc(docstring_info)
+    page_builder = function_page.FunctionPageBuilder(page_info)
+    return page_builder
+
+  def test_get_headers_global_hints(self):
+    page_builder = self._get_test_page_builder(search_hints=True)
+    result = page_builder.get_devsite_headers()
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+
+      <div itemscope itemtype="http://developers.google.com/ReferenceObject">
+      <meta itemprop="name" content="abc" />
+      <meta itemprop="path" content="Stable" />
+      </div>
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_global_no_hints(self):
+    page_builder = self._get_test_page_builder(search_hints=False)
+    result = page_builder.get_devsite_headers()
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
+
+  def test_get_headers_local_no_hints(self):
+    page_builder = self._get_test_page_builder(search_hints=True)
+    result = page_builder.get_devsite_headers()
+
+    @doc_controls.hide_from_search
+    def py_object():
+      pass
+
+    page_builder.page_info.py_object = py_object
+
+    result = page_builder.get_devsite_headers()
+
+    expected = textwrap.dedent("""\
+      description: hello tensorflow
+      robots: noindex
+      """)
+
+    self.assertEqual(expected, result)
 
 
 if __name__ == "__main__":

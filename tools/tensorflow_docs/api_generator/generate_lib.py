@@ -437,27 +437,6 @@ class GenerateToc(object):
     return {'toc': toc}
 
 
-def _get_headers(page_info: base_page.PageInfo,
-                 search_hints: bool) -> List[str]:
-  """Returns the list of header lines for this page."""
-  hidden = doc_controls.should_hide_from_search(page_info.py_object)
-  brief_no_backticks = page_info.doc.brief.replace('`', '').strip()
-  headers = []
-  if brief_no_backticks:
-    headers.append(f'description: {brief_no_backticks}')
-
-  # It's easier to read if there's a blank line after the `name:value` headers.
-  if search_hints and not hidden:
-    if headers:
-      headers.append('')
-    headers.append(page_info.get_metadata_html())
-  else:
-    headers.append('robots: noindex')
-    headers.append('')
-
-  return headers
-
-
 def write_docs(
     *,
     output_dir: Union[str, pathlib.Path],
@@ -566,9 +545,14 @@ def write_docs(
 
     # Generate docs for `py_object`, resolving references.
     try:
-      page_info = docs_for_object.docs_for_object(full_name, py_object,
-                                                  parser_config, extra_docs,
-                                                  page_builder_classes)
+      page_info = docs_for_object.docs_for_object(
+          full_name=full_name,
+          py_object=py_object,
+          parser_config=parser_config,
+          extra_docs=extra_docs,
+          search_hints=search_hints,
+          page_builder_classes=page_builder_classes)
+
       if gen_report and not full_name.startswith(
           ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
            'tf.experimental.numpy')):
@@ -579,9 +563,8 @@ def write_docs(
 
     path = output_dir / parser.documentation_path(full_name)
 
-    content = _get_headers(page_info, search_hints)
-    content.append(page_info.build())
-    text = '\n'.join(content)
+    text = page_info.build()
+
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
       path.write_text(text, encoding='utf-8')

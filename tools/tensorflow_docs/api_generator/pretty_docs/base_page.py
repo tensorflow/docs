@@ -19,6 +19,7 @@ import textwrap
 from typing import Any, Callable, ClassVar, Dict, List, NamedTuple, Optional, Sequence, Tuple, Type
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import signature as signature_lib
 
@@ -63,6 +64,25 @@ class TemplatePageBuilder(PageBuilder):
   def format_docstring_part(self, part):
     return str(part)
 
+  def get_devsite_headers(self):
+    """Returns the list of header lines for this page."""
+    hidden = doc_controls.should_hide_from_search(self.page_info.py_object)
+    brief_no_backticks = self.page_info.doc.brief.replace('`', '').strip()
+    headers = []
+    if brief_no_backticks:
+      headers.append(f'description: {brief_no_backticks}')
+
+    if self.page_info.search_hints and not hidden:
+      if headers:
+        headers.append('')
+      headers.append(self.page_info.get_metadata_html())
+    else:
+      headers.append('robots: noindex')
+      headers.append('')
+
+    result = '\n'.join(headers)
+    return result
+
 
 class PageInfo:
   """Base-class for api_pages objects.
@@ -85,6 +105,7 @@ class PageInfo:
       full_name: str,
       py_object: Any,
       extra_docs: Optional[Dict[int, str]] = None,
+      search_hints: bool = True,
   ):
     """Initialize a PageInfo.
 
@@ -97,6 +118,7 @@ class PageInfo:
     self.full_name = full_name
     self.py_object = py_object
     self._extra_docs = extra_docs
+    self.search_hints = search_hints
 
     self._defined_in = None
     self._aliases = None

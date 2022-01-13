@@ -40,10 +40,12 @@ PageBuilderDict = Dict[obj_type_lib.ObjType, Type[base_page.PageInfo]]
 
 
 def docs_for_object(
+    *,
     full_name: str,
     py_object: Any,
     parser_config: config.ParserConfig,
     extra_docs: Optional[Dict[int, str]] = None,
+    search_hints: bool = True,
     page_builder_classes: Optional[PageBuilderDict] = None,
 ) -> base_page.PageInfo:
   """Return a PageInfo object describing a given object from the TF API.
@@ -85,7 +87,10 @@ def docs_for_object(
     page_info_class = page_builder_classes[obj_type]
 
   page_info = page_info_class(
-      full_name=main_name, py_object=py_object, extra_docs=extra_docs)
+      full_name=main_name,
+      py_object=py_object,
+      search_hints=search_hints,
+      extra_docs=extra_docs)
 
   relative_path = os.path.relpath(
       path='.',
