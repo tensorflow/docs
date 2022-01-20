@@ -43,7 +43,7 @@ title={ {TensorFlow}: Large-Scale Machine Learning on Heterogeneous Systems},
 url={https://www.tensorflow.org/},
 note={Software available from tensorflow.org},
 author={
-    Mart\'{\i}n~Abadi and
+    Mart\'{i}n~Abadi and
     Ashish~Agarwal and
     Paul~Barham and
     Eugene~Brevdo and
