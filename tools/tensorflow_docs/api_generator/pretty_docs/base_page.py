@@ -25,11 +25,6 @@ from tensorflow_docs.api_generator import signature as signature_lib
 
 import jinja2
 
-JINJA_ENV = jinja2.Environment(
-    trim_blocks=True,
-    lstrip_blocks=True,
-    loader=jinja2.FileSystemLoader(str(pathlib.Path(__file__).parent)))
-
 
 class PageBuilder(abc.ABC):
 
@@ -42,10 +37,17 @@ class PageBuilder(abc.ABC):
 
 
 class TemplatePageBuilder(PageBuilder):
+  """A Page builder implemented on a jinja template."""
+
   TEMPLATE = 'templates/page.jinja'
+  TEMPLATE_SEARCH_PATH = tuple([str(pathlib.Path(__file__).parent)])
+  JINJA_ENV = jinja2.Environment(
+      trim_blocks=True,
+      lstrip_blocks=True,
+      loader=jinja2.FileSystemLoader(TEMPLATE_SEARCH_PATH))
 
   def build(self) -> str:
-    template = JINJA_ENV.get_template(self.TEMPLATE)
+    template = self.JINJA_ENV.get_template(self.TEMPLATE)
     content = template.render(builder=self, page_info=self.page_info)
     return content
 
