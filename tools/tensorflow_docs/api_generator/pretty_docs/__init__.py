@@ -13,3 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
+
+from tensorflow_docs.api_generator.pretty_docs.base_page import PageBuilder
+from tensorflow_docs.api_generator.pretty_docs.base_page import PageInfo
+from tensorflow_docs.api_generator.pretty_docs.base_page import TemplatePageBuilder
+
+from tensorflow_docs.api_generator.pretty_docs.class_page import ClassPageBuilder
+from tensorflow_docs.api_generator.pretty_docs.class_page import ClassPageInfo
+
+from tensorflow_docs.api_generator.pretty_docs.function_page import FunctionPageBuilder
+from tensorflow_docs.api_generator.pretty_docs.function_page import FunctionPageInfo
+
+from tensorflow_docs.api_generator.pretty_docs.module_page import ModulePageBuilder
+from tensorflow_docs.api_generator.pretty_docs.module_page import ModulePageInfo
+
+from tensorflow_docs.api_generator.pretty_docs.type_alias_page import TypeAliasPageBuilder
+from tensorflow_docs.api_generator.pretty_docs.type_alias_page import TypeAliasPageInfo
