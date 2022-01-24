@@ -13,10 +13,10 @@ question on Stack Overflow with the `tensorflow` tag.
 <tr><th>GitHub issue or Stack&nbsp;Overflow</th> <th>Error Message</th></tr>
   <tr><td><a href="https://stackoverflow.com/q/38896424">38896424</a>
           <a href=https://github.com/tensorflow/tensorflow/issues/31058>31058</a></td>
-    <td>"No matching distribution found for tensorflow": 
+    <td>"No matching distribution found for tensorflow":
       Pip can't find a TensorFlow package compatible with your system. Check the
       <a href="https://tensorflow.org/install">system requirements and
-        python version</a>
+        Python version</a>
     </td>
   </tr>
 <tr>
@@ -43,12 +43,12 @@ unzip: cannot find zipfile directory in one of ./bazel-bin/tensorflow/tools/pip_
   No such file or directory</pre></td>
 </tr>
 <tr>
-  <td><a href="http://stackoverflow.com/q/36371137">36371137</a> and
-  <a href="#Protobuf31">here</a></td>
+  <td><a href="http://stackoverflow.com/q/36371137">36371137</a></td>
   <td><pre>libprotobuf ERROR google/protobuf/src/google/protobuf/io/coded_stream.cc:207] A
   protocol message was rejected because it was too big (more than 67108864 bytes).
   To increase the limit (or to disable these warnings), see
-  CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.</pre></td>
+  <a href="https://github.com/protocolbuffers/protobuf/blob/4ffb31e90681ca06bfeca92a6068206ab78959ec/src/google/protobuf/io/coded_stream.h#L389-L406">
+CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.</a></pre></td>
 </tr>
 <tr>
   <td><a href="https://stackoverflow.com/q/35252888">35252888</a></td>
