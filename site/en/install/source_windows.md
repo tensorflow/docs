@@ -154,6 +154,8 @@ this configuration step must be run again before building.
 Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
 run on older CPUs.
 
+Warning: TF-TRT Windows support is provided experimentally. No guarantee is made
+regarding functionality or engineering support. Use at your own risk.
 
 ## Build the pip package
 
