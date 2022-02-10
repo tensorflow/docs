@@ -19,6 +19,7 @@ import dataclasses
 import enum
 import inspect
 import os
+import pathlib
 import posixpath
 import pprint
 import re
@@ -601,26 +602,25 @@ def get_defined_in(
   base_dirs_and_prefixes = zip(parser_config.base_dir,
                                parser_config.code_url_prefix)
   try:
-    obj_path = inspect.getfile(_unwrap_obj(py_object))
+    obj_path = pathlib.Path(inspect.getfile(_unwrap_obj(py_object)))
   except TypeError:  # getfile throws TypeError if py_object is a builtin.
     return None
 
-  if not obj_path.endswith(('.py', '.pyc')):
+  if obj_path.suffix not in ('.py', '.pyc'):
     return None
 
   code_url_prefix = None
   for base_dir, temp_prefix in base_dirs_and_prefixes:
-    rel_path = os.path.relpath(path=obj_path, start=base_dir)
-    # A leading ".." indicates that the file is not inside `base_dir`, and
-    # the search should continue.
-    if rel_path.startswith('..'):
+    try:
+      rel_path = obj_path.relative_to(base_dir)
+    except ValueError:
       continue
-    else:
-      code_url_prefix = temp_prefix
-      # rel_path is currently a platform-specific path, so we need to convert
-      # it to a posix path (for lack of a URL path).
-      rel_path = posixpath.join(*rel_path.split(os.path.sep))
-      break
+
+    code_url_prefix = temp_prefix
+    # rel_path is currently a platform-specific path, so we need to convert
+    # it to a posix path (for lack of a URL path).
+    posix_rel_path_str = str(pathlib.PurePosixPath(rel_path))
+    break
 
   # No link if the file was not found in a `base_dir`, or the prefix is None.
   if code_url_prefix is None:
@@ -637,30 +637,31 @@ def get_defined_in(
     end_line = None
 
   # In case this is compiled, point to the original
-  if rel_path.endswith('.pyc'):
+  if posix_rel_path_str.endswith('.pyc'):
     # If a PY3 __pycache__/ subdir is being used, omit it.
-    rel_path = rel_path.replace('__pycache__' + os.sep, '')
+    posix_rel_path_str = posix_rel_path_str.replace('__pycache__/', '')
     # Strip everything after the first . so that variants such as .pyc and
     # .cpython-3x.pyc or similar are all handled.
-    rel_path = rel_path.partition('.')[0] + '.py'
+    posix_rel_path_str = posix_rel_path_str.partition('.')[0] + '.py'
 
-  if re.search(r'<[\w\s]+>', rel_path):
+  if re.search(r'<[\w\s]+>', posix_rel_path_str):
     # Built-ins emit paths like <embedded stdlib>, <string>, etc.
     return None
-  if '<attrs generated' in rel_path:
+  if '<attrs generated' in posix_rel_path_str:
     return None
 
-  if re.match(r'.*/gen_[^/]*\.py$', rel_path):
+  if re.match(r'.*/gen_[^/]*\.py$', posix_rel_path_str):
     return FileLocation()
-  if 'genfiles' in rel_path:
+  if 'genfiles' in posix_rel_path_str:
     return FileLocation()
-  elif re.match(r'.*_pb2\.py$', rel_path):
+  elif posix_rel_path_str.endswith('_pb2.py'):
     # The _pb2.py files all appear right next to their defining .proto file.
-    rel_path = rel_path[:-7] + '.proto'
-    return FileLocation(base_url=posixpath.join(code_url_prefix, rel_path))
+    posix_rel_path_str = posix_rel_path_str[:-7] + '.proto'
+    return FileLocation(
+        base_url=posixpath.join(code_url_prefix, posix_rel_path_str))
   else:
     return FileLocation(
-        base_url=posixpath.join(code_url_prefix, rel_path),
+        base_url=posixpath.join(code_url_prefix, posix_rel_path_str),
         start_line=start_line,
         end_line=end_line)
 
