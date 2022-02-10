@@ -16,9 +16,10 @@
 """A `traverse` visitor for processing documentation."""
 
 import collections
+import dataclasses
 import inspect
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Mapping, Tuple
 
 ApiPath = Tuple[str, ...]
 
@@ -48,25 +49,32 @@ def maybe_singleton(py_object: Any) -> bool:
   return is_immutable_type or (isinstance(py_object, tuple) and py_object == ())  # pylint: disable=g-explicit-bool-comparison
 
 
-class ApiTreeNode(object):
-  """Represents a single API end-point.
+@dataclasses.dataclass
+class PathTreeNode(object):
+  """Represents a path to an object in the API, an object can have many paths.
 
   Attributes:
     path: A tuple of strings containing the path to the object from the root
       like `('tf', 'losses', 'hinge')`
-    obj: The python object.
-    children: A dictionary from short name to `ApiTreeNode`, including the
-      children nodes.
-    parent: The parent node.
+    py_object: The python object.
+    children: A dictionary from short name to `PathTreeNode`, of this node's
+      children.
+    parent: This node's parent. This is a tree, there can only be one.
     short_name: The last path component
     full_name: All path components joined with "."
   """
+  path: ApiPath
+  py_object: Any
+  parent: Optional['PathTreeNode']
+  children: Dict[str, 'PathTreeNode'] = dataclasses.field(default_factory=dict)
 
-  def __init__(self, path: ApiPath, obj: Any, parent: Optional['ApiTreeNode']):
-    self.path = path
-    self.py_object = obj
-    self.children: Dict[str, 'ApiTreeNode'] = {}
-    self.parent = parent
+  def __hash__(self):
+    return id(self)
+
+  def __repr__(self):
+    return f'{type(self).__name__}({self.full_name})'
+
+  __str__ = __repr__
 
   @property
   def short_name(self) -> str:
@@ -77,24 +85,42 @@ class ApiTreeNode(object):
     return '.'.join(self.path)
 
 
-class ApiTree(object):
-  """Represents all api end-points as a tree.
+class PathTree(Mapping[ApiPath, PathTreeNode]):
+  """An index/tree of all object-paths in the API.
 
   Items must be inserted in order, from root to leaf.
 
+  Acts as a Dict[ApiPath, PathTreeNode].
+
   Attributes:
-    index: A dict, mapping from path tuples to `ApiTreeNode`.
-    aliases: A dict, mapping from object ids to a list of all `ApiTreeNode` that
-      refer to the object.
-    root: The root `ApiTreeNode`
+    root: The root `PathTreeNode`
   """
 
   def __init__(self):
-    root = ApiTreeNode(path=(), obj=None, parent=None)
-    self.index: Dict[ApiPath, ApiTreeNode] = {(): root}
-    self.aliases: Dict[ApiPath,
-                       List[ApiTreeNode]] = collections.defaultdict(list)
-    self.root: ApiTreeNode = root
+    root = PathTreeNode(path=(), py_object=None, parent=None)
+    self._index: Dict[ApiPath, PathTreeNode] = {(): root}
+
+    self.root: PathTreeNode = root
+    self._nodes_for_id: Dict[int, List[PathTreeNode]] = (
+        collections.defaultdict(list))
+
+  def keys(self):
+    """Returns the paths currently contained in the tree."""
+    return self._index.keys()
+
+  def __iter__(self):
+    return iter(self._index)
+
+  def __len__(self):
+    return len(self._index)
+
+  def values(self):
+    """Returns the path-nodes for each node currently in the tree."""
+    return self._index.values()
+
+  def items(self):
+    """Returns the (path, node) pairs for each node currently in the tree."""
+    return self._index.items()
 
   def __contains__(self, path: ApiPath) -> bool:
     """Returns `True` if path exists in the tree.
@@ -105,21 +131,24 @@ class ApiTree(object):
     Returns:
       True if `path` exists in the tree.
     """
-    return path in self.index
+    return path in self._index
 
-  def __getitem__(self, path: ApiPath) -> ApiTreeNode:
+  def __getitem__(self, path: ApiPath) -> PathTreeNode:
     """Fetch an item from the tree.
 
     Args:
       path: A tuple of strings, the api path to the object.
 
     Returns:
-      An `ApiTreeNode`.
+      A `PathTreeNode`.
 
     Raises:
       KeyError: If no node can be found at that path.
     """
-    return self.index[path]
+    return self._index[path]
+
+  def get(self, path: ApiPath, default=None):
+    return self._index.get(path, default)
 
   def __setitem__(self, path: ApiPath, obj: Any):
     """Add an object to the tree.
@@ -129,17 +158,20 @@ class ApiTree(object):
       obj: The python object.
     """
     parent_path = path[:-1]
-    parent = self.index[parent_path]
+    parent = self._index[parent_path]
 
-    node = ApiTreeNode(path=path, obj=obj, parent=parent)
+    node = PathTreeNode(path=path, py_object=obj, parent=parent)
 
-    self.index[path] = node
+    self._index[path] = node
     if not maybe_singleton(obj):
       # We cannot use the duplicate mechanism for some constants, since e.g.,
       # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
       # have no usable docstring and won't be documented automatically.
-      self.aliases[id(obj)].append(node)  # pytype: disable=unsupported-operands  # attribute-variable-annotations
+      self.nodes_for_obj(obj).append(node)
     parent.children[node.short_name] = node
+
+  def nodes_for_obj(self, py_object) -> List[PathTreeNode]:
+    return self._nodes_for_id[id(py_object)]
 
 
 class DocGeneratorVisitor(object):
@@ -174,7 +206,7 @@ class DocGeneratorVisitor(object):
     self._duplicates: Dict[str, List[str]] = None
     self._duplicate_of: Dict[str, str] = None
 
-    self._api_tree = ApiTree()
+    self._path_tree = PathTree()
 
   @property
   def index(self):
@@ -270,15 +302,16 @@ class DocGeneratorVisitor(object):
     parent_name = '.'.join(parent_path)
     self._index[parent_name] = parent
     self._tree[parent_name] = []
-    if parent_path not in self._api_tree:
-      self._api_tree[parent_path] = parent
+    if parent_path not in self._path_tree:
+      self._path_tree[parent_path] = parent
 
     if not (inspect.ismodule(parent) or inspect.isclass(parent)):
-      raise RuntimeError('Unexpected type in visitor -- '
-                         f'{parent_name}: {parent!r}')
+      raise TypeError('Unexpected type in visitor -- '
+                      f'{parent_name}: {parent!r}')
 
     for name, child in children:
-      self._api_tree[parent_path + (name,)] = child
+      child_path = parent_path + (name,)
+      self._path_tree[child_path] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
@@ -379,7 +412,7 @@ class DocGeneratorVisitor(object):
     # symbol (incl. itself).
     duplicates = {}
 
-    for path, node in self._api_tree.index.items():
+    for path, node in self._path_tree.items():
       if not path:
         continue
       full_name = node.full_name
@@ -388,7 +421,8 @@ class DocGeneratorVisitor(object):
       if full_name in duplicates:
         continue
 
-      aliases = self._api_tree.aliases[object_id]
+      aliases = self._path_tree.nodes_for_obj(py_object)
+      # maybe_singleton types can't be looked up by object.
       if not aliases:
         aliases = [node]
 

@@ -68,7 +68,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
 
   def test_call_raises(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
-    with self.assertRaises(RuntimeError):
+    with self.assertRaises(TypeError):
       visitor(('non_class_or_module',), 'non_class_or_module_object', [])
 
   def test_duplicates_module_class_depth(self):
@@ -255,13 +255,13 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     }, visitor.reverse_index)
 
 
-class ApiTreeTest(absltest.TestCase):
+class PathTreeTest(absltest.TestCase):
 
   def test_contains(self):
     tf = argparse.Namespace()
     tf.sub = argparse.Namespace()
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
 
@@ -273,7 +273,7 @@ class ApiTreeTest(absltest.TestCase):
     tf.sub = argparse.Namespace()
     tf.sub.object = object()
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.object
@@ -292,7 +292,7 @@ class ApiTreeTest(absltest.TestCase):
     tf.sub2 = argparse.Namespace()
     tf.sub2.thing = tf.sub.thing
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.thing
@@ -300,7 +300,7 @@ class ApiTreeTest(absltest.TestCase):
     tree[('tf', 'sub2', 'thing')] = tf.sub2.thing
 
     self.assertCountEqual(
-        tree.aliases[id(tf.sub.thing)],
+        tree.nodes_for_obj(tf.sub.thing),
         [tree[('tf', 'sub', 'thing')], tree[('tf', 'sub2', 'thing')]])
 
   def test_duplicate_singleton(self):
@@ -310,14 +310,14 @@ class ApiTreeTest(absltest.TestCase):
     tf.sub2 = argparse.Namespace()
     tf.sub2.thing = tf.sub.thing
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.thing
     tree[('tf', 'sub2')] = tf.sub2
     tree[('tf', 'sub2', 'thing')] = tf.sub2.thing
 
-    self.assertEmpty(tree.aliases[tf.sub.thing], [])
+    self.assertEmpty(tree.nodes_for_obj(tf.sub.thing), [])
 
 
 if __name__ == '__main__':
