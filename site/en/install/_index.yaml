@@ -28,6 +28,9 @@ landing_page:
             <ul>
               <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
             </ul>
+            <ul>
+              <li>WSL2 via Windows 10 19044 or higher including GPUs (Experimental)</li>
+            </ul>
           </td></tr>
         </table>
 
