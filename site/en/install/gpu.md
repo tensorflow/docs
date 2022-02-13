@@ -186,3 +186,12 @@ environmental variable. For example, if the CUDA® Toolkit is installed to
 <code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0\include;%PATH%</code>
 <code class="devsite-terminal tfo-terminal-windows">SET PATH=C:\tools\cuda\bin;%PATH%</code>
 </pre>
+
+## WSL2 setup
+
+Experimental support for WSL2 on Windows 10 19044 or higher with GPU access is now available. This corresponds to the most recent update of Windows 10 (aka version 21H2/November 2021 Update). You can get the latest update from here: [Download Windows 10](https://www.microsoft.com/en-us/software-download/windows10).
+
+For instructions, please see [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html) for CUDA in WSL.
+
+
+
