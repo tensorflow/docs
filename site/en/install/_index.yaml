@@ -20,15 +20,13 @@ landing_page:
         <table class="columns">
           <tr><td>
             <ul>
-              <li>Python 3.7–3.9</li>
+              <li>Python 3.7–3.10</li>
               <li>Ubuntu 16.04 or later</li>
               <li>Windows 7 or later (with <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads">C++ redistributable</a>)</li>
             </ul>
           </td><td>
             <ul>
               <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
-            </ul>
-            <ul>
               <li>WSL2 via Windows 10 19044 or higher including GPUs (Experimental)</li>
             </ul>
           </td></tr>
