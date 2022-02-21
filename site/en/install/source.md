@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel</code>
+<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
