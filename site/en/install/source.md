@@ -4,8 +4,8 @@ Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
 macOS. While the instructions might work for other systems, it is only tested
 and supported for Ubuntu and macOS.
 
-Note: We already provide well-tested, pre-built
-[TensorFlow packages](./pip.html) for Linux and macOS systems.
+Note: Well-tested, pre-built
+[TensorFlow packages](./pip.html) for Linux and macOS systems are already provided.
 
 ## Setup for Linux and macOS
 
