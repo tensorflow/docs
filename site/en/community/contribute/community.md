@@ -22,7 +22,7 @@ For more information on Discourse features, read the [Discourse New User Guide](
 
 Discourse uses [trust levels](https://blog.discourse.org/2018/06/understanding-discourse-trust-levels/) to reward increasing levels of participation in the forum. The Forum facilitates learning by doing, letting you to collect [badges](https://discuss.tensorflow.org/badges) that are displayed on your profile. This is a great way to be recognized for helping fellow community members. The more you invest in helping community members, the more badges and forum tools you will unlock.
 
-Certain groups, such as TensorFlow Team members and Machine Learning GDEs display a special icon for easier identification.
+Certain groups, such as TensorFlow Team members and Machine Learning GDEs, display a special icon for easier identification.
 
 ## Communication
 
