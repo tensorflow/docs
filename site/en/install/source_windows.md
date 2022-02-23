@@ -20,7 +20,7 @@ variable.
 Install the TensorFlow *pip* package dependencies:
 
 <pre class="devsite-click-to-copy">
-<code class="devsite-terminal tfo-terminal-windows">pip3 install -U six numpy wheel</code>
+<code class="devsite-terminal tfo-terminal-windows">pip3 install -U six numpy wheel packaging</code>
 <code class="devsite-terminal tfo-terminal-windows">pip3 install -U keras_preprocessing --no-deps</code>
 </pre>
 

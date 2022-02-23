@@ -4,8 +4,8 @@ Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
 macOS. While the instructions might work for other systems, it is only tested
 and supported for Ubuntu and macOS.
 
-Note: We already provide well-tested, pre-built
-[TensorFlow packages](./pip.html) for Linux and macOS systems.
+Note: Well-tested, pre-built
+[TensorFlow packages](./pip.html) for Linux and macOS systems are already provided.
 
 ## Setup for Linux and macOS
 
@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel</code>
+<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
