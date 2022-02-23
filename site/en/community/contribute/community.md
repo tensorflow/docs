@@ -34,7 +34,7 @@ The primary communication about work on TensorFlow happens in the [TensorFlow re
 
 ### Mailing lists
 
-Most communication happens on the TensorFlow Forum, however the following mailing lists are still used for announcements and contributor conversation. They are not intended to provide technical support.
+Most communication happens on the TensorFlow Forum. The following mailing lists are still used for announcements and contributor conversations. Note that they are not intended to provide technical support.
 
 *   [announce@tensorflow.org](mailto:announce@tensorflow.org) — All major releases and important announcements are sent to this mailing group. We recommend that you join this list if you depend on TensorFlow in any way.
 *   [developers@tensorflow.org](mailto:developers@tensorflow.org) — Discussion for developers who are contributing to TensorFlow.
