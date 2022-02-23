@@ -41,7 +41,7 @@ Most communication happens on the TensorFlow Forum, however the following mailin
 
 ### Blog and social media
 
-The [TensorFlow Blog](http://blog.tensorflow.org/) is full of great content both from our team at Google and the broader community. We'd love to hear what you have to say, so if you would like to submit an article for review, please contact the TensorFlow Developer Relations team.
+The [TensorFlow Blog](http://blog.tensorflow.org/) is full of great content both from our team at Google and the broader community. We'd love to hear what you have to say, so if you would like to submit an article for review, please contact us at tensorflow-blog@google.com. Note that we receive many great submissions, and setting expectations, we can only publish a few.
 
 On [Twitter](https://twitter.com/tensorflow) we share the latest and greatest from our community, and our [YouTube channel](https://www.youtube.com/tensorflow) has free educational content to help you create, understand and deploy models for a variety of applications.
 
