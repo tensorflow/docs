@@ -60,9 +60,3 @@ Follow the [#TFCommunitySpotlight](https://twitter.com/hashtag/TFCommunitySpotli
 The TensorFlow team hosts and supports events all around the world! If your TFUG is planning an upcoming event or meetup, please let our Community know by posting about it on the TensorFlow Forum under the [Events category](https://discuss.tensorflow.org/c/events/27).
 
 If you’ve already held your event, please share feedback with us [here](https://docs.google.com/forms/d/e/1FAIpQLSdvb8c2ZFXxS05aX6dpUVZlfYA0WsFFq-sUAzjiohVKAQ1RLw/viewform)! Feel free to share recaps and recordings on the Forum as well.
-
-## TensorFlow Certificate program
-
-Demonstrate your proficiency in solving deep learning and ML problems by passing the TensorFlow Developer Certificate exam. You can share your achievement on social networks and connect with [developers who have received the Certificate](https://www.tensorflow.org/certificate-network).
-
-Stipends are available. [Learn more](https://www.tensorflow.org/certificate) about the TensorFlow Certificate program.
