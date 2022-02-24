@@ -63,6 +63,6 @@ If you’ve already held your event, please share feedback with us [here](https:
 
 ## TensorFlow Certificate program
 
-Demonstrate your proficiency in using TensorFlow to solve deep learning and ML problems. Advance your career and connect with developers who also have passed the exam on the [Certificate Network](https://www.tensorflow.org/certificate-network).
+Demonstrate your proficiency in solving deep learning and ML problems by passing the TensorFlow Developer Certificate exam. You can share your achievement on social networks and connect with [developers who have received the Certificate](https://www.tensorflow.org/certificate-network).
 
-Stipends are available. See [more information](https://www.tensorflow.org/certificate) on the TensorFlow Certificate program.
+Stipends are available. [Learn more](https://www.tensorflow.org/certificate) about the TensorFlow Certificate program.
