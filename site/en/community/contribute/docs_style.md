@@ -48,35 +48,65 @@ language after the first backtick group, for example:
 &#96;&#96;&#96;
 </code></pre>
 
-### Links in Markdown and Notebooks
+### Links in Markdown and notebooks
 
 #### Links between files in a repository
 
-Use relative links between files in a single repository. Include the file
+Use relative links between files in a single GitHub repository. Include the file
 extension.
+
+For example, **this file you're reading** is from the
+[https://github.com/tensorflow/docs](https://github.com/tensorflow/docs)
+repository. Therefore, it can use relative paths to link to other files in the same
+repository like this:
+
+* <code>\[Basics\]\(../../guide/basics.ipynb\)</code> produces
+[Basics](../../guide/basics.ipynb).
 
 This is the prefered approach because this way the links on
 [tensorflow.org](https://www.tensorflow.org),
-[GitHub](https://github.com/tensorflow/docs/tree/master/site/en) and
-[Colab](https://github.com/tensorflow/docs/tree/master/site/en) and the reader
-stays in the same site when they click a link:
+[GitHub](https://github.com/tensorflow/docs){:.external} and
+[Colab](https://github.com/tensorflow/docs/tree/master/site/en/guide/bazics.ipynb){:.external}
+all work. Also, the reader stays in the same site when they click a link.
 
-<code>\[Custom layers\]\(../../guide/basics.ipynb\)</code> produces
-[Custom layers](../../guide/basics.ipynb).
+Note: You should include the file extension—such as `.ipynb` or `.md`—for
+relative links. It will rendered on `tensorflow.org` without an extension.
 
-Note: You should include the file extension for relative links. It will be
-rendered on `tensorflow.org` without an extension.
+#### External links
+
+For links to files that are not in the current repository, use standard Markdown
+links with the full URI. Prefer to link to the
+[tensorflow.org](https://www.tensorflow.org) URI if it's available.
+
+To link to source code, use a link starting with
+<var>https://www.github.com/tensorflow/tensorflow/blob/master/</var>, followed
+by the file name starting at the GitHub root.
+
+When linking off of [tensorflow.org](https://www.tensorflow.org), include a
+`{:.external}` on the Markdown link so that the "external link" symbol is shown.
+
+* `[GitHub](https://github.com/tensorflow/docs){:.external}` produces
+  [GitHub](https://github.com/tensorflow/docs){:.external}
+
+Do not include URI query parameters in the link:
+
+* Use: `https://www.tensorflow.org/guide/data`
+* Not: `https://www.tensorflow.org/guide/data?hl=en`
+
 
 #### Images
 
-Generally, you should not check in images, and instead submit them to the
-TensorFlow-Docs team be hosted on [tensorflow.org](https://www.tensorflow.org).
-This helps keep the size for your repository down.
+The advice in the previous section is for links to pages. Images are handled
+differently.
 
-If you do submit images to your repository, note that the advice in the previous
-section about relative links does not apply. Some systems do not handle
-the relative paths to images. Prefer to use a full URL pointing to the image's
-location on [tensorflow.org](https://www.tensorflow.org).
+Generally, you should not check in images, and instead add the
+[TensorFlow-Docs team](https://github.com/tensorflow/docs) to your PR, and ask
+them to host the images on [tensorflow.org](https://www.tensorflow.org).
+This helps keep the size of your repository down.
+
+If you do submit images to your repository, note that some systems do not handle
+relative paths to images. Prefer to use a full URL pointing to the image's
+eventual location on [tensorflow.org](https://www.tensorflow.org).
 
 #### Links to API documentation
 
@@ -93,37 +123,18 @@ be converted to links if:
 *   There is at least one `.` in the path, and
 *   The partial path is unique within the project.
 
-API paths are linked **for every project** with a python API published on
+API paths are linked **for every project** with a Python API published on
 [tensorflow.org](https://www.tensorflow.org). You can easily link to multiple
-subprojects from a single file:
+subprojects from a single file by wrapping the API names with backticks.
+For example:
 
 *   <code>&#96;tf.metrics&#96;</code>, <code>&#96;tf_agents.metrics&#96;</code>,
     <code>&#96;text.metrics&#96;</code> produces: `tf.metrics`,
     `tf_agents.metrics`, `text.metrics`.
 
 For symbols with multiple path aliases there is a slight preference for the
-path that matches the API-page on [tensorflow.org](https://www.tensorflow.org)
-but alias will redirect to the correct page.
-
-For the C++ API, use the namespace path:
-
-*   `tensorflow::Tensor` produces
-    [tensorflow::Tensor](https://www.tensorflow.org/api_docs/cc/class/tensorflow/tensor)
-
-#### External links
-
-For links to files that are not in the current repository, use standard Markdown
-links with the full URI. Prefer to link to the
-[tensorflow.org](https://www.tensorflow.org) URI if it's available.
-
-To link to source code, use a link starting with
-<var>https://www.github.com/tensorflow/tensorflow/blob/master/</var>, followed
-by the file name starting at the GitHub root.
-
-When linking off of [tensorflow.org](https://www.tensorflow.org) include a
-`{:.external}` on the Markdown link so that the "external link" symbol is shown.
-
-Do not include URI query parameters in the link.
+path that matches the API-page on [tensorflow.org](https://www.tensorflow.org).
+All aliases will redirect to the correct page.
 
 
 ### Math in Markdown
