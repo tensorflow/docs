@@ -82,7 +82,7 @@ SIG TensorBoard maintains a suite of web applications for inspecting and underst
 
 ## SIG TF.js
 
-SIG TF.js facilitates community-contributed components to TensorFlow.js and offers project support through the SIG.
+SIG TF.js facilitates community-contributed components to [TensorFlow.js](https://www.tensorflow.org/js) and offers project support through the SIG.
 
 <a class="button button-primary" href="https://github.com/tensorflow/tfjs">TensorFlow.js on GitHub</a> <a class="button" href="https://github.com/tensorflow/tfjs/blob/master/CONTRIBUTING.md">Contributing</a> <a class="button" href="https://discuss.tensorflow.org/c/special-interest-groups/tfjs/">Discuss on the Forum</a>
 
