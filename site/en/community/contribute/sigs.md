@@ -64,7 +64,7 @@ SIG Networking maintains the TensorFlow Networking repository for platform-speci
 
 ## SIG Recommenders
 
-SIG Recommenders maintains a collection of projects related to large-scale recommendation systems built upon TensorFlow contributed and maintained by the community. Those contributions are complementary to TensorFlow Core and TensorFlow Recommenders.
+SIG Recommenders maintains a collection of projects related to large-scale recommendation systems built upon TensorFlow contributed and maintained by the community. Those contributions are complementary to [TensorFlow Core](https://www.tensorflow.org/overview) and [TensorFlow Recommenders](https://www.tensorflow.org/recommenders).
 
 <a class="button button-primary" href="https://github.com/tensorflow/recommenders-addons">SIG Recommenders on GitHub</a> <a class="button" href="https://github.com/tensorflow/recommenders-addons/blob/master/CONTRIBUTING.md/">Contributing</a> <a class="button" href="https://discuss.tensorflow.org/c/special-interest-groups/recommenders">Discuss on the Forum</a>
 
