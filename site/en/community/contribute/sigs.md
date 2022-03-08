@@ -76,7 +76,7 @@ SIG Rust maintains idiomatic Rust language bindings for TensorFlow.
 
 ## SIG TensorBoard
 
-SIG TensorBoard maintains a suite of web applications for inspecting and understanding TensorFlow runs and graphs.
+SIG [TensorBoard](https://www.tensorflow.org/tensorboard) maintains a suite of web applications for inspecting and understanding TensorFlow runs and graphs.
 
 <a class="button button-primary" href="https://github.com/tensorflow/tensorboard/blob/master/CONTRIBUTING.md">SIG TensorBoard on GitHub</a> <a class="button" href="https://github.com/tensorflow/tensorboard/blob/master/CONTRIBUTING.md">Contributing</a> <a class="button" href="https://discuss.tensorflow.org/c/special-interest-groups/tensorboard/">Discuss on the Forum</a>
 
