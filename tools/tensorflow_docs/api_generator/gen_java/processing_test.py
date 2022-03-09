@@ -128,6 +128,54 @@ class ProcessingTest(absltest.TestCase):
     }
     self.assertDictEqual(actual_toc, expected_toc)
 
+  def test_nesting_toc(self):
+    toc_in = {
+        'toc': [{
+            'title': 'tf_lite.support',
+            'path': '/tflite/support.html',
+        }, {
+            'title': 'tf_lite.support.cls',
+            'path': '/tflite/support/cls.html',
+        }, {
+            'title': 'tf_lite.task.things',
+            'path': '/tflite/task/things.html',
+        }, {
+            'title': 'tf_other.widgets',
+            'path': '/tfother/widgets.html',
+        }]
+    }
+    actual_toc = processing.nest_toc(toc_in)
+    expected_toc = {
+        'toc': [{
+            'title':
+                'tf_lite',
+            'section': [{
+                'title':
+                    'support',
+                'path':
+                    '/tflite/support.html',
+                'section': [{
+                    'title': 'cls',
+                    'path': '/tflite/support/cls.html'
+                }]
+            }, {
+                'title':
+                    'task',
+                'section': [{
+                    'title': 'things',
+                    'path': '/tflite/task/things.html'
+                }]
+            }]
+        }, {
+            'title': 'tf_other',
+            'section': [{
+                'title': 'widgets',
+                'path': '/tfother/widgets.html'
+            }]
+        }]
+    }
+    self.assertEqual(actual_toc['toc'], expected_toc['toc'])
+
   def test_ordering(self):
     toc_in = {
         'toc': [
