@@ -17,7 +17,7 @@
 
 from absl.testing import absltest
 
-from tensorflow_docs.api_generator.gen_java import processing
+from tensorflow_docs.api_generator import toc_processing
 
 
 class ProcessingTest(absltest.TestCase):
@@ -55,7 +55,7 @@ class ProcessingTest(absltest.TestCase):
         'org.tf': 'RootLabel',
         'org.tf.foo': 'FooPackage',
     }
-    actual_toc = processing.add_package_headings(toc_in, ['org.tf'], labels)
+    actual_toc = toc_processing.add_package_headings(toc_in, ['org.tf'], labels)
     expected_toc = {
         'toc': [
             {
@@ -109,7 +109,7 @@ class ProcessingTest(absltest.TestCase):
         }]
     }
     roots = ['org.tf', 'com.google']
-    actual_toc = processing.add_package_headings(toc_in, roots, {})
+    actual_toc = toc_processing.add_package_headings(toc_in, roots, {})
     expected_toc = {
         'toc': [
             {
@@ -144,7 +144,7 @@ class ProcessingTest(absltest.TestCase):
             'path': '/tfother/widgets.html',
         }]
     }
-    actual_toc = processing.nest_toc(toc_in)
+    actual_toc = toc_processing.nest_toc(toc_in)
     expected_toc = {
         'toc': [{
             'title':
@@ -194,7 +194,7 @@ class ProcessingTest(absltest.TestCase):
         ]
     }
     labels = ['org.tf.b', 'com.google.c', 'org.tf']
-    actual_toc = processing.sort_toc(toc_in, labels)
+    actual_toc = toc_processing.sort_toc(toc_in, labels)
     expected_toc = {
         'toc': [
             {

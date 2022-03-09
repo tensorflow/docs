@@ -20,7 +20,7 @@ import pathlib
 import subprocess
 from typing import Iterable, Mapping, Optional, Union
 
-from tensorflow_docs.api_generator.gen_java import processing
+from tensorflow_docs.api_generator import toc_processing
 
 import yaml
 
@@ -78,7 +78,7 @@ def gen_java_docs(
   yaml_content = yaml_path.read_text()
   yaml_data = yaml.safe_load(yaml_content)
   if section_labels:
-    yaml_data = processing.add_package_headings(yaml_data, root_pkgs,
-                                                section_labels)
+    yaml_data = toc_processing.add_package_headings(yaml_data, root_pkgs,
+                                                    section_labels)
   yaml_content = yaml.dump(yaml_data, Dumper=Formatter)
   yaml_path.write_text(yaml_content)
