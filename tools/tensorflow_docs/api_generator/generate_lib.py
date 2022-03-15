@@ -705,7 +705,7 @@ class DocGenerator:
       root_title: str,
       py_modules: Sequence[Tuple[str, Any]],
       base_dir: Optional[Sequence[Union[str, pathlib.Path]]] = None,
-      code_url_prefix: Union[str, Sequence[str]] = (),
+      code_url_prefix: Union[Optional[str], Sequence[Optional[str]]] = (),
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
@@ -774,7 +774,7 @@ class DocGenerator:
     if not self._base_dir:
       raise ValueError('`base_dir` cannot be empty')
 
-    if isinstance(code_url_prefix, str):
+    if isinstance(code_url_prefix, str) or code_url_prefix is None:
       code_url_prefix = (code_url_prefix,)
     self._code_url_prefix = tuple(code_url_prefix)
     if not self._code_url_prefix:
