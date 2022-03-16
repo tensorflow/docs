@@ -185,7 +185,11 @@ def _get_imported_symbols(obj):
     def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
       self._add_imported_symbol(node)
 
-  source = inspect.getsource(obj)
+  try:
+    source = inspect.getsource(obj)
+  except OSError:
+    # inspect raises an OSError for empty module files.
+    return []
   tree = ast.parse(source)
   visitor = ImportNodeVisitor()
   visitor.visit(tree)
