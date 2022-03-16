@@ -1044,6 +1044,26 @@ class TestParseDocstring(absltest.TestCase):
     strip_todos = parser._StripPylintAndPyformat()
     self.assertEqual(expected, strip_todos(input_str))
 
+  def test_get_dataclass_docstring(self):
+
+    @dataclasses.dataclass
+    class MyClass():
+      """docstring"""
+      a: int
+      b: float
+
+    self.assertEqual(parser._get_raw_docstring(MyClass), 'docstring')
+
+  def test_get_dataclass_docstring_no_autogen_docstring(self):
+
+    @dataclasses.dataclass
+    class MyClass():
+      a: int
+      b: float
+
+    self.assertEmpty(parser._get_raw_docstring(MyClass))
+
+
 
 if __name__ == '__main__':
   absltest.main()
