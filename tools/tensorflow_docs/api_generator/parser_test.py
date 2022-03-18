@@ -18,8 +18,6 @@
 import collections
 import dataclasses
 import inspect
-import os
-import tempfile
 import textwrap
 
 from typing import List, Union
@@ -236,8 +234,8 @@ class ParserTest(parameterized.TestCase):
     self.assertIs(method_infos['a_method'].py_object, TestClass.a_method)
 
     # Make sure that the signature is extracted properly and omits self.
-    self.assertEqual(['arg=&#x27;default&#x27;'],
-                     method_infos['a_method'].signature.arguments)
+    self.assertEqual('(\n    arg=&#x27;default&#x27;\n)',
+                     str(method_infos['a_method'].signature))
 
     self.assertEqual(method_infos['static_method'].decorators, ['staticmethod'])
     self.assertEqual(method_infos['class_method'].decorators, ['classmethod'])
@@ -503,8 +501,8 @@ class ParserTest(parameterized.TestCase):
         inspect.getdoc(test_function).split('\n')[0], page_info.doc.brief)
 
     # Make sure the extracted signature is good.
-    self.assertEqual(['unused_arg', 'unused_kwarg=&#x27;default&#x27;'],
-                     page_info.signature.arguments)
+    self.assertEqual('(\n    unused_arg, unused_kwarg=&#x27;default&#x27;\n)',
+                     str(page_info.signature))
 
   def test_docs_for_function_with_kwargs(self):
     index = {'test_function_with_args_kwargs': test_function_with_args_kwargs}
@@ -536,8 +534,8 @@ class ParserTest(parameterized.TestCase):
         page_info.doc.brief)
 
     # Make sure the extracted signature is good.
-    self.assertEqual(['unused_arg', '*unused_args', '**unused_kwargs'],
-                     page_info.signature.arguments)
+    self.assertEqual('(\n    unused_arg, *unused_args, **unused_kwargs\n)',
+                     str(page_info.signature))
 
   def test_parse_md_docstring(self):
 
@@ -771,9 +769,9 @@ class ParserTest(parameterized.TestCase):
         py_object=ConcreteMutableMapping,
         parser_config=parser_config)
 
-    pop_default_arg = page_info.methods[0].signature.arguments[1]
-    self.assertNotIn('object at 0x', pop_default_arg)
-    self.assertIn('&lt;object&gt;', pop_default_arg)
+    output = str(page_info.methods[0].signature)
+    self.assertNotIn('object at 0x', output)
+    self.assertIn('&lt;object object&gt;', output)
 
   @parameterized.named_parameters(
       ('mutable_mapping', 'ConcreteMutableMapping', '__contains__',
@@ -930,8 +928,6 @@ class ParserTest(parameterized.TestCase):
 
     self.assertEqual('Instance of `tf.test.A`', result)
 
-
-
   def testIsClasssAttr(self):
     result = parser.is_class_attr('test_module.test_function',
                                   {'test_module': test_module})
@@ -994,8 +990,6 @@ class TestParseDocstring(absltest.TestCase):
                      '\nSome tensors, with the same type as the input.\n')
     self.assertLen(returns.items, 2)
 
-
-
   def test_strip_todos(self):
     input_str = ("""#  TODO(blah) blah
 
@@ -1048,11 +1042,11 @@ class TestParseDocstring(absltest.TestCase):
 
     @dataclasses.dataclass
     class MyClass():
-      """docstring"""
+      """Docstring!"""
       a: int
       b: float
 
-    self.assertEqual(parser._get_raw_docstring(MyClass), 'docstring')
+    self.assertEqual(parser._get_raw_docstring(MyClass), 'Docstring!')
 
   def test_get_dataclass_docstring_no_autogen_docstring(self):
 
@@ -1062,8 +1056,6 @@ class TestParseDocstring(absltest.TestCase):
       b: float
 
     self.assertEmpty(parser._get_raw_docstring(MyClass))
-
-
 
 if __name__ == '__main__':
   absltest.main()

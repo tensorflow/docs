@@ -33,7 +33,6 @@ from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
 from tensorflow_docs.api_generator import traverse
-from tensorflow_docs.api_generator.pretty_docs import base_page
 
 from tensorflow_docs.api_generator.pretty_docs import docs_for_object
 
@@ -563,15 +562,13 @@ def write_docs(
 
     path = output_dir / parser.documentation_path(full_name)
 
-    text = page_info.build()
-
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
-      path.write_text(text, encoding='utf-8')
+      path.write_text(page_info.text, encoding='utf-8')
       num_docs_output += 1
-    except OSError:
+    except OSError as e:
       raise OSError('Cannot write documentation for '
-                    f'{full_name} to {path.parent}')
+                    f'{full_name} to {path.parent}') from e
 
     duplicates = parser_config.duplicates.get(full_name, [])
     if not duplicates:

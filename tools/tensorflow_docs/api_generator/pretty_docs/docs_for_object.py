@@ -60,6 +60,8 @@ def docs_for_object(
     parser_config: A `config.ParserConfig` object.
     extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
       that need to be added to the markdown pages created.
+    search_hints: If true include metadata search hints, else include a
+        "robots: noindex".
     page_builder_classes: An optional dict of `{ObjectType:Type[PageInfo]}` for
         overriding the default page builder classes.
 
@@ -113,5 +115,7 @@ def docs_for_object(
     page_info.set_aliases(duplicate_names)
 
     page_info.set_defined_in(parser.get_defined_in(py_object, parser_config))
+
+    page_info.build()
 
   return page_info

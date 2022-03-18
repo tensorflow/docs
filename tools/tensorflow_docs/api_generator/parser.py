@@ -18,7 +18,6 @@
 import dataclasses
 import enum
 import inspect
-import os
 import pathlib
 import posixpath
 import pprint
@@ -31,6 +30,7 @@ from typing import Any, Dict, List, Tuple, Iterable, Optional, Union
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
+from tensorflow_docs.api_generator import signature as signature_lib
 
 
 @dataclasses.dataclass
@@ -125,7 +125,6 @@ def _get_raw_docstring(py_object):
   else:
     result = inspect.getdoc(py_object) or ''
 
-
   if result is None:
     result = ''
 
@@ -145,6 +144,7 @@ def _get_dataclass_docstring(py_object):
     # We don't want it. These are not formatted and can be huge and unreadable.
     result = ''
   return result
+
 
 class _AddDoctestFences(object):
   """Adds ``` fences around doctest caret blocks >>> that don't have them."""
@@ -528,6 +528,8 @@ def _get_other_member_doc(
         class_full_name = f'{module}.{class_name}'
     info = f'Instance of `{class_full_name}`'
 
+  if info is not None:
+    info = signature_lib.strip_obj_addresses(info)
   parts = [info, description]
   parts = [item for item in parts if item is not None]
 

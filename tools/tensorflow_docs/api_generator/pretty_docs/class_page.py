@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
+"""Page builder classes for class pages."""
 import collections
 import dataclasses
 import itertools
@@ -465,13 +466,13 @@ class MethodInfo(NamedTuple):
   py_object: Any
   doc: parser.DocstringInfo
   url: str
-  signature: signature_lib.SignatureComponents
+  signature: signature_lib.TfSignature
   decorators: List[str]
   defined_in: Optional[parser.FileLocation]
 
   @classmethod
   def from_member_info(cls, method_info: base_page.MemberInfo,
-                       signature: signature_lib.SignatureComponents,
+                       signature: signature_lib.TfSignature,
                        decorators: List[str],
                        defined_in: Optional[parser.FileLocation]):
     """Upgrades a `base_page.MemberInfo` to a `MethodInfo`."""
@@ -598,6 +599,7 @@ def merge_class_and_constructor_docstring(
 
 
 def _method_sort(method):
+  """Create a sort-key tuple for a method based on its name."""
   # All private methods will be at the end of the list in an alphabetically
   # sorted order. All dunder methods will be above private methods and below
   # public methods. Public methods will be at the top in an alphabetically

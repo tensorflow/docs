@@ -16,6 +16,7 @@
 """Turn Python docstrings into Markdown for TensorFlow documentation."""
 
 import ast
+import copy
 import dataclasses
 import enum
 import functools
@@ -25,53 +26,85 @@ import re
 import textwrap
 import typing
 
-from typing import Any, Dict, List, Iterable, NamedTuple, Optional, Union
+from typing import Any, Callable, Dict, List, Tuple, Type
 
 import astor
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import public_api
 
+EMPTY = inspect.Signature.empty
 
-class _TypeAnnotationExtractor(ast.NodeVisitor):
-  """Extracts the type annotations by parsing the AST of a function."""
+
+def _source_from_ast(node: ast.AST) -> str:
+  return astor.to_source(node).strip().replace('"""', "'")
+
+
+class _BaseDefaultAndAnnotationExtractor(ast.NodeVisitor):
+  """A base class for extracting annotations and defaults from the AST."""
+  _PAREN_NUMBER_RE = re.compile(r'^\((True|False|[0-9.e-]+)\)')
 
   def __init__(self):
-    self.annotation_dict = {}
-    self.arguments_typehint_exists = False
-    self.return_typehint_exists = False
+    self.annotations = {}
+    self.defaults = {}
+    self.return_annotation = EMPTY
+
+  def _preprocess_default(self, val: ast.AST) -> str:
+    text_default_val = (
+        _source_from_ast(val).replace('\t', '\\t').replace('\n', '\\n'))
+    text_default_val = self._PAREN_NUMBER_RE.sub('\\1', text_default_val)
+    return text_default_val
+
+
+class _CallableDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
+                                            ):
+  """Extracts the type annotations by parsing the AST of a function."""
 
   def visit_FunctionDef(self, node) -> None:  # pylint: disable=invalid-name
     """Visits the `FunctionDef` node in AST tree and extracts the typehints."""
 
     # Capture the return type annotation.
     if node.returns:
-      self.annotation_dict['return'] = astor.to_source(
-          node.returns).strip().replace('"""', '"')
-      self.return_typehint_exists = True
+      self.return_annotation = _source_from_ast(node.returns)
 
     # Capture the args type annotation.
     for arg in node.args.args:
       if arg.annotation:
-        self.annotation_dict[arg.arg] = astor.to_source(
-            arg.annotation).strip().replace('"""', '"')
+        self.annotations[arg.arg] = _source_from_ast(arg.annotation)
         self.arguments_typehint_exists = True
 
     # Capture the kwarg only args type annotation.
     for kwarg in node.args.kwonlyargs:
       if kwarg.annotation:
-        self.annotation_dict[kwarg.arg] = astor.to_source(
-            kwarg.annotation).strip().replace('"""', '"')
+        self.annotations[kwarg.arg] = _source_from_ast(kwarg.annotation)
         self.arguments_typehint_exists = True
 
+    # From https://docs.python.org/3/library/ast.html#ast.arguments:
+    #   `defaults` is a list of default values for arguments that can be passed
+    #   positionally. If there are fewer defaults, they correspond to the last
+    #   n arguments.
 
-class _DataclassTypeAnnotationExtractor(ast.NodeVisitor):
+    last_n_pos_args = node.args.args[-1 * len(node.args.defaults):]
+    for arg, default_val in zip(last_n_pos_args, node.args.defaults):
+      if default_val is not None:
+        text_default_val = self._preprocess_default(default_val)
+        self.defaults[arg.arg] = text_default_val
+
+    for kwarg, default_val in zip(node.args.kwonlyargs, node.args.kw_defaults):
+      if default_val is not None:
+        text_default_val = self._preprocess_default(default_val)
+        self.defaults[kwarg.arg] = text_default_val
+
+
+class _DataclassDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
+                                             ):
   """Extracts the type annotations by parsing the AST of a dataclass."""
 
   def __init__(self):
-    self.annotation_dict = {}
-    self.arguments_typehint_exists = False
-    self.return_typehint_exists = False
+    super().__init__()
+    self.annotations = {}
+    self.defaults = {}
+    self.return_annotation = EMPTY
 
   def visit_ClassDef(self, node) -> None:  # pylint: disable=invalid-name
     # Don't visit all nodes. Only visit top-level AnnAssign nodes so that
@@ -82,44 +115,18 @@ class _DataclassTypeAnnotationExtractor(ast.NodeVisitor):
 
   def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
     """Vists an assignment with a type annotation. Dataclasses is an example."""
-    arg = astor.to_source(node.target).strip()
-    anno = astor.to_source(node.annotation).strip()
-    self.annotation_dict[arg] = anno
-    self.arguments_typehint_exists = True
+
+    arg = _source_from_ast(node.target)
+    self.annotations[arg] = _source_from_ast(node.annotation)
+    if node.value is not None:
+      self.defaults[arg] = self._preprocess_default(node.value)
 
 
-class _ASTDefaultValueExtractor(ast.NodeVisitor):
-  """Extracts the default values by parsing the AST of a function."""
+_OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+?) at 0x[\da-f]+>')
 
-  _PAREN_NUMBER_RE = re.compile(r'^\((True|False|[0-9.e-]+)\)')
 
-  def __init__(self):
-    self.ast_args_defaults = {}
-    self.ast_kw_only_defaults = {}
-
-  def _preprocess(self, val) -> str:
-    text_default_val = astor.to_source(val).strip().replace(
-        '\t', '\\t').replace('\n', '\\n').replace('"""', "'")
-    text_default_val = self._PAREN_NUMBER_RE.sub('\\1', text_default_val)
-    return text_default_val
-
-  def visit_FunctionDef(self, node) -> None:  # pylint: disable=invalid-name
-    """Visits the `FunctionDef` node and extracts the default values."""
-
-    # From https://docs.python.org/3/library/ast.html#ast.arguments:
-    #   `defaults` is a list of default values for arguments that can be passed
-    #   positionally. If there are fewer defaults, they correspond to the last
-    #   n arguments.
-    last_n_pos_args = node.args.args[-1 * len(node.args.defaults):]
-    for arg, default_val in zip(last_n_pos_args, node.args.defaults):
-      if default_val is not None:
-        text_default_val = self._preprocess(default_val)
-        self.ast_args_defaults[arg.arg] = text_default_val
-
-    for kwarg, default_val in zip(node.args.kwonlyargs, node.args.kw_defaults):
-      if default_val is not None:
-        text_default_val = self._preprocess(default_val)
-        self.ast_kw_only_defaults[kwarg.arg] = text_default_val
+def strip_obj_addresses(text):
+  return _OBJECT_MEMORY_ADDRESS_RE.sub(r'<\g<type>>', text)
 
 
 class FormatArguments(object):
@@ -132,8 +139,6 @@ class FormatArguments(object):
       'init_ops.ones_initializer': 'tf.ones_initializer',
       'saver_pb2.SaverDef': 'tf.train.SaverDef',
   }
-
-  _OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+) object at 0x[\da-f]+>')
 
   # A regular expression capturing a python identifier.
   _IDENTIFIER_RE = r'[a-zA-Z_]\w*'
@@ -157,11 +162,9 @@ class FormatArguments(object):
 
   def __init__(
       self,
-      type_annotations: Dict[str, str],
       parser_config: config.ParserConfig,
       func_full_name: str,
   ) -> None:
-    self._type_annotations = type_annotations
     self._reverse_index = parser_config.reverse_index
     self._reference_resolver = parser_config.reference_resolver
     # func_full_name is used to calculate the relative path.
@@ -216,7 +219,6 @@ class FormatArguments(object):
     Returns:
       List of non-builtin ast types.
     """
-
     non_builtin_ast_types = []
     for single_type, _ in self._INDIVIDUAL_TYPES_RE.findall(ast_typehint):
       if (not single_type or single_type in self._TYPING or
@@ -298,8 +300,9 @@ class FormatArguments(object):
           return public_name + default_text[len(internal_name):]
     return default_text
 
-  def format_return(self, return_anno: Any) -> str:
-    return self.preprocess(self._type_annotations['return'], return_anno)
+  def format_return(self, return_anno: Tuple[Any, str]) -> str:
+    value, source = return_anno
+    return self.preprocess(source, value)
 
   def format_args(self, args: List[inspect.Parameter]) -> List[str]:
     """Creates a text representation of the args in a method/function.
@@ -314,23 +317,24 @@ class FormatArguments(object):
     args_text_repr = []
 
     for arg in args:
-      arg_name = arg.name
-      if arg_name in self._type_annotations:
-        typeanno = self.preprocess(self._type_annotations[arg_name],
-                                   arg.annotation)
-        args_text_repr.append(f'{arg_name}: {typeanno}')
+      typeanno = None
+      if arg.annotation is not EMPTY:
+        value, source = arg.annotation
+        if source is not None:
+          typeanno = self.preprocess(source, value)
+
+      if typeanno:
+        args_text_repr.append(f'{arg.name}: {typeanno}')
       else:
-        args_text_repr.append(f'{arg_name}')
+        args_text_repr.append(f'{arg.name}')
 
     return args_text_repr
 
-  def format_kwargs(self, kwargs: List[inspect.Parameter],
-                    ast_defaults: Dict[str, str]) -> List[str]:
+  def format_kwargs(self, kwargs: List[inspect.Parameter]) -> List[str]:
     """Creates a text representation of the kwargs in a method/function.
 
     Args:
       kwargs: List of kwargs to format.
-      ast_defaults: Default values extracted from the function's AST tree.
 
     Returns:
       Formatted kwargs with type annotations if they exist.
@@ -339,60 +343,143 @@ class FormatArguments(object):
     kwargs_text_repr = []
 
     for kwarg in kwargs:
-      kname = kwarg.name
-      ast_default = ast_defaults.get(kname)
-      default_val = kwarg.default
+      default_text = None
+      if kwarg.default is not EMPTY:
+        default_val, default_source = kwarg.default
 
-      if id(default_val) in self._reverse_index:
-        default_text = self._reverse_index[id(default_val)]
-      elif ast_default is not None:
-        default_text = ast_default
-        if default_text != repr(default_val):
-          default_text = self._replace_internal_names(default_text)
-      # Kwarg without default value.
-      elif default_val is kwarg.empty:
-        kwargs_text_repr.extend(self.format_args([kwarg]))
-        continue
-      else:
-        # Strip object memory addresses to avoid unnecessary doc churn.
-        default_text = self._OBJECT_MEMORY_ADDRESS_RE.sub(
-            r'<\g<type>>', repr(default_val))
-      default_text = html.escape(str(default_text))
+        if id(default_val) in self._reverse_index:
+          default_text = self._reverse_index[id(default_val)]
+        elif default_source is not None:
+          default_text = default_source
+          if default_text != repr(default_val):
+            default_text = self._replace_internal_names(default_text)
+        # Kwarg without default value.
+        elif default_val is EMPTY:
+          kwargs_text_repr.extend(self.format_args([kwarg]))
+          continue
+        else:
+          # Strip object memory addresses to avoid unnecessary doc churn.
+          default_text = strip_obj_addresses(repr(default_val))
+        default_text = html.escape(str(default_text))
 
       # Format the kwargs to add the type annotation and default values.
-      if kname in self._type_annotations:
-        typeanno = self.preprocess(self._type_annotations[kname],
-                                   kwarg.annotation)
-        kwargs_text_repr.append(f'{kname}: {typeanno} = {default_text}')
+      typeanno = None
+      if kwarg.annotation is not EMPTY:
+        anno_value, anno_source = kwarg.annotation
+        if anno_source is not None:
+          typeanno = self.preprocess(anno_source, anno_value)
+
+      if typeanno is not None and default_text is not None:
+        kwargs_text_repr.append(f'{kwarg.name}: {typeanno} = {default_text}')
+      elif default_text is not None:
+        kwargs_text_repr.append(f'{kwarg.name}={default_text}')
+      elif typeanno is not None:
+        kwargs_text_repr.append(f'{kwarg.name}: {typeanno}')
       else:
-        kwargs_text_repr.append(f'{kname}={default_text}')
+        kwargs_text_repr.append(kwarg.name)
 
     return kwargs_text_repr
 
 
-class SignatureComponents(NamedTuple):
-  """Contains the components that make up the signature of a function/method."""
+class TfSignature(inspect.Signature):
+  """A custom version of `inspect.Signature`."""
 
-  arguments: List[str]
-  arguments_typehint_exists: bool
-  return_typehint_exists: bool
-  return_type: Optional[str] = None
+  def __init__(self, parameters, *, return_annotation, parser_config,
+               func_full_name):
+    super().__init__(parameters, return_annotation=return_annotation)
+    self.parser_config = parser_config
+    self.func_full_name = func_full_name
+
+  def __copy__(self):
+    return TfSignature(
+        list(self.parameters.values()),
+        return_annotation=self.return_annotation,
+        parser_config=self.parser_config,
+        func_full_name=self.func_full_name)
+
+  def __deepcopy__(self, memo):
+    return TfSignature(
+        copy.deepcopy(list(self.parameters.values()), memo),
+        return_annotation=copy.deepcopy(self.return_annotation, memo),
+        parser_config=copy.deepcopy(self.parser_config, memo),
+        func_full_name=copy.deepcopy(self.func_full_name, memo))
 
   def __str__(self):
+    # separate the args by type
+    pos_only_args = []
+    args = []
+    kwargs = []
+    only_kwargs = []
+    varargs = None
+    varkwargs = None
+
+    for index, param in enumerate(self.parameters.values()):
+      kind = param.kind
+      default = param.default
+
+      if kind == param.POSITIONAL_ONLY:
+        pos_only_args.append(param)
+      elif default is EMPTY and kind == param.POSITIONAL_OR_KEYWORD:
+        args.append(param)
+      elif default is not EMPTY and kind == param.POSITIONAL_OR_KEYWORD:
+        kwargs.append(param)
+      elif kind == param.VAR_POSITIONAL:
+        varargs = (index, param)
+      elif kind == param.KEYWORD_ONLY:
+        only_kwargs.append(param)
+      elif kind == param.VAR_KEYWORD:
+        varkwargs = param
+
+    # Build the text representation.
+    all_args_list = []
+
+    formatter = FormatArguments(
+        parser_config=self.parser_config, func_full_name=self.func_full_name)
+
+    if pos_only_args:
+      all_args_list.extend(formatter.format_args(pos_only_args))
+      all_args_list.append('/')
+
+    if args:
+      all_args_list.extend(formatter.format_args(args))
+
+    if kwargs:
+      all_args_list.extend(formatter.format_kwargs(kwargs))
+
+    if only_kwargs:
+      if varargs is None:
+        all_args_list.append('*')
+      all_args_list.extend(formatter.format_kwargs(only_kwargs))
+
+    if varargs is not None:
+      all_args_list.insert(varargs[0], '*' + varargs[1].name)
+
+    if varkwargs is not None:
+      all_args_list.append('**' + varkwargs.name)
+
+    return_annotation_text = ''
+    if self.return_annotation is not EMPTY:
+      if EMPTY not in self.return_annotation:
+        return_annotation_text = formatter.format_return(self.return_annotation)
+
     arguments_signature = ''
-    if self.arguments:
-      str_signature = ',\n'.join(self.arguments)
+    has_any_annotations = any(
+        v.annotation is not EMPTY for v in self.parameters.values())
+    if all_args_list:
+      str_signature = ',\n'.join(all_args_list)
       # If there is no type annotation on arguments, then wrap the entire
       # signature to width 80.
-      if not self.arguments_typehint_exists:
+      if not has_any_annotations:
         str_signature = textwrap.fill(str_signature, width=80)
+
       arguments_signature = '\n' + textwrap.indent(
           str_signature, prefix='    ') + '\n'
 
     full_signature = f'({arguments_signature})'
-    if self.return_typehint_exists:
-      full_signature += f' -> {self.return_type}'
-
+    if return_annotation_text:
+      full_signature = f'({arguments_signature}) -> {return_annotation_text}'
+    else:
+      full_signature = f'({arguments_signature})'
     return full_signature
 
 
@@ -404,7 +491,7 @@ class FuncType(enum.Enum):
 
 
 def get_method_type(method, name, is_dataclass):
-
+  """Determine the type of callable."""
   if isinstance(method, classmethod):
     func_type = FuncType.CLASSMETHOD
   elif name == '__new__':
@@ -430,7 +517,7 @@ def generate_signature(
     parser_config: config.ParserConfig,
     func_full_name: str,
     func_type: FuncType = FuncType.FUNCTION,
-) -> SignatureComponents:
+) -> TfSignature:
   """Given a function, returns a list of strings representing its args.
 
   This function uses `__name__` for callables if it is available. This can lead
@@ -441,8 +528,8 @@ def generate_signature(
 
   Args:
     func: A function, method, or functools.partial to extract the signature for.
-    parser_config: `config.ParserConfig` for the method/function whose signature is
-      generated.
+    parser_config: `config.ParserConfig` for the method/function whose signature
+      is generated.
     func_full_name: The full name of a function whose signature is generated.
     func_type: Type of the current `func`. This is required because there isn't
       a clear distinction between function and method being passed to
@@ -453,117 +540,115 @@ def generate_signature(
   Returns:
     A `SignatureComponents` NamedTuple.
   """
-
-  all_args_list = []
-
   try:
     sig = inspect.signature(func)
-    sig_values = sig.parameters.values()
-    return_anno = sig.return_annotation
   except (ValueError, TypeError):
-    sig_values = []
-    return_anno = None
+    sig = inspect.signature(lambda: None)
+
+  params = list(sig.parameters.values())
+
+  # Drop `self`
+  if params:
+    first = params[0]
+    if first.kind != first.VAR_POSITIONAL:
+      if func_type == FuncType.METHOD:
+        # - Skip the first arg for regular methods.
+        # - Some wrapper methods forget `self` and just use `(*args, **kwargs)`.
+        #   That's still valid, don't drop `*args`.
+        # - For classmethods the `cls` arg already bound here (it's not in
+        #   `params`).
+        # - For regular functions (or staticmethods) you never need to skip.
+        params.pop(0)
+
+  sig = sig.replace(parameters=params)
 
   if dataclasses.is_dataclass(func):
-    type_annotation_visitor = _DataclassTypeAnnotationExtractor()
+    sig = sig.replace(return_annotation=EMPTY)
+    extract_fn = _extract_dataclass_defaults_and_annotations
   else:
-    type_annotation_visitor = _TypeAnnotationExtractor()
+    extract_fn = _extract_callable_defaults_and_annotations
 
-  ast_defaults_visitor = _ASTDefaultValueExtractor()
+  (annotation_source_dict, defaults_source_dict,
+   return_annotation_source) = extract_fn(func)
+
+  # Replace everything with either `EMPTY` or (value, source) pairs.
+  new_params = []
+  for name, param in sig.parameters.items():
+    default = param.default
+    if default is not EMPTY:
+      default = (default, defaults_source_dict.get(name, None))
+
+    annotation = param.annotation
+    if annotation is not EMPTY:
+      annotation = (annotation, annotation_source_dict.get(name, None))
+
+    param = param.replace(default=default, annotation=annotation)
+    new_params.append(param)
+
+  return_annotation = sig.return_annotation
+  if return_annotation is not EMPTY:
+    return_annotation = (return_annotation, return_annotation_source)
+
+  sig = TfSignature(
+      parameters=new_params,
+      return_annotation=return_annotation,
+      parser_config=parser_config,
+      func_full_name=func_full_name)
+
+  return sig
+
+
+AnnotsDefaultsReturns = Tuple[Dict[str, str], Dict[str, str], Any]
+
+
+def _extract_dataclass_defaults_and_annotations(
+    func: Type[object]) -> AnnotsDefaultsReturns:
+  """Extract ast defaults and annotations form a dataclass."""
+  stack = [c for c in func.__mro__ if dataclasses.is_dataclass(c)]
+
+  annotation_source_dict = {}
+  defaults_source_dict = {}
+  return_annotation_source = EMPTY
+
+  # Iterate over the classes in reverse order so precedence works.
+  for cls in reversed(stack):
+    func_source = textwrap.dedent(inspect.getsource(cls))
+    func_ast = ast.parse(func_source)
+    # Extract the type annotation from the parsed ast.
+    ast_visitor = _DataclassDefaultAndAnnotationExtractor()
+    ast_visitor.visit(func_ast)
+
+    annotation_source_dict.update(ast_visitor.annotations)
+    defaults_source_dict.update(ast_visitor.defaults)
+
+  return annotation_source_dict, defaults_source_dict, return_annotation_source
+
+
+def _extract_callable_defaults_and_annotations(
+    func: Callable[..., Any]) -> AnnotsDefaultsReturns:
+  """Extract ast defaults and annotations form a standard callable."""
+
+  ast_visitor = _CallableDefaultAndAnnotationExtractor()
+
+  annotation_source_dict = {}
+  defaults_source_dict = {}
+  return_annotation_source = EMPTY
 
   try:
     func_source = textwrap.dedent(inspect.getsource(func))
     func_ast = ast.parse(func_source)
     # Extract the type annotation from the parsed ast.
-    type_annotation_visitor.visit(func_ast)
-    ast_defaults_visitor.visit(func_ast)
+    ast_visitor.visit(func_ast)
   except Exception:  # pylint: disable=broad-except
     # A wide-variety of errors can be thrown here.
     pass
-
-  type_annotations = type_annotation_visitor.annotation_dict
-  arguments_typehint_exists = type_annotation_visitor.arguments_typehint_exists
-  return_typehint_exists = type_annotation_visitor.return_typehint_exists
-
-  #############################################################################
-  # Process the information about the func.
-  #############################################################################
-
-  pos_only_args = []
-  args = []
-  kwargs = []
-  only_kwargs = []
-  varargs = None
-  varkwargs = None
-
-  for index, param in enumerate(sig_values):
-    kind = param.kind
-    default = param.default
-
-    if (index == 0 and func_type == FuncType.METHOD and
-        kind != param.VAR_POSITIONAL):
-      # - Skip the first arg for regular methods.
-      # - Some wrapper methods forget `self` and just use `(*args, **kwargs)`.
-      #   That's still valid, don't drop `*args`.
-      # - For classmethods the `cls` arg already bound here (it's not in
-      #   `sig_values`).
-      # - For regular functions (or staticmethods) you never need to skip.
-      continue
-    elif kind == param.POSITIONAL_ONLY:
-      pos_only_args.append(param)
-    elif default is param.empty and kind == param.POSITIONAL_OR_KEYWORD:
-      args.append(param)
-    elif default is not param.empty and kind == param.POSITIONAL_OR_KEYWORD:
-      kwargs.append(param)
-    elif kind == param.VAR_POSITIONAL:
-      varargs = (index, param)
-    elif kind == param.KEYWORD_ONLY:
-      only_kwargs.append(param)
-    elif kind == param.VAR_KEYWORD:
-      varkwargs = param
-
-  #############################################################################
-  # Build the text representation of Args and Kwargs.
-  #############################################################################
-
-  formatter = FormatArguments(
-      type_annotations, parser_config, func_full_name=func_full_name)
-
-  if pos_only_args:
-    all_args_list.extend(formatter.format_args(pos_only_args))
-    all_args_list.append('/')
-
-  if args:
-    all_args_list.extend(formatter.format_args(args))
-
-  if kwargs:
-    all_args_list.extend(
-        formatter.format_kwargs(kwargs, ast_defaults_visitor.ast_args_defaults))
-
-  if only_kwargs:
-    if varargs is None:
-      all_args_list.append('*')
-    all_args_list.extend(
-        formatter.format_kwargs(only_kwargs,
-                                ast_defaults_visitor.ast_kw_only_defaults))
-
-  if varargs is not None:
-    all_args_list.insert(varargs[0], '*' + varargs[1].name)
-
-  if varkwargs is not None:
-    all_args_list.append('**' + varkwargs.name)
-
-  if return_anno and return_anno is not sig.empty and type_annotations.get(
-      'return', None):
-    return_type = formatter.format_return(return_anno)
   else:
-    return_type = 'None'
+    annotation_source_dict = ast_visitor.annotations
+    defaults_source_dict = ast_visitor.defaults
+    return_annotation_source = ast_visitor.return_annotation
 
-  return SignatureComponents(
-      arguments=all_args_list,
-      arguments_typehint_exists=arguments_typehint_exists,
-      return_typehint_exists=return_typehint_exists,
-      return_type=return_type)
+  return annotation_source_dict, defaults_source_dict, return_annotation_source
+
 
 def extract_decorators(func: Any) -> List[str]:
   """Extracts the decorators on top of functions/methods.
@@ -582,7 +667,7 @@ def extract_decorators(func: Any) -> List[str]:
 
     def visit_FunctionDef(self, node):  # pylint: disable=invalid-name
       for dec in node.decorator_list:
-        self.decorator_list.append(astor.to_source(dec).strip())
+        self.decorator_list.append(_source_from_ast(dec))
 
   visitor = ASTDecoratorExtractor()
 

@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
+"""Bage builder classes for type alias pages."""
 import textwrap
 import typing
 from typing import Any, List, Dict
@@ -132,7 +133,6 @@ class TypeAliasPageInfo(base_page.PageInfo):
     assert self.signature is None
 
     linker = signature_lib.FormatArguments(
-        type_annotations={},
         parser_config=parser_config,
         func_full_name=self.full_name)
 

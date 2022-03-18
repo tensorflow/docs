@@ -27,8 +27,8 @@ from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
-from tensorflow_docs.api_generator.pretty_docs import type_alias_page
 from tensorflow_docs.api_generator.pretty_docs import class_page
+from tensorflow_docs.api_generator.pretty_docs import type_alias_page
 
 
 @dataclasses.dataclass
@@ -81,7 +81,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         parser_config=self.parser_config,
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(sig.arguments, ['arg=location.of.object.in.api'])
+    self.assertEqual('(\n    arg=location.of.object.in.api\n)', str(sig))
 
   def test_literals(self):
 
@@ -102,21 +102,23 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         parser_config=self.parser_config,
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(sig.arguments, [
-        'self', 'cls', 'a=5', 'b=5.0', 'c=None', 'd=True',
-        'e=&#x27;hello&#x27;', 'f=(1, (2, 3))'
-    ])
+
+    expected = textwrap.dedent("""\
+        (
+            self, cls, a=5, b=5.0, c=None, d=True, e=&#x27;hello&#x27;, f=(1, (2, 3))
+        )""")
+    self.assertEqual(expected, str(sig))
 
   def test_dotted_name(self):
     # pylint: disable=g-bad-name
 
-    class a(object):
+    class a:
 
-      class b(object):
+      class b:
 
-        class c(object):
+        class c:
 
-          class d(object):
+          class d:
 
             def __init__(self, *args):
               pass
@@ -133,9 +135,9 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         parser_config=self.parser_config,
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(
-        sig.arguments,
-        ['arg1=a.b.c.d', 'arg2=a.b.c.d(1, 2)', 'arg3=e[&#x27;f&#x27;]'])
+    expected = ('(\n    arg1=a.b.c.d, arg2=a.b.c.d(1, 2), '
+                'arg3=e[&#x27;f&#x27;]\n)')
+    self.assertEqual(expected, str(sig))
 
   def test_compulsory_kwargs_without_defaults(self):
 
@@ -147,13 +149,14 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         parser_config=self.parser_config,
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(sig.arguments, [
-        'x', 'z', 'a=True', 'b=&#x27;test&#x27;', '*', 'c', 'y=None', 'd',
-        '**kwargs'
-    ])
-    self.assertEqual(sig.return_type, 'bool')
-    self.assertEqual(sig.arguments_typehint_exists, False)
-    self.assertEqual(sig.return_typehint_exists, True)
+    self.assertEqual(
+        list(sig.parameters.keys()),
+        ['x', 'z', 'a', 'b', 'c', 'y', 'd', 'kwargs'])
+    expected = textwrap.dedent("""\
+    (
+        x, z, a=True, b=&#x27;test&#x27;, *, c, y=None, d, **kwargs
+    ) -> bool""")
+    self.assertEqual(expected, str(sig))
 
   def test_compulsory_kwargs_without_defaults_with_args(self):
 
@@ -165,12 +168,13 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         parser_config=self.parser_config,
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(sig.arguments, [
-        'x', 'z', 'cls', '*args', 'a=True', 'b=&#x27;test&#x27;', 'y=None', 'c',
-        '**kwargs'
-    ])
-    self.assertEqual(sig.arguments_typehint_exists, False)
-    self.assertEqual(sig.return_typehint_exists, False)
+    self.assertEqual(
+        list(sig.parameters.keys()),
+        ['x', 'z', 'cls', 'args', 'a', 'b', 'y', 'c', 'kwargs'])
+    self.assertEqual(
+        str(sig),
+        '(\n    x, z, cls, *args, a=True, b=&#x27;test&#x27;, y=None, c, **kwargs\n)'
+    )
 
   def test_type_annotations(self):
     # pylint: disable=unused-argument
@@ -196,19 +200,18 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         func_full_name='',
         func_type=signature.FuncType.METHOD,
     )
-    self.assertEqual(sig.arguments, [
-        'x: List[str]',
-        'z: int',
-        'a: Union[List[str], str, int] = None',
-        'b: str = &#x27;test&#x27;',
-        '*',
-        'y: bool = False',
-        'c: Callable[..., int]',
-        '**kwargs',
-    ])
-    self.assertEqual(sig.return_type, 'None')
-    self.assertEqual(sig.arguments_typehint_exists, True)
-    self.assertEqual(sig.return_typehint_exists, True)
+    expected = textwrap.dedent("""\
+        (
+            x: List[str],
+            z: int,
+            a: Union[List[str], str, int] = None,
+            b: str = &#x27;test&#x27;,
+            *,
+            y: bool = False,
+            c: Callable[..., int],
+            **kwargs
+        ) -> None""")
+    self.assertEqual(expected, str(sig))
 
   def test_dataclasses_type_annotations(self):
 
@@ -218,16 +221,16 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         func_full_name='',
         func_type=signature.FuncType.FUNCTION)
 
-    self.assertEqual(sig.arguments, [
-        'x: List[str]',
-        'z: int',
-        'c: List[int] = &lt;factory&gt;',
-        'a: Union[List[str], str, int] = None',
-        'b: str = &#x27;test&#x27;',
-        'y: bool = False',
-    ])
-    self.assertEqual(sig.return_type, 'None')
-    self.assertEqual(sig.arguments_typehint_exists, True)
+    expected = textwrap.dedent("""\
+      (
+          x: List[str],
+          z: int,
+          c: List[int] = dataclasses.field(default_factory=list),
+          a: Union[List[str], str, int] = None,
+          b: str = &#x27;test&#x27;,
+          y: bool = False
+      )""")
+    self.assertEqual(expected, str(sig))
 
   @parameterized.named_parameters(
       ('deep_objects', Union[Dict[str, Dict[bool, signature.extract_decorators]],
@@ -367,6 +370,73 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     self.assertEqual('(\n    x: Optional[Union[int, str]]\n)',
                      str(info.methods[0].signature))
 
+  def test_dataclass_default_uses_ast_repr(self):
+
+    @dataclasses.dataclass
+    class MyClass:
+      a: float = 1 / 9
+
+    sig = signature.generate_signature(
+        MyClass, func_full_name='MyClass', parser_config=self.parser_config)
+
+    expected = '(\n    a: float = (1 / 9)\n)'
+    self.assertEqual(expected, str(sig))
+
+  def test_dataclass_inheritance_sees_parent(self):
+    const = 3.14159
+
+    @dataclasses.dataclass
+    class Parent:
+      a: int = 60 * 60
+      b: float = 1 / 9
+
+    @dataclasses.dataclass
+    class Child(Parent):
+      b: float = 2 / 9
+      c: float = const
+
+    sig = signature.generate_signature(
+        Child, func_full_name='Child', parser_config=self.parser_config)
+    expected = textwrap.dedent("""\
+        (
+            a: int = (60 * 60),
+            b: float = (2 / 9),
+            c: float = const
+        )""")
+    self.assertEqual(expected, str(sig))
+
+  def test_vararg_before_kwargonly_consistent_order(self):
+
+    def my_fun(*args, a=1, **kwargs):  # pylint: disable=unused-argument
+      pass
+
+    sig = signature.generate_signature(
+        my_fun, func_full_name='my_fun', parser_config=self.parser_config)
+    expected = '(\n    *args, a=1, **kwargs\n)'
+    self.assertEqual(expected, str(sig))
+
+  def test_class_vararg_before_kwargonly_consistent_order(self):
+
+    class MyClass:
+
+      def __init__(*args, a=1, **kwargs):  # pylint: disable=no-method-argument
+        pass
+
+    sig = signature.generate_signature(
+        MyClass, func_full_name='MyClass', parser_config=self.parser_config)
+    expected = '(\n    *args, a=1, **kwargs\n)'
+    self.assertEqual(expected, str(sig))
+
+  def test_strip_address(self):
+
+    class What:
+      pass
+
+    w = What()
+
+    expected = ('<__main__.TestGenerateSignature.test_strip_address.'
+                '<locals>.What object>')
+    self.assertEqual(expected, signature.strip_obj_addresses(str(w)))
 
 if __name__ == '__main__':
   absltest.main()

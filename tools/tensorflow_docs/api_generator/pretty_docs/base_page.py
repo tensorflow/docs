@@ -13,10 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
+"""Base classes for page construction."""
 import abc
+import functools
 import pathlib
 import textwrap
-from typing import Any, Callable, ClassVar, Dict, List, NamedTuple, Optional, Sequence, Tuple, Type
+from typing import Any, ClassVar, Dict, List, NamedTuple, Optional, Sequence, Tuple, Type
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
@@ -99,6 +101,9 @@ class PageInfo:
     aliases: A list of full-name for all aliases for this object.
     doc: A list of objects representing the docstring. These can all be
       converted to markdown using str().
+    search_hints: If true include metadata search hints, else include a
+      "robots: noindex"
+    text: The resulting page text.
   """
   DEFAULT_BUILDER_CLASS: ClassVar[Type[PageBuilder]] = TemplatePageBuilder
 
@@ -116,6 +121,8 @@ class PageInfo:
       py_object: The object being documented.
       extra_docs: Extra docs for symbols like public constants(list, tuple, etc)
         that need to be added to the markdown pages created.
+      search_hints: If true include metadata search hints, else include a
+        "robots: noindex"
     """
     self.full_name = full_name
     self.py_object = py_object
@@ -132,9 +139,14 @@ class PageInfo:
 
   def build(self) -> str:
     """Builds the documentation."""
-
     cls = self.DEFAULT_BUILDER_CLASS
-    return cls(self).build()
+    text = cls(self).build()
+    self._text = text
+    return text
+
+  @property
+  def text(self):
+    return self._text
 
   def __eq__(self, other):
     if isinstance(other, PageInfo):
@@ -268,7 +280,7 @@ DECORATOR_ALLOWLIST = frozenset({
 
 
 def build_signature(name: str,
-                    signature: signature_lib.SignatureComponents,
+                    signature: signature_lib.TfSignature,
                     decorators: Optional[Sequence[str]],
                     type_alias: bool = False) -> str:
   """Returns a markdown code block containing the function signature.
