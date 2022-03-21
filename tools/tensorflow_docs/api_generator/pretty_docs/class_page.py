@@ -276,7 +276,7 @@ class ClassPageInfo(base_page.PageInfo):
                                               member_info.short_name,
                                               is_dataclass)
     signature = signature_lib.generate_signature(
-        py_obj, parser_config, member_info.full_name, func_type=func_type)
+        py_obj, parser_config, func_type=func_type)
 
     decorators = signature_lib.extract_decorators(member_info.py_object)
 

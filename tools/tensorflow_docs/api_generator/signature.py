@@ -163,15 +163,9 @@ class FormatArguments(object):
   def __init__(
       self,
       parser_config: config.ParserConfig,
-      func_full_name: str,
   ) -> None:
     self._reverse_index = parser_config.reverse_index
     self._reference_resolver = parser_config.reference_resolver
-    # func_full_name is used to calculate the relative path.
-    self._func_full_name = func_full_name
-
-    self._is_fragment = self._reference_resolver._is_fragment.get(
-        self._func_full_name, None)
 
   def get_link(self, obj_full_name: str) -> str:
     return self._reference_resolver.python_link(
@@ -384,25 +378,30 @@ class FormatArguments(object):
 class TfSignature(inspect.Signature):
   """A custom version of `inspect.Signature`."""
 
-  def __init__(self, parameters, *, return_annotation, parser_config,
-               func_full_name):
+  def __init__(self, parameters, *, return_annotation, parser_config):
     super().__init__(parameters, return_annotation=return_annotation)
     self.parser_config = parser_config
-    self.func_full_name = func_full_name
+
+  def replace(self, **kwargs):
+    attrs = {
+        'parameters': self.parameters,
+        'return_annotation': self.return_annotation,
+        'parser_config': self.parser_config,
+    }
+    attrs.update(kwargs)
+    return type(self)(**attrs)
 
   def __copy__(self):
     return TfSignature(
         list(self.parameters.values()),
         return_annotation=self.return_annotation,
-        parser_config=self.parser_config,
-        func_full_name=self.func_full_name)
+        parser_config=self.parser_config)
 
   def __deepcopy__(self, memo):
     return TfSignature(
         copy.deepcopy(list(self.parameters.values()), memo),
         return_annotation=copy.deepcopy(self.return_annotation, memo),
-        parser_config=copy.deepcopy(self.parser_config, memo),
-        func_full_name=copy.deepcopy(self.func_full_name, memo))
+        parser_config=copy.deepcopy(self.parser_config, memo))
 
   def __str__(self):
     # separate the args by type
@@ -433,8 +432,7 @@ class TfSignature(inspect.Signature):
     # Build the text representation.
     all_args_list = []
 
-    formatter = FormatArguments(
-        parser_config=self.parser_config, func_full_name=self.func_full_name)
+    formatter = FormatArguments(parser_config=self.parser_config)
 
     if pos_only_args:
       all_args_list.extend(formatter.format_args(pos_only_args))
@@ -515,7 +513,6 @@ def get_method_type(method, name, is_dataclass):
 def generate_signature(
     func: Any,
     parser_config: config.ParserConfig,
-    func_full_name: str,
     func_type: FuncType = FuncType.FUNCTION,
 ) -> TfSignature:
   """Given a function, returns a list of strings representing its args.
@@ -530,7 +527,6 @@ def generate_signature(
     func: A function, method, or functools.partial to extract the signature for.
     parser_config: `config.ParserConfig` for the method/function whose signature
       is generated.
-    func_full_name: The full name of a function whose signature is generated.
     func_type: Type of the current `func`. This is required because there isn't
       a clear distinction between function and method being passed to
       `generate_signature`. Sometimes methods are detected as function by
@@ -592,8 +588,7 @@ def generate_signature(
   sig = TfSignature(
       parameters=new_params,
       return_annotation=return_annotation,
-      parser_config=parser_config,
-      func_full_name=func_full_name)
+      parser_config=parser_config)
 
   return sig
 

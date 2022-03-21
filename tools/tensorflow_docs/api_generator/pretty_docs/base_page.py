@@ -132,6 +132,7 @@ class PageInfo:
     self._defined_in = None
     self._aliases = None
     self._doc = None
+    self._text = None
 
   def collect_docs(self, parser_config: config.ParserConfig):
     """Collects additional information from the `config.ParserConfig`."""
@@ -196,6 +197,7 @@ class PageInfo:
     """
     assert self.doc is None
     self._doc = doc
+
 
 
 class MemberInfo(NamedTuple):

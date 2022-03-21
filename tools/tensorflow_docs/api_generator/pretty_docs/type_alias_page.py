@@ -132,9 +132,7 @@ class TypeAliasPageInfo(base_page.PageInfo):
     """
     assert self.signature is None
 
-    linker = signature_lib.FormatArguments(
-        parser_config=parser_config,
-        func_full_name=self.full_name)
+    linker = signature_lib.FormatArguments(parser_config=parser_config)
 
     sig_args = []
     if self.py_object.__origin__:

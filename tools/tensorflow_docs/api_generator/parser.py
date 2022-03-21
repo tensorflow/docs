@@ -492,7 +492,18 @@ def _get_other_member_doc(
   if description is None and extra_docs is not None:
     description = extra_docs.get(id(obj), None)
 
+  value_repr = _tfrepr(obj, parser_config)
+
+  parts = [value_repr, description]
+  parts = [item for item in parts if item is not None]
+
+  return '\n\n'.join(parts)
+
+
+def _tfrepr(obj, parser_config):
+  """Convert an object to a string for display."""
   info = None
+
   if isinstance(obj, dict):
     # pprint.pformat (next block) doesn't sort dicts until python 3.8
     items = [
@@ -530,10 +541,8 @@ def _get_other_member_doc(
 
   if info is not None:
     info = signature_lib.strip_obj_addresses(info)
-  parts = [info, description]
-  parts = [item for item in parts if item is not None]
 
-  return '\n\n'.join(parts)
+  return info
 
 
 def parse_md_docstring(

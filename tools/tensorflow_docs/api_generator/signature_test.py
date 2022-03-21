@@ -79,7 +79,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
     self.assertEqual('(\n    arg=location.of.object.in.api\n)', str(sig))
 
@@ -100,7 +99,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
 
     expected = textwrap.dedent("""\
@@ -133,7 +131,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
     expected = ('(\n    arg1=a.b.c.d, arg2=a.b.c.d(1, 2), '
                 'arg3=e[&#x27;f&#x27;]\n)')
@@ -147,7 +144,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
     self.assertEqual(
         list(sig.parameters.keys()),
@@ -166,7 +162,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
     self.assertEqual(
         list(sig.parameters.keys()),
@@ -197,7 +192,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         TestMethodSig.example_fun,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.METHOD,
     )
     expected = textwrap.dedent("""\
@@ -218,7 +212,6 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(
         ExampleDataclass,
         parser_config=self.parser_config,
-        func_full_name='',
         func_type=signature.FuncType.FUNCTION)
 
     expected = textwrap.dedent("""\
@@ -377,7 +370,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       a: float = 1 / 9
 
     sig = signature.generate_signature(
-        MyClass, func_full_name='MyClass', parser_config=self.parser_config)
+        MyClass, parser_config=self.parser_config)
 
     expected = '(\n    a: float = (1 / 9)\n)'
     self.assertEqual(expected, str(sig))
@@ -395,8 +388,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       b: float = 2 / 9
       c: float = const
 
-    sig = signature.generate_signature(
-        Child, func_full_name='Child', parser_config=self.parser_config)
+    sig = signature.generate_signature(Child, parser_config=self.parser_config)
     expected = textwrap.dedent("""\
         (
             a: int = (60 * 60),
@@ -410,8 +402,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     def my_fun(*args, a=1, **kwargs):  # pylint: disable=unused-argument
       pass
 
-    sig = signature.generate_signature(
-        my_fun, func_full_name='my_fun', parser_config=self.parser_config)
+    sig = signature.generate_signature(my_fun, parser_config=self.parser_config)
     expected = '(\n    *args, a=1, **kwargs\n)'
     self.assertEqual(expected, str(sig))
 
@@ -423,7 +414,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         pass
 
     sig = signature.generate_signature(
-        MyClass, func_full_name='MyClass', parser_config=self.parser_config)
+        MyClass, parser_config=self.parser_config)
     expected = '(\n    *args, a=1, **kwargs\n)'
     self.assertEqual(expected, str(sig))
 

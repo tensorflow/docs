@@ -81,7 +81,6 @@ class FunctionPageInfo(base_page.PageInfo):
     self._signature = signature_lib.generate_signature(
         self.py_object,
         parser_config,
-        self.full_name,
         func_type=signature_lib.FuncType.FUNCTION,
     )
     self._decorators = signature_lib.extract_decorators(self.py_object)
