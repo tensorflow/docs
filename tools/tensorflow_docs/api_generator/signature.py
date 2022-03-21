@@ -465,9 +465,8 @@ class TfSignature(inspect.Signature):
         v.annotation is not EMPTY for v in self.parameters.values())
     if all_args_list:
       str_signature = ',\n'.join(all_args_list)
-      # If there is no type annotation on arguments, then wrap the entire
-      # signature to width 80.
-      if not has_any_annotations:
+      # If it fits on one line flatten it.
+      if len(str_signature) + 4 < 80:
         str_signature = textwrap.fill(str_signature, width=80)
 
       arguments_signature = '\n' + textwrap.indent(

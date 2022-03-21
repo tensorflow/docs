@@ -345,7 +345,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       b: Optional[str]
 
     info = self._setup_class_info(Cls6, '__init__')
-    self.assertEqual('(\n    a: Optional[int],\n    b: Optional[str]\n)',
+    self.assertEqual('(\n    a: Optional[int], b: Optional[str]\n)',
                      str(info.methods[0].signature))
 
   def test_signature_dataclass_custom_init(self):
@@ -391,9 +391,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     sig = signature.generate_signature(Child, parser_config=self.parser_config)
     expected = textwrap.dedent("""\
         (
-            a: int = (60 * 60),
-            b: float = (2 / 9),
-            c: float = const
+            a: int = (60 * 60), b: float = (2 / 9), c: float = const
         )""")
     self.assertEqual(expected, str(sig))
 
