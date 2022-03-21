@@ -39,6 +39,8 @@ Most communication happens on the TensorFlow Forum. The following mailing lists 
 *   [announce@tensorflow.org](mailto:announce@tensorflow.org) — All major releases and important announcements are sent to this mailing group. We recommend that you join this list if you depend on TensorFlow in any way.
 *   [developers@tensorflow.org](mailto:developers@tensorflow.org) — Discussion for developers who are contributing to TensorFlow.
 
+For more information on project-specific communication, visit the [Contribute to SIGs](https://tensorflow.org/community/contribute/sigs) page.
+
 ### Blog and social media
 
 The [TensorFlow Blog](http://blog.tensorflow.org/) is full of great content both from our team at Google and the broader community. We'd love to hear what you have to say, so if you would like to submit an article for review, please contact us at tensorflow-blog@google.com. Note that we receive many great submissions, and setting expectations, we can only publish a few.
