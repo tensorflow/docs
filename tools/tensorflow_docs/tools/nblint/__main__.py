@@ -1,4 +1,3 @@
-# Lint as: python3
 # pylint: disable=invalid-name
 # Copyright 2020 The TensorFlow Authors. All Rights Reserved.
 #
