@@ -25,7 +25,7 @@ import re
 import textwrap
 import typing
 
-from typing import Any, Callable, Dict, List, Tuple, Type
+from typing import Any, Callable, Dict, List, Optional, Tuple, Type
 
 import astor
 
@@ -131,14 +131,6 @@ def strip_obj_addresses(text):
 class FormatArguments(object):
   """Formats the arguments and adds type annotations if they exist."""
 
-  _INTERNAL_NAMES = {
-      'ops.GraphKeys': 'tf.GraphKeys',
-      '_ops.GraphKeys': 'tf.GraphKeys',
-      'init_ops.zeros_initializer': 'tf.zeros_initializer',
-      'init_ops.ones_initializer': 'tf.ones_initializer',
-      'saver_pb2.SaverDef': 'tf.train.SaverDef',
-  }
-
   # A regular expression capturing a python identifier.
   _IDENTIFIER_RE = r'[a-zA-Z_]\w*'
 
@@ -166,9 +158,11 @@ class FormatArguments(object):
     self._reverse_index = parser_config.reverse_index
     self._reference_resolver = parser_config.reference_resolver
 
-  def get_link(self, obj_full_name: str) -> str:
+  def get_link(self,
+               link_text: str,
+               obj_full_name: Optional[str] = None) -> str:
     return self._reference_resolver.python_link(
-        link_text=obj_full_name, ref_full_name=obj_full_name)
+        link_text=link_text, ref_full_name=obj_full_name)
 
   def _extract_non_builtin_types(self, arg_obj: Any,
                                  non_builtin_types: List[Any]) -> List[Any]:
@@ -252,25 +246,54 @@ class FormatArguments(object):
 
     return self.get_link(obj_full_name)
 
-  def preprocess(self, ast_typehint: str, obj_anno: Any) -> str:
+  def maybe_add_link(self, source: str, value: Any) -> str:
+    """Return a link to an object's api page if found.
+
+    Args:
+      source: The source string from the code.
+      value: The value of the object.
+
+    Returns:
+      The original string with maybe an HTML link added.
+    """
+    cls = type(value)
+
+    value_name = self._reverse_index.get(id(value), None)
+    cls_name = self._reverse_index.get(id(cls), None)
+
+    if cls_name is not None:
+      # It's much more common for the class to be documented than the instance.
+      # and the class page will provide better docs.
+      before = source.split('(')[0]
+      cls_short_name = cls_name.split('.')[-1]
+      if before.endswith(cls_short_name):
+        # Yes, this is a guess but it will usually be right.
+        return self.get_link(source, cls_name)
+
+    if value_name is not None:
+      return self.get_link(value_name, value_name)
+
+    return source
+
+  def preprocess(self, string: str, value: Any) -> str:
     """Links type annotations to its page if it exists.
 
     Args:
-      ast_typehint: AST extracted type annotation.
-      obj_anno: Type annotation object.
+      string: AST extracted type annotation.
+      value: Type annotation object.
 
     Returns:
       Linked type annotation if the type annotation object exists.
     """
     # If the object annotations exists in the reverse_index, get the link
     # directly for the entire annotation.
-    obj_anno_full_name = self._reverse_index.get(id(obj_anno), None)
+    obj_anno_full_name = self._reverse_index.get(id(value), None)
     if obj_anno_full_name is not None:
       return self.get_link(obj_anno_full_name)
 
-    non_builtin_ast_types = self._get_non_builtin_ast_types(ast_typehint)
+    non_builtin_ast_types = self._get_non_builtin_ast_types(string)
     try:
-      non_builtin_type_objs = self._extract_non_builtin_types(obj_anno, [])
+      non_builtin_type_objs = self._extract_non_builtin_types(value, [])
     except RecursionError:
       non_builtin_type_objs = {}
 
@@ -282,16 +305,7 @@ class FormatArguments(object):
       non_builtin_map = dict(zip(non_builtin_ast_types, non_builtin_type_objs))
 
     partial_func = functools.partial(self._linkify, non_builtin_map)
-    return self._INDIVIDUAL_TYPES_RE.sub(partial_func, ast_typehint)
-
-  def _replace_internal_names(self, default_text: str) -> str:
-    full_name_re = f'^{self._IDENTIFIER_RE}(.{self._IDENTIFIER_RE})+'
-    match = re.match(full_name_re, default_text)
-    if match:
-      for internal_name, public_name in self._INTERNAL_NAMES.items():
-        if match.group(0).startswith(internal_name):
-          return public_name + default_text[len(internal_name):]
-    return default_text
+    return self._INDIVIDUAL_TYPES_RE.sub(partial_func, string)
 
   def format_return(self, return_anno: Tuple[Any, str]) -> str:
     value, source = return_anno
@@ -339,21 +353,11 @@ class FormatArguments(object):
       default_text = None
       if kwarg.default is not EMPTY:
         default_val, default_source = kwarg.default
+        if default_source is None:
+          default_source = strip_obj_addresses(repr(default_val))
+        default_source = html.escape(default_source)
 
-        if id(default_val) in self._reverse_index:
-          default_text = self._reverse_index[id(default_val)]
-        elif default_source is not None:
-          default_text = default_source
-          if default_text != repr(default_val):
-            default_text = self._replace_internal_names(default_text)
-        # Kwarg without default value.
-        elif default_val is EMPTY:
-          kwargs_text_repr.extend(self.format_args([kwarg]))
-          continue
-        else:
-          # Strip object memory addresses to avoid unnecessary doc churn.
-          default_text = strip_obj_addresses(repr(default_val))
-        default_text = html.escape(str(default_text))
+        default_text = self.maybe_add_link(default_source, default_val)
 
       # Format the kwargs to add the type annotation and default values.
       typeanno = None

@@ -290,7 +290,7 @@ class ReferenceResolver:
 
     return '\n'.join(fixed_lines)
 
-  def python_link(self, link_text, ref_full_name):
+  def python_link(self, link_text: str, ref_full_name: Optional[str] = None):
     """Resolve a "`tf.symbol`" reference to a link.
 
     This will pick the canonical location for duplicate symbols.
@@ -302,6 +302,8 @@ class ReferenceResolver:
     Returns:
       A link to the documentation page of `ref_full_name`.
     """
+    if ref_full_name is None:
+      ref_full_name = link_text
     link_text = html.escape(link_text, quote=True)
 
     url = self.reference_to_url(ref_full_name)

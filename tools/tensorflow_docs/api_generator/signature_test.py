@@ -50,9 +50,16 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
     super().setUp()
     self.known_object = object()
     reference_resolver = reference_resolver_lib.ReferenceResolver(
-        duplicate_of={},
+        link_prefix='/',
+        duplicate_of={
+            'tfdocs.api_generator.signature.extract_decorators':
+                'tfdocs.api_generator.signature.extract_decorators',
+            'location.of.object.in.api':
+                'location.of.object.in.api',
+        },
         is_fragment={
-            'tfdocs.api_generator.signature.extract_decorators': False
+            'location.of.object.in.api': False,
+            'tfdocs.api_generator.signature.extract_decorators': False,
         },
         py_module_names=[])
     self.parser_config = config.ParserConfig(
@@ -60,7 +67,12 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         duplicates={},
         duplicate_of={},
         tree={},
-        index={},
+        index={
+            'location.of.object.in.api':
+                self.known_object,
+            'tfdocs.api_generator.signature.extract_decorators':
+                signature.extract_decorators
+        },
         reverse_index={
             id(self.known_object):
                 'location.of.object.in.api',
@@ -79,7 +91,9 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         example_fun,
         parser_config=self.parser_config,
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual('(\n    arg=location.of.object.in.api\n)', str(sig))
+    self.assertEqual(
+        '(\n    arg=<a href="/location/of/object/in/api.md"><code>location.of.object.in.api</code></a>\n)',
+        str(sig))
 
   def test_literals(self):
 
