@@ -408,6 +408,28 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         )""")
     self.assertEqual(expected, str(sig))
 
+  def test_extract_non_annotated(self):
+
+    const = 1234
+
+    class A:
+      a = 60 * 60
+      b = 1 / 9
+
+    class B(A):
+      b = 2 / 9
+      c = const
+
+    ast_extractor = signature._ClassDefaultAndAnnotationExtractor()
+    ast_extractor.extract(B)
+
+    self.assertEqual({
+        'a': '(60 * 60)',
+        'b': '(2 / 9)',
+        'c': 'const'
+    }, ast_extractor.defaults)
+
+
   def test_vararg_before_kwargonly_consistent_order(self):
 
     def my_fun(*args, a=1, **kwargs):  # pylint: disable=unused-argument

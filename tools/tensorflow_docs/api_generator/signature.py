@@ -54,9 +54,13 @@ class _BaseDefaultAndAnnotationExtractor(ast.NodeVisitor):
     text_default_val = self._PAREN_NUMBER_RE.sub('\\1', text_default_val)
     return text_default_val
 
+  def extract(self, obj: Any):
+    obj_source = textwrap.dedent(inspect.getsource(obj))
+    obj_ast = ast.parse(obj_source)
+    self.visit(obj_ast)
 
-class _CallableDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
-                                            ):
+
+class _ArgDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor):
   """Extracts the type annotations by parsing the AST of a function."""
 
   def visit_FunctionDef(self, node) -> None:  # pylint: disable=invalid-name
@@ -95,8 +99,7 @@ class _CallableDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
         self.defaults[kwarg.arg] = text_default_val
 
 
-class _DataclassDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
-                                             ):
+class _ClassDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor):
   """Extracts the type annotations by parsing the AST of a dataclass."""
 
   def __init__(self):
@@ -111,6 +114,8 @@ class _DataclassDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
     for sub in node.body:
       if isinstance(sub, ast.AnnAssign):
         self.visit_AnnAssign(sub)
+      elif isinstance(sub, ast.Assign):
+        self.visit_Assign(sub)
 
   def visit_AnnAssign(self, node) -> None:  # pylint: disable=invalid-name
     """Vists an assignment with a type annotation. Dataclasses is an example."""
@@ -119,6 +124,20 @@ class _DataclassDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor
     self.annotations[arg] = _source_from_ast(node.annotation)
     if node.value is not None:
       self.defaults[arg] = self._preprocess_default(node.value)
+
+  def visit_Assign(self, node) -> None:  # pylint: disable=invalid-name
+    """Vists an assignment with a type annotation. Dataclasses is an example."""
+    names = [_source_from_ast(t) for t in node.targets]
+    if node.value is not None:
+      val = self._preprocess_default(node.value)
+      for name in names:
+        self.defaults[name] = val
+
+  def extract(self, cls):
+    # Iterate over the classes in reverse order so each class overwrites it's
+    # parents. Skip `object`.
+    for cls in reversed(cls.__mro__[:-1]):
+      super().extract(cls)
 
 
 _OBJECT_MEMORY_ADDRESS_RE = re.compile(r'<(?P<type>.+?) at 0x[\da-f]+>')
@@ -562,9 +581,9 @@ def generate_signature(
 
   if dataclasses.is_dataclass(func):
     sig = sig.replace(return_annotation=EMPTY)
-    extract_fn = _extract_dataclass_defaults_and_annotations
+    extract_fn = _extract_class_defaults_and_annotations
   else:
-    extract_fn = _extract_callable_defaults_and_annotations
+    extract_fn = _extract_arg_defaults_and_annotations
 
   (annotation_source_dict, defaults_source_dict,
    return_annotation_source) = extract_fn(func)
@@ -598,44 +617,29 @@ def generate_signature(
 AnnotsDefaultsReturns = Tuple[Dict[str, str], Dict[str, str], Any]
 
 
-def _extract_dataclass_defaults_and_annotations(
-    func: Type[object]) -> AnnotsDefaultsReturns:
+def _extract_class_defaults_and_annotations(
+    cls: Type[object]) -> AnnotsDefaultsReturns:
   """Extract ast defaults and annotations form a dataclass."""
-  stack = [c for c in func.__mro__ if dataclasses.is_dataclass(c)]
+  ast_visitor = _ClassDefaultAndAnnotationExtractor()
+  ast_visitor.extract(cls)
 
-  annotation_source_dict = {}
-  defaults_source_dict = {}
-  return_annotation_source = EMPTY
-
-  # Iterate over the classes in reverse order so precedence works.
-  for cls in reversed(stack):
-    func_source = textwrap.dedent(inspect.getsource(cls))
-    func_ast = ast.parse(func_source)
-    # Extract the type annotation from the parsed ast.
-    ast_visitor = _DataclassDefaultAndAnnotationExtractor()
-    ast_visitor.visit(func_ast)
-
-    annotation_source_dict.update(ast_visitor.annotations)
-    defaults_source_dict.update(ast_visitor.defaults)
-
-  return annotation_source_dict, defaults_source_dict, return_annotation_source
+  return (ast_visitor.annotations, ast_visitor.defaults,
+          ast_visitor.return_annotation)
 
 
-def _extract_callable_defaults_and_annotations(
+def _extract_arg_defaults_and_annotations(
     func: Callable[..., Any]) -> AnnotsDefaultsReturns:
   """Extract ast defaults and annotations form a standard callable."""
 
-  ast_visitor = _CallableDefaultAndAnnotationExtractor()
+  ast_visitor = _ArgDefaultAndAnnotationExtractor()
 
   annotation_source_dict = {}
   defaults_source_dict = {}
   return_annotation_source = EMPTY
 
   try:
-    func_source = textwrap.dedent(inspect.getsource(func))
-    func_ast = ast.parse(func_source)
     # Extract the type annotation from the parsed ast.
-    ast_visitor.visit(func_ast)
+    ast_visitor.extract(func)
   except Exception:  # pylint: disable=broad-except
     # A wide-variety of errors can be thrown here.
     pass
