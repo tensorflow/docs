@@ -162,7 +162,7 @@ up to date.
 Additional `git` and GitHub resources:
 
 *   [Git documentation](https://git-scm.com/documentation)
-*   [Git development workflow](https://docs.scipy.org/doc/numpy/dev/gitwash/development_workflow.html)
+*   [Git development workflow](https://docs.scipy.org/doc/numpy/dev/development_workflow.html)
 *   [Resolving merge conflicts](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/).
 
 
