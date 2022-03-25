@@ -563,7 +563,7 @@ def write_docs(
 
     try:
       path.parent.mkdir(exist_ok=True, parents=True)
-      path.write_text(page_info.text, encoding='utf-8')
+      path.write_text(page_info.page_text, encoding='utf-8')
       num_docs_output += 1
     except OSError as e:
       raise OSError('Cannot write documentation for '

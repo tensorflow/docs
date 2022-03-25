@@ -13,15 +13,11 @@
 # limitations under the License.
 # ==============================================================================
 """Create a `pretty_docs.base_page.PageInfo` from a python object."""
-import os
-import posixpath
-
 from typing import Any, Dict, Optional, Type
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
-from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
 from tensorflow_docs.api_generator.pretty_docs import class_page
 from tensorflow_docs.api_generator.pretty_docs import function_page
@@ -75,9 +71,6 @@ def docs_for_object(
 
   # Which other aliases exist for the object referenced by full_name?
   main_name = parser_config.reference_resolver.py_main_name(full_name)
-  duplicate_names = parser_config.duplicates.get(main_name, [])
-  if main_name in duplicate_names:
-    duplicate_names.remove(main_name)
 
   if page_builder_classes is None:
     page_builder_classes = _DEFAULT_PAGE_BUILDER_CLASSES
@@ -93,28 +86,6 @@ def docs_for_object(
       search_hints=search_hints,
       extra_docs=extra_docs)
 
-  relative_path = os.path.relpath(
-      path='.',
-      start=os.path.dirname(parser.documentation_path(full_name)) or '.')
-
-  # Convert from OS-specific path to URL/POSIX path.
-  relative_path = posixpath.join(*relative_path.split(os.path.sep))
-
-  with parser_config.reference_resolver.temp_prefix(relative_path):
-    page_info.set_doc(
-        parser.parse_md_docstring(
-            py_object,
-            full_name,
-            parser_config,
-            extra_docs,
-        ))
-
-    page_info.collect_docs(parser_config)
-
-    page_info.set_aliases(duplicate_names)
-
-    page_info.set_defined_in(parser.get_defined_in(py_object, parser_config))
-
-    page_info.build()
+  page_info.docs_for_object(parser_config)
 
   return page_info

@@ -14,8 +14,9 @@
 # ==============================================================================
 """Base classes for page construction."""
 import abc
-import functools
+import os
 import pathlib
+import posixpath
 import textwrap
 from typing import Any, ClassVar, Dict, List, NamedTuple, Optional, Sequence, Tuple, Type
 
@@ -103,6 +104,7 @@ class PageInfo:
     search_hints: If true include metadata search hints, else include a
       "robots: noindex"
     text: The resulting page text.
+    page_text: The cached result.
   """
   DEFAULT_BUILDER_CLASS: ClassVar[Type[PageBuilder]] = TemplatePageBuilder
 
@@ -122,6 +124,7 @@ class PageInfo:
         that need to be added to the markdown pages created.
       search_hints: If true include metadata search hints, else include a
         "robots: noindex"
+
     """
     self.full_name = full_name
     self.py_object = py_object
@@ -131,22 +134,53 @@ class PageInfo:
     self._defined_in = None
     self._aliases = None
     self._doc = None
-    self._text = None
+    self._page_text = None
 
   def collect_docs(self, parser_config: config.ParserConfig):
     """Collects additional information from the `config.ParserConfig`."""
     pass
 
+  def docs_for_object(self, parser_config):
+    duplicate_names = parser_config.duplicates.get(self.full_name, [])
+    if self.full_name in duplicate_names:
+      duplicate_names.remove(self.full_name)
+
+    relative_path = os.path.relpath(
+        path='.',
+        start=os.path.dirname(parser.documentation_path(self.full_name)) or '.')
+
+    # Convert from OS-specific path to URL/POSIX path.
+    relative_path = posixpath.join(*relative_path.split(os.path.sep))
+
+    with parser_config.reference_resolver.temp_prefix(relative_path):
+      self.set_doc(
+          parser.parse_md_docstring(
+              self.py_object,
+              self.full_name,
+              parser_config,
+              self._extra_docs,
+          ))
+
+      self.collect_docs(parser_config)
+
+      self.set_aliases(duplicate_names)
+
+      self.set_defined_in(parser.get_defined_in(self.py_object, parser_config))
+
+      self._page_text = self.build()
+
+    return self._page_text
+
   def build(self) -> str:
     """Builds the documentation."""
     cls = self.DEFAULT_BUILDER_CLASS
-    text = cls(self).build()
-    self._text = text
-    return text
+    return cls(self).build()
 
   @property
-  def text(self):
-    return self._text
+  def page_text(self):
+    if self._page_text is None:
+      self._page_text = self.build()
+    return self._page_text
 
   def __eq__(self, other):
     if isinstance(other, PageInfo):
@@ -196,7 +230,6 @@ class PageInfo:
     """
     assert self.doc is None
     self._doc = doc
-
 
 
 class MemberInfo(NamedTuple):
