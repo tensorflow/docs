@@ -23,6 +23,7 @@ from typing import Any, Callable, List, Sequence, Tuple
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import get_source
 
 _TYPING_IDS = frozenset(
     id(obj)
@@ -184,11 +185,10 @@ def _get_imported_symbols(obj):
     def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
       self._add_imported_symbol(node)
 
-  try:
-    source = inspect.getsource(obj)
-  except OSError:
-    # inspect raises an OSError for empty module files.
+  source = get_source.get_source(obj)
+  if source is None:
     return []
+
   tree = ast.parse(source)
   visitor = ImportNodeVisitor()
   visitor.visit(tree)

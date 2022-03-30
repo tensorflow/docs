@@ -23,19 +23,12 @@ from typing import Optional, Any, List, Tuple
 
 import astor
 
+from tensorflow_docs.api_generator import get_source
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
 
 
-def _get_source(py_object: Any) -> Optional[str]:
-  if py_object is not None:
-    try:
-      source = textwrap.dedent(inspect.getsource(py_object))
-      return source
-    except Exception:  # pylint: disable=broad-except
-      return None
-  return None
 
 
 def _count_empty_param(items: List[Tuple[str, Optional[str]]]) -> int:
@@ -183,7 +176,7 @@ def lint_returns(
   Returns:
     A filled `ReturnLint` proto object.
   """
-  source = _get_source(page_info.py_object)
+  source = get_source.get_source(page_info.py_object)
 
   return_visitor = ReturnVisitor()
   if source is not None:
@@ -243,7 +236,7 @@ def lint_raises(page_info: base_page.PageInfo) -> api_report_pb2.RaisesLint:
 
   # Extract the raises from the source code.
   raise_visitor = RaiseVisitor()
-  source = _get_source(page_info.py_object)
+  source = get_source.get_source(page_info.py_object)
   if source is not None:
     try:
       raise_visitor.visit(ast.parse(source))

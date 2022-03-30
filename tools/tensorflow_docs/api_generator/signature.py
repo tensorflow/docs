@@ -30,6 +30,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, Type
 import astor
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import get_source
 from tensorflow_docs.api_generator import public_api
 
 EMPTY = inspect.Signature.empty
@@ -55,9 +56,10 @@ class _BaseDefaultAndAnnotationExtractor(ast.NodeVisitor):
     return text_default_val
 
   def extract(self, obj: Any):
-    obj_source = textwrap.dedent(inspect.getsource(obj))
-    obj_ast = ast.parse(obj_source)
-    self.visit(obj_ast)
+    obj_source = get_source.get_source(obj)
+    if obj_source is not None:
+      obj_ast = ast.parse(obj_source)
+      self.visit(obj_ast)
 
 
 class _ArgDefaultAndAnnotationExtractor(_BaseDefaultAndAnnotationExtractor):
@@ -672,14 +674,11 @@ def extract_decorators(func: Any) -> List[str]:
 
   visitor = ASTDecoratorExtractor()
 
-  try:
-    # Note: inspect.getsource doesn't include the decorator lines on classes,
-    # this won't work for classes until that's fixed.
-    func_source = textwrap.dedent(inspect.getsource(func))
+  # Note: inspect.getsource doesn't include the decorator lines on classes,
+  # this won't work for classes until that's fixed.
+  func_source = get_source.get_source(func)
+  if func_source is not None:
     func_ast = ast.parse(func_source)
     visitor.visit(func_ast)
-  except Exception:  # pylint: disable=broad-except
-    # A wide-variety of errors can be thrown here.
-    pass
 
   return visitor.decorator_list
