@@ -172,6 +172,21 @@ class PublicApiTest(absltest.TestCase):
     # Assert that the filtered_members do not include a module named `inspect`.
     self.assertNotIn('inspect', [name for name, _ in filtered_members])
 
+  def test_get_imported_symbols(self):
+    source = """
+        import sub0
+        import pkg.sub1
+        from pkg import sub2
+        from pkg.sub3 import sub_sub1
+        from pkg.sub4 import *
+        from pkg import sub5 as r1
+        from pkg import sub6 as r2, sub7, sub8 as r3
+
+        """
+    imported = public_api._get_imported_symbols(source)
+    self.assertCountEqual(
+        ['sub0', 'sub2', 'sub_sub1', 'r1', 'r2', 'sub7', 'r3'], imported)
+
   def test_ignore_typing(self):
     children_before = [('a', 1), ('b', 3), ('c', typing.List)]
     children_after = public_api.ignore_typing('ignored', 'ignored',

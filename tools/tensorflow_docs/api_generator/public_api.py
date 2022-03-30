@@ -18,8 +18,11 @@ import ast
 import inspect
 import os
 import pathlib
+import textwrap
+import types
 import typing
-from typing import Any, Callable, List, Sequence, Tuple
+from typing import Any, Callable, List, Sequence, Tuple, Union
+
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -167,7 +170,7 @@ def local_definitions_filter(path: Sequence[str], parent: Any,
   return filtered_children
 
 
-def _get_imported_symbols(obj):
+def _get_imported_symbols(obj: Union[str, types.ModuleType]):
   """Returns a list of symbol names imported by the given `obj`."""
 
   class ImportNodeVisitor(ast.NodeVisitor):
@@ -177,7 +180,13 @@ def _get_imported_symbols(obj):
       self.imported_symbols = []
 
     def _add_imported_symbol(self, node):
-      self.imported_symbols.extend([alias.name for alias in node.names])
+      for alias in node.names:
+        name = alias.asname or alias.name
+        if name == '*':
+          continue
+        if '.' in name:
+          continue
+        self.imported_symbols.append(name)
 
     def visit_Import(self, node):  # pylint: disable=invalid-name
       self._add_imported_symbol(node)
@@ -185,7 +194,10 @@ def _get_imported_symbols(obj):
     def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
       self._add_imported_symbol(node)
 
-  source = get_source.get_source(obj)
+  if isinstance(obj, str):
+    source = textwrap.dedent(obj)
+  else:
+    source = get_source.get_source(obj)
   if source is None:
     return []
 
@@ -197,21 +209,57 @@ def _get_imported_symbols(obj):
 
 def explicit_package_contents_filter(path: Sequence[str], parent: Any,
                                      children: Children) -> Children:
-  """Filter modules to only include explicit contents.
+  """Filter submodules, only keep what's explicitly included.
 
-  This function returns the children explicitly included by this module, meaning
-  that it will exclude:
-
-  *   Modules in a package not explicitly imported by the package (submodules
-      are implicitly injected into their parent's namespace).
-  *   Modules imported by a module that is not a package.
+  This filter only affects the visibility of **modules**. Other objects are not
+  affected.
 
   This filter is useful if you explicitly define your API in the packages of
-  your library, but do not expliticly define that API in the `__all__` variable
-  of each module. The purpose is to make it easier to maintain that API.
+  your library (the __init__.py files), but do not expliticly define that API
+  in the `__all__` variable of each module. The purpose is to make it easier to
+  maintain that API.
 
-  Note: This filter does work with wildcard imports, however it is generally not
-  recommended to use wildcard imports.
+  **This filter makes it so that modules are only documented where they are
+  explicitly imported in an __init__.py**
+
+  ### Packages
+
+  Lots of imports **indirectly** inject modules into package namespaces, this
+  filter helps you ignore those. Anywhere you `import pkg.sub1` it will inject
+  `sub1` into the `pkg` namsspace.
+
+  When filtering a package it only keeps modules that are **directly**
+  impotrted in the package. This code, injects `[sub0, sub1, sub2, sub3, sub4,
+  sub_sub1, *]` into the pkg namespace:
+
+  pkg/__init__.py
+
+  ```
+  import sub0
+  import pkg.sub1
+  from pkg import sub2
+  from pkg.sub3 import sub_sub1
+  from pkg.sub4 import *
+  ```
+
+  But this filter will only keep the modules `[sub0, sub2, sub_sub1]` in the
+  docs for `pkg`.
+
+  ### Regular modules
+
+  For regular modules all modules in the namespace are assumed to be
+  implementation details and/or documented in their source location. For example
+  in this package:
+
+  ```
+  pkg/
+    __init__.py
+    sub1.py
+    sub2.py
+  ```
+
+  If you `import sub2` in `__init__.py` `sub2` will documented in `pkg`
+  But if you `import sub2` in `sub1.py` `sub2` will not be documented in `sub1`
 
   Args:
     path: A tuple of names forming the path to the object.
