@@ -91,6 +91,19 @@
 
 <section>
 <h3>macOS</h3>
+<aside class="note">
+  <strong>Note:</strong>
+  <span>
+    For users of Apple M1 computers, to get native performance, you'll want
+    to follow the instructions found
+      <a href="https://developer.apple.com/metal/tensorflow-plugin/"
+        class="external">here</a>.
+      Conda has shown to have the smoothest install. Some TensorFlow
+      binaries (specifically, ones with custom C++ extensions like TensorFlow
+      Decision Forests, object detection, and TFX) are not compiled against M1
+      targets. If you need those libraries, you will have to use TensorFlow
+      with x86 emulation and Rosetta.</span>
+</aside>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
@@ -143,7 +156,52 @@
 
 <div class="ds-selector-tabs">
 <section>
-<h3>Ubuntu / macOS</h3>
+<h3>Ubuntu</h3>
+<p>
+  Create a new virtual environment by choosing a Python interpreter and making a
+  <code>./venv</code> directory to hold it:
+</p>
+<pre class="devsite-terminal devsite-click-to-copy">python3 -m venv --system-site-packages <var>./venv</var></pre>
+<p>
+  Activate the virtual environment using a shell-specific command:
+</p>
+<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate  # sh, bash, or zsh</pre>
+<pre class="devsite-terminal prettyprint lang-bsh">. <var>./venv</var>/bin/activate.fish  # fish</pre>
+<pre class="devsite-terminal prettyprint lang-bsh">source <var>./venv</var>/bin/activate.csh  # csh or tcsh</pre>
+
+<p>
+  When the virtual environment is active, your shell prompt is prefixed with <code>(venv)</code>.
+</p>
+<p>
+  Install packages within a virtual environment without affecting the host system
+  setup. Start by upgrading <code>pip</code>:
+</p>
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal tfo-terminal-venv">pip install --upgrade pip</code>
+
+<code class="devsite-terminal tfo-terminal-venv">pip list  # show packages installed within the virtual environment</code>
+</pre>
+<p>
+  And to exit the virtual environment later:
+</p>
+<pre class="devsite-terminal tfo-terminal-venv prettyprint lang-bsh">deactivate  # don't exit until you're done using TensorFlow</pre>
+</section>
+
+<section>
+<h3>macOS</h3>
+<aside class="note">
+  <strong>Note:</strong>
+  <span>
+    For users of Apple M1 computers, to get native performance, you'll want
+    to follow the instructions found
+      <a href="https://developer.apple.com/metal/tensorflow-plugin/"
+        class="external">here</a>.
+      Conda has shown to have the smoothest install. Some TensorFlow
+      binaries (specifically, ones with custom C++ extensions like TensorFlow
+      Decision Forests, object detection, and TFX) are not compiled against M1
+      targets. If you need those libraries, you will have to use TensorFlow
+      with x86 emulation and Rosetta.</span>
+</aside>
 <p>
   Create a new virtual environment by choosing a Python interpreter and making a
   <code>./venv</code> directory to hold it:
