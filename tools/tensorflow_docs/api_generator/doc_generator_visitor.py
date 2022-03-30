@@ -205,7 +205,7 @@ class DocGeneratorVisitor(object):
     self._duplicates: Dict[str, List[str]] = None
     self._duplicate_of: Dict[str, str] = None
 
-    self._path_tree = PathTree()
+    self.path_tree = PathTree()
 
   @property
   def index(self):
@@ -242,7 +242,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The `id(object)` to full name map.
     """
-    self._maybe_find_duplicates()
     return self._reverse_index
 
   @property
@@ -256,7 +255,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The map from duplicate name to preferred name.
     """
-    self._maybe_find_duplicates()
     return self._duplicate_of
 
   @property
@@ -273,7 +271,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The map from main name to list of all duplicate names.
     """
-    self._maybe_find_duplicates()
     return self._duplicates
 
   def __call__(self, parent_path, parent, children):
@@ -301,8 +298,8 @@ class DocGeneratorVisitor(object):
     parent_name = '.'.join(parent_path)
     self._index[parent_name] = parent
     self._tree[parent_name] = []
-    if parent_path not in self._path_tree:
-      self._path_tree[parent_path] = parent
+    if parent_path not in self.path_tree:
+      self.path_tree[parent_path] = parent
 
     if not (inspect.ismodule(parent) or inspect.isclass(parent)):
       raise TypeError('Unexpected type in visitor -- '
@@ -310,7 +307,7 @@ class DocGeneratorVisitor(object):
 
     for name, child in children:
       child_path = parent_path + (name,)
-      self._path_tree[child_path] = child
+      self.path_tree[child_path] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
@@ -379,7 +376,7 @@ class DocGeneratorVisitor(object):
     return (defining_class_score, experimental_score, keras_score,
             module_length_score, name)
 
-  def _maybe_find_duplicates(self):
+  def build(self):
     """Compute data structures containing information about duplicates.
 
     Find duplicates in `index` and decide on one to be the "main" name.
@@ -411,7 +408,7 @@ class DocGeneratorVisitor(object):
     # symbol (incl. itself).
     duplicates = {}
 
-    for path, node in self._path_tree.items():
+    for path, node in self.path_tree.items():
       if not path:
         continue
       full_name = node.full_name
@@ -420,7 +417,7 @@ class DocGeneratorVisitor(object):
       if full_name in duplicates:
         continue
 
-      aliases = self._path_tree.nodes_for_obj(py_object)
+      aliases = self.path_tree.nodes_for_obj(py_object)
       # maybe_singleton types can't be looked up by object.
       if not aliases:
         aliases = [node]

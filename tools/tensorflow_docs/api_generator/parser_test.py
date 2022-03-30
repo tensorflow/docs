@@ -18,6 +18,7 @@ import collections
 import dataclasses
 import inspect
 import textwrap
+import types
 
 from typing import List, Union
 
@@ -27,6 +28,7 @@ import attr
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator.pretty_docs import docs_for_object
@@ -186,40 +188,21 @@ class ParserTest(parameterized.TestCase):
         '`tf.not.a.real.symbol`', result)
 
   def test_docs_for_class(self):
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.TestClass = TestClass
 
-    index = {
-        'TestClass': TestClass,
-        'TestClass.a_method': TestClass.a_method,
-        'TestClass.a_property': TestClass.a_property,
-        'TestClass.ChildClass': TestClass.ChildClass,
-        'TestClass.static_method': TestClass.static_method,
-        'TestClass.class_method': TestClass.class_method,
-        'TestClass.CLASS_MEMBER': TestClass.CLASS_MEMBER,
-    }
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
-
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {
-        'TestClass': [
-            'a_method', 'class_method', 'static_method', 'a_property',
-            'ChildClass', 'CLASS_MEMBER'
-        ]
-    }
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='TestClass', py_object=TestClass, parser_config=parser_config)
+        full_name='m.TestClass',
+        py_object=TestClass,
+        parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -248,68 +231,46 @@ class ParserTest(parameterized.TestCase):
     self.assertIs(TestClass.ChildClass, page_info.classes[0].py_object)
 
   def test_dataclass_attributes_table(self):
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.ExampleDataclass = ExampleDataclass
 
-    index = {
-        'ExampleDataclass': ExampleDataclass,
-    }
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
-
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {'ExampleDataclass': []}
-
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='ExampleDataclass',
+        full_name='m.ExampleDataclass',
         py_object=ExampleDataclass,
         parser_config=parser_config)
 
     self.assertCountEqual(['a', 'b', 'c', 'x', 'y', 'z'],
                           [name for name, value in page_info.attr_block.items])
 
-  def test_namedtuple_field_order(self):
+  def test_namedtuple_field_order_respects_hidden(self):
     namedtupleclass = collections.namedtuple(
         'namedtupleclass', ['z', 'y', 'x', 'hidden', 'w', 'v', 'u'])
 
-    index = {
-        'namedtupleclass': namedtupleclass,
-        'namedtupleclass.u': namedtupleclass.u,
-        'namedtupleclass.v': namedtupleclass.v,
-        'namedtupleclass.w': namedtupleclass.w,
-        'namedtupleclass.x': namedtupleclass.x,
-        'namedtupleclass.y': namedtupleclass.y,
-        'namedtupleclass.z': namedtupleclass.z,
-    }
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.namedtupleclass = namedtupleclass
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
+    def hide(path, parent, children):
+      return [(name, value) for name, value in children if name != 'hidden']
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org',
+        callbacks=[hide])
 
-    tree = {'namedtupleclass': {'u', 'v', 'w', 'x', 'y', 'z'}}
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='namedtupleclass',
+        full_name='m.namedtupleclass',
         py_object=namedtupleclass,
         parser_config=parser_config)
 
@@ -337,32 +298,19 @@ class ParserTest(parameterized.TestCase):
       def a_method(self, arg='default'):
         pass
 
-    index = {
-        'Child': Child,
-        'Child.a_method': Child.a_method,
-    }
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.Child = Child
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {
-        'Child': ['a_method'],
-    }
-
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='Child', py_object=Child, parser_config=parser_config)
+        full_name='m.Child', py_object=Child, parser_config=parser_config)
 
     # Make sure the `a_method` is not present
     self.assertEmpty(page_info.methods)
@@ -389,33 +337,19 @@ class ParserTest(parameterized.TestCase):
       def my_method(self):
         pass
 
-    index = {
-        'ChildMessage': ChildMessage,
-        'ChildMessage.hidden': ChildMessage.hidden,
-        'ChildMessage.hidden2': ChildMessage.hidden2,
-        'ChildMessage.hidden3': ChildMessage.hidden3,
-        'ChildMessage.my_method': ChildMessage.my_method,
-    }
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.ChildMessage = ChildMessage
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {'ChildMessage': ['hidden', 'hidden2', 'hidden3', 'my_method']}
-
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='ChildMessage',
+        full_name='m.ChildMessage',
         py_object=ChildMessage,
         parser_config=parser_config)
 
@@ -423,42 +357,21 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual('my_method', page_info.methods[0].short_name)
 
   def test_docs_for_module(self):
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.test_function = test_function
+    m.test_function_with_args_kwargs = test_function_with_args_kwargs
+    m.TestClass = TestClass
 
-    index = {
-        'TestModule':
-            test_module,
-        'TestModule.test_function':
-            test_function,
-        'TestModule.test_function_with_args_kwargs':
-            test_function_with_args_kwargs,
-        'TestModule.TestClass':
-            TestClass,
-    }
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
-
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {
-        'TestModule': [
-            'TestClass', 'test_function', 'test_function_with_args_kwargs'
-        ]
-    }
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='TestModule',
-        py_object=test_module,
-        parser_config=parser_config)
+        full_name='m', py_object=test_module, parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -472,23 +385,16 @@ class ParserTest(parameterized.TestCase):
     self.assertEqual({TestClass}, classes)
 
   def test_docs_for_function(self):
-    index = {'test_function': test_function}
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.test_function = test_function
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {'': ['test_function']}
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
         full_name='test_function',
@@ -504,23 +410,16 @@ class ParserTest(parameterized.TestCase):
                      str(page_info.signature))
 
   def test_docs_for_function_with_kwargs(self):
-    index = {'test_function_with_args_kwargs': test_function_with_args_kwargs}
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.test_function_with_args_kwargs = test_function_with_args_kwargs
 
-    visitor = DummyVisitor(index=index, duplicate_of={})
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
-
-    tree = {'': ['test_function_with_args_kwargs']}
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
         full_name='test_function_with_args_kwargs',
@@ -574,29 +473,26 @@ class ParserTest(parameterized.TestCase):
       def foo(self):
         pass
 
-    duplicate_of = {'tf.third': 'tf.fourth'}
-    index = {
-        'tf': test_module,
-        'tf.fancy': test_function_with_fancy_docstring,
-        'tf.reference': HasOneMember,
-        'tf.reference.foo': HasOneMember.foo,
-        'tf.third': HasOneMember,
-        'tf.fourth': HasOneMember
-    }
+    class HasOneMember2(object):
 
-    visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
+      def foo(self):
+        pass
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'], link_prefix='../..')
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree={},
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    tf = types.ModuleType('tf')
+    tf.__file__ = __file__
+    tf.fancy = test_function_with_fancy_docstring
+    tf.reference = HasOneMember
+    tf.third = HasOneMember2
+    tf.fourth = HasOneMember2
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('tf', tf)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
+    parser_config.reference_resolver = (
+        parser_config.reference_resolver.with_prefix('/'))
 
     doc_info = parser.parse_md_docstring(
         test_function_with_fancy_docstring,
@@ -653,37 +549,33 @@ class ParserTest(parameterized.TestCase):
     self.assertIn('\nRaises:', doc)
 
   def test_generate_index(self):
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.TestClass = TestClass
+    m.test_function = test_function
+    m.submodule = types.ModuleType('submodule')
+    m.submodule.test_function = test_function
 
-    index = {
-        'tf': test_module,
-        'tf.TestModule': test_module,
-        'tf.test_function': test_function,
-        'tf.TestModule.test_function': test_function,
-        'tf.TestModule.TestClass': TestClass,
-        'tf.TestModule.TestClass.a_method': TestClass.a_method,
-        'tf.TestModule.TestClass.a_property': TestClass.a_property,
-        'tf.TestModule.TestClass.ChildClass': TestClass.ChildClass,
-    }
-    duplicate_of = {'tf.TestModule.test_function': 'tf.test_function'}
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    visitor = DummyVisitor(index=index, duplicate_of=duplicate_of)
-
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+    parser_config = generator.run_extraction()
 
     docs = parser.generate_global_index(
-        'TestLibrary', index=index, reference_resolver=reference_resolver)
+        'TestLibrary',
+        index=parser_config.index,
+        reference_resolver=parser_config.reference_resolver)
 
     # Make sure duplicates and non-top-level symbols are in the index, but
     # methods and properties are not.
     self.assertNotIn('a_method', docs)
     self.assertNotIn('a_property', docs)
-    self.assertIn('TestModule.TestClass', docs)
-    self.assertIn('TestModule.TestClass.ChildClass', docs)
-    self.assertIn('TestModule.test_function', docs)
-    # Leading backtick to make sure it's included top-level.
-    # This depends on formatting, but should be stable.
-    self.assertIn('<code>tf.test_function', docs)
+    self.assertIn('m.TestClass', docs)
+    self.assertIn('m.TestClass.ChildClass', docs)
+    self.assertIn('m.submodule.test_function', docs)
+    self.assertIn('<code>m.submodule.test_function', docs)
 
   def test_getsource_indexerror_resilience(self):
     """Validates that parser gracefully handles IndexErrors.
@@ -692,44 +584,19 @@ class ParserTest(parameterized.TestCase):
     why this happens, but it consistently repros on the `get` method of
     collections.MutableMapping subclasses.
     """
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.ConcreteMutableMapping = ConcreteMutableMapping
 
-    # This isn't the full set of APIs from MutableMapping, but sufficient for
-    # testing.
-    index = {
-        'ConcreteMutableMapping':
-            ConcreteMutableMapping,
-        'ConcreteMutableMapping.__init__':
-            ConcreteMutableMapping.__init__,
-        'ConcreteMutableMapping.__getitem__':
-            ConcreteMutableMapping.__getitem__,
-        'ConcreteMutableMapping.__setitem__':
-            ConcreteMutableMapping.__setitem__,
-        'ConcreteMutableMapping.values':
-            ConcreteMutableMapping.values,
-        'ConcreteMutableMapping.get':
-            ConcreteMutableMapping.get
-    }
-    visitor = DummyVisitor(index=index, duplicate_of={})
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    tree = {
-        'ConcreteMutableMapping': [
-            '__init__', '__getitem__', '__setitem__', 'values', 'get'
-        ]
-    }
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='ConcreteMutableMapping',
+        full_name='m.ConcreteMutableMapping',
         py_object=ConcreteMutableMapping,
         parser_config=parser_config)
 
@@ -744,31 +611,21 @@ class ParserTest(parameterized.TestCase):
 
      See: `help(collections.MutableMapping.pop)`
     """
-    index = {
-        'ConcreteMutableMapping': ConcreteMutableMapping,
-        'ConcreteMutableMapping.pop': ConcreteMutableMapping.pop
-    }
-    visitor = DummyVisitor(index=index, duplicate_of={})
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.fun = lambda x=object(): x
 
-    tree = {'ConcreteMutableMapping': ['pop']}
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
 
     page_info = docs_for_object.docs_for_object(
-        full_name='ConcreteMutableMapping',
-        py_object=ConcreteMutableMapping,
-        parser_config=parser_config)
+        full_name='m.fun', py_object=m.fun, parser_config=parser_config)
 
-    output = str(page_info.methods[0].signature)
+    output = str(page_info.signature)
     self.assertNotIn('object at 0x', output)
     self.assertIn('&lt;object object&gt;', output)
 
@@ -802,21 +659,16 @@ class ParserTest(parameterized.TestCase):
       method: The class method name to generate docs for.
       py_object: The python object for the specified cls.method.
     """
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.ConcreteMutableMapping = ConcreteMutableMapping
 
-    visitor = DummyVisitor(index={}, duplicate_of={})
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'])
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
 
-    tree = {cls: [method]}
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index={},
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    parser_config = generator.run_extraction()
 
     function_info = docs_for_object.docs_for_object(
         full_name='%s.%s' % (cls, method),
@@ -834,15 +686,16 @@ class ParserTest(parameterized.TestCase):
     a = A()
     a.__doc__ = 'Object doc'
 
-    parser_config = config.ParserConfig(
-        reference_resolver=None,
-        duplicates={},
-        duplicate_of={},
-        tree={},
-        index={},
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.a = a
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
 
     result = parser._get_other_member_doc(a, parser_config, {})
 
@@ -889,15 +742,16 @@ class ParserTest(parameterized.TestCase):
 
     a = A()
 
-    parser_config = config.ParserConfig(
-        reference_resolver=None,
-        duplicates={},
-        duplicate_of={},
-        tree={},
-        index={},
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.a = a
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
 
     result = parser._get_other_member_doc(a, parser_config, {})
     expected = textwrap.dedent("""\
@@ -913,19 +767,21 @@ class ParserTest(parameterized.TestCase):
 
     a = A()
 
-    parser_config = config.ParserConfig(
-        reference_resolver=None,
-        duplicates={},
-        duplicate_of={},
-        tree={},
-        index={},
-        reverse_index={id(A): 'tf.test.A'},
-        base_dir='/',
-        code_url_prefix='/')
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.A = A
+    m.a = a
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
 
     result = parser._get_other_member_doc(a, parser_config, {})
 
-    self.assertEqual('Instance of `tf.test.A`', result)
+    self.assertEqual('Instance of `m.A`', result)
 
   def testIsClasssAttr(self):
     result = parser.is_class_attr('test_module.test_function',

@@ -19,6 +19,7 @@ import pathlib
 import sys
 import tempfile
 import textwrap
+import types
 
 from absl import flags
 from absl.testing import absltest
@@ -77,59 +78,21 @@ class GenerateTest(absltest.TestCase):
   def get_test_objects(self):
     # These are all mutable objects, so rebuild them for each test.
     # Don't cache the objects.
-    module = sys.modules[__name__]
+    tf = types.ModuleType('tf')
+    tf.__file__ = __file__
+    tf.TestModule = types.ModuleType('module')
+    tf.test_function = test_function
+    tf.TestModule.test_function = test_function
+    tf.TestModule.TestClass = TestClass
 
-    index = {
-        'tf':
-            sys,  # Can be any module, this test doesn't care about content.
-        'tf.TestModule':
-            module,
-        'tf.test_function':
-            test_function,
-        'tf.TestModule.test_function':
-            test_function,
-        'tf.TestModule.TestClass':
-            TestClass,
-        'tf.TestModule.TestClass.ChildClass':
-            TestClass.ChildClass,
-        'tf.TestModule.TestClass.ChildClass.GrandChildClass':
-            TestClass.ChildClass.GrandChildClass,
-    }
+    generator = generate_lib.DocGenerator(
+        root_title='TensorFlow',
+        py_modules=[('tf', tf)],
+        code_url_prefix='https://tensorflow.org/')
 
-    tree = {
-        'tf': ['TestModule', 'test_function'],
-        'tf.TestModule': ['test_function', 'TestClass'],
-        'tf.TestModule.TestClass': ['ChildClass'],
-        'tf.TestModule.TestClass.ChildClass': ['GrandChildClass'],
-        'tf.TestModule.TestClass.ChildClass.GrandChildClass': []
-    }
+    parser_config = generator.run_extraction()
 
-    duplicate_of = {'tf.test_function': 'tf.TestModule.test_function'}
-
-    duplicates = {
-        'tf.TestModule.test_function': [
-            'tf.test_function', 'tf.TestModule.test_function'
-        ]
-    }
-
-    base_dir = os.path.dirname(__file__)
-
-    visitor = DummyVisitor(index, duplicate_of)
-
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'], link_prefix='api_docs/python')
-
-    parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates=duplicates,
-        duplicate_of=duplicate_of,
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir=base_dir,
-        code_url_prefix='/')
-
-    return reference_resolver, parser_config
+    return parser_config.reference_resolver, parser_config
 
   def test_write(self):
     _, parser_config = self.get_test_objects()

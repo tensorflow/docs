@@ -16,6 +16,7 @@
 
 import dataclasses
 import textwrap
+import types
 
 from typing import Callable, Dict, List, Optional, Union
 
@@ -23,6 +24,7 @@ from absl.testing import absltest
 from absl.testing import parameterized
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import signature
@@ -49,51 +51,40 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
   def setUp(self):
     super().setUp()
     self.known_object = object()
-    reference_resolver = reference_resolver_lib.ReferenceResolver(
-        link_prefix='/',
-        duplicate_of={
-            'tfdocs.api_generator.signature.extract_decorators':
-                'tfdocs.api_generator.signature.extract_decorators',
-            'location.of.object.in.api':
-                'location.of.object.in.api',
-        },
-        is_fragment={
-            'location.of.object.in.api': False,
-            'tfdocs.api_generator.signature.extract_decorators': False,
-        },
-        py_module_names=[])
-    self.parser_config = config.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree={},
-        index={
-            'location.of.object.in.api':
-                self.known_object,
-            'tfdocs.api_generator.signature.extract_decorators':
-                signature.extract_decorators
-        },
-        reverse_index={
-            id(self.known_object):
-                'location.of.object.in.api',
-            id(signature.extract_decorators):
-                'tfdocs.api_generator.signature.extract_decorators',
-        },
-        base_dir='/',
-        code_url_prefix='/')
+
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.extract_decorators = signature.extract_decorators
+    m.submodule = types.ModuleType('submodule')
+    m.submodule.known = self.known_object
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    self.parser_config = generator.run_extraction()
+
 
   def test_known_object(self):
 
     def example_fun(arg=self.known_object):  # pylint: disable=unused-argument
       pass
 
+    self.parser_config.reference_resolver = (
+        self.parser_config.reference_resolver.with_prefix('/'))
+
     sig = signature.generate_signature(
         example_fun,
         parser_config=self.parser_config,
         func_type=signature.FuncType.FUNCTION)
-    self.assertEqual(
-        '(\n    arg=<a href="/location/of/object/in/api.md"><code>location.of.object.in.api</code></a>\n)',
-        str(sig))
+
+    expected = textwrap.dedent("""\
+        (
+            arg=<a href="/m/submodule.md#known"><code>m.submodule.known</code></a>
+        )""")
+
+    self.assertEqual(expected, str(sig))
 
   def test_literals(self):
 
@@ -244,11 +235,11 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                              List[Dict[int, signature.extract_decorators]]],
        textwrap.dedent("""\
         Union[
-            dict[str, dict[bool, <a href="../../../tfdocs/api_generator/signature/extract_decorators.md"><code>tfdocs.api_generator.signature.extract_decorators</code></a>]],
+            dict[str, dict[bool, <a href="../../../m/extract_decorators.md"><code>m.extract_decorators</code></a>]],
             int,
             bool,
-            <a href="../../../tfdocs/api_generator/signature/extract_decorators.md"><code>tfdocs.api_generator.signature.extract_decorators</code></a>,
-            list[dict[int, <a href="../../../tfdocs/api_generator/signature/extract_decorators.md"><code>tfdocs.api_generator.signature.extract_decorators</code></a>]]
+            <a href="../../../m/extract_decorators.md"><code>m.extract_decorators</code></a>,
+            list[dict[int, <a href="../../../m/extract_decorators.md"><code>m.extract_decorators</code></a>]]
         ]""")),
       ('callable_ellipsis_sig', Union[Callable[..., int], str],
        textwrap.dedent("""\
@@ -260,7 +251,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
                                            float], int],
        textwrap.dedent("""\
         Union[
-            Callable[[bool, <a href="../../../tfdocs/api_generator/signature/extract_decorators.md"><code>tfdocs.api_generator.signature.extract_decorators</code></a>], float],
+            Callable[[bool, <a href="../../../m/extract_decorators.md"><code>m.extract_decorators</code></a>], float],
             int
         ]""")),
       ('callable_without_args', Union[None, dict, str, Callable],

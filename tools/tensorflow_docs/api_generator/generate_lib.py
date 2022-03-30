@@ -39,26 +39,6 @@ from tensorflow_docs.api_generator.report import utils
 
 import yaml
 
-try:
-  # TODO(markdaoust) delete this when the warning is in a stable release.
-  _estimator = importlib.import_module(
-      'tensorflow_estimator.python.estimator.estimator')
-
-  if doc_controls.get_inheritable_header(_estimator.Estimator) is None:
-    _add_header = doc_controls.inheritable_header("""\
-        Warning: Estimators are not recommended for new code.  Estimators run
-        `v1.Session`-style code which is more difficult to write correctly, and
-        can behave unexpectedly, especially when combined with TF 2 code.
-        Estimators do fall under our
-        [compatibility guarantees](https://tensorflow.org/guide/versions), but
-        will receive no fixes other than security vulnerabilities. See the
-        [migration guide](https://tensorflow.org/guide/migrate) for details.
-        """)
-    _add_header(_estimator.Estimator)
-except ImportError:
-  pass
-
-
 # Used to add a collections.OrderedDict representer to yaml so that the
 # dump doesn't contain !!OrderedDict yaml tags.
 # Reference: https://stackoverflow.com/a/21048064
@@ -687,6 +667,7 @@ def extract(py_modules,
 
   traverse.traverse(py_module, visitors, short_name)
 
+  accumulator.build()
   return accumulator
 
 
@@ -818,12 +799,17 @@ class DocGenerator:
 
     Returns:
     """
-    return extract(
+    visitor = extract(
         py_modules=self._py_modules,
         base_dir=self._base_dir,
         private_map=self._private_map,
         visitor_cls=self._visitor_cls,
         callbacks=self._callbacks)
+    reference_resolver = self.make_reference_resolver(visitor)
+
+    # Write the api docs.
+    parser_config = self.make_parser_config(visitor, reference_resolver)
+    return parser_config
 
   def build(self, output_dir):
     """Build all the docs.
@@ -838,11 +824,7 @@ class DocGenerator:
     workdir = pathlib.Path(tempfile.mkdtemp())
 
     # Extract the python api from the _py_modules
-    visitor = self.run_extraction()
-    reference_resolver = self.make_reference_resolver(visitor)
-
-    # Write the api docs.
-    parser_config = self.make_parser_config(visitor, reference_resolver)
+    parser_config = self.run_extraction()
     work_py_dir = workdir / 'api_docs/python'
     write_docs(
         output_dir=str(work_py_dir),
@@ -859,7 +841,7 @@ class DocGenerator:
     )
 
     if self.api_cache:
-      reference_resolver.to_json_file(
+      parser_config.reference_resolver.to_json_file(
           str(work_py_dir / self._short_name.replace('.', '/') /
               '_api_cache.json'))
 
