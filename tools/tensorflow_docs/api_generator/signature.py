@@ -56,9 +56,8 @@ class _BaseDefaultAndAnnotationExtractor(ast.NodeVisitor):
     return text_default_val
 
   def extract(self, obj: Any):
-    obj_source = get_source.get_source(obj)
-    if obj_source is not None:
-      obj_ast = ast.parse(obj_source)
+    obj_ast = get_source.get_ast(obj)
+    if obj_ast is not None:
       self.visit(obj_ast)
 
 
@@ -674,11 +673,10 @@ def extract_decorators(func: Any) -> List[str]:
 
   visitor = ASTDecoratorExtractor()
 
-  # Note: inspect.getsource doesn't include the decorator lines on classes,
+  # Note: get_source doesn't include the decorator lines on classes,
   # this won't work for classes until that's fixed.
-  func_source = get_source.get_source(func)
-  if func_source is not None:
-    func_ast = ast.parse(func_source)
+  func_ast = get_source.get_ast(func)
+  if func_ast is not None:
     visitor.visit(func_ast)
 
   return visitor.decorator_list

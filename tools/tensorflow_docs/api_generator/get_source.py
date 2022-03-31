@@ -13,10 +13,25 @@
 # limitations under the License.
 # ==============================================================================
 """Simple get_source."""
+import ast
 import inspect
 import textwrap
 
 from typing import Any, Optional, Sequence, Tuple
+
+
+def get_ast(py_object) -> Optional[ast.AST]:
+  if isinstance(py_object, str):
+    source = textwrap.dedent(py_object)
+  else:
+    source = get_source(py_object)
+  if source is None:
+    return None
+
+  try:
+    return ast.parse(source)
+  except Exception:  # pylint: disable=broad-except
+    return None
 
 
 def get_source(py_object: Any) -> Optional[str]:

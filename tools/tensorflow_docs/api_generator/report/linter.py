@@ -176,12 +176,13 @@ def lint_returns(
   Returns:
     A filled `ReturnLint` proto object.
   """
-  source = get_source.get_source(page_info.py_object)
-
   return_visitor = ReturnVisitor()
-  if source is not None:
+
+  source = get_source.get_source(page_info.py_object)
+  obj_ast = get_source.get_ast(page_info.py_object)
+  if obj_ast is not None:
     try:
-      return_visitor.visit(ast.parse(source))
+      return_visitor.visit(obj_ast)
     except Exception:  # pylint: disable=broad-except
       pass
 
@@ -236,12 +237,13 @@ def lint_raises(page_info: base_page.PageInfo) -> api_report_pb2.RaisesLint:
 
   # Extract the raises from the source code.
   raise_visitor = RaiseVisitor()
-  source = get_source.get_source(page_info.py_object)
-  if source is not None:
+  obj_ast = get_source.get_ast(page_info.py_object)
+  if obj_ast is not None:
     try:
-      raise_visitor.visit(ast.parse(source))
+      raise_visitor.visit(obj_ast)
     except Exception:  # pylint: disable=broad-except
       pass
+
   raises_lint.total_raises_in_code = len(raise_visitor.total_raises)
 
   # Extract the raises defined in the docstring.

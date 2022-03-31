@@ -194,14 +194,10 @@ def _get_imported_symbols(obj: Union[str, types.ModuleType]):
     def visit_ImportFrom(self, node):  # pylint: disable=invalid-name
       self._add_imported_symbol(node)
 
-  if isinstance(obj, str):
-    source = textwrap.dedent(obj)
-  else:
-    source = get_source.get_source(obj)
-  if source is None:
+  tree = get_source.get_ast(obj)
+  if tree is None:
     return []
 
-  tree = ast.parse(source)
   visitor = ImportNodeVisitor()
   visitor.visit(tree)
   return visitor.imported_symbols
