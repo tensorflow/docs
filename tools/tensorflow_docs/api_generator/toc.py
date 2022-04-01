@@ -18,8 +18,14 @@ import contextlib
 import dataclasses
 import enum
 import os
+import pathlib
 
 from typing import Any, IO, Iterator, List, Optional, Tuple, Union
+
+from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import obj_type as obj_type_lib
+from tensorflow_docs.api_generator import signature
 
 import yaml
 
@@ -146,7 +152,7 @@ class Toc(Entry):
   toc: List[Entry]
 
   @contextlib.contextmanager
-  def _maybe_open(self, file: Union[os.PathLike, IO]) -> Iterator[IO]:
+  def _maybe_open(self, file: Union[os.PathLike, IO[str]]) -> Iterator[IO[str]]:
     if isinstance(file, os.PathLike):
       with open(file, 'w') as stream:
         yield stream
@@ -154,7 +160,120 @@ class Toc(Entry):
       stream = file
       yield stream
 
-  def write(self, file: Union[os.PathLike, IO]) -> None:
+  def write(self, file: Union[os.PathLike, IO[str]]) -> None:
     with self._maybe_open(file) as stream:
       yaml.dump(
           self, stream=stream, default_flow_style=False, Dumper=_TocDumper)
+
+
+class TocBuilder:
+  """A class to build a Toc from an ApiTree."""
+
+  def __init__(self, site_path):
+    self.site_path = pathlib.Path(site_path)
+
+  def build(self, api_tree: doc_generator_visitor.ApiTree) -> Toc:
+    """Create a `Toc` from an `ApiTree`."""
+    entries = []
+    for child in api_tree.root.children.values():
+      entries.extend(self._entries_from_api_node(child))
+    return Toc(toc=entries)
+
+  def _entries_from_api_node(
+      self, api_node: doc_generator_visitor.ApiTreeNode) -> List[Entry]:
+    """Converts an ApiTreeNode to a list of toc entries."""
+    obj_type = api_node.obj_type
+
+    if obj_type is obj_type_lib.ObjType.MODULE:
+      return [self._make_section(api_node)]
+    if obj_type is obj_type_lib.ObjType.CLASS:
+      return self._flat_class_entries(api_node)
+    if obj_type in [
+        obj_type_lib.ObjType.CALLABLE, obj_type_lib.ObjType.TYPE_ALIAS
+    ]:
+      return [self._make_link(api_node)]
+    else:
+      return []
+
+  def _make_link(self,
+                 api_node: doc_generator_visitor.ApiTreeNode,
+                 title: Optional[str] = None) -> Link:
+
+    docpath = pathlib.Path(self.site_path, *api_node.path)
+    title = title or api_node.short_name
+    return Link(
+        title=title, path=str(docpath), status=self._make_status(api_node))
+
+  def _make_section(self,
+                    api_node: doc_generator_visitor.ApiTreeNode) -> Section:
+    """Create a `toc.Section` from a module's ApiTreeNode."""
+    overview = self._make_overview(api_node)
+    entries = []
+    for child in api_node.children.values():
+      entries.extend(self._entries_from_api_node(child))
+    entries = sorted(entries, key=self._section_order_key)
+    entries = [overview] + entries
+
+    status = self._make_status(api_node)
+    return Section(title=api_node.short_name, section=entries, status=status)
+
+  def _make_overview(self, api_node: doc_generator_visitor.ApiTreeNode):
+    docpath = pathlib.Path(self.site_path, *api_node.path)
+    return Link(title='Overview', path=str(docpath))
+
+  def _section_order_key(self, entry: Entry) -> Tuple[bool, str]:
+    title = getattr(entry, 'title', None)
+    is_section = isinstance(entry, Section)
+
+    return (is_section, title)
+
+  def _flat_class_entries(self,
+                          api_node: doc_generator_visitor.ApiTreeNode,
+                          title: Optional[str] = None) -> List[Entry]:
+    """Returns entries for both `Class` and `Class.Nested`."""
+    title = title or api_node.short_name
+    entries = [self._make_link(api_node, title=title)]
+    for name, child_node in api_node.children.items():
+      if child_node.obj_type in [
+          obj_type_lib.ObjType.CLASS, obj_type_lib.ObjType.MODULE
+      ]:
+        subtitle = f'{title}.{name}'
+        entries.extend(self._flat_class_entries(child_node, title=subtitle))
+
+    return entries
+
+  def _make_status(self, api_node: doc_generator_visitor.ApiTreeNode):
+    """Returns the toc.Status of an ApiTreeNode."""
+    if self._is_deprecated(api_node):
+      return Status.DEPRECATED
+    if self._is_experimental(api_node):
+      return Status.EXPERIMENTAL
+    return None
+
+  def _is_experimental(self, api_node: doc_generator_visitor.ApiTreeNode):
+    return 'experimental' in api_node.short_name.lower()
+
+  def _is_deprecated(self, api_node: doc_generator_visitor.ApiTreeNode):
+    """Checks if an object is deprecated or not.
+
+    Each deprecated function has a `_tf_decorator.decorator_name` attribute.
+    Check the docstring of that function to confirm if the function was
+    indeed deprecated. If a different deprecation setting was used on the
+    function, then "THIS FUNCTION IS DEPRECATED" substring won't be inserted
+    into the docstring of that function by the decorator.
+
+    Args:
+      api_node: The node to evaluate.
+
+    Returns:
+      True if depreacted else False.
+    """
+    if doc_controls.is_deprecated(api_node.py_object):
+      return True
+
+    decorator_list = signature.extract_decorators(api_node.py_object)
+    if any('deprecat' in dec for dec in decorator_list):
+      docstring = getattr(api_node.py_object, '__doc__') or ''
+      return 'THIS FUNCTION IS DEPRECATED' in docstring
+
+    return False

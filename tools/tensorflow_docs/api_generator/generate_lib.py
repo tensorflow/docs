@@ -766,7 +766,9 @@ class DocGenerator:
     return reference_resolver_lib.ReferenceResolver.from_visitor(
         visitor, py_module_names=[self._short_name])
 
-  def make_parser_config(self, visitor, reference_resolver):
+  def make_parser_config(self,
+                         visitor: doc_generator_visitor.DocGeneratorVisitor):
+    reference_resolver = self.make_reference_resolver(visitor)
     return config.ParserConfig(
         reference_resolver=reference_resolver,
         duplicates=visitor.duplicates,
@@ -774,6 +776,7 @@ class DocGenerator:
         tree=visitor.tree,
         index=visitor.index,
         reverse_index=visitor.reverse_index,
+        path_tree=visitor.path_tree,
         base_dir=self._base_dir,
         code_url_prefix=self._code_url_prefix)
 
@@ -791,10 +794,9 @@ class DocGenerator:
         private_map=self._private_map,
         visitor_cls=self._visitor_cls,
         callbacks=self._callbacks)
-    reference_resolver = self.make_reference_resolver(visitor)
 
     # Write the api docs.
-    parser_config = self.make_parser_config(visitor, reference_resolver)
+    parser_config = self.make_parser_config(visitor)
     return parser_config
 
   def build(self, output_dir):

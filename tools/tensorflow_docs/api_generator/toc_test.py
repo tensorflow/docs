@@ -17,9 +17,10 @@ import io
 import textwrap
 import types
 
-from tensorflow_docs.api_generator import toc as toc_lib
-from tensorflow_docs.api_generator import doc_generator_visitor
 from absl.testing import absltest
+
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import toc as toc_lib
 
 
 class TestToc(absltest.TestCase):
@@ -73,6 +74,72 @@ class TestToc(absltest.TestCase):
     expected = toc_lib.Link(
         title='New title.', path='/path/to/link', status=toc_lib.Status.NEW)
     self.assertEqual(expected, new_link)
+
+  def _make_tree(self) -> doc_generator_visitor.ApiTree:
+    api_tree = doc_generator_visitor.ApiTree()
+    api_tree.insert(
+        path=('module',), py_object=types.ModuleType('module'), aliases=[])
+    api_tree.insert(path=('module', 'func1'), py_object=lambda x: x, aliases=[])
+    api_tree.insert(
+        path=('module', 'Class'),
+        py_object=types.new_class('Class'),
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'Class', 'method'), py_object=lambda x: x, aliases=[])
+    api_tree.insert(
+        path=('module', 'Class', 'NestedClass'),
+        py_object=types.new_class('NestedClass'),
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'Class', 'NestedClass', 'method2'),
+        py_object=lambda x: x,
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'Class', 'constant'),
+        py_object='Just a string.',
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'submodule'),
+        py_object=types.ModuleType('submodule'),
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'submodule', 'func2'),
+        py_object=lambda x: x,
+        aliases=[])
+    api_tree.insert(
+        path=('module', 'submodule', 'constant'),
+        py_object='Another string.',
+        aliases=[])
+    return api_tree
+
+  def test_toc_builder(self):
+    api_tree = self._make_tree()
+    builder = toc_lib.TocBuilder('/path/in/site')
+    toc = builder.build(api_tree)
+    stream = io.StringIO()
+    toc.write(stream)
+
+    expected = textwrap.dedent("""\
+        toc:
+        - title: module
+          section:
+          - title: Overview
+            path: /path/in/site/module
+          - title: Class
+            path: /path/in/site/module/Class
+          - title: Class.NestedClass
+            path: /path/in/site/module/Class/NestedClass
+          - title: func1
+            path: /path/in/site/module/func1
+          - title: submodule
+            section:
+            - title: Overview
+              path: /path/in/site/module/submodule
+            - title: func2
+              path: /path/in/site/module/submodule/func2
+        """)
+
+    self.assertEqual(expected, stream.getvalue())
 
 
 if __name__ == '__main__':

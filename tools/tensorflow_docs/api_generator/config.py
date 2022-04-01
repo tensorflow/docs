@@ -18,7 +18,7 @@ class ParserConfig(object):
   """Stores all indexes required to parse the docs."""
 
   def __init__(self, reference_resolver, duplicates, duplicate_of, tree, index,
-               reverse_index, base_dir, code_url_prefix):
+               reverse_index, path_tree, base_dir, code_url_prefix):
     """Object with the common config for docs_for_object() calls.
 
     Args:
@@ -42,11 +42,10 @@ class ParserConfig(object):
     self.tree = tree
     self.reverse_index = reverse_index
     self.index = index
+    self.path_tree = path_tree
     self.base_dir = base_dir
     self.code_url_prefix = code_url_prefix
 
   def py_name_to_object(self, full_name):
     """Return the Python object for a Python symbol name."""
     return self.index[full_name]
-
-
