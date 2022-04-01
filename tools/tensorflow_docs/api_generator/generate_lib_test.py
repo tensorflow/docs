@@ -114,9 +114,6 @@ class GenerateTest(absltest.TestCase):
             'redirects': [{
                 'from': '/api_docs/python/tf/test_function',
                 'to': '/api_docs/python/tf/TestModule/test_function'
-            }, {
-                'from': '/api_docs/python/tf_overview',
-                'to': '/api_docs/python/tf'
             }]
         })
 
