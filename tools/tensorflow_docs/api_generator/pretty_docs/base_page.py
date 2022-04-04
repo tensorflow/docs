@@ -57,7 +57,7 @@ class TemplatePageBuilder(PageBuilder):
     return top_source_link(self.page_info.defined_in)
 
   def build_collapsable_aliases(self):
-    return build_collapsable_aliases(self.page_info.aliases)
+    return build_collapsable_aliases(sorted(self.page_info.aliases))
 
   def top_compat(self):
     return build_top_compat(self.page_info, h_level=2)

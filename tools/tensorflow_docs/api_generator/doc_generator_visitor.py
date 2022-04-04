@@ -19,7 +19,7 @@ import dataclasses
 import functools
 import inspect
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, NamedTuple, Tuple
 
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
 
@@ -291,7 +291,14 @@ class DocGeneratorVisitor(object):
 
     return children
 
-  def _score_name(self, name: str):
+  class NameScore(NamedTuple):
+    defining_class_score: int
+    experimental_score: int
+    keras_score: int
+    module_length_score: int
+    path: ApiPath
+
+  def _score_name(self, path: ApiPath) -> NameScore:
     """Return a tuple of scores indicating how to sort for the best name.
 
     This function is meant to be used as the `key` to the `sorted` function.
@@ -307,18 +314,18 @@ class DocGeneratorVisitor(object):
       name: Fallback, sorts lexicographically on the full_name.
 
     Args:
-      name: the full name to score, for example `tf.estimator.Estimator`
+      path: APiPath to score, for example `('tf','estimator','Estimator')`
 
     Returns:
       A tuple of scores. When sorted the preferred name will have the lowest
       value.
     """
-    parts = name.split('.')
-    short_name = parts[-1]
-    if len(parts) == 1:
-      return (-99, -99, -99, -99, short_name)
+    py_object = self.path_tree[path].py_object
+    if len(path) == 1:
+      return self.NameScore(-99, -99, -99, -99, path)
 
-    container = self._index.get('.'.join(parts[:-1]), name)
+    short_name = path[-1]
+    container = self.path_tree[path[:-1]].py_object
 
     defining_class_score = 1
     if inspect.isclass(container):
@@ -327,30 +334,44 @@ class DocGeneratorVisitor(object):
         defining_class_score = -1
 
     experimental_score = -1
-    if 'contrib' in parts or any('experimental' in part for part in parts):
+    if 'contrib' in path or any('experimental' in part for part in path):
       experimental_score = 1
 
     keras_score = 1
-    if 'keras' in parts:
+    if 'keras' in path:
       keras_score = -1
 
-    while parts:
-      container = self._index['.'.join(parts)]
+    if inspect.ismodule(py_object):
+      # prefer short paths for modules
+      module_length_score = len(path)
+    else:
+      module_length_score = self._get_module_length_score(path)
+
+    return self.NameScore(
+        defining_class_score=defining_class_score,
+        experimental_score=experimental_score,
+        keras_score=keras_score,
+        module_length_score=module_length_score,
+        path=path)
+
+  def _get_module_length_score(self, path):
+    partial_path = list(path)
+    while partial_path:
+      container = self.path_tree[tuple(partial_path[:-1])].py_object
+      partial_path.pop()
       if inspect.ismodule(container):
         break
-      parts.pop()
 
-    module_length = len(parts)
+    module_length = len(partial_path)
 
-    if len(parts) == 2:
+    if module_length == 2:
       # `tf.submodule.thing` is better than `tf.thing`
       module_length_score = -1
     else:
       # shorter is better
       module_length_score = module_length
 
-    return (defining_class_score, experimental_score, keras_score,
-            module_length_score, name)
+    return module_length_score
 
   def build(self):
     """Compute data structures containing information about duplicates.
@@ -398,19 +419,20 @@ class DocGeneratorVisitor(object):
       if not aliases:
         aliases = [node]
 
-      names = [alias.full_name for alias in aliases]
+      name_tuples = [alias.path for alias in aliases]
 
-      names = sorted(names)
       # Choose the main name with a lexical sort on the tuples returned by
       # by _score_name.
-      main_name = min(names, key=self._score_name)
+      main_name_tuple = min(name_tuples, key=self._score_name)
+      main_name = '.'.join(main_name_tuple)
 
-      if names:
-        duplicates[main_name] = list(names)
+      names = ['.'.join(name_tuple) for name_tuple in name_tuples]
+      if name_tuples:
+        duplicates[main_name] = sorted(names)
 
-      names.remove(main_name)
       for name in names:
-        duplicate_of[name] = main_name
+        if name != main_name:
+          duplicate_of[name] = main_name
 
       # Set the reverse index to the canonical name.
       if not maybe_singleton(py_object):
@@ -552,8 +574,7 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
       # been processed, so now we can choose its master name.
       aliases = [node.path for node in duplicate_nodes]
 
-      master_path = min(['.'.join(a) for a in aliases], key=score_name_fn)
-      master_path = tuple(master_path.split('.'))
+      master_path = min(aliases, key=score_name_fn)
 
       self.insert(master_path, current_node.py_object, aliases)
 
