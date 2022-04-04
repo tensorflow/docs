@@ -383,6 +383,9 @@ class ReferenceResolver:
                                'tf.contrib' not in full_name):
       string = self._partial_symbols_dict.get(string, string)
 
+    if not string:
+      return match.group(0)
+
     try:
       if string.startswith('tensorflow::'):
         # C++ symbol

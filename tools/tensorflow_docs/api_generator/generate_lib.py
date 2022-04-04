@@ -15,7 +15,6 @@
 """Generate tensorflow.org style API Reference docs for a Python module."""
 
 import collections
-import inspect
 import os
 import pathlib
 import shutil
@@ -24,12 +23,11 @@ import tempfile
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
 
 from tensorflow_docs.api_generator import config
-from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
-from tensorflow_docs.api_generator import signature
+from tensorflow_docs.api_generator import toc as toc_lib
 from tensorflow_docs.api_generator import traverse
 
 from tensorflow_docs.api_generator.pretty_docs import docs_for_object
@@ -57,368 +55,11 @@ yaml.add_representer(collections.OrderedDict, dict_representer)
 yaml.add_constructor(_mapping_tag, dict_constructor)
 
 
-class TocNode(object):
-  """Represents a node in the TOC.
-
-  Attributes:
-    full_name: Name of the module.
-    short_name: The last path component.
-    py_object: Python object of the module.
-    path: Path to the module's page on tensorflow.org relative to
-      tensorflow.org.
-    experimental: Whether the module is experimental or not.
-    deprecated: Whether the module is deprecated or not.
-  """
-
-  def __init__(self, module: str, py_object: Any, path: str):
-    self._module = module
-    self._py_object = py_object
-    self._path = path
-
-  @property
-  def full_name(self):
-    return self._module
-
-  @property
-  def short_name(self):
-    return self.full_name.split('.')[-1]
-
-  @property
-  def py_object(self):
-    return self._py_object
-
-  @property
-  def path(self):
-    return self._path
-
-  @property
-  def experimental(self):
-    return 'experimental' in self.short_name
-
-  _DEPRECATED_STRING = 'THIS FUNCTION IS DEPRECATED'
-
-  @property
-  def deprecated(self):
-    """Checks if the module is deprecated or not.
-
-    Special case is `tf.contrib`. It doesn't have the _tf_decorator attribute
-    but that module should be marked as deprecated.
-
-    Each deprecated function has a `_tf_decorator.decorator_name` attribute.
-    Check the docstring of that function to confirm if the function was
-    indeed deprecated. If a different deprecation setting was used on the
-    function, then "THIS FUNCTION IS DEPRECATED" substring won't be inserted
-    into the docstring of that function by the decorator.
-
-    Returns:
-      True if depreacted else False.
-    """
-    if doc_controls.is_deprecated(self.py_object):
-      return True
-
-    if 'tf.contrib' in self.full_name:
-      return True
-
-    # Instead of only checking the docstring, checking for the decorator
-    # provides an additional level of certainty about the correctness of the
-    # the application of `status: deprecated`.
-    decorator_list = signature.extract_decorators(self.py_object)
-    if any('deprecat' in dec for dec in decorator_list):
-      return self._check_docstring()
-
-    return False
-
-  def _check_docstring(self):
-    # Only add the deprecated status if the function is deprecated. There are
-    # other settings that should be ignored like deprecate_args, etc.
-    docstring = self.py_object.__doc__
-    return docstring is not None and self._DEPRECATED_STRING in docstring
-
-
-class Module(TocNode):
-  """Represents a single module and its children and submodules.
-
-  Attributes:
-    full_name: Name of the module.
-    short_name: The last path component.
-    py_object: Python object of the module.
-    title: Title of the module in _toc.yaml
-    path: Path to the module's page on tensorflow.org relative to
-      tensorflow.org.
-    children: List of attributes on the module.
-    submodules: List of submodules in the module.
-    experimental: Whether the module is experimental or not.
-    deprecated: Whether the module is deprecated or not.
-  """
-
-  def __init__(self, module, py_object, path):
-    super(Module, self).__init__(module, py_object, path)
-
-    self._children = []
-    self._submodules = []
-
-  @property
-  def title(self):
-    if self.full_name.count('.') > 1:
-      title = self.full_name.split('.')[-1]
-    else:
-      title = self.full_name
-    return title
-
-  @property
-  def children(self):
-    return sorted(self._children, key=lambda x: x.full_name)
-
-  @property
-  def submodules(self):
-    return self._submodules
-
-  def add_children(self, children):
-    if not isinstance(children, list):
-      children = [children]
-
-    self._children.extend(children)
-
-  def add_submodule(self, sub_mod):
-    self._submodules.append(sub_mod)
-
-
-class ModuleChild(TocNode):
-  """Represents a child of a module.
-
-  Attributes:
-    full_name: Name of the child.
-    short_name: The last path component.
-    py_object: Python object of the child.
-    title: Title of the module in _toc.yaml
-    path: Path to the module's page on tensorflow.org relative to
-      tensorflow.org.
-    experimental: Whether the module child is experimental or not.
-    deprecated: Whether the module is deprecated or not.
-  """
-
-  def __init__(self, name, py_object, parent, path):
-    self._parent = parent
-    super(ModuleChild, self).__init__(name, py_object, path)
-
-  @property
-  def title(self):
-    return self.full_name[len(self._parent) + 1:]
-
-
-class GenerateToc(object):
-  """Generates a data structure that defines the structure of _toc.yaml."""
-
-  def __init__(self, modules):
-    self._modules = modules
-
-  def _create_graph(self):
-    """Creates a graph to allow a dfs traversal on it to generate the toc.
-
-    Each graph key contains a module and its value is an object of `Module`
-    class. That module object contains a list of submodules.
-
-    Example low-level structure of the graph is as follows:
-
-    {
-      'module1': [submodule1, submodule2],
-      'submodule1': [sub1-submodule1],
-      'sub1-submodule1': [],
-      'submodule2': [],
-      'module2': [],
-      'module3': [submodule4],
-      'submodule4': [sub1-submodule4],
-      'sub1-submodule4': [sub1-sub1-submodule4],
-      'sub1-sub1-submodule4': []
-    }
-
-    Returns:
-      A tuple of (graph, base_modules). Base modules is returned because while
-      creating a nested list of dictionaries, the top level should only contain
-      the base modules.
-    """
-
-    # Sort the modules in case-insensitive alphabetical order.
-    sorted_modules = sorted(self._modules.keys(), key=lambda a: a.lower())
-    toc_base_modules = []
-
-    toc_graph = {}
-    min_dots = min(module.count('.') for module in sorted_modules)
-    min_docs = max(min_dots, 1)
-
-    for module in sorted_modules:
-      mod = self._modules[module]
-
-      # Add the module to the graph.
-      toc_graph[module] = mod
-
-      # If the module's name contains more than one dot, it is not a base level
-      # module. Hence, add it to its parents submodules list.
-      if module.count('.') > min_docs:
-        # For example, if module is `tf.keras.applications.densenet` then its
-        # parent is `tf.keras.applications`.
-        parent_module = '.'.join(module.split('.')[:-1])
-        parent_mod_obj = toc_graph.get(parent_module, None)
-        if parent_mod_obj is not None:
-          parent_mod_obj.add_submodule(mod)
-      else:
-        toc_base_modules.append(module)
-
-    return toc_graph, toc_base_modules
-
-  def _generate_children(self, mod, is_parent_deprecated):
-    """Creates a list of dictionaries containing child's title and path.
-
-    For example: The dictionary created will look this this in _toc.yaml.
-
-    ```
-    children_list = [{'title': 'Overview', 'path': '/tf/app'},
-                     {'title': 'run', 'path': '/tf/app/run'}]
-    ```
-
-    The above list will get converted to the following yaml syntax.
-
-    ```
-    - title: Overview
-      path: /tf/app
-    - title: run
-      path: /tf/app/run
-    ```
-
-    Args:
-      mod: A module object.
-      is_parent_deprecated: Bool, Whether the parent is deprecated or not.
-
-    Returns:
-      A list of dictionaries containing child's title and path.
-    """
-
-    children_list = []
-    children_list.append(
-        collections.OrderedDict([('title', 'Overview'), ('path', mod.path)]))
-
-    for child in mod.children:
-      child_yaml_content = [('title', child.title), ('path', child.path)]
-
-      # Set `status: deprecated` only if the parent's status is not
-      # deprecated.
-      if child.deprecated and not is_parent_deprecated:
-        child_yaml_content.insert(1, ('status', 'deprecated'))
-      elif child.experimental:
-        child_yaml_content.insert(1, ('status', 'experimental'))
-
-      children_list.append(collections.OrderedDict(child_yaml_content))
-
-    return children_list
-
-  def _dfs(self, mod, visited, is_parent_deprecated):
-    """Does a dfs traversal on the graph generated.
-
-    This creates a nested dictionary structure which is then dumped as .yaml
-    file. Each submodule's dictionary of title and path is nested under its
-    parent module.
-
-    For example, `tf.keras.app.net` will be nested under `tf.keras.app` which
-    will be nested under `tf.keras`. Here's how the nested dictionaries will
-    look when its dumped as .yaml.
-
-    ```
-    - title: tf.keras
-      section:
-      - title: Overview
-        path: /tf/keras
-      - title: app
-        section:
-        - title: Overview
-          path: /tf/keras/app
-        - title: net
-          section:
-          - title: Overview
-            path: /tf/keras/app/net
-    ```
-
-    The above nested structure is what the dfs traversal will create in form
-    of lists of dictionaries.
-
-    Args:
-      mod: A module object.
-      visited: A dictionary of modules visited by the dfs traversal.
-      is_parent_deprecated: Bool, Whether any parent is deprecated or not.
-
-    Returns:
-      A dictionary containing the nested data structure.
-    """
-
-    visited[mod.full_name] = True
-
-    # parent_exp is set to the current module because the current module is
-    # the parent for its children.
-    children_list = self._generate_children(
-        mod, is_parent_deprecated or mod.deprecated)
-
-    # generate for submodules within the submodule.
-    for submod in mod.submodules:
-      if not visited[submod.full_name]:
-        sub_mod_dict = self._dfs(submod, visited, is_parent_deprecated or
-                                 mod.deprecated)
-        children_list.append(sub_mod_dict)
-
-    # If the parent module is not experimental, then add the experimental
-    # status to the submodule.
-    submod_yaml_content = [('title', mod.title), ('section', children_list)]
-
-    # If the parent module is not deprecated, then add the deprecated
-    # status to the submodule. If the parent is deprecated, then setting its
-    # status to deprecated in _toc.yaml propagates to all its children and
-    # submodules.
-    if mod.deprecated and not is_parent_deprecated:
-      submod_yaml_content.insert(1, ('status', 'deprecated'))
-    elif mod.experimental:
-      submod_yaml_content.insert(1, ('status', 'experimental'))
-
-    return collections.OrderedDict(submod_yaml_content)
-
-  def generate(self) -> Dict[str, Any]:
-    """Generates the final toc.
-
-    Returns:
-      A list of dictionaries which will be dumped into .yaml file.
-    """
-
-    toc = []
-    toc_graph, toc_base_modules = self._create_graph()
-    visited = {node: False for node in toc_graph.keys()}
-
-    # Sort in alphabetical case-insensitive order.
-    toc_base_modules = sorted(toc_base_modules, key=lambda a: a.lower())
-    for module in toc_base_modules:
-      module_obj = toc_graph[module]
-      # Generate children of the base module.
-      section = self._generate_children(
-          module_obj, is_parent_deprecated=module_obj.deprecated)
-
-      # DFS traversal on the submodules.
-      for sub_mod in module_obj.submodules:
-        sub_mod_list = self._dfs(
-            sub_mod, visited, is_parent_deprecated=module_obj.deprecated)
-        section.append(sub_mod_list)
-
-      module_yaml_content = [('title', module_obj.title), ('section', section)]
-      if module_obj.deprecated:
-        module_yaml_content.insert(1, ('status', 'deprecated'))
-      elif module_obj.experimental:
-        module_yaml_content.insert(1, ('status', 'experimental'))
-
-      toc.append(collections.OrderedDict(module_yaml_content))
-
-    return {'toc': toc}
-
-
 def write_docs(
     *,
     output_dir: Union[str, pathlib.Path],
     parser_config: config.ParserConfig,
-    yaml_toc: bool,
+    yaml_toc: Union[bool, Type[toc_lib.TocBuilder]],
     root_module_name: str,
     root_title: str = 'TensorFlow',
     search_hints: bool = True,
@@ -470,11 +111,6 @@ def write_docs(
                      f"    output_dir='{output_dir}'")
   output_dir.mkdir(parents=True, exist_ok=True)
 
-  # These dictionaries are used for table-of-contents generation below
-  # They will contain, after the for-loop below::
-  #  - module name(string):classes and functions the module contains(list)
-  module_children = {}
-
   # Collect redirects for an api _redirects.yaml file.
   redirects = []
 
@@ -483,42 +119,12 @@ def write_docs(
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   num_docs_output = 0
-  for full_name in sorted(parser_config.index.keys(), key=lambda k: k.lower()):
-    py_object = parser_config.index[full_name]
+  for node in parser_config.api_tree.iter_nodes():
+    full_name = node.full_name
+    py_object = node.py_object
 
-    if full_name in parser_config.duplicate_of:
+    if node.output_type() is node.OutputType.FRAGMENT:
       continue
-
-    # Methods constants are only documented only as part of their parent's page.
-    if parser_config.reference_resolver.is_fragment(full_name):
-      continue
-
-    # Remove the extension from the path.
-    docpath, _ = os.path.splitext(parser.documentation_path(full_name))
-
-    # For a module, remember the module for the table-of-contents
-    if inspect.ismodule(py_object):
-      if full_name in parser_config.tree:
-        mod_obj = Module(
-            module=full_name,
-            py_object=py_object,
-            path=str(site_path / docpath))
-        module_children[full_name] = mod_obj
-    # For something else that's documented,
-    # figure out what module it lives in
-    else:
-      subname = str(full_name)
-      while True:
-        subname = subname[:subname.rindex('.')]
-        if inspect.ismodule(parser_config.index[subname]):
-          module_name = parser_config.duplicate_of.get(subname, subname)
-          child_mod = ModuleChild(
-              name=full_name,
-              py_object=py_object,
-              parent=module_name,
-              path=str(site_path / docpath))
-          module_children[module_name].add_children(child_mod)
-          break
 
     # Generate docs for `py_object`, resolving references.
     try:
@@ -572,12 +178,12 @@ def write_docs(
                      '`base_dir`.')
 
   if yaml_toc:
-    toc_gen = GenerateToc(module_children)
-    toc_dict = toc_gen.generate()
+    if isinstance(yaml_toc, bool):
+      yaml_toc = toc_lib.FlatModulesTocBuilder
+    toc = yaml_toc(site_path).build(parser_config.api_tree)
 
-    leftnav_toc = output_dir / root_module_name / '_toc.yaml'
-    with open(leftnav_toc, 'w') as toc_file:
-      yaml.dump(toc_dict, toc_file, default_flow_style=False)
+    toc_path = output_dir / root_module_name / '_toc.yaml'
+    toc.write(toc_path)
 
   if redirects and gen_redirects:
     redirects_dict = {
@@ -677,7 +283,7 @@ class DocGenerator:
       .DocGeneratorVisitor,
       api_cache: bool = True,
       callbacks: Optional[List[public_api.ApiFilter]] = None,
-      yaml_toc: bool = True,
+      yaml_toc: Union[bool, Type[toc_lib.TocBuilder]] = True,
       gen_redirects: bool = True,
       gen_report: bool = True,
       extra_docs: Optional[Dict[int, str]] = None,
@@ -777,6 +383,7 @@ class DocGenerator:
         index=visitor.index,
         reverse_index=visitor.reverse_index,
         path_tree=visitor.path_tree,
+        api_tree=visitor.api_tree,
         base_dir=self._base_dir,
         code_url_prefix=self._code_url_prefix)
 

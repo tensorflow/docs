@@ -181,6 +181,7 @@ class TocBuilder:
 
   def _entries_from_api_node(
       self, api_node: doc_generator_visitor.ApiTreeNode) -> List[Entry]:
+
     """Converts an ApiTreeNode to a list of toc entries."""
     obj_type = api_node.obj_type
 
@@ -205,7 +206,8 @@ class TocBuilder:
         title=title, path=str(docpath), status=self._make_status(api_node))
 
   def _make_section(self,
-                    api_node: doc_generator_visitor.ApiTreeNode) -> Section:
+                    api_node: doc_generator_visitor.ApiTreeNode,
+                    title: Optional[str] = None) -> Section:
     """Create a `toc.Section` from a module's ApiTreeNode."""
     overview = self._make_overview(api_node)
     entries = []
@@ -215,7 +217,8 @@ class TocBuilder:
     entries = [overview] + entries
 
     status = self._make_status(api_node)
-    return Section(title=api_node.short_name, section=entries, status=status)
+    return Section(
+        title=title or api_node.short_name, section=entries, status=status)
 
   def _make_overview(self, api_node: doc_generator_visitor.ApiTreeNode):
     docpath = pathlib.Path(self.site_path, *api_node.path)
@@ -277,3 +280,64 @@ class TocBuilder:
       return 'THIS FUNCTION IS DEPRECATED' in docstring
 
     return False
+
+
+class FlatModulesTocBuilder(TocBuilder):
+  """Builds a toc where the top level submodules are peers (not children).
+
+  The base TocBuilder does this:
+
+  ```
+  module:
+    thing1
+    sub1:
+      thing2
+    sub2:
+      thing3
+  ```
+
+  This one outputs:
+
+  ```
+  module:
+    thing1
+  module.sub1:
+    thing2
+  module.sub2:
+    thing3
+  ```
+  """
+
+  def build(self, api_tree: doc_generator_visitor.ApiTree) -> Toc:
+    entries = []
+    for module_node in api_tree.root.children.values():
+      assert module_node.obj_type is obj_type_lib.ObjType.MODULE
+      entries.extend(self._flat_module_entries(module_node))
+
+    return Toc(toc=entries)
+
+  def _flat_module_entries(self,
+                           api_node: doc_generator_visitor.ApiTreeNode,
+                           title: Optional[str] = None) -> List[Section]:
+    """For top-level modules, place the submodules as peers."""
+    title = title or api_node.short_name
+
+    overview = self._make_link(api_node, title='Overview')
+    entries = []
+    submodule_sections = []
+    for name, child_node in api_node.children.items():
+      if child_node.obj_type is obj_type_lib.ObjType.MODULE:
+        subtitle = f'{title}.{name}'
+        submodule_sections.append(
+            self._make_section(child_node, title=subtitle))
+      else:
+        entries.extend(self._entries_from_api_node(child_node))
+
+    entries = sorted(entries, key=self._section_order_key)
+    entries.insert(0, overview)
+
+    submodule_sections = sorted(submodule_sections, key=self._section_order_key)
+
+    status = self._make_status(api_node)
+    module_section = Section(title=title, section=entries, status=status)
+    return [module_section] + submodule_sections

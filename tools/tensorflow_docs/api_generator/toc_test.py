@@ -141,6 +141,35 @@ class TestToc(absltest.TestCase):
 
     self.assertEqual(expected, stream.getvalue())
 
+  def test_flat_modules_builder(self):
+    api_tree = self._make_tree()
+    builder = toc_lib.FlatModulesTocBuilder('/path/in/site')
+    toc = builder.build(api_tree)
+    stream = io.StringIO()
+    toc.write(stream)
+
+    expected = textwrap.dedent("""\
+        toc:
+        - title: module
+          section:
+          - title: Overview
+            path: /path/in/site/module
+          - title: Class
+            path: /path/in/site/module/Class
+          - title: Class.NestedClass
+            path: /path/in/site/module/Class/NestedClass
+          - title: func1
+            path: /path/in/site/module/func1
+        - title: module.submodule
+          section:
+          - title: Overview
+            path: /path/in/site/module/submodule
+          - title: func2
+            path: /path/in/site/module/submodule/func2
+        """)
+
+    self.assertEqual(expected, stream.getvalue())
+
 
 if __name__ == '__main__':
   absltest.main()

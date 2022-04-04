@@ -16,7 +16,7 @@
 
 import collections
 import dataclasses
-import functools
+import enum
 import inspect
 
 from typing import Any, Dict, List, Optional, NamedTuple, Tuple
@@ -182,6 +182,7 @@ class DocGeneratorVisitor(object):
     self._duplicate_of: Dict[str, str] = None
 
     self.path_tree = PathTree()
+    self.api_tree = None
 
   @property
   def index(self):
@@ -390,6 +391,8 @@ class DocGeneratorVisitor(object):
     if self._reverse_index is not None:
       return
 
+    self.api_tree = ApiTree.from_path_tree(self.path_tree, self._score_name)
+
     # Maps the id of a symbol to its fully qualified name. For symbols that have
     # several aliases, this map contains the first one found.
     # We use id(py_object) to get a hashable value for py_object. Note all
@@ -445,11 +448,31 @@ class DocGeneratorVisitor(object):
 
 @dataclasses.dataclass(repr=False)
 class ApiTreeNode(PathTreeNode):
+  """A node in the ApiTree."""
   aliases: List[ApiPath] = dataclasses.field(default_factory=list)
 
   @property
   def obj_type(self) -> obj_type_lib.ObjType:
     return obj_type_lib.ObjType.get(self.py_object)
+
+  class OutputType(enum.Enum):
+    PAGE = 'page'
+    FRAGMENT = 'fragment'
+
+  def output_type(self) -> OutputType:
+    obj_type = obj_type_lib.ObjType.get(self.py_object)
+
+    if obj_type in (obj_type_lib.ObjType.CLASS, obj_type_lib.ObjType.MODULE):
+      return self.OutputType.PAGE
+    elif obj_type in (obj_type_lib.ObjType.CALLABLE,
+                      obj_type_lib.ObjType.TYPE_ALIAS):
+      parent_type = obj_type_lib.ObjType.get(self.parent.py_object)
+      if parent_type is obj_type_lib.ObjType.CLASS:
+        return self.OutputType.FRAGMENT
+      else:
+        return self.OutputType.PAGE
+    else:
+      return self.OutputType.FRAGMENT
 
 
 class ApiTree(Dict[ApiPath, ApiTreeNode]):
