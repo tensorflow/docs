@@ -16,7 +16,11 @@
 import inspect
 import sys
 
+import logging
 from google.protobuf.message import Message as ProtoMessage
+
+# To see the logs pass: --logger_levels=tensorflow_docs:DEBUG --alsologtostderr
+_LOGGER = logging.getLogger(__name__)
 
 __all__ = ['traverse']
 
@@ -162,9 +166,18 @@ def _traverse_internal(root, visitors, stack, path):
     filtered_children.append((name, child))
   children = filtered_children
 
+  _LOGGER.debug('path: %s', path)
+  _LOGGER.debug('children: %s', [n for n, c in children])
   # Apply all callbacks, allowing each to filter the children
   for visitor in visitors:
-    children = visitor(path, root, list(children))
+    old_names = [n for n, c in children]
+    children = visitor(path, root, children)
+    children = list(children)
+    new_names = [n for n, c in children]
+
+    if old_names != new_names:
+      _LOGGER.debug('filter: %s', visitor)
+      _LOGGER.debug('children: %s', new_names)
 
   for name, child in children:
     # Break cycles
