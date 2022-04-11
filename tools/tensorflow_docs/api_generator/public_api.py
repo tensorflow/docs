@@ -15,18 +15,21 @@
 """Visitor restricting traversal to only the public tensorflow API."""
 
 import ast
+import dataclasses
 import inspect
 import os
+import sys
 import pathlib
 import textwrap
 import types
 import typing
-from typing import Any, Callable, List, Sequence, Tuple, Union
-
+from typing import Any, Callable, Dict, Iterable, List, Sequence, Tuple, Union
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import get_source
+
+from google.protobuf.message import Message as ProtoMessage
 
 _TYPING_IDS = frozenset(
     id(obj)
@@ -34,7 +37,7 @@ _TYPING_IDS = frozenset(
     if not doc_generator_visitor.maybe_singleton(obj))
 
 
-Children = List[Tuple[str, Any]]
+Children = Iterable[Tuple[str, Any]]
 ApiFilter = Callable[[Tuple[str, ...], Any, Children], Children]
 
 
@@ -300,67 +303,195 @@ ALLOWED_DUNDER_METHODS = frozenset([
 ])
 
 
-class PublicAPIFilter(object):
-  """Visitor to use with `traverse` to filter just the public API."""
+@dataclasses.dataclass
+class FailIfNestedTooDeep:
+  max_depth: int
 
-  def __init__(self, base_dir, private_map=None):
-    """Constructor.
+  def __call__(self, path: Sequence[str], parent: Any,
+               children: Children) -> Children:
+    if inspect.ismodule(parent) and len(path) > 10:
+      raise RuntimeError('Modules nested too deep:\n\n{}\n\nThis is likely a '
+                         'problem with an accidental public import.'.format(
+                             '.'.join(path)))
+    return children
 
-    Args:
-      base_dir: The directory to take source file paths relative to.
-      private_map: A mapping from dotted path like "tf.symbol" to a list of
-        names. Included names will not be listed at that location.
-    """
-    self._base_dir = base_dir
-    self._private_map = private_map or {}
 
-  def _is_private(self, path, parent, name, obj):
-    """Returns whether a name is private or not."""
+@dataclasses.dataclass
+class FilterBaseDirs:
+  base_dirs: Sequence[pathlib.Path]
 
-    # Skip objects blocked by doc_controls.
-    if doc_controls.should_skip(obj):
-      return True
-
-    if isinstance(parent, type):
-      if doc_controls.should_skip_class_attr(parent, name):
-        return True
-
-    if doc_controls.should_doc_private(obj):
-      return False
-
-    if inspect.ismodule(obj):
-      mod_base_dirs = get_module_base_dirs(obj)
+  def __call__(self, path: Sequence[str], parent: Any,
+               children: Children) -> Children:
+    for name, child in children:
+      if not inspect.ismodule(child):
+        yield name, child
+        continue
+      mod_base_dirs = get_module_base_dirs(child)
       # This check only handles normal packages/modules. Namespace-package
       # contents will get filtered when the submodules are checked.
       if len(mod_base_dirs) == 1:
         mod_base_dir = mod_base_dirs[0]
         # Check that module is in one of the `self._base_dir`s
-        if not any(base in mod_base_dir.parents for base in self._base_dir):
-          return True
+        if not any(base in mod_base_dir.parents for base in self.base_dirs):
+          continue
+      yield name, child
 
-    # Skip objects blocked by the private_map
-    if name in self._private_map.get('.'.join(path), []):
-      return True
 
-    # Skip "_" hidden attributes
-    if name.startswith('_') and name not in ALLOWED_DUNDER_METHODS:
-      return True
-
-    return False
+@dataclasses.dataclass
+class FilterPrivateMap:
+  private_map: Dict[str, List[str]]
 
   def __call__(self, path: Sequence[str], parent: Any,
                children: Children) -> Children:
-    """Visitor interface, see `traverse` for details."""
+    if self.private_map is None:
+      yield from children
 
-    # Avoid long waits in cases of pretty unambiguous failure.
-    if inspect.ismodule(parent) and len(path) > 10:
-      raise RuntimeError('Modules nested too deep:\n\n{}\n\nThis is likely a '
-                         'problem with an accidental public import.'.format(
-                             '.'.join(path)))
+    for name, child in children:
+      if name in self.private_map.get('.'.join(path), []):
+        continue
+      yield (name, child)
 
-    # Remove things that are not visible.
-    children = [(child_name, child_obj)
-                for child_name, child_obj in list(children)
-                if not self._is_private(path, parent, child_name, child_obj)]
 
+def filter_private_symbols(path: Sequence[str], parent: Any,
+                           children: Children) -> Children:
+  del path
+  del parent
+  for name, child in children:
+    # Skip "_" hidden attributes
+    if name.startswith('_') and name not in ALLOWED_DUNDER_METHODS:
+      if not doc_controls.should_doc_private(child):
+        continue
+    yield (name, child)
+
+
+def filter_doc_controls_skip(path: Sequence[str], parent: Any,
+                             children: Children) -> Children:
+  del path
+  for name, child in children:
+    if doc_controls.should_skip(child):
+      continue
+    if isinstance(parent, type):
+      if doc_controls.should_skip_class_attr(parent, name):
+        continue
+    yield (name, child)
+
+
+def filter_module_all(path: Sequence[str], parent: Any,
+                      children: Children) -> Children:
+  """Filters module children based on the "__all__" arrtibute.
+
+  Args:
+    path: API to this symbol
+    parent: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` filtered to respect __all__
+  """
+  del path
+  if not (inspect.ismodule(parent) and hasattr(parent, '__all__')):
     return children
+  module_all = set(parent.__all__)
+  children = [(name, value) for (name, value) in children if name in module_all]
+
+  return children
+
+
+def add_proto_fields(path: Sequence[str], parent: Any,
+                     children: Children) -> Children:
+  """Add properties to Proto classes, so they can be documented.
+
+  Warning: This inserts the Properties into the class so the rest of the system
+  is unaffected. This patching is acceptable because there is never a reason to
+  run other tensorflow code in the same process as the doc generator.
+
+  Args:
+    path: API to this symbol
+    parent: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` with proto fields added as properties.
+  """
+  del path
+  if not inspect.isclass(parent) or not issubclass(parent, ProtoMessage):
+    return children
+
+  descriptor = getattr(parent, 'DESCRIPTOR', None)
+  if descriptor is None:
+    return children
+  fields = descriptor.fields
+  if not fields:
+    return children
+
+  field = fields[0]
+  # Make the dictionaries mapping from int types and labels to type and
+  # label names.
+  field_types = {
+      getattr(field, name): name
+      for name in dir(field)
+      if name.startswith('TYPE')
+  }
+
+  labels = {
+      getattr(field, name): name
+      for name in dir(field)
+      if name.startswith('LABEL')
+  }
+
+  field_properties = {}
+
+  for field in fields:
+    name = field.name
+    doc_parts = []
+
+    label = labels[field.label].lower().replace('label_', '')
+    if label != 'optional':
+      doc_parts.append(label)
+
+    type_name = field_types[field.type]
+    if type_name == 'TYPE_MESSAGE':
+      type_name = field.message_type.name
+    elif type_name == 'TYPE_ENUM':
+      type_name = field.enum_type.name
+    else:
+      type_name = type_name.lower().replace('type_', '')
+
+    doc_parts.append(type_name)
+    doc_parts.append(name)
+    doc = '`{}`'.format(' '.join(doc_parts))
+    prop = property(fget=lambda x: x, doc=doc)
+    field_properties[name] = prop
+
+  for name, prop in field_properties.items():
+    setattr(parent, name, prop)
+
+  children = dict(children)
+  children.update(field_properties)
+  children = sorted(children.items(), key=lambda item: item[0])
+
+  return children
+
+
+def filter_builtin_modules(path: Sequence[str], parent: Any,
+                           children: Children) -> Children:
+  """Filters module children to remove builtin modules.
+
+  Args:
+    path: API to this symbol
+    parent: The object
+    children: A list of (name, object) pairs.
+
+  Returns:
+    `children` with all builtin modules removed.
+  """
+  del path
+  del parent
+  # filter out 'builtin' modules
+  filtered_children = []
+  for name, child in children:
+    # Do not descend into built-in modules
+    if inspect.ismodule(child) and child.__name__ in sys.builtin_module_names:
+      continue
+    filtered_children.append((name, child))
+  return filtered_children

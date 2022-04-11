@@ -15,8 +15,6 @@
 """Tests for Python module traversal."""
 from absl.testing import absltest
 
-from tensorflow_docs.api_generator import test_module1
-from tensorflow_docs.api_generator import test_module2
 
 from tensorflow_docs.api_generator import traverse
 
@@ -42,16 +40,6 @@ class TraverseTest(absltest.TestCase):
     visitor = TestVisitor()
     traverse.traverse(Cyclist, [visitor], root_name='root_name')
     # We simply want to make sure we terminate.
-
-  def test_module(self):
-    visitor = TestVisitor()
-    traverse.traverse(test_module1, [visitor], root_name='root_name')
-
-    called = [parent for _, parent, _ in visitor.call_log]
-
-    self.assertIn(test_module1.ModuleClass1, called)
-    self.assertIn(test_module2.ModuleClass2, called)
-    self.assertNotIn(test_module2.Hidden, called)
 
   def test_class(self):
     visitor = TestVisitor()
