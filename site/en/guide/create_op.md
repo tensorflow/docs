@@ -524,10 +524,10 @@ This asserts that the input is a vector, and returns having set the
     of a tensor in
     [`tensorflow/core/framework/tensor_shape.h`](https://www.tensorflow.org/code/tensorflow/core/framework/tensor_shape.h)
 *   The error itself, which is represented by a `Status` object, see
-    [`tensorflow/core/lib/core/status.h`](https://www.tensorflow.org/code/tensorflow/core/lib/core/status.h). A
+    [`tensorflow/core/platform/status.h`](https://www.tensorflow.org/code/tensorflow/core/platform/status.h). A
     `Status` has both a type (frequently `InvalidArgument`, but see the list of
     types) and a message.  Functions for constructing an error may be found in
-    [`tensorflow/core/lib/core/errors.h`][validation-macros].
+    [`tensorflow/core/platform/errors.h`][validation-macros].
 
 Alternatively, if you want to test whether a `Status` object returned from some
 function is an error, and if so return it, use
@@ -1497,7 +1497,7 @@ of building TensorFlow from source.
 [standard_ops-py]:https://www.tensorflow.org/code/tensorflow/python/ops/standard_ops.py
 [standard_ops-cc]:https://www.tensorflow.org/code/tensorflow/cc/ops/standard_ops.h
 [python-BUILD]:https://www.tensorflow.org/code/tensorflow/python/BUILD
-[validation-macros]:https://www.tensorflow.org/code/tensorflow/core/lib/core/errors.h
+[validation-macros]:https://www.tensorflow.org/code/tensorflow/core/platform/errors.h
 [op_def_builder]:https://www.tensorflow.org/code/tensorflow/core/framework/op_def_builder.h
 [register_types]:https://www.tensorflow.org/code/tensorflow/core/framework/register_types.h
 [FinalizeAttr]:https://www.tensorflow.org/code/tensorflow/core/framework/op_def_builder.cc
