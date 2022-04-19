@@ -14,7 +14,6 @@
 # ==============================================================================
 """Tests for tools.docs.doc_generator_visitor."""
 
-import argparse
 import inspect
 import io
 import os
@@ -262,8 +261,8 @@ class DocGeneratorVisitorTest(absltest.TestCase):
 class PathTreeTest(absltest.TestCase):
 
   def test_contains(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
 
     tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
@@ -273,8 +272,8 @@ class PathTreeTest(absltest.TestCase):
     self.assertIn(('tf', 'sub'), tree)
 
   def test_node_insertion(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.object = object()
 
     tree = doc_generator_visitor.PathTree()
@@ -290,10 +289,10 @@ class PathTreeTest(absltest.TestCase):
     self.assertIs(node.children['thing'], tree[('tf', 'sub', 'thing')])
 
   def test_duplicate(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.thing = object()
-    tf.sub2 = argparse.Namespace()
+    tf.sub2 = types.ModuleType('sub2')
     tf.sub2.thing = tf.sub.thing
 
     tree = doc_generator_visitor.PathTree()
@@ -308,10 +307,10 @@ class PathTreeTest(absltest.TestCase):
         [tree[('tf', 'sub', 'thing')], tree[('tf', 'sub2', 'thing')]])
 
   def test_duplicate_singleton(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.thing = 999
-    tf.sub2 = argparse.Namespace()
+    tf.sub2 = types.ModuleType('sub2')
     tf.sub2.thing = tf.sub.thing
 
     tree = doc_generator_visitor.PathTree()
@@ -322,8 +321,7 @@ class PathTreeTest(absltest.TestCase):
     tree[('tf', 'sub2', 'thing')] = tf.sub2.thing
 
     found = tree.nodes_for_obj(tf.sub.thing)
-    self.assertIsNotNone(found)
-    self.assertEmpty(found)
+    self.assertEqual([], found)
 
 
 class ApiTreeTest(absltest.TestCase):
@@ -469,6 +467,42 @@ class ApiTreeTest(absltest.TestCase):
 
     self.assertEqual(expected, stream.getvalue())
 
+  def test_non_priority_name(self):
+
+    class Class1:
+      pass
+
+    mod = types.ModuleType('mod')
+    mod.a = types.ModuleType('sub')
+    mod.a.Class1 = Class1
+    mod.b = mod.a
+
+    path_tree = doc_generator_visitor.PathTree()
+    path_tree[('mod',)] = mod
+    path_tree[('mod', 'a')] = mod.a
+    path_tree[('mod', 'a', 'Class1')] = mod.a.Class1
+    path_tree[('mod', 'b')] = mod.b
+    path_tree[('mod', 'b', 'Class1')] = mod.b.Class1
+
+    def inconsistent_name_score(path):
+      # `mod.a` is prefered over `mod.b`, but `b.Class1` is prefered over
+      # `a.Class1`!
+      scores = {
+          ('mod',): 0,
+          ('mod', 'a'): 0,  # prefer 'a'
+          ('mod', 'b'): 1,
+          ('mod', 'a', 'Class1'): 1,
+          ('mod', 'b', 'Class1'): 0,  # prefer 'b.Class1'
+      }
+      return scores[path]
+
+    api_tree = doc_generator_visitor.ApiTree.from_path_tree(
+        path_tree, inconsistent_name_score)
+    node = api_tree.node_for_object(Class1)
+
+    # `Class1` can't choose `b.Class1` as its priority_path because
+    # `a` is the priority_path for `sub`.
+    self.assertEqual('mod.a.Class1', node.full_name)
 
 if __name__ == '__main__':
   absltest.main()

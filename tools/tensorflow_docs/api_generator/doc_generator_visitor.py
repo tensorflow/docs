@@ -19,7 +19,7 @@ import dataclasses
 import enum
 import inspect
 
-from typing import Any, Dict, List, Optional, NamedTuple, Tuple
+from typing import Any, Dict, List, Optional, NamedTuple, Sequence, Tuple
 
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
 
@@ -584,7 +584,7 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
 
       parents = [node.parent for node in duplicate_nodes]
 
-      # Choose the master name with a lexical sort on the tuples returned by
+      # Choose the priority name with a lexical sort on the tuples returned by
       # by _score_name.
       if not all(parent.path in self for parent in parents):
         # rewind
@@ -596,13 +596,34 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
           active_nodes.appendleft(parent)
         continue
       # If we've made it here, the immediate parents of each of the paths have
-      # been processed, so now we can choose its master name.
+      # been processed, so now we can choose its priority name.
       aliases = [node.path for node in duplicate_nodes]
 
-      master_path = min(aliases, key=score_name_fn)
+      priority_path = self._choose_priority_path(aliases, score_name_fn)
 
-      self.insert(master_path, current_node.py_object, aliases)
+      if priority_path is None:
+        # How did this happen?
+        # No parents in the public api -> you are not in the public API.
+        continue
+
+      self.insert(priority_path, current_node.py_object, aliases)
 
       active_nodes.extend(current_node.children.values())
 
     return self
+
+  def _choose_priority_path(self, aliases: Sequence[ApiPath],
+                            score_name_fn) -> Optional[ApiPath]:
+    # Only consider a path an option for the priority_path if its parent-path
+    # is the priority_path for that object.
+    priority_path_options = []
+    for alias in aliases:
+      parent_path = alias[:-1]
+
+      if self[parent_path].path == parent_path:
+        priority_path_options.append(alias)
+
+    try:
+      return min(priority_path_options, key=score_name_fn)
+    except ValueError:
+      return None
