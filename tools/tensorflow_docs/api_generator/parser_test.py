@@ -95,15 +95,8 @@ class TestClass(ParentClass):
   CLASS_MEMBER = 'a class member'
 
 
-class DummyVisitor(object):
-
-  def __init__(self, index, duplicate_of):
-    self.index = index
-    self.duplicate_of = duplicate_of
-
-
 class ConcreteMutableMapping(collections.MutableMapping):
-  """MutableMapping subclass to repro inspect.getsource() IndexError."""
+  """MutableMapping subclass to repro getsource() IndexError."""
 
   def __init__(self):
     self._map = {}
@@ -159,24 +152,30 @@ class ParserTest(parameterized.TestCase):
       def foo(self):
         pass
 
+    class Other:
+      pass
+
+    tf = types.ModuleType('tf')
+    tf.__file__ = __file__
+    tf.reference = HasOneMember
+    tf.third = Other
+    tf.fourth = Other
+
     string = ('A `@tf.reference`, a member `tf.reference.foo`, and a '
               '`tf.third(what)`. '
               'This is `not a symbol`, and this is `tf.not.a.real.symbol`')
 
-    duplicate_of = {'tf.third': 'tf.fourth'}
-    index = {
-        'tf.reference': HasOneMember,
-        'tf.reference.foo': HasOneMember.foo,
-        'tf.third': HasOneMember,
-        'tf.fourth': HasOneMember
-    }
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('tf', tf)],
+        code_url_prefix='https://tensorflow.org')
 
-    visitor = DummyVisitor(index, duplicate_of)
+    parser_config = generator.run_extraction()
 
-    reference_resolver = reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor=visitor, py_module_names=['tf'], link_prefix='../..')
+    result = (
+        parser_config.reference_resolver.with_prefix(
+            '../..').replace_references(string))
 
-    result = reference_resolver.replace_references(string)
     self.assertEqual(
         'A <a href="../../tf/reference.md">'
         '<code>@tf.reference</code></a>, '
@@ -580,7 +579,7 @@ class ParserTest(parameterized.TestCase):
   def test_getsource_indexerror_resilience(self):
     """Validates that parser gracefully handles IndexErrors.
 
-    inspect.getsource() can raise an IndexError in some cases. It's unclear
+    getsource() can raise an IndexError in some cases. It's unclear
     why this happens, but it consistently repros on the `get` method of
     collections.MutableMapping subclasses.
     """

@@ -18,11 +18,16 @@ import collections
 import dataclasses
 import enum
 import inspect
+import logging
+
 
 from typing import Any, Dict, List, Optional, NamedTuple, Sequence, Tuple
 
 from tensorflow_docs.api_generator import obj_type as obj_type_lib
 
+
+# To see the logs pass: --logger_levels=tensorflow_docs:DEBUG --alsologtostderr
+_LOGGER = logging.getLogger(__name__)
 
 ApiPath = Tuple[str, ...]
 
@@ -537,6 +542,10 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
 
   def insert(self, path: ApiPath, py_object: Any, aliases: List[ApiPath]):
     """Add an object to the index."""
+    _LOGGER.debug('ApiTree.insert')
+    _LOGGER.debug('  path: %s', path)
+    _LOGGER.debug('  py_object: %s', py_object)
+    _LOGGER.debug('  aliases: %s', aliases)
     assert path not in self, 'A path was inserted twice.'
 
     parent_path = path[:-1]
@@ -577,10 +586,16 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
         continue
 
       duplicate_nodes = set(
-          # Singelton objects will return [].
           path_tree.nodes_for_obj(current_node.py_object))
-      # Add the current node in case it's a singelton.
-      duplicate_nodes.add(current_node)
+
+      if not duplicate_nodes:
+        # Singleton objects will return `[]`. So look up the parent object's
+        # duplicate nodes and collect their children.
+        parent_nodes = path_tree.nodes_for_obj(current_node.parent.py_object)
+        duplicate_nodes = [
+            parent_node.children[current_node.short_name]
+            for parent_node in parent_nodes
+        ]
 
       parents = [node.parent for node in duplicate_nodes]
 

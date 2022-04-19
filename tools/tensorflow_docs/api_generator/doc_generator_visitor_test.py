@@ -303,6 +303,52 @@ class DocGeneratorVisitorTest(absltest.TestCase):
                   visitor.api_tree[('tf', 'sub', 'MyClass', 'from_value')])
 
 
+  def test_handles_duplicate_singleton_attributes(self):
+
+    class MyClass:
+      simple = 1
+
+    tf = types.ModuleType('fake_tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
+    tf.MyClass = MyClass
+    tf.sub = types.ModuleType('sub')
+    tf.sub.MyClass = MyClass
+
+    visitor = generate_lib.extract([('tf', tf)],
+                                   base_dir=os.path.dirname(tf.__file__),
+                                   private_map={},
+                                   visitor_cls=NoDunderVisitor)
+
+    paths = ['.'.join(p) for p in visitor.path_tree.keys()]
+
+    expected = [
+        '',
+        'tf',
+        'tf.MyClass',
+        'tf.MyClass.simple',
+        'tf.sub',
+        'tf.sub.MyClass',
+        'tf.sub.MyClass.simple',
+    ]
+    self.assertCountEqual(expected, paths)
+
+    apis = ['.'.join(p) for p in visitor.api_tree.keys()]
+    expected = [
+        '',
+        'tf',
+        'tf.MyClass',
+        'tf.MyClass.simple',
+        'tf.sub',
+        'tf.sub.MyClass',
+        'tf.sub.MyClass.simple',
+    ]
+    self.assertCountEqual(expected, apis)
+
+    self.assertIs(visitor.api_tree[('tf', 'MyClass')],
+                  visitor.api_tree[('tf', 'sub', 'MyClass')])
+    self.assertIs(visitor.api_tree[('tf', 'MyClass', 'simple')],
+                  visitor.api_tree[('tf', 'sub', 'MyClass', 'simple')])
+
 class PathTreeTest(absltest.TestCase):
 
   def test_contains(self):
@@ -367,6 +413,7 @@ class PathTreeTest(absltest.TestCase):
 
     found = tree.nodes_for_obj(tf.sub.thing)
     self.assertEqual([], found)
+
 
 
 class ApiTreeTest(absltest.TestCase):
