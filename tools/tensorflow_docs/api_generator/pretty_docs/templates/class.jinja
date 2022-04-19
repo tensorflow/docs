@@ -1,0 +1,69 @@
+{% extends "templates/page.jinja" %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block metadata %}
+{{ builder.top_source_link() }}
+
+{{ page_info.doc.brief -}}
+
+{% if page_info.inheritable_header %}
+
+
+{{ page_info.inheritable_header -}}
+{% endif %}
+
+{{ builder.build_bases() }}
+{{ builder.build_collapsable_aliases() -}}
+{{ builder.build_constructor() -}}
+{% endblock metadata %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block body %}
+{{- builder.top_compat() -}}
+
+<!-- Placeholder for "Used in" -->
+{{ builder.build_class_docstring() -}}
+{{ builder.build_attr_block() }}
+{{- self.child_classes() -}}
+{{- self.methods() -}}
+
+{{- self.other_members() -}}
+
+{{- builder.bottom_compat() -}}
+{% endblock body %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block child_classes %}
+{%- if page_info.classes %}
+## Child Classes
+  {% for child_class in page_info.classes %}
+[`class {{child_class.short_name}}`]({{child_class.url}})
+
+  {% endfor %}
+{% endif -%}
+{% endblock child_classes%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block methods %}
+{%- if builder.methods.info_dict -%}
+## Methods
+
+  {% for name, method in builder.methods.info_dict.items() %}
+    {{- builder.build_method_section(method) -}}
+  {% endfor %}
+
+
+{% endif -%}
+{% endblock methods%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block other_members %}
+{%- if page_info.other_members -%}
+{{ builder.build_other_member_section() }}
+{% endif %}
+{% endblock other_members%}

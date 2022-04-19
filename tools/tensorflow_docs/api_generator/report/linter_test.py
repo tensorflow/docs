@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2020 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,11 +16,16 @@
 
 import copy
 
+import types
 from typing import Optional
 
 from absl.testing import absltest
 
+from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
+from tensorflow_docs.api_generator.pretty_docs import docs_for_object
 from tensorflow_docs.api_generator.report import utils
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
 
@@ -111,100 +115,74 @@ class TestClass:
 
 class LinterTest(absltest.TestCase):
 
-  def setUp(self):
-    super(LinterTest, self).setUp()
-    index = {
-        'TestClass': TestClass,
-        'TestClass.__init__': TestClass.__init__,
-        'TestClass.method_one': TestClass.method_one,
-        'TestClass.temp_c': TestClass.temp_c,
-    }
-    tree = {
-        'TestClass': ['__init__', 'method_one', 'temp_c'],
-    }
-    reference_resolver = parser.ReferenceResolver.from_visitor(
-        visitor=DummyVisitor(index=index, duplicate_of={}),
-        py_module_names=['tf'],
-    )
-    self.parser_config = parser.ParserConfig(
-        reference_resolver=reference_resolver,
-        duplicates={},
-        duplicate_of={},
-        tree=tree,
-        index=index,
-        reverse_index={},
-        base_dir='/',
-        code_url_prefix='/')
+  def _build_page_info(self):
+    m = types.ModuleType('m')
+    m.__file__ = __file__
+    m.TestClass = TestClass
 
-  def test_class_raises_lint(self):
-    class_page_info = parser.docs_for_object(
-        full_name='TestClass',
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('m', m)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
+    return docs_for_object.docs_for_object(
+        full_name='m.TestClass',
         py_object=TestClass,
-        parser_config=self.parser_config)
-    class_page_info_before = copy.deepcopy(class_page_info)
+        parser_config=parser_config)
+
+  def _make_report(self):
+    page_info = self._build_page_info()
 
     test_api_report = utils.ApiReport()
-    test_api_report.fill_metrics(class_page_info)
-    self.assertEqual(class_page_info_before, class_page_info)
+    test_api_report.fill_metrics(page_info)
+    return test_api_report
+
+  def test_fill_report_doesnt_edit_page(self):
+    page1 = self._build_page_info()
+    page2 = self._build_page_info()
+
+    test_api_report = utils.ApiReport()
+    test_api_report.fill_metrics(page2)
+
+    self.assertEqual(page1, page2)
+
+  def test_class_raises_lint(self):
+    test_api_report = self._make_report()
 
     for test_report in test_api_report.api_report.symbol_metric:
-      if (test_report.symbol_name == 'TestClass' and
+      if (test_report.symbol_name == 'm.TestClass' and
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.raises_lint.num_raises_defined, 2)
         self.assertEqual(test_report.raises_lint.total_raises_in_code, 2)
 
   def test_method_return_lint(self):
-    class_page_info = parser.docs_for_object(
-        full_name='TestClass',
-        py_object=TestClass,
-        parser_config=self.parser_config)
-
-    class_page_info_before = copy.deepcopy(class_page_info)
-
-    test_api_report = utils.ApiReport()
-    test_api_report.fill_metrics(class_page_info)
-    self.assertEqual(class_page_info_before, class_page_info)
+    test_api_report = self._make_report()
 
     for test_report in test_api_report.api_report.symbol_metric:
-      if (test_report.symbol_name == 'TestClass.method_one' and
+      if (test_report.symbol_name == 'm.TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertTrue(test_report.return_lint.returns_defined)
 
   def test_description_lint(self):
-    class_page_info = parser.docs_for_object(
-        full_name='TestClass',
-        py_object=TestClass,
-        parser_config=self.parser_config)
-    class_page_info_before = copy.deepcopy(class_page_info)
-
-    test_api_report = utils.ApiReport()
-    test_api_report.fill_metrics(class_page_info)
-    self.assertEqual(class_page_info_before, class_page_info)
+    test_api_report = self._make_report()
 
     for test_report in test_api_report.api_report.symbol_metric:
-      if (test_report.symbol_name == 'TestClass' and
+      if (test_report.symbol_name == 'm.TestClass' and
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.desc_lint.len_brief, 2)
         self.assertEqual(test_report.desc_lint.len_long_desc, 54)
 
-      if (test_report.symbol_name == 'TestClass.method_one' and
+      if (test_report.symbol_name == 'm.TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.desc_lint.len_brief, 4)
         self.assertEqual(test_report.desc_lint.len_long_desc, 10)
 
   def test_parameter_lint(self):
-    class_page_info = parser.docs_for_object(
-        full_name='TestClass',
-        py_object=TestClass,
-        parser_config=self.parser_config)
-    class_page_info_before = copy.deepcopy(class_page_info)
-
-    test_api_report = utils.ApiReport()
-    test_api_report.fill_metrics(class_page_info)
-    self.assertEqual(class_page_info_before, class_page_info)
+    test_api_report = self._make_report()
 
     for test_report in test_api_report.api_report.symbol_metric:
-      if (test_report.symbol_name == 'TestClass' and
+      if (test_report.symbol_name == 'm.TestClass' and
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          2)
@@ -214,7 +192,7 @@ class LinterTest(absltest.TestCase):
                          1)
         self.assertEqual(test_report.parameter_lint.total_attr_param, 2)
 
-      if (test_report.symbol_name == 'TestClass.method_one' and
+      if (test_report.symbol_name == 'm.TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.parameter_lint.num_empty_param_desc_args,
                          0)
@@ -225,30 +203,25 @@ class LinterTest(absltest.TestCase):
         self.assertEqual(test_report.parameter_lint.total_attr_param, 0)
 
   def test_example_lint(self):
-    class_page_info = parser.docs_for_object(
-        full_name='TestClass',
-        py_object=TestClass,
-        parser_config=self.parser_config)
-    class_page_info_before = copy.deepcopy(class_page_info)
-
-    test_api_report = utils.ApiReport()
-    test_api_report.fill_metrics(class_page_info)
-    self.assertEqual(class_page_info_before, class_page_info)
+    test_api_report = self._make_report()
 
     for test_report in test_api_report.api_report.symbol_metric:
-      if (test_report.symbol_name == 'TestClass' and
+      if (test_report.symbol_name == 'm.TestClass' and
           test_report.object_type == api_report_pb2.ObjectType.CLASS):
         self.assertEqual(test_report.usage_example_lint.num_doctest, 2)
         self.assertEqual(test_report.usage_example_lint.num_untested_examples,
                          1)
-        self.assertEqual(test_report.package_group, 'TestClass')
+        self.assertEqual(
+            'm',
+            test_report.package_group,
+        )
 
-      if (test_report.symbol_name == 'TestClass.method_one' and
+      if (test_report.symbol_name == 'm.TestClass.method_one' and
           test_report.object_type == api_report_pb2.ObjectType.METHOD):
         self.assertEqual(test_report.usage_example_lint.num_doctest, 0)
         self.assertEqual(test_report.usage_example_lint.num_untested_examples,
                          1)
-        self.assertEqual(test_report.package_group, 'TestClass')
+        self.assertEqual('m', test_report.package_group)
 
 
 if __name__ == '__main__':

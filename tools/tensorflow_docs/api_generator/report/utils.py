@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2020 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,9 +14,10 @@
 # ==============================================================================
 """Utilities for generating report for a package."""
 
-from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import pretty_docs
 from tensorflow_docs.api_generator import public_api
+from tensorflow_docs.api_generator.pretty_docs import base_page
+from tensorflow_docs.api_generator.pretty_docs import class_page
+from tensorflow_docs.api_generator.pretty_docs import function_page
 from tensorflow_docs.api_generator.report import linter
 
 from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
@@ -41,7 +41,7 @@ class ApiReport:
       name: str,
       object_type: api_report_pb2.ObjectType,
       package_group: str,
-      page_info: parser.PageInfo,
+      page_info: base_page.PageInfo,
   ) -> None:
     self.api_report.symbol_metric.add(
         symbol_name=name,
@@ -64,11 +64,11 @@ class ApiReport:
     return '.'.join(name_list[:2])
 
   def _make_constructor_info(
-      self, class_page_info: parser.ClassPageInfo) -> parser.PageInfo:
+      self, class_page_info: class_page.ClassPageInfo) -> base_page.PageInfo:
     """Convert a class description into a description of the constructor."""
-    methods = pretty_docs.split_methods(class_page_info.methods)
+    methods = class_page.split_methods(class_page_info.methods)
 
-    constructor_info = parser.PageInfo(
+    constructor_info = base_page.PageInfo(
         full_name=class_page_info.full_name,
         py_object=class_page_info.py_object)
 
@@ -81,8 +81,7 @@ class ApiReport:
       constructor_info.py_object = None
 
     # Merge the constructor and class docstrings.
-    class_blocks = pretty_docs.merge_blocks(class_page_info,
-                                            methods.constructor)
+    class_blocks = class_page.merge_blocks(class_page_info, methods.constructor)
     # Add the `Attributes` sections (if it exists) to the merged class blocks.
     if class_page_info.attr_block is not None:
       class_blocks.append(class_page_info.attr_block)
@@ -93,7 +92,8 @@ class ApiReport:
 
     return constructor_info
 
-  def _fill_class_metric(self, class_page_info: parser.ClassPageInfo) -> None:
+  def _fill_class_metric(self,
+                         class_page_info: class_page.ClassPageInfo) -> None:
     """Fills in the lint metrics for a class and its methods.
 
     The constructor and class's docstring is merged for linting. Class's
@@ -115,7 +115,7 @@ class ApiReport:
         page_info=constructor_info,
     )
 
-    methods: pretty_docs.Methods = pretty_docs.split_methods(
+    methods: class_page.Methods = class_page.split_methods(
         class_page_info.methods)
     # Lint each method separately and add its metrics to the proto object.
     for method in methods.info_dict.values():
@@ -130,7 +130,8 @@ class ApiReport:
             page_info=method,
         )
 
-  def _fill_function_metric(self, function_page_info: parser.FunctionPageInfo):
+  def _fill_function_metric(self,
+                            function_page_info: function_page.FunctionPageInfo):
     """Fills in the lint metrics for a function.
 
     Args:
@@ -144,9 +145,9 @@ class ApiReport:
         page_info=function_page_info,
     )
 
-  def fill_metrics(self, page_info: parser.PageInfo) -> None:
-    if isinstance(page_info, parser.ClassPageInfo):
+  def fill_metrics(self, page_info: base_page.PageInfo) -> None:
+    if isinstance(page_info, class_page.ClassPageInfo):
       self._fill_class_metric(page_info)
 
-    if isinstance(page_info, parser.FunctionPageInfo):
+    if isinstance(page_info, function_page.FunctionPageInfo):
       self._fill_function_metric(page_info)

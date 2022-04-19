@@ -34,5 +34,7 @@ toc:
   - heading: "Community"
   - title: "Contribute to the community"
     path: /community/contribute/community
+  - title: "Contribute to SIGs"
+    path: /community/contribute/sigs
   - title: "RFC process"
     path: /community/contribute/rfc_process

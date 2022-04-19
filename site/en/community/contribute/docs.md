@@ -167,21 +167,21 @@ when you submit your pull request.
 Add a remote:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">git remote add <var>upstream</var> git@github.com:tensorflow/docs.git</code>
+<code class="devsite-terminal">git remote add upstream git@github.com:tensorflow/docs.git</code>
 
 # View remote repos
 <code class="devsite-terminal">git remote -v</code>
 origin    git@github.com:<var>username</var>/docs.git (fetch)
 origin    git@github.com:<var>username</var>/docs.git (push)
-<var>upstream</var>  git@github.com:tensorflow/docs.git (fetch)
-<var>upstream</var>  git@github.com:tensorflow/docs.git (push)
+upstream  git@github.com:tensorflow/docs.git (fetch)
+upstream  git@github.com:tensorflow/docs.git (push)
 </pre>
 
 To update:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git checkout master</code>
-<code class="devsite-terminal">git pull <var>upstream</var> master</code>
+<code class="devsite-terminal">git pull upstream master</code>
 
 <code class="devsite-terminal">git push</code>  # Push changes to your GitHub account (defaults to origin)
 </pre>

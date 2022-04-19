@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +15,7 @@
 """Tests for tensorflow.tools.common.public_api."""
 
 import inspect
+import pathlib
 import types
 
 import typing
@@ -42,60 +42,24 @@ class PublicApiTest(absltest.TestCase):
       self.last_children = list(children)  # Make a copy to preserve state.
       return children
 
-  def test_call_forward(self):
-    visitor = self.TestVisitor()
+  def test_filter_private_symbols(self):
+    module = types.ModuleType('module')
+    module.a = 1
+    module._b = 2
 
-    api_visitors = [public_api.PublicAPIFilter(base_dir='/'), visitor]
+    result = public_api.filter_private_symbols(('module'), module,
+                                               [('a', module.a),
+                                                ('_b', module._b)])
+    self.assertEqual([('a', module.a)], list(result))
 
-    path = ('tf', 'test')
-    parent = 'dummy'
-    children = [('name1', 'thing1'), ('name2', 'thing2')]
+  def test_private_map_filter(self):
+    private_map_filter = public_api.FilterPrivateMap({'tf.test': ['mock']})
+    result = private_map_filter(
+        path=('tf', 'test'),
+        parent='dummy',
+        children=[('name1', 'thing1'), ('mock', 'thing2')])
 
-    for api_visitor in api_visitors:
-      children = api_visitor(path, parent, children)
-
-    self.assertEqual(set([(
-        'tf',
-        'test',
-    )]), visitor.symbols)
-    self.assertEqual('dummy', visitor.last_parent)
-    self.assertEqual([('name1', 'thing1'), ('name2', 'thing2')],
-                     visitor.last_children)
-
-  def test_private_child_removal(self):
-    visitor = self.TestVisitor()
-    api_visitors = [
-        public_api.PublicAPIFilter(base_dir='/'),
-        visitor,
-    ]
-
-    children = [('name1', 'thing1'), ('_name2', 'thing2')]
-    path = ('tf', 'test')
-    parent = 'dummy'
-    for api_visitor in api_visitors:
-      children = api_visitor(path, parent, children)
-
-    # Make sure the private symbols are removed before the visitor is called.
-    self.assertEqual([('name1', 'thing1')], visitor.last_children)
-    self.assertEqual([('name1', 'thing1')], children)
-
-  def test_private_map_child_removal(self):
-    visitor = self.TestVisitor()
-
-    api_visitors = [
-        public_api.PublicAPIFilter(
-            base_dir='/', private_map={'tf.test': ['mock']}), visitor
-    ]
-
-    children = [('name1', 'thing1'), ('mock', 'thing2')]
-    path = ('tf', 'test')
-    parent = 'dummy'
-
-    for api_visitor in api_visitors:
-      children = api_visitor(path, parent, children)
-    # Make sure private aliases are removed.
-    self.assertEqual([('name1', 'thing1')], visitor.last_children)
-    self.assertEqual([('name1', 'thing1')], children)
+    self.assertEqual([('name1', 'thing1')], list(result))
 
   def test_local_definitions_filter(self):
     tf = types.ModuleType('tf')
@@ -173,6 +137,21 @@ class PublicApiTest(absltest.TestCase):
     # Assert that the filtered_members do not include a module named `inspect`.
     self.assertNotIn('inspect', [name for name, _ in filtered_members])
 
+  def test_get_imported_symbols(self):
+    source = """
+        import sub0
+        import pkg.sub1
+        from pkg import sub2
+        from pkg.sub3 import sub_sub1
+        from pkg.sub4 import *
+        from pkg import sub5 as r1
+        from pkg import sub6 as r2, sub7, sub8 as r3
+
+        """
+    imported = public_api._get_imported_symbols(source)
+    self.assertCountEqual(
+        ['sub0', 'sub2', 'sub_sub1', 'r1', 'r2', 'sub7', 'r3'], imported)
+
   def test_ignore_typing(self):
     children_before = [('a', 1), ('b', 3), ('c', typing.List)]
     children_after = public_api.ignore_typing('ignored', 'ignored',
@@ -183,17 +162,53 @@ class PublicApiTest(absltest.TestCase):
 
     class MyClass:
 
-      @doc_controls.do_not_doc_inheritable
-      def my_method(self):
+      def method(self):
         pass
 
-    private = public_api.PublicAPIFilter._is_private(
-        self=None,
+      @doc_controls.do_not_doc_inheritable
+      def hidden_method(self):
+        pass
+
+    class SubClass(MyClass):
+
+      def hidden_method(self):
+        'still hidden'
+
+    result = public_api.filter_doc_controls_skip(
         path=('a', 'b'),
-        parent=MyClass,
-        name='my_method',
-        obj=MyClass.my_method)
-    self.assertTrue(private)
+        parent=SubClass,
+        children=[('method', SubClass.method),
+                  ('hidden_method', SubClass.hidden_method)])
+
+    self.assertEqual([('method', MyClass.method)], list(result))
+
+  def test_filter_all(self):
+    module = types.ModuleType('module')
+    module.__all__ = ['a']
+    module.a = 1
+    module.b = 2
+
+    result = public_api.filter_module_all(('module'), module, [('a', module.a),
+                                                               ('b', module.b)])
+    self.assertEqual([('a', module.a)], list(result))
+
+  def test_filter_base_dirs(self):
+    module = types.ModuleType('module')
+    module.__file__ = '/1/2/3/module'
+    module.a = 1
+    module.sub1 = types.ModuleType('sub1')
+    module.sub1.__file__ = '/1/2/3/4/sub1'
+    module.sub2 = types.ModuleType('sub2')
+    module.sub2.__file__ = '/1/2/bad/sub2'
+
+    my_filter = public_api.FilterBaseDirs(base_dirs=[pathlib.Path('/1/2/3/')])
+
+    result = my_filter(
+        path=('module',),
+        parent=module,
+        children=[('a', module.a), ('sub1', module.sub1),
+                  ('sub2', module.sub2)])
+    self.assertEqual([('a', module.a), ('sub1', module.sub1)], list(result))
 
 
 if __name__ == '__main__':

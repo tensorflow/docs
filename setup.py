@@ -28,6 +28,7 @@ DOCLINES = __doc__.split('\n')
 REQUIRED_PKGS = [
     'astor',
     'absl-py',
+    'jinja2',
     'protobuf>=3.14',
     'pyyaml',
 ]
@@ -65,7 +66,7 @@ setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
     ],
     keywords='tensorflow api reference',
-    # Include_package_data is required for setup.py to recognize the MAINFEST.in
+    # Include_package_data is required for setup.py to recognize the MANIFEST.in
     #   https://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
 )

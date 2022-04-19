@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2021 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,13 @@
 # limitations under the License.
 # ==============================================================================
 """Tools for processing generated Java documentation."""
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any, Iterable, Mapping, MutableMapping, MutableSequence
 
-Toc = Mapping[str, Sequence[Mapping[str, Any]]]
+# TODO(b/193033225): If possible, this should be a TypedDict. If not, using the
+#   real protos might make things a little cleaner.
+TocEntry = MutableMapping[str, Any]
+Section = MutableSequence[TocEntry]
+Toc = Mapping[str, Section]
 
 
 def add_package_headings(toc: Toc, root_pkgs: Iterable[str],
@@ -41,6 +44,48 @@ def add_package_headings(toc: Toc, root_pkgs: Iterable[str],
         new_entry['title'] = new_title or root_pkg
     new_toc.append(new_entry)
   return {'toc': new_toc}
+
+
+def nest_toc(toc: Toc) -> Toc:
+  """Nests a flat TOC into a tree structure based on common packages."""
+  new_toc = []
+
+  # We only look at the first level for flat package names.
+  entries_by_title = {e['title']: e for e in toc['toc']}
+  for title, entry in entries_by_title.items():
+    target_entry = _nest_toc_entry(title, new_toc)
+
+    # Populate the target entry with the original entry, sans title.
+    # (pytype suppressed due to inferring .keys() as a List)
+    fields = entry.keys() - {'title'}  # pytype: disable=unsupported-operands
+    target_entry.update({f: entry[f] for f in fields})
+
+    # Clean up empty sections
+    if not target_entry.get('section'):
+      target_entry.pop('section', None)
+
+  return {'toc': new_toc}
+
+
+def _nest_toc_entry(title: str, section: Section) -> TocEntry:
+  """Nest the title (split by .) into the TOC. Creating hierarchy as needed."""
+  pkg, *maybe_rest = title.split('.', 1)
+
+  for entry in section:
+    if entry.get('title') == pkg:
+      target_entry = entry
+      if 'section' not in target_entry:
+        target_entry['section'] = []
+      break
+  else:
+    target_entry = {'title': pkg, 'section': []}
+    section.append(target_entry)
+
+  if not maybe_rest:
+    return target_entry
+  else:
+    rest = maybe_rest[0]
+    return _nest_toc_entry(rest, target_entry['section'])
 
 
 def sort_toc(toc: Toc, labels: Iterable[str]) -> Toc:

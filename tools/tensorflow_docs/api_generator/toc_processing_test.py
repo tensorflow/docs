@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2021 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +16,7 @@
 
 from absl.testing import absltest
 
-from tensorflow_docs.api_generator.gen_java import processing
+from tensorflow_docs.api_generator import toc_processing
 
 
 class ProcessingTest(absltest.TestCase):
@@ -55,7 +54,7 @@ class ProcessingTest(absltest.TestCase):
         'org.tf': 'RootLabel',
         'org.tf.foo': 'FooPackage',
     }
-    actual_toc = processing.add_package_headings(toc_in, ['org.tf'], labels)
+    actual_toc = toc_processing.add_package_headings(toc_in, ['org.tf'], labels)
     expected_toc = {
         'toc': [
             {
@@ -109,7 +108,7 @@ class ProcessingTest(absltest.TestCase):
         }]
     }
     roots = ['org.tf', 'com.google']
-    actual_toc = processing.add_package_headings(toc_in, roots, {})
+    actual_toc = toc_processing.add_package_headings(toc_in, roots, {})
     expected_toc = {
         'toc': [
             {
@@ -127,6 +126,54 @@ class ProcessingTest(absltest.TestCase):
         ]
     }
     self.assertDictEqual(actual_toc, expected_toc)
+
+  def test_nesting_toc(self):
+    toc_in = {
+        'toc': [{
+            'title': 'tf_lite.support',
+            'path': '/tflite/support.html',
+        }, {
+            'title': 'tf_lite.support.cls',
+            'path': '/tflite/support/cls.html',
+        }, {
+            'title': 'tf_lite.task.things',
+            'path': '/tflite/task/things.html',
+        }, {
+            'title': 'tf_other.widgets',
+            'path': '/tfother/widgets.html',
+        }]
+    }
+    actual_toc = toc_processing.nest_toc(toc_in)
+    expected_toc = {
+        'toc': [{
+            'title':
+                'tf_lite',
+            'section': [{
+                'title':
+                    'support',
+                'path':
+                    '/tflite/support.html',
+                'section': [{
+                    'title': 'cls',
+                    'path': '/tflite/support/cls.html'
+                }]
+            }, {
+                'title':
+                    'task',
+                'section': [{
+                    'title': 'things',
+                    'path': '/tflite/task/things.html'
+                }]
+            }]
+        }, {
+            'title': 'tf_other',
+            'section': [{
+                'title': 'widgets',
+                'path': '/tfother/widgets.html'
+            }]
+        }]
+    }
+    self.assertEqual(actual_toc['toc'], expected_toc['toc'])
 
   def test_ordering(self):
     toc_in = {
@@ -146,7 +193,7 @@ class ProcessingTest(absltest.TestCase):
         ]
     }
     labels = ['org.tf.b', 'com.google.c', 'org.tf']
-    actual_toc = processing.sort_toc(toc_in, labels)
+    actual_toc = toc_processing.sort_toc(toc_in, labels)
     expected_toc = {
         'toc': [
             {

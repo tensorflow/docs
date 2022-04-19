@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +14,17 @@
 # ==============================================================================
 """Tests for tools.docs.doc_generator_visitor."""
 
-import argparse
+import inspect
+import io
 import os
+import textwrap
 import types
 
 from absl.testing import absltest
 
 from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import generate_lib
+from tensorflow_docs.api_generator import toc as toc_lib
 
 
 class NoDunderVisitor(doc_generator_visitor.DocGeneratorVisitor):
@@ -45,6 +47,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
 
     self.assertEqual({'doc_generator_visitor': ['DocGeneratorVisitor']},
                      visitor.tree)
+
     self.assertEqual({
         'doc_generator_visitor': doc_generator_visitor,
         'doc_generator_visitor.DocGeneratorVisitor':
@@ -52,23 +55,28 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     }, visitor.index)
 
   def test_call_class(self):
+
+    class ExampleClass:
+
+      def example_method(self):
+        pass
+
     visitor = doc_generator_visitor.DocGeneratorVisitor()
     visitor(
-        ('DocGeneratorVisitor',), doc_generator_visitor.DocGeneratorVisitor,
-        [('index', doc_generator_visitor.DocGeneratorVisitor.reverse_index)])
+        parent_path=('ExampleClass',),
+        parent=ExampleClass,
+        children=[('example_method', ExampleClass.example_method)])
 
-    self.assertEqual({'DocGeneratorVisitor': ['index']},
-                     visitor.tree)
-    self.assertEqual({
-        'DocGeneratorVisitor':
-            doc_generator_visitor.DocGeneratorVisitor,
-        'DocGeneratorVisitor.index':
-            doc_generator_visitor.DocGeneratorVisitor.reverse_index
-    }, visitor.index)
+    self.assertEqual({'ExampleClass': ['example_method']}, visitor.tree)
+    self.assertEqual(
+        {
+            'ExampleClass': ExampleClass,
+            'ExampleClass.example_method': ExampleClass.example_method,
+        }, visitor.index)
 
   def test_call_raises(self):
     visitor = doc_generator_visitor.DocGeneratorVisitor()
-    with self.assertRaises(RuntimeError):
+    with self.assertRaises(TypeError):
       visitor(('non_class_or_module',), 'non_class_or_module_object', [])
 
   def test_duplicates_module_class_depth(self):
@@ -136,9 +144,8 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         private_map={},
         visitor_cls=NoDunderVisitor)
 
-    self.assertEqual(
-        sorted(['tf.contrib.Parent', 'tf.submodule.Parent']),
-        visitor.duplicates['tf.submodule.Parent'])
+    self.assertCountEqual(['tf.contrib.Parent', 'tf.submodule.Parent'],
+                          visitor.duplicates['tf.submodule.Parent'])
 
     self.assertEqual({
         'tf.contrib.Parent': 'tf.submodule.Parent',
@@ -170,11 +177,8 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         private_map={},
         visitor_cls=NoDunderVisitor)
 
-    self.assertEqual(
-        sorted([
-            'tf.Parent.obj1',
-            'tf.Child.obj1',
-        ]), visitor.duplicates['tf.Parent.obj1'])
+    self.assertCountEqual(['tf.Parent.obj1', 'tf.Child.obj1'],
+                          visitor.duplicates['tf.Parent.obj1'])
 
     self.assertEqual({
         'tf.Child.obj1': 'tf.Parent.obj1',
@@ -205,9 +209,8 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         private_map={},
         visitor_cls=NoDunderVisitor)
 
-    self.assertEqual(
-        sorted(['tf.Parent', 'tf.submodule.submodule2.Parent']),
-        visitor.duplicates['tf.Parent'])
+    self.assertCountEqual(['tf.Parent', 'tf.submodule.submodule2.Parent'],
+                          visitor.duplicates['tf.Parent'])
 
     self.assertEqual({
         'tf.submodule.submodule2.Parent': 'tf.Parent'
@@ -255,13 +258,13 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     }, visitor.reverse_index)
 
 
-class ApiTreeTest(absltest.TestCase):
+class PathTreeTest(absltest.TestCase):
 
   def test_contains(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
 
@@ -269,11 +272,11 @@ class ApiTreeTest(absltest.TestCase):
     self.assertIn(('tf', 'sub'), tree)
 
   def test_node_insertion(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.object = object()
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.object
@@ -286,13 +289,13 @@ class ApiTreeTest(absltest.TestCase):
     self.assertIs(node.children['thing'], tree[('tf', 'sub', 'thing')])
 
   def test_duplicate(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.thing = object()
-    tf.sub2 = argparse.Namespace()
+    tf.sub2 = types.ModuleType('sub2')
     tf.sub2.thing = tf.sub.thing
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.thing
@@ -300,25 +303,206 @@ class ApiTreeTest(absltest.TestCase):
     tree[('tf', 'sub2', 'thing')] = tf.sub2.thing
 
     self.assertCountEqual(
-        tree.aliases[id(tf.sub.thing)],
+        tree.nodes_for_obj(tf.sub.thing),
         [tree[('tf', 'sub', 'thing')], tree[('tf', 'sub2', 'thing')]])
 
   def test_duplicate_singleton(self):
-    tf = argparse.Namespace()
-    tf.sub = argparse.Namespace()
+    tf = types.ModuleType('tf')
+    tf.sub = types.ModuleType('sub')
     tf.sub.thing = 999
-    tf.sub2 = argparse.Namespace()
+    tf.sub2 = types.ModuleType('sub2')
     tf.sub2.thing = tf.sub.thing
 
-    tree = doc_generator_visitor.ApiTree()
+    tree = doc_generator_visitor.PathTree()
     tree[('tf',)] = tf
     tree[('tf', 'sub')] = tf.sub
     tree[('tf', 'sub', 'thing')] = tf.sub.thing
     tree[('tf', 'sub2')] = tf.sub2
     tree[('tf', 'sub2', 'thing')] = tf.sub2.thing
 
-    self.assertEmpty(tree.aliases[tf.sub.thing], [])
+    found = tree.nodes_for_obj(tf.sub.thing)
+    self.assertEqual([], found)
 
+
+class ApiTreeTest(absltest.TestCase):
+
+  def _make_fake_module(self) -> types.ModuleType:
+
+    class Parent:
+
+      def method1(self):
+        pass
+
+      def method2(self):
+        pass
+
+    class Child(Parent):
+
+      def method2(self):
+        pass
+
+      def method3(self):
+        pass
+
+    class Outer(object):
+      attribute = object()
+
+      class Nested(object):
+        pass
+
+    fun1 = lambda x: x
+    fun2 = lambda x: x
+
+    tf = types.ModuleType('tf')
+    tf.__file__ = __file__
+    tf.Parent = Parent
+    tf.Outer = Outer
+    tf.fun1 = fun1
+    tf.sub1 = types.ModuleType('sub1')
+    tf.sub1.Parent = Parent
+    tf.sub2 = types.ModuleType('sub2')
+    tf.sub2.Child = Child
+    tf.sub2.fun2 = fun2
+    tf.sub1.sub2 = tf.sub2
+
+    return tf
+
+  def test_api_tree(self):
+    seven = 7
+    tf = self._make_fake_module()
+
+    api_tree = doc_generator_visitor.ApiTree()
+    api_tree.insert(path=('tf',), py_object=tf, aliases=[('tf',)])
+    api_tree.insert(
+        path=('tf', 'Parent'),
+        py_object=tf.Parent,
+        aliases=[('tf', 'Parent'), ('tf', 'Parent2')])
+    api_tree.insert(
+        path=('tf', 'seven'), py_object=seven, aliases=[('tf', 'seven')])
+
+    # A node can be looked up by any alias
+    self.assertIs(api_tree[('tf', 'Parent')], api_tree[('tf', 'Parent2')])
+    # Nodes only show up once when iterating
+    self.assertEqual([
+        api_tree[('tf',)], api_tree[('tf', 'Parent')], api_tree[('tf', 'seven')]
+    ], list(api_tree.iter_nodes()))
+    # Test lookup by object.
+    self.assertIs(api_tree[('tf', 'Parent')],
+                  api_tree.node_for_object(tf.Parent))
+    # You can't lookup things that maybe singeltons.
+    self.assertIs(api_tree[('tf', 'seven')].py_object, seven)
+    self.assertIsNone(api_tree.node_for_object(seven))
+
+  def test_from_path_tree(self):
+    tf = self._make_fake_module()
+
+    path_tree = doc_generator_visitor.PathTree()
+    path_tree[('tf',)] = tf
+    path_tree[('tf', 'Parent')] = tf.Parent
+    path_tree[('tf', 'Parent2')] = tf.Parent
+
+    result = doc_generator_visitor.ApiTree.from_path_tree(
+        path_tree, score_name_fn=lambda name: name)
+
+    expected = doc_generator_visitor.ApiTree()
+    expected.insert(path=('tf',), py_object=tf, aliases=[('tf',)])
+    expected.insert(
+        path=('tf', 'Parent'),
+        py_object=tf.Parent,
+        aliases=[('tf', 'Parent'), ('tf', 'Parent2')])
+
+    result = sorted(result.iter_nodes(), key=lambda node: node.path)
+    expected = sorted(expected.iter_nodes(), key=lambda node: node.path)
+
+    # Circular references make it hard to compare trees or nodes.
+    for e, r in zip(result, expected):
+      self.assertEqual(e.path, r.path)
+      self.assertIs(e.py_object, r.py_object)
+      self.assertCountEqual(e.aliases, r.aliases)
+      self.assertCountEqual(e.children.keys(), r.children.keys())
+
+  def test_api_tree_toc_integration(self):
+    tf = self._make_fake_module()
+
+    visitor = generate_lib.extract([('tf', tf)],
+                                   base_dir=os.path.dirname(tf.__file__),
+                                   private_map={},
+                                   visitor_cls=NoDunderVisitor)
+
+    api_tree = doc_generator_visitor.ApiTree.from_path_tree(
+        visitor.path_tree, visitor._score_name)
+
+    toc = toc_lib.TocBuilder(site_path='/').build(api_tree)
+
+    stream = io.StringIO()
+    toc.write(stream)
+
+    expected = textwrap.dedent("""\
+        toc:
+        - title: tf
+          section:
+          - title: Overview
+            path: /tf
+          - title: Outer
+            path: /tf/Outer
+          - title: Outer.Nested
+            path: /tf/Outer/Nested
+          - title: fun1
+            path: /tf/fun1
+          - title: sub1
+            section:
+            - title: Overview
+              path: /tf/sub1
+            - title: Parent
+              path: /tf/sub1/Parent
+          - title: sub2
+            section:
+            - title: Overview
+              path: /tf/sub2
+            - title: Child
+              path: /tf/sub2/Child
+            - title: fun2
+              path: /tf/sub2/fun2
+        """)
+
+    self.assertEqual(expected, stream.getvalue())
+
+  def test_non_priority_name(self):
+
+    class Class1:
+      pass
+
+    mod = types.ModuleType('mod')
+    mod.a = types.ModuleType('sub')
+    mod.a.Class1 = Class1
+    mod.b = mod.a
+
+    path_tree = doc_generator_visitor.PathTree()
+    path_tree[('mod',)] = mod
+    path_tree[('mod', 'a')] = mod.a
+    path_tree[('mod', 'a', 'Class1')] = mod.a.Class1
+    path_tree[('mod', 'b')] = mod.b
+    path_tree[('mod', 'b', 'Class1')] = mod.b.Class1
+
+    def inconsistent_name_score(path):
+      # `mod.a` is prefered over `mod.b`, but `b.Class1` is prefered over
+      # `a.Class1`!
+      scores = {
+          ('mod',): 0,
+          ('mod', 'a'): 0,  # prefer 'a'
+          ('mod', 'b'): 1,
+          ('mod', 'a', 'Class1'): 1,
+          ('mod', 'b', 'Class1'): 0,  # prefer 'b.Class1'
+      }
+      return scores[path]
+
+    api_tree = doc_generator_visitor.ApiTree.from_path_tree(
+        path_tree, inconsistent_name_score)
+    node = api_tree.node_for_object(Class1)
+
+    # `Class1` can't choose `b.Class1` as its priority_path because
+    # `a` is the priority_path for `sub`.
+    self.assertEqual('mod.a.Class1', node.full_name)
 
 if __name__ == '__main__':
   absltest.main()

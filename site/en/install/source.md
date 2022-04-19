@@ -4,8 +4,8 @@ Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
 macOS. While the instructions might work for other systems, it is only tested
 and supported for Ubuntu and macOS.
 
-Note: We already provide well-tested, pre-built
-[TensorFlow packages](./pip.html) for Linux and macOS systems.
+Note: Well-tested, pre-built
+[TensorFlow packages](./pip.html) for Linux and macOS systems are already provided.
 
 ## Setup for Linux and macOS
 
@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel</code>
+<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
@@ -419,6 +419,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>GCC 7.3.1</td><td>Bazel 4.2.1</td></tr>
 <tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
@@ -449,6 +450,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>GCC 7.3.1</td><td>Bazel 4.2.1</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
@@ -481,6 +483,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 4.2.1</td></tr>
 <tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
