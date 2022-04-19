@@ -131,6 +131,8 @@ class PathTree(Dict[ApiPath, PathTreeNode]):
       path: A tuple of strings.
       obj: The python object.
     """
+    assert path not in self
+
     parent_path = path[:-1]
     parent = self[parent_path]
 
