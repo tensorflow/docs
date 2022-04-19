@@ -211,12 +211,15 @@ def add_dict_to_dict(add_from, add_to):
       add_to[key] = add_from[key]
 
 
-def extract(py_modules,
-            base_dir,
-            private_map,
-            visitor_cls=doc_generator_visitor.DocGeneratorVisitor,
-            callbacks=None,
-            include_default_callbacks=True):
+def extract(
+    py_modules,
+    base_dir,
+    private_map: Dict[str, Any],
+    visitor_cls: Type[
+        doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
+    .DocGeneratorVisitor,
+    callbacks: Optional[public_api.ApiFilter] = None,
+    include_default_callbacks=True):
   """Walks the module contents, returns an index of all visited objects.
 
   The return value is an instance of `self._visitor_cls`, usually:
@@ -250,12 +253,11 @@ def extract(py_modules,
     raise ValueError("only pass one [('name',module)] pair in py_modules")
   short_name, py_module = py_modules[0]
 
-
   # The objects found during traversal, and their children are passed to each
-  # of these visitors in sequence. Each visitor returns the list of children
+  # of these filters in sequence. Each visitor returns the list of children
   # to be passed to the next visitor.
   if include_default_callbacks:
-    visitors = [
+    filters = [
         # filter the api.
         public_api.FailIfNestedTooDeep(10),
         public_api.filter_module_all,
@@ -268,12 +270,11 @@ def extract(py_modules,
         public_api.ignore_typing
     ]
   else:
-    visitors = []
+    filters = []
 
   accumulator = visitor_cls()
-  visitors = visitors + callbacks + [accumulator]
-
-  traverse.traverse(py_module, visitors, short_name)
+  traverse.traverse(
+      py_module, filters + callbacks, accumulator, root_name=short_name)
 
   accumulator.build()
   return accumulator

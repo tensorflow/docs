@@ -14,9 +14,13 @@
 # ==============================================================================
 """Traversing Python modules and classes."""
 import inspect
-import sys
-
 import logging
+
+from typing import Any, Dict, List, Sequence, Tuple
+
+from tensorflow_docs.api_generator import doc_generator_visitor
+from tensorflow_docs.api_generator import public_api
+
 
 # To see the logs pass: --logger_levels=tensorflow_docs:DEBUG --alsologtostderr
 _LOGGER = logging.getLogger(__name__)
@@ -24,50 +28,70 @@ _LOGGER = logging.getLogger(__name__)
 __all__ = ['traverse']
 
 
+class _Traverser:
+  """Crawls the public API."""
 
-def _traverse_internal(root, visitors, stack, path):
-  """Internal helper for traverse."""
-  new_stack = stack + [root]
+  def __init__(self, filters: Sequence[public_api.ApiFilter],
+               accumulator: doc_generator_visitor.DocGeneratorVisitor):
+    self.filters = list(filters)
+    self.accumulator = accumulator
+    self.children_cache: Dict[int, List[Tuple[str, Any]]] = {}
 
-  # Only traverse modules and classes
-  if not inspect.isclass(root) and not inspect.ismodule(root):
-    return
+  def traverse(self, root, stack, path):
+    """Execute the traversal."""
+    new_stack = stack + [root]
 
-  try:
-    children = inspect.getmembers(root)
-  except ImportError:
-    # On some Python installations, some modules do not support enumerating
-    # members (six in particular), leading to import errors.
-    children = []
+    # Only traverse modules and classes
+    if not inspect.isclass(root) and not inspect.ismodule(root):
+      return
 
-  # Break cycles.
-  filtered_children = []
-  for name, child in children:
-    if any(child is item for item in new_stack):  # `in`, but using `is`
-      continue
-    filtered_children.append((name, child))
-  children = filtered_children
+    _LOGGER.debug('path: %s', path)
+    children = self.children_cache.get(id(root), None)
+    if children is None:
+      children = self.get_children(root, new_stack, path)
+      self.children_cache[id(root)] = children
+    else:
+      _LOGGER.debug('    children (cached): %s', [n for n, c in children])
 
-  _LOGGER.debug('path: %s', path)
-  _LOGGER.debug('children: %s', [n for n, c in children])
-  # Apply all callbacks, allowing each to filter the children
-  for visitor in visitors:
-    old_names = [n for n, c in children]
-    children = visitor(path, root, children)
-    children = list(children)
-    new_names = [n for n, c in children]
+    self.accumulator(path, root, children)
 
-    if old_names != new_names:
-      _LOGGER.debug('filter: %s', visitor)
-      _LOGGER.debug('children: %s', new_names)
+    for name, child in children:
+      child_path = path + (name,)
+      self.traverse(child, new_stack, child_path)
 
-  for name, child in children:
-    # Break cycles
-    child_path = path + (name,)
-    _traverse_internal(child, visitors, new_stack, child_path)
+  def get_children(self, root, new_stack, path) -> public_api.Children:
+    """Return the children for an object."""
+    try:
+      children = inspect.getmembers(root)
+    except ImportError:
+      # On some Python installations, some modules do not support enumerating
+      # members (six in particular), leading to import errors.
+      children = []
+
+    # Break cycles.
+    filtered_children = []
+    for name, child in children:
+      if any(child is item for item in new_stack):  # `in`, but using `is`
+        continue
+      filtered_children.append((name, child))
+    children = filtered_children
+
+    _LOGGER.debug('    children: %s', [n for n, c in children])
+    # Apply all callbacks, allowing each to filter the children
+    for fil in self.filters:
+      old_names = [n for n, c in children]
+      children = fil(path, root, children)
+      children = list(children)
+      new_names = [n for n, c in children]
+
+      if old_names != new_names:
+        _LOGGER.debug('  filter: %s', filter)
+        _LOGGER.debug('    children: %s', new_names)
+
+    return children
 
 
-def traverse(root, visitors, root_name):
+def traverse(root, filters, accumulator, root_name) -> None:
   """Recursively enumerate all members of `root`.
 
   Similar to the Python library function `os.path.walk`.
@@ -98,8 +122,9 @@ def traverse(root, visitors, root_name):
 
   Args:
     root: A python object with which to start the traversal.
-    visitors: A list of callables. Each taking `(path, parent, children)` as
+    filters: A list of callables. Each taking `(path, parent, children)` as
       arguments, and returns a list of accepted children.
+    accumulator: a DocGenerator to accumulate the results.
     root_name: The short-name of the root module.
   """
-  _traverse_internal(root, visitors, [], (root_name,))
+  _Traverser(filters, accumulator).traverse(root, [], (root_name,))

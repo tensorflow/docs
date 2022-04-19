@@ -14,7 +14,6 @@
 # ==============================================================================
 """Tests for tools.docs.doc_generator_visitor."""
 
-import inspect
 import io
 import os
 import textwrap
@@ -256,6 +255,52 @@ class DocGeneratorVisitorTest(absltest.TestCase):
         id(Parent): 'tf.submodule.Parent',
         id(Parent.obj1): 'tf.submodule.Parent.obj1',
     }, visitor.reverse_index)
+
+  def test_handles_duplicate_classmethods(self):
+
+    class MyClass:
+
+      @classmethod
+      def from_value(cls, value):
+        pass
+
+    tf = types.ModuleType('fake_tf')
+    tf.__file__ = '/tmp/tf/__init__.py'
+    tf.MyClass = MyClass
+    tf.sub = types.ModuleType('sub')
+    tf.sub.MyClass = MyClass
+
+    visitor = generate_lib.extract([('tf', tf)],
+                                   base_dir=os.path.dirname(tf.__file__),
+                                   private_map={},
+                                   visitor_cls=NoDunderVisitor)
+
+    paths = ['.'.join(p) for p in visitor.path_tree.keys()]
+
+    expected = [
+        '',
+        'tf',
+        'tf.MyClass',
+        'tf.MyClass.from_value',
+        'tf.sub',
+        'tf.sub.MyClass',
+        'tf.sub.MyClass.from_value',
+    ]
+    self.assertCountEqual(expected, paths)
+
+    apis = [node.full_name for node in visitor.api_tree.iter_nodes()]
+    expected = [
+        'tf',
+        'tf.sub',
+        'tf.sub.MyClass',
+        'tf.sub.MyClass.from_value',
+    ]
+    self.assertCountEqual(expected, apis)
+
+    self.assertIs(visitor.api_tree[('tf', 'MyClass')],
+                  visitor.api_tree[('tf', 'sub', 'MyClass')])
+    self.assertIs(visitor.api_tree[('tf', 'MyClass', 'from_value')],
+                  visitor.api_tree[('tf', 'sub', 'MyClass', 'from_value')])
 
 
 class PathTreeTest(absltest.TestCase):
