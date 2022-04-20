@@ -35,6 +35,15 @@ class ApiReport:
     self.api_report.timestamp.CopyFrom(invocation_timestamp)
     self.api_report.date = invocation_timestamp.ToJsonString()
 
+  def write(self, path):
+    api_report = api_report_pb2.ApiReport(
+        timestamp=self.api_report.timestamp,
+        date=self.api_report.date,
+        symbol_metric=sorted(
+            self.api_report.symbol_metric, key=lambda sm: sm.symbol_name))
+
+    path.write_bytes(api_report.SerializeToString())
+
   def _lint(
       self,
       *,

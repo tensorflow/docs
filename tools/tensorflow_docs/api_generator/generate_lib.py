@@ -114,8 +114,9 @@ def write_docs(
   # Collect redirects for an api _redirects.yaml file.
   redirects = []
 
+  api_report = None
   if gen_report:
-    api_report_obj = utils.ApiReport()
+    api_report = utils.ApiReport()
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   num_docs_output = 0
@@ -136,10 +137,10 @@ def write_docs(
           search_hints=search_hints,
           page_builder_classes=page_builder_classes)
 
-      if gen_report and not full_name.startswith(
+      if api_report is not None and not full_name.startswith(
           ('tf.compat.v', 'tf.keras.backend', 'tf.numpy',
            'tf.experimental.numpy')):
-        api_report_obj.fill_metrics(page_info)
+        api_report.fill_metrics(page_info)
     except Exception as e:
       raise ValueError(
           f'Failed to generate docs for symbol: `{full_name}`') from e
@@ -166,10 +167,9 @@ def write_docs(
         to_path = site_path / full_name.replace('.', '/')
         redirects.append({'from': str(from_path), 'to': str(to_path)})
 
-  if gen_report:
-    serialized_proto = api_report_obj.api_report.SerializeToString()
-    raw_proto = output_dir / root_module_name / 'api_report.pb'
-    raw_proto.write_bytes(serialized_proto)
+  if api_report is not None:
+    api_report.write(output_dir / root_module_name / 'api_report.pb')
+
 
   if num_docs_output <= 1:
     raise ValueError('The `DocGenerator` failed to generate any docs. Verify '

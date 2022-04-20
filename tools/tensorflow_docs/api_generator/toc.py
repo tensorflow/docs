@@ -196,11 +196,15 @@ class TocBuilder:
     else:
       return []
 
+  def _get_docpath(self, api_path) -> pathlib.Path:
+    api_path = (p.replace('.', '/') for p in api_path)
+    return pathlib.Path(self.site_path, *api_path)
+
   def _make_link(self,
                  api_node: doc_generator_visitor.ApiTreeNode,
                  title: Optional[str] = None) -> Link:
 
-    docpath = pathlib.Path(self.site_path, *api_node.path)
+    docpath = self._get_docpath(api_path=api_node.path)
     title = title or api_node.short_name
     return Link(
         title=title, path=str(docpath), status=self._make_status(api_node))
@@ -221,7 +225,7 @@ class TocBuilder:
         title=title or api_node.short_name, section=entries, status=status)
 
   def _make_overview(self, api_node: doc_generator_visitor.ApiTreeNode):
-    docpath = pathlib.Path(self.site_path, *api_node.path)
+    docpath = self._get_docpath(api_path=api_node.path)
     return Link(title='Overview', path=str(docpath))
 
   def _section_order_key(self, entry: Entry) -> Tuple[bool, str]:
@@ -311,8 +315,11 @@ class FlatModulesTocBuilder(TocBuilder):
   def build(self, api_tree: doc_generator_visitor.ApiTree) -> Toc:
     entries = []
     for module_node in api_tree.root.children.values():
-      assert module_node.obj_type is obj_type_lib.ObjType.MODULE
-      entries.extend(self._flat_module_entries(module_node))
+      if '.' in module_node.short_name:
+        entries.extend(self._entries_from_api_node(module_node))
+      else:
+        assert module_node.obj_type is obj_type_lib.ObjType.MODULE
+        entries.extend(self._flat_module_entries(module_node))
 
     return Toc(toc=entries)
 
