@@ -335,11 +335,15 @@ class DocGeneratorVisitor(object):
     short_name = path[-1]
     container = self.path_tree[path[:-1]].py_object
 
-    defining_class_score = 1
-    if inspect.isclass(container):
+    # Prefer the reference that is not in a class.
+    defining_class_score = -1
+    container_type = obj_type_lib.ObjType.get(container)
+    if container_type is obj_type_lib.ObjType.CLASS:
       if short_name in container.__dict__:
-        # prefer the defining class
-        defining_class_score = -1
+        # If a alias points into a class, prefer the defining class
+        defining_class_score = 0
+      else:
+        defining_class_score = 1
 
     experimental_score = -1
     if 'contrib' in path or any('experimental' in part for part in path):
