@@ -461,6 +461,7 @@ class DocGeneratorVisitor(object):
 class ApiTreeNode(PathTreeNode):
   """A node in the ApiTree."""
   aliases: List[ApiPath] = dataclasses.field(default_factory=list)
+  physical_path: Optional[ApiPath] = None
 
   @property
   def obj_type(self) -> obj_type_lib.ObjType:
@@ -556,7 +557,11 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
     parent = self[parent_path]
 
     node = ApiTreeNode(
-        path=path, py_object=py_object, aliases=aliases, parent=parent)
+        path=path,
+        py_object=py_object,
+        aliases=aliases,
+        parent=parent,
+        physical_path=self._get_physical_path(py_object))
 
     super().__setitem__(path, node)
     self._nodes.append(node)
@@ -569,6 +574,21 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
     self._node_for_object[id(node.py_object)] = node
 
     parent.children[node.short_name] = node
+
+  def _get_physical_path(self, py_object):
+    physical_path = None
+    obj_type = obj_type_lib.ObjType.get(py_object)
+    if obj_type in [obj_type.CLASS, obj_type.CALLABLE]:
+      try:
+        physical_path = tuple(
+            py_object.__module__.split('.') + py_object.__qualname__.split('.'))
+      except AttributeError:
+        pass
+    elif obj_type is obj_type.MODULE:
+      physical_path = tuple(py_object.__name__.split('.'))
+
+    return physical_path
+
 
   @classmethod
   def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> 'ApiTree':

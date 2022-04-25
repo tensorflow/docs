@@ -25,7 +25,7 @@ import re
 from typing import Dict, List, Optional
 
 from tensorflow_docs.api_generator import parser
-from tensorflow_docs.api_generator import obj_type as obj_type_lib
+
 
 class TFDocsError(Exception):
   pass
@@ -78,11 +78,15 @@ class ReferenceResolver:
       """,
       flags=re.VERBOSE)
 
-  def __init__(self,
-               duplicate_of: Dict[str, str],
-               is_fragment: Dict[str, bool],
-               py_module_names: List[str],
-               link_prefix: Optional[str] = None):
+  def __init__(
+      self,
+      *,
+      duplicate_of: Dict[str, str],
+      is_fragment: Dict[str, bool],
+      py_module_names: List[str],
+      link_prefix: Optional[str] = None,
+      physical_path: Optional[Dict[str, str]] = None,
+  ):
     """Initializes a Reference Resolver.
 
     Args:
@@ -95,9 +99,12 @@ class ReferenceResolver:
       link_prefix: The website to which these symbols should link to. A prefix
         is added before the links to enable cross-site linking if `link_prefix`
         is not None.
+      physical_path: A mapping from the preferred full_name to the object's
+        physical path.
     """
     self._duplicate_of = duplicate_of
     self._is_fragment = is_fragment
+    self._physical_path = physical_path
     self._py_module_names = py_module_names
     self._link_prefix = link_prefix
 
@@ -123,22 +130,25 @@ class ReferenceResolver:
     Returns:
       an instance of `ReferenceResolver` ()
     """
-    is_fragment = {}
-    for full_name, obj in visitor.index.items():
-      obj_type = obj_type_lib.ObjType.get(obj)
-      if obj_type in (obj_type_lib.ObjType.CLASS, obj_type_lib.ObjType.MODULE):
-        is_fragment[full_name] = False
-      elif obj_type in (obj_type_lib.ObjType.CALLABLE,
-                        obj_type_lib.ObjType.TYPE_ALIAS):
-        if parser.is_class_attr(full_name, visitor.index):
-          is_fragment[full_name] = True
-        else:
-          is_fragment[full_name] = False
-      else:
-        is_fragment[full_name] = True
+    api_tree = visitor.api_tree
+    all_is_fragment = {}
+    duplicate_of = {}
+    physical_path = {}
+    for node in api_tree.iter_nodes():
+      full_name = node.full_name
+      is_fragment = node.output_type() is node.OutputType.FRAGMENT
+      if node.physical_path:
+        physical_path[node.full_name] = '.'.join(node.physical_path)
+      for alias in node.aliases:
+        alias_name = '.'.join(alias)
+        duplicate_of[alias_name] = full_name
+        all_is_fragment[alias_name] = is_fragment
 
     return cls(
-        duplicate_of=visitor.duplicate_of, is_fragment=is_fragment, **kwargs)
+        duplicate_of=visitor.duplicate_of,
+        is_fragment=all_is_fragment,
+        physical_path=physical_path,
+        **kwargs)
 
   def with_prefix(self, prefix):
     return type(self)(

@@ -302,7 +302,6 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     self.assertIs(visitor.api_tree[('tf', 'MyClass', 'from_value')],
                   visitor.api_tree[('tf', 'sub', 'MyClass', 'from_value')])
 
-
   def test_handles_duplicate_singleton_attributes(self):
 
     class MyClass:
@@ -348,6 +347,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
                   visitor.api_tree[('tf', 'sub', 'MyClass')])
     self.assertIs(visitor.api_tree[('tf', 'MyClass', 'simple')],
                   visitor.api_tree[('tf', 'sub', 'MyClass', 'simple')])
+
 
 class PathTreeTest(absltest.TestCase):
 
@@ -415,7 +415,6 @@ class PathTreeTest(absltest.TestCase):
     self.assertEqual([], found)
 
 
-
 class ApiTreeTest(absltest.TestCase):
 
   def _make_fake_module(self) -> types.ModuleType:
@@ -447,6 +446,7 @@ class ApiTreeTest(absltest.TestCase):
 
     tf = types.ModuleType('tf')
     tf.__file__ = __file__
+    tf.seven = 7
     tf.Parent = Parent
     tf.Outer = Outer
     tf.fun1 = fun1
@@ -459,8 +459,32 @@ class ApiTreeTest(absltest.TestCase):
 
     return tf
 
+  def test_physical_path(self):
+    tf = self._make_fake_module()
+
+    api_tree = doc_generator_visitor.ApiTree()
+    api_tree.insert(path=('tf',), py_object=tf, aliases=[('tf',)])
+    api_tree.insert(
+        path=('tf', 'sub2'), py_object=tf.sub2, aliases=[('tf', 'sub2')])
+    api_tree.insert(
+        path=('tf', 'seven'), py_object=tf.seven, aliases=[('tf', 'seven')])
+    api_tree.insert(
+        path=('tf', 'fun1'), py_object=tf.fun1, aliases=[('tf', 'fun1')])
+    api_tree.insert(
+        path=('tf', 'sub2', 'Child'),
+        py_object=tf.sub2.Child,
+        aliases=[('tf', 'sub2', 'Child')])
+
+    self.assertEqual(('sub2',), api_tree[('tf', 'sub2')].physical_path)
+    self.assertIsNone(api_tree[('tf', 'seven')].physical_path)
+    self.assertEqual(('__main__', 'ApiTreeTest', '_make_fake_module',
+                      '<locals>', '<lambda>'),
+                     api_tree[('tf', 'fun1')].physical_path)
+    self.assertEqual(
+        ('__main__', 'ApiTreeTest', '_make_fake_module', '<locals>', 'Child'),
+        api_tree[('tf', 'sub2', 'Child')].physical_path)
+
   def test_api_tree(self):
-    seven = 7
     tf = self._make_fake_module()
 
     api_tree = doc_generator_visitor.ApiTree()
@@ -470,7 +494,7 @@ class ApiTreeTest(absltest.TestCase):
         py_object=tf.Parent,
         aliases=[('tf', 'Parent'), ('tf', 'Parent2')])
     api_tree.insert(
-        path=('tf', 'seven'), py_object=seven, aliases=[('tf', 'seven')])
+        path=('tf', 'seven'), py_object=tf.seven, aliases=[('tf', 'seven')])
 
     # A node can be looked up by any alias
     self.assertIs(api_tree[('tf', 'Parent')], api_tree[('tf', 'Parent2')])
@@ -482,8 +506,8 @@ class ApiTreeTest(absltest.TestCase):
     self.assertIs(api_tree[('tf', 'Parent')],
                   api_tree.node_for_object(tf.Parent))
     # You can't lookup things that maybe singeltons.
-    self.assertIs(api_tree[('tf', 'seven')].py_object, seven)
-    self.assertIsNone(api_tree.node_for_object(seven))
+    self.assertIs(api_tree[('tf', 'seven')].py_object, tf.seven)
+    self.assertIsNone(api_tree.node_for_object(tf.seven))
 
   def test_from_path_tree(self):
     tf = self._make_fake_module()

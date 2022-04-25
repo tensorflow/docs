@@ -49,9 +49,10 @@ class TestReferenceResolver(absltest.TestCase):
     }
     py_module_names = ['tf', 'tfdbg']
 
-    resolver = reference_resolver_lib.ReferenceResolver(duplicate_of,
-                                                        is_fragment,
-                                                        py_module_names)
+    resolver = reference_resolver_lib.ReferenceResolver(
+        duplicate_of=duplicate_of,
+        is_fragment=is_fragment,
+        py_module_names=py_module_names)
 
     outdir = self.workdir
 
@@ -81,7 +82,10 @@ class TestReferenceResolver(absltest.TestCase):
     py_module_names = ['tf']
 
     reference_resolver = reference_resolver_lib.ReferenceResolver(
-        duplicate_of, is_fragment, py_module_names, link_prefix='')
+        duplicate_of=duplicate_of,
+        is_fragment=is_fragment,
+        py_module_names=py_module_names,
+        link_prefix='')
 
     # Method references point to the method, in the canonical class alias.
     result = reference_resolver.reference_to_url('tf.Class1.method')
@@ -132,7 +136,10 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
     py_module_names = ['tf']
 
     resolver = reference_resolver_lib.ReferenceResolver(
-        duplicate_of, is_fragment, py_module_names, link_prefix='..')
+        duplicate_of=duplicate_of,
+        is_fragment=is_fragment,
+        py_module_names=py_module_names,
+        link_prefix='..')
     input_string = string.join('``')
     ref_string = resolver.replace_references(input_string)
 
