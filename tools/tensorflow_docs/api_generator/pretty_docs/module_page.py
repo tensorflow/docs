@@ -62,7 +62,7 @@ class ModulePageInfo(base_page.PageInfo):
   """
   DEFAULT_BUILDER_CLASS = ModulePageBuilder
 
-  def __init__(self, *, full_name, py_object, **kwargs):
+  def __init__(self, *, api_node, **kwargs):
     """Initialize a `ModulePageInfo`.
 
     Args:
@@ -70,7 +70,7 @@ class ModulePageInfo(base_page.PageInfo):
       py_object: The object being documented.
       **kwargs: Extra arguments.
     """
-    super().__init__(full_name, py_object, **kwargs)
+    super().__init__(api_node, **kwargs)
 
     self._modules = []
     self._classes = []
@@ -137,39 +137,24 @@ class ModulePageInfo(base_page.PageInfo):
     elif obj_type is obj_type_lib.ObjType.OTHER:
       self._add_other_member(member_info)
 
-  def collect_docs(self, parser_config):
+  def collect_docs(self):
     """Collect information necessary specifically for a module's doc page.
 
     Mainly this is information about the members of the module.
-
-    Args:
-      parser_config: An instance of config.ParserConfig.
     """
+    # the path_tree has nodes for all api-paths, not just the prefered paths.
+    module_path_node = self.parser_config.path_tree[self.api_node.path]
+    for (_, path_node) in sorted(module_path_node.children.items()):
+      member_doc = parser.parse_md_docstring(path_node.py_object,
+                                             self.full_name, self.parser_config,
+                                             self._extra_docs)
 
-    member_names = parser_config.tree.get(self.full_name, [])
-    for member_short_name in member_names:
+      url = self.parser_config.reference_resolver.reference_to_url(
+          path_node.full_name)
 
-      if member_short_name in [
-          '__builtins__', '__doc__', '__file__', '__name__', '__path__',
-          '__package__', '__cached__', '__loader__', '__spec__',
-          'absolute_import', 'division', 'print_function', 'unicode_literals'
-      ]:
-        continue
-
-      if self.full_name:
-        member_full_name = self.full_name + '.' + member_short_name
-      else:
-        member_full_name = member_short_name
-
-      member = parser_config.py_name_to_object(member_full_name)
-
-      member_doc = parser.parse_md_docstring(member, self.full_name,
-                                             parser_config, self._extra_docs)
-
-      url = parser_config.reference_resolver.reference_to_url(member_full_name)
-
-      member_info = base_page.MemberInfo(member_short_name, member_full_name,
-                                         member, member_doc, url)
+      member_info = base_page.MemberInfo(path_node.short_name,
+                                         path_node.full_name,
+                                         path_node.py_object, member_doc, url)
       self._add_member(member_info)
 
 

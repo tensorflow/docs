@@ -127,7 +127,7 @@ class ClassPageInfo(base_page.PageInfo):
   """
   DEFAULT_BUILDER_CLASS = ClassPageBuilder
 
-  def __init__(self, *, full_name, py_object, **kwargs):
+  def __init__(self, *, api_node, **kwargs):
     """Initialize a ClassPageInfo.
 
     Args:
@@ -135,13 +135,13 @@ class ClassPageInfo(base_page.PageInfo):
       py_object: The object being documented.
       **kwargs: Extra arguments.
     """
-    super().__init__(full_name, py_object, **kwargs)
+    super().__init__(api_node, **kwargs)
 
     self._namedtuplefields = collections.OrderedDict()
-    if issubclass(py_object, tuple):
+    if issubclass(api_node.py_object, tuple):
       namedtuple_attrs = ('_asdict', '_fields', '_make', '_replace')
-      if all(hasattr(py_object, attr) for attr in namedtuple_attrs):
-        for name in py_object._fields:
+      if all(hasattr(api_node.py_object, attr) for attr in namedtuple_attrs):
+        for name in api_node.py_object._fields:
           self._namedtuplefields[name] = None
 
     self._properties = collections.OrderedDict()
@@ -167,24 +167,22 @@ class ClassPageInfo(base_page.PageInfo):
     assert self.attr_block is None
     self.attr_block = attr_block
 
-  def _set_bases(self, parser_config):
+  def _set_bases(self):
     """Builds the `bases` attribute, to document this class' parent-classes.
 
     This method sets the `bases` to a list of `base_page.MemberInfo` objects
     point to the
     doc pages for the class' parents.
-
-    Args:
-      parser_config: An instance of `config.ParserConfig`.
     """
     bases = []
     for base in self.py_object.__mro__[1:]:
-      base_full_name = parser_config.reverse_index.get(id(base), None)
-      if base_full_name is None:
+      base_api_node = self.parser_config.api_tree.node_for_object(base)
+      if base_api_node is None:
         continue
-      base_doc = parser.parse_md_docstring(base, self.full_name, parser_config,
-                                           self._extra_docs)
-      base_url = parser_config.reference_resolver.reference_to_url(
+      base_full_name = base_api_node.full_name
+      base_doc = parser.parse_md_docstring(base, base_full_name,
+                                           self.parser_config, self._extra_docs)
+      base_url = self.parser_config.reference_resolver.reference_to_url(
           base_full_name)
 
       link_info = base_page.MemberInfo(
@@ -233,13 +231,12 @@ class ClassPageInfo(base_page.PageInfo):
       self,
       member_info: base_page.MemberInfo,
       defining_class: Optional[type],  # pylint: disable=g-bare-generic
-      parser_config: config.ParserConfig) -> None:
+  ) -> None:
     """Adds a `MethodInfo` entry to the `methods` list.
 
     Args:
       member_info: a `base_page.MemberInfo` describing the method.
       defining_class: The `type` object where this method is defined.
-      parser_config: A `config.ParserConfig`.
     """
     if defining_class is None:
       return
@@ -260,8 +257,9 @@ class ClassPageInfo(base_page.PageInfo):
     # If the current class py_object is a dataclass then use the class object
     # instead of the __init__ method object because __init__ is a
     # generated method on dataclasses (unless the definition used init=False)
-    # and `inspect.getsource` doesn't work on generated methods (as the source
-    # file doesn't exist) which is required for signature generation.
+    # and `api_generator.get_source.get_source` doesn't work on generated
+    # methods (as the source file doesn't exist) which is required for
+    # signature generation.
     if (dataclasses.is_dataclass(self.py_object) and
         member_info.short_name == '__init__' and
         self.py_object.__dataclass_params__.init):
@@ -275,11 +273,12 @@ class ClassPageInfo(base_page.PageInfo):
                                               member_info.short_name,
                                               is_dataclass)
     signature = signature_lib.generate_signature(
-        py_obj, parser_config, func_type=func_type)
+        py_obj, self.parser_config, func_type=func_type)
 
     decorators = signature_lib.extract_decorators(member_info.py_object)
 
-    defined_in = parser.get_defined_in(member_info.py_object, parser_config)
+    defined_in = parser.get_defined_in(member_info.py_object,
+                                       self.parser_config)
 
     method_info = MethodInfo.from_member_info(member_info, signature,
                                               decorators, defined_in)
@@ -322,7 +321,6 @@ class ClassPageInfo(base_page.PageInfo):
       self,
       member_info: base_page.MemberInfo,
       defining_class: Optional[type],  # pylint: disable=g-bare-generic
-      parser_config: config.ParserConfig,
   ) -> None:
     """Adds a member to the class page."""
     obj_type = obj_type_lib.ObjType.get(member_info.py_object)
@@ -334,7 +332,7 @@ class ClassPageInfo(base_page.PageInfo):
         return
       self._add_class(member_info)
     elif obj_type is obj_type_lib.ObjType.CALLABLE:
-      self._add_method(member_info, defining_class, parser_config)
+      self._add_method(member_info, defining_class)
     elif obj_type is obj_type_lib.ObjType.OTHER:
       # Exclude members defined by protobuf that are useless
       if issubclass(self.py_object, ProtoMessage):
@@ -344,24 +342,19 @@ class ClassPageInfo(base_page.PageInfo):
 
       self._add_other_member(member_info)
 
-  def collect_docs(self, parser_config):
+  def collect_docs(self):
     """Collects information necessary specifically for a class's doc page.
 
     Mainly, this is details about the class's members.
-
-    Args:
-      parser_config: An instance of config.ParserConfig.
     """
     py_class = self.py_object
 
-    self._set_bases(parser_config)
+    self._set_bases()
 
-    for child_short_name in parser_config.tree[self.full_name]:
-      child_full_name = '.'.join([self.full_name, child_short_name])
-      child = parser_config.py_name_to_object(child_full_name)
-
+    class_path_node = self.parser_config.path_tree[self.api_node.path]
+    for _, path_node in sorted(class_path_node.children.items()):
       # Don't document anything that is defined in object or by protobuf.
-      defining_class = parser.get_defining_class(py_class, child_short_name)
+      defining_class = parser.get_defining_class(py_class, path_node.short_name)
       if defining_class in [object, type, tuple, BaseException, Exception]:
         continue
 
@@ -370,18 +363,21 @@ class ClassPageInfo(base_page.PageInfo):
           defining_class.__name__ in ['CMessage', 'Message', 'MessageMeta']):
         continue
 
-      if doc_controls.should_skip_class_attr(py_class, child_short_name):
+      if doc_controls.should_skip_class_attr(py_class, path_node.short_name):
         continue
 
-      child_doc = parser.parse_md_docstring(child, self.full_name,
-                                            parser_config, self._extra_docs)
+      child_doc = parser.parse_md_docstring(path_node.py_object, self.full_name,
+                                            self.parser_config,
+                                            self._extra_docs)
 
-      child_url = parser_config.reference_resolver.reference_to_url(
-          child_full_name)
+      child_url = self.parser_config.reference_resolver.reference_to_url(
+          path_node.full_name)
 
-      member_info = base_page.MemberInfo(child_short_name, child_full_name,
-                                         child, child_doc, child_url)
-      self._add_member(member_info, defining_class, parser_config)
+      member_info = base_page.MemberInfo(path_node.short_name,
+                                         path_node.full_name,
+                                         path_node.py_object, child_doc,
+                                         child_url)
+      self._add_member(member_info, defining_class)
 
     self.set_attr_block(self._augment_attributes(self.doc.docstring_parts))
 

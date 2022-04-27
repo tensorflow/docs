@@ -120,18 +120,17 @@ def write_docs(
 
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   num_docs_output = 0
-  for node in parser_config.api_tree.iter_nodes():
-    full_name = node.full_name
-    py_object = node.py_object
+  for api_node in parser_config.api_tree.iter_nodes():
+    full_name = api_node.full_name
+    py_object = api_node.py_object
 
-    if node.output_type() is node.OutputType.FRAGMENT:
+    if api_node.output_type() is api_node.OutputType.FRAGMENT:
       continue
 
     # Generate docs for `py_object`, resolving references.
     try:
       page_info = docs_for_object.docs_for_object(
-          full_name=full_name,
-          py_object=py_object,
+          api_node=api_node,
           parser_config=parser_config,
           extra_docs=extra_docs,
           search_hints=search_hints,

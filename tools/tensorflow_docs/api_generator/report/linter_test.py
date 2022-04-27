@@ -22,6 +22,7 @@ from typing import Optional
 from absl.testing import absltest
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
@@ -126,10 +127,11 @@ class LinterTest(absltest.TestCase):
         code_url_prefix='https://tensorflow.org')
 
     parser_config = generator.run_extraction()
+
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'TestClass'), py_object=TestClass)
     return docs_for_object.docs_for_object(
-        full_name='m.TestClass',
-        py_object=TestClass,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
   def _make_report(self):
     page_info = self._build_page_info()
@@ -144,6 +146,12 @@ class LinterTest(absltest.TestCase):
 
     test_api_report = utils.ApiReport()
     test_api_report.fill_metrics(page2)
+
+    page1.api_node = None
+    page1.parser_config = None
+
+    page2.api_node = None
+    page2.parser_config = None
 
     self.assertEqual(page1, page2)
 

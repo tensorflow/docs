@@ -50,15 +50,14 @@ class FunctionPageInfo(base_page.PageInfo):
   """
   DEFAULT_BUILDER_CLASS = FunctionPageBuilder
 
-  def __init__(self, *, full_name: str, py_object: Any, **kwargs):
+  def __init__(self, *, api_node, **kwargs):
     """Initialize a FunctionPageInfo.
 
     Args:
-      full_name: The full, main name, of the object being documented.
-      py_object: The object being documented.
+      api_node: the api tree node.
       **kwargs: Extra arguments.
     """
-    super().__init__(full_name, py_object, **kwargs)
+    super().__init__(api_node, **kwargs)
 
     self._signature = None
     self._decorators = []
@@ -67,19 +66,15 @@ class FunctionPageInfo(base_page.PageInfo):
   def signature(self):
     return self._signature
 
-  def collect_docs(self, parser_config):
+  def collect_docs(self):
     """Collect all information necessary to genertate the function page.
 
     Mainly this is details about the function signature.
-
-    Args:
-      parser_config: The config.ParserConfig for the module being documented.
     """
-
     assert self.signature is None
     self._signature = signature_lib.generate_signature(
         self.py_object,
-        parser_config,
+        self.parser_config,
         func_type=signature_lib.FuncType.FUNCTION,
     )
     self._decorators = signature_lib.extract_decorators(self.py_object)

@@ -110,10 +110,10 @@ class PageInfo:
 
   def __init__(
       self,
-      full_name: str,
-      py_object: Any,
+      api_node,
       extra_docs: Optional[Dict[int, str]] = None,
       search_hints: bool = True,
+      parser_config=None,
   ):
     """Initialize a PageInfo.
 
@@ -126,25 +126,23 @@ class PageInfo:
         "robots: noindex"
 
     """
-    self.full_name = full_name
-    self.py_object = py_object
+    self.api_node = api_node
+    self.full_name = api_node.full_name
+    self.py_object = api_node.py_object
     self._extra_docs = extra_docs
     self.search_hints = search_hints
+    self.parser_config = parser_config
 
     self._defined_in = None
     self._aliases = None
     self._doc = None
     self._page_text = None
 
-  def collect_docs(self, parser_config: config.ParserConfig):
+  def collect_docs(self):
     """Collects additional information from the `config.ParserConfig`."""
     pass
 
-  def docs_for_object(self, parser_config):
-    duplicate_names = parser_config.duplicates.get(self.full_name, [])
-    if self.full_name in duplicate_names:
-      duplicate_names.remove(self.full_name)
-
+  def docs_for_object(self):
     relative_path = os.path.relpath(
         path='.',
         start=os.path.dirname(parser.documentation_path(self.full_name)) or '.')
@@ -152,20 +150,24 @@ class PageInfo:
     # Convert from OS-specific path to URL/POSIX path.
     relative_path = posixpath.join(*relative_path.split(os.path.sep))
 
-    with parser_config.reference_resolver.temp_prefix(relative_path):
+    with self.parser_config.reference_resolver.temp_prefix(relative_path):
       self.set_doc(
           parser.parse_md_docstring(
               self.py_object,
               self.full_name,
-              parser_config,
+              self.parser_config,
               self._extra_docs,
           ))
 
-      self.collect_docs(parser_config)
+      self.collect_docs()
 
-      self.set_aliases(duplicate_names)
+      aliases = ['.'.join(alias) for alias in self.api_node.aliases]
+      if self.full_name in aliases:
+        aliases.remove(self.full_name)
+      self.set_aliases(aliases)
 
-      self.set_defined_in(parser.get_defined_in(self.py_object, parser_config))
+      self.set_defined_in(
+          parser.get_defined_in(self.py_object, self.parser_config))
 
       self._page_text = self.build()
 

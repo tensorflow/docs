@@ -50,7 +50,7 @@ class TypeAliasPageInfo(base_page.PageInfo):
   """
   DEFAULT_BUILDER_CLASS = TypeAliasPageBuilder
 
-  def __init__(self, *, full_name: str, py_object: Any, **kwargs) -> None:
+  def __init__(self, *, api_node, **kwargs) -> None:
     """Initialize a `TypeAliasPageInfo`.
 
     Args:
@@ -59,7 +59,7 @@ class TypeAliasPageInfo(base_page.PageInfo):
       **kwargs: Extra arguments.
     """
 
-    super().__init__(full_name, py_object, **kwargs)
+    super().__init__(api_node, **kwargs)
     self._signature = None
 
   @property
@@ -101,7 +101,7 @@ class TypeAliasPageInfo(base_page.PageInfo):
     else:
       return typing._type_repr(obj)  # pylint: disable=protected-access # pytype: disable=module-attr
 
-  def collect_docs(self, parser_config) -> None:
+  def collect_docs(self) -> None:
     """Collect all information necessary to genertate the function page.
 
     Mainly this is details about the function signature.
@@ -125,19 +125,17 @@ class TypeAliasPageInfo(base_page.PageInfo):
     ```
     X = Union[int, str, bool, <a href="URL">tf.Tensor</a>, np.ndarray]
     ```
-
-    Args:
-      parser_config: The config.ParserConfig for the module being documented.
     """
     assert self.signature is None
 
-    linker = signature_lib.FormatArguments(parser_config=parser_config)
+    linker = signature_lib.FormatArguments(parser_config=self.parser_config)
 
     sig_args = []
     if self.py_object.__origin__:
       for arg_obj in self.py_object.__args__:
         sig_args.append(
-            self._link_type_args(arg_obj, parser_config.reverse_index, linker))
+            self._link_type_args(arg_obj, self.parser_config.reverse_index,
+                                 linker))
 
     sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
     if self.py_object.__origin__:
