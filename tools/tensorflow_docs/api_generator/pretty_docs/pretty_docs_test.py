@@ -54,7 +54,7 @@ class ParserTest(absltest.TestCase):
 
        </table>
 
-       <a target="_blank" href="{url}">View source</a>
+       <a target="_blank" class="external" href="{url}">View source</a>
 
        """)
     self.assertEqual(expected, table)

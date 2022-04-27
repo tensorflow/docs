@@ -486,14 +486,13 @@ def top_source_link(location):
   return table
 
 
-def small_source_link(location):
+def small_source_link(location, text='View source'):
   """Returns a small source link."""
-  template = '<a target="_blank" href="{url}">View source</a>\n\n'
-
-  if not location.url:
+  if location.url:
+    return ('<a target="_blank" class="external" '
+            f'href="{location.url}">{text}</a>\n\n')
+  else:
     return ''
-
-  return template.format(url=location.url)
 
 
 def build_collapsable_aliases(aliases: List[str]) -> str:
