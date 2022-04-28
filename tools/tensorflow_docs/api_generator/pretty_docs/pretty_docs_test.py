@@ -20,6 +20,8 @@ from absl.testing import absltest
 
 from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
+from tensorflow_docs.api_generator import doc_generator_visitor
+
 from tensorflow_docs.api_generator.pretty_docs import base_page
 from tensorflow_docs.api_generator.pretty_docs import function_page
 
@@ -54,7 +56,7 @@ class ParserTest(absltest.TestCase):
 
        </table>
 
-       <a target="_blank" href="{url}">View source</a>
+       <a target="_blank" class="external" href="{url}">View source</a>
 
        """)
     self.assertEqual(expected, table)
@@ -76,8 +78,10 @@ class ParserTest(absltest.TestCase):
     def test_function():
       pass
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('abc',), py_object=test_function, children={})
     page_info = function_page.FunctionPageInfo(
-        full_name='abc', py_object=test_function, search_hints=search_hints)
+        api_node=api_node, search_hints=search_hints)
     docstring_info = parser.DocstringInfo(
         brief='hello `tensorflow`',
         docstring_parts=['line1', 'line2'],

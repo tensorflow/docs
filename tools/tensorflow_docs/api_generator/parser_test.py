@@ -28,6 +28,7 @@ import attr
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_controls
+from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
@@ -198,10 +199,13 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=(
+            'm',
+            'TestClass',
+        ), py_object=TestClass)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.TestClass',
-        py_object=TestClass,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -241,10 +245,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'ExampleDataclass'), py_object=ExampleDataclass)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.ExampleDataclass',
-        py_object=ExampleDataclass,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     self.assertCountEqual(['a', 'b', 'c', 'x', 'y', 'z'],
                           [name for name, value in page_info.attr_block.items])
@@ -268,10 +272,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'namedtupleclass'), py_object=namedtupleclass)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.namedtupleclass',
-        py_object=namedtupleclass,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     self.assertIsNone(page_info._namedtuplefields['hidden'])
 
@@ -308,8 +312,13 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=(
+            'm',
+            'Child',
+        ), py_object=Child)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.Child', py_object=Child, parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     # Make sure the `a_method` is not present
     self.assertEmpty(page_info.methods)
@@ -347,10 +356,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'ChildMessage'), py_object=ChildMessage)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.ChildMessage',
-        py_object=ChildMessage,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     self.assertLen(page_info.methods, 1)
     self.assertEqual('my_method', page_info.methods[0].short_name)
@@ -369,8 +378,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m',), py_object=test_module)
     page_info = docs_for_object.docs_for_object(
-        full_name='m', py_object=test_module, parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -395,10 +406,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('test_function',), py_object=test_function)
     page_info = docs_for_object.docs_for_object(
-        full_name='test_function',
-        py_object=test_function,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -420,10 +431,11 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('test_function_with_args_kwargs',),
+        py_object=test_function_with_args_kwargs)
     page_info = docs_for_object.docs_for_object(
-        full_name='test_function_with_args_kwargs',
-        py_object=test_function_with_args_kwargs,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     # Make sure the brief docstring is present
     self.assertEqual(
@@ -594,10 +606,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'ConcreteMutableMapping'), py_object=ConcreteMutableMapping)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.ConcreteMutableMapping',
-        py_object=ConcreteMutableMapping,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     self.assertIn(ConcreteMutableMapping.get,
                   [m.py_object for m in page_info.methods])
@@ -621,8 +633,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=('m', 'fun'), py_object=m.fun)
     page_info = docs_for_object.docs_for_object(
-        full_name='m.fun', py_object=m.fun, parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     output = str(page_info.signature)
     self.assertNotIn('object at 0x', output)
@@ -669,10 +683,10 @@ class ParserTest(parameterized.TestCase):
 
     parser_config = generator.run_extraction()
 
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=(cls, method), py_object=py_object)
     function_info = docs_for_object.docs_for_object(
-        full_name='%s.%s' % (cls, method),
-        py_object=py_object,
-        parser_config=parser_config)
+        api_node=api_node, parser_config=parser_config)
 
     self.assertIsNone(function_info.defined_in)
 

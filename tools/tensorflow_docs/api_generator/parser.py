@@ -33,25 +33,6 @@ from tensorflow_docs.api_generator import obj_type as obj_type_lib
 from tensorflow_docs.api_generator import signature as signature_lib
 
 
-@dataclasses.dataclass
-class FileLocation(object):
-  """This class indicates that the object is defined in a regular file.
-
-  This can be used for the `defined_in` slot of the `PageInfo` objects.
-  """
-
-  base_url: Optional[str] = None
-  start_line: Optional[int] = None
-  end_line: Optional[int] = None
-
-  @property
-  def url(self) -> Optional[str]:
-    if self.start_line and self.end_line:
-      if 'github.com' in self.base_url:
-        return f'{self.base_url}#L{self.start_line}-L{self.end_line}'
-    return self.base_url
-
-
 def is_class_attr(full_name, index):
   """Check if the object's parent is a class.
 
@@ -613,6 +594,24 @@ def _unwrap_obj(obj):
     obj = unwrapped_obj
   return obj
 
+
+@dataclasses.dataclass
+class FileLocation(object):
+  """This class indicates that the object is defined in a regular file.
+
+  This can be used for the `defined_in` slot of the `PageInfo` objects.
+  """
+
+  base_url: Optional[str] = None
+  start_line: Optional[int] = None
+  end_line: Optional[int] = None
+
+  @property
+  def url(self) -> Optional[str]:
+    if self.start_line and self.end_line:
+      if 'github.com' in self.base_url:
+        return f'{self.base_url}#L{self.start_line}-L{self.end_line}'
+    return self.base_url
 
 def get_defined_in(
     py_object: Any,

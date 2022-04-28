@@ -73,7 +73,7 @@ class PathTreeNode(object):
   """
   path: ApiPath
   py_object: Any
-  parent: Optional['PathTreeNode']
+  parent: Optional['PathTreeNode'] = None
   children: Dict[str, 'PathTreeNode'] = dataclasses.field(default_factory=dict)
 
   def __hash__(self):

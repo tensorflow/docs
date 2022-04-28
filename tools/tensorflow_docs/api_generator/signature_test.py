@@ -24,6 +24,7 @@ from absl.testing import absltest
 from absl.testing import parameterized
 
 from tensorflow_docs.api_generator import config
+from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import generate_lib
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
@@ -264,39 +265,49 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         ]""")),
   )  # pyformat: disable
   def test_type_alias_signature(self, alias, expected_sig):
-    info_obj = type_alias_page.TypeAliasPageInfo(
-        full_name='tfdocs.api_generator.generate_lib.DocGenerator',
+    api_node = doc_generator_visitor.ApiTreeNode(
+        path=tuple('tfdocs.api_generator.generate_lib.DocGenerator'.split('.')),
         py_object=alias)
+    info_obj = type_alias_page.TypeAliasPageInfo(
+        api_node=api_node, parser_config=self.parser_config)
     with self.parser_config.reference_resolver.temp_prefix('../../..'):
-      info_obj.collect_docs(self.parser_config)
+      info_obj.collect_docs()
       self.assertEqual(info_obj.signature, expected_sig)
 
-  def _setup_class_info(self, cls, method_name):
-    pc = self.parser_config
-    pc.tree['x.Cls'] = [method_name]
-    full_name = f'x.Cls.{method_name}'
-    pc.index[full_name] = getattr(cls, method_name)
-    pc.reference_resolver._duplicate_of[full_name] = full_name
-    pc.reference_resolver._is_fragment[full_name] = True
-    pc.reference_resolver._all_names.add(full_name)
-    pc.reference_resolver._link_prefix = '../..'
+  def _setup_class_info(self, cls):
+    self.known_object = object()
 
-    info = class_page.ClassPageInfo(full_name='x.Cls', py_object=cls)
+    x = types.ModuleType('x')
+    x.__file__ = __file__
+    x.Cls = cls
+
+    generator = generate_lib.DocGenerator(
+        root_title='test',
+        py_modules=[('x', x)],
+        code_url_prefix='https://tensorflow.org')
+
+    parser_config = generator.run_extraction()
+    parser_config.reference_resolver = (
+        parser_config.reference_resolver.with_prefix('/'))
+
+    api_node = parser_config.api_tree['x', 'Cls']
+    info = class_page.ClassPageInfo(
+        api_node=api_node, parser_config=parser_config)
     info._doc = parser.DocstringInfo('doc', ['doc'], {})
-    info.collect_docs(self.parser_config)
+    info.collect_docs()
 
     return info
 
   def test_signature_method_wrong_self_name(self):
 
-    # Calling these classes all `Cls` confuses inspect.getsource.
-    # Use unique names.
+    # Calling these classes all `Cls` confuses get_source, you need to
+    # use unique names.
     class Cls1:
 
       def method(x):  # pylint: disable=no-self-argument
         pass
 
-    info = self._setup_class_info(Cls1, 'method')
+    info = self._setup_class_info(Cls1)
     self.assertEqual('()', str(info.methods[0].signature))
 
   def test_signature_method_star_args(self):
@@ -306,7 +317,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       def method(*args):  # pylint: disable=no-method-argument
         pass
 
-    info = self._setup_class_info(Cls2, 'method')
+    info = self._setup_class_info(Cls2)
     self.assertEqual('(\n    *args\n)', str(info.methods[0].signature))
 
   def test_signature_classmethod_wrong_cls_name(self):
@@ -317,7 +328,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       def method(x):  # pylint: disable=bad-classmethod-argument
         pass
 
-    info = self._setup_class_info(Cls3, 'method')
+    info = self._setup_class_info(Cls3)
     self.assertEqual('()', str(info.methods[0].signature))
 
   def test_signature_staticmethod(self):
@@ -328,7 +339,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       def method(x):
         pass
 
-    info = self._setup_class_info(Cls4, 'method')
+    info = self._setup_class_info(Cls4)
     self.assertEqual('(\n    x\n)', str(info.methods[0].signature))
 
   def test_signature_new(self):
@@ -338,7 +349,7 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       def __new__(x):  # pylint: disable=bad-classmethod-argument
         pass
 
-    info = self._setup_class_info(Cls5, '__new__')
+    info = self._setup_class_info(Cls5)
     self.assertEqual('()', str(info.methods[0].signature))
 
   def test_signature_dataclass_auto_init(self):
@@ -348,9 +359,11 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
       a: Optional[int]
       b: Optional[str]
 
-    info = self._setup_class_info(Cls6, '__init__')
+    info = self._setup_class_info(Cls6)
+    builder = info.DEFAULT_BUILDER_CLASS(info)
+
     self.assertEqual('(\n    a: Optional[int], b: Optional[str]\n)',
-                     str(info.methods[0].signature))
+                     str(builder.methods.constructor.signature))
 
   def test_signature_dataclass_custom_init(self):
 
@@ -363,9 +376,10 @@ class TestGenerateSignature(parameterized.TestCase, absltest.TestCase):
         self.a = int(x)
         self.b = str(x)
 
-    info = self._setup_class_info(Cls7, '__init__')
+    info = self._setup_class_info(Cls7)
+    builder = info.DEFAULT_BUILDER_CLASS(info)
     self.assertEqual('(\n    x: Optional[Union[int, str]]\n)',
-                     str(info.methods[0].signature))
+                     str(builder.methods.constructor.signature))
 
   def test_dataclass_default_uses_ast_repr(self):
 

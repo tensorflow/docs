@@ -77,9 +77,7 @@ class ApiReport:
     """Convert a class description into a description of the constructor."""
     methods = class_page.split_methods(class_page_info.methods)
 
-    constructor_info = base_page.PageInfo(
-        full_name=class_page_info.full_name,
-        py_object=class_page_info.py_object)
+    constructor_info = base_page.PageInfo(api_node=class_page_info.api_node)
 
     # Replace the class py_object with constructors py_object. This is done
     # because each method is linted separately and class py_object contains the
