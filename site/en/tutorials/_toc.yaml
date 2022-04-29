@@ -74,6 +74,12 @@ toc:
   section:
   - title: "Distributed training with Keras"
     path: /tutorials/distribute/keras
+  - title: "Distributed training with DTensors"
+    path: /tutorials/distribute/dtensor_ml_tutorial
+    status: experimental
+  - title: "Using DTensors with Keras"
+    path: /tutorials/distribute/dtensor_keras_tutorial
+    status: experimental
   - title: "Custom training loops"
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"

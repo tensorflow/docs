@@ -30,12 +30,14 @@ toc:
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
   path: /guide/sparse_tensor
-
 - title: "Random number generation"
   path: /guide/random_numbers
 - title: "NumPy API"
   status: experimental
   path: /guide/tf_numpy
+- title: "DTensor concepts"
+  path: /guide/dtensor_overview
+  status: nightly
 - title: "Thinking in TensorFlow 2"
   path: /guide/effective_tf2
 
