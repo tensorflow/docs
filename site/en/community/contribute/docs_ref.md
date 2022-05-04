@@ -100,7 +100,7 @@ TensorFlow uses a few customizations to the builtin doctest logic:
 
     ```
     def NewLayer():
-      “””This layer does cool stuff.
+      """This layer does cool stuff.
 
       Example usage:
 
@@ -108,7 +108,7 @@ TensorFlow uses a few customizations to the builtin doctest logic:
       >>> new_layer = NewLayer(x)
       >>> new_layer
       <tf.Tensor: shape=(1, 14, 14, 3), dtype=int32, numpy=...>
-      “””
+      """
     ```
 
 *   *Floating point values*: The TensorFlow doctest extracts float values from
