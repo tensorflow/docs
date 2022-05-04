@@ -67,7 +67,7 @@ The following NVIDIA® software must be installed on your system:
 *   [cuDNN SDK 8.1.0](https://developer.nvidia.com/cudnn){:.external}
     [cuDNN versions](https://developer.nvidia.com/rdp/cudnn-archive){:.external}).
 *   *(Optional)*
-    [TensorRT 7](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
+    [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
     to improve latency and throughput for inference on some models.
 
 ## Linux setup
@@ -104,6 +104,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
+# libnvinfer packages are optional, needed to support TensorRT inference.
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-11-2 \
     libcudnn8=8.1.0.77-1+cuda11.2  \
@@ -128,6 +129,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
+# libnvinfer packages are optional, needed to support TensorRT inference.
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
     cuda-11-2 \
     libcudnn8=8.1.0.77-1+cuda11.2  \
