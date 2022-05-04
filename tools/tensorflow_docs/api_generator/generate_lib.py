@@ -122,7 +122,6 @@ def write_docs(
   num_docs_output = 0
   for api_node in parser_config.api_tree.iter_nodes():
     full_name = api_node.full_name
-    py_object = api_node.py_object
 
     if api_node.output_type() is api_node.OutputType.FRAGMENT:
       continue
@@ -294,9 +293,8 @@ class DocGenerator:
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
-      visitor_cls: Type[
-          doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
-      .DocGeneratorVisitor,
+      visitor_cls: Type[doc_generator_visitor.DocGeneratorVisitor] = (
+          doc_generator_visitor.DocGeneratorVisitor),
       api_cache: bool = True,
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: Union[bool, Type[toc_lib.TocBuilder]] = True,

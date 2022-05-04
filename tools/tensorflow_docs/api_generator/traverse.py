@@ -85,7 +85,7 @@ class _Traverser:
       new_names = [n for n, c in children]
 
       if old_names != new_names:
-        _LOGGER.debug('  filter: %s', filter)
+        _LOGGER.debug('  filter: %s', fil)
         _LOGGER.debug('    children: %s', new_names)
 
     return children
