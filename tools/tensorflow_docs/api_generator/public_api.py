@@ -331,8 +331,9 @@ class FilterBaseDirs:
       # contents will get filtered when the submodules are checked.
       if len(mod_base_dirs) == 1:
         mod_base_dir = mod_base_dirs[0]
-        # Check that module is in one of the `self._base_dir`s
-        if not any(base in mod_base_dir.parents for base in self.base_dirs):
+        # Check that module is, or is in one of the `self._base_dir`s
+        if not (any(base in mod_base_dir.parents for base in self.base_dirs) or
+                mod_base_dir in self.base_dirs):
           continue
       yield name, child
 

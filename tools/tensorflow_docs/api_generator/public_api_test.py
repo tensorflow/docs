@@ -210,6 +210,21 @@ class PublicApiTest(absltest.TestCase):
                   ('sub2', module.sub2)])
     self.assertEqual([('a', module.a), ('sub1', module.sub1)], list(result))
 
+  def test_filter_base_dir_pointing_to_submodule_dir(self):
+    module = types.ModuleType('module')
+    module.__file__ = '/1/2/3/module'
+    module.submodule = types.ModuleType('submodule')
+    module.submodule.__file__ = '/1/2/3/submodule/__init__.py'
+
+    test_filter = public_api.FilterBaseDirs(
+        base_dirs=[pathlib.Path('/1/2/3/submodule')])
+    result = test_filter(
+        path=('module',),
+        parent=module,
+        children=[('submodule', module.submodule)])
+
+    self.assertEqual([('submodule', module.submodule)], list(result))
+
 
 if __name__ == '__main__':
   absltest.main()
