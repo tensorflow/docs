@@ -67,7 +67,7 @@ The following NVIDIA® software must be installed on your system:
 *   [cuDNN SDK 8.1.0](https://developer.nvidia.com/cudnn){:.external}
     [cuDNN versions](https://developer.nvidia.com/rdp/cudnn-archive){:.external}).
 *   *(Optional)*
-    [TensorRT 7](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
+    [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
     to improve latency and throughput for inference on some models.
 
 ## Linux setup
@@ -93,75 +93,54 @@ This section shows how to install CUDA® 11 (TensorFlow >= 2.4.0) on Ubuntu
 Caution: [Secure Boot](https://wiki.ubuntu.com/UEFI/SecureBoot){:.external}
 complicates installation of the NVIDIA driver and is beyond the scope of these instructions.
 
-
-#### Ubuntu 18.04 (CUDA 11.0)
+#### Ubuntu 18.04 (CUDA 11.2)
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repositories
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin</code>
-<code class="devsite-terminal">sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600</code>
-<code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub</code>
-<code class="devsite-terminal">sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"</code>
-<code class="devsite-terminal">sudo apt-get update</code>
-
-<code class="devsite-terminal">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
-
-<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt-get update</code>
-
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
-<code class="devsite-terminal">sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
+# Note: For the Ubuntu version other than 18.04 or CPU architecture other than x86,
+# replace `ubuntu1804` and/or `x86_64` as needed in the following URL.
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb</code>
+<code class="devsite-terminal">sudo dpkg -i cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
+# libnvinfer packages are optional, needed to support TensorRT inference.
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
-    cuda-11-0 \
-    libcudnn8=8.0.4.30-1+cuda11.0  \
-    libcudnn8-dev=8.0.4.30-1+cuda11.0
+    cuda-11-2 \
+    libcudnn8=8.1.0.77-1+cuda11.2  \
+    libcudnn8-dev=8.1.0.77-1+cuda11.2 \
+    libnvinfer8=8.2.4-1+cuda11.4 \
+    libnvinfer-dev=8.2.4-1+cuda11.4 \
+    libnvinfer-plugin8=8.2.4-1+cuda11.4 \
+    libnvinfer-plugin-dev=8.2.4-1+cuda11.4
 </code>
-# Reboot. Check that GPUs are visible using the command: nvidia-smi
 
-# Install TensorRT. Requires that libcudnn8 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 \
-    libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0
-</code>
+# Reboot. Check that GPUs are visible using the command: nvidia-smi
 </pre>
 
-#### Ubuntu 16.04 (CUDA 11.0)
+#### Ubuntu 16.04 (CUDA 11.2)
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repositories
-# Add HTTPS support for apt-key
-<code class="devsite-terminal">sudo apt-get install gnupg-curl</code>
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-ubuntu1604.pin</code>
-<code class="devsite-terminal">sudo mv cuda-ubuntu1604.pin /etc/apt/preferences.d/cuda-repository-pin-600</code>
-<code class="devsite-terminal">sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</code>
-<code class="devsite-terminal">sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/ /"</code>
 <code class="devsite-terminal">sudo apt-get update</code>
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</code>
-<code class="devsite-terminal">sudo apt-get update</code>
-<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
-<code class="devsite-terminal">sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code>
+<code class="devsite-terminal">sudo apt-get install -y apt-transport-https</code>
+<code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-keyring_1.0-1_all.deb</code>
+<code class="devsite-terminal">sudo dpkg -i cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
 
 # Install development and runtime libraries (~4GB)
+# libnvinfer packages are optional, needed to support TensorRT inference.
 <code class="devsite-terminal">sudo apt-get install --no-install-recommends \
-    cuda-11-0 \
-    libcudnn8=8.0.4.30-1+cuda11.0  \
-    libcudnn8-dev=8.0.4.30-1+cuda11.0
+    cuda-11-2 \
+    libcudnn8=8.1.0.77-1+cuda11.2  \
+    libcudnn8-dev=8.1.0.77-1+cuda11.2 \
+    libnvinfer8=8.0.1-1+cuda11.3 \
+    libnvinfer-dev=8.0.1-1+cuda11.3 \
+    libnvinfer-plugin8=8.0.1-1+cuda11.3 \
+    libnvinfer-plugin-dev=8.0.1-1+cuda11.3
 </code>
 
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
-
-# Install TensorRT. Requires that libcudnn7 is installed above.
-<code class="devsite-terminal">sudo apt-get install -y --no-install-recommends \
-    libnvinfer7=7.1.3-1+cuda11.0 \
-    libnvinfer-dev=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin7=7.1.3-1+cuda11.0 \
-    libnvinfer-plugin-dev=7.1.3-1+cuda11.0
-</code>
 </pre>
 
 
