@@ -123,7 +123,7 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repositories
 <code class="devsite-terminal">sudo apt-get update</code>
-<code class="devsite-terminal">sudo apt-get install -y <apt-transport-https/code>
+<code class="devsite-terminal">sudo apt-get install -y apt-transport-https</code>
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo dpkg -i cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
