@@ -54,7 +54,7 @@ Bazel and automatically downloads the correct Bazel version for TensorFlow. For
 ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
 If Bazelisk is not available, you can manually
-[install Bazel](https://docs.bazel.build/versions/master/install.html). Make
+[install Bazel](https://bazel.build/install). Make
 sure to install a supported Bazel version: any version between
 `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
 `tensorflow/configure.py`.
@@ -240,9 +240,9 @@ bazel build --config=v1 [--config=option] //tensorflow/tools/pip_package:build_p
 
 ### Bazel build options
 
-See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+See the Bazel [command-line reference](https://bazel.build/reference/command-line-reference)
 for
-[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+[build options](https://bazel.build/reference/command-line-reference#build-options).
 
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
