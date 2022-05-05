@@ -97,8 +97,8 @@ complicates installation of the NVIDIA driver and is beyond the scope of these i
 
 <pre class="prettyprint lang-bsh">
 # Add NVIDIA package repositories
-# Note: For Ubuntu version other than 18.04 or CPU arch other than x86,
-# replace 'ubuntu1804' and/or 'x86_64' as needed in the following URL.
+# Note: For the Ubuntu version other than 18.04 or CPU architecture other than x86,
+# replace `ubuntu1804` and/or `x86_64` as needed in the following URL.
 <code class="devsite-terminal">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo dpkg -i cuda-keyring_1.0-1_all.deb</code>
 <code class="devsite-terminal">sudo apt-get update</code>
