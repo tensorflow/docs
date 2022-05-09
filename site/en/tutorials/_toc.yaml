@@ -109,6 +109,9 @@ toc:
     path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
+  - title: "Image classification with Model Garden"
+    path: /tutorials/images/classification_with_model_garden
+    status: new
   - title: "Object detection with TF Hub"
     path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
     status: external
