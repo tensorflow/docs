@@ -82,6 +82,10 @@ toc:
 - title: "Mixed precision"
   path: /guide/mixed_precision
 
+- heading: "Model Garden"
+- title: "Overview"
+  path: /guide/model_garden
+  status: new
 - heading: "Estimators"
 - title: "Estimator overview"
   path: /guide/estimator
