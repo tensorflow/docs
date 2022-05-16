@@ -54,7 +54,7 @@ Bazel and automatically downloads the correct Bazel version for TensorFlow. For
 ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
 If Bazelisk is not available, you can manually
-[install Bazel](https://docs.bazel.build/versions/master/install.html). Make
+[install Bazel](https://bazel.build/install). Make
 sure to install a supported Bazel version: any version between
 `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
 `tensorflow/configure.py`.
@@ -188,7 +188,7 @@ building.
 
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for
-a different CPU type, consider a more specific optimization flag. See the
+a different CPU type, consider a more specific optimization flag. Check the
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
 for examples.
 
@@ -240,9 +240,10 @@ bazel build --config=v1 [--config=option] //tensorflow/tools/pip_package:build_p
 
 ### Bazel build options
 
-See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+Refer to the Bazel
+[command-line reference](https://bazel.build/reference/command-line-reference)
 for
-[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+[build options](https://bazel.build/reference/command-line-reference#build-options).
 
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
@@ -293,17 +294,17 @@ Success: TensorFlow is now installed.
 
 TensorFlow's Docker development images are an easy way to set up an environment
 to build Linux packages from source. These images already contain the source
-code and dependencies required to build TensorFlow. See the TensorFlow
-[Docker guide](./docker.md) for installation and the
+code and dependencies required to build TensorFlow. Go to the TensorFlow
+[Docker guide](./docker.md) for installation instructions and the
 [list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
 
 ### CPU-only
 
 The following example uses the `:devel` image to build a CPU-only package from
-the latest TensorFlow source code. See the [Docker guide](./docker.md) for
+the latest TensorFlow source code. Check the [Docker guide](./docker.md) for
 available TensorFlow `-devel` tags.
 
-Download the latest development image and start a Docker container that we'll
+Download the latest development image and start a Docker container that you'll
 use to build the *pip* package:
 
 <pre class="prettyprint lang-bsh">
@@ -368,7 +369,7 @@ On your host machine, the TensorFlow *pip* package is in the current directory
 Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
 [NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-(the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). See the
+(the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). Refer to the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md) to
 set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}
 (Linux only).
