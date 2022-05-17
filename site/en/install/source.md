@@ -4,8 +4,8 @@ Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
 macOS. While the instructions might work for other systems, it is only tested
 and supported for Ubuntu and macOS.
 
-Note: Well-tested, pre-built
-[TensorFlow packages](./pip.html) for Linux and macOS systems are already provided.
+Note: Well-tested, pre-built [TensorFlow packages](./pip.md) for Linux and macOS
+systems are already provided.
 
 ## Setup for Linux and macOS
 
@@ -248,7 +248,7 @@ for
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
-The [official TensorFlow packages](./pip.html) are built with a GCC 7.3
+The [official TensorFlow packages](./pip.md) are built with a GCC 7.3
 toolchain that complies with the manylinux2010 package standard.
 
 For GCC 5 and later, compatibility with the older ABI can be built using:

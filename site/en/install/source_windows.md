@@ -3,7 +3,7 @@
 Build a TensorFlow *pip* package from source and install it on Windows.
 
 Note: We already provide well-tested, pre-built
-[TensorFlow packages](./pip.html) for Windows systems.
+[TensorFlow packages](./pip.md) for Windows systems.
 
 ## Setup for Windows
 

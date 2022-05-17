@@ -7,8 +7,6 @@ toc:
 - title: Docker
   path: /install/docker
 - heading: Additional setup
-- title: GPU support
-  path: /install/gpu
 - title: GPU device plugins
   path: /install/gpu_plugins
 - title: Problems
