@@ -185,6 +185,9 @@ toc:
     path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
+  - title: "Lossy data compression"
+    path: /tutorials/generative/data_compression
+    status: new
 
 - title: "Model Understanding"
   style: accordion
