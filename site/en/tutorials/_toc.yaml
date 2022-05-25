@@ -74,6 +74,12 @@ toc:
   section:
   - title: "Distributed training with Keras"
     path: /tutorials/distribute/keras
+  - title: "Distributed training with DTensors"
+    path: /tutorials/distribute/dtensor_ml_tutorial
+    status: experimental
+  - title: "Using DTensors with Keras"
+    path: /tutorials/distribute/dtensor_keras_tutorial
+    status: experimental
   - title: "Custom training loops"
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
@@ -101,6 +107,9 @@ toc:
     path: /tutorials/images/data_augmentation
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
+  - title: "Image classification with Model Garden"
+    path: /tutorials/images/classification_with_model_garden
+    status: new
   - title: "Object detection with TF Hub"
     path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
     status: external
@@ -174,6 +183,9 @@ toc:
     path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
+  - title: "Lossy data compression"
+    path: /tutorials/generative/data_compression
+    status: new
 
 - title: "Model Understanding"
   style: accordion
