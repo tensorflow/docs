@@ -29,7 +29,14 @@ REQUIRED_PKGS = [
     'astor',
     'absl-py',
     'jinja2',
-    'protobuf>=3.14',
+    # TODO(b/182876485): Protobuf 3.20 results in linker errors on Windows
+    # Protobuf 4.0 is binary incompatible with what C++ TF uses.
+    # We need ~1 quarter to update properly.
+    # See also: https://github.com/tensorflow/tensorflow/issues/53234
+    # See also: https://github.com/protocolbuffers/protobuf/issues/9954
+    # See also: https://github.com/tensorflow/tensorflow/issues/56077
+    # This is a temporary patch for now, to patch previous TF releases.
+    'protobuf >= 3.1.4, < 3.20',
     'pyyaml',
 ]
 
