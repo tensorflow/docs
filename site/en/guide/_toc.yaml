@@ -37,7 +37,7 @@ toc:
   path: /guide/tf_numpy
 - title: "DTensor concepts"
   path: /guide/dtensor_overview
-  status: nightly
+  status: experimental
 - title: "Thinking in TensorFlow 2"
   path: /guide/effective_tf2
 
