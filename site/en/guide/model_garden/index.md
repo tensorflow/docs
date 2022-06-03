@@ -124,8 +124,9 @@ Alternatively, you can use the high-level Keras `Model.fit`.
 
 However, if your model is complex and your training loop requires more flexible
 control or customization, then you should use Orbit. You can define most of your
-training loop by extending Orbit's `AbstractTrainerclass`. Learn more about the
-Orbit tool in the [Orbit API documentation](../../api_docs/python/orbit).
+training loop by the `orbit.AbstractTrainer` or `orbit.StandardTrainer` class.
+Learn more about the Orbit tool in the
+[Orbit API documentation](../../api_docs/python/orbit).
 
 Note: You can use the Keras API to do what Orbit does, but you must override
 the TensorFlow `train_step` function or use callbacks like ModelCheckpoint or
