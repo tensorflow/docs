@@ -36,7 +36,7 @@ REQUIRED_PKGS = [
     # See also: https://github.com/protocolbuffers/protobuf/issues/9954
     # See also: https://github.com/tensorflow/tensorflow/issues/56077
     # This is a temporary patch for now, to patch previous TF releases.
-    'protobuf >= 3.1.4, < 3.20',
+    'protobuf >= 3.12.0, < 3.20',
     'pyyaml',
 ]
 
