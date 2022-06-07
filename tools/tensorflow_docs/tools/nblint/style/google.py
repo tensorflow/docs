@@ -14,7 +14,7 @@
 # ==============================================================================
 r"""Lint assertions that adhere to the Google dev docs style guide.
 
-This style module is a non-exhaustive implemention of style rules found in the
+This style module is a non-exhaustive implementation of style rules found in the
 Google developer documentation style guide: https://developers.google.com/style
 
 When adding lints, please link to the URL of the relevant style rule.
@@ -38,7 +38,7 @@ def search_wordlist(wordlist, src_str):
   """
   found_words = {}
   for word in wordlist:
-    # Word-boundary and ignore between path seperator '/'.
+    # Word-boundary and ignore between path separator '/'.
     if re.search(rf"[^/]\b{word}\b[^/]", src_str, re.IGNORECASE):
       alt_word = wordlist[word]
       if not alt_word:

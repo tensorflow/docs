@@ -505,7 +505,7 @@ class ApiTreeTest(absltest.TestCase):
     # Test lookup by object.
     self.assertIs(api_tree[('tf', 'Parent')],
                   api_tree.node_for_object(tf.Parent))
-    # You can't lookup things that maybe singeltons.
+    # You can't lookup things that maybe singletons.
     self.assertIs(api_tree[('tf', 'seven')].py_object, tf.seven)
     self.assertIsNone(api_tree.node_for_object(tf.seven))
 
@@ -601,7 +601,7 @@ class ApiTreeTest(absltest.TestCase):
     path_tree[('mod', 'b', 'Class1')] = mod.b.Class1
 
     def inconsistent_name_score(path):
-      # `mod.a` is prefered over `mod.b`, but `b.Class1` is prefered over
+      # `mod.a` is preferred over `mod.b`, but `b.Class1` is preferred over
       # `a.Class1`!
       scores = {
           ('mod',): 0,

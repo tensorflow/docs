@@ -352,8 +352,8 @@ def doc_in_current_and_subclasses(obj: T) -> T:
   """Overrides `do_not_doc_in_subclasses` decorator.
 
   If this decorator is set on a child class's method whose parent's method
-  contains `do_not_doc_in_subclasses`, then that will be overriden and the
-  child method will get documented. All classes inherting from the child will
+  contains `do_not_doc_in_subclasses`, then that will be overridden and the
+  child method will get documented. All classes inheriting from the child will
   also document that method.
 
   For example:

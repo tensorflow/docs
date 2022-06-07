@@ -132,7 +132,7 @@ def add_styles(styles, excluded_lints, verbose):
         getattr(mem[1], "_lint") for mem in inspect.getmembers(mod, is_lint)
     ]
 
-    # Remove lints that have been explictly excluded at the command-line.
+    # Remove lints that have been explicitly excluded at the command-line.
     lints = [
         lint for lint in lints if f"{style}::{lint.name}" not in excluded_lints
     ]

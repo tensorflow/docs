@@ -238,7 +238,7 @@ class ReferenceResolver:
     return new_partial_dict
 
   def to_json_file(self, filepath):
-    """Converts the RefenceResolver to json and writes it to the specified file.
+    """Converts the ReferenceResolver to json and writes it to the specified file.
 
     Args:
       filepath: The file path to write the json to.

@@ -44,7 +44,7 @@ REQUIRED_PKGS = [
 if (sys.version_info.major, sys.version_info.minor) == (3, 6):
   REQUIRED_PKGS.append('dataclasses')
 
-VIS_REQURE = [
+VIS_REQUIRE = [
     'numpy',
     'PILLOW',
     'webp',
@@ -65,7 +65,7 @@ setup(
     package_dir={'': 'tools'},
     scripts=[],
     install_requires=REQUIRED_PKGS,
-    extras_require={'vis': VIS_REQURE},
+    extras_require={'vis': VIS_REQUIRE},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

@@ -142,7 +142,7 @@ class ModulePageInfo(base_page.PageInfo):
 
     Mainly this is information about the members of the module.
     """
-    # the path_tree has nodes for all api-paths, not just the prefered paths.
+    # the path_tree has nodes for all api-paths, not just the preferred paths.
     module_path_node = self.parser_config.path_tree[self.api_node.path]
     for (_, path_node) in sorted(module_path_node.children.items()):
       member_doc = parser.parse_md_docstring(path_node.py_object,

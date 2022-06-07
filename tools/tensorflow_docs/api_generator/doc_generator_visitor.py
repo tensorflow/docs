@@ -504,7 +504,7 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
   node = index.node_from_obj(obj)
   ```
 
-  Remember that `maybe_singelton` (numbers, strings, tuples) classes can't be
+  Remember that `maybe_singleton` (numbers, strings, tuples) classes can't be
   looked up this way.
 
   To build a tree, nodes must be inserted in tree order starting from the root.

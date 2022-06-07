@@ -14,7 +14,7 @@
 # ==============================================================================
 r"""Lint assertions for notebooks published on tensorflow.org.
 
-These lints are a non-exhaustive implemention of style rules found in the
+These lints are a non-exhaustive implementation of style rules found in the
 TensorFlow documentation and style guides. See:
 
 - https://www.tensorflow.org/community/contribute/docs
