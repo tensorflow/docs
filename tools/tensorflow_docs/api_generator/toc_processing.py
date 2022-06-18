@@ -13,6 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 """Tools for processing generated Java documentation."""
+import itertools
 from typing import Any, Iterable, Mapping, MutableMapping, MutableSequence
 
 # TODO(b/193033225): If possible, this should be a TypedDict. If not, using the
@@ -33,8 +34,16 @@ def add_package_headings(toc: Toc, root_pkgs: Iterable[str],
       if new_entry.get('title', '').startswith(root_pkg):
         # Strip the common root_pkg from the title.
         new_title = new_entry['title'][len(root_pkg):].lstrip('.')
-        # The section label is the first sub-package (this.notthis.orthis)
-        section, *_ = new_title.split('.')
+        # a, a.b, a.b.c from the remainder of the package name
+        all_sections = itertools.accumulate(
+            new_title.split('.'), lambda a, b: f'{a}.{b}')
+        # Filter out any packages that aren't defined as labelled sections.
+        candidate_sections = filter(lambda s: f'{root_pkg}.{s}' in labels,
+                                    all_sections)
+        # If there are more than one, pick the most specific (longest). If there
+        # are none, use the bare trailing package.
+        section = max(candidate_sections, key=len, default=new_title)
+
         if section != current_section:
           # We've hit a new section, add a label if one was supplied.
           section_pkg = f'{root_pkg}.{section}' if section else root_pkg

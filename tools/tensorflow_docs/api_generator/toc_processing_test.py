@@ -125,7 +125,57 @@ class ProcessingTest(absltest.TestCase):
             },
         ]
     }
-    self.assertDictEqual(actual_toc, expected_toc)
+    self.assertEqual(actual_toc['toc'], expected_toc['toc'])
+
+  def test_overlapping_packages(self):
+    toc_in = {
+        'toc': [{
+            'title': 'org.tf.one',
+            'path': '/tf/one/docs.html',
+            'section': [{
+                'title': 'SymbolOne',
+                'path': '/tf/one/symbol.html',
+            }],
+        }, {
+            'title':
+                'org.tf.one.two',
+            'path':
+                '/tf/one/two/docs.html',
+            'section': [{
+                'title': 'SymbolOneTwo',
+                'path': '/tf/one/two/SymbolOneTwo.html',
+            }],
+        }]
+    }
+    labels = {
+        'org.tf.one': 'Section One',
+        'org.tf.one.two': 'Section Two',
+    }
+    actual_toc = toc_processing.add_package_headings(toc_in, ['org.tf'], labels)
+    expected_toc = {
+        'toc': [{
+            'heading': 'Section One',
+        }, {
+            'title': 'one',
+            'path': '/tf/one/docs.html',
+            'section': [{
+                'title': 'SymbolOne',
+                'path': '/tf/one/symbol.html',
+            }],
+        }, {
+            'heading': 'Section Two',
+        }, {
+            'title':
+                'one.two',
+            'path':
+                '/tf/one/two/docs.html',
+            'section': [{
+                'title': 'SymbolOneTwo',
+                'path': '/tf/one/two/SymbolOneTwo.html',
+            }],
+        }]
+    }
+    self.assertEqual(actual_toc['toc'], expected_toc['toc'])
 
   def test_nesting_toc(self):
     toc_in = {
