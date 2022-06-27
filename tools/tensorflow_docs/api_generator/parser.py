@@ -307,11 +307,10 @@ class TitleBlock(object):
     result = '\n'.join([first, remainder])
     return result
 
-  def table_view(self, title_template: Optional[str] = None) -> str:
-    """Returns a tabular markdown version of the TitleBlock.
-
-    Tabular view is only for `Args`, `Returns`, `Raises` and `Attributes`. If
-    anything else is encountered, redirect to list view.
+  def table_view(self,
+                 title_template: Optional[str] = None,
+                 anchors: bool = True) -> str:
+    """Returns the TitleBlock as an HTML table.
 
     Args:
       title_template: Template for title detailing how to display it.
@@ -337,8 +336,14 @@ class TitleBlock(object):
       else:
         description = description.strip('\n')
         description = self._dedent_after_first_line(description)
+
+      if anchors:
+        anchor = f'<a id="{name}"></a>'
+      else:
+        anchor = ''
+
       item_table = ITEMS_TEMPLATE.format(
-          name=f'`{name}`', anchor='', description=description)
+          name=f'`{name}`', anchor=anchor, description=description)
       items.append(item_table)
 
     return '\n' + TABLE_TEMPLATE.format(

@@ -243,13 +243,14 @@ class MemberInfo(NamedTuple):
   url: str
 
 
-_TABLE_ITEMS = ('arg', 'return', 'raise', 'attr', 'yield')
+_ALWAYS_TABLE_ITEMS = ('arg', 'return', 'raise', 'attr', 'yield')
 
 
 def format_docstring(item,
                      *,
-                     table_title_template: Optional[str] = None) -> str:
-  """Formats TitleBlock into a table or list or a normal string.
+                     table_title_template: Optional[str] = None,
+                     anchors: bool = True) -> str:
+  """Formats a docstring part into a string.
 
   Args:
     item: A TitleBlock instance or a normal string.
@@ -261,8 +262,11 @@ def format_docstring(item,
   """
 
   if isinstance(item, parser.TitleBlock):
-    if item.title.lower().startswith(_TABLE_ITEMS):
-      return item.table_view(title_template=table_title_template)
+    if (item.items or  # A colon-list like under args
+        item.text.strip() or  # An indented block
+        item.title.lower().startswith(_ALWAYS_TABLE_ITEMS)):
+      return item.table_view(
+          title_template=table_title_template, anchors=anchors)
     else:
       return str(item)
   else:

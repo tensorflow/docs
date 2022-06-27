@@ -639,7 +639,9 @@ def _build_method_section(method_info, heading_level=3):
   parts.append(base_page.build_top_compat(method_info, h_level=4))
 
   for item in method_info.doc.docstring_parts:
-    parts.append(base_page.format_docstring(item, table_title_template=None))
+    parts.append(
+        base_page.format_docstring(
+            item, table_title_template=None, anchors=False))
 
   parts.append(base_page.build_bottom_compat(method_info, h_level=4))
 
