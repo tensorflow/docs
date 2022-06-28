@@ -139,7 +139,8 @@ class TypeAliasPageInfo(base_page.PageInfo):
 
     sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
     if self.py_object.__origin__:
-      sig = f'{self.py_object.__origin__}[\n{sig_args_str}\n]'
+      origin_str = typing._type_repr(self.py_object.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr
+      sig = f'{origin_str}[\n{sig_args_str}\n]'
     else:
       sig = repr(self.py_object)
 
