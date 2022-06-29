@@ -60,3 +60,9 @@ Metal `PluggableDevice` for macOS GPUs:
 *   [Getting started guide](https://developer.apple.com/metal/tensorflow-plugin/){:.external}.
 *   For questions and feedback, please visit the
     [Apple Developer Forum](https://developer.apple.com/forums/tags/tensorflow-metal){:.external}.
+
+DML `PluggableDevice` for Windows and WSL (preview):
+
+*   [PyPI Wheel](https://pypi.org/project/tensorflow-directml-plugin/){:.external}.
+*   [GitHub Repo](https://github.com/microsoft/tensorflow-directml-plugin){.external}.
+*   For questions, feedback or to raise issues, please visit the [issues page of the github repo](https://github.com/microsoft/tensorflow-directml-plugin/issues){:.external}.
