@@ -63,6 +63,6 @@ Metal `PluggableDevice` for macOS GPUs:
 
 DirectML `PluggableDevice` for Windows and WSL (preview):
 
-*   [PyPI Wheel](https://pypi.org/project/tensorflow-directml-plugin/){:.external}.
-*   [GitHub Repo](https://github.com/microsoft/tensorflow-directml-plugin){.external}.
-*   For questions, feedback or to raise issues, please visit the [issues page of the github repo](https://github.com/microsoft/tensorflow-directml-plugin/issues){:.external}.
+*   [PyPI wheel](https://pypi.org/project/tensorflow-directml-plugin/){:.external}.
+*   [GitHub repo](https://github.com/microsoft/tensorflow-directml-plugin){.external}.
+*   For questions, feedback or to raise issues, please visit the [Issues page of `tensorflow-directml-plugin` on GitHub](https://github.com/microsoft/tensorflow-directml-plugin/issues){:.external}.
