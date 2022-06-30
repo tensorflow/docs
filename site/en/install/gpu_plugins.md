@@ -1,11 +1,11 @@
 # GPU device plugins
 
-Note: This page is for non-NVIDIA® GPU devices. For NVIDIA® GPU support, click
-[here](./gpu.md).
+Note: This page is for non-NVIDIA® GPU devices. For NVIDIA® GPU support, go to
+the [Install TensorFlow with pip](./gpu.md) guide.
 
 TensorFlow's
-<a href="https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md" class="external">pluggable
-device</a> architecture adds new device support as separate plug-in packages
+[pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md){.external}
+architecture adds new device support as separate plug-in packages
 that are installed alongside the official TensorFlow package.
 
 The mechanism requires no device-specific changes in the TensorFlow code. It
