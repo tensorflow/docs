@@ -1,7 +1,7 @@
 # GPU device plugins
 
 Note: This page is for non-NVIDIA® GPU devices. For NVIDIA® GPU support, go to
-the [Install TensorFlow with pip](./gpu.md) guide.
+the [Install TensorFlow with pip](./pip) guide.
 
 TensorFlow's
 [pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md){.external}
