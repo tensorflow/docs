@@ -84,38 +84,16 @@ landing_page:
   - classname: devsite-landing-row-100
     items:
     - description: >
-        <h2 class="tfo-landing-page-heading no-link">Video and blog updates</h2>
-        Subscribe to the
-        <a href="https://blog.tensorflow.org" class="external">TensorFlow blog</a>,
-        <a href="https://www.youtube.com/tensorflow" class="external">YouTube channel</a>,
-        and <a href="https://twitter.com/tensorflow" class="external">Twitter</a>
-        for the latest updates.
+        <h2 class="tfo-landing-page-heading no-link">Video tutorials</h2>
+        Check out these videos for an introduction to machine learning with TensorFlow:
 
   - items:
-    - heading: "Intro to Machine Learning"
-      path: "https://www.youtube.com/watch?v=KNAWp2S3w94"
+    - heading: "TensorFlow ML Zero to Hero"
+      path: "https://www.youtube.com/watch?v=KNAWp2S3w94&list=PLQY2H8rRoyvwWuPiWnuTDBHe7I0fMSsfO"
       youtube_id: "KNAWp2S3w94?rel=0&show_info=0"
-    - heading: "TensorFlow 2.0 and Keras"
-      path: "https://www.youtube.com/watch?v=wGI_VtE9CJM"
-      youtube_id: "wGI_VtE9CJM?rel=0&show_info=0"
-
-  - classname: devsite-landing-row-cards
-    items:
-    - heading: "Looking Back at 2019"
-      path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
-      buttons:
-      - label: "Read on the TensorFlow blog"
-        path: https://blog.tensorflow.org/2019/12/looking-back-at-2019.html
-    - heading: "TensorFlow 2 is now available"
-      path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
-      buttons:
-      - label: "Read on the TensorFlow blog"
-        path: https://blog.tensorflow.org/2019/09/tensorflow-20-is-now-available.html
-    - heading: "Standardizing on Keras: Guidance on High-level APIs in TensorFlow 2"
-      path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
-      buttons:
-      - label: "Read on the TensorFlow blog"
-        path: https://blog.tensorflow.org/2018/12/standardizing-on-keras-guidance.html
+    - heading: "Basic Computer Vision with ML"
+      path: "https://www.youtube.com/watch?v=bemDFpNooA8&list=PLQY2H8rRoyvwWuPiWnuTDBHe7I0fMSsfO"
+      youtube_id: "bemDFpNooA8?rel=0&show_info=0"
 
   - classname: devsite-landing-row-100
     items:
@@ -295,3 +273,13 @@ landing_page:
           icon_name: chevron_right
           foreground: theme
           background: grey
+
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">TensorFlow updates</h2>
+        Subscribe to the
+        <a href="https://blog.tensorflow.org" class="external">TensorFlow blog</a>,
+        <a href="https://www.youtube.com/tensorflow" class="external">YouTube channel</a>,
+        and <a href="https://twitter.com/tensorflow" class="external">Twitter</a>
+        for the latest updates.
