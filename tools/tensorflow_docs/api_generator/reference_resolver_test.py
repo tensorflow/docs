@@ -47,7 +47,7 @@ class TestReferenceResolver(absltest.TestCase):
         'tf.AClass2': False,
         'tf.function': False
     }
-    py_module_names = ['tf', 'tfdbg']
+    py_module_names = {'tf': 'tensorflow'}
 
     resolver = reference_resolver_lib.ReferenceResolver(
         duplicate_of=duplicate_of,
@@ -79,7 +79,7 @@ class TestReferenceResolver(absltest.TestCase):
         'tf.Class2': False,
         'tf.sub.Class2': False
     }
-    py_module_names = ['tf']
+    py_module_names = {'tf': 'tensorflow'}
 
     reference_resolver = reference_resolver_lib.ReferenceResolver(
         duplicate_of=duplicate_of,
@@ -133,7 +133,7 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
         'tf.contrib.y.z': False,
     }
 
-    py_module_names = ['tf']
+    py_module_names = {'tf': 'tensorflow'}
 
     resolver = reference_resolver_lib.ReferenceResolver(
         duplicate_of=duplicate_of,

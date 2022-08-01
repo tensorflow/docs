@@ -22,7 +22,7 @@ import os
 import posixpath
 import re
 
-from typing import Dict, List, Optional
+from typing import Optional, Union
 
 from tensorflow_docs.api_generator import parser
 
@@ -81,11 +81,11 @@ class ReferenceResolver:
   def __init__(
       self,
       *,
-      duplicate_of: Dict[str, str],
-      is_fragment: Dict[str, bool],
-      py_module_names: List[str],
+      duplicate_of: dict[str, str],
+      is_fragment: dict[str, bool],
+      py_module_names: Union[list[str], dict[str, str]],
       link_prefix: Optional[str] = None,
-      physical_path: Optional[Dict[str, str]] = None,
+      physical_path: Optional[dict[str, str]] = None,
   ):
     """Initializes a Reference Resolver.
 
@@ -95,7 +95,9 @@ class ReferenceResolver:
       is_fragment: A map from full names to bool for each symbol. If True the
         object lives at a page fragment `tf.a.b.c` --> `tf/a/b#c`. If False
         object has a page to itself: `tf.a.b.c` --> `tf/a/b/c`.
-      py_module_names: A list of string names of Python modules.
+      py_module_names: A dict from short name to module name Like
+        `{'tf': 'tensorflow'}`. Or [deprecated] a list of short-names like
+        `['tf']`.
       link_prefix: The website to which these symbols should link to. A prefix
         is added before the links to enable cross-site linking if `link_prefix`
         is not None.
@@ -105,7 +107,10 @@ class ReferenceResolver:
     self._duplicate_of = duplicate_of
     self._is_fragment = is_fragment
     self._physical_path = physical_path
+    if isinstance(py_module_names, list):
+      py_module_names = {short: short for short in py_module_names}
     self._py_module_names = py_module_names
+
     self._link_prefix = link_prefix
 
     self._all_names = set(is_fragment.keys())

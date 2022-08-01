@@ -384,7 +384,7 @@ class DocGenerator:
 
   def make_reference_resolver(self, visitor):
     return reference_resolver_lib.ReferenceResolver.from_visitor(
-        visitor, py_module_names=[self._short_name])
+        visitor, py_module_names={self._short_name: self._py_module.__name__})
 
   def make_parser_config(self,
                          visitor: doc_generator_visitor.DocGeneratorVisitor):
