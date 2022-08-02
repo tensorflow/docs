@@ -8,12 +8,12 @@ tensorflow.org falls into the following categories:
   are generated from docstrings in the
   [TensorFlow source code](https://github.com/tensorflow/tensorflow).
 * *Narrative documentation* —These are [tutorials](https://www.tensorflow.org/tutorials),
-  [guides](https://www.tensorflow.org/guide), and other writing that's not part
-  of the TensorFlow code. This documentation is in the
+  [guides](https://www.tensorflow.org/guide), and other writing that is not a part
+  of TensorFlow code. All narrative documentation lives in the
   [tensorflow/docs](https://github.com/tensorflow/docs) GitHub repository.
-* *Community translations* —These are guides and tutorials translated by the
-  community. All community translations live in the
-  [tensorflow/docs](https://github.com/tensorflow/docs/tree/master/site) repo.
+* *Community translations* —These are tutorials, guides and other writing translated by
+  TensorFlow community. All community translations live in the
+  [tensorflow/docs](https://github.com/tensorflow/docs/tree/master/site) GitHub repository.
 
 Some [TensorFlow projects](https://github.com/tensorflow) keep documentation
 source files near the code in a separate repository, usually in a `docs/`
