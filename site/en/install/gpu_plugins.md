@@ -4,7 +4,7 @@ Note: This page is for non-NVIDIA® GPU devices. For NVIDIA® GPU support, go to
 the [Install TensorFlow with pip](./pip.md) guide.
 
 TensorFlow's
-[pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md){.external}
+[pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md){:.external}
 architecture adds new device support as separate plug-in packages
 that are installed alongside the official TensorFlow package.
 
@@ -64,5 +64,5 @@ Metal `PluggableDevice` for macOS GPUs:
 DirectML `PluggableDevice` for Windows and WSL (preview):
 
 *   [PyPI wheel](https://pypi.org/project/tensorflow-directml-plugin/){:.external}.
-*   [GitHub repo](https://github.com/microsoft/tensorflow-directml-plugin){.external}.
+*   [GitHub repo](https://github.com/microsoft/tensorflow-directml-plugin){:.external}.
 *   For questions, feedback or to raise issues, please visit the [Issues page of `tensorflow-directml-plugin` on GitHub](https://github.com/microsoft/tensorflow-directml-plugin/issues){:.external}.
