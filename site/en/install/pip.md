@@ -193,7 +193,7 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ```
 
 Configure the system paths. You can do it using the following command every time
-your start a new terminal after activating your conda environment.
+you start a new terminal after activating your conda environment.
 
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
@@ -264,7 +264,7 @@ successfully.
     and Rosetta.
 
     Currently, there is no official GPU support for running TensorFlow on
-    MacOS. The following is instructions are for running on the CPU.
+    MacOS. The following instructions are for running on the CPU.
 
     ### 1. Check Python version
 
@@ -281,7 +281,7 @@ successfully.
     steps and go to "4. Install TensorFlow". However, it's still recommended not
     skipping the steps. Use
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external} to
-    install Python and pip. It create a separate environment to avoid
+    install Python and pip. It creates a separate environment to avoid
     changing any installed software in your system.
 
     ### 2. Install Miniconda
@@ -399,7 +399,7 @@ successfully.
 
     ### 4. GPU setup
 
-    You can skip this section if you only run TensorFlow on CPU.
+    You can skip this section if you only run TensorFlow on the CPU.
 
     First, you need to install
     [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
