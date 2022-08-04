@@ -22,7 +22,7 @@ step-by-step instructions.
 * {MacOS}
 
    ```bash
-   # Currently, we do not have official GPU support for MacOS.
+   # Currently, there is no official GPU support for MacOS.
    python3 -m pip install tensorflow
    # Verify install:
    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
@@ -186,7 +186,7 @@ installed.
 nvidia-smi
 ```
 
-Then, we install the CUDA, cuDNN with conda.
+Then, install the CUDA, cuDNN with conda.
 
 ```bash
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
@@ -263,8 +263,8 @@ successfully.
     you need those libraries, you will have to use TensorFlow with x86 emulation
     and Rosetta.
 
-    Currently, we do not have official GPU support for running TensorFlow on
-    MacOS. The following is instructions are for running on CPU.
+    Currently, there is no official GPU support for running TensorFlow on
+    MacOS. The following is instructions are for running on the CPU.
 
     ### 1. Check Python version
 
@@ -278,7 +278,7 @@ successfully.
     ```
 
     If you have the correct version of Python and pip, you may skip the next two
-    steps and go to "4. Install TensorFlow". However, we still recommend not
+    steps and go to "4. Install TensorFlow". However, it's still recommended not
     skipping the steps. Use
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external} to
     install Python and pip. It create a separate environment to avoid
@@ -326,7 +326,7 @@ successfully.
     Then, install TensorFlow with pip.
 
     Note: Do not install with conda. It may not have the latest stable
-    version. We recommend using pip since TensorFlow is only
+    version. It's recommended to use pip since TensorFlow is only
     officially released to PyPI.
 
     ```bash
@@ -370,7 +370,7 @@ successfully.
 
     ### 2. Install Miniconda
 
-    We recommend using
+    It's recommended to use
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external} to
     create a separate environment to avoid changing any installed software in
     your system. This is also the easiest way to install the required software,
@@ -401,11 +401,11 @@ successfully.
 
     You can skip this section if you only run TensorFlow on CPU.
 
-    First, we need to install
+    First, you need to install
     [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
     if you have not.
 
-    Then, we install the CUDA, cuDNN with conda.
+    Then, install the CUDA, cuDNN with conda.
 
     ```bash
     conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
@@ -423,7 +423,7 @@ successfully.
     Then, install TensorFlow with pip.
 
     Note: Do not install with conda. It may not have the latest stable
-    version. We recommend using pip since TensorFlow is only
+    version. It's recommended to use pip since TensorFlow is only
     officially released to PyPI.
 
     ```bash
