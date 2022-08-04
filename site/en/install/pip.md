@@ -134,10 +134,10 @@ The following NVIDIA® software are only required for GPU support.
 
 {% setvar linux_instructions %}
 
-We only officially support Ubuntu. However, the following instructions may
-also work for other Linux distros.
+TensorFlow only officially supports Ubuntu. However, the following instructions may
+also work for other Linux distributions.
 
-We recommend using
+It's recommended to use
 [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external} to
 create a separate environment to avoid changing any installed software in
 your system. This is also the easiest way to install the required software,
@@ -175,9 +175,9 @@ Please make sure it is activated for the rest of the installation.
 
 ### 3. GPU setup
 
-You can skip this section if you only run TensorFlow on CPU.
+You can skip this section if you only run TensorFlow on the CPU.
 
-First, we need to install
+First, you need to install the
 [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
 if you have not. You can use the following command to verify it is
 installed.
@@ -192,14 +192,14 @@ Then, we install the CUDA, cuDNN with conda.
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ```
 
-Configure the system paths. You can do it with following command everytime
+Configure the system paths. You can do it using the following command every time
 your start a new terminal after activating your conda environment.
 
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 ```
 
-However, for your convenience, we recommend automating it with the following
+However, for your convenience, it's recommended to automate it with the following
 commands. The system paths will be automatically configured when you
 activate this conda environment.
 
@@ -219,8 +219,8 @@ pip install --upgrade pip
 
 Then, install TensorFlow with pip.
 
-Note: Do not install with conda. It may not have the latest stable
-version. We recommend using pip since TensorFlow is only
+Note: Do not install with conda because it may not have the latest stable
+version. It's recommended to use pip because TensorFlow is only
 officially released to PyPI.
 
 ```bash
