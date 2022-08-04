@@ -133,6 +133,7 @@ The following NVIDIA® software are only required for GPU support.
 ## Step-by-step instructions
 
 {% setvar linux_instructions %}
+
 We only officially support Ubuntu. However, the following instructions may
 also work for other Linux distros.
 
@@ -244,6 +245,7 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 
 If a list of GPU devices is returned, you've installed TensorFlow
 successfully.
+
 {% endsetvar %}
 
 *   {Linux}
