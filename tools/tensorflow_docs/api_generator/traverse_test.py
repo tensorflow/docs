@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +15,6 @@
 """Tests for Python module traversal."""
 from absl.testing import absltest
 
-from tensorflow_docs.api_generator import test_module1
-from tensorflow_docs.api_generator import test_module2
 
 from tensorflow_docs.api_generator import traverse
 
@@ -41,22 +38,12 @@ class TraverseTest(absltest.TestCase):
     Cyclist.cycle = Cyclist
 
     visitor = TestVisitor()
-    traverse.traverse(Cyclist, [visitor], root_name='root_name')
+    traverse.traverse(Cyclist, [], visitor, root_name='root_name')
     # We simply want to make sure we terminate.
-
-  def test_module(self):
-    visitor = TestVisitor()
-    traverse.traverse(test_module1, [visitor], root_name='root_name')
-
-    called = [parent for _, parent, _ in visitor.call_log]
-
-    self.assertIn(test_module1.ModuleClass1, called)
-    self.assertIn(test_module2.ModuleClass2, called)
-    self.assertNotIn(test_module2.Hidden, called)
 
   def test_class(self):
     visitor = TestVisitor()
-    traverse.traverse(TestVisitor, [visitor], root_name='root_name')
+    traverse.traverse(TestVisitor, [], visitor, root_name='root_name')
     self.assertEqual(TestVisitor,
                      visitor.call_log[0][1])
     # There are a bunch of other members, but make sure that the ones we know
@@ -71,7 +58,7 @@ class TraverseTest(absltest.TestCase):
   def test_non_class(self):
     integer = 5
     visitor = TestVisitor()
-    traverse.traverse(integer, [visitor], root_name='root_name')
+    traverse.traverse(integer, [], visitor, root_name='root_name')
     self.assertEqual([], visitor.call_log)
 
 

@@ -10,7 +10,7 @@ desktop, mobile, web, and cloud. See the sections below to get started.
 
 The high-level Keras API provides building blocks to create and
 train deep learning models. Start with these beginner-friendly
-notebook examples, then read the [TensorFlow Keras guide](../guide/keras.ipynb).
+notebook examples, then read the [TensorFlow Keras guide](https://www.tensorflow.org/guide/keras).
 
 * [Basic classification](./keras/basic_classification.ipynb)
 * [Text classification](./keras/basic_text_classification.ipynb)

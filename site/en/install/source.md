@@ -4,8 +4,8 @@ Build a TensorFlow *pip* package from source and install it on Ubuntu Linux and
 macOS. While the instructions might work for other systems, it is only tested
 and supported for Ubuntu and macOS.
 
-Note: We already provide well-tested, pre-built
-[TensorFlow packages](./pip.html) for Linux and macOS systems.
+Note: Well-tested, pre-built [TensorFlow packages](./pip.md) for Linux and macOS
+systems are already provided.
 
 ## Setup for Linux and macOS
 
@@ -37,7 +37,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel</code>
+<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging requests opt_einsum</code>
 <code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
 </pre>
 
@@ -54,7 +54,7 @@ Bazel and automatically downloads the correct Bazel version for TensorFlow. For
 ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
 If Bazelisk is not available, you can manually
-[install Bazel](https://docs.bazel.build/versions/master/install.html). Make
+[install Bazel](https://bazel.build/install). Make
 sure to install a supported Bazel version: any version between
 `_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
 `tensorflow/configure.py`.
@@ -188,7 +188,7 @@ building.
 
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for
-a different CPU type, consider a more specific optimization flag. See the
+a different CPU type, consider a more specific optimization flag. Check the
 [GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
 for examples.
 
@@ -240,14 +240,15 @@ bazel build --config=v1 [--config=option] //tensorflow/tools/pip_package:build_p
 
 ### Bazel build options
 
-See the Bazel [command-line reference](https://docs.bazel.build/versions/master/command-line-reference.html)
+Refer to the Bazel
+[command-line reference](https://bazel.build/reference/command-line-reference)
 for
-[build options](https://docs.bazel.build/versions/master/command-line-reference.html#build-options).
+[build options](https://bazel.build/reference/command-line-reference#build-options).
 
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
-The [official TensorFlow packages](./pip.html) are built with a GCC 7.3
+The [official TensorFlow packages](./pip.md) are built with a GCC 7.3
 toolchain that complies with the manylinux2010 package standard.
 
 For GCC 5 and later, compatibility with the older ABI can be built using:
@@ -293,17 +294,17 @@ Success: TensorFlow is now installed.
 
 TensorFlow's Docker development images are an easy way to set up an environment
 to build Linux packages from source. These images already contain the source
-code and dependencies required to build TensorFlow. See the TensorFlow
-[Docker guide](./docker.md) for installation and the
+code and dependencies required to build TensorFlow. Go to the TensorFlow
+[Docker guide](./docker.md) for installation instructions and the
 [list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
 
 ### CPU-only
 
 The following example uses the `:devel` image to build a CPU-only package from
-the latest TensorFlow source code. See the [Docker guide](./docker.md) for
+the latest TensorFlow source code. Check the [Docker guide](./docker.md) for
 available TensorFlow `-devel` tags.
 
-Download the latest development image and start a Docker container that we'll
+Download the latest development image and start a Docker container that you'll
 use to build the *pip* package:
 
 <pre class="prettyprint lang-bsh">
@@ -368,7 +369,7 @@ On your host machine, the TensorFlow *pip* package is in the current directory
 Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
 [NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
-(the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). See the
+(the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). Refer to the
 [GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md) to
 set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}
 (Linux only).
@@ -419,6 +420,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.9.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.0.0</td></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>GCC 7.3.1</td><td>Bazel 4.2.1</td></tr>
+<tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.4.0</td><td>3.6-3.8</td><td>GCC 7.3.1</td><td>Bazel 3.1.0</td></tr>
@@ -448,6 +452,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.9.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.0.0</td><td>8.1</td><td>11.2</td></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>GCC 7.3.1</td><td>Bazel 4.2.1</td><td>8.1</td><td>11.2</td></tr>
+<tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>GCC 7.3.1</td><td>Bazel 3.7.2</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.4.0</td><td>3.6-3.8</td><td>GCC 7.3.1</td><td>Bazel 3.1.0</td><td>8.0</td><td>11.0</td></tr>
@@ -479,6 +486,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.9.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 5.0.0</td></tr>
+<tr><td>tensorflow-2.8.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 4.2.1</td></tr>
+<tr><td>tensorflow-2.7.0</td><td>3.7-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.6.0</td><td>3.6-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.5.0</td><td>3.6-3.9</td><td>Clang from xcode 10.11</td><td>Bazel 3.7.2</td></tr>
 <tr><td>tensorflow-2.4.0</td><td>3.6-3.8</td><td>Clang from xcode 10.3</td><td>Bazel 3.1.0</td></tr>

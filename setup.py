@@ -33,7 +33,15 @@ DOCLINES = __doc__.split('\n')
 REQUIRED_PKGS = [
     'astor',
     'absl-py',
-    'protobuf>=3.14',
+    'jinja2',
+    # TODO(b/182876485): Protobuf 3.20 results in linker errors on Windows
+    # Protobuf 4.0 is binary incompatible with what C++ TF uses.
+    # We need ~1 quarter to update properly.
+    # See also: https://github.com/tensorflow/tensorflow/issues/53234
+    # See also: https://github.com/protocolbuffers/protobuf/issues/9954
+    # See also: https://github.com/tensorflow/tensorflow/issues/56077
+    # This is a temporary patch for now, to patch previous TF releases.
+    'protobuf >= 3.12.0, < 3.20',
     'pyyaml',
 ]
 
@@ -41,7 +49,7 @@ REQUIRED_PKGS = [
 if (sys.version_info.major, sys.version_info.minor) == (3, 6):
   REQUIRED_PKGS.append('dataclasses')
 
-VIS_REQURE = [
+VIS_REQUIRE = [
     'numpy',
     'PILLOW',
     'webp',
@@ -62,7 +70,7 @@ setup(
     package_dir={'': 'tools'},
     scripts=[],
     install_requires=REQUIRED_PKGS,
-    extras_require={'vis': VIS_REQURE},
+    extras_require={'vis': VIS_REQUIRE},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -70,7 +78,7 @@ setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
     ],
     keywords='tensorflow api reference',
-    # Include_package_data is required for setup.py to recognize the MAINFEST.in
+    # Include_package_data is required for setup.py to recognize the MANIFEST.in
     #   https://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
 )

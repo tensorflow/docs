@@ -1,11 +1,11 @@
 # https://help.github.com/articles/about-codeowners/
-# Last matching pattern takes preecedence.
+# Last matching pattern takes precedence.
 
 # Default owners for everything in repo.
-*  @lamberta @MarkDaoust @8bitmp3
+*  @MarkDaoust @8bitmp3
 
-# Docs
-/site/en/guide/keras/ @fchollet @lamberta @MarkDaoust @8bitmp3
+# Install
+/site/en/install/ @haifeng-jin @MarkDaoust @8bitmp3
 
 # Community
-/site/en/community/ @ewilderj @lamberta @theadactyl @joanafilipa
+/site/en/community/ @ewilderj @theadactyl @joanafilipa

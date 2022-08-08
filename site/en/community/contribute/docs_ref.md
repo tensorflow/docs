@@ -45,6 +45,11 @@ def concat(values, axis, name="concat"):
 
 Note: TensorFlow DocTest uses TensorFlow 2 and Python 3.
 
+To assess reference documentation quality, see the example section of the
+[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
+(Be aware that the Task Tracker on this sheet is no longer in use.)
+
+
 ### Make the code testable with DocTest
 
 Currently, many docstrings use backticks (```) to identify code. To make the
@@ -95,7 +100,7 @@ TensorFlow uses a few customizations to the builtin doctest logic:
 
     ```
     def NewLayer():
-      “””This layer does cool stuff.
+      """This layer does cool stuff.
 
       Example usage:
 
@@ -103,7 +108,7 @@ TensorFlow uses a few customizations to the builtin doctest logic:
       >>> new_layer = NewLayer(x)
       >>> new_layer
       <tf.Tensor: shape=(1, 14, 14, 3), dtype=int32, numpy=...>
-      “””
+      """
     ```
 
 *   *Floating point values*: The TensorFlow doctest extracts float values from

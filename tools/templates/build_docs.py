@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,21 +32,21 @@ from tensorflow_docs.api_generator import public_api
 PROJECT_SHORT_NAME = 'tfdocs'
 PROJECT_FULL_NAME = 'TensorFlow Docs'
 
-FLAGS = flags.FLAGS
-
-flags.DEFINE_string(
+_OUTPUT_DIR = flags.DEFINE_string(
     'output_dir',
     default='/tmp/generated_docs',
     help='Where to write the resulting docs to.')
-flags.DEFINE_string('code_url_prefix',
-                    ('https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs'),
-                    'The url prefix for links to code.')
 
-flags.DEFINE_bool('search_hints', True,
-                  'Include metadata search hints in the generated files')
+_URL_PREFIX = flags.DEFINE_string(
+    'code_url_prefix', 'https://github.com/tensorflow/docs/tree/master/tools/tensorflow_docs',
+    'The url prefix for links to code.')
 
-flags.DEFINE_string('site_path', '/api_docs/python',
-                    'Path prefix in the _toc.yaml')
+_SEARCH_HINTS = flags.DEFINE_bool(
+    'search_hints', True,
+    'Include metadata search hints in the generated files')
+
+_SITE_PATH = flags.DEFINE_string('site_path', '/api_docs/python',
+                                 'Path prefix in the _toc.yaml')
 
 
 def gen_api_docs():
@@ -65,24 +64,21 @@ def gen_api_docs():
       py_modules=[(PROJECT_SHORT_NAME, tensorflow_docs)],
       # Replace `tensorflow_docs` with your module, here.
       base_dir=os.path.dirname(tensorflow_docs.__file__),
-      code_url_prefix=FLAGS.code_url_prefix,
-      search_hints=FLAGS.search_hints,
-      site_path=FLAGS.site_path,
+      code_url_prefix=_URL_PREFIX.value,
+      search_hints=_SEARCH_HINTS.value,
+      site_path=_SITE_PATH.value,
       # This callback ensures that docs are only generated for objects that
       # are explicitly imported in your __init__.py files. There are other
       # options but this is a good starting point.
       callbacks=[public_api.explicit_package_contents_filter],
   )
 
-  doc_generator.build(FLAGS.output_dir)
+  doc_generator.build(_OUTPUT_DIR.value)
 
-  print('Output docs to: ', FLAGS.output_dir)
+  print('Output docs to: ', _OUTPUT_DIR.value)
 
 
-def main(argv):
-  if argv[1:]:
-    raise ValueError('Unrecognized arguments: {}'.format(argv[1:]))
-
+def main(_):
   gen_api_docs()
 
 

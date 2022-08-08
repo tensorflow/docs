@@ -1,0 +1,43 @@
+{%- extends 'templates/root.jinja' -%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block content %}
+  {{- self.header() -}}
+  {{- self.metadata() -}}
+  {{- self.body() -}}
+{% endblock content %}}
+
+{#----------------------------------------------------------------------------#}
+
+{% block header %}
+{{ builder.get_devsite_headers() }}
+# {{page_info.full_name}}
+
+<!-- Insert buttons and diff -->
+{% endblock header%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block metadata %}
+{{ builder.top_source_link() }}
+
+{{ page_info.doc.brief }}
+
+{{ builder.build_collapsable_aliases() -}}
+{% endblock metadata %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block body %}
+
+{{ builder.top_compat() -}}
+<!-- Placeholder for "Used in" -->
+  {% for part in page_info.doc.docstring_parts %}
+    {{- builder.format_docstring_part(part) -}}
+  {% endfor %}
+{{ builder.bottom_compat() -}}
+{% endblock body %}
+
+
+

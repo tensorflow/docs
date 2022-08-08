@@ -3,39 +3,50 @@ toc:
   path: /guide/
 
 - heading: "TensorFlow basics"
-- title: "Eager execution"
-  path: /guide/eager
-- title: "Tensor"
+- title: "Overview"
+  path: /guide/basics
+- title: "Tensors"
   path: /guide/tensor
-- title: "Variable"
+- title: "Variables"
   path: /guide/variable
 - title: "Automatic differentiation"
   path: /guide/autodiff
-- title: "Intro to graphs and functions"
+- title: "Graphs and functions"
   path: /guide/intro_to_graphs
-- title: "Intro to modules, layers, and models"
+- title: "Modules, layers, and models"
   path: /guide/intro_to_modules
 - title: "Training loops"
   path: /guide/basic_training_loops
+
+- heading: "Keras"
+- include: /guide/keras/_toc.yaml
+
+- heading: "TensorFlow in depth"
+- title: "Tensor slicing"
+  path: /guide/tensor_slicing
 - title: "Advanced autodiff"
   path: /guide/advanced_autodiff
 - title: "Ragged tensor"
   path: /guide/ragged_tensor
 - title: "Sparse tensor"
   path: /guide/sparse_tensor
+- title: "Random number generation"
+  path: /guide/random_numbers
 - title: "NumPy API"
+  status: experimental
   path: /guide/tf_numpy
-- title: "Tensor slicing"
-  path: /guide/tensor_slicing
-
-- heading: "Keras"
-- include: /guide/keras/_toc.yaml
+- title: "DTensor concepts"
+  path: /guide/dtensor_overview
+  status: experimental
+- title: "Thinking in TensorFlow 2"
+  path: /guide/effective_tf2
 
 - heading: "Customization"
 - title: "Create an op"
   path: /guide/create_op
-- title: "Random number generation"
-  path: /guide/random_numbers
+- title: "Extension types"
+  path: /guide/extension_type
+  status: experimental
 
 - heading: "Data input pipelines"
 - title: "tf.data"
@@ -71,18 +82,17 @@ toc:
 - title: "Mixed precision"
   path: /guide/mixed_precision
 
-- heading: "Migrate to TF2"
-- title: "Effective TensorFlow 2"
-  path: /guide/effective_tf2
-- title: "Migrate from TF1 to TF2"
-  path: /guide/migrate
-- title: "Convert with the upgrade script"
-  path: /guide/upgrade
-- title: "Community testing FAQ"
-  path: https://github.com/tensorflow/community/blob/master/sigs/testing/faq.md
-  status: external
+- heading: "Model Garden"
+  status: new
+- title: "Overview"
+  path: /tfmodels
+- title: "Example: Image classification"
+  path: /tfmodels/vision/image_classification
+- title: "Training with Orbit"
+  path: /tfmodels/orbit
 
 - heading: "Estimators"
+  status: deprecated
 - title: "Estimator overview"
   path: /guide/estimator
 

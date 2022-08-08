@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,9 +15,19 @@
 """A `traverse` visitor for processing documentation."""
 
 import collections
+import dataclasses
+import enum
 import inspect
+import logging
 
-from typing import Any, Dict, List, Optional, Tuple
+
+from typing import Any, Dict, List, Optional, NamedTuple, Sequence, Tuple
+
+from tensorflow_docs.api_generator import obj_type as obj_type_lib
+
+
+# To see the logs pass: --logger_levels=tensorflow_docs:DEBUG --alsologtostderr
+_LOGGER = logging.getLogger(__name__)
 
 ApiPath = Tuple[str, ...]
 
@@ -45,28 +54,38 @@ def maybe_singleton(py_object: Any) -> bool:
   is_immutable_type = isinstance(py_object, immutable_types)
 
   # Check if the object is the empty tuple.
-  return is_immutable_type or py_object is ()  # pylint: disable=literal-comparison
+  return is_immutable_type or (isinstance(py_object, tuple) and py_object == ())  # pylint: disable=g-explicit-bool-comparison
 
 
-class ApiTreeNode(object):
-  """Represents a single API end-point.
+@dataclasses.dataclass
+class PathTreeNode(object):
+  """Represents a path to an object in the API, an object can have many paths.
 
   Attributes:
     path: A tuple of strings containing the path to the object from the root
       like `('tf', 'losses', 'hinge')`
-    obj: The python object.
-    children: A dictionary from short name to `ApiTreeNode`, including the
-      children nodes.
-    parent: The parent node.
+    py_object: The python object.
+    children: A dictionary from short name to `PathTreeNode`, of this node's
+      children.
+    parent: This node's parent. This is a tree, there can only be one.
     short_name: The last path component
     full_name: All path components joined with "."
   """
+  path: ApiPath
+  py_object: Any
+  parent: Optional['PathTreeNode'] = None
+  children: Dict[str, 'PathTreeNode'] = dataclasses.field(default_factory=dict)
 
-  def __init__(self, path: ApiPath, obj: Any, parent: Optional['ApiTreeNode']):
-    self.path = path
-    self.py_object = obj
-    self.children: Dict[str, 'ApiTreeNode'] = {}
-    self.parent = parent
+  def __hash__(self):
+    return id(self)
+
+  def __repr__(self):
+    return f'{type(self).__name__}({self.full_name})'
+
+  __str__ = __repr__
+
+  def __eq__(self, other):
+    raise ValueError("Don't try to compare these")
 
   @property
   def short_name(self) -> str:
@@ -77,49 +96,38 @@ class ApiTreeNode(object):
     return '.'.join(self.path)
 
 
-class ApiTree(object):
-  """Represents all api end-points as a tree.
+class PathTree(Dict[ApiPath, PathTreeNode]):
+  """An index/tree of all object-paths in the API.
 
   Items must be inserted in order, from root to leaf.
 
+
   Attributes:
-    index: A dict, mapping from path tuples to `ApiTreeNode`.
-    aliases: A dict, mapping from object ids to a list of all `ApiTreeNode` that
-      refer to the object.
-    root: The root `ApiTreeNode`
+    root: The root `PathTreeNode`
   """
 
   def __init__(self):
-    root = ApiTreeNode(path=(), obj=None, parent=None)
-    self.index: Dict[ApiPath, ApiTreeNode] = {(): root}
-    self.aliases: Dict[ApiPath,
-                       List[ApiTreeNode]] = collections.defaultdict(list)
-    self.root: ApiTreeNode = root
+    root = PathTreeNode(path=(), py_object=None, parent=None, children={})
+    super().__setitem__((), root)
 
-  def __contains__(self, path: ApiPath) -> bool:
-    """Returns `True` if path exists in the tree.
+    self.root: PathTreeNode = root
+    self._nodes_for_id: Dict[int, List[PathTreeNode]] = (
+        collections.defaultdict(list))
 
-    Args:
-      path: A tuple of strings, the api path to the object.
+  def __eq__(self, other):
+    raise ValueError("Don't try to compare these")
 
-    Returns:
-      True if `path` exists in the tree.
-    """
-    return path in self.index
+  def iter_nodes(self):
+    """Iterate over the nodes in BFS order."""
+    stack = collections.deque([self.root])
+    while stack:
+      children = list(stack.popleft().children.values())
+      yield from children
+      stack.extend(children)
 
-  def __getitem__(self, path: ApiPath) -> ApiTreeNode:
-    """Fetch an item from the tree.
-
-    Args:
-      path: A tuple of strings, the api path to the object.
-
-    Returns:
-      An `ApiTreeNode`.
-
-    Raises:
-      KeyError: If no node can be found at that path.
-    """
-    return self.index[path]
+  def __contains__(self, path: ApiPath) -> bool:  # pylint: disable=useless-super-delegation
+    # TODO(b/184563451): remove
+    return super().__contains__(path)
 
   def __setitem__(self, path: ApiPath, obj: Any):
     """Add an object to the tree.
@@ -128,18 +136,24 @@ class ApiTree(object):
       path: A tuple of strings.
       obj: The python object.
     """
+    assert path not in self
+
     parent_path = path[:-1]
-    parent = self.index[parent_path]
+    parent = self[parent_path]
 
-    node = ApiTreeNode(path=path, obj=obj, parent=parent)
+    node = PathTreeNode(path=path, py_object=obj, parent=parent)
 
-    self.index[path] = node
+    super().__setitem__(path, node)
     if not maybe_singleton(obj):
       # We cannot use the duplicate mechanism for some constants, since e.g.,
       # id(c1) == id(c2) with c1=1, c2=1. This isn't problematic since constants
       # have no usable docstring and won't be documented automatically.
-      self.aliases[id(obj)].append(node)
+      nodes = self.nodes_for_obj(obj)
+      nodes.append(node)
     parent.children[node.short_name] = node
+
+  def nodes_for_obj(self, py_object) -> List[PathTreeNode]:
+    return self._nodes_for_id[id(py_object)]
 
 
 class DocGeneratorVisitor(object):
@@ -174,7 +188,8 @@ class DocGeneratorVisitor(object):
     self._duplicates: Dict[str, List[str]] = None
     self._duplicate_of: Dict[str, str] = None
 
-    self._api_tree = ApiTree()
+    self.path_tree = PathTree()
+    self.api_tree = None
 
   @property
   def index(self):
@@ -211,7 +226,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The `id(object)` to full name map.
     """
-    self._maybe_find_duplicates()
     return self._reverse_index
 
   @property
@@ -225,7 +239,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The map from duplicate name to preferred name.
     """
-    self._maybe_find_duplicates()
     return self._duplicate_of
 
   @property
@@ -242,7 +255,6 @@ class DocGeneratorVisitor(object):
     Returns:
       The map from main name to list of all duplicate names.
     """
-    self._maybe_find_duplicates()
     return self._duplicates
 
   def __call__(self, parent_path, parent, children):
@@ -270,15 +282,16 @@ class DocGeneratorVisitor(object):
     parent_name = '.'.join(parent_path)
     self._index[parent_name] = parent
     self._tree[parent_name] = []
-    if parent_path not in self._api_tree:
-      self._api_tree[parent_path] = parent
+    if parent_path not in self.path_tree:
+      self.path_tree[parent_path] = parent
 
     if not (inspect.ismodule(parent) or inspect.isclass(parent)):
-      raise RuntimeError('Unexpected type in visitor -- '
-                         f'{parent_name}: {parent!r}')
+      raise TypeError('Unexpected type in visitor -- '
+                      f'{parent_name}: {parent!r}')
 
     for name, child in children:
-      self._api_tree[parent_path + (name,)] = child
+      child_path = parent_path + (name,)
+      self.path_tree[child_path] = child
 
       full_name = '.'.join([parent_name, name]) if parent_name else name
       self._index[full_name] = child
@@ -286,7 +299,14 @@ class DocGeneratorVisitor(object):
 
     return children
 
-  def _score_name(self, name):
+  class NameScore(NamedTuple):
+    defining_class_score: int
+    experimental_score: int
+    keras_score: int
+    module_length_score: int
+    path: ApiPath
+
+  def _score_name(self, path: ApiPath) -> NameScore:
     """Return a tuple of scores indicating how to sort for the best name.
 
     This function is meant to be used as the `key` to the `sorted` function.
@@ -302,52 +322,70 @@ class DocGeneratorVisitor(object):
       name: Fallback, sorts lexicographically on the full_name.
 
     Args:
-      name: the full name to score, for example `tf.estimator.Estimator`
+      path: APiPath to score, for example `('tf','estimator','Estimator')`
 
     Returns:
       A tuple of scores. When sorted the preferred name will have the lowest
       value.
     """
-    parts = name.split('.')
-    short_name = parts[-1]
-    if len(parts) == 1:
-      return (-99, -99, -99, -99, short_name)
+    py_object = self.path_tree[path].py_object
+    if len(path) == 1:
+      return self.NameScore(-99, -99, -99, -99, path)
 
-    container = self._index.get('.'.join(parts[:-1]), name)
+    short_name = path[-1]
+    container = self.path_tree[path[:-1]].py_object
 
-    defining_class_score = 1
-    if inspect.isclass(container):
+    # Prefer the reference that is not in a class.
+    defining_class_score = -1
+    container_type = obj_type_lib.ObjType.get(container)
+    if container_type is obj_type_lib.ObjType.CLASS:
       if short_name in container.__dict__:
-        # prefer the defining class
-        defining_class_score = -1
+        # If a alias points into a class, prefer the defining class
+        defining_class_score = 0
+      else:
+        defining_class_score = 1
 
     experimental_score = -1
-    if 'contrib' in parts or any('experimental' in part for part in parts):
+    if 'contrib' in path or any('experimental' in part for part in path):
       experimental_score = 1
 
     keras_score = 1
-    if 'keras' in parts:
+    if 'keras' in path:
       keras_score = -1
 
-    while parts:
-      container = self._index['.'.join(parts)]
+    if inspect.ismodule(py_object):
+      # prefer short paths for modules
+      module_length_score = len(path)
+    else:
+      module_length_score = self._get_module_length_score(path)
+
+    return self.NameScore(
+        defining_class_score=defining_class_score,
+        experimental_score=experimental_score,
+        keras_score=keras_score,
+        module_length_score=module_length_score,
+        path=path)
+
+  def _get_module_length_score(self, path):
+    partial_path = list(path)
+    while partial_path:
+      container = self.path_tree[tuple(partial_path[:-1])].py_object
+      partial_path.pop()
       if inspect.ismodule(container):
         break
-      parts.pop()
 
-    module_length = len(parts)
+    module_length = len(partial_path)
 
-    if len(parts) == 2:
+    if module_length == 2:
       # `tf.submodule.thing` is better than `tf.thing`
       module_length_score = -1
     else:
       # shorter is better
       module_length_score = module_length
 
-    return (defining_class_score, experimental_score, keras_score,
-            module_length_score, name)
+    return module_length_score
 
-  def _maybe_find_duplicates(self):
+  def build(self):
     """Compute data structures containing information about duplicates.
 
     Find duplicates in `index` and decide on one to be the "main" name.
@@ -364,6 +402,8 @@ class DocGeneratorVisitor(object):
     if self._reverse_index is not None:
       return
 
+    self.api_tree = ApiTree.from_path_tree(self.path_tree, self._score_name)
+
     # Maps the id of a symbol to its fully qualified name. For symbols that have
     # several aliases, this map contains the first one found.
     # We use id(py_object) to get a hashable value for py_object. Note all
@@ -379,7 +419,7 @@ class DocGeneratorVisitor(object):
     # symbol (incl. itself).
     duplicates = {}
 
-    for path, node in self._api_tree.index.items():
+    for path, node in self.path_tree.items():
       if not path:
         continue
       full_name = node.full_name
@@ -388,23 +428,25 @@ class DocGeneratorVisitor(object):
       if full_name in duplicates:
         continue
 
-      aliases = self._api_tree.aliases[object_id]
+      aliases = self.path_tree.nodes_for_obj(py_object)
+      # maybe_singleton types can't be looked up by object.
       if not aliases:
         aliases = [node]
 
-      names = [alias.full_name for alias in aliases]
+      name_tuples = [alias.path for alias in aliases]
 
-      names = sorted(names)
       # Choose the main name with a lexical sort on the tuples returned by
       # by _score_name.
-      main_name = min(names, key=self._score_name)
+      main_name_tuple = min(name_tuples, key=self._score_name)
+      main_name = '.'.join(main_name_tuple)
 
-      if names:
-        duplicates[main_name] = list(names)
+      names = ['.'.join(name_tuple) for name_tuple in name_tuples]
+      if name_tuples:
+        duplicates[main_name] = sorted(names)
 
-      names.remove(main_name)
       for name in names:
-        duplicate_of[name] = main_name
+        if name != main_name:
+          duplicate_of[name] = main_name
 
       # Set the reverse index to the canonical name.
       if not maybe_singleton(py_object):
@@ -413,3 +455,214 @@ class DocGeneratorVisitor(object):
     self._duplicate_of = duplicate_of
     self._duplicates = duplicates
     self._reverse_index = reverse_index
+
+
+@dataclasses.dataclass(repr=False)
+class ApiTreeNode(PathTreeNode):
+  """A node in the ApiTree."""
+  aliases: List[ApiPath] = dataclasses.field(default_factory=list)
+  physical_path: Optional[ApiPath] = None
+
+  @property
+  def obj_type(self) -> obj_type_lib.ObjType:
+    return obj_type_lib.ObjType.get(self.py_object)
+
+  class OutputType(enum.Enum):
+    PAGE = 'page'
+    FRAGMENT = 'fragment'
+
+  def output_type(self) -> OutputType:
+    obj_type = obj_type_lib.ObjType.get(self.py_object)
+
+    if obj_type in (obj_type_lib.ObjType.CLASS, obj_type_lib.ObjType.MODULE):
+      return self.OutputType.PAGE
+    elif obj_type in (obj_type_lib.ObjType.CALLABLE,
+                      obj_type_lib.ObjType.TYPE_ALIAS):
+      parent_type = obj_type_lib.ObjType.get(self.parent.py_object)
+      if parent_type is obj_type_lib.ObjType.CLASS:
+        return self.OutputType.FRAGMENT
+      else:
+        return self.OutputType.PAGE
+    else:
+      return self.OutputType.FRAGMENT
+
+
+class ApiTree(Dict[ApiPath, ApiTreeNode]):
+  """Public API index.
+
+  Items must be inserted in order from root to leaves.
+
+  Lookup a path-tuple to fetch a node:
+
+  ```
+  node = index[path]
+  ```
+
+  Use the `node_from_obj` method to lookup the node for a python object:
+
+  ```
+  node = index.node_from_obj(obj)
+  ```
+
+  Remember that `maybe_singleton` (numbers, strings, tuples) classes can't be
+  looked up this way.
+
+  To build a tree, nodes must be inserted in tree order starting from the root.
+
+
+  Attributes:
+    root: The root `ApiFileNode` of the tree.
+  """
+
+  def __init__(self):
+    root = ApiTreeNode(
+        path=(), py_object=None, parent=None, aliases=[()])  # type: ignore
+    self.root = root
+    super().__setitem__((), root)
+    self._nodes = []
+    self._node_for_object = {}
+
+  def __eq__(self, other):
+    raise ValueError("Don't try to compare these")
+
+  def node_for_object(self, obj: Any) -> Optional[ApiTreeNode]:
+    if maybe_singleton(obj):
+      return None
+    return self._node_for_object.get(id(obj), None)
+
+  def __contains__(self, path: ApiPath) -> bool:  # pylint: disable=useless-super-delegation
+    # TODO(b/184563451): remove
+    return super().__contains__(path)
+
+  def iter_nodes(self):
+    """Iterate over the nodes in BFS order."""
+    stack = collections.deque([self.root])
+    while stack:
+      children = list(stack.popleft().children.values())
+      yield from children
+      stack.extend(children)
+
+  def __setitem__(self, *args, **kwargs):
+    raise TypeError('Use .insert instead of setitem []')
+
+  def insert(self, path: ApiPath, py_object: Any, aliases: List[ApiPath]):
+    """Add an object to the index."""
+    _LOGGER.debug('ApiTree.insert')
+    _LOGGER.debug('  path: %s', path)
+    _LOGGER.debug('  py_object: %s', py_object)
+    _LOGGER.debug('  aliases: %s', aliases)
+    assert path not in self, 'A path was inserted twice.'
+
+    parent_path = path[:-1]
+    parent = self[parent_path]
+
+    node = ApiTreeNode(
+        path=path,
+        py_object=py_object,
+        aliases=aliases,
+        parent=parent,
+        physical_path=self._get_physical_path(py_object))
+
+    super().__setitem__(path, node)
+    self._nodes.append(node)
+    for alias in aliases:
+      if alias == path:
+        continue
+      assert alias not in self
+      super().__setitem__(alias, node)
+
+    self._node_for_object[id(node.py_object)] = node
+
+    parent.children[node.short_name] = node
+
+  def _get_physical_path(self, py_object):
+    physical_path = None
+    obj_type = obj_type_lib.ObjType.get(py_object)
+    if obj_type in [obj_type.CLASS, obj_type.CALLABLE]:
+      try:
+        physical_path = tuple(
+            py_object.__module__.split('.') + py_object.__qualname__.split('.'))
+      except AttributeError:
+        pass
+    elif obj_type is obj_type.MODULE:
+      physical_path = tuple(py_object.__name__.split('.'))
+
+    return physical_path
+
+
+  @classmethod
+  def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> 'ApiTree':
+    """Create an ApiTree from an PathTree.
+
+    Args:
+      path_tree: The `PathTree` to convert.
+      score_name_fn: The name scoring function.
+
+    Returns:
+      an `ApiIndex`, created from `path_tree`.
+    """
+    self = cls()
+
+    active_nodes = collections.deque(path_tree.root.children.values())
+    while active_nodes:
+      current_node = active_nodes.popleft()
+      if current_node.path in self:
+        continue
+
+      duplicate_nodes = set(
+          path_tree.nodes_for_obj(current_node.py_object))
+
+      if not duplicate_nodes:
+        # Singleton objects will return `[]`. So look up the parent object's
+        # duplicate nodes and collect their children.
+        parent_nodes = path_tree.nodes_for_obj(current_node.parent.py_object)
+        duplicate_nodes = [
+            parent_node.children[current_node.short_name]
+            for parent_node in parent_nodes
+        ]
+
+      parents = [node.parent for node in duplicate_nodes]
+
+      # Choose the priority name with a lexical sort on the tuples returned by
+      # by _score_name.
+      if not all(parent.path in self for parent in parents):
+        # rewind
+        active_nodes.appendleft(current_node)
+        # do each duplicate's immediate parents first.
+        for parent in parents:
+          if parent.path in self:
+            continue
+          active_nodes.appendleft(parent)
+        continue
+      # If we've made it here, the immediate parents of each of the paths have
+      # been processed, so now we can choose its priority name.
+      aliases = [node.path for node in duplicate_nodes]
+
+      priority_path = self._choose_priority_path(aliases, score_name_fn)
+
+      if priority_path is None:
+        # How did this happen?
+        # No parents in the public api -> you are not in the public API.
+        continue
+
+      self.insert(priority_path, current_node.py_object, aliases)
+
+      active_nodes.extend(current_node.children.values())
+
+    return self
+
+  def _choose_priority_path(self, aliases: Sequence[ApiPath],
+                            score_name_fn) -> Optional[ApiPath]:
+    # Only consider a path an option for the priority_path if its parent-path
+    # is the priority_path for that object.
+    priority_path_options = []
+    for alias in aliases:
+      parent_path = alias[:-1]
+
+      if self[parent_path].path == parent_path:
+        priority_path_options.append(alias)
+
+    try:
+      return min(priority_path_options, key=score_name_fn)
+    except ValueError:
+      return None

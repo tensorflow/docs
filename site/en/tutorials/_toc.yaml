@@ -74,6 +74,12 @@ toc:
   section:
   - title: "Distributed training with Keras"
     path: /tutorials/distribute/keras
+  - title: "Distributed training with DTensors"
+    path: /tutorials/distribute/dtensor_ml_tutorial
+    status: experimental
+  - title: "Using DTensors with Keras"
+    path: /tutorials/distribute/dtensor_keras_tutorial
+    status: experimental
   - title: "Custom training loops"
     path: /tutorials/distribute/custom_training
   - title: "Multi-worker training with Keras"
@@ -104,7 +110,7 @@ toc:
   - title: "Image segmentation"
     path: /tutorials/images/segmentation
   - title: "Object detection with TF Hub"
-    path: https://github.com/tensorflow/hub/blob/master/examples/colab/tf2_object_detection.ipynb
+    path: /hub/tutorials/tf2_object_detection
     status: external
 
 - title: "Text"
@@ -176,6 +182,9 @@ toc:
     path: /tutorials/generative/autoencoder
   - title: "Variational Autoencoder"
     path: /tutorials/generative/cvae
+  - title: "Lossy data compression"
+    path: /tutorials/generative/data_compression
+    status: new
 
 - title: "Model Understanding"
   style: accordion
@@ -184,7 +193,7 @@ toc:
     path: /tutorials/interpretability/integrated_gradients
   - title: "Uncertainty quantification with SNGP"
     path: /tutorials/understanding/sngp
-  - title: "Probabalistic regression"
+  - title: "Probabilistic regression"
     path: /probability/examples/Probabilistic_Layers_Regression
     status: external
 - title: "Reinforcement learning"
@@ -198,15 +207,12 @@ toc:
 
 - title: "tf.Estimator"
   style: accordion
+  status: deprecated
   section:
   - title: "Premade estimator"
     path: /tutorials/estimator/premade
   - title: "Linear model"
     path: /tutorials/estimator/linear
-  - title: "Boosted trees"
-    path: /tutorials/estimator/boosted_trees
-  - title: "Boosted trees model understanding"
-    path: /tutorials/estimator/boosted_trees_model_understanding
   - title: "Keras model to Estimator"
     path: /tutorials/estimator/keras_model_to_estimator
   - title: "Multi-worker training with Estimator"

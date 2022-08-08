@@ -20,13 +20,14 @@ landing_page:
         <table class="columns">
           <tr><td>
             <ul>
-              <li>Python 3.6–3.9</li>
+              <li>Python 3.7–3.10</li>
               <li>Ubuntu 16.04 or later</li>
               <li>Windows 7 or later (with <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads">C++ redistributable</a>)</li>
             </ul>
           </td><td>
             <ul>
               <li>macOS 10.12.6 (Sierra) or later (no GPU support)</li>
+              <li>WSL2 via Windows 10 19044 or higher including GPUs (Experimental)</li>
             </ul>
           </td></tr>
         </table>
@@ -40,7 +41,6 @@ landing_page:
         <p>Install TensorFlow with Python's <em>pip</em> package manager.</p>
         <aside class="note">TensorFlow 2 packages require a <code>pip</code> version >19.0 (or >20.3 for macOS).</aside>
         <p>Official packages available for Ubuntu, Windows, and macOS.</p>
-        <p>See the <a href="./gpu">GPU guide</a> for CUDA®-enabled cards.</p>
 
       buttons:
       - label: Read the pip install guide
@@ -66,8 +66,7 @@ landing_page:
           The <a href="https://hub.docker.com/r/tensorflow/tensorflow/" class="external">TensorFlow
           Docker images</a> are already configured to run TensorFlow. A
           <a href="https://docs.docker.com/install/" class="external">Docker</a> container runs in a
-          virtual environment and is the easiest way to set up <a href="/install/gpu">GPU
-          support</a>.
+          virtual environment and is the easiest way to set up GPU support.
         </p>
         <pre class="prettyprint lang-bsh">
         <code class="devsite-terminal">docker pull tensorflow/tensorflow:latest  # Download latest stable image</code><br/>

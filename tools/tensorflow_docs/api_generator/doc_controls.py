@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2018 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -73,17 +72,17 @@ def should_hide_from_search(obj) -> bool:
   return hasattr(obj, _NO_SEARCH_HINTS)
 
 
-_CUSTOM_PAGE_CONTENT = "_tf_docs_custom_page_content"
+_CUSTOM_PAGE_BUILDER_CLS = "_tf_docs_custom_page_builder_cls"
 
 
-def set_custom_page_content(obj, content):
+def set_custom_page_builder_cls(obj, cls):
   """Replace most of the generated page with custom content."""
-  setattr(obj, _CUSTOM_PAGE_CONTENT, content)
+  setattr(obj, _CUSTOM_PAGE_BUILDER_CLS, cls)
 
 
-def get_custom_page_content(obj):
+def get_custom_page_builder_cls(obj):
   """Gets custom page content if available."""
-  return getattr(obj, _CUSTOM_PAGE_CONTENT, None)
+  return getattr(obj, _CUSTOM_PAGE_BUILDER_CLS, None)
 
 
 _DO_NOT_DOC = "_tf_docs_do_not_document"
@@ -353,8 +352,8 @@ def doc_in_current_and_subclasses(obj: T) -> T:
   """Overrides `do_not_doc_in_subclasses` decorator.
 
   If this decorator is set on a child class's method whose parent's method
-  contains `do_not_doc_in_subclasses`, then that will be overriden and the
-  child method will get documented. All classes inherting from the child will
+  contains `do_not_doc_in_subclasses`, then that will be overridden and the
+  child method will get documented. All classes inheriting from the child will
   also document that method.
 
   For example:

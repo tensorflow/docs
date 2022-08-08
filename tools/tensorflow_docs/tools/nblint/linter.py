@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2020 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,7 +94,7 @@ class Linter:
     """Run lint and capture any stderr output for the status display.
 
     Args:
-      lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint: `decorator.Lint` containing the assertion, scope, and condition.
       lint_args: Nested dictionary of args to pass the lint callback function.
       status: The `LinterStatus` to add individual entries for group members.
 
@@ -132,7 +131,7 @@ class Linter:
     """Run lint over all cells with scope and return cumulative pass/fail.
 
     Args:
-      lint: `decorator.Lint` containg the assertion, scope, and condition.
+      lint: `decorator.Lint` containing the assertion, scope, and condition.
       lint_args: Nested dictionary of args to pass the lint callback function.
       data: `dict` containing data of entire parse notebook.
       status: The `LinterStatus` to add individual entries for group members.

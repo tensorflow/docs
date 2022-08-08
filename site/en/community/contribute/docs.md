@@ -24,11 +24,14 @@ To participate in the TensorFlow docs community:
 
 * Watch the [tensorflow/docs](https://github.com/tensorflow/docs) GitHub
   repository.
-* Subscribe to [docs@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
+* Follow the [docs](https://discuss.tensorflow.org/tag/docs) tag on the
+  [TensorFlow Forum](https://discuss.tensorflow.org/).
+
 
 ## API reference
 
-To update reference documentation, find the
+For details, use the [TensorFlow API docs contributor guide](docs_ref.md). This
+shows you how to find the
 [source file](https://www.tensorflow.org/code/tensorflow/python/)
 and edit the symbol's
 <a href="https://www.python.org/dev/peps/pep-0257/" class="external">docstring</a>.
@@ -38,9 +41,6 @@ where the symbol is defined. Docstrings support
 and can be (approximately) previewed using any
 <a href="http://tmpvar.com/markdown.html" class="external">Markdown previewer</a>.
 
-For reference documentation quality and how to get involved with doc sprints and
-the community, see the
-[TensorFlow 2 API Docs advice](https://docs.google.com/document/d/1e20k9CuaZ_-hp25-sSd8E8qldxKPKQR-SkwojYr_r-U/preview).
 
 ### Versions and branches
 
@@ -167,21 +167,21 @@ when you submit your pull request.
 Add a remote:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">git remote add <var>upstream</var> git@github.com:tensorflow/docs.git</code>
+<code class="devsite-terminal">git remote add upstream git@github.com:tensorflow/docs.git</code>
 
 # View remote repos
 <code class="devsite-terminal">git remote -v</code>
 origin    git@github.com:<var>username</var>/docs.git (fetch)
 origin    git@github.com:<var>username</var>/docs.git (push)
-<var>upstream</var>  git@github.com:tensorflow/docs.git (fetch)
-<var>upstream</var>  git@github.com:tensorflow/docs.git (push)
+upstream  git@github.com:tensorflow/docs.git (fetch)
+upstream  git@github.com:tensorflow/docs.git (push)
 </pre>
 
 To update:
 
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal">git checkout master</code>
-<code class="devsite-terminal">git pull <var>upstream</var> master</code>
+<code class="devsite-terminal">git pull upstream master</code>
 
 <code class="devsite-terminal">git push</code>  # Push changes to your GitHub account (defaults to origin)
 </pre>

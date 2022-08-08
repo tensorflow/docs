@@ -1,4 +1,3 @@
-# Lint as: python3
 # Copyright 2020 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,7 @@
 # ==============================================================================
 r"""Lint assertions for notebooks published on tensorflow.org.
 
-These lints are a non-exhaustive implemention of style rules found in the
+These lints are a non-exhaustive implementation of style rules found in the
 TensorFlow documentation and style guides. See:
 
 - https://www.tensorflow.org/community/contribute/docs

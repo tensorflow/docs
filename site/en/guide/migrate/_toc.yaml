@@ -37,11 +37,11 @@ toc:
   path: /guide/migrate/migrating_feature_columns
 - title: Metrics and optimizers
   path: /guide/migrate/metrics_optimizers
-- title: Incoroprate fault tolerance in training
+- title: Incorporate fault tolerance in training
   path: /guide/migrate/fault_tolerance
 - title: Evaluate training metrics with SidecarEvaluator
   path: /guide/migrate/evaluator
-- title: Tensorboard metric displays
+- title: TensorBoard metric displays
   path: /guide/migrate/tensorboard
 
 - heading: Migrate saving and export workflows
@@ -65,7 +65,7 @@ toc:
 - heading: Validate model quality and performance
 - title: Validate correctness and numerical equivalence
   path: /guide/migrate/validate_correctness
-#  - title: Quality testing and debugging
-#    path: /guide/migrate/testing_debugging
+- title: Debug TF2 Migrated Training Pipeline
+  path: /guide/migrate/migration_debugging
 #  - title: Testing speed and throughput
 #    path: /guide/migrate/throughput_testing

@@ -79,7 +79,7 @@ def clean_notebook(data: Dict[str, Any], nb_source: str, filepath: pathlib.Path,
   nbjson = json.dumps(data, sort_keys=True, ensure_ascii=False, indent=indent)
 
   if not OSS:
-    # Serialization differences in enviroments.
+    # Serialization differences in environments.
     str_replaces = {"<": r"\u003c", ">": r"\u003e", "&": r"\u0026"}
     for str_from, str_to in str_replaces.items():
       nbjson = nbjson.replace(str_from, str_to)
@@ -161,7 +161,7 @@ def _clean_metadata_colab(cell_metadata: Dict[str, Any],
 
   Remove all `metadata.colab` contents except for `metadata.colab.resources`, if
   present. The Colab resources are used to embed data within the notebook and
-  can be treated like output cells (kept unless explictly removed).
+  can be treated like output cells (kept unless explicitly removed).
 
   Args:
     cell_metadata: object representing the parsed JSON metadata from a cell.
