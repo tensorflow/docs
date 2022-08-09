@@ -50,12 +50,12 @@ step-by-step instructions.
    higher. This corresponds to Windows 10 version 21H2, the November 2021
    update. You can get the latest update from here:
    [Download Windows 10](https://www.microsoft.com/software-download/windows10){:.external}.
-   For instructions, please see 
+   For instructions, please see
    [Install WSL2](https://docs.microsoft.com/windows/wsl/install){:.external}
    and
    [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html){:.external}
    for CUDA in WSL.
-  
+
    ```bash
    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
@@ -364,7 +364,7 @@ successfully.
    ## 1. System requirements
 
    *   Windows 7 or higher (64-bit)
-   
+
    Note: Windows CPU TensorFlow builds are built and tested by a third party.
    TensorFlow will endeavor to maintain availability and integrity of this
    binary on a best-effort basis.
