@@ -12,14 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-r"""A collection of utilties for working with notebook files."""
-import json
+"""A collection of utilities for working with notebook files."""
+import dataclasses
 import hashlib
+import json
+import logging
 import pathlib
 import sys
 import textwrap
 
 from typing import Any, Dict, List, Optional, Tuple, Union
+
+from nbformat import notebooknode
 
 
 def collect_notebook_paths(
@@ -109,3 +113,60 @@ def del_entries_except(data: Dict[str, Any], keep: List[str]) -> None:
   to_delete = set(data.keys()) - frozenset(keep)
   for key in to_delete:
     del data[key]
+
+
+@dataclasses.dataclass
+class CellCopyStats:
+  processed_cells: int = 0
+  updated_cells: int = 0
+  unmatched_target_cells: list[str] = dataclasses.field(default_factory=list)
+  unmatched_source_cells: list[str] = dataclasses.field(default_factory=list)
+  out_of_order_target_cells: list[str] = dataclasses.field(default_factory=list)
+
+
+def copy_code_cells(source: notebooknode.NotebookNode,
+                    target: notebooknode.NotebookNode) -> CellCopyStats:
+  """Copies code cell source and outputs from source to target."""
+  stats = CellCopyStats()
+  if len(source.cells) != len(target.cells):
+    logging.warning('Source and target notebook have unequal cell counts.')
+
+  target_indices = {c['metadata']['id']: i for i, c in enumerate(target.cells)}
+
+  last_target_idx = -1
+  for cell in source.cells:
+    cell_id = cell['metadata']['id']
+
+    if cell.get('cell_type') != 'code':
+      target_indices.pop(cell_id, None)
+      continue
+
+    if cell_id not in target_indices:
+      logging.warning('Cell %s is not present in the target notebook.', cell_id)
+      stats.unmatched_target_cells.append(cell_id)
+      continue
+
+    stats.processed_cells += 1
+
+    if last_target_idx > (target_idx := target_indices.pop(cell_id)):
+      logging.warning(
+          'Cell %s has been moved earlier in the notebook than expected.',
+          cell_id)
+      stats.out_of_order_target_cells.append(cell_id)
+
+    target_cell = target.cells[target_idx]
+    modified = False
+    for field in 'source', 'outputs':
+      new_value = cell.get(field)
+      if target_cell.get(field) != new_value:
+        target_cell[field] = new_value
+        modified = True
+
+    stats.updated_cells += modified
+    last_target_idx = target_idx
+
+  stats.unmatched_source_cells = [
+      c for c, i in target_indices.items()
+      if target.cells[i].get('cell_type') == 'code'
+  ]
+  return stats
