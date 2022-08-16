@@ -21,6 +21,13 @@ toc:
 - heading: "Keras"
 - include: /guide/keras/_toc.yaml
 
+- heading: "Build with Core"
+  status: new
+- title: "Overview"
+  path: /guide/core/index
+- title: "Quickstart for Core"
+  path: /guide/core/quickstart_core
+
 - heading: "TensorFlow in depth"
 - title: "Tensor slicing"
   path: /guide/tensor_slicing
