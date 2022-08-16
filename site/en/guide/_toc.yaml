@@ -31,6 +31,8 @@ toc:
   path: /guide/core/logistic_regression_core
 - title: "Multilayer perceptrons"
   path: /guide/core/mlp_core
+- title: "Matrix approximation"
+  path: /guide/core/matrix_core
 
 - heading: "TensorFlow in depth"
 - title: "Tensor slicing"
