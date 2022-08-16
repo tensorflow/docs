@@ -27,6 +27,8 @@ toc:
   path: /guide/core/index
 - title: "Quickstart for Core"
   path: /guide/core/quickstart_core
+- title: "Logistic regression"
+  path: /guide/core/logistic_regression_core
 
 - heading: "TensorFlow in depth"
 - title: "Tensor slicing"
