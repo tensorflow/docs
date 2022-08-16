@@ -29,6 +29,7 @@ REQUIRED_PKGS = [
     'astor',
     'absl-py',
     'jinja2',
+    'nbformat',
     # TODO(b/182876485): Protobuf 3.20 results in linker errors on Windows
     # Protobuf 4.0 is binary incompatible with what C++ TF uses.
     # We need ~1 quarter to update properly.
