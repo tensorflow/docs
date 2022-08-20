@@ -83,7 +83,7 @@ class ReferenceResolver:
                duplicate_of: Dict[str, str],
                is_fragment: Dict[str, bool],
                py_module_names: List[str],
-               link_prefix: Optional[str] = None):,
+               link_prefix: Optional[str] = None):
     """Initializes a Reference Resolver.
 
     Args:
