@@ -21,7 +21,7 @@ import json
 import os
 import posixpath
 import re
-
+from typing import Dict
 from typing import Optional, Union
 
 from tensorflow_docs.api_generator import parser
@@ -81,12 +81,11 @@ class ReferenceResolver:
   def __init__(
       self,
       *,
-      dict = [None]
-      duplicate_of: dict[str, str],
-      is_fragment: dict[str, bool],
-      py_module_names: Union[list[str], dict[str, str]],
+      duplicate_of: Dict[str, str],
+      is_fragment: Dict[str, bool],
+      py_module_names: Union[list[str], Dict[str, str]],
       link_prefix: Optional[str] = None,
-      physical_path: Optional[dict[str, str]] = None,
+      physical_path: Optional[Dict[str, str]] = None,
   ):
     """Initializes a Reference Resolver.
 
