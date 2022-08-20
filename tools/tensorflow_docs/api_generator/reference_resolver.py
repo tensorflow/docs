@@ -23,7 +23,7 @@ import posixpath
 import re
 from typing import Dict
 from typing import Optional, Union
-
+from __future__ import annotations
 from tensorflow_docs.api_generator import parser
 
 
