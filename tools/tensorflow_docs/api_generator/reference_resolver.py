@@ -84,8 +84,8 @@ class ReferenceResolver:
       duplicate_of: dict[str, str],
       is_fragment: dict[str, bool],
       py_module_names: Union[list[str], dict[str, str]],
-      link_prefix: Optional[str] = None,
-      physical_path: Optional[dict[str]] = None,
+      link_prefix: Optional[str] = [None],
+      physical_path: Optional[dict[str, str]] = None,
   ):
     """Initializes a Reference Resolver.
 
