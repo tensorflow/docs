@@ -79,15 +79,11 @@ class ReferenceResolver:
       """,
       flags=re.VERBOSE)
 
-  def __init__(
-      self,
-      *,
-      duplicate_of: Dict[str, str],
-      is_fragment: Dict[str, bool],
-      py_module_names: Union[list[str], Dict[str, str]],
-      link_prefix: Optional[str] = None,
-      physical_path: Optional[Dict[str, str]] = None,
-  ):
+  def __init__(self,
+               duplicate_of: Dict[str, str],
+               is_fragment: Dict[str, bool],
+               py_module_names: List[str],
+               link_prefix: Optional[str] = None):,
     """Initializes a Reference Resolver.
 
     Args:
