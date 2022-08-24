@@ -33,6 +33,8 @@ toc:
   path: /guide/core/mlp_core
 - title: "Matrix approximation"
   path: /guide/core/matrix_core
+- title: "Custom optimizers"
+  path: /guide/core/optimizers_core
 
 - heading: "TensorFlow in depth"
 - title: "Tensor slicing"
