@@ -35,6 +35,9 @@ toc:
   path: /guide/core/matrix_core
 - title: "Custom optimizers"
   path: /guide/core/optimizers_core
+- title: "DTensor with Core APIs"
+  path: /guide/core/distribution
+  status: experimental
 
 - heading: "TensorFlow in depth"
 - title: "Tensor slicing"
