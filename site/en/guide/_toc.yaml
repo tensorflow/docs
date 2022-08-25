@@ -108,6 +108,9 @@ toc:
   path: /tfmodels/vision/image_classification
 - title: "Training with Orbit"
   path: /tfmodels/orbit
+- title: "TFModels - NLP"
+  path: /tfmodels/nlp
+  status: external
 
 - heading: "Estimators"
   status: deprecated
