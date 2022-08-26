@@ -166,7 +166,7 @@ The following NVIDIA® software are only required for GPU support.
 
     ### 3. Create a conda environment
 
-Create a new conda environment named `tf` with the following command.
+    Create a new conda environment named `tf` with the following command.
 
     ```bash
     conda create --name tf python=3.9
