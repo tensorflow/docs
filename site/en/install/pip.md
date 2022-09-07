@@ -13,74 +13,100 @@ step-by-step instructions.
 
 * {Linux}
 
-   ```bash
-   conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-   python3 -m pip install tensorflow
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-   ```
+    Note: Starting with TensorFlow `2.10`, Linux CPU-builds for Aarch64/ARM64
+    processors are are built, maintained, tested and released by a third party:
+    [AWS](https://aws.amazon.com/).
+    Installing the [`tensorflow`](https://pypi.org/project/tensorflow/)
+    package on an ARM machine installs AWS's
+    [`tensorflow-cpu-aws`](https://pypi.org/project/tensorflow-cpu-aws/) package.
+    They are provided as-is. Tensorflow will use reasonable efforts to maintain
+    the availability and integrity of this pip package. There may be delays if
+    the third party fails to release the pip package. See
+    [this blog post](https://blog.tensorflow.org/2022/09/announcing-tensorflow-official-build-collaborators.html)
+    for more information about this collaboration.
+
+    ```bash
+    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+    python3 -m pip install tensorflow
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    ```
 
 * {MacOS}
 
-   ```bash
-   # There is currently no official GPU support for MacOS.
-   python3 -m pip install tensorflow
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
-   ```
+    ```bash
+    # There is currently no official GPU support for MacOS.
+    python3 -m pip install tensorflow
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    ```
 
 * {Windows Native}
 
-   Caution: The current TensorFlow version, `2.10`, is the **last** TensorFlow
-   release that will support GPU on native-Windows.
-   Starting with TensorFlow `2.11`, you will need to install
-   [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2),
-   or install `tensorflow_cpu` and, optionally, try the
-   [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
+    Caution: The current TensorFlow version, `2.10`, is the **last** TensorFlow
+    release that will support GPU on native-Windows.
+    Starting with TensorFlow `2.11`, you will need to install
+    [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2),
+    or install `tensorflow_cpu` and, optionally, try the
+    [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
-   ```bash
-   conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-   python3 -m pip install tensorflow
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-   ```
+    ```bash
+    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    python3 -m pip install tensorflow
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    ```
 
 * {Windows WSL2}
 
-   Note: TensorFlow with GPU access is supported for WSL2 on Windows 10 19044 or
-   higher. This corresponds to Windows 10 version 21H2, the November 2021
-   update. You can get the latest update from here:
-   [Download Windows 10](https://www.microsoft.com/software-download/windows10){:.external}.
-   For instructions, see
-   [Install WSL2](https://docs.microsoft.com/windows/wsl/install){:.external}
-   and
-   [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html){:.external}
-   for CUDA in WSL.
+    Note: TensorFlow with GPU access is supported for WSL2 on Windows 10 19044 or
+    higher. This corresponds to Windows 10 version 21H2, the November 2021
+    update. You can get the latest update from here:
+    [Download Windows 10](https://www.microsoft.com/software-download/windows10){:.external}.
+    For instructions, see
+    [Install WSL2](https://docs.microsoft.com/windows/wsl/install){:.external}
+    and
+    [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html){:.external}
+    for CUDA in WSL.
 
-   ```bash
-   conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-   python3 -m pip install tensorflow
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-   ```
+    ```bash
+    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+    python3 -m pip install tensorflow
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    ```
 
 * {CPU}
 
-   ```bash
-   python3 -m pip install tensorflow
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
-   ```
+    Note: Starting with TensorFlow `2.10`, Windows CPU-builds for x86/x64
+    processors are built, maintained, tested and released by a third party: 
+    [Intel](https://www.intel.com/).
+    Installing the windows-native 
+    [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
+    package installs Intel's
+    [`tensorflow-intel`](https://pypi.org/project/tensorflow-intel/)
+    package. These packages are provided as-is. Tensorflow will use reasonable
+    efforts to maintain the availability and integrity of this pip package.
+    There may be delays if the third party fails to release the pip package. See
+    [this blog post](https://blog.tensorflow.org/2022/09/announcing-tensorflow-official-build-collaborators.html)
+    for more information about this
+    collaboration.
+
+    ```bash
+    python3 -m pip install tensorflow
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    ```
 
 * {Nightly}
 
-   ```bash
-   python3 -m pip install tf-nightly
-   # Verify install:
-   python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
-   ```
+    ```bash
+    python3 -m pip install tf-nightly
+    # Verify install:
+    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    ```
 
 ## Hardware requirements
 
@@ -144,6 +170,18 @@ The following NVIDIA® software are only required for GPU support.
 
     TensorFlow only officially support Ubuntu. However, the following
     instructions may also work for other Linux distros.
+
+    Note: Starting with TensorFlow `2.10`, Linux CPU-builds for Aarch64/ARM64
+    processors are are built, maintained, tested and released by a third party:
+    [AWS](https://aws.amazon.com/).
+    Installing the [`tensorflow`](https://pypi.org/project/tensorflow/)
+    package on an ARM machine installs AWS's
+    [`tensorflow-cpu-aws`](https://pypi.org/project/tensorflow-cpu-aws/) package.
+    They are provided as-is. Tensorflow will use reasonable efforts to maintain
+    the availability and integrity of this pip package. There may be delays if
+    the third party fails to release the pip package. See
+    [this blog post](https://blog.tensorflow.org/2022/09/announcing-tensorflow-official-build-collaborators.html)
+    for more information about this collaboration.
 
     ### 2. Install Miniconda
 
@@ -356,6 +394,20 @@ The following NVIDIA® software are only required for GPU support.
    ## 1. System requirements
 
    *   Windows 7 or higher (64-bit)
+
+    Note: Starting with TensorFlow `2.10`, Windows CPU-builds for x86/x64
+    processors are built, maintained, tested and released by a third party: 
+    [Intel](https://www.intel.com/).
+    Installing the windows-native 
+    [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
+    package installs Intel's
+    [`tensorflow-intel`](https://pypi.org/project/tensorflow-intel/)
+    package. These packages are provided as-is. Tensorflow will use reasonable
+    efforts to maintain the availability and integrity of this pip package.
+    There may be delays if the third party fails to release the pip package. See
+    [this blog post](https://blog.tensorflow.org/2022/09/announcing-tensorflow-official-build-collaborators.html)
+    for more information about this
+    collaboration.
 
     ### 2. Install Microsoft Visual C++ Redistributable
 
