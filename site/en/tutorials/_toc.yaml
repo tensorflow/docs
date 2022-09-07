@@ -146,10 +146,8 @@ toc:
     path: /tutorials/audio/simple_audio
   - title: "Transfer learning for audio recognition"
     path: /tutorials/audio/transfer_learning_audio
-    status: new
   - title: "Generate music with an RNN"
     path: /tutorials/audio/music_generation
-    status: new
 
 - title: "Structured data"
   style: accordion
@@ -188,14 +186,12 @@ toc:
     path: /tutorials/generative/cvae
   - title: "Lossy data compression"
     path: /tutorials/generative/data_compression
-    status: new
 
 - title: "Model optimization"
   style: accordion
   section:
   - title: "Scalable model compression with EPR"
     path: /tutorials/optimization/compression
-    status: new
   - title: "TensorFlow model optimization"
     status: external
     path: /model_optimization
