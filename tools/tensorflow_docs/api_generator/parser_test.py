@@ -15,6 +15,7 @@
 """Tests for documentation parser."""
 
 import collections
+from collections import abc
 import dataclasses
 import inspect
 import textwrap
@@ -96,7 +97,7 @@ class TestClass(ParentClass):
   CLASS_MEMBER = 'a class member'
 
 
-class ConcreteMutableMapping(collections.MutableMapping):
+class ConcreteMutableMapping(abc.MutableMapping):
   """MutableMapping subclass to repro getsource() IndexError."""
 
   def __init__(self):
