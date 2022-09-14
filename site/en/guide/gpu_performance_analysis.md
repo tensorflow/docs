@@ -169,8 +169,8 @@ the trace viewer, you should look at the model code between steps and check if
 disabling callbacks/metrics improves performance. Some details of these ops are
 also on the trace viewer (both device and host side).The recommendation in this
 scenario is to amortize the overhead of these ops by executing them after a
-fixed number of steps instead of every step. When using the `compile` method in
-the `tf.keras` API, setting the `experimental_steps_per_execution` flag does
+fixed number of steps instead of every step. When using the `Model.compile` method in
+the `tf.keras` API, setting the `steps_per_execution` flag does
 this automatically. For custom training loops, use `tf.while_loop`.
 
 #### 2. Achieve higher device utilization
