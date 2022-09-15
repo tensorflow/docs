@@ -35,6 +35,9 @@ toc:
   section:
   - title: "Images"
     path: /tutorials/load_data/images
+  - title: "Video"
+    path: /tutorials/load_data/video
+    status: new
   - title: "CSV"
     path: /tutorials/load_data/csv
   - title: "NumPy"
