@@ -92,7 +92,7 @@ git checkout <em>branch_name</em>  # r2.2, r2.3, etc.
 Configure your system build by running the `./configure` at the root of your
 TensorFlow source tree. This script prompts you for the location of TensorFlow
 dependencies and asks for additional build configuration options (compiler
-flags, for example).
+flags, for example). Please refer "Sample session" section for details.
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
@@ -111,65 +111,43 @@ session may differ):
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal">
 ./configure
-You have bazel 3.0.0 installed.
-Please specify the location of python. [Default is /usr/bin/python3]: 
+You have bazel 5.0.0 installed.
+Please specify the location of python. [Default is /Library/Frameworks/Python.framework/Versions/3.9/bin/python3]: 
 
 
 Found possible Python library paths:
-  /usr/lib/python3/dist-packages
-  /usr/local/lib/python3.6/dist-packages
-Please input the desired Python library path to use.  Default is [/usr/lib/python3/dist-packages]
+  /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages
+Please input the desired Python library path to use.  Default is [/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages]
 
-Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: 
-No OpenCL SYCL support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with ROCm support? [y/N]: 
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
 No ROCm support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: Y
-CUDA support will be enabled for TensorFlow.
+Do you wish to build TensorFlow with CUDA support? [y/N]: n
+No CUDA support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with TensorRT support? [y/N]: 
-No TensorRT support will be enabled for TensorFlow.
+Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
+Clang will not be downloaded.
 
-Found CUDA 10.1 in:
-    /usr/local/cuda-10.1/targets/x86_64-linux/lib
-    /usr/local/cuda-10.1/targets/x86_64-linux/include
-Found cuDNN 7 in:
-    /usr/lib/x86_64-linux-gnu
-    /usr/include
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]: n
 
 
-Please specify a list of comma-separated CUDA compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
-Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 6.1
-
-
-Do you want to use clang as CUDA compiler? [y/N]: 
-nvcc will be used as CUDA compiler.
-
-Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
-
-
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
-
-
-Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
 Not configuring the WORKSPACE for Android builds.
+
+Do you wish to build TensorFlow with iOS support? [y/N]: n
+No iOS support will be enabled for TensorFlow.
 
 Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
 	--config=mkl         	# Build with MKL support.
+	--config=mkl_aarch64 	# Build with oneDNN and Compute Library for the Arm Architecture (ACL).
 	--config=monolithic  	# Config for mostly static monolithic build.
-	--config=ngraph      	# Build with Intel nGraph support.
 	--config=numa        	# Build with NUMA support.
 	--config=dynamic_kernels	# (Experimental) Build kernels into separate shared objects.
-	--config=v2          	# Build TensorFlow 2.x instead of 1.x.
+	--config=v1          	# Build with TensorFlow 1 API instead of TF 2 API.
 Preconfigured Bazel build configs to DISABLE default on features:
-	--config=noaws       	# Disable AWS S3 filesystem support.
 	--config=nogcp       	# Disable GCP support.
-	--config=nohdfs      	# Disable HDFS support.
 	--config=nonccl      	# Disable NVIDIA NCCL support.
-Configuration finished
+
 </pre>
 </section>
 
