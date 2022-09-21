@@ -92,7 +92,7 @@ git checkout <em>branch_name</em>  # r2.2, r2.3, etc.
 Configure your system build by running the `./configure` at the root of your
 TensorFlow source tree. This script prompts you for the location of TensorFlow
 dependencies and asks for additional build configuration options (compiler
-flags, for example). Please refer "Sample session" section for details.
+flags, for example). Refer to the _Sample session_ section for details.
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
