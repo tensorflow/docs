@@ -14,7 +14,7 @@ step-by-step instructions.
 * {Linux}
 
     Note: Starting with TensorFlow `2.10`, Linux CPU-builds for Aarch64/ARM64
-    processors are are built, maintained, tested and released by a third party:
+    processors are built, maintained, tested and released by a third party:
     [AWS](https://aws.amazon.com/).
     Installing the [`tensorflow`](https://pypi.org/project/tensorflow/)
     package on an ARM machine installs AWS's
@@ -172,7 +172,7 @@ The following NVIDIA® software are only required for GPU support.
     instructions may also work for other Linux distros.
 
     Note: Starting with TensorFlow `2.10`, Linux CPU-builds for Aarch64/ARM64
-    processors are are built, maintained, tested and released by a third party:
+    processors are built, maintained, tested and released by a third party:
     [AWS](https://aws.amazon.com/).
     Installing the [`tensorflow`](https://pypi.org/project/tensorflow/)
     package on an ARM machine installs AWS's
