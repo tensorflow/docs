@@ -92,7 +92,7 @@ to ensure that the output tensor is the same shape as the input tensor. For
 example, if the input is a tensor of shape [10, 20], then this shape function
 specifies that the output shape is also [10, 20].
 
-Note: The op name must be in CamelCase and it must be unique among all other ops
+Note: The op name must be in CamelCase, and it must be unique among all other ops
 that are registered in the binary.
 
 ## Implement the kernel for the op
@@ -155,9 +155,9 @@ REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
 >   Consider using a [`ResourceMgr`](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h)
 >   to keep track of op state.
 
-### Multi-threaded CPU kernels
+### Multithreaded CPU kernels
 
-To write a multi-threaded CPU kernel, the Shard function in
+To write a multithreaded CPU kernel, the Shard function in
 [`work_sharder.h`](https://www.tensorflow.org/code/tensorflow/core/util/work_sharder.h)
 can be used. This function shards a computation function across the
 threads configured to be used for intra-op threading (see
@@ -441,7 +441,7 @@ with [PEP8](https://www.python.org/dev/peps/pep-0008/)). So, if your op is
 named `ZeroOut` in the C++ files, the python function will be called `zero_out`.
 
 To make the op available as a regular function `import`-able from a Python
-module, it maybe useful to have the `load_op_library` call in a Python source
+module, It may be useful to have the `load_op_library` call in a Python source
 file as follows:
 
 ```python
@@ -498,7 +498,7 @@ typically need to build into your op. This includes:
 ### Conditional checks and validation
 
 The example above assumed that the op applied to a tensor of any shape.  What
-if it only applied to vectors?  That means adding a check to the above OpKernel
+if it only applied to the vectors?  That means adding a check to the above OpKernel
 implementation.
 
 ```c++
@@ -759,7 +759,7 @@ use `tf.DType`.
 
 For ops that can take different types as input or produce different output
 types, you can specify [an attr](#attrs) in
-[an input or output type](#inputs-and-outputs) in the op registration.  Typically
+[an input or output type](#inputs-and-outputs) in the op registration.  Typically,
 you would then register an `OpKernel` for each supported type.
 
 For instance, if you'd like the `ZeroOut` op to work on `float`s
@@ -778,7 +778,7 @@ Your op registration now specifies that the input's type must be `float`, or
 ###### Naming
 
 Inputs, outputs, and attrs generally should be given snake\_case names. The one
-exception is attrs that are used as the type of an input or in the type of an
+exception is attrs that are used as the type of input or in the type of
 output. Those attrs can be inferred when the op is added to the graph and so
 don't appear in the op's function. For example, this last definition of ZeroOut
 will generate a Python function that looks like:
@@ -1163,7 +1163,7 @@ expressions:
 * For a reference to a tensor: `Ref(<type>)`, where `<type>` is one of the
   previous types.
 
-Any attr used in the type of an input will be inferred. By convention those
+Any attr used in the type of input will be inferred. By convention those
 inferred attrs use capital names (like `T` or `N`). Otherwise inputs, outputs,
 and attrs have names like function parameters (e.g. `num_outputs`). For more
 details, see the [earlier section on naming](#naming).
@@ -1232,7 +1232,7 @@ a new operation with a new name with the new semantics.
 Also note that while these changes can maintain `GraphDef` compatibility, the
 generated Python code may change in a way that isn't compatible with old
 callers.  The Python API may be kept compatible by careful changes in a
-hand-written Python wrapper, by keeping the old signature except possibly adding
+handwritten Python wrapper, by keeping the old signature except possibly adding
 new optional arguments to the end.  Generally incompatible changes may only be
 made when TensorFlow changes major versions, and must conform to the
 [`GraphDef` version semantics](./versions.md#compatibility_of_graphs_and_checkpoints).
@@ -1454,7 +1454,7 @@ dynamically, shape functions must be robust to incomplete shape information for
 any of the inputs. The `Merge` method in [`InferenceContext`](https://www.tensorflow.org/code/tensorflow/core/framework/shape_inference.h)
 allows the caller to assert that two shapes are the same, even if either
 or both of them do not have complete information. Shape functions are defined
-for all of the core TensorFlow ops and provide many different usage examples.
+for all the core TensorFlow ops and provide many usage examples.
 
 The `InferenceContext` class has a number of functions that can be used to
 define shape function manipulations.  For example, you can validate that a
@@ -1462,7 +1462,7 @@ particular dimension has a very specific value using `InferenceContext::Dim` and
 `InferenceContext::WithValue`; you can specify that an output dimension is the
 sum / product of two input dimensions using `InferenceContext::Add` and
 `InferenceContext::Multiply`. See the `InferenceContext` class for
-all of the various shape manipulations you can specify. The following example sets
+all the various shape manipulations you can specify. The following example sets
 shape of the first output to (n, 3), where first input has shape (n, ...)
 
 ```c++
