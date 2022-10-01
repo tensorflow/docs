@@ -80,7 +80,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 <code class="devsite-terminal tfo-terminal-windows">cd tensorflow</code>
 </pre>
 
-The repo defaults to the `master` development branch. You can also checkout a
+The repo defaults to the `master` development branch. You can also check out a
 [release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
 to build:
 
@@ -131,7 +131,7 @@ Please specify the cuDNN version you want to use. [Leave empty to default to cuD
 Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0]: <b>C:\tools\cuda</b>
 
 Please specify a list of comma-separated Cuda compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
+You can find compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
 Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0]: <b>3.7</b>
 
 Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]:
