@@ -402,7 +402,7 @@ class TfSignature(inspect.Signature):
   """A custom version of `inspect.Signature`."""
 
   def __init__(self, parameters, *, return_annotation, parser_config):
-    super().__init__(parameters, return_annotation=return_annotation)
+    super().__init__(parameters, return_annotation=return_annotation)  # pytype: disable=wrong-arg-types  # mapping-is-not-sequence
     self.parser_config = parser_config
 
   def replace(self, **kwargs):
