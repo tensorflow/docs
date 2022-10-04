@@ -87,18 +87,24 @@ git checkout <em>branch_name</em>  # r2.2, r2.3, etc.
 </pre>
 
 
-## Configure the build
+## Optional: Configure the build
 
-Configure your system build by running the `./configure` at the root of your
-TensorFlow source tree. This script prompts you for the location of TensorFlow
-dependencies and asks for additional build configuration options (compiler
-flags, for example).
+TensorFlow builds are configured by the `.bazelrc` file in the repository's
+root directory. The `./configure` or `./configure.py` scripts can be used to
+adjust common settings.
+
+If you need to change the configuration, run the `./configure` script from
+the repository's root directory. This script will prompt you for the location of
+TensorFlow dependencies and asks for additional build configuration options
+(compiler flags, for example). Refer to the _Sample session_ section for
+details.
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
 </pre>
 
-If using a virtual environment, `python configure.py` prioritizes paths
+There is also a python version of this script, `./configure.py`. If using a
+virtual environment, `python configure.py` prioritizes paths
 within the environment, whereas `./configure` prioritizes paths outside
 the environment. In both cases you can change the default.
 
@@ -111,65 +117,43 @@ session may differ):
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal">
 ./configure
-You have bazel 3.0.0 installed.
-Please specify the location of python. [Default is /usr/bin/python3]: 
+You have bazel 5.0.0 installed.
+Please specify the location of python. [Default is /Library/Frameworks/Python.framework/Versions/3.9/bin/python3]: 
 
 
 Found possible Python library paths:
-  /usr/lib/python3/dist-packages
-  /usr/local/lib/python3.6/dist-packages
-Please input the desired Python library path to use.  Default is [/usr/lib/python3/dist-packages]
+  /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages
+Please input the desired Python library path to use.  Default is [/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages]
 
-Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: 
-No OpenCL SYCL support will be enabled for TensorFlow.
-
-Do you wish to build TensorFlow with ROCm support? [y/N]: 
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
 No ROCm support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: Y
-CUDA support will be enabled for TensorFlow.
+Do you wish to build TensorFlow with CUDA support? [y/N]: n
+No CUDA support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with TensorRT support? [y/N]: 
-No TensorRT support will be enabled for TensorFlow.
+Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
+Clang will not be downloaded.
 
-Found CUDA 10.1 in:
-    /usr/local/cuda-10.1/targets/x86_64-linux/lib
-    /usr/local/cuda-10.1/targets/x86_64-linux/include
-Found cuDNN 7 in:
-    /usr/lib/x86_64-linux-gnu
-    /usr/include
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]: n
 
 
-Please specify a list of comma-separated CUDA compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
-Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 6.1
-
-
-Do you want to use clang as CUDA compiler? [y/N]: 
-nvcc will be used as CUDA compiler.
-
-Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
-
-
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
-
-
-Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
 Not configuring the WORKSPACE for Android builds.
+
+Do you wish to build TensorFlow with iOS support? [y/N]: n
+No iOS support will be enabled for TensorFlow.
 
 Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
 	--config=mkl         	# Build with MKL support.
+	--config=mkl_aarch64 	# Build with oneDNN and Compute Library for the Arm Architecture (ACL).
 	--config=monolithic  	# Config for mostly static monolithic build.
-	--config=ngraph      	# Build with Intel nGraph support.
 	--config=numa        	# Build with NUMA support.
 	--config=dynamic_kernels	# (Experimental) Build kernels into separate shared objects.
-	--config=v2          	# Build TensorFlow 2.x instead of 1.x.
+	--config=v1          	# Build with TensorFlow 1 API instead of TF 2 API.
 Preconfigured Bazel build configs to DISABLE default on features:
-	--config=noaws       	# Disable AWS S3 filesystem support.
 	--config=nogcp       	# Disable GCP support.
-	--config=nohdfs      	# Disable HDFS support.
 	--config=nonccl      	# Disable NVIDIA NCCL support.
-Configuration finished
+
 </pre>
 </section>
 
@@ -203,42 +187,34 @@ There are some preconfigured build configs available that can be added to the
 *   `--config=mkl` —Support for the
     [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
 *   `--config=monolithic` —Configuration for a mostly static, monolithic build.
-*   `--config=v1` —Build TensorFlow 1.x instead of 2.x.
-
-Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
-run on older CPUs.
 
 
-## Build the pip package
+## Build and install the pip package
 
-### TensorFlow 2.x
+The pip package is build in two steps. A `bazel build` commands creates a
+"package-builder" program. You then run the package-builder to create the
+package.
 
-[Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
-`bazel build` to create the TensorFlow 2.x package with *CPU-only* support:
+### Build the package-builder
+
+Use `bazel build` to create the TensorFlow 2.x package-builder with *CPU-only*
+support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build [--config=option] //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
+#### GPU support
+
 Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
 
-### GPU support
-
-To build a TensorFlow package builder with GPU support:
+To build a TensorFlow package-builder with GPU support:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build --config=cuda [--config=option] //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-### TensorFlow 1.x
-
-To build an older TensorFlow 1.x package, use the `--config=v1` option:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=v1 [--config=option] //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-### Bazel build options
+#### Bazel build options
 
 Refer to the Bazel
 [command-line reference](https://bazel.build/reference/command-line-reference)
@@ -248,7 +224,7 @@ for
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
-The [official TensorFlow packages](./pip.md) are built with a GCC 7.3
+The [official TensorFlow packages](./pip.md) are built with a GCC
 toolchain that complies with the manylinux2010 package standard.
 
 For GCC 5 and later, compatibility with the older ABI can be built using:
@@ -332,14 +308,14 @@ docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $
 With the source tree set up, build the TensorFlow package within the container's
 virtual environment:
 
-1.  Configure the build—this prompts the user to answer build configuration
+1.  Optional: Configure the build—this prompts the user to answer build configuration
     questions.
 2.  Build the tool used to create the *pip* package.
 3.  Run the tool to create the *pip* package.
 4.  Adjust the ownership permissions of the file for outside the container.
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
-<code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
+<code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
 <code class="devsite-terminal tfo-terminal-root">bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package</code>
 
@@ -389,7 +365,7 @@ Then, within the container's virtual environment, build the TensorFlow package
 with GPU support:
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
-<code class="devsite-terminal tfo-terminal-root">./configure  # answer prompts or use defaults</code>
+<code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
 <code class="devsite-terminal tfo-terminal-root">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</code>
 

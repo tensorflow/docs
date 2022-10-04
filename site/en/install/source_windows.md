@@ -92,10 +92,14 @@ Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
 
 
-## Configure the build
+## Optional: Configure the build
 
-Configure your system build by running the following at the root of your
-TensorFlow source tree:
+TensorFlow builds are configured by the `.bazelrc` file in the respoitory's
+root directory. The `./configure` or `./configure.py` scripts can be used to
+adjust common settings.
+
+If you need to change the configuration, run the `./configure` script from
+the repository's root directory.
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 python ./configure.py
@@ -151,32 +155,23 @@ version instead of relying on the default. `./configure.py` creates symbolic
 links to your system's CUDA libraries—so if you update your CUDA library paths,
 this configuration step must be run again before building.
 
-Note: Starting with TensorFlow 1.6, binaries use AVX instructions which may not
-run on older CPUs.
-
 Warning: TF-TRT Windows support is provided experimentally. No guarantee is made
 regarding functionality or engineering support. Use at your own risk.
 
-## Build the pip package
+## Build and install the pip package
 
-### TensorFlow 2.x
+The pip package gets built in two steps. A `bazel build` commands creates a
+"package-builder" program. You then run the package-builder to create the
+package.
+
+### Build the package-builder
 
 tensorflow:master repo has been updated to build 2.x by default.
 [Install Bazel](https://docs.bazel.build/versions/master/install.html) and use
-`bazel build ` to create the TensorFlow package.
+`bazel build ` to create the TensorFlow package-builder.
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-
-### TensorFlow 1.x
-
-To build the 1.x version of TensorFlow from master, use
-`bazel build --config=v1` to create a TensorFlow 1.x package.
-
-<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
-bazel build --config=v1 //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### CPU-only
