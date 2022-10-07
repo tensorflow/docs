@@ -78,7 +78,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 <code class="devsite-terminal">cd tensorflow</code>
 </pre>
 
-The repo defaults to the `master` development branch. You can also checkout a
+The repo defaults to the `master` development branch. You can also check out a
 [release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
 to build:
 
