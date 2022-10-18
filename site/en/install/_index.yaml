@@ -50,7 +50,7 @@ landing_page:
       code_block: |
         <pre class="prettyprint lang-bsh devsite-disable-click-to-copy">
         # Requires the latest pip
-        <code class="devsite-terminal">pip install --upgrade pip</code><br/>
+        <code class="devsite-terminal">python -m pip install --upgrade pip</code><br/>
         # Current stable release for CPU and GPU
         <code class="devsite-terminal">pip install tensorflow</code><br/>
         # Or try the preview build (unstable)

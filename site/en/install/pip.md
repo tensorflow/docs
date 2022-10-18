@@ -260,7 +260,7 @@ The following NVIDIA® software are only required for GPU support.
     installation to be sure you're running the latest version.
 
     ```bash
-    pip install --upgrade pip
+    python -m pip install --upgrade pip
     ```
 
     Then, install TensorFlow with pip.
@@ -361,7 +361,7 @@ The following NVIDIA® software are only required for GPU support.
     installation to be sure you're running the latest version.
 
     ```bash
-    pip install --upgrade pip
+    python -m pip install --upgrade pip
     ```
 
     Then, install TensorFlow with pip.
@@ -476,7 +476,7 @@ The following NVIDIA® software are only required for GPU support.
     installation to be sure you're running the latest version.
 
     ```bash
-    pip install --upgrade pip
+    python -m pip install --upgrade pip
     ```
 
     Then, install TensorFlow with pip.
@@ -598,7 +598,7 @@ The following NVIDIA® software are only required for GPU support.
     installation to be sure you're running the latest version.
 
     ```bash
-    pip install --upgrade pip
+    python -m pip install --upgrade pip
     ```
 
     Then, install TensorFlow with pip.
