@@ -97,7 +97,7 @@ toc:
   - title: "Distributed input"
     path: /tutorials/distribute/input
 
-- title: "Images"
+- title: "Vision"
   style: accordion
   section:
   - title: "Convolutional Neural Network"
@@ -115,6 +115,9 @@ toc:
   - title: "Object detection with TF Hub"
     path: /hub/tutorials/tf2_object_detection
     status: external
+  - title: "Video classification"
+    status: new
+    path: /tutorials/video/video_classification
 
 - title: "Text"
   style: accordion
