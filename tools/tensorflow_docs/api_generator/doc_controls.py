@@ -35,18 +35,23 @@ _INHERITABLE_HEADER = "_tf_docs_inheritable_header"
 
 def inheritable_header(text: str):
 
-  def _wrapped(cls):
-    setattr(cls, _INHERITABLE_HEADER, text)
-    return cls
+  def _wrapped(obj):
+    setattr(obj, _INHERITABLE_HEADER, text)
+    return obj
 
   return _wrapped
 
 
-def get_inheritable_header(cls) -> Optional[str]:
-  return getattr(cls, _INHERITABLE_HEADER, None)
+def get_inheritable_header(obj) -> Optional[str]:
+  return getattr(obj, _INHERITABLE_HEADER, None)
+
+
+header = inheritable_header
+get_header = get_inheritable_header
 
 
 _NO_SEARCH_HINTS = "_tf_docs_no_search_hints"
+
 
 
 def hide_from_search(obj: T) -> T:

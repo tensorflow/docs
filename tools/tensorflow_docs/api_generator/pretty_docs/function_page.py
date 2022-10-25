@@ -12,8 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import Any
+import textwrap
+from typing import Any, Optional
 
+from tensorflow_docs.api_generator import doc_controls
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import signature as signature_lib
 from tensorflow_docs.api_generator.pretty_docs import base_page
@@ -85,6 +87,13 @@ class FunctionPageInfo(base_page.PageInfo):
 
   def add_decorator(self, dec):
     self._decorators.append(dec)
+
+  @property
+  def header(self) -> Optional[str]:
+    header = doc_controls.get_header(self.py_object)
+    if header is not None:
+      header = textwrap.dedent(header)
+    return header
 
   def get_metadata_html(self):
     return parser.Metadata(self.full_name).build_html()
