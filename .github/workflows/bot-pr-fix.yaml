@@ -6,9 +6,15 @@ on:
   repository_dispatch:
     types: [opened, synchronize]
 
+permissions: {}
+
 jobs:
   nbfmt:
     # Check for opt-out label.
+    permissions:
+      contents: write
+      pull-requests: write
+
     if: >-
       ${{ github.actor == 'tfdocsbot' &&
           !contains(github.event.client_payload.pull_request.labels.*.name, 'nbfmt-disable') }}
