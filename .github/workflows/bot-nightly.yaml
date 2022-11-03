@@ -4,8 +4,12 @@ on:
   repository_dispatch:
     types: [nightly]
 
+permissions: {}
 jobs:
   snapshot-source:
+    permissions:
+      contents: write  #  for git push
+
     name: Update Keras guides
     if : ${{ github.actor == 'tfdocsbot' }}
     runs-on: ubuntu-latest
