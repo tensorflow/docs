@@ -5,7 +5,7 @@ note that if you're looking for help using TensorFlow,
 [TensorFlow Forum](https://discuss.tensorflow.org/),
 [Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow), and
 [GitHub issues](https://github.com/tensorflow/tensorflow/issues) are the best
-initial places to look.
+initial places to look. To receive a roundup of updates from the TensorFlow team each quarter, subscribe to the [TensorFlow newsletter](https://services.google.com/fb/forms/tensorflow/).
 
 ## General TensorFlow lists and forums
 
