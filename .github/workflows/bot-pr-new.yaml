@@ -6,8 +6,15 @@ on:
   repository_dispatch:
     types: [opened, reopened]
 
+permissions:
+  contents: read  #  to fetch code (actions/checkout)
+
 jobs:
   comment-welcome:
+    permissions:
+      contents: read  #  to fetch code (actions/checkout)
+      pull-requests: write  #  to comment on pull-request
+
     if: ${{ github.actor == 'tfdocsbot' }}
     runs-on: ubuntu-latest
     steps:
