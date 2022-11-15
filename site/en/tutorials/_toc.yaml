@@ -127,6 +127,9 @@ toc:
     status: external
   - title: "Word2Vec"
     path: /tutorials/text/word2vec
+  - title: "Warm start embedding matrix with changing vocabulary"
+    path: /tutorials/text/warmstart_embedding_matrix
+    status: new
   - title: "Text classification with an RNN"
     path: /text/tutorials/text_classification_rnn
     status: external
