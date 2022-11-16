@@ -297,7 +297,9 @@ class ReferenceResolver:
                           '</pre>'),
         IgnoreLineInBlock('```', '```'),
         IgnoreLineInBlock(
-            '<pre class="devsite-click-to-copy prettyprint lang-py">', '</pre>')
+            '<pre class="devsite-click-to-copy prettyprint lang-py">',
+            '</pre>'),
+        IgnoreLineInBlock('![', ')'),  # Don't replace within image's caption
     ]
 
     for line in string.splitlines():
