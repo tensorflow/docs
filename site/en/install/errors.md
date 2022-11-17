@@ -61,7 +61,7 @@ CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.</a>
 <tr>
   <td><a href="https://stackoverflow.com/q/33623453">33623453</a></td>
   <td><pre>IOError: [Errno 2] No such file or directory:
-  '/tmp/pip-o6Tpui-build/setup.py'</tt></pre>
+  '/tmp/pip-o6Tpui-build/setup.py'</pre></td>
 </tr>
 <tr>
   <td><a href="http://stackoverflow.com/q/42006320">42006320</a></td>
@@ -112,7 +112,7 @@ ImportError: cannot import name 'descriptor'</pre>
 <tr>
   <td><a href="https://stackoverflow.com/q/33623453">33623453</a></td>
   <td><pre>IOError: [Errno 2] No such file or directory:
-  '/tmp/pip-o6Tpui-build/setup.py'</tt></pre>
+  '/tmp/pip-o6Tpui-build/setup.py'</pre></td>
 </tr>
 <tr>
   <td><a href="https://stackoverflow.com/questions/35190574">35190574</a> </td>
@@ -227,7 +227,7 @@ ImportError: cannot import name 'descriptor'</pre>
 <tr>
   <td><a href="https://stackoverflow.com/q/33623453">33623453</a></td>
   <td><pre>IOError: [Errno 2] No such file or directory:
-  '/tmp/pip-o6Tpui-build/setup.py'</tt></pre>
+  '/tmp/pip-o6Tpui-build/setup.py'</pre></td>
 </tr>
 <tr>
   <td><a href="https://stackoverflow.com/questions/35190574">35190574</a> </td>
