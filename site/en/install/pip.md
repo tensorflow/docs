@@ -44,11 +44,11 @@ step-by-step instructions.
 
 * {Windows Native}
 
-    Caution: The current TensorFlow version, `2.10`, is the **last** TensorFlow
-    release that will support GPU on native-Windows.
+    Caution: TensorFlow `2.10` was the **last** TensorFlow release that
+    supported GPU on native-Windows.
     Starting with TensorFlow `2.11`, you will need to install
     [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2),
-    or install `tensorflow_cpu` and, optionally, try the
+    or install `tensorflow-cpu` and, optionally, try the
     [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
     ```bash
@@ -81,10 +81,10 @@ step-by-step instructions.
 * {CPU}
 
     Note: Starting with TensorFlow `2.10`, Windows CPU-builds for x86/x64
-    processors are built, maintained, tested and released by a third party: 
+    processors are built, maintained, tested and released by a third party:
     [Intel](https://www.intel.com/).
-    Installing the windows-native 
-    [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
+    Installing the Windows-native [`tensorflow`](https://pypi.org/project/tensorflow/)
+    or [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
     package installs Intel's
     [`tensorflow-intel`](https://pypi.org/project/tensorflow-intel/)
     package. These packages are provided as-is. Tensorflow will use reasonable
@@ -384,11 +384,11 @@ The following NVIDIA® software are only required for GPU support.
 
 *   {Windows Native}
 
-   Caution: The current TensorFlow version, `2.10`, is the **last** TensorFlow
-   release that will support GPU on native-Windows.
+   Caution: TensorFlow `2.10` was the **last** TensorFlow release that
+   supported GPU on native-Windows.
    Starting with TensorFlow `2.11`, you will need to install
    [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-[wsl2]),
-   or install `tensorflow_cpu` and, optionally, try the
+   or install `tensorflow-cpu` and, optionally, try the
    [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
    ## 1. System requirements
@@ -396,10 +396,10 @@ The following NVIDIA® software are only required for GPU support.
    *   Windows 7 or higher (64-bit)
 
     Note: Starting with TensorFlow `2.10`, Windows CPU-builds for x86/x64
-    processors are built, maintained, tested and released by a third party: 
+    processors are built, maintained, tested and released by a third party:
     [Intel](https://www.intel.com/).
-    Installing the windows-native 
-    [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
+    Installing the windows-native [`tensorflow`](https://pypi.org/project/tensorflow/)
+    or [`tensorflow-cpu`](https://pypi.org/project/tensorflow-cpu/)
     package installs Intel's
     [`tensorflow-intel`](https://pypi.org/project/tensorflow-intel/)
     package. These packages are provided as-is. Tensorflow will use reasonable
