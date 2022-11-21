@@ -10,6 +10,9 @@ on:
     # From: issue_comment, pull_request_review
     types: [created, edited, submitted]
 
+permissions:
+  pull-requests: write  #  to add labels to pull-requests
+
 jobs:
   lgtm-comment:
     # Check the comment. contains() is case-insensitive.
