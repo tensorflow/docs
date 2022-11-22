@@ -53,7 +53,7 @@ step-by-step instructions.
 
     ```bash
     conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-    python3 -m pip install tensorflow
+    python3 -m pip install tensorflow=2.10 # Anything above 2.10 is not supported on the GPU on Windows Native
     # Verify install:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
@@ -486,7 +486,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow
+    pip install tensorflow=2.10 # Anything above 2.10 is not supported on the GPU on Windows Native
     ```
 
     ### 7. Verify install
