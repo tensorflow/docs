@@ -118,6 +118,9 @@ toc:
   - title: "Video classification"
     status: new
     path: /tutorials/video/video_classification
+  - title: "Transfer learning with MoViNet"
+    status: new
+    path: /tutorials/video/transfer_learning_with_movinet
 
 - title: "Text"
   style: accordion
