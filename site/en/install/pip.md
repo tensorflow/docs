@@ -302,11 +302,12 @@ The following NVIDIA® software are only required for GPU support.
     Note: For users of Apple M1 computers, to get native performance, you'll
     want to follow the instructions found
     [here](https://developer.apple.com/metal/tensorflow-plugin/){:.external}.
-    Conda has shown to have the smoothest install. Some TensorFlow binaries
-    (specifically, ones with custom C++ extensions like TensorFlow Decision
-    Forests, object detection, and TFX) are not compiled against M1 targets. If
-    you need those libraries, you will have to use TensorFlow with x86 emulation
-    and Rosetta.
+    Conda has shown to have the smoothest install. Packages that
+    include custom C++ extensions for TensorFlow also need to be compiled for
+    Apple M1. Some packages, like
+    [tensorflow_decision_forests](https://www.tensorflow.org/decision_forests)
+    publish M1-compatible versions, but many packages don't. To use those
+    libraries, you will have to use TensorFlow with x86 emulation and Rosetta.
 
     Currently there is no official GPU support for running TensorFlow on
     MacOS. The following is instructions are for running on CPU.
