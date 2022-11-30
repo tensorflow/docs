@@ -44,7 +44,7 @@ def is_class_attr(full_name, index):
     True if the object is a class attribute.
   """
   parent_name = full_name.rsplit('.', 1)[0]
-  if inspect.isclass(index[parent_name]):
+  if inspect.isclass(index[parent_name]):  # pytype: disable=not-supported-yet
     return True
 
   return False
