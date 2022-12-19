@@ -137,7 +137,7 @@ enable compute capabilities by [building TensorFlow from source](./source.md).
 
 *   Ubuntu 16.04 or higher (64-bit)
 *   macOS 10.12.6 (Sierra) or higher (64-bit) *(no GPU support)*
-*   Windows Native - Windows 7 or higher (64-bit)
+*   Windows Native - Windows 7 or higher (64-bit) *(no GPU support after TF 2.10)*
 *   Windows WSL2 - Windows 10 19044 or higher (64-bit)
 
 Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
