@@ -8,7 +8,7 @@ connect to the Internet, etc.). The
 [TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
 are tested for each release.
 
-Docker is the easiest way to enable TensorFlow [GPU support](https://www.tensorflow.org/install/pip) on Linux since only the
+Docker is the easiest way to enable TensorFlow [GPU support](./pip.md) on Linux since only the
 [NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 is required on the *host* machine (the *NVIDIA® CUDA® Toolkit* does not need to
 be installed).
