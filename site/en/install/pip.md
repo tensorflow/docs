@@ -695,32 +695,16 @@ The value you specify depends on your Python version.
 
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
-    <td>Python 3.7 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-2.11.0-cp37-cp37m-win_amd64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.7 CPU-only</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp37-cp37m-win_amd64.whl</td>
-  </tr>
-  <tr>
-    <td>Python 3.8 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-2.11.0-cp38-cp38-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.8 CPU-only</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp38-cp38-win_amd64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.9 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-2.11.0-cp39-cp39-win_amd64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.9 CPU-only</td>
     <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp39-cp39-win_amd64.whl</td>
-  </tr>
-    <tr>
-    <td>Python 3.10 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-2.11.0-cp310-cp310-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
