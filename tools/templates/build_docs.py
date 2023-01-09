@@ -55,8 +55,15 @@ def gen_api_docs():
   # The below `del`'s are to avoid the api_gen_test to not document these.
   # Please remove these lines from your build_docs.py files when you create
   # them.
-  del tensorflow_docs.google
-  del tensorflow_docs.api_generator.report.schema
+  try:
+    del tensorflow_docs.google
+  except AttributeError:
+    pass
+
+  try:
+    del tensorflow_docs.api_generator.report.schema
+  except AttributeError:
+    pass
 
   doc_generator = generate_lib.DocGenerator(
       root_title=PROJECT_FULL_NAME,
