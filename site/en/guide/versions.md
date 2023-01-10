@@ -91,10 +91,10 @@ These include:
 *   **Other languages**: TensorFlow APIs in languages other than Python and C,
     such as:
 
-    -   [C++](../install/lang_c.md) (exposed through header files in
+    -   [C++](../install/lang_c.ipynb) (exposed through header files in
         [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
-    -   [Java](../install/lang_java.md),
-    -   [Go](../install/lang_go.md)
+    -   [Java](../install/lang_java_legacy.md),
+    -   [Go](https://github.com/tensorflow/build/blob/master/golang_install_guide/README.md)
     -   [JavaScript](https://www.tensorflow.org/js)
 
 *   **Details of composite ops:** Many public functions in Python expand to
@@ -222,7 +222,8 @@ This section is relevant only when making incompatible changes to the `GraphDef`
 format, such as when adding ops, removing ops, or changing the functionality
 of existing ops.  The previous section should suffice for most users.
 
-<a id="backward_forward"/>
+<a id="backward_forward"></a>
+
 
 ### Backward and partial forward compatibility
 
