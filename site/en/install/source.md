@@ -55,9 +55,9 @@ ease of use, add Bazelisk as the `bazel` executable in your `PATH`.
 
 If Bazelisk is not available, you can manually
 [install Bazel](https://bazel.build/install). Make
-sure to install a supported Bazel version: any version between
-`_TF_MIN_BAZEL_VERSION` and `_TF_MAX_BAZEL_VERSION` as specified in
-`tensorflow/configure.py`.
+sure to install the correct Bazel version from TensorFlow's
+[.bazelversion](https://github.com/tensorflow/tensorflow/blob/master/.bazelversion)
+file.
 
 ### Install GPU support (optional, Linux only)
 
