@@ -1,36 +1,37 @@
 # Docker
 
-[Docker](https://docs.docker.com/install/){:.external} uses *containers* to
+[Docker](https://docs.docker.com/install/) uses *containers* to
 create virtual environments that isolate a TensorFlow installation from the rest
 of the system. TensorFlow programs are run *within* this virtual environment that
 can share resources with its host machine (access directories, use the GPU,
 connect to the Internet, etc.). The
-[TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
+[TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/)
 are tested for each release.
 
-Docker is the easiest way to enable TensorFlow [GPU support](./pip.md) on Linux since only the
-[NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+Docker is the easiest way to enable TensorFlow GPU support on Linux since only the
+[NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver)
 is required on the *host* machine (the *NVIDIA® CUDA® Toolkit* does not need to
-be installed).
+be installed). If you don't require the use of Docker, refer to
+[this installation guide](./pip.md).
 
 
 ## TensorFlow Docker requirements
 
-1. [Install Docker](https://docs.docker.com/install/){:.external} on
+1. [Install Docker](https://docs.docker.com/install/) on
    your local *host* machine.
-2. For GPU support on Linux, [install NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker){:.external}.
+2. For GPU support on Linux, [install NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker).
    * Take note of your Docker version with `docker -v`. Versions __earlier than__ 19.03 require nvidia-docker2 and the `--runtime=nvidia` flag. On versions __including and after__ 19.03, you will use the `nvidia-container-toolkit` package and the `--gpus all` flag. Both options are documented on the page linked above.
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
 add your user. For details, see the
-[post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/){:.external}.
+[post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/).
 
 
 ## Download a TensorFlow Docker image
 
 The official TensorFlow Docker images are located in the 
-[tensorflow/tensorflow](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
-Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}
+[tensorflow/tensorflow](https://hub.docker.com/r/tensorflow/tensorflow/)
+Docker Hub repository. Image releases [are tagged](https://hub.docker.com/r/tensorflow/tensorflow/tags/)
 using the following format:
 
 | Tag         | Description                                                                                                          |
@@ -66,7 +67,7 @@ To start a TensorFlow-configured container, use the following command form:
 docker run [-it] [--rm] [-p <em>hostPort</em>:<em>containerPort</em>] tensorflow/tensorflow[:<em>tag</em>] [<em>command</em>]
 </pre>
 
-For details, see the [docker run reference](https://docs.docker.com/engine/reference/run/){:.external}.
+For details, see the [docker run reference](https://docs.docker.com/engine/reference/run/).
 
 ### Examples using CPU-only images
 
@@ -100,7 +101,7 @@ docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.p
 Permission issues can arise when files created within a container are exposed to
 the host. It's usually best to edit files on the host system.
 
-Start a [Jupyter Notebook](https://jupyter.org/){:.external} server using
+Start a [Jupyter Notebook](https://jupyter.org/) server using
 TensorFlow's nightly build:
 
 <pre class="devsite-terminal devsite-click-to-copy">
@@ -114,13 +115,13 @@ Follow the instructions and open the URL in your host web browser:
 ## GPU support
 
 Docker is the easiest way to run TensorFlow on a GPU since the *host* machine
-only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+only requires the [NVIDIA® driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver)
 (the *NVIDIA® CUDA® Toolkit* is not required).
 
-Install the [Nvidia Container Toolkit](https://github.com/NVIDIA/nvidia-docker/blob/master/README.md#quickstart){:.external} 
+Install the [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker/blob/master/README.md#quickstart) 
 to add NVIDIA® GPU support to Docker. `nvidia-container-runtime` is only
 available for Linux. See the `nvidia-container-runtime` 
-[platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support){:.external}
+[platform support FAQ](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#platform-support)
 for details.
 
 Check if a GPU is available:
