@@ -8,7 +8,7 @@ connect to the Internet, etc.). The
 [TensorFlow Docker images](https://hub.docker.com/r/tensorflow/tensorflow/){:.external}
 are tested for each release.
 
-Docker is the easiest way to enable TensorFlow [GPU support](./gpu.md) on Linux since only the
+Docker is the easiest way to enable TensorFlow [GPU support](./pip.md) on Linux since only the
 [NVIDIA® GPU driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 is required on the *host* machine (the *NVIDIA® CUDA® Toolkit* does not need to
 be installed).
@@ -37,7 +37,7 @@ using the following format:
 |-------------|----------------------------------------------------------------------------------------------------------------------|
 | `latest`    | The latest release of TensorFlow CPU binary image. Default.                                                          |
 | `nightly`   | Nightly builds of the TensorFlow image. (Unstable.)                                                                  |
-| *`version`* | Specify the *version* of the TensorFlow binary image, for example\: *2.1.0*                                          |
+| *`version`* | Specify the *version* of the TensorFlow binary image, for example\: *2.8.3*                                          |
 | `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code.                    |
 | `custom-op` | Special experimental image for developing TF custom ops.  More info [here](https://github.com/tensorflow/custom-op). |
 
