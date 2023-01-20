@@ -54,9 +54,9 @@ step-by-step instructions.
     ```bash
     conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
     # Anything above 2.10 is not supported on the GPU on Windows Native
-    python3 -m pip install "tensorflow<2.11"
+    python -m pip install "tensorflow<2.11"
     # Verify install:
-    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
 
 * {Windows WSL2}
@@ -497,7 +497,7 @@ The following NVIDIA® software are only required for GPU support.
     Verify the CPU setup:
 
     ```bash
-    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     ```
 
     If a tensor is returned, you've installed TensorFlow successfully.
@@ -505,7 +505,7 @@ The following NVIDIA® software are only required for GPU support.
     Verify the GPU setup:
 
     ```bash
-    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
 
     If a list of GPU devices is returned, you've installed TensorFlow
