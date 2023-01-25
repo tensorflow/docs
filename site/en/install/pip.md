@@ -239,8 +239,8 @@ The following NVIDIA® software are only required for GPU support.
     conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
     ```
 
-    Configure the system paths. You can do it with following command everytime
-    your start a new terminal after activating your conda environment.
+    Configure the system paths. You can do it with the following command every time
+    you start a new terminal after activating your conda environment.
 
     ```bash
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
