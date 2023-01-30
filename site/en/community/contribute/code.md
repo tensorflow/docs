@@ -34,8 +34,7 @@ workflow, and for the core devs to become acquainted with the contributor.
 
 If you are interested in recruiting a team to help tackle a large-scale problem
 or a new feature, please email the
-[developers@ group](https://groups.google.com/a/tensorflow.org/forum/#!forum/developers)
-and review our current list of RFCs.
+[developers@tensorflow.org](https://groups.google.com/a/tensorflow.org/g/developers) group and review our current list of RFCs.
 
 ## Code review
 
