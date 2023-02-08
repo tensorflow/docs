@@ -26,7 +26,7 @@ step-by-step instructions.
     for more information about this collaboration.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
     python3 -m pip install tensorflow
     # Verify install:
@@ -236,7 +236,7 @@ The following NVIDIA® software are only required for GPU support.
     Then install CUDA and cuDNN with conda.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
     ```
 
     Configure the system paths. You can do it with the following command every time
@@ -271,7 +271,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow
+    pip install tensorflow==2.11.*
     ```
 
     ### 6. Verify install
@@ -293,6 +293,31 @@ The following NVIDIA® software are only required for GPU support.
     If a list of GPU devices is returned, you've installed TensorFlow
     successfully.
 
+    ### Ubuntu 22.04
+
+    In Ubuntu 22.04, you may encounter the following error:
+
+    ```
+    Can't find libdevice directory ${CUDA_DIR}/nvvm/libdevice.
+    ...
+    Couldn't invoke ptxas --version
+    ...
+    InternalError: libdevice not found at ./libdevice.10.bc [Op:__some_op]
+    ```
+
+    To fix this error, you will need to run the following commands.
+
+    ```bash
+    # Install NVCC
+    conda install -c nvidia cuda-nvcc=11.3.58
+    # Configure the XLA cuda directory
+    mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+    printf 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/\nexport XLA_FLAGS=--xla_gpu_cuda_data_dir=$CONDA_PREFIX/lib/\n' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    # Copy libdevice file to the required path
+    mkdir -p $CONDA_PREFIX/lib/nvvm/libdevice
+    cp $CONDA_PREFIX/lib/libdevice.10.bc $CONDA_PREFIX/lib/nvvm/libdevice/
+    ```
 
 *   {MacOS}
 
