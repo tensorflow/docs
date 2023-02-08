@@ -56,8 +56,8 @@ Suppose you call the Estimator's `train` method. For example:
 
 ```python
 classifier.train(
-        input_fn=lambda:train_input_fn(train_x, train_y, batch_size=100),
-                steps=200)
+    input_fn=lambda: train_input_fn(train_x, train_y, batch_size=100),
+    steps=200)
 ```
 
 As suggested by the following diagrams, the first call to `train`
