@@ -56,7 +56,7 @@ To incorporate your custom op you'll need to:
 *   Some familiarity with C++.
 *   Must have installed the
     [TensorFlow binary](https://github.com/tensorflow/docs/blob/master/site/en/install), or must have
-    [downloaded TensorFlow source](https://github.com/tensorflow/docs/blob/master/site/en/install/source.md),
+    [downloaded TensorFlow source](../../install/source.md),
     and be able to build it.
 
 ## Define the op interface
