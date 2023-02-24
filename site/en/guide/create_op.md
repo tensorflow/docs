@@ -47,7 +47,7 @@ To incorporate your custom op you'll need to:
     test the op in C++. If you define gradients, you can verify them with the
     Python `tf.test.compute_gradient_error`.
     See
-    [`relu_op_test.py`](https://www.tensorflow.org/code/tensorflow/python/kernel_tests/relu_op_test.py) as
+    [`relu_op_test.py`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/kernel_tests/nn_ops/relu_op_test.py) as
     an example that tests the forward functions of Relu-like operators and
     their gradients.
 
