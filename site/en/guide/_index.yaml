@@ -95,10 +95,11 @@ landing_page:
     items:
     - list:
       - description: >
-          <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
-          A suite of visualization tools to understand, debug, and optimize
-          TensorFlow programs.
-        path: /tensorboard
+          <a href="/decision_forests"><h3 class="tfo-landing-page-heading no-link">TensorFlow Decision Forests
+          </h3></a>
+          A library to train, run and interpret decision forest models (e.g., Random Forests,
+          Gradient Boosted Trees) in TensorFlow.
+        path: /decision_forests
         icon:
           icon_name: chevron_right
           foreground: theme
@@ -113,10 +114,10 @@ landing_page:
           foreground: theme
           background: grey
       - description: >
-          <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
-          The TensorFlow Model Optimization Toolkit is a suite of tools for
-          optimizing ML models for deployment and execution.
-        path: /model_optimization
+          <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
+          A TFX serving system for ML models, designed for high-performance in
+          production environments.
+        path: /tfx/guide/serving
         icon:
           icon_name: chevron_right
           foreground: theme
@@ -147,7 +148,24 @@ landing_page:
           icon_name: chevron_right
           foreground: theme
           background: grey
+      - description: >
+          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
+          Extra functionality for TensorFlow, maintained by SIG&nbsp;Addons.
+        path: https://github.com/tensorflow/addons
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
     - list:
+      - description: >
+          <a href="/tensorboard"><h3 class="tfo-landing-page-heading no-link">TensorBoard</h3></a>
+          A suite of visualization tools to understand, debug, and optimize
+          TensorFlow programs.
+        path: /tensorboard
+        icon:
+          icon_name: chevron_right
+          foreground: theme
+          background: grey
       - description: >
           <a href="/datasets"><h3 class="tfo-landing-page-heading no-link">Datasets</h3></a>
           A collection of datasets ready to use with TensorFlow.
@@ -157,10 +175,10 @@ landing_page:
           foreground: theme
           background: grey
       - description: >
-          <a href="/tfx/guide/serving"><h3 class="tfo-landing-page-heading no-link">Serving</h3></a>
-          A TFX serving system for ML models, designed for high-performance in
-          production environments.
-        path: /tfx/guide/serving
+          <a href="/model_optimization"><h3 class="tfo-landing-page-heading no-link">Model Optimization</h3></a>
+          The TensorFlow Model Optimization Toolkit is a suite of tools for
+          optimizing ML models for deployment and execution.
+        path: /model_optimization
         icon:
           icon_name: chevron_right
           foreground: theme
@@ -188,14 +206,6 @@ landing_page:
           A domain-specific compiler for linear algebra that accelerates
           TensorFlow models with potentially no source code changes.
         path: /xla
-        icon:
-          icon_name: chevron_right
-          foreground: theme
-          background: grey
-      - description: >
-          <a href="https://github.com/tensorflow/addons"><h3 class="tfo-landing-page-heading no-link">SIG Addons</h3></a>
-          Extra functionality for TensorFlow, maintained by SIG&nbsp;Addons.
-        path: https://github.com/tensorflow/addons
         icon:
           icon_name: chevron_right
           foreground: theme
