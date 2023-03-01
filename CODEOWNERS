@@ -2,7 +2,7 @@
 # Last matching pattern takes precedence.
 
 # Default owners for everything in repo.
-*  @MarkDaoust @8bitmp3
+*  @tensorflow/docs-team
 
 # Install
 /site/en/install/ @haifeng-jin @MarkDaoust @8bitmp3
