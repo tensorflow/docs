@@ -38,8 +38,6 @@ using the following format:
 | `latest`    | The latest release of TensorFlow CPU binary image. Default.                                                          |
 | `nightly`   | Nightly builds of the TensorFlow image. (Unstable.)                                                                  |
 | *`version`* | Specify the *version* of the TensorFlow binary image, for example\: *2.8.3*                                          |
-| `devel`     | Nightly builds of a TensorFlow `master` development environment. Includes TensorFlow source code.                    |
-| `custom-op` | Special experimental image for developing TF custom ops.  More info [here](https://github.com/tensorflow/custom-op). |
 
 Each base *tag* has variants that add or change functionality:
 
