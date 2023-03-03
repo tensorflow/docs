@@ -1189,7 +1189,7 @@ callers.  The Python API may be kept compatible by careful changes in a
 hand-written Python wrapper, by keeping the old signature except possibly adding
 new optional arguments to the end.  Generally incompatible changes may only be
 made when TensorFlow changes major versions, and must conform to the
-[`GraphDef` version semantics](../guide/version_compat.md#compatibility_of_graphs_and_checkpoints).
+[`GraphDef` version semantics](https://github.com/tensorflow/docs/blob/master/site/en/r1/guide/version_compat.md).
 
 ### GPU Support
 
