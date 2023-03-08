@@ -206,6 +206,14 @@ class PageInfo:
     self._defined_in = defined_in
 
   @property
+  def self_link(self):
+    if not self.parser_config.self_link_base:
+      return None
+    rel_path = parser.documentation_path(self.full_name)
+    rel_path = rel_path[: -1 * len('.md')]  # strip suffix
+    return f'{self.parser_config.self_link_base}/{rel_path}'
+
+  @property
   def aliases(self):
     """Returns a list of all full names for the documented object."""
     return self._aliases

@@ -97,7 +97,7 @@ def write_docs(
       attribute. For some classes (list, tuple, etc) __doc__ is not writable.
       Pass those docs like: `extra_docs={id(obj): "docs"}`
     page_builder_classes: A optional dict of `{ObjectType:Type[PageInfo]}` for
-        overriding the default page builder classes.
+      overriding the default page builder classes.
 
   Raises:
     ValueError: if `output_dir` is not an absolute path
@@ -168,12 +168,13 @@ def write_docs(
   if api_report is not None:
     api_report.write(output_dir / root_module_name / 'api_report.pb')
 
-
   if num_docs_output <= 1:
-    raise ValueError('The `DocGenerator` failed to generate any docs. Verify '
-                     'your arguments (`base_dir` and `callbacks`). '
-                     'Everything you want documented should be within '
-                     '`base_dir`.')
+    raise ValueError(
+        'The `DocGenerator` failed to generate any docs. Verify '
+        'your arguments (`base_dir` and `callbacks`). '
+        'Everything you want documented should be within '
+        '`base_dir`.'
+    )
 
   if yaml_toc:
     if isinstance(yaml_toc, bool):
@@ -286,15 +287,18 @@ class DocGenerator:
 
   def __init__(
       self,
+      *,
       root_title: str,
       py_modules: Sequence[Tuple[str, Any]],
       base_dir: Optional[Sequence[Union[str, pathlib.Path]]] = None,
       code_url_prefix: Union[Optional[str], Sequence[Optional[str]]] = (),
+      self_link_base: Optional[str] = None,
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
       private_map: Optional[Dict[str, str]] = None,
       visitor_cls: Type[doc_generator_visitor.DocGeneratorVisitor] = (
-          doc_generator_visitor.DocGeneratorVisitor),
+          doc_generator_visitor.DocGeneratorVisitor
+      ),
       api_cache: bool = True,
       callbacks: Optional[List[public_api.ApiFilter]] = None,
       yaml_toc: Union[bool, Type[toc_lib.TocBuilder]] = True,
@@ -315,12 +319,15 @@ class DocGenerator:
         in" paths. These are zipped with `base-dir`, to set the `defined_in`
         path for each file. The defined in link for `{base_dir}/path/to/file` is
         set to `{code_url_prefix}/path/to/file`.
+      self_link_base: A string. A URL prefix pre-pend to self-links to the
+        generated docs pages. Optional, if no `self_link_base` is supplied, no
+        self-link will be added.
       search_hints: Bool. Include metadata search hints at the top of each file.
       site_path: Path prefix in the "_toc.yaml"
       private_map: DEPRECATED. Use `api_generator.doc_controls`, or pass a
-        filter to the `callbacks` argument. A
-        `{"module.path.to.object": ["names"]}` dictionary. Specific
-        aliases that should not be shown in the resulting docs.
+        filter to the `callbacks` argument. A `{"module.path.to.object":
+        ["names"]}` dictionary. Specific aliases that should not be shown in the
+        resulting docs.
       visitor_cls: An option to override the default visitor class
         `doc_generator_visitor.DocGeneratorVisitor`.
       api_cache: Bool. Generate an api_cache file. This is used to easily add
@@ -364,10 +371,13 @@ class DocGenerator:
       raise ValueError('`code_url_prefix` cannot be empty')
 
     if len(self._code_url_prefix) != len(base_dir):
-      raise ValueError('The `base_dir` list should have the same number of '
-                       'elements as the `code_url_prefix` list (they get '
-                       'zipped together).')
+      raise ValueError(
+          'The `base_dir` list should have the same number of '
+          'elements as the `code_url_prefix` list (they get '
+          'zipped together).'
+      )
 
+    self._self_link_base = self_link_base
     self._search_hints = search_hints
     self._site_path = site_path
     self._private_map = private_map or {}
@@ -399,7 +409,9 @@ class DocGenerator:
         path_tree=visitor.path_tree,
         api_tree=visitor.api_tree,
         base_dir=self._base_dir,
-        code_url_prefix=self._code_url_prefix)
+        code_url_prefix=self._code_url_prefix,
+        self_link_base=self._self_link_base,
+    )
 
   def run_extraction(self):
     """Walks the module contents, returns an index of all visited objects.
