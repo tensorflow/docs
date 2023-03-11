@@ -210,75 +210,6 @@ def add_dict_to_dict(add_from, add_to):
       add_to[key] = add_from[key]
 
 
-def extract(
-    py_modules,
-    base_dir,
-    private_map: Dict[str, Any],
-    visitor_cls: Type[
-        doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
-    .DocGeneratorVisitor,
-    callbacks: Optional[public_api.ApiFilter] = None,
-    include_default_callbacks=True):
-  """Walks the module contents, returns an index of all visited objects.
-
-  The return value is an instance of `self._visitor_cls`, usually:
-  `doc_generator_visitor.DocGeneratorVisitor`
-
-  Args:
-    py_modules: A list containing a single (short_name, module_object) pair.
-      like `[('tf',tf)]`.
-    base_dir: The package root directory. Nothing defined outside of this
-      directory is documented.
-    private_map: A {'path':["name"]} dictionary listing particular object
-      locations that should be ignored in the doc generator.
-    visitor_cls: A class, typically a subclass of
-      `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
-      objects to document.
-    callbacks: Additional callbacks passed to `traverse`. Executed between the
-      `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-      primary use case for these is to filter the list of children (see:
-      `public_api.local_definitions_filter`)
-    include_default_callbacks: When true the long list of standard
-      visitor-callbacks are included. When false, only the `callbacks` argument
-      is used.
-
-  Returns:
-    The accumulator (`DocGeneratorVisitor`)
-  """
-  if callbacks is None:
-    callbacks = []
-
-  if len(py_modules) != 1:
-    raise ValueError("only pass one [('name',module)] pair in py_modules")
-  short_name, py_module = py_modules[0]
-
-  # The objects found during traversal, and their children are passed to each
-  # of these filters in sequence. Each visitor returns the list of children
-  # to be passed to the next visitor.
-  if include_default_callbacks:
-    filters = [
-        # filter the api.
-        public_api.FailIfNestedTooDeep(10),
-        public_api.filter_module_all,
-        public_api.add_proto_fields,
-        public_api.filter_builtin_modules,
-        public_api.filter_private_symbols,
-        public_api.FilterBaseDirs(base_dir),
-        public_api.FilterPrivateMap(private_map),
-        public_api.filter_doc_controls_skip,
-        public_api.ignore_typing
-    ]
-  else:
-    filters = []
-
-  accumulator = visitor_cls()
-  traverse.traverse(
-      py_module, filters + callbacks, accumulator, root_name=short_name)
-
-  accumulator.build()
-  return accumulator
-
-
 EXCLUDED = set(['__init__.py', 'OWNERS', 'README.txt'])
 
 
@@ -413,23 +344,42 @@ class DocGenerator:
         self_link_base=self._self_link_base,
     )
 
+  def make_default_filters(self):
+      # The objects found during traversal, and their children are passed to each
+      # of these filters in sequence. Each visitor returns the list of children
+      # to be passed to the next visitor.
+      return [
+          # filter the api.
+          public_api.FailIfNestedTooDeep(10),
+          public_api.filter_module_all,
+          public_api.add_proto_fields,
+          public_api.filter_builtin_modules,
+          public_api.filter_private_symbols,
+          public_api.FilterBaseDirs(self._base_dir),
+          public_api.FilterPrivateMap(self._private_map),
+          public_api.filter_doc_controls_skip,
+          public_api.ignore_typing
+      ]
+
   def run_extraction(self):
     """Walks the module contents, returns an index of all visited objects.
 
-    The return value is an instance of `self._visitor_cls`, usually:
-    `doc_generator_visitor.DocGeneratorVisitor`
-
     Returns:
+        An instance of `parser_config.ParserConfig`.
     """
-    visitor = extract(
-        py_modules=self._py_modules,
-        base_dir=self._base_dir,
-        private_map=self._private_map,
-        visitor_cls=self._visitor_cls,
-        callbacks=self._callbacks)
+    if len(self._py_modules) != 1:
+        raise ValueError("only pass one [('name',module)] pair in py_modules")
+    short_name, py_module = self._py_modules[0]
 
-    # Write the api docs.
-    parser_config = self.make_parser_config(visitor)
+    filters = self.make_default_filters()
+
+    accumulator = self._visitor_cls()
+    traverse.traverse(
+        py_module, filters + self._callbacks, accumulator, root_name=short_name)
+
+    accumulator.build()
+
+    parser_config = self.make_parser_config(accumulator)
     return parser_config
 
   def build(self, output_dir):
