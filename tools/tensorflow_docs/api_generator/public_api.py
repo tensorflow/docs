@@ -31,6 +31,12 @@ from tensorflow_docs.api_generator import get_source
 
 from google.protobuf.message import Message as ProtoMessage
 
+try:
+  import proto
+except ImportError:
+  proto = None
+
+
 _TYPING_IDS = frozenset(
     id(obj)
     for obj in typing.__dict__.values()
@@ -415,8 +421,17 @@ def add_proto_fields(path: Sequence[str], parent: Any,
     `children` with proto fields added as properties.
   """
   del path
-  if not inspect.isclass(parent) or not issubclass(parent, ProtoMessage):
+  if not inspect.isclass(parent):
     return children
+
+  real_parent = parent
+  if not issubclass(parent, ProtoMessage):
+    if proto is not None:
+      if issubclass(parent, proto.message.Message):
+        parent = parent.pb()
+        children = [(name, value) for (name, value) in children if name != "meta"]
+      else:
+        return children
 
   descriptor = getattr(parent, 'DESCRIPTOR', None)
   if descriptor is None:
@@ -465,7 +480,7 @@ def add_proto_fields(path: Sequence[str], parent: Any,
     field_properties[name] = prop
 
   for name, prop in field_properties.items():
-    setattr(parent, name, prop)
+    setattr(real_parent, name, prop)
 
   children = dict(children)
   children.update(field_properties)
