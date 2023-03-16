@@ -18,9 +18,8 @@ import ast
 import dataclasses
 import inspect
 import os
-import sys
 import pathlib
-import textwrap
+import sys
 import types
 import typing
 from typing import Any, Callable, Dict, Iterable, List, Sequence, Tuple, Union
@@ -30,6 +29,12 @@ from tensorflow_docs.api_generator import doc_generator_visitor
 from tensorflow_docs.api_generator import get_source
 
 from google.protobuf.message import Message as ProtoMessage
+
+try:
+  import proto  # pylint: disable=g-import-not-at-top  # pytype: disable=import-error
+except ImportError:
+  proto = None
+
 
 _TYPING_IDS = frozenset(
     id(obj)
@@ -318,6 +323,7 @@ class FailIfNestedTooDeep:
 
 @dataclasses.dataclass
 class FilterBaseDirs:
+  """A class for filtering based on a list of allowed parent directories."""
   base_dirs: Sequence[pathlib.Path]
 
   def __call__(self, path: Sequence[str], parent: Any,
@@ -415,8 +421,19 @@ def add_proto_fields(path: Sequence[str], parent: Any,
     `children` with proto fields added as properties.
   """
   del path
-  if not inspect.isclass(parent) or not issubclass(parent, ProtoMessage):
+  if not inspect.isclass(parent):
     return children
+
+  real_parent = parent
+  if not issubclass(parent, ProtoMessage):
+    if proto is not None:
+      if issubclass(parent, proto.message.Message):
+        parent = parent.pb()
+        children = [
+            (name, value) for (name, value) in children if name != 'meta'
+        ]
+      else:
+        return children
 
   descriptor = getattr(parent, 'DESCRIPTOR', None)
   if descriptor is None:
@@ -465,7 +482,7 @@ def add_proto_fields(path: Sequence[str], parent: Any,
     field_properties[name] = prop
 
   for name, prop in field_properties.items():
-    setattr(parent, name, prop)
+    setattr(real_parent, name, prop)
 
   children = dict(children)
   children.update(field_properties)

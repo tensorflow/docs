@@ -14,6 +14,7 @@
 # ==============================================================================
 """Tests for tools.docs.doc_generator_visitor."""
 
+import dataclasses
 import io
 import os
 import textwrap
@@ -34,6 +35,17 @@ class NoDunderVisitor(doc_generator_visitor.DocGeneratorVisitor):
         (name, obj) for (name, obj) in children if not name.startswith('_')
     ]
     return super(NoDunderVisitor, self).__call__(parent_name, parent, children)
+
+
+class TestDocGenerator(generate_lib.DocGenerator):
+
+  def __init__(self, py_modules):
+    kwargs = {}
+    kwargs['py_modules'] = py_modules
+    kwargs['root_title'] = 'TensorFlow'
+    kwargs['visitor_cls'] = NoDunderVisitor
+    kwargs['code_url_prefix'] = '/'
+    super().__init__(**kwargs)
 
 
 class DocGeneratorVisitorTest(absltest.TestCase):
@@ -91,39 +103,41 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.submodule = types.ModuleType('submodule')
     tf.submodule.Parent = Parent
 
-    visitor = generate_lib.extract(
-        [('tf', tf)],
-        base_dir=os.path.dirname(tf.__file__),
-        private_map={},
-        visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
     self.assertEqual(
         {
-            'tf.submodule.Parent':
-                sorted([
-                    'tf.Parent',
-                    'tf.submodule.Parent',
-                ]),
-            'tf.submodule.Parent.Nested':
-                sorted([
-                    'tf.Parent.Nested',
-                    'tf.submodule.Parent.Nested',
-                ]),
+            'tf.submodule.Parent': sorted([
+                'tf.Parent',
+                'tf.submodule.Parent',
+            ]),
+            'tf.submodule.Parent.Nested': sorted([
+                'tf.Parent.Nested',
+                'tf.submodule.Parent.Nested',
+            ]),
             'tf': ['tf'],
-            'tf.submodule': ['tf.submodule']
-        }, visitor.duplicates)
+            'tf.submodule': ['tf.submodule'],
+        },
+        config.duplicates,
+    )
 
-    self.assertEqual({
-        'tf.Parent.Nested': 'tf.submodule.Parent.Nested',
-        'tf.Parent': 'tf.submodule.Parent',
-    }, visitor.duplicate_of)
+    self.assertEqual(
+        {
+            'tf.Parent.Nested': 'tf.submodule.Parent.Nested',
+            'tf.Parent': 'tf.submodule.Parent',
+        },
+        config.duplicate_of,
+    )
 
-    self.assertEqual({
-        id(Parent): 'tf.submodule.Parent',
-        id(Parent.Nested): 'tf.submodule.Parent.Nested',
-        id(tf): 'tf',
-        id(tf.submodule): 'tf.submodule',
-    }, visitor.reverse_index)
+    self.assertEqual(
+        {
+            id(Parent): 'tf.submodule.Parent',
+            id(Parent.Nested): 'tf.submodule.Parent.Nested',
+            id(tf): 'tf',
+            id(tf.submodule): 'tf.submodule',
+        },
+        config.reverse_index,
+    )
 
   def test_duplicates_contrib(self):
 
@@ -137,25 +151,29 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.contrib.Parent = Parent
     tf.submodule.Parent = Parent
 
-    visitor = generate_lib.extract(
-        [('tf', tf)],
-        base_dir=os.path.dirname(tf.__file__),
-        private_map={},
-        visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
-    self.assertCountEqual(['tf.contrib.Parent', 'tf.submodule.Parent'],
-                          visitor.duplicates['tf.submodule.Parent'])
+    self.assertCountEqual(
+        ['tf.contrib.Parent', 'tf.submodule.Parent'],
+        config.duplicates['tf.submodule.Parent'],
+    )
 
-    self.assertEqual({
-        'tf.contrib.Parent': 'tf.submodule.Parent',
-    }, visitor.duplicate_of)
+    self.assertEqual(
+        {
+            'tf.contrib.Parent': 'tf.submodule.Parent',
+        },
+        config.duplicate_of,
+    )
 
-    self.assertEqual({
-        id(tf): 'tf',
-        id(tf.submodule): 'tf.submodule',
-        id(Parent): 'tf.submodule.Parent',
-        id(tf.contrib): 'tf.contrib',
-    }, visitor.reverse_index)
+    self.assertEqual(
+        {
+            id(tf): 'tf',
+            id(tf.submodule): 'tf.submodule',
+            id(Parent): 'tf.submodule.Parent',
+            id(tf.contrib): 'tf.contrib',
+        },
+        config.reverse_index,
+    )
 
   def test_duplicates_defining_class(self):
 
@@ -170,25 +188,28 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.Parent = Parent
     tf.Child = Child
 
-    visitor = generate_lib.extract(
-        [('tf', tf)],
-        base_dir=os.path.dirname(tf.__file__),
-        private_map={},
-        visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
-    self.assertCountEqual(['tf.Parent.obj1', 'tf.Child.obj1'],
-                          visitor.duplicates['tf.Parent.obj1'])
+    self.assertCountEqual(
+        ['tf.Parent.obj1', 'tf.Child.obj1'], config.duplicates['tf.Parent.obj1']
+    )
 
-    self.assertEqual({
-        'tf.Child.obj1': 'tf.Parent.obj1',
-    }, visitor.duplicate_of)
+    self.assertEqual(
+        {
+            'tf.Child.obj1': 'tf.Parent.obj1',
+        },
+        config.duplicate_of,
+    )
 
-    self.assertEqual({
-        id(tf): 'tf',
-        id(Parent): 'tf.Parent',
-        id(Child): 'tf.Child',
-        id(Parent.obj1): 'tf.Parent.obj1',
-    }, visitor.reverse_index)
+    self.assertEqual(
+        {
+            id(tf): 'tf',
+            id(Parent): 'tf.Parent',
+            id(Child): 'tf.Child',
+            id(Parent.obj1): 'tf.Parent.obj1',
+        },
+        config.reverse_index,
+    )
 
   def test_duplicates_module_depth(self):
 
@@ -202,25 +223,26 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.Parent = Parent
     tf.submodule.submodule2.Parent = Parent
 
-    visitor = generate_lib.extract(
-        [('tf', tf)],
-        base_dir=os.path.dirname(tf.__file__),
-        private_map={},
-        visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
-    self.assertCountEqual(['tf.Parent', 'tf.submodule.submodule2.Parent'],
-                          visitor.duplicates['tf.Parent'])
+    self.assertCountEqual(
+        ['tf.Parent', 'tf.submodule.submodule2.Parent'],
+        config.duplicates['tf.Parent'],
+    )
 
-    self.assertEqual({
-        'tf.submodule.submodule2.Parent': 'tf.Parent'
-    }, visitor.duplicate_of)
+    self.assertEqual(
+        {'tf.submodule.submodule2.Parent': 'tf.Parent'}, config.duplicate_of
+    )
 
-    self.assertEqual({
-        id(tf): 'tf',
-        id(tf.submodule): 'tf.submodule',
-        id(tf.submodule.submodule2): 'tf.submodule.submodule2',
-        id(Parent): 'tf.Parent',
-    }, visitor.reverse_index)
+    self.assertEqual(
+        {
+            id(tf): 'tf',
+            id(tf.submodule): 'tf.submodule',
+            id(tf.submodule.submodule2): 'tf.submodule.submodule2',
+            id(Parent): 'tf.Parent',
+        },
+        config.reverse_index,
+    )
 
   def test_duplicates_name(self):
 
@@ -234,27 +256,32 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.submodule = types.ModuleType('submodule')
     tf.submodule.Parent = Parent
 
-    visitor = generate_lib.extract(
-        [('tf', tf)],
-        base_dir=os.path.dirname(tf.__file__),
-        private_map={},
-        visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
+
     self.assertEqual(
         sorted([
             'tf.submodule.Parent.obj1',
             'tf.submodule.Parent.obj2',
-        ]), visitor.duplicates['tf.submodule.Parent.obj1'])
+        ]),
+        config.duplicates['tf.submodule.Parent.obj1'],
+    )
 
-    self.assertEqual({
-        'tf.submodule.Parent.obj2': 'tf.submodule.Parent.obj1',
-    }, visitor.duplicate_of)
+    self.assertEqual(
+        {
+            'tf.submodule.Parent.obj2': 'tf.submodule.Parent.obj1',
+        },
+        config.duplicate_of,
+    )
 
-    self.assertEqual({
-        id(tf): 'tf',
-        id(tf.submodule): 'tf.submodule',
-        id(Parent): 'tf.submodule.Parent',
-        id(Parent.obj1): 'tf.submodule.Parent.obj1',
-    }, visitor.reverse_index)
+    self.assertEqual(
+        {
+            id(tf): 'tf',
+            id(tf.submodule): 'tf.submodule',
+            id(Parent): 'tf.submodule.Parent',
+            id(Parent.obj1): 'tf.submodule.Parent.obj1',
+        },
+        config.reverse_index,
+    )
 
   def test_handles_duplicate_classmethods(self):
 
@@ -270,12 +297,9 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.sub = types.ModuleType('sub')
     tf.sub.MyClass = MyClass
 
-    visitor = generate_lib.extract([('tf', tf)],
-                                   base_dir=os.path.dirname(tf.__file__),
-                                   private_map={},
-                                   visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
-    paths = ['.'.join(p) for p in visitor.path_tree.keys()]
+    paths = ['.'.join(p) for p in config.path_tree.keys()]
 
     expected = [
         '',
@@ -288,7 +312,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     ]
     self.assertCountEqual(expected, paths)
 
-    apis = [node.full_name for node in visitor.api_tree.iter_nodes()]
+    apis = [node.full_name for node in config.api_tree.iter_nodes()]
     expected = [
         'tf',
         'tf.sub',
@@ -297,10 +321,14 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     ]
     self.assertCountEqual(expected, apis)
 
-    self.assertIs(visitor.api_tree[('tf', 'MyClass')],
-                  visitor.api_tree[('tf', 'sub', 'MyClass')])
-    self.assertIs(visitor.api_tree[('tf', 'MyClass', 'from_value')],
-                  visitor.api_tree[('tf', 'sub', 'MyClass', 'from_value')])
+    self.assertIs(
+        config.api_tree[('tf', 'MyClass')],
+        config.api_tree[('tf', 'sub', 'MyClass')],
+    )
+    self.assertIs(
+        config.api_tree[('tf', 'MyClass', 'from_value')],
+        config.api_tree[('tf', 'sub', 'MyClass', 'from_value')],
+    )
 
   def test_handles_duplicate_singleton_attributes(self):
 
@@ -313,12 +341,9 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     tf.sub = types.ModuleType('sub')
     tf.sub.MyClass = MyClass
 
-    visitor = generate_lib.extract([('tf', tf)],
-                                   base_dir=os.path.dirname(tf.__file__),
-                                   private_map={},
-                                   visitor_cls=NoDunderVisitor)
+    config = TestDocGenerator([('tf', tf)]).run_extraction()
 
-    paths = ['.'.join(p) for p in visitor.path_tree.keys()]
+    paths = ['.'.join(p) for p in config.path_tree.keys()]
 
     expected = [
         '',
@@ -331,7 +356,7 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     ]
     self.assertCountEqual(expected, paths)
 
-    apis = ['.'.join(p) for p in visitor.api_tree.keys()]
+    apis = ['.'.join(p) for p in config.api_tree.keys()]
     expected = [
         '',
         'tf',
@@ -343,10 +368,14 @@ class DocGeneratorVisitorTest(absltest.TestCase):
     ]
     self.assertCountEqual(expected, apis)
 
-    self.assertIs(visitor.api_tree[('tf', 'MyClass')],
-                  visitor.api_tree[('tf', 'sub', 'MyClass')])
-    self.assertIs(visitor.api_tree[('tf', 'MyClass', 'simple')],
-                  visitor.api_tree[('tf', 'sub', 'MyClass', 'simple')])
+    self.assertIs(
+        config.api_tree[('tf', 'MyClass')],
+        config.api_tree[('tf', 'sub', 'MyClass')],
+    )
+    self.assertIs(
+        config.api_tree[('tf', 'MyClass', 'simple')],
+        config.api_tree[('tf', 'sub', 'MyClass', 'simple')],
+    )
 
 
 class PathTreeTest(absltest.TestCase):
@@ -540,10 +569,11 @@ class ApiTreeTest(absltest.TestCase):
   def test_api_tree_toc_integration(self):
     tf = self._make_fake_module()
 
-    visitor = generate_lib.extract([('tf', tf)],
-                                   base_dir=os.path.dirname(tf.__file__),
-                                   private_map={},
-                                   visitor_cls=NoDunderVisitor)
+    gen = TestDocGenerator([('tf', tf)])
+    filters = gen.make_default_filters()
+    visitor = generate_lib.extract(
+        [('tf', tf)], filters=filters, visitor_cls=NoDunderVisitor
+    )
 
     api_tree = doc_generator_visitor.ApiTree.from_path_tree(
         visitor.path_tree, visitor._score_name)

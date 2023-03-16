@@ -20,7 +20,7 @@ import pathlib
 import shutil
 import tempfile
 
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Type, Union
+from typing import Any, Optional, Sequence, Type, Union
 
 from tensorflow_docs.api_generator import config
 from tensorflow_docs.api_generator import doc_generator_visitor
@@ -66,7 +66,7 @@ def write_docs(
     site_path: str = 'api_docs/python',
     gen_redirects: bool = True,
     gen_report: bool = True,
-    extra_docs: Optional[Dict[int, str]] = None,
+    extra_docs: Optional[dict[int, str]] = None,
     page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
 ):
   """Write previously extracted docs to disk.
@@ -212,13 +212,11 @@ def add_dict_to_dict(add_from, add_to):
 
 def extract(
     py_modules,
-    base_dir,
-    private_map: Dict[str, Any],
     visitor_cls: Type[
-        doc_generator_visitor.DocGeneratorVisitor] = doc_generator_visitor
-    .DocGeneratorVisitor,
-    callbacks: Optional[public_api.ApiFilter] = None,
-    include_default_callbacks=True):
+        doc_generator_visitor.DocGeneratorVisitor
+    ] = doc_generator_visitor.DocGeneratorVisitor,
+    filters: Optional[public_api.ApiFilter] = None,
+):
   """Walks the module contents, returns an index of all visited objects.
 
   The return value is an instance of `self._visitor_cls`, usually:
@@ -227,53 +225,24 @@ def extract(
   Args:
     py_modules: A list containing a single (short_name, module_object) pair.
       like `[('tf',tf)]`.
-    base_dir: The package root directory. Nothing defined outside of this
-      directory is documented.
-    private_map: A {'path':["name"]} dictionary listing particular object
-      locations that should be ignored in the doc generator.
     visitor_cls: A class, typically a subclass of
       `doc_generator_visitor.DocGeneratorVisitor` that acumulates the indexes of
       objects to document.
-    callbacks: Additional callbacks passed to `traverse`. Executed between the
-      `PublicApiFilter` and the accumulator (`DocGeneratorVisitor`). The
-      primary use case for these is to filter the list of children (see:
-      `public_api.local_definitions_filter`)
-    include_default_callbacks: When true the long list of standard
-      visitor-callbacks are included. When false, only the `callbacks` argument
-      is used.
+    filters: Filters passed to `traverse`. Executed before the accumulator
+      (`DocGeneratorVisitor`). These filter the list of children.
 
   Returns:
     The accumulator (`DocGeneratorVisitor`)
   """
-  if callbacks is None:
-    callbacks = []
+  if filters is None:
+    filters = []
 
   if len(py_modules) != 1:
     raise ValueError("only pass one [('name',module)] pair in py_modules")
   short_name, py_module = py_modules[0]
 
-  # The objects found during traversal, and their children are passed to each
-  # of these filters in sequence. Each visitor returns the list of children
-  # to be passed to the next visitor.
-  if include_default_callbacks:
-    filters = [
-        # filter the api.
-        public_api.FailIfNestedTooDeep(10),
-        public_api.filter_module_all,
-        public_api.add_proto_fields,
-        public_api.filter_builtin_modules,
-        public_api.filter_private_symbols,
-        public_api.FilterBaseDirs(base_dir),
-        public_api.FilterPrivateMap(private_map),
-        public_api.filter_doc_controls_skip,
-        public_api.ignore_typing
-    ]
-  else:
-    filters = []
-
   accumulator = visitor_cls()
-  traverse.traverse(
-      py_module, filters + callbacks, accumulator, root_name=short_name)
+  traverse.traverse(py_module, filters, accumulator, root_name=short_name)
 
   accumulator.build()
   return accumulator
@@ -289,22 +258,22 @@ class DocGenerator:
       self,
       *,
       root_title: str,
-      py_modules: Sequence[Tuple[str, Any]],
+      py_modules: Sequence[tuple[str, Any]],
       base_dir: Optional[Sequence[Union[str, pathlib.Path]]] = None,
       code_url_prefix: Union[Optional[str], Sequence[Optional[str]]] = (),
       self_link_base: Optional[str] = None,
       search_hints: bool = True,
       site_path: str = 'api_docs/python',
-      private_map: Optional[Dict[str, str]] = None,
+      private_map: Optional[dict[str, str]] = None,
       visitor_cls: Type[doc_generator_visitor.DocGeneratorVisitor] = (
           doc_generator_visitor.DocGeneratorVisitor
       ),
       api_cache: bool = True,
-      callbacks: Optional[List[public_api.ApiFilter]] = None,
+      callbacks: Optional[list[public_api.ApiFilter]] = None,
       yaml_toc: Union[bool, Type[toc_lib.TocBuilder]] = True,
       gen_redirects: bool = True,
       gen_report: bool = True,
-      extra_docs: Optional[Dict[int, str]] = None,
+      extra_docs: Optional[dict[int, str]] = None,
       page_builder_classes: Optional[docs_for_object.PageBuilderDict] = None,
   ):
     """Creates a doc-generator.
@@ -413,20 +382,35 @@ class DocGenerator:
         self_link_base=self._self_link_base,
     )
 
-  def run_extraction(self):
+  def make_default_filters(self) -> list[public_api.ApiFilter]:
+    # The objects found during traversal, and their children are passed to each
+    # of these filters in sequence. Each visitor returns the list of children
+    # to be passed to the next visitor.
+    return [
+        # filter the api.
+        public_api.FailIfNestedTooDeep(10),
+        public_api.filter_module_all,
+        public_api.add_proto_fields,
+        public_api.filter_builtin_modules,
+        public_api.filter_private_symbols,
+        public_api.FilterBaseDirs(self._base_dir),
+        public_api.FilterPrivateMap(self._private_map),
+        public_api.filter_doc_controls_skip,
+        public_api.ignore_typing,
+    ]
+
+  def run_extraction(self) -> config.ParserConfig:
     """Walks the module contents, returns an index of all visited objects.
 
-    The return value is an instance of `self._visitor_cls`, usually:
-    `doc_generator_visitor.DocGeneratorVisitor`
-
     Returns:
+        An instance of `parser_config.ParserConfig`.
     """
+    default_filters = self.make_default_filters()
     visitor = extract(
         py_modules=self._py_modules,
-        base_dir=self._base_dir,
-        private_map=self._private_map,
         visitor_cls=self._visitor_cls,
-        callbacks=self._callbacks)
+        filters=default_filters + self._callbacks,
+    )
 
     # Write the api docs.
     parser_config = self.make_parser_config(visitor)
