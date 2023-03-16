@@ -20,7 +20,7 @@ from tensorflow_docs.api_generator.pretty_docs import class_page
 from tensorflow_docs.api_generator.pretty_docs import function_page
 from tensorflow_docs.api_generator.report import linter
 
-from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
+from tensorflow_docs.api_generator.report.schema import api_report_pb2
 from google.protobuf import timestamp_pb2
 
 
