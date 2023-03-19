@@ -29,7 +29,7 @@ REQUIRED_PKGS = [
     'absl-py',
     'jinja2',
     'nbformat',
-    'protobuf',
+    'protobuf>=3.12',
     'pyyaml',
 ]
 

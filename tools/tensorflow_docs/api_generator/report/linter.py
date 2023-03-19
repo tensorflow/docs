@@ -26,7 +26,7 @@ import astor
 from tensorflow_docs.api_generator import get_source
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator.pretty_docs import base_page
-from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
+from tensorflow_docs.api_generator.report.schema import api_report_pb2
 
 
 

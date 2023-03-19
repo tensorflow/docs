@@ -28,7 +28,7 @@ from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator.pretty_docs import docs_for_object
 from tensorflow_docs.api_generator.report import utils
-from tensorflow_docs.api_generator.report.schema import api_report_generated_pb2 as api_report_pb2
+from tensorflow_docs.api_generator.report.schema import api_report_pb2
 
 
 class DummyVisitor(object):
