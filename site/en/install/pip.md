@@ -144,7 +144,7 @@ Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 
 ## Software requirements
 
-*   Python 3.7–3.10
+*   Python 3.8–3.11
 *   pip version 19.0 or higher for Linux (requires `manylinux2010` support) and
     Windows. pip version 20.3 or higher for macOS.
 *   Windows Native Requires
@@ -342,7 +342,7 @@ The following NVIDIA® software are only required for GPU support.
 
     Check if your Python environment is already configured:
 
-    Note: Requires Python 3.7–3.10, and pip >= 20.3 for MacOS.
+    Note: Requires Python 3.8–3.11, and pip >= 20.3 for MacOS.
 
     ```bash
     python3 --version
