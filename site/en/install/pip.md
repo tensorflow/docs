@@ -26,9 +26,10 @@ step-by-step instructions.
     for more information about this collaboration.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-    python3 -m pip install tensorflow
+    conda install -c conda-forge cudatoolkit=11.8.0
+    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
     # Verify install:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
@@ -72,9 +73,10 @@ step-by-step instructions.
     for CUDA in WSL.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
-    python3 -m pip install tensorflow
+    conda install -c conda-forge cudatoolkit=11.8.0
+    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
     # Verify install:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
@@ -155,8 +157,8 @@ The following NVIDIA® software are only required for GPU support.
 
 *   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}
     version 450.80.02 or higher.
-*   [CUDA® Toolkit 11.2](https://developer.nvidia.com/cuda-toolkit-archive){:.external}.
-*   [cuDNN SDK 8.1.0](https://developer.nvidia.com/cudnn){:.external}.
+*   [CUDA® Toolkit 11.8](https://developer.nvidia.com/cuda-toolkit-archive){:.external}.
+*   [cuDNN SDK 8.6.0](https://developer.nvidia.com/cudnn){:.external}.
 *   *(Optional)*
     [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
     to improve latency and throughput for inference.
@@ -233,17 +235,19 @@ The following NVIDIA® software are only required for GPU support.
     nvidia-smi
     ```
 
-    Then install CUDA and cuDNN with conda.
+    Then install CUDA and cuDNN with conda and pip.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2.2 cudnn=8.1.0
+    conda install -c conda-forge cudatoolkit=11.8.0
+    pip install nvidia-cudnn-cu11==8.6.0.163
     ```
 
     Configure the system paths. You can do it with the following command every time
     you start a new terminal after activating your conda environment.
 
     ```bash
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
     ```
 
     For your convenience it is recommended that you automate it with the following
@@ -252,7 +256,8 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
-    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
 
     ### 5. Install TensorFlow
@@ -271,7 +276,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow==2.11.*
+    pip install tensorflow==2.12.*
     ```
 
     ### 6. Verify install
@@ -312,7 +317,7 @@ The following NVIDIA® software are only required for GPU support.
     conda install -c nvidia cuda-nvcc=11.3.58
     # Configure the XLA cuda directory
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
-    printf 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/\nexport XLA_FLAGS=--xla_gpu_cuda_data_dir=$CONDA_PREFIX/lib/\n' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    printf 'export XLA_FLAGS=--xla_gpu_cuda_data_dir=$CONDA_PREFIX/lib/\n' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     # Copy libdevice file to the required path
     mkdir -p $CONDA_PREFIX/lib/nvvm/libdevice
@@ -598,17 +603,19 @@ The following NVIDIA® software are only required for GPU support.
     nvidia-smi
     ```
 
-    Then install CUDA and cuDNN with conda.
+    Then install CUDA and cuDNN with conda and pip.
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+    conda install -c conda-forge cudatoolkit=11.8.0
+    pip install nvidia-cudnn-cu11==8.6.0.163
     ```
 
     Configure the system paths. You can do it with following command everytime
     your start a new terminal after activating your conda environment.
 
     ```bash
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
     ```
 
     For your convenience it is recommended that you automate it with the following
@@ -617,7 +624,8 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
-    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
 
     ### 5. Install TensorFlow
@@ -636,7 +644,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow
+    pip install tensorflow==2.12.*
     ```
 
     ### 6. Verify install
@@ -668,72 +676,56 @@ The value you specify depends on your Python version.
   <tr><th>Version</th><th>URL</th></tr>
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
-    <td>Python 3.7 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-2.11.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
-  </tr>
-  <tr>
-    <td>Python 3.7 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.11.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.8 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.12.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.8 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.11.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.12.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-2.11.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.12.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.11.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.12.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-2.11.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.11.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
   <tr>
-    <td>Python 3.7</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.11.0-cp37-cp37m-macosx_10_14_x86_64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.8</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.11.0-cp38-cp38-macosx_10_14_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.12.0-cp38-cp38-macosx_10_15_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.11.0-cp39-cp39-macosx_10_14_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.12.0-cp39-cp39-macosx_10_15_x86_64.whl</td>
   </tr>
    <tr>
     <td>Python 3.10</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.11.0-cp310-cp310-macosx_10_14_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.12.0-cp310-cp310-macosx_10_15_x86_64.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
-    <td>Python 3.7 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp37-cp37m-win_amd64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.8 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp38-cp38-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.12.0-cp38-cp38-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp39-cp39-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.12.0-cp39-cp39-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.11.0-cp310-cp310-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.12.0-cp310-cp310-win_amd64.whl</td>
   </tr>
 
 </table>
