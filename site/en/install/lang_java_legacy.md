@@ -1,7 +1,7 @@
 # Install TensorFlow for Java
 
 Warning: TensorFlow for Java is deprecated and will be removed in a future
-version of TensorFlow once <a href=https://github.com/tensorflow/java>the replacement</a> is stable.
+version of TensorFlow once [the replacement](https://github.com/tensorflow/java) is stable.
 
 TensorFlow provides a
 [Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
@@ -40,7 +40,7 @@ add the dependency to the project's `pom.xml` file:
 
 ### GPU support
 
-If your system has [GPU support](https://www.tensorflow.org/install/pip), add the following TensorFlow
+If your system has [GPU support](./pip.md), add the following TensorFlow
 dependencies to the project's `pom.xml` file:
 
 ```xml
