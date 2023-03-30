@@ -33,9 +33,9 @@ REQUIRED_PKGS = [
     'pyyaml',
 ]
 
-# Dataclasses is in-built from py >=3.7. This version is a backport for py 3.6.
-if (sys.version_info.major, sys.version_info.minor) == (3, 6):
-  REQUIRED_PKGS.append('dataclasses')
+# Dataclasses is in-built from py >=3.7. Install 'dataclasses' for compatibility with Python versions before 3.7
+if sys.version_info < (3, 7):
+    REQUIRED_PKGS.append('dataclasses')
 
 VIS_REQUIRE = [
     'numpy',
