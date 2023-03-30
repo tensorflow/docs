@@ -119,9 +119,9 @@ def del_entries_except(data: Dict[str, Any], keep: List[str]) -> None:
 class CellCopyStats:
   processed_cells: int = 0
   updated_cells: int = 0
-  unmatched_target_cells: list[str] = dataclasses.field(default_factory=list)
-  unmatched_source_cells: list[str] = dataclasses.field(default_factory=list)
-  out_of_order_target_cells: list[str] = dataclasses.field(default_factory=list)
+  unmatched_target_cells: List[str] = dataclasses.field(default_factory=list)
+  unmatched_source_cells: List[str] = dataclasses.field(default_factory=list)
+  out_of_order_target_cells: List[str] = dataclasses.field(default_factory=list)
 
 
 def copy_code_cells(source: notebooknode.NotebookNode,
