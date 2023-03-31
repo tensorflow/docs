@@ -33,10 +33,6 @@ REQUIRED_PKGS = [
     'pyyaml',
 ]
 
-# Dataclasses is in-built from py >=3.7. This version is a backport for py 3.6.
-if (sys.version_info.major, sys.version_info.minor) == (3, 6):
-  REQUIRED_PKGS.append('dataclasses')
-
 VIS_REQUIRE = [
     'numpy',
     'PILLOW',
@@ -46,6 +42,7 @@ VIS_REQUIRE = [
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#new-and-changed-setup-keywords
 setup(
     name=project_name,
+    python_requires='>=3.8',
     version=version,
     description=DOCLINES[0],
     long_description='\n'.join(DOCLINES[2:]),
