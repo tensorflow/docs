@@ -25,9 +25,6 @@ Install the following build tools to configure your development environment.
 <p>Requires Xcode 9.2 or later.</p>
 <p>Install using the <a href="https://brew.sh/" class="external">Homebrew</a> package manager:</p>
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
-<code class="devsite-terminal">export PATH="/usr/local/opt/python/libexec/bin:$PATH"</code>
-<code class="devsite-terminal"># if you are on macOS 10.12 (Sierra) use `export PATH="/usr/local/bin:/usr/local/sbin:$PATH"`</code>
 <code class="devsite-terminal">brew install python</code>
 </pre>
 </section>
