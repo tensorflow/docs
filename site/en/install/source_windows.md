@@ -91,6 +91,24 @@ git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
 
+## Optional: Environmental Variable Set Up
+Run following commands before running build command to avoid issue with package creation: [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+set PATH=path/to/python [e.g. (C:/Python310)]
+set PATH=path/to/python/Scripts [e.g. (C:/Python310/Scripts)] 
+set PYTHON_BIN_PATH=path/to/python_virtualenv/Scripts/python.exe 
+set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages 
+set PYTHON_DIRECTORY=path/to/python_virtualenv/Scripts 
+</pre>
+
+Bazel/MSVC path set up issue [tensorflow:issue#54578](https://github.com/tensorflow/tensorflow/issues/54578)(If the below commands were set up while installing Bazel, please ignore them) 
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+set BAZEL_SH=C:/msys64/usr/bin/bash.exe 
+set BAZEL_VS=C:/Program Files(x86)/Microsoft Visual Studio/2019/BuildTools 
+set BAZEL_VC=C:/Program Files(x86)/Microsoft Visual Studio/2019/BuildTools/VC 
+</pre>
+
 
 ## Optional: Configure the build
 
@@ -190,6 +208,13 @@ To make the TensorFlow package builder with GPU support:
 bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
+Commands to clean the bazel cache to resolve errors due to invalid or outdated cached data, bazel clean with --expunge flag removes files permanently [tensorflow:issue#13135](https://github.com/tensorflow/tensorflow/issues/13135)  
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+bazel clean 
+bazel clean --expunge  
+</pre>
+
 #### Bazel build options
 
 Use this option when building to avoid issue with package creation:
@@ -222,6 +247,7 @@ bazel-bin\tensorflow\tools\pip_package\build_pip_package C:/tmp/tensorflow_pkg
 Although it is possible to build both CUDA and non-CUDA configs under the
 same source tree, we recommend running `bazel clean` when switching between
 these two configurations in the same source tree.
+
 
 ### Install the package
 

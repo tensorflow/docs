@@ -51,7 +51,7 @@ step-by-step instructions.
     supported GPU on native-Windows.
     Starting with TensorFlow `2.11`, you will need to install
     [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2),
-    or install `tensorflow-cpu` and, optionally, try the
+    or install `tensorflow` or `tensorflow-cpu` and, optionally, try the
     [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
     ```bash
