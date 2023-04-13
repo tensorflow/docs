@@ -125,6 +125,8 @@ toc:
 - title: "Text"
   style: accordion
   section:
+  - title: "Text and natural language processing"
+    path: /tutorials/text/index
   - title: "Word embeddings"
     path: /text/guide/word_embeddings
     status: external
