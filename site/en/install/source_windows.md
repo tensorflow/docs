@@ -92,7 +92,7 @@ Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
 
 ## Optional: Environmental Variable Set Up
-Run following commands before running build command to avoid issue with package creation: [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
+Run following commands before running build command to avoid issue with package creation: Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 set PATH=path/to/python [e.g. (C:/Python310)]
