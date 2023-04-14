@@ -92,7 +92,10 @@ Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
 
 ## Optional: Environmental Variable Set Up
-Run following commands before running build command to avoid issue with package creation: Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
+Run following commands before running build command to avoid issue with package creation:
+(If the below commands were set up while installing the packages, please ignore them). Run `set` check if all the paths were set correctly, run `echo %Environmental Variable%` e.g. `echo %BAZEL_VC%` to check path set up for a specific Environmental Variable
+
+ Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 set PATH=path/to/python [e.g. (C:/Python310)]
@@ -102,7 +105,8 @@ set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages
 set PYTHON_DIRECTORY=path/to/python_virtualenv/Scripts 
 </pre>
 
-Bazel/MSVC path set up issue [tensorflow:issue#54578](https://github.com/tensorflow/tensorflow/issues/54578)(If the below commands were set up while installing Bazel, please ignore them) 
+Bazel/MSVC path set up issue [tensorflow:issue#54578](https://github.com/tensorflow/tensorflow/issues/54578)
+
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 set BAZEL_SH=C:/msys64/usr/bin/bash.exe 
 set BAZEL_VS=C:/Program Files(x86)/Microsoft Visual Studio/2019/BuildTools 
