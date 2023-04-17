@@ -138,34 +138,40 @@ differ):
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal tfo-terminal-windows">
 python ./configure.py
-Starting local Bazel server and connecting to it...
-................
-You have bazel 0.15.0 installed.
-Please specify the location of python. [Default is C:\python36\python.exe]:
+You have bazel 5.3.0 installed.
+Please specify the location of python. [Default is C:\Python310\python.exe]:
+
 
 Found possible Python library paths:
-  C:\python36\lib\site-packages
-Please input the desired Python library path to use.  Default is [C:\python36\lib\site-packages]
+  D:\user\mraunak\venv310\lib\site-packages
+Please input the desired Python library path to use.  Default is [D:\user\mraunak\venv310\lib\site-packages]
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: <b>Y</b>
-CUDA support will be enabled for TensorFlow.
+Do you wish to build TensorFlow with ROCm support? [y/N]:
+No ROCm support will be enabled for TensorFlow.
 
-Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]:
 
-Please specify the location where CUDA 9.0 toolkit is installed. Refer to README.md for more details. [Default is C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0]:
-
-Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: <b>7.0</b>
-
-Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0]: <b>C:\tools\cuda</b>
-
-Please specify a list of comma-separated Cuda compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
-Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0]: <b>3.7</b>
+WARNING: Cannot build with CUDA support on Windows.
+Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2.
 
 Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]:
 
+
 Would you like to override eigen strong inline for some C++ compilation to reduce the compilation time? [Y/n]:
 Eigen strong inline overridden.
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+        --config=mkl            # Build with MKL support.
+        --config=mkl_aarch64    # Build with oneDNN and Compute Library for the Arm Architecture (ACL).
+        --config=monolithic     # Config for mostly static monolithic build.
+        --config=numa           # Build with NUMA support.
+        --config=dynamic_kernels        # (Experimental) Build kernels into separate shared objects.
+        --config=v1             # Build with TensorFlow 1 API instead of TF 2 API.
+Preconfigured Bazel build configs to DISABLE default on features:
+        --config=nogcp          # Disable GCP support.
+        --config=nonccl         # Disable NVIDIA NCCL support.
 
 Configuration finished
 </pre>
