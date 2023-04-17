@@ -69,7 +69,7 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 See the Windows [GPU support](./gpu.md) guide to install the drivers and
 additional software required to run TensorFlow on a GPU.
 
-Note: This is only for 2.10 or earlier. 2.11 or later versions does support GPU on Windows
+Note: This is only for 2.10 or earlier versions, 2.11 or later versions does not support GPU on native-Windows
 
 ### Download the TensorFlow source code
 
@@ -140,11 +140,9 @@ differ):
 python ./configure.py
 You have bazel 5.3.0 installed.
 Please specify the location of python. [Default is C:\Python310\python.exe]:
-
-
 Found possible Python library paths:
-  D:\user\mraunak\venv310\lib\site-packages
-Please input the desired Python library path to use.  Default is [D:\user\mraunak\venv310\lib\site-packages]
+C:\Python310\lib\site-packages
+Please input the desired Python library path to use.  Default is [C:\Python310\lib\site-packages]
 
 Do you wish to build TensorFlow with ROCm support? [y/N]:
 No ROCm support will be enabled for TensorFlow.
@@ -173,7 +171,7 @@ Preconfigured Bazel build configs to DISABLE default on features:
         --config=nogcp          # Disable GCP support.
         --config=nonccl         # Disable NVIDIA NCCL support.
 
-Configuration finished
+# Configuration finished
 </pre>
 </section>
 
@@ -220,7 +218,7 @@ To make the TensorFlow package builder with GPU support:
 bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
-Commands to clean the bazel cache to resolve errors due to invalid or outdated cached data, bazel clean with --expunge flag removes files permanently [tensorflow:issue#13135](https://github.com/tensorflow/tensorflow/issues/13135)  
+Commands to clean the bazel cache to resolve errors due to invalid or outdated cached data, bazel clean with --expunge flag removes files permanently
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel clean 
@@ -267,7 +265,7 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip3 install` to install the package, for example:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
-pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp36-cp36m-win_amd64.whl
+pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp310-cp310-win_amd64.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -294,12 +292,12 @@ considered a Unix absolute path since it starts with a slash.)
 
 Add the Bazel and Python installation directories to your `$PATH` environmental
 variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
-`C:\Python36\python.exe`, set your `PATH` with:
+`C:\Python310\python.exe`, set your `PATH` with:
 
 <pre class="prettyprint lang-bsh">
 # Use Unix-style with ':' as separator
 <code class="devsite-terminal">export PATH="/c/tools:$PATH"</code>
-<code class="devsite-terminal">export PATH="/c/Python36:$PATH"</code>
+<code class="devsite-terminal">export PATH="/c/Python310:$PATH"</code>
 </pre>
 
 For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
