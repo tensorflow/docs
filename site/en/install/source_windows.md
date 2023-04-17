@@ -171,7 +171,6 @@ Preconfigured Bazel build configs to DISABLE default on features:
         --config=nogcp          # Disable GCP support.
         --config=nonccl         # Disable NVIDIA NCCL support.
 
-# Configuration finished
 </pre>
 </section>
 
@@ -211,6 +210,8 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### GPU support
+
+Note: This is only for 2.10 or earlier versions, 2.11 or later versions do not support GPU on native-Windows
 
 To make the TensorFlow package builder with GPU support:
 
@@ -308,6 +309,8 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 <code class="devsite-terminal">export PATH="/c/tools/cuda/bin:$PATH"</code>
 </pre>
 
+Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+
 <a name="tested_build_configurations"></a>
 ## Tested build configurations
 
@@ -347,6 +350,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </table>
 
 ### GPU
+Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
