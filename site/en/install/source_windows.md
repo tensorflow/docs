@@ -69,6 +69,8 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 See the Windows [GPU support](./gpu.md) guide to install the drivers and
 additional software required to run TensorFlow on a GPU.
 
+Note: This is only for 2.10 or earlier. 2.11 or later versions does support GPU on Windows
+
 ### Download the TensorFlow source code
 
 Use [Git](https://git-scm.com/){:.external} to clone the
