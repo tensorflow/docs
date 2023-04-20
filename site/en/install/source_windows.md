@@ -13,7 +13,7 @@ environment.
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.8+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
+[Python 3.9+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
 Select *pip* as an optional feature and add it to your `%PATH%` environmental
 variable.
 
@@ -69,7 +69,7 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 See the Windows [GPU support](./gpu.md) guide to install the drivers and
 additional software required to run TensorFlow on a GPU.
 
-Note: This is only for 2.10 or earlier versions, 2.11 or later versions does not support GPU on native-Windows
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
 
 ### Download the TensorFlow source code
 
@@ -174,17 +174,6 @@ Preconfigured Bazel build configs to DISABLE default on features:
 </pre>
 </section>
 
-### Configuration options
-
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure.py` creates symbolic
-links to your system's CUDA libraries—so if you update your CUDA library paths,
-this configuration step must be run again before building.
-
-Warning: TF-TRT Windows support is provided experimentally. No guarantee is made
-regarding functionality or engineering support. Use at your own risk.
-
 ## Build and install the pip package
 
 The pip package gets built in two steps. A `bazel build` commands creates a
@@ -211,7 +200,7 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 
 #### GPU support
 
-Note: This is only for 2.10 or earlier versions, 2.11 or later versions do not support GPU on native-Windows
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
 
 To make the TensorFlow package builder with GPU support:
 
@@ -318,7 +307,6 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>MSVC 2019</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.10.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.1.1</td></tr>
 <tr><td>tensorflow-2.9.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.0.0</td></tr>
@@ -350,7 +338,7 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 </table>
 
 ### GPU
-Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
