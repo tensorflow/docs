@@ -400,17 +400,18 @@ class ClassPageInfo(base_page.PageInfo):
     Returns:
       Augmented "Attr" block.
     """
-
     attribute_block = None
 
     for attr_block_index, part in enumerate(docstring_parts):
       if isinstance(part, parser.TitleBlock) and part.title.startswith('Attr'):
         raw_attrs = collections.OrderedDict(part.items)
+        old_block = part
         break
     else:
       # Didn't find the attributes block, there may still be attributes so
       # add a placeholder for them at the end.
       raw_attrs = collections.OrderedDict()
+      old_block = None
       attr_block_index = len(docstring_parts)
       docstring_parts.append(None)
 
@@ -436,8 +437,13 @@ class ClassPageInfo(base_page.PageInfo):
         attrs.setdefault(name, desc)
 
     if attrs:
+      if old_block is not None:
+        text = old_block.text
+      else:
+        text = ''
       attribute_block = parser.TitleBlock(
-          title='Attributes', text='', items=list(attrs.items()))
+          title='Attributes', text=text, items=list(attrs.items())
+      )
 
     # Delete the Attrs block if it exists or delete the placeholder.
     del docstring_parts[attr_block_index]
