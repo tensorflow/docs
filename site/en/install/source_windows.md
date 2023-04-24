@@ -284,7 +284,7 @@ considered a Unix absolute path since it starts with a slash.)
 
 Add the Bazel and Python installation directories to your `$PATH` environmental
 variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
-`C:\Python310\python.exe`, set your `PATH` with:
+`C:\Python\python.exe`, set your `PATH` with:
 
 <pre class="prettyprint lang-bsh">
 # Use Unix-style with ':' as separator
