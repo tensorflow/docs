@@ -255,7 +255,9 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip3 install` to install the package, for example:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
-pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp310-cp310-win_amd64.whl
+pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
+
+e.g. pip3 install C:/tmp/tensorflow_pkg/tensorflow-2.12.0-cp310-cp310-win_amd64.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -287,7 +289,7 @@ variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
 <pre class="prettyprint lang-bsh">
 # Use Unix-style with ':' as separator
 <code class="devsite-terminal">export PATH="/c/tools:$PATH"</code>
-<code class="devsite-terminal">export PATH="/c/Python310:$PATH"</code>
+<code class="devsite-terminal">export PATH="/c/path/to/Python:$PATH"</code>
 </pre>
 
 For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
