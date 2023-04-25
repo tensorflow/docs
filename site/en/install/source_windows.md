@@ -200,7 +200,7 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 
 #### GPU support
 
-Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu TensorFlow-DirectML-Plugin
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 To make the TensorFlow package builder with GPU support:
 
@@ -300,7 +300,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 <code class="devsite-terminal">export PATH="/c/tools/cuda/bin:$PATH"</code>
 </pre>
 
-Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 <a name="tested_build_configurations"></a>
 ## Tested build configurations
@@ -341,7 +341,7 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 </table>
 
 ### GPU
-Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
