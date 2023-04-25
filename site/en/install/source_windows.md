@@ -284,7 +284,7 @@ considered a Unix absolute path since it starts with a slash.)
 
 Add the Bazel and Python installation directories to your `$PATH` environmental
 variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
-`C:\Python310\python.exe`, set your `PATH` with:
+`C:\Python\python.exe`, set your `PATH` with:
 
 <pre class="prettyprint lang-bsh">
 # Use Unix-style with ':' as separator
@@ -309,6 +309,7 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>MSVC 2019</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.10.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.1.1</td></tr>
 <tr><td>tensorflow-2.9.0</td><td>3.7-3.10</td><td>MSVC 2019</td><td>Bazel 5.0.0</td></tr>
