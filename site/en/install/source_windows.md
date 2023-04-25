@@ -69,7 +69,7 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 See the Windows [GPU support](./gpu.md) guide to install the drivers and
 additional software required to run TensorFlow on a GPU.
 
-Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 ### Download the TensorFlow source code
 
@@ -100,8 +100,8 @@ Run following commands before running build command to avoid issue with package 
  Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
-set PATH=path/to/python [e.g. (C:/Python310)]
-set PATH=path/to/python/Scripts [e.g. (C:/Python310/Scripts)] 
+set PATH=path/to/python # [e.g. (C:/Python310)]
+set PATH=path/to/python/Scripts # [e.g. (C:/Python310/Scripts)] 
 set PYTHON_BIN_PATH=path/to/python_virtualenv/Scripts/python.exe 
 set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages 
 set PYTHON_DIRECTORY=path/to/python_virtualenv/Scripts 
@@ -200,7 +200,7 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 
 #### GPU support
 
-Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use TensorFlow-DirectML-Plugin
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu TensorFlow-DirectML-Plugin
 
 To make the TensorFlow package builder with GPU support:
 
