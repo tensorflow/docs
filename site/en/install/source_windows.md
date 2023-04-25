@@ -100,7 +100,7 @@ Run following commands before running build command to avoid issue with package 
  Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
-set PATH=path/to/python [e.g. (C:/Python310)]
+set PATH=path/to/python # [e.g. (C:/Python310)]
 set PATH=path/to/python/Scripts # [e.g. (C:/Python310/Scripts)] 
 set PYTHON_BIN_PATH=path/to/python_virtualenv/Scripts/python.exe 
 set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages 
