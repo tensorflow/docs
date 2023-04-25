@@ -101,7 +101,7 @@ Run following commands before running build command to avoid issue with package 
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 set PATH=path/to/python [e.g. (C:/Python310)]
-set PATH=path/to/python/Scripts [e.g. (C:/Python310/Scripts)] 
+set PATH=path/to/python/Scripts # [e.g. (C:/Python310/Scripts)] 
 set PYTHON_BIN_PATH=path/to/python_virtualenv/Scripts/python.exe 
 set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages 
 set PYTHON_DIRECTORY=path/to/python_virtualenv/Scripts 
