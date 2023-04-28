@@ -13,7 +13,7 @@ environment.
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.8+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
+[Python 3.9+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
 Select *pip* as an optional feature and add it to your `%PATH%` environmental
 variable.
 
@@ -69,6 +69,8 @@ Note: TensorFlow is tested against the *Visual Studio 2019*.
 See the Windows [GPU support](./gpu.md) guide to install the drivers and
 additional software required to run TensorFlow on a GPU.
 
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
+
 ### Download the TensorFlow source code
 
 Use [Git](https://git-scm.com/){:.external} to clone the
@@ -90,6 +92,28 @@ git checkout <em>branch_name</em>  # r1.9, r1.10, etc.
 
 Key Point: If you're having build problems on the latest development branch, try
 a release branch that is known to work.
+
+## Optional: Environmental Variable Set Up
+Run following commands before running build command to avoid issue with package creation:
+(If the below commands were set up while installing the packages, please ignore them). Run `set` check if all the paths were set correctly, run `echo %Environmental Variable%` e.g. `echo %BAZEL_VC%` to check path set up for a specific Environmental Variable
+
+ Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+set PATH=path/to/python # [e.g. (C:/Python310)]
+set PATH=path/to/python/Scripts # [e.g. (C:/Python310/Scripts)] 
+set PYTHON_BIN_PATH=path/to/python_virtualenv/Scripts/python.exe 
+set PYTHON_LIB_PATH=path/to/python virtualenv/lib/site-packages 
+set PYTHON_DIRECTORY=path/to/python_virtualenv/Scripts 
+</pre>
+
+Bazel/MSVC path set up issue [tensorflow:issue#54578](https://github.com/tensorflow/tensorflow/issues/54578)
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+set BAZEL_SH=C:/msys64/usr/bin/bash.exe 
+set BAZEL_VS=C:/Program Files(x86)/Microsoft Visual Studio/2019/BuildTools 
+set BAZEL_VC=C:/Program Files(x86)/Microsoft Visual Studio/2019/BuildTools/VC 
+</pre>
 
 
 ## Optional: Configure the build
@@ -114,49 +138,41 @@ differ):
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal tfo-terminal-windows">
 python ./configure.py
-Starting local Bazel server and connecting to it...
-................
-You have bazel 0.15.0 installed.
-Please specify the location of python. [Default is C:\python36\python.exe]:
-
+You have bazel 5.3.0 installed.
+Please specify the location of python. [Default is C:\Python310\python.exe]:
 Found possible Python library paths:
-  C:\python36\lib\site-packages
-Please input the desired Python library path to use.  Default is [C:\python36\lib\site-packages]
+C:\Python310\lib\site-packages
+Please input the desired Python library path to use.  Default is [C:\Python310\lib\site-packages]
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: <b>Y</b>
-CUDA support will be enabled for TensorFlow.
+Do you wish to build TensorFlow with ROCm support? [y/N]:
+No ROCm support will be enabled for TensorFlow.
 
-Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]:
 
-Please specify the location where CUDA 9.0 toolkit is installed. Refer to README.md for more details. [Default is C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0]:
-
-Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: <b>7.0</b>
-
-Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0]: <b>C:\tools\cuda</b>
-
-Please specify a list of comma-separated Cuda compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
-Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,7.0]: <b>3.7</b>
+WARNING: Cannot build with CUDA support on Windows.
+Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2.
 
 Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is /arch:AVX]:
+
 
 Would you like to override eigen strong inline for some C++ compilation to reduce the compilation time? [Y/n]:
 Eigen strong inline overridden.
 
-Configuration finished
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+        --config=mkl            # Build with MKL support.
+        --config=mkl_aarch64    # Build with oneDNN and Compute Library for the Arm Architecture (ACL).
+        --config=monolithic     # Config for mostly static monolithic build.
+        --config=numa           # Build with NUMA support.
+        --config=dynamic_kernels        # (Experimental) Build kernels into separate shared objects.
+        --config=v1             # Build with TensorFlow 1 API instead of TF 2 API.
+Preconfigured Bazel build configs to DISABLE default on features:
+        --config=nogcp          # Disable GCP support.
+        --config=nonccl         # Disable NVIDIA NCCL support.
+
 </pre>
 </section>
-
-### Configuration options
-
-For [GPU support](./gpu.md), specify the versions of CUDA and cuDNN. If your
-system has multiple versions of CUDA or cuDNN installed, explicitly set the
-version instead of relying on the default. `./configure.py` creates symbolic
-links to your system's CUDA libraries—so if you update your CUDA library paths,
-this configuration step must be run again before building.
-
-Warning: TF-TRT Windows support is provided experimentally. No guarantee is made
-regarding functionality or engineering support. Use at your own risk.
 
 ## Build and install the pip package
 
@@ -184,10 +200,19 @@ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 
 #### GPU support
 
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
+
 To make the TensorFlow package builder with GPU support:
 
 <pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
 bazel build --config=opt --config=cuda --define=no_tensorflow_py_deps=true //tensorflow/tools/pip_package:build_pip_package
+</pre>
+
+Commands to clean the bazel cache to resolve errors due to invalid or outdated cached data, bazel clean with --expunge flag removes files permanently
+
+<pre class="devsite-terminal tfo-terminal-windows devsite-click-to-copy">
+bazel clean 
+bazel clean --expunge  
 </pre>
 
 #### Bazel build options
@@ -223,13 +248,16 @@ Although it is possible to build both CUDA and non-CUDA configs under the
 same source tree, we recommend running `bazel clean` when switching between
 these two configurations in the same source tree.
 
+
 ### Install the package
 
 The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip3 install` to install the package, for example:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
-pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-cp36-cp36m-win_amd64.whl
+pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
+
+e.g. pip3 install C:/tmp/tensorflow_pkg/tensorflow-2.12.0-cp310-cp310-win_amd64.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -256,12 +284,12 @@ considered a Unix absolute path since it starts with a slash.)
 
 Add the Bazel and Python installation directories to your `$PATH` environmental
 variable. If Bazel is installed to `C:\tools\bazel.exe`, and Python to
-`C:\Python36\python.exe`, set your `PATH` with:
+`C:\Python\python.exe`, set your `PATH` with:
 
 <pre class="prettyprint lang-bsh">
 # Use Unix-style with ':' as separator
 <code class="devsite-terminal">export PATH="/c/tools:$PATH"</code>
-<code class="devsite-terminal">export PATH="/c/Python36:$PATH"</code>
+<code class="devsite-terminal">export PATH="/c/path/to/Python:$PATH"</code>
 </pre>
 
 For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
@@ -271,6 +299,8 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 <code class="devsite-terminal">export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/extras/CUPTI/libx64:$PATH"</code>
 <code class="devsite-terminal">export PATH="/c/tools/cuda/bin:$PATH"</code>
 </pre>
+
+Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 <a name="tested_build_configurations"></a>
 ## Tested build configurations
@@ -311,6 +341,7 @@ For GPU support, add the CUDA and cuDNN bin directories to your `$PATH`:
 </table>
 
 ### GPU
+Note: GPU support on native-Windows is only available for 2.10 or earlier versions, starting in TF 2.11, CUDA build is not supported for Windows. For using TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2 or use tensorflow-cpu with TensorFlow-DirectML-Plugin
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
