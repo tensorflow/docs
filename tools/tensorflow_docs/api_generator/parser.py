@@ -381,7 +381,11 @@ class TitleBlock(object):
       r"""
       ^(\*?\*?'?"?     # Optional * to allow *args, **kwargs and quotes
           \w[\w.'"]*?  # words, dots and closing quotes
-          (?:[ ]?[\(\]][\(\[\w.\)\]]*?)? # maybe a space and some words in parens.
+          (?:          # non capturing
+              [ ]?     # maybe a space
+              \(       # a `(`
+              [\ \(\[\w.,\)\]]*? # word chars, dots or more open/close or space
+          )?           # all optional
       )\s*:\s          # Allow any whitespace around the colon.""",
       re.MULTILINE | re.VERBOSE,
   )
@@ -447,10 +451,25 @@ class TitleBlock(object):
       text = split.pop(0)
       items = _pairs(split)
 
+      items = list(cls._split_items(items))
+
       title_block = cls(title=title, text=text, items=items)
       parts.append(title_block)
 
     return parts
+
+  @classmethod
+  def _split_items(
+      cls, items: Iterable[Tuple[str, str]]
+  ) -> Iterable[Tuple[str, str]]:
+    """If there's a type in the name, move it to the top of the description."""
+    for name, value in items:
+      if '(' in name:
+        name, type_str = re.split(r' ?[\(]', name, maxsplit=1)
+        type_str = f"`{type_str.rstrip(')')}`"
+        value = f'{type_str}\n\n{value}'
+
+      yield name, value
 
 
 class DocstringInfo(typing.NamedTuple):

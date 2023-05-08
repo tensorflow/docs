@@ -884,7 +884,8 @@ class TestParseDocstring(absltest.TestCase):
     block = docstring_parts[1]
     self.assertEqual('\nextra paragraph?\n', block.text)
     self.assertEqual('item', block.items[0][0])
-    self.assertEqual('item2 (int)', block.items[1][0])
+    self.assertEqual('item2', block.items[1][0])
+    self.assertStartsWith(block.items[1][1], '`int`')
     self.assertLen(block.items, 2)
 
   def test_strip_todos(self):
