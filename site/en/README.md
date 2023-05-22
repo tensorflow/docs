@@ -39,7 +39,7 @@ tensorflow.org project | GitHub docs location
 [/ranking](https://www.tensorflow.org/ranking) | https://github.com/tensorflow/ranking/tree/master/docs
 [/recommenders](https://www.tensorflow.org/recommenders) | https://github.com/tensorflow/recommenders/tree/main/docs
 [/responsible_ai/fairness_indicators](https://www.tensorflow.org/responsible_ai/fairness_indicators/guide) | https://github.com/tensorflow/fairness-indicators/tree/master/g3doc
-[/responsible_ai/model_card_toolkit](https://www.tensorflow.org/responsible_ai/model_card_toolkit/guide) | https://github.com/tensorflow/model-card-toolkit/tree/master/model_card_toolkit/documentation
+[/responsible_ai/model_card_toolkit](https://www.tensorflow.org/responsible_ai/model_card_toolkit/guide) | https://github.com/tensorflow/model-card-toolkit/tree/main/model_card_toolkit/documentation
 [/responsible_ai/model_remediation](https://www.tensorflow.org/responsible_ai/model_remediation) | https://github.com/tensorflow/model-remediation/tree/master/docs
 [/responsible_ai/privacy](https://www.tensorflow.org/responsible_ai/privacy/guide) | https://github.com/tensorflow/privacy/tree/master/g3doc
 [/tensorboard](https://www.tensorflow.org/tensorboard) | https://github.com/tensorflow/tensorboard/tree/master/docs
