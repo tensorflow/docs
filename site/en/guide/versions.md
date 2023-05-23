@@ -34,7 +34,7 @@ release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 Only the public APIs of TensorFlow are backwards compatible across minor and
 patch versions.  The public APIs consist of
 
-* All the documented [Python](../api_docs/python) functions and classes in the
+* All the documented [Python](https://www.tensorflow.org/api_docs/python) functions and classes in the
   `tensorflow` module and its submodules, except for
 
     * Private symbols: any function, class, etc., whose name start with `_`
