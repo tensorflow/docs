@@ -259,7 +259,10 @@ def button_website(args):
   if "r1" in rel_path.parts:
     return True  # No website button for TF 1.x docs.
 
-  if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
+  user_url = args["user"].get("base_url")
+  if user_url:
+    base_url = user_url
+  elif str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
     base_url = "https://tensorflow.google.cn/"
   else:
     base_url = "https://www.tensorflow.org/"
