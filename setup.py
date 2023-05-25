@@ -14,13 +14,30 @@
 # ==============================================================================
 """tensorflow_docs is a package for generating python api-reference docs."""
 
+import datetime
+import subprocess
 import sys
 
 from setuptools import find_packages
 from setuptools import setup
 
 project_name = 'tensorflow-docs'
-version = '0.0.0.dev0'
+
+
+def get_version() -> str:
+  ts = int(
+      subprocess.check_output(['git', 'log', '-1', '--format=%ct', 'tools'])
+      .decode('utf-8')
+      .strip()
+  )
+  dt = datetime.datetime.utcfromtimestamp(ts)
+  sec = 60 * 60 * dt.hour + 60 * dt.minute + dt.second
+
+  # calver.org
+  return f'{dt.year}.{dt.month}.{dt.day}.{sec}'
+
+
+version = get_version()
 
 DOCLINES = __doc__.split('\n')
 
@@ -42,7 +59,7 @@ VIS_REQUIRE = [
 # https://setuptools.readthedocs.io/en/latest/setuptools.html#new-and-changed-setup-keywords
 setup(
     name=project_name,
-    python_requires='>=3.8',
+    python_requires='>=3.9',
     version=version,
     description=DOCLINES[0],
     long_description='\n'.join(DOCLINES[2:]),
