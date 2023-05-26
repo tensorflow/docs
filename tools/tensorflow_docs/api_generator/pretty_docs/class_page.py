@@ -353,9 +353,18 @@ class ClassPageInfo(base_page.PageInfo):
 
     class_path_node = self.parser_config.path_tree[self.api_node.path]
     for _, path_node in sorted(class_path_node.children.items()):
-      # Don't document anything that is defined in object or by protobuf.
+      # TODO(b/284321463): This should go in the `traverse` function.
+      # Don't document anything that is defined in common builtin types.
       defining_class = parser.get_defining_class(py_class, path_node.short_name)
-      if defining_class in [object, type, tuple, BaseException, Exception]:
+      if defining_class in [
+          object,
+          type,
+          tuple,
+          dict,
+          list,
+          BaseException,
+          Exception,
+      ]:
         continue
 
       # The following condition excludes most protobuf-defined symbols.
