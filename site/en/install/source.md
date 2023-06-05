@@ -56,6 +56,24 @@ sure to install the correct Bazel version from TensorFlow's
 [.bazelversion](https://github.com/tensorflow/tensorflow/blob/master/.bazelversion)
 file.
 
+### Install Clang (recommended, Linux only)
+
+Clang is a C/C++/Objective-C compiler that is compiled in C++ based on LLVM. It
+is the default compiler to build TensorFlow starting with TensorFlow 2.13. The
+current supported version is LLVM/Clang 16.
+
+[LLVM Debian/Ubuntu nightly packages](https://apt.llvm.org) provide an automatic
+installation script and packages for manual installation on Linux. Make sure you
+run the following command if you manually add llvm apt repository to your
+package sources:
+
+<pre class="prettyprint lang-bsh">
+<code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-16 clang-16</code>
+</pre>
+
+Alternatively, you can download and unpack the pre-built
+[Clang+LLVM-16 binaries](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
+
 ### Install GPU support (optional, Linux only)
 
 There is *no* GPU support for macOS.
@@ -221,8 +239,8 @@ for
 Building TensorFlow from source can use a lot of RAM. If your system is
 memory-constrained, limit Bazel's RAM usage with: `--local_ram_resources=2048`.
 
-The [official TensorFlow packages](./pip.md) are built with a GCC toolchain that
-complies with the manylinux2014 package standard.
+The [official TensorFlow packages](./pip.md) are built with a Clang toolchain
+that complies with the manylinux2014 package standard.
 
 ### Build the package
 
@@ -388,6 +406,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.10.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.1.1</td></tr>
@@ -423,6 +442,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.1</td><td>11.2</td></tr>
 <tr><td>tensorflow-2.10.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.1.1</td><td>8.1</td><td>11.2</td></tr>
@@ -460,6 +480,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.10.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 5.1.1</td></tr>
