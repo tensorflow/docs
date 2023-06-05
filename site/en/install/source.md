@@ -102,16 +102,17 @@ git checkout <em>branch_name</em>  # r2.2, r2.3, etc.
 </pre>
 
 
-## Configure the build
+## Optional: Configure the build
 
 TensorFlow builds are configured by the `.bazelrc` file in the repository's
 root directory. The `./configure` or `./configure.py` scripts can be used to
 adjust common settings.
 
-Please run the `./configure` script from the repository's root directory. This
-script will prompt you for the location of TensorFlow dependencies and asks for
-additional build configuration options (compiler flags, for example). Refer to
-the _Sample session_ section for details.
+If you need to change the configuration, run the `./configure` script from
+the repository's root directory. This script will prompt you for the location of
+TensorFlow dependencies and asks for additional build configuration options
+(compiler flags, for example). Refer to the _Sample session_ section for
+details.
 
 <pre class="devsite-terminal devsite-click-to-copy">
 ./configure
@@ -131,7 +132,7 @@ session may differ):
 <h4 class="showalways">View sample configuration session</h4>
 <pre class="devsite-terminal">
 ./configure
-You have bazel 6.1.0 installed.
+You have bazel 5.0.0 installed.
 Please specify the location of python. [Default is /Library/Frameworks/Python.framework/Versions/3.9/bin/python3]: 
 
 
@@ -139,20 +140,16 @@ Found possible Python library paths:
   /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages
 Please input the desired Python library path to use.  Default is [/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages]
 
-Do you wish to build TensorFlow with ROCm support? [y/N]:
+Do you wish to build TensorFlow with ROCm support? [y/N]: n
 No ROCm support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with CUDA support? [y/N]:
+Do you wish to build TensorFlow with CUDA support? [y/N]: n
 No CUDA support will be enabled for TensorFlow.
 
-Do you want to use Clang to build TensorFlow? [Y/n]:
-Clang will be used to compile TensorFlow.
+Do you wish to download a fresh release of clang? (Experimental) [y/N]: n
+Clang will not be downloaded.
 
-Please specify the path to clang executable. [Default is /usr/lib/llvm-16/bin/clang]:
-
-You have Clang 16.0.4 installed.
-
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]:
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -Wno-sign-compare]: n
 
 
 Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: n
