@@ -19,6 +19,8 @@ toc:
   path: /guide/basic_training_loops
 
 - heading: "Keras"
+- title: "Overview"
+  path: /guide/keras
 - include: /guide/keras/_toc.yaml
 
 - heading: "Build with Core"
