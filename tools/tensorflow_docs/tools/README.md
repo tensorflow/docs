@@ -58,14 +58,16 @@ this, use a standard Git hook or use the
 [https://pre-commit.com/](https://pre-commit.com/) framework to create the hook
 for you.
 
-If you want to use pre-commit to handle the hook installation for you, include
-the [.pre-commit-hooks.yaml](./.pre-commit-hooks.yaml) file in your repo with
-the following contents:
+If you want to use pre-commit to handle the hook installation for you, create a
+`.pre-commit-config.yaml` file with the contents below to include the `nbformat`
+hook from the [.pre-commit-hooks.yaml](./.pre-commit-hooks.yaml) plugin.
 
 ```
 repos:
 - repo: https://github.com/tensorflow/docs
-  rev: pre-commit
+  rev: 2023.5.24.56664
+  hooks:
+  - id: nbformat
 ```
 
 Someone who clones that repo for development would then install the hook with:
