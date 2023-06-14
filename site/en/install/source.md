@@ -214,22 +214,12 @@ The pip package is build in two steps. A `bazel build` commands creates a
 package.
 
 ### Build the package-builder
+Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
 
-Use `bazel build` to create the TensorFlow 2.x package-builder with *CPU-only*
-support:
+Use `bazel build` to create the TensorFlow 2.x package-builder:
 
 <pre class="devsite-terminal devsite-click-to-copy">
 bazel build [--config=option] //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
-#### GPU support
-
-Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
-
-To build a TensorFlow package-builder with GPU support:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build --config=cuda [--config=option] //tensorflow/tools/pip_package:build_pip_package
 </pre>
 
 #### Bazel build options
