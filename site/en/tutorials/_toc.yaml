@@ -127,7 +127,7 @@ toc:
   section:
   - title: "Text and natural language processing"
     path: /tutorials/text/index
-  - title: "Keras NLP"
+  - title: "Get started with KerasNLP"
     path: https://keras.io/guides/keras_nlp/getting_started/
     status: external
   - title: "Text and NLP guide"

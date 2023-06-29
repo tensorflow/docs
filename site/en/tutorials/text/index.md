@@ -21,7 +21,7 @@ ease of use. But if you prefer not to work with the Keras API, or you need
 access to the lower-level text processing ops, you can use TensorFlow Text
 directly.
 
-## Keras NLP
+## KerasNLP
 
 The easiest way to get started processing text in TensorFlow is to use
 [KerasNLP](https://keras.io/keras_nlp/). KerasNLP is a natural language
