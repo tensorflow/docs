@@ -5,7 +5,7 @@
 This guide is for the latest stable version of TensorFlow. For the
 preview build *(nightly)*, use the pip package named
 `tf-nightly`. Refer to [these tables](./source#tested_build_configurations) for
-older TensorFlow version requirements. For the CPU-only build use the pip
+older TensorFlow version requirements. For the CPU-only build, use the pip
 package named `tensorflow-cpu`.
 
 Here are the quick versions of the install commands. Scroll down for the
@@ -334,7 +334,7 @@ The following NVIDIA® software are only required for GPU support.
 
     *   macOS 10.12.6 (Sierra) or higher (64-bit)
 
-    Note: While TensorFlow supports Apple Silicon (M1),  Packages that include
+    Note: While TensorFlow supports Apple Silicon (M1), packages that include
     custom C++ extensions for TensorFlow also need to be compiled for Apple M1.
     Some packages, like
     [tensorflow_decision_forests](https://www.tensorflow.org/decision_forests)
@@ -342,7 +342,7 @@ The following NVIDIA® software are only required for GPU support.
     libraries, you will have to use TensorFlow with x86 emulation and Rosetta.
 
     Currently there is no official GPU support for running TensorFlow on
-    MacOS. The following is instructions are for running on CPU.
+    MacOS. The following instructions are for running on CPU.
 
     ### 2. Check Python version
 
@@ -355,13 +355,21 @@ The following NVIDIA® software are only required for GPU support.
     python3 -m pip --version
     ```
 
-   ### 2. Install Miniconda
+   ### 3. Install Miniconda
 
    [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
-   is the recommended approach for installing TensorFlow with GPU support.
+   is the recommended approach for installing TensorFlow.
    It creates a separate environment to avoid changing any installed
-   software in your system. This is also the easiest way to install the required
-   software especially for the GPU setup.
+   software in your system.
+
+   Note: Miniconda is not a requirement for running TensorFlow on CPU. If you'd
+   prefer to create a virtual environment using
+   [venv](https://docs.python.org/3/library/venv.html) or
+   [Virtualenv](https://virtualenv.pypa.io/en/latest/), you can do so. Just
+   adjust the installation steps accordingly, and then follow the instructions
+   to install TensorFlow using pip.
+
+   Install Miniconda:
 
     ```bash
     curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o Miniconda3-latest-MacOSX-x86_64.sh
