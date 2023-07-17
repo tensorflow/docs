@@ -127,29 +127,16 @@ toc:
   section:
   - title: "Text and natural language processing"
     path: /tutorials/text/index
-  - title: "Word embeddings"
-    path: /text/guide/word_embeddings
+  - title: "Get started with KerasNLP"
+    path: https://keras.io/guides/keras_nlp/getting_started/
+    status: external
+  - title: "Text and NLP guide"
+    path: /text
     status: external
   - title: "Word2Vec"
     path: /tutorials/text/word2vec
   - title: "Warm start embedding matrix with changing vocabulary"
     path: /tutorials/text/warmstart_embedding_matrix
-    status: new
-  - title: "Text classification with an RNN"
-    path: /text/tutorials/text_classification_rnn
-    status: external
-  - title: "Classify text with BERT"
-    path: /text/tutorials/classify_text_with_bert
-    status: external
-  - title: "Solve GLUE tasks using BERT on TPU"
-    path: /text/tutorials/bert_glue
-    status: external
-  - title: "Translation with RNNs and attention"
-    path: /text/tutorials/nmt_with_attention
-    status: external
-  - title: "Translate text with a Transformer"
-    path: /text/tutorials/transformer
-    status: external
   - title: "Image captioning"
     path: /tutorials/text/image_captioning
 

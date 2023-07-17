@@ -14,8 +14,9 @@
 # ==============================================================================
 """Bage builder classes for type alias pages."""
 import textwrap
+import types
 import typing
-from typing import Any, List, Dict
+from typing import Any, Dict, List
 
 from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import signature as signature_lib
@@ -74,15 +75,17 @@ class TypeAliasPageInfo(base_page.PageInfo):
       origin: Origin of a type annotation object returned by `__origin__`.
 
     Returns:
-      A joined string containing the right representation of a type annotation.
+      A joined string containing the representation of a type annotation.
     """
     if 'Callable' in origin:
       if args[0] == '...':
-        return ', '.join(args)
+        return 'Callable[%s]' % ', '.join(args)
       else:
-        return f"[{', '.join(args[:-1])}], {args[-1]}"
+        return 'Callable[[%s], %s]' % (', '.join(args[:-1]), args[-1])
+    elif 'UnionType' in origin:
+      return ' | '.join(args)
 
-    return ', '.join(args)
+    return '%s[%s]' % (origin, ', '.join(args))
 
   def _link_type_args(self, obj: Any, reverse_index: Dict[int, str],
                       linker: signature_lib.FormatArguments) -> str:
@@ -95,9 +98,8 @@ class TypeAliasPageInfo(base_page.PageInfo):
     if getattr(obj, '__args__', None):
       for arg in obj.__args__:
         result.append(self._link_type_args(arg, reverse_index, linker))
-      origin_str = typing._type_repr(obj.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr
-      result = self._custom_join(result, origin_str)
-      return f'{origin_str}[{result}]'
+      origin_str = typing._type_repr(typing.get_origin(obj))  # pylint: disable=protected-access # pytype: disable=module-attr
+      return self._custom_join(result, origin_str)
     else:
       return typing._type_repr(obj)  # pylint: disable=protected-access # pytype: disable=module-attr
 
@@ -131,15 +133,15 @@ class TypeAliasPageInfo(base_page.PageInfo):
     linker = signature_lib.FormatArguments(parser_config=self.parser_config)
 
     sig_args = []
-    if self.py_object.__origin__:
+    if typing.get_origin(self.py_object):
       for arg_obj in self.py_object.__args__:
         sig_args.append(
             self._link_type_args(arg_obj, self.parser_config.reverse_index,
                                  linker))
 
     sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
-    if self.py_object.__origin__:
-      origin_str = typing._type_repr(self.py_object.__origin__)  # pylint: disable=protected-access # pytype: disable=module-attr
+    if typing.get_origin(self.py_object):
+      origin_str = typing._type_repr(typing.get_origin(self.py_object))  # pylint: disable=protected-access # pytype: disable=module-attr
       sig = f'{origin_str}[\n{sig_args_str}\n]'
     else:
       sig = repr(self.py_object)

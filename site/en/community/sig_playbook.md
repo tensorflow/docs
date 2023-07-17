@@ -55,7 +55,7 @@ must demonstrate:
     application area)
 *   Two or more contributors willing to act as group leads, existence of other
     contributors, and evidence of demand for the group
-*   Resources it will initially require (usually, mailing list and regular VC
+*   Resources it will initially require (usually, mailing list and regular video conference 
     call.) 
 
 Approval for the group will be given by a decision of the TF Community Team,
