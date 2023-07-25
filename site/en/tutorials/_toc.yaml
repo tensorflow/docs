@@ -133,12 +133,6 @@ toc:
   - title: "Text and NLP guide"
     path: /text
     status: external
-  - title: "Word2Vec"
-    path: /tutorials/text/word2vec
-  - title: "Warm start embedding matrix with changing vocabulary"
-    path: /tutorials/text/warmstart_embedding_matrix
-  - title: "Image captioning"
-    path: /tutorials/text/image_captioning
 
 - title: "Audio"
   style: accordion
