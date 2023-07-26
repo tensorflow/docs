@@ -280,7 +280,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow==2.12.*
+    pip install tensorflow==2.13.*
     ```
 
     ### 6. Verify install
