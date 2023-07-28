@@ -27,7 +27,7 @@ step-by-step instructions.
 
     ```bash
     conda install -c conda-forge cudatoolkit=11.8.0
-    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.13.*
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
@@ -76,7 +76,7 @@ step-by-step instructions.
 
     ```bash
     conda install -c conda-forge cudatoolkit=11.8.0
-    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+    python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.13.*
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
@@ -653,7 +653,7 @@ The following NVIDIA® software are only required for GPU support.
     PyPI.
 
     ```bash
-    pip install tensorflow==2.12.*
+    pip install tensorflow==2.13.*
     ```
 
     ### 6. Verify install
