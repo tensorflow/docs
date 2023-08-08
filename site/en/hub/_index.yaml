@@ -127,10 +127,6 @@ landing_page:
       <hr><br>Community
     description: Join the TensorFlow Hub community
     items:
-    - heading: <span style="font-size:20px;">Ask a question on Stack Overflow</span>
-      icon:
-        path: /hub/images/stackoverflow_icon.svg
-      path: https://stackoverflow.com/questions/tagged/tensorflow-hub
     - heading: <span style="font-size:20px;">TensorFlow Hub on GitHub</span>
       icon:
         path: /hub/images/github_icon.svg
@@ -139,10 +135,6 @@ landing_page:
       icon:
         name: publish
       path: /hub/publish
-    - heading: <span style="font-size:20px;">Community discussion forum</span>
-      icon:
-        name: people
-      path: https://groups.google.com/a/tensorflow.org/forum/#!forum/hub
   - options:
     - cta
     items:
