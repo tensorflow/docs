@@ -30,7 +30,7 @@ step-by-step instructions.
     python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.13.*
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-    echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    echo 'export LD_LIBRARY_PATH=$CUDNN_PATH/lib:$CONDA_PREFIX/lib/:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     # Verify install:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
@@ -79,7 +79,7 @@ step-by-step instructions.
     python3 -m pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.13.*
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-    echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    echo 'export LD_LIBRARY_PATH=$CUDNN_PATH/lib:$CONDA_PREFIX/lib/:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     # Verify install:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
@@ -251,7 +251,7 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
-    export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$CUDNN_PATH/lib:$CONDA_PREFIX/lib/:$LD_LIBRARY_PATH
     ```
 
     For your convenience it is recommended that you automate it with the following
@@ -261,7 +261,7 @@ The following NVIDIA® software are only required for GPU support.
     ```bash
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-    echo 'export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/:$CUDNN_PATH/lib:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    echo 'export LD_LIBRARY_PATH=$CUDNN_PATH/lib:$CONDA_PREFIX/lib/:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
 
     ### 5. Install TensorFlow
@@ -624,7 +624,7 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDNN_PATH/lib:$CONDA_PREFIX/lib/
     ```
 
     For your convenience it is recommended that you automate it with the following
@@ -634,7 +634,7 @@ The following NVIDIA® software are only required for GPU support.
     ```bash
     mkdir -p $CONDA_PREFIX/etc/conda/activate.d
     echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
-    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDNN_PATH/lib:$CONDA_PREFIX/lib/' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
     ```
 
     ### 5. Install TensorFlow
