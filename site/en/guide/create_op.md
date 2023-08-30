@@ -55,8 +55,8 @@ To incorporate your custom op you'll need to:
 
 *   Some familiarity with C++.
 *   Must have installed the
-    [TensorFlow binary](../../install), or must have
-    [downloaded TensorFlow source](../../install/source.md),
+    [TensorFlow binary](https://www.tensorflow.org/install), or must have
+    [downloaded TensorFlow source](https://www.tensorflow.org/install/source),
     and be able to build it.
 
 ## Define the op interface
@@ -1379,6 +1379,13 @@ Details about registering gradient functions with
 Note that at the time the gradient function is called, only the data flow graph
 of ops is available, not the tensor data itself.  Thus, all computation must be
 performed using other tensorflow ops, to be run at graph execution time.
+
+Add type hints when registering the custom gradient for an op type to make the
+code more readable, debuggable, easier to maintain, and more robust through data
+validation. For example, when taking an `op` as a parameter in a function,
+specify that the gradient function will take an
+<a href="https://www.tensorflow.org/api_docs/python/tf/Operation"><code>tf.Operation</code></a>
+as its parameter type.
 
 ### Shape functions in C++
 

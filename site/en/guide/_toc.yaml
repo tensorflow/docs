@@ -55,6 +55,9 @@ toc:
 - title: "NumPy API"
   status: experimental
   path: /guide/tf_numpy
+- title: "NumPy API Type Promotion"
+  status: nightly
+  path: /guide/tf_numpy_type_promotion
 - title: "DTensor concepts"
   path: /guide/dtensor_overview
   status: experimental
