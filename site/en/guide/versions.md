@@ -56,8 +56,13 @@ patch versions.  The public APIs consist of
   other than to fix vulnerabilities), but they do fall under our compatibility
   guarantees.
 
-* The [C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h).
+* The TensorFlow C API:
+    * [tensorflow/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h))
 
+* The TensorFlow Lite C API:
+     * [tensorflow/lite/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api.h)
+     * [tensorflow/lite/c/c_api_types.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_types.h).
+     
 * The following protocol buffer files:
 
     * [`attr_value`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto)
