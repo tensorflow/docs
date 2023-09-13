@@ -24,19 +24,19 @@ into broad categories:
     and get tensor results. This is sufficient for a mobile app or server that
     wants to run inference on a pre-trained model.
 -   *Graph construction*: At least one function per defined
-    TensorFlow op that adds an operation to the graph. Ideally these functions
+    TensorFlow op that adds an operation to the graph. Ideally, these functions
     would be automatically generated so they stay in sync as the op definitions
     are modified.
 -   *Gradients (AKA automatic differentiation)*: Given a graph and a list of
     input and output operations, add operations to the graph that compute the
     partial derivatives (gradients) of the inputs with respect to the outputs.
-    Allows for customization of the gradient function for a particular operation
+    It allows for customization of the gradient function for a particular operation
     in the graph.
 -   *Functions*: Define a subgraph that may be called in multiple places in the
     main `GraphDef`. Defines a `FunctionDef` in the `FunctionDefLibrary`
-    included in a `GraphDef`.
+    included in `GraphDef`.
 -   *Control Flow*: Construct "If" and "While" with user-specified subgraphs.
-    Ideally these work with gradients (see above).
+    Ideally, these work with gradients (see above).
 -   *Neural Network library*: A number of components that together support the
     creation of neural network models and training them (possibly in a
     distributed setting). While it would be convenient to have this available in
@@ -80,13 +80,13 @@ A language binding is expected to define the following classes:
     API).
 -   `Operation`: Represents a computation node in the graph. Corresponds to a
     `TF_Operation` in the C API.
--   `Output`: Represents one of the outputs of an operation in the graph. Has a
-    `DataType` (and eventually a shape). May be passed as an input argument to a
+-   `Output`: Represents one of the outputs of an operation in the graph. It has a
+    `DataType` (and eventually a shape). It may be passed as an input argument to a
     function for adding operations to a graph, or to a `Session`'s `Run()`
     method to fetch that output as a tensor. Corresponds to a `TF_Output` in the
     C API.
 -   `Session`: Represents a client to a particular instance of the TensorFlow
-    runtime. Its main job is to be constructed with a `Graph` and some options
+    runtime. Its main job is to be construct with a `Graph` and some options
     and then field calls to `Run()` the graph. Corresponds to a `TF_Session` in
     the C API.
 -   `Tensor`: Represents an N-dimensional (rectangular) array with elements all
@@ -158,7 +158,7 @@ cron process, possibly checking in the result. This creates a risk of divergence
 between the generated code and the `OpDef`s checked into the repository, but is
 useful for languages where code is expected to be generated ahead of time like
 `go get` for Go and `cargo ops` for Rust. At the other end of the spectrum, for
-some languages the code could be generated dynamically from
+some languages the code can be generated dynamically from
 [`tensorflow/core/ops/ops.pbtxt`](https://www.tensorflow.org/code/tensorflow/core/ops/ops.pbtxt).
 
 #### Handling Constants
@@ -169,7 +169,7 @@ are added to the graph and used as input to the op being instantiated.
 
 #### Optional parameters
 
-If the language allows for optional parameters to a function (like keyword
+If the language allows for optional parameters for a function (like keyword
 arguments with defaults in Python), use them for optional attributes, operation
 names, devices, control inputs etc. In some languages, these optional parameters
 can be set using dynamic scopes (like "with" blocks in Python). Without these
@@ -181,7 +181,7 @@ version of the TensorFlow API.
 It is a good idea to have support for naming graph operations using some sort of
 scoping hierarchy, especially considering the fact that TensorBoard relies on it
 to display large graphs in a reasonable way. The existing Python and C++ APIs
-take different approaches: In Python, the "directory" part of the name
+take different approaches: In Python, the "directory" is part of the name
 (everything up to the last "/") comes from `with` blocks. In effect, there is a
 thread-local stack with the scopes defining the name hierarchy. The last
 component of the name is either supplied explicitly by the user (using the
@@ -189,7 +189,7 @@ optional `name` keyword argument) or defaults to the name of the type of the op
 being added. In C++ the "directory" part of the name is stored in an explicit
 `Scope` object. The `NewSubScope()` method appends to that part of the name and
 returns a new `Scope`. The last component of the name is set using the
-`WithOpName()` method, and like Python defaults to the name of the type of op
+`WithOpName()` method, and like Python, defaults to the name of the type of op
 being added. `Scope` objects are explicitly passed around to specify the name of
 the context.
 
@@ -209,7 +209,7 @@ single sparse tensor.
 Another reason to use wrappers is for ops that hold state. There are a few such
 ops (e.g. a variable) that have several companion ops for operating on that
 state. The Python API has classes for these ops where the constructor creates
-the op, and methods on that class add operations to the graph that operate on
+the op, and methods in that class add operations to the graph that operates on
 the state.
 
 #### Other Considerations
