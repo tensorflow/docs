@@ -16,8 +16,9 @@ landing_page:
     - description: >
         <p>
         The TensorFlow tutorials are written as Jupyter notebooks and run
-        directly in Google&nbsp;Colab—a hosted notebook environment that requires
-        no setup. Click the <em>Run in Google&nbsp;Colab</em> button.
+        directly in Google Colab—a hosted notebook environment that requires
+        no setup. At the top of each tutorial, you'll see a <b>Run in Google Colab</b> button. Click
+        the button to open the notebook and run the code yourself.
         </p>
 
   - classname: devsite-landing-row-100
