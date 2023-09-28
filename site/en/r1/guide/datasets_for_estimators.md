@@ -161,7 +161,7 @@ print(dataset)
 
 ### Manipulation
 
-Currently the `Dataset` would iterate over the data once, in a fixed order, and
+Currently, the `Dataset` would iterate over the data once, in a fixed order, and
 only produce a single element at a time. It needs further processing before it
 can be used for training. Fortunately, the `tf.data.Dataset` class provides
 methods to better prepare the data for training. The next line of the input
@@ -280,7 +280,7 @@ and the label. Since Estimators require that features be represented as a
 dictionary, we rely on Python's built-in `dict` and `zip` functions to build
 that dictionary.  The feature names are the keys of that dictionary.
 We then call the dictionary's `pop` method to remove the label field from
-the features dictionary:
+the feature's dictionary:
 
 ``` python
 # Metadata describing the text columns
@@ -339,7 +339,7 @@ Now instead of simple scalar strings, the dataset contains `(features, label)`
 pairs.
 
 the remainder of the `iris_data.csv_input_fn` function is identical
-to `iris_data.train_input_fn` which was covered in the in the
+to `iris_data.train_input_fn` which was covered in the
 [Basic input](#basic_input) section.
 
 ### Try it out

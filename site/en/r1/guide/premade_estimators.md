@@ -73,7 +73,7 @@ programming environment. As the following illustration shows, TensorFlow
 provides a programming stack consisting of multiple API layers:
 
 <div style="width:100%; margin:auto; margin-bottom:10px; margin-top:20px;">
-<img style="width:100%" src="../images/tensorflow_programming_environment.png">
+<img style="width:100%" src="../images/tensorflow_programming_environment.png" alt="tensorflow programming environment">
 </div>
 
 We strongly recommend writing TensorFlow programs with the following APIs:

@@ -183,7 +183,7 @@ A **device specification** has the following form:
 
 where:
 
-* `<JOB_NAME>` is an alpha-numeric string that does not start with a number.
+* `<JOB_NAME>` is an alphanumeric string that does not start with a number.
 * `<DEVICE_TYPE>` is a registered device type (such as `GPU` or `CPU`).
 * `<TASK_INDEX>` is a non-negative integer representing the index of the task
   in the job named `<JOB_NAME>`. See `tf.train.ClusterSpec` for an explanation

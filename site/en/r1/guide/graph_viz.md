@@ -1,11 +1,11 @@
 # TensorBoard: Graph Visualization
 
-TensorFlow computation graphs are powerful but complicated. The graph visualization can help you understand and debug them. Here's an example of the visualization at work.
+TensorFlow's computation graphs are powerful but complicated. The graph visualization can help you understand and debug them. Here's an example of the visualization at work.
 
 ![Visualization of a TensorFlow graph](https://www.tensorflow.org/images/graph_vis_animation.gif "Visualization of a TensorFlow graph")
 *Visualization of a TensorFlow graph.*
 
-To see your own graph, run TensorBoard pointing it to the log directory of the job, click on the graph tab on the top pane and select the appropriate run using the menu at the upper left corner. For in depth information on how to run TensorBoard and make sure you are logging all the necessary information, see [TensorBoard: Visualizing Learning](https://tensorflow.org/tensorboard).
+To see your own graph, run TensorBoard pointing it to the log directory of the job, click on the graph tab on the top pane and select the appropriate run using the menu in the upper left corner. For in depth information on how to run TensorBoard and make sure you are logging all the necessary information, see [TensorBoard: Visualizing Learning](https://tensorflow.org/tensorboard).
 
 ## Name scoping and nodes
 
@@ -63,7 +63,7 @@ Grouping nodes by name scopes is critical to making a legible graph. If you're
 building a model, name scopes give you control over the resulting visualization.
 **The better your name scopes, the better your visualization.**
 
-The figure above illustrates a second aspect of the visualization. TensorFlow
+The figure above illustrates a second aspect of the visualization. TensorFlow's
 graphs have two kinds of connections: data dependencies and control
 dependencies. Data dependencies show the flow of tensors between two ops and
 are shown as solid arrows, while control dependencies use dotted lines. In the

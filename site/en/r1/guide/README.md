@@ -86,7 +86,7 @@ for mobile and embedded devices.
 This section explains how developers can add functionality to TensorFlow's
 capabilities.
 
-* [TensorFlow architecture](./extend/architecture.md) presents an architectural
+* [TensorFlow's architecture](./extend/architecture.md) presents an architectural
   overview.
 * [Create an op](./extend/op.md), which explains how to create your own operations.
 * [Custom filesystem plugin](./extend/filesystem.md), which explains how to add

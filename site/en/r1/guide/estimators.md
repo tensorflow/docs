@@ -30,7 +30,7 @@ Estimators provide the following benefits:
     Furthermore, you can run Estimator-based models on CPUs, GPUs,
     or TPUs without recoding your model.
 *   Estimators simplify sharing implementations between model developers.
-*   You can develop a state of the art model with high-level intuitive code.
+*   You can develop a state-of-the-art model with high-level intuitive code.
     In short, it is generally much easier to create models with Estimators
     than with the low-level TensorFlow APIs.
 *   Estimators are themselves built on `tf.keras.layers`, which

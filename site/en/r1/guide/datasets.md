@@ -265,7 +265,7 @@ The `Iterator.get_next()` method returns one or more `tf.Tensor` objects that
 correspond to the symbolic next element of an iterator. Each time these tensors
 are evaluated, they take the value of the next element in the underlying
 dataset. (Note that, like other stateful objects in TensorFlow, calling
-`Iterator.get_next()` does not immediately advance the iterator. Instead you
+`Iterator.get_next()` does not immediately advance the iterator. Instead, you
 must use the returned `tf.Tensor` objects in a TensorFlow expression, and pass
 the result of that expression to `tf.Session.run()` to get the next elements and
 advance the iterator.)
@@ -423,7 +423,7 @@ dataset = tf.data.TFRecordDataset(filenames)
 ```
 
 The `filenames` argument to the `TFRecordDataset` initializer can either be a
-string, a list of strings, or a `tf.Tensor` of strings. Therefore if you have
+string, a list of strings, or a `tf.Tensor` of strings. Therefore, if you have
 two sets of files for training and validation purposes, you can use a
 `tf.placeholder(tf.string)` to represent the filenames, and initialize an
 iterator from the appropriate filenames:

@@ -77,7 +77,7 @@ for all words in the vocabulary.
 Embeddings can be trained in many network types, and with various loss
 functions and data sets. For example, one could use a recurrent neural network
 to predict the next word from the previous one given a large corpus of
-sentences, or one could train two networks to do multi-lingual translation.
+sentences, or one could train two networks to do multilingual translation.
 These methods are described in the [Vector Representations of Words](../tutorials/representation/word2vec.md)
 tutorial.
 
@@ -154,7 +154,7 @@ for the user to click "Isolate 101 points":
 
 Advanced tip: filtering with custom projection can be powerful. Below, we
 filtered the 100 nearest neighbors of “politics” and projected them onto the
-“worst” - “best” vector as an x axis. The y axis is random. As a result, one
+“worst” - “best” vector as an x-axis. The y-axis is random. As a result, one
 finds on the right side “ideas”, “science”, “perspective”, “journalism” but on
 the left “crisis”, “violence” and “conflict”.
 

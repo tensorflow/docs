@@ -16,7 +16,7 @@ Note: The TensorFlow debugger uses a
 [curses](https://en.wikipedia.org/wiki/Curses_\(programming_library\))-based text
 user interface. On macOS, the `ncurses` library is required and can be
 installed with `brew install ncurses`. On Windows, curses isn't as
-well supported, so a [readline](https://en.wikipedia.org/wiki/GNU_Readline)-based
+well-supported, so a [readline](https://en.wikipedia.org/wiki/GNU_Readline)-based
 interface can be used with tfdbg by installing `pyreadline` with `pip`. If you
 use Anaconda3, you can install it with a command such as
 `"C:\Program Files\Anaconda3\Scripts\pip.exe" install pyreadline`. Unofficial
@@ -88,7 +88,7 @@ the diagnosis of issues.
 In this example, we have already registered a tensor filter called
 `tfdbg.has_inf_or_nan`,
 which simply determines if there are any `nan` or `inf` values in any
-intermediate tensors (tensors that are neither inputs or outputs of the
+intermediate tensors (tensors that are neither inputs nor outputs of the
 `Session.run()` call, but are in the path leading from the inputs to the
 outputs). This filter is for `nan`s and `inf`s is a common enough use case that
 we ship it with the
@@ -793,7 +793,7 @@ tensor dumps.
        How can I skip those nodes during my `run -f has_inf_or_nan` actions?
 
 **A**: Use the `--filter_exclude_node_names` (`-fenn` for short) flag. For
-       example, if you known you have a node with name matching the regular
+       example, if you have known you have a node with name matching the regular
        expression `.*Sqrt.*` that generates infinities or NaNs regardless
        of whether the model is behaving correctly, you can exclude the nodes
        from the infinity/NaN-finding runs with the command

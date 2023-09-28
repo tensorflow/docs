@@ -536,7 +536,7 @@ This method builds a new graph by first calling the
 this `Estimator`'s `model_fn()` to generate the model graph based on those
 features. It starts a fresh `Session`, and, by default, restores the most recent
 checkpoint into it.  (A different checkpoint may be passed, if needed.)
-Finally it creates a time-stamped export directory below the given
+Finally, it creates a time-stamped export directory below the given
 `export_dir_base` (i.e., `export_dir_base/<timestamp>`), and writes a
 SavedModel into it containing a single `MetaGraphDef` saved from this
 Session.
@@ -594,7 +594,7 @@ from tensorflow_serving.apis import prediction_service_pb2
 ```
 
 > Note: `prediction_service_pb2` defines the service as a whole and so
-> is always required.  However a typical client will need only one of
+> is always required.  However, a typical client will need only one of
 > `classification_pb2`, `regression_pb2`, and `predict_pb2`, depending on the
 > type of requests being made.
 

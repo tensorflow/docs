@@ -213,7 +213,7 @@ random input):
 
 Some TensorFlow functions return `tf.Operations` instead of `tf.Tensors`.
 The result of calling `run` on an Operation is `None`. You run an operation
-to cause a side-effect, not to retrieve a value. Examples of this include the
+to cause a side effect, not to retrieve a value. Examples of this include the
 [initialization](#Initializing Layers), and [training](#Training) ops
 demonstrated later.
 
@@ -522,7 +522,7 @@ This will produce a loss value, something like:
 TensorFlow provides
 [**optimizers**](https://developers.google.com/machine-learning/glossary/#optimizer)
 implementing standard optimization algorithms. These are implemented as
-sub-classes of `tf.train.Optimizer`. They incrementally change each
+subclasses of `tf.train.Optimizer`. They incrementally change each
 variable in order to minimize the loss. The simplest optimization algorithm is
 [**gradient descent**](https://developers.google.com/machine-learning/glossary/#gradient_descent),
 implemented by `tf.train.GradientDescentOptimizer`. It modifies each
