@@ -158,12 +158,15 @@ We reserve the right to in future release changes to these APIs, potentially
 including non-backwards-compatible changes, on a different schedule than for the
 other TensorFlow Lite APIs. So we use a different version number for the
 TensorFlow Lite Extension APIs than the version numbers for TensorFlow Lite or
-TensorFlow (which were described in the previous section). The version number
-for the TensorFlow Lite Extension APIs is currently the same as the version
-number for TensorFlow and TensorFlow Lite. But in future, they may diverge; for
-example, we may increment the major version number for the TensorFlow Lite
-Extension APIs without incrementing the major version number for TensorFlow
-Lite, or vice versa.
+TensorFlow (which were described in the previous section). We are introducing
+some new APIs in TensorFlow Lite version 2.15 to get the TensorFlow Lite
+Extension APIs version (`TFLITE_EXTENSION_APIS_VERSION_STRING` in
+`tensorflow/lite/version.h`, and TfLiteExtensionApisVersion() in
+`tensorflow/lite/c/c_api.h`). The version number for the TensorFlow Lite
+Extension APIs is currently the same as the version number for TensorFlow and
+TensorFlow Lite. But in future, they may diverge; for example, we may increment
+the major version number for the TensorFlow Lite Extension APIs without
+incrementing the major version number for TensorFlow Lite, or vice versa.
 
 The API surface that is covered by the TensorFlow Lite Extension APIs version
 number is comprised of the following public APIs:
