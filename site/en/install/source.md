@@ -399,6 +399,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td></tr>
@@ -435,6 +436,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.1</td><td>11.2</td></tr>
@@ -473,6 +475,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.11.0</td><td>3.7-3.10</td><td>Clang from xcode 10.14</td><td>Bazel 5.3.0</td></tr>

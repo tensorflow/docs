@@ -140,7 +140,7 @@ Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 
 ## Software requirements
 
-*   Python 3.8–3.11
+*   Python 3.9–3.11
 *   pip version 19.0 or higher for Linux (requires `manylinux2014` support) and
     Windows. pip version 20.3 or higher for macOS.
 *   Windows Native Requires
@@ -250,7 +250,7 @@ The following NVIDIA® software are only required for GPU support.
 
     Check if your Python environment is already configured:
 
-    Note: Requires Python 3.8–3.11, and pip >= 20.3 for MacOS.
+    Note: Requires Python 3.9–3.11, and pip >= 20.3 for MacOS.
 
     ```bash
     python3 --version
@@ -480,56 +480,56 @@ The value you specify depends on your Python version.
   <tr><th>Version</th><th>URL</th></tr>
   <tr class="alt"><td colspan="2">Linux</td></tr>
   <tr>
-    <td>Python 3.8 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.13.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
-  </tr>
-  <tr>
-    <td>Python 3.8 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.13.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.9 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.13.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.13.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11 GPU&nbsp;support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11 CPU-only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
   <tr>
-    <td>Python 3.8</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.13.0-cp38-cp38-macosx_10_15_x86_64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.9</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.13.0-cp39-cp39-macosx_10_15_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp39-cp39-macosx_10_15_x86_64.whl</td>
   </tr>
    <tr>
     <td>Python 3.10</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.13.0-cp310-cp310-macosx_10_15_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp310-cp310-macosx_10_15_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp311-cp311-macosx_10_15_x86_64.whl</td>
   </tr>
 
   <tr class="alt"><td colspan="2">Windows</td></tr>
   <tr>
-    <td>Python 3.8 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.13.0-cp38-cp38-win_amd64.whl</td>
-  </tr>
-  <tr>
     <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.13.0-cp39-cp39-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp39-cp39-win_amd64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.13.0-cp310-cp310-win_amd64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp310-cp310-win_amd64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11 CPU-only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp311-cp311-win_amd64.whl</td>
   </tr>
 
 </table>
