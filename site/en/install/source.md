@@ -72,7 +72,32 @@ package sources:
 </pre>
 
 Alternatively, you can download and unpack the pre-built
-[Clang+LLVM-16 binaries](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
+[Clang + LLVM 16](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
+
+Below is an example of steps you can take to set up the downloaded
+Clang + LLVM 16 binaries:
+
+1.  Change to the desired destination directory:
+    ```cd <desired directory>```
+
+2.  Load and extract an archive file...(suitable to your architecture):
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">
+    wget https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    </code>
+    <code class="devsite-terminal">tar -xvf clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    </code>
+    </pre>
+
+3.  Check the obtained Clang + LLVM 16 binaries version:
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">
+    ./clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16 --version </code>
+    </pre>
+
+4.  Directory `/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16` is
+    the actual path to your new clang. You can run the `./configure` script or
+    manually set environment variables `CC` and `BAZEL_COMPILER` to this path.
 
 ### Install GPU support (optional, Linux only)
 
