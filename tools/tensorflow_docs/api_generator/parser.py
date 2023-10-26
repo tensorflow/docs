@@ -685,7 +685,7 @@ class FileLocation(object):
   @property
   def url(self) -> Optional[str]:
     if self.start_line and self.end_line:
-      if self.base_url.startswith('https://github.com'):
+      if self.base_url.startswith('https://github.com/'):
         return f'{self.base_url}#L{self.start_line}-L{self.end_line}'
     return self.base_url
 
