@@ -26,7 +26,8 @@ step-by-step instructions.
     for more information about this collaboration.
 
     ```bash
-    python3 -m pip install tensorflow[and-cuda]
+    python3 -m pip install --extra-index-url https://pypi.nvidia.com tensorrt-bindings==8.6.1 tensorrt-libs==8.6.1
+    python3 -m pip install -U tensorflow[and-cuda]
     # Verify the installation:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
@@ -70,7 +71,8 @@ step-by-step instructions.
     for CUDA in WSL.
 
     ```bash
-    python3 -m pip install tensorflow[and-cuda]
+    python3 -m pip install --extra-index-url https://pypi.nvidia.com tensorrt-bindings==8.6.1 tensorrt-libs==8.6.1
+    python3 -m pip install -U tensorflow[and-cuda]
     # Verify the installation:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
     ```
@@ -206,7 +208,8 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     # For GPU users
-    pip install tensorflow[and-cuda]
+    pip install --extra-index-url https://pypi.nvidia.com tensorrt-bindings==8.6.1 tensorrt-libs==8.6.1
+    pip install -U tensorflow[and-cuda]
     # For CPU users
     pip install tensorflow
     ```
@@ -446,7 +449,8 @@ The following NVIDIA® software are only required for GPU support.
 
     ```bash
     # For GPU users
-    pip install tensorflow[and-cuda]
+    pip install --extra-index-url https://pypi.nvidia.com tensorrt-bindings==8.6.1 tensorrt-libs==8.6.1
+    pip install -U tensorflow[and-cuda]
     # For CPU users
     pip install tensorflow
     ```
