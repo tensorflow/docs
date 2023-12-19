@@ -74,36 +74,42 @@ package sources:
 Alternatively, you can download and unpack the pre-built
 [Clang + LLVM 16](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
 
-Below is an example of steps you can take to set up the downloaded
-Clang + LLVM 16 binaries:
+Below is an example of steps you can take to set up the downloaded Clang + LLVM
+16 binaries on Debian/Ubuntu operating systems:
 
-1.  Change to the desired destination directory:
-    ```cd <desired directory>```
+1.  Change to the desired destination directory: `cd <desired directory>`
 
-2.  Load and extract an archive file...(suitable to your architecture):
+1.  Load and extract an archive file...(suitable to your architecture):
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">
-    wget https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    <code class="devsite-terminal">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
     </code>
     <code class="devsite-terminal">tar -xvf clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
     </code>
     </pre>
 
-3.  Check the obtained Clang + LLVM 16 binaries version:
+1.  Copy the extracted contents (directories and files) to `/usr` (you may need
+    sudo permissions, and the correct directory may vary by distribution). This
+    effectively installs Clang and LLVM, and adds it to the path. You should not
+    have to replace anything, unless you have a previous installation, in which
+    case you should replace the files:
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">
-    ./clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16 --version </code>
+    <code class="devsite-terminal">cp -r clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/* /usr</code>
     </pre>
 
-4.  Directory `/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16` is
-    the actual path to your new clang. You can run the `./configure` script or
-    manually set environment variables `CC` and `BAZEL_COMPILER` to this path.
+1.  Check the obtained Clang + LLVM 16 binaries version:
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">clang --version</code>
+    </pre>
+
+1.  Now that `/usr/bin/clang` is the actual path to your new clang. You can run
+    the `./configure` script or manually set environment variables `CC` and
+    `BAZEL_COMPILER` to this path.
 
 ### Install GPU support (optional, Linux only)
 
 There is *no* GPU support for macOS.
 
-Read the [GPU support](./gpu.md) guide to install the drivers and additional
+Read the [GPU support](./pip.md) guide to install the drivers and additional
 software required to run TensorFlow on a GPU.
 
 Note: It is easier to set up one of TensorFlow's GPU-enabled [Docker images](#docker_linux_builds).
@@ -204,7 +210,7 @@ Preconfigured Bazel build configs to DISABLE default on features:
 
 #### GPU support
 
-For [GPU support](./gpu.md), set `cuda=Y` during configuration and specify the
+For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
 versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
 cuDNN installed, explicitly set the version instead of relying on the default.
 `./configure` creates symbolic links to your system's CUDA libraries—so if you
@@ -336,8 +342,8 @@ docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $
 With the source tree set up, build the TensorFlow package within the container's
 virtual environment:
 
-1.  Optional: Configure the build—this prompts the user to answer build configuration
-    questions.
+1.  Optional: Configure the build—this prompts the user to answer build
+    configuration questions.
 2.  Build the tool used to create the *pip* package.
 3.  Run the tool to create the *pip* package.
 4.  Adjust the ownership permissions of the file for outside the container.
@@ -374,7 +380,7 @@ Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
 [NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
 (the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). Refer to the
-[GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md) to
+[GPU support guide](./pip.md) and the TensorFlow [Docker guide](./docker.md) to
 set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}
 (Linux only).
 
@@ -424,6 +430,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td></tr>
@@ -461,6 +468,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
@@ -500,6 +508,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>

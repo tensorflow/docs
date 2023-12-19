@@ -1,22 +1,19 @@
 
-# Publishing process
+# Publishing Process
 
-## Terms of service
+Thank you for considering to publish your models!
 
-By submitting a model for publication, you agree to the TensorFlow Hub Terms of
-Service at [https://tfhub.dev/terms](https://tfhub.dev/terms).
+**Please join the Early Access Model Publishing (EAP) on
+[Kaggle Models](https://www.kaggle.com/models):**
 
-## Overview of the publishing process
-
-The full process of publishing consists of:
-
-1.  Exporting the model asset to publish (see how to
-    [export a model](exporting_tf2_saved_model.md))
-1.  Writing publisher page and model documentation (see how to
-    [write documentation](writing_documentation.md))
-1.  Sending a pull request for review (see how to
-    [contribute](contribute_a_model.md))
-
-Important: You are encouraged to send a small PR (e.g. fixing a typo in the
-repo) or a PR with only your publisher page as your first contribution before
-sending a PR publishing a model.
+-   Email [kaggle-models@google.com](mailto:kaggle-models@google.com) and
+    provide the following to get access to EAP:
+    -   (1) Your Kaggle username
+    -   (2) Your desired organization slug
+    -   (3) A URL to a square-shaped profile image (which is needed for the
+        organization creation)
+-   Follow the
+    [documentation instructions](https://www.kaggle.com/model-publishing-instructions)
+    to create and publish your model
+-   Feel free to raise any questions and get support from
+    [Kaggle Discord channel](https://discord.gg/rKEyxj9WF)
