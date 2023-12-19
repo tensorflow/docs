@@ -462,7 +462,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
-<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.8</td><td>12.2</td></tr>
+<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
