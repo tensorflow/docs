@@ -203,7 +203,7 @@ These include:
     such as:
 
     -   [C++](../install/lang_c.ipynb) (exposed through header files in
-        [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+        [`tensorflow/cc/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
     -   [Java](../install/lang_java_legacy.md),
     -   [Go](https://github.com/tensorflow/build/blob/master/golang_install_guide/README.md)
     -   [JavaScript](https://www.tensorflow.org/js)
@@ -212,7 +212,7 @@ These include:
     Objective-C, and Swift, in particular
 
     -   **C++** (exposed through header files in
-        [`tensorflow/lite/`]\(https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/\))
+        [`tensorflow/lite/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/))
 
 *   **Details of composite ops:** Many public functions in Python expand to
     several primitive ops in the graph, and these details will be part of any
