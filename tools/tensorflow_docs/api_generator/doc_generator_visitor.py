@@ -421,6 +421,9 @@ class DocGeneratorVisitor(object):
     duplicates = {}
 
     for path, node in self.path_tree.items():
+      _LOGGER.debug('DocGeneratorVisitor.build')
+      _LOGGER.debug('  path: %s', path)
+
       if not path:
         continue
       full_name = node.full_name
