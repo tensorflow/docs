@@ -76,9 +76,10 @@ class ReferenceResolver:
   AUTO_REFERENCE_RE = re.compile(
       r"""
       (?P<brackets>\[.*?\])|                      # match a '[]' span
-      `(?P<backticks>@?[\w\(\[\)\]\{\}.,=\s]+?)`  # or a `` span
+      ``?(?P<backticks>@?[\w\(\[\)\]\{\}.,=\s]+?)``?  # or a `` span
       """,
-      flags=re.VERBOSE)
+      flags=re.VERBOSE,
+  )
 
   def __init__(
       self,

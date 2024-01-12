@@ -19,6 +19,8 @@ toc:
   path: /guide/basic_training_loops
 
 - heading: "Keras"
+- title: "Overview"
+  path: /guide/keras
 - include: /guide/keras/_toc.yaml
 
 - heading: "Build with Core"
@@ -53,6 +55,9 @@ toc:
 - title: "NumPy API"
   status: experimental
   path: /guide/tf_numpy
+- title: "NumPy API Type Promotion"
+  status: nightly
+  path: /guide/tf_numpy_type_promotion
 - title: "DTensor concepts"
   path: /guide/dtensor_overview
   status: experimental
@@ -74,11 +79,14 @@ toc:
 - title: "Analyze pipeline performance"
   path: /guide/data_performance_analysis
 
-- heading: "Save a model"
+- heading: "Import and export"
 - title: "Checkpoint"
   path: /guide/checkpoint
 - title: "SavedModel"
   path: /guide/saved_model
+- title: "Import a JAX model using JAX2TF"
+  status: new
+  path: /guide/jax2tf
 
 - heading: "Accelerators"
 - title: "Distributed training"

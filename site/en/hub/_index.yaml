@@ -1,0 +1,145 @@
+# This file is rendered on tensorflow.org/hub.
+# ../README.md is rendered on github.com/tensorflow/hub.
+# Both link to ./overview.md and ./*.md for detailed docs.
+book_path: /hub/_book.yaml
+project_path: /hub/_project.yaml
+description: >
+  TensorFlow Hub is a repository of trained machine learning models ready for fine-tuning and
+  deployable anywhere. Reuse trained models like BERT and Faster R-CNN with just a few lines of code.
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  rows:
+  - heading: TensorFlow Hub is a repository of trained machine learning models.
+    items:
+    - classname:
+        tfo-landing-row-item-code-block
+        devsite-landing-row-50
+      description: >
+        TensorFlow Hub is a repository of trained machine learning models ready for fine-tuning and
+        deployable anywhere. Reuse trained models like BERT and Faster R-CNN with just a few lines of code.
+      list:
+      - heading: See the guide
+        description: Learn about how to use TensorFlow Hub and how it works.
+        path: /hub/overview
+        icon:
+          path: /hub/images/guide_basics.png
+      - heading: See tutorials
+        description: Tutorials show you end-to-end examples using TensorFlow Hub.
+        path: /hub/tutorials
+        icon:
+          path: /site-assets/images/marketing/learn/lite-pick.svg
+      - heading: See models
+        description: Find trained TF, TFLite, and TF.js models for your use case.
+        path: https://tfhub.dev
+        icon:
+          path: /site-assets/images/marketing/learn/js-run.svg
+      code_block: |
+        <pre class = "prettyprint">
+          !pip install --upgrade tensorflow_hub
+
+          import tensorflow_hub as hub
+
+          model = hub.KerasLayer("https://tfhub.dev/google/nnlm-en-dim128/2")
+          embeddings = model(["The rain in Spain.", "falls",
+                              "mainly", "In the plain!"])
+
+          print(embeddings.shape)  #(4,128)
+        </pre>
+  - options:
+    - cards
+    - centered-header
+    heading: >
+      <hr><br>Models
+    description: >
+      Find trained models from the TensorFlow community on <a href="https://tfhub.dev">TFHub.dev</a>
+    items:
+    - heading: BERT
+      description: Check out BERT for NLP tasks including text classification and question answering.
+      path: https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3
+      image_path: /hub/images/bert.png
+      buttons:
+      - label: See the model<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3
+    - heading: Object detection
+      description: Use the Faster R-CNN Inception ResNet V2 640x640 model for detecting objects in images.
+      path: https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1
+      image_path: /hub/images/object_detection.png
+      buttons:
+      - label: See the model<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://tfhub.dev/tensorflow/faster_rcnn/inception_resnet_v2_640x640/1
+    - heading: Style transfer
+      description: Transfer the style of one image to another using the image style transfer model.
+      path: https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2
+      image_path: /hub/images/style_transfer.png
+      buttons:
+      - label: See the model<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2
+    - heading: On-device food classifier
+      description: Use this TFLite model to classify photos of food on a mobile device.
+      path: https://tfhub.dev/google/lite-model/aiy/vision/classifier/food_V1/1
+      image_path: /hub/images/food.png
+      buttons:
+      - label: See the model<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://tfhub.dev/google/lite-model/aiy/vision/classifier/food_V1/1
+  - options:
+    - cards
+    - centered-header
+    heading: >
+      <hr><br>News & announcements
+    description: >
+      Check out <a href="https://blog.tensorflow.org/search?label=TensorFlow+Hub">our blog</a> for more announcements and view the latest <a href="https://twitter.com/search?q=%23TFHub%20from%3ATensorFlow&src=typed_query&f=live">#TFHub updates</a> on Twitter
+    items:
+    - heading: TensorFlow Hub for Real World Impact at Google I/O
+      youtube_id: BE5nkhFe3AE
+      description: >
+        Learn how you can use TensorFlow Hub to build ML solutions with real world impact.
+      buttons:
+      - label: Watch the video<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://www.youtube.com/watch?v=BE5nkhFe3AE
+    - heading: "On-device ML solutions"
+      description: >
+        To explore ML solutions for your mobile and web apps including TensorFlow Hub, visit the Google on-device machine learning page.
+      path: https://g.co/on-device-ml
+      image_path: /hub/images/odml.png
+      buttons:
+      - label: Visit the site<span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://g.co/on-device-ml
+    - heading: "Making BERT Easier with Preprocessing Models From TensorFlow Hub"
+      description: >
+        TensorFlow Hub makes BERT simple to use with new preprocessing models.
+      path: https://blog.tensorflow.org/2020/12/making-bert-easier-with-preprocessing-models-from-tensorflow-hub.html
+      image_path: /hub/images/bert_preprocess_wide.png
+      buttons:
+      - label: Read the blog<span class="material-icons icon-after" aria-hidden="true">arrow_forward</span>
+        path: https://blog.tensorflow.org/2020/12/making-bert-easier-with-preprocessing-models-from-tensorflow-hub.html
+    - heading: "From singing to musical scores: Estimating pitch with SPICE and Tensorflow Hub"
+      description: >
+        Learn how to use the SPICE model to automatically transcribe sheet music from live audio.
+      path: https://blog.tensorflow.org/2020/06/estimating-pitch-with-spice-and-tensorflow-hub.html
+      image_path: /hub/images/spice_blog.png
+      buttons:
+      - label: Read the blog<span class="material-icons icon-after" aria-hidden="true">arrow_forward</span>
+        path: https://blog.tensorflow.org/2020/06/estimating-pitch-with-spice-and-tensorflow-hub.html
+  - options:
+    - cards
+    - centered-header
+    heading: >
+      <hr><br>Community
+    description: Join the TensorFlow Hub community
+    items:
+    - heading: <span style="font-size:20px;">TensorFlow Hub on GitHub</span>
+      icon:
+        path: /hub/images/github_icon.svg
+      path: https://github.com/tensorflow/hub
+    - heading: <span style="font-size:20px;">Contribute models</span>
+      icon:
+        name: publish
+      path: /hub/publish
+  - options:
+    - cta
+    items:
+    - heading: Get started with TensorFlow Hub
+      buttons:
+      - label: Find trained models <span class="material-icons icon-after" aria-hidden="true">north_east</span>
+        path: https://tfhub.dev
+        classname: button

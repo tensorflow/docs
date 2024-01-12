@@ -1,0 +1,85 @@
+upper_tabs:
+# Tabs left of dropdown menu
+- include: /_upper_tabs_left.yaml
+- include: /api_docs/_upper_tabs_api.yaml
+# Dropdown menu
+- name: Resources
+  path: /resources
+  is_default: true
+  menu:
+  - include: /resources/_menu_toc.yaml
+  lower_tabs:
+    # Subsite tabs
+    other:
+    # [Guide]
+    - name: "Guide"
+      contents:
+      # TF Hub Platform overview.
+      - heading: Getting Started
+      - title: Overview
+        path: /hub/overview
+      - title: Installation
+        path: /hub/installation
+      - title: Community and support
+        path: /hub/community
+      # Python library usage information
+      - heading: Using the library
+      - title: Overview
+        path: /hub/lib_overview
+      - title: SavedModels for TensorFlow 2
+        path: /hub/tf2_saved_model
+      - title: Caching model downloads
+        path: /hub/caching
+      - title: Migration to TF2
+        path: /hub/migration_tf2
+      - title: Model compatibility for TF1/TF2
+        path: /hub/model_compatibility
+      - title: "Deprecated: TF1 Hub format"
+        path: /hub/tf1_hub_module
+        status: deprecated
+      # SavedModel APIs
+      - heading: Common SavedModel APIs
+      - title: Overview
+        path: /hub/common_saved_model_apis/index.md
+      - title: Reusable SavedModels (for all tasks)
+        path: /hub/reusable_saved_models
+      - title: Image tasks
+        path: /hub/common_saved_model_apis/images
+      - title: Text tasks
+        path: /hub/common_saved_model_apis/text
+      # Publishing models
+      - heading: Publishing models
+      - title: Publishing process
+        path: /hub/publish
+      - title: Data portability and deletion
+        path: /hub/portability_and_deletion
+      # Advanced developer info
+      - heading: Advanced developer info
+      - title: Model formats
+        path: /hub/model_formats
+      - title: Model hosting protocol
+        path: /hub/hosting
+      - title: Build from source
+        path: /hub/build_from_source
+      - title: Common issues
+        path: /hub/common_issues
+      - title: Contribute to TensorFlow Hub
+        path: /hub/contribute
+    # [Tutorials]
+    - name: Tutorials
+      path: /hub/tutorials
+      contents:
+      - include: /hub/tutorials/_toc.yaml
+    # [API]
+    - name: API
+      skip_translation: true
+      contents:
+      - include: /hub/api_docs/python/hub/_toc.yaml
+    # [Models]
+    - name: "Models ↗"
+      contents:
+      - title: Models
+        path: https://tfhub.dev
+        status: external
+
+- include: /_upper_tabs_right.yaml

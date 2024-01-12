@@ -1,0 +1,174 @@
+book_path: /hub/_book.yaml
+project_path: /hub/_project.yaml
+title: Tutorials
+landing_page:
+  custom_css_path: /site-assets/css/style.css
+  nav: left
+  meta_tags:
+  - name: description
+    content: >
+      TensorFlow Hub tutorials to help you get started with using and adapting pre-trained
+      machine learning models to your needs.
+  rows:
+  # Getting started
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">Getting started</h2>
+        <p><a href="https://tfhub.dev">TensorFlow Hub</a> is a comprehensive repository of pre-trained
+        models ready for fine-tuning and deployable anywhere. Download the latest trained models
+        with a minimal amount of code with the <code>tensorflow_hub</code> library.</p>
+        <p>The following tutorials should help you getting
+        started with using and applying models from TF Hub for your needs. Interactive tutorials let you
+        modify them and execute them with your changes. Click the <i>Run in Google Colab</i>
+        button at the top of an interactive tutorial to tinker with it.</p>
+
+  # For beginners
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">For beginners</h2>
+        <p>If you are unfamiliar with machine learning and TensorFlow, you can start by getting
+        an overview of how to classify images and text, detecting objects in images, or by stylizing your own pictures like famous artwork:</p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/tf2_image_retraining"><h3 class="no-link">Image Classification</h3></a>
+        Build a Keras model on top of a pre-trained image classifier to distinguish flowers.
+      path: /hub/tutorials/tf2_image_retraining
+      image_path: /hub/images/image_classification.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/text/classify_text_with_bert"><h3 class="no-link">Classify Text with BERT</h3></a>
+        Use BERT to build a Keras model to solve a text classificaton sentiment analysis task.
+      path: /tutorials/text/classify_text_with_bert
+      image_path: /hub/images/bert_preprocess.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/tf2_arbitrary_image_stylization">
+          <h3 class="no-link">Style Transfer</h3>
+        </a>
+        Let a neural network redraw an image in the style of Picasso, van Gogh or like your own style image.
+      path: /hub/tutorials/tf2_arbitrary_image_stylization
+      image_path: /hub/images/style_transfer.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/object_detection"><h3 class="no-link">Object Detection</h3></a>
+        Detect objects in images using models like FasterRCNN or SSD.
+      path: /hub/tutorials/tf2_object_detection
+      image_path: /hub/images/object_detection.png
+
+  # More advanced users
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h2 class="tfo-landing-page-heading no-link">For experienced developers</h2>
+        <p>Check out more advanced tutorials for how to use NLP, images, audio, and video models from TensorFlow Hub.</p>
+
+  # NLP tutorials
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h3 class="tfo-landing-page-heading no-link">NLP tutorials</h3>
+        <p>Solve common NLP tasks with models from TensorFlow Hub. View all available NLP tutorials in the left nav.</p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder"><h3 class="no-link">Semantic Similarity</h3></a>
+        Classify and semantically compare sentences with the Universal Sentence Encoder.
+      path: /hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder
+      image_path: /hub/images/similarity.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/tutorials/text/solve_glue_tasks_using_bert_on_tpu"><h3 class="no-link">BERT on TPU</h3></a>
+        Use BERT to solve GLUE benchmark tasks running on TPU.
+      path: /tutorials/text/solve_glue_tasks_using_bert_on_tpu
+      image_path: /hub/images/bert.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/retrieval_with_tf_hub_universal_encoder_qa"><h3 class="no-link">Multilingual Universal Sentence Encoder Q&A</h3></a>
+        Answer cross-lingual questions from the SQuAD dataset using the multilingual universal sentence encoder Q&A model.
+      path: /hub/tutorials/retrieval_with_tf_hub_universal_encoder_qa
+      image_path: /hub/images/colab_logo.svg
+
+  # Image tutorials
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h3 class="tfo-landing-page-heading no-link">Image tutorials</h3>
+        <p>Explore how to use GANs, super resolution models and more. View all available image tutorials in the left nav.</p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/tf_hub_generative_image_module"><h3 class="no-link">GANS for Image Generation</h3></a>
+        Generate artificial faces and interpolate between them using GANs.
+      path: /hub/tutorials/tf_hub_generative_image_module
+      image_path: /hub/images/gan_faces.gif
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/image_enhancing"><h3 class="no-link">Super Resolution</h3></a>
+        Enhance the resolution of downsampled images.
+      path: /hub/tutorials/image_enhancing
+      image_path: /hub/images/super_resolution.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/tf_hub_delf_module"><h3 class="no-link">Image Extension</h3></a>
+        Fill the masked part of given images.
+      path: /hub/tutorials/boundless
+      image_path: /hub/images/boundless.png
+
+  # Audio tutorials
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h3 class="tfo-landing-page-heading no-link">Audio tutorials</h3>
+        <p>Explore tutorials using trained models for audio data including pitch recognition and sound classification.</p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/spice"><h3 class="no-link">Pitch recognition</h3></a>
+        Record yourself singing and detect the pitch of your voice using the SPICE model.
+      path: /hub/tutorials/spice
+      image_path: /hub/images/spice_color.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/yamnet"><h3 class="no-link">Sound classification</h3></a>
+        Use the YAMNet model to classify sounds as 521 audio event classes from the AudioSet-YouTube corpus.
+      path: /hub/tutorials/yamnet
+      image_path: /hub/images/yamnet.png
+
+  # Video tutorials
+  - classname: devsite-landing-row-100
+    items:
+    - description: >
+        <h3 class="tfo-landing-page-heading no-link">Video tutorials</h3>
+        <p>Try out trained ML models for video data for action recognition, video interpolation, and more.</p>
+
+  - classname: devsite-landing-row-100
+    items:
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/action_recognition_with_tf_hub"><h3 class="no-link">Action Recognition</h3></a>
+        Detect one of 400 actions in a video using the Inflated 3D ConvNet model.
+      path: /hub/tutorials/action_recognition_with_tf_hub
+      image_path: /hub/images/action_recognition.gif
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/tweening_conv3d"><h3 class="no-link">Video Interpolation</h3></a>
+        Interpolate between video frames using Inbetweening with 3D Convolutions.
+      path: /hub/tutorials/tweening_conv3d
+      image_path: /hub/images/interpolation.png
+    - classname: tfo-landing-page-card
+      description: >
+        <a href="/hub/tutorials/text_to_video_retrieval_with_s3d_milnce"><h3 class="no-link">Text-to-Video Retrieval</h3></a>
+        Find videos that are the most related to a text query.
+      path: /hub/tutorials/text_to_video_retrieval_with_s3d_milnce
+      image_path: /hub/images/text_video.gif

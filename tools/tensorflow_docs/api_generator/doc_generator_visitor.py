@@ -13,6 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 """A `traverse` visitor for processing documentation."""
+from __future__ import annotations
 
 import collections
 import dataclasses
@@ -73,8 +74,8 @@ class PathTreeNode(object):
   """
   path: ApiPath
   py_object: Any
-  parent: Optional['PathTreeNode'] = None
-  children: Dict[str, 'PathTreeNode'] = dataclasses.field(default_factory=dict)
+  parent: Optional[PathTreeNode] = None
+  children: Dict[str, PathTreeNode] = dataclasses.field(default_factory=dict)
 
   def __hash__(self):
     return id(self)
@@ -420,6 +421,9 @@ class DocGeneratorVisitor(object):
     duplicates = {}
 
     for path, node in self.path_tree.items():
+      _LOGGER.debug('DocGeneratorVisitor.build')
+      _LOGGER.debug('  path: %s', path)
+
       if not path:
         continue
       full_name = node.full_name
@@ -478,6 +482,7 @@ class ApiTreeNode(PathTreeNode):
       return self.OutputType.PAGE
     elif obj_type in (obj_type_lib.ObjType.CALLABLE,
                       obj_type_lib.ObjType.TYPE_ALIAS):
+      assert self.parent is not None
       parent_type = obj_type_lib.ObjType.get(self.parent.py_object)
       if parent_type is obj_type_lib.ObjType.CLASS:
         return self.OutputType.FRAGMENT
@@ -589,9 +594,8 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
 
     return physical_path
 
-
   @classmethod
-  def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> 'ApiTree':
+  def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> ApiTree:
     """Create an ApiTree from an PathTree.
 
     Args:
@@ -615,16 +619,19 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
       if not duplicate_nodes:
         # Singleton objects will return `[]`. So look up the parent object's
         # duplicate nodes and collect their children.
+        assert current_node.parent is not None
         parent_nodes = path_tree.nodes_for_obj(current_node.parent.py_object)
         duplicate_nodes = [
             parent_node.children[current_node.short_name]
             for parent_node in parent_nodes
         ]
 
-      parents = [node.parent for node in duplicate_nodes]
+      parents = [
+          node.parent for node in duplicate_nodes if node.parent is not None
+      ]
 
       # Choose the priority name with a lexical sort on the tuples returned by
-      # by _score_name.
+      # _score_name.
       if not all(parent.path in self for parent in parents):
         # rewind
         active_nodes.appendleft(current_node)

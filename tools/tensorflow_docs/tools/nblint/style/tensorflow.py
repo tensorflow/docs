@@ -159,13 +159,14 @@ def button_colab(args):
   """Test that the URL in the Colab button matches the file path."""
   cell_source = args["cell_source"]
   repo = get_arg_or_fail(args["user"], "repo", "<org/name>")
+  branch = args["user"].get("branch", "master")
   docs_dir, rel_path = split_doc_path(args["path"])
 
   # Buttons use OSS URLs.
   if str(docs_dir) == "g3doc/en":
     docs_dir = pathlib.Path("site/en")
 
-  base_url = f"colab.research.google.com/github/{repo}/blob/master"
+  base_url = f"colab.research.google.com/github/{repo}/blob/{branch}"
   this_url = "https://" + str(base_url / docs_dir / rel_path)
 
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
@@ -216,13 +217,14 @@ def button_github(args):
   """Test that the URL in the GitHub button matches the file path."""
   cell_source = args["cell_source"]
   repo = get_arg_or_fail(args["user"], "repo", "<org/name>")
+  branch = args["user"].get("branch", "master")
   docs_dir, rel_path = split_doc_path(args["path"])
 
   # Buttons use OSS URLs.
   if str(docs_dir) == "g3doc/en":
     docs_dir = pathlib.Path("site/en")
 
-  base_url = f"github.com/{repo}/blob/master"
+  base_url = f"github.com/{repo}/blob/{branch}"
   this_url = "https://" + str(base_url / docs_dir / rel_path)
 
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
@@ -257,7 +259,10 @@ def button_website(args):
   if "r1" in rel_path.parts:
     return True  # No website button for TF 1.x docs.
 
-  if str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
+  user_url = args["user"].get("base_url")
+  if user_url:
+    base_url = user_url
+  elif str(docs_dir) == "site/zh-cn" or str(docs_dir) == "site/zh-tw":
     base_url = "https://tensorflow.google.cn/"
   else:
     base_url = "https://www.tensorflow.org/"

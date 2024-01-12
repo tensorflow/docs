@@ -1,7 +1,7 @@
 # Install TensorFlow for Java
 
 Warning: TensorFlow for Java is deprecated and will be removed in a future
-version of TensorFlow once <a href=/java>the replacement</a> is stable.
+version of TensorFlow once [the replacement](https://www.tensorflow.org/jvm) is stable.
 
 TensorFlow provides a
 [Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—
@@ -40,7 +40,7 @@ add the dependency to the project's `pom.xml` file:
 
 ### GPU support
 
-If your system has [GPU support](./gpu.md), add the following TensorFlow
+If your system has [GPU support](./pip.md), add the following TensorFlow
 dependencies to the project's `pom.xml` file:
 
 ```xml
@@ -171,7 +171,7 @@ Note: On Windows, the native library (`tensorflow_jni.dll`) requires
 
 ### Compile
 
-Using the `HelloTensorFlow.java` file from the [previous example](#example),
+Using the `HelloTensorFlow.java` file from the [previous example](#example-program),
 compile a program that uses TensorFlow. Make sure the `libtensorflow.jar` is
 accessible to your `classpath`:
 

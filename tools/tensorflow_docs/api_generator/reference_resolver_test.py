@@ -28,7 +28,6 @@ from tensorflow_docs.api_generator import parser
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 
 
-
 class TestReferenceResolver(absltest.TestCase):
   _BASE_DIR = tempfile.mkdtemp()
 
@@ -113,6 +112,7 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
       ('parens', 'Model.fit(x, y, epochs=5)', '../tf/keras/Model.md#fit'),
       ('duplicate_name', 'tf.matmul', '../tf/linalg/matmul.md'),
       ('full_name', 'tf.concat', '../tf/concat.md'),
+      ('extra_backticks', '`tf.concat`', '../tf/concat.md'),
       ('normal_and_compat', 'linalg.matmul', '../tf/linalg/matmul.md'),
       ('compat_only', 'math.deprecated', None),
       ('contrib_only', 'y.z', None),
@@ -146,7 +146,7 @@ class TestPartialSymbolAutoRef(parameterized.TestCase):
     if link is None:
       expected = input_string
     else:
-      expected = self.REF_TEMPLATE.format(link=link, text=string)
+      expected = self.REF_TEMPLATE.format(link=link, text=string.strip('`'))
 
     self.assertEqual(expected, ref_string)
 

@@ -34,44 +34,155 @@ release 0.12.1.  However, release 1.1.1 was backwards *compatible* with release
 Only the public APIs of TensorFlow are backwards compatible across minor and
 patch versions.  The public APIs consist of
 
-* All the documented [Python](../api_docs/python) functions and classes in the
-  `tensorflow` module and its submodules, except for
+*   All the documented [Python](https://www.tensorflow.org/api_docs/python)
+    functions and classes in the `tensorflow` module and its submodules, except
+    for
 
-    * Private symbols: any function, class, etc., whose name start with `_`
-    * Experimental and `tf.contrib` symbols, see [below](#not_covered) for
-      details.
+    *   Private symbols: any function, class, etc., whose name start with `_`
+    *   Experimental and `tf.contrib` symbols, see [below](#not_covered) for
+        details.
 
-  Note that the code in the `examples/` and `tools/` directories is not
-  reachable through the `tensorflow` Python module and is thus not covered by
-  the compatibility guarantee.
+    Note that the code in the `examples/` and `tools/` directories is not
+    reachable through the `tensorflow` Python module and is thus not covered by
+    the compatibility guarantee.
 
-  If a symbol is available through the `tensorflow` Python module or its
-  submodules, but is not documented, then it is **not** considered part of the
-  public API.
+    If a symbol is available through the `tensorflow` Python module or its
+    submodules, but is not documented, then it is **not** considered part of the
+    public API.
 
-* The compatibility API (in Python, the `tf.compat` module). At major versions,
-  we may release utilities and additional endpoints to help users with the
-  transition to a new major version. These API symbols are deprecated and not
-  supported (i.e., we will not add any features, and we will not fix bugs
-  other than to fix vulnerabilities), but they do fall under our compatibility
-  guarantees.
+*   The compatibility API (in Python, the `tf.compat` module). At major
+    versions, we may release utilities and additional endpoints to help users
+    with the transition to a new major version. These API symbols are deprecated
+    and not supported (i.e., we will not add any features, and we will not fix
+    bugs other than to fix vulnerabilities), but they do fall under our
+    compatibility guarantees.
 
-* The [C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h).
+*   The TensorFlow C API:
 
-* The following protocol buffer files:
+    *   [tensorflow/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h))
 
-    * [`attr_value`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto)
-    * [`config`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto)
-    * [`event`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/util/event.proto)
-    * [`graph`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/graph.proto)
-    * [`op_def`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/op_def.proto)
-    * [`reader_base`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/reader_base.proto)
-    * [`summary`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/summary.proto)
-    * [`tensor`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.proto)
-    * [`tensor_shape`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor_shape.proto)
-    * [`types`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto)
+*   The following protocol buffer files:
 
-<a name="not_covered"></a>
+    *   [`attr_value`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto)
+    *   [`config`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto)
+    *   [`event`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/util/event.proto)
+    *   [`graph`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/graph.proto)
+    *   [`op_def`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/op_def.proto)
+    *   [`reader_base`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/reader_base.proto)
+    *   [`summary`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/summary.proto)
+    *   [`tensor`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.proto)
+    *   [`tensor_shape`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor_shape.proto)
+    *   [`types`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto)
+
+<a name="lite"></a>
+
+## Separate version number for TensorFlow Lite
+
+Currently TensorFlow Lite is distributed as a part of TensorFlow. However, we
+reserve the right to in future release changes to the TensorFlow Lite APIs on a
+different schedule than for the other TensorFlow APIs, or even to move
+TensorFlow Lite into a separate source distribution and/or a separate source
+repository than TensorFlow.
+
+Because of this, we use a different version number for TensorFlow Lite
+(`TFLITE_VERSION_STRING` in `tensorflow/lite/version.h`, and `TfLiteVersion()`
+in `tensorflow/lite/c/c_api.h`) than for TensorFlow (`TF_VERSION_STRING` in
+`tensorflow/core/public/version.h`, and `TF_Version()` in
+`tensorflow/c/c_api.h`). Currently, these two version numbers happen to have the
+same value. But in future, they may diverge; for example, we may increment the
+major version number for TensorFlow Lite without incrementing the major version
+number for TensorFlow, or vice versa.
+
+The API surface that is covered by the TensorFlow Lite version number is
+comprised of the following public APIs:
+
+*   The TensorFlow Lite C API:
+
+    *   [tensorflow/lite/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api.h)
+    *   [tensorflow/lite/c/c_api_types.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_types.h).
+
+*   The TensorFlow Lite Android (Java/Kotlin) API:
+
+    *   In `org.tensorflow.lite`:
+        *   [org.tensorflow.lite.TensorFlowLite](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/TensorFlowLite)
+        *   [org.tensorflow.lite.InterpreterApi](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/InterpreterApi)
+        *   [org.tensorflow.lite.Delegate](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/Delegate)
+        *   [org.tensorflow.lite.DelegateFactory](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/DelegateFactory)
+        *   [org.tensorflow.lite.Tensor](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/Tensor)
+        *   [org.tensorflow.lite.DataType](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/DataType)
+        *   [org.tensorflow.lite.RuntimeFlavor](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/RuntimeFlavor)
+    *   In `org.tensorflow.lite.gpu`:
+        *   [org.tensorflow.lite.gpu.GpuDelegate](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/gpu/GpuDelegate)
+        *   [org.tensorflow.lite.gpu.GpuDelegateFactory](https://www.tensorflow.org/lite/api_docs/java/org/tensorflow/lite/gpu/GpuDelegateFactory)
+
+*   The TensorFlow Lite Objective-C APIs:
+
+    *   [tensorflow/lite/objc/apis/](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/objc/apis/)
+        *   TFLCoreMLDelegate.h
+        *   TFLDelegate.h
+        *   TFLInterpreter.h
+        *   TFLInterpreterOptions.h
+        *   TFLMetalDelegate.h
+        *   TFLQuantizationParameters.h
+        *   TFLSignatureRunner.h
+        *   TFLTensorFlowLite.h
+        *   TFLTensor.h
+
+*   The TensorFlow Lite Swift APIs:
+
+    *   [tensorflow/lite/swift/Sources/](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/swift/Sources/).
+        *   CoreMLDelegate.swift
+        *   Delegate.swift
+        *   InterpreterError.swift
+        *   Interpreter.swift
+        *   MetalDelegate.swift
+        *   Model.swift
+        *   QuantizationParameters.swift
+        *   SignatureRunnerError.swift
+        *   SignatureRunner.swift
+        *   TensorFlowLite.swift
+        *   Tensor.swift
+
+Experimental symbols are not covered; see [below](#not_covered) for details.
+
+## Separate version number for TensorFlow Lite Extension APIs
+
+TensorFlow Lite provides C APIs for extending the TensorFlow Lite interpreter
+with "custom ops", which provide user-defined operations in a graph, or
+"delegates", which allow delegating the computation for a graph (or for a subset
+of a graph) to a custom backend. These APIs, which we collectively call the
+"TensorFlow Lite Extension APIs", require more intimate dependencies on some of
+the details of the TensorFlow Lite implementation.
+
+We reserve the right to in future release changes to these APIs, potentially
+including non-backwards-compatible changes, on a different schedule than for the
+other TensorFlow Lite APIs. So we use a different version number for the
+TensorFlow Lite Extension APIs than the version numbers for TensorFlow Lite or
+TensorFlow (which were described in the previous section). We are introducing
+some new APIs in TensorFlow Lite version 2.15 to get the TensorFlow Lite
+Extension APIs version (`TFLITE_EXTENSION_APIS_VERSION_STRING` in
+`tensorflow/lite/version.h`, and TfLiteExtensionApisVersion() in
+`tensorflow/lite/c/c_api.h`). The version number for the TensorFlow Lite
+Extension APIs is currently the same as the version number for TensorFlow and
+TensorFlow Lite. But in future, they may diverge; for example, we may increment
+the major version number for the TensorFlow Lite Extension APIs without
+incrementing the major version number for TensorFlow Lite, or vice versa.
+
+The API surface that is covered by the TensorFlow Lite Extension APIs version
+number is comprised of the following public APIs:
+
+```
+*   [tensorflow/lite/c/c_api_opaque.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_opaque.h)
+*   [tensorflow/lite/c/common.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/common.h)
+*   [tensorflow/lite/c/builtin_op_data.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/builtin_op_data.h)
+*   [tensorflow/lite/builtin_ops.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/builtin_ops.h)
+```
+
+Again, experimental symbols are not covered; see [below](#not_covered) for
+details.
+
+<e name="not_covered"></a>
+
 ## What is *not* covered
 
 Some parts of TensorFlow can change in backward incompatible ways at any point.
@@ -82,20 +193,26 @@ These include:
     particular, the following are not covered by any compatibility guarantees:
 
     -   any symbol in the `tf.contrib` module or its submodules;
-    -   any symbol (module, function, argument, property, class, or constant)
-        whose name contains `experimental` or `Experimental`; or
-    -   any symbol whose fully qualified name includes a module or class which
-        is itself experimental. This includes fields and submessages of any
-        protocol buffer called `experimental`.
+    -   any symbol (module, function, argument, property, class, constant, type,
+        package, etc.) whose name contains `experimental` or `Experimental`; or
+    -   any symbol whose fully qualified name includes a module or class or
+        package which is itself experimental. This includes fields and
+        submessages of any protocol buffer called `experimental`.
 
 *   **Other languages**: TensorFlow APIs in languages other than Python and C,
     such as:
 
     -   [C++](../install/lang_c.ipynb) (exposed through header files in
-        [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+        [`tensorflow/cc/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
     -   [Java](../install/lang_java_legacy.md),
     -   [Go](https://github.com/tensorflow/build/blob/master/golang_install_guide/README.md)
     -   [JavaScript](https://www.tensorflow.org/js)
+
+    and TensorFlow **Lite** APIs in languages other than Java/Kotlin, C,
+    Objective-C, and Swift, in particular
+
+    -   **C++** (exposed through header files in
+        [`tensorflow/lite/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/))
 
 *   **Details of composite ops:** Many public functions in Python expand to
     several primitive ops in the graph, and these details will be part of any

@@ -55,8 +55,8 @@ To incorporate your custom op you'll need to:
 
 *   Some familiarity with C++.
 *   Must have installed the
-    [TensorFlow binary](../../install), or must have
-    [downloaded TensorFlow source](../../install/source.md),
+    [TensorFlow binary](https://www.tensorflow.org/install), or must have
+    [downloaded TensorFlow source](https://www.tensorflow.org/install/source),
     and be able to build it.
 
 ## Define the op interface
@@ -360,12 +360,13 @@ g++ -std=c++14 -shared zero_out.cc -o zero_out.so -fPIC ${TF_CFLAGS[@]} ${TF_LFL
 On macOS, the additional flag "-undefined dynamic_lookup" is required when
 building the `.so` file.
 
->   Note on `gcc` version `>=5`: gcc uses the new C++
->   [ABI](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx) since version `5`. The binary pip
->   packages available on the TensorFlow website are built with `gcc4` that uses
->   the older ABI. If you compile your op library with `gcc>=5`, add
->   `-D_GLIBCXX_USE_CXX11_ABI=0` to the command line to make the library
->   compatible with the older abi.
+> Note on `gcc` version `>=5`: gcc uses the new C++
+> [ABI](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx) since version `5`.
+> TensorFlow 2.8 and earlier were built with `gcc4` that uses the older ABI. If
+> you are using these versions of TensorFlow and are trying to compile your op
+> library with `gcc>=5`, add `-D_GLIBCXX_USE_CXX11_ABI=0` to the command line to
+> make the library compatible with the older ABI. TensorFlow 2.9+ packages are
+> compatible with the newer ABI by default.
 
 ### Compile the op using bazel (TensorFlow source installation)
 
@@ -1378,6 +1379,13 @@ Details about registering gradient functions with
 Note that at the time the gradient function is called, only the data flow graph
 of ops is available, not the tensor data itself.  Thus, all computation must be
 performed using other tensorflow ops, to be run at graph execution time.
+
+Add type hints when registering the custom gradient for an op type to make the
+code more readable, debuggable, easier to maintain, and more robust through data
+validation. For example, when taking an `op` as a parameter in a function,
+specify that the gradient function will take an
+<a href="https://www.tensorflow.org/api_docs/python/tf/Operation"><code>tf.Operation</code></a>
+as its parameter type.
 
 ### Shape functions in C++
 

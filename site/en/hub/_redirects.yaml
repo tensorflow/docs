@@ -1,0 +1,7 @@
+redirects:
+- from: /hub/becoming_a_publisher
+  to: /hub/publish
+- from: /hub/writing_model_documentation
+  to: /hub/writing_documentation#model
+- from: /hub/creating_a_collection
+  to: /hub/writing_documentation#collection

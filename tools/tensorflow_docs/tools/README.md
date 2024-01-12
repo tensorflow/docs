@@ -25,7 +25,7 @@ $ python3 -m pip install -U --user git+https://github.com/tensorflow/docs
 ## nbfmt
 
 A notebook formatting tool that makes Jupyter notebook source diffs consistent
-and easier to review. Since notebook authoring environments differ with regards
+and easier to review. Since notebook authoring environments differ with regard
 to file output, indentation, metadata and other non-specified fields; `nbfmt`
 uses opinionated defaults with a preference for the TensorFlow docs Colab
 workflow. To format a notebook, install the `tensorflow-docs` package and run
@@ -81,7 +81,7 @@ $ pre-commit install
 ## nblint
 
 A notebook linting tool that checks documentation style rules. Used to catch
-common errors and useful for CI tests. To lint a notebook, install the
+common errors and is useful for CI tests. To lint a notebook, install the
 `tensorflow-docs` package and run the `nblint` tool:
 
 ```shell
