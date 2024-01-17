@@ -132,8 +132,8 @@ preprocessor = hub.load("path/to/preprocessor")  # Must match `encoder`.
 encoder_inputs = preprocessor(text_input)
 
 encoder = hub.load("path/to/encoder")
-enocder_outputs = encoder(encoder_inputs)
-embeddings = enocder_outputs["default"]
+encoder_outputs = encoder(encoder_inputs)
+embeddings = encoder_outputs["default"]
 ```
 
 Recall from the [Reusable SavedModel API](../reusable_saved_models.md) that
@@ -304,8 +304,8 @@ provisions from the [Reusable SavedModel API](../reusable_saved_models.md).
 #### Usage synopsis
 
 ```python
-enocder = hub.load("path/to/encoder")
-enocder_outputs = encoder(encoder_inputs)
+encoder = hub.load("path/to/encoder")
+encoder_outputs = encoder(encoder_inputs)
 ```
 
 or equivalently in Keras:

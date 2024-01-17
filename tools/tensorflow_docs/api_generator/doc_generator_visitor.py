@@ -596,7 +596,7 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
 
   @classmethod
   def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> ApiTree:
-    """Create an ApiTree from an PathTree.
+    """Create an ApiTree from a PathTree.
 
     Args:
       path_tree: The `PathTree` to convert.

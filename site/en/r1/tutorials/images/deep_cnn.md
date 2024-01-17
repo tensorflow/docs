@@ -108,7 +108,7 @@ reusable by constructing the graph with the following modules:
 operations that read and preprocess CIFAR images for evaluation and training,
 respectively.
 1. [**Model prediction:**](#model-prediction) `inference()`
-adds operations that perform inference, i.e. classification, on supplied images.
+adds operations that perform inference, i.e., classification, on supplied images.
 1. [**Model training:**](#model-training) `loss()` and `train()`
 add operations that compute the loss,
 gradients, variable updates and visualization summaries.
@@ -405,7 +405,7 @@ a "tower". We must set two attributes for each tower:
 * A unique name for all operations within a tower.
 `tf.name_scope` provides
 this unique name by prepending a scope. For instance, all operations in
-the first tower are prepended with `tower_0`, e.g. `tower_0/conv1/Conv2D`.
+the first tower are prepended with `tower_0`, e.g., `tower_0/conv1/Conv2D`.
 
 * A preferred hardware device to run the operation within a tower.
 `tf.device` specifies this. For

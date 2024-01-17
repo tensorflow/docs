@@ -122,7 +122,7 @@ tf.Session(config=config)
 Intel® has added optimizations to TensorFlow for Intel® Xeon® and Intel® Xeon
 Phi™ through the use of the Intel® Math Kernel Library for Deep Neural Networks
 (Intel® MKL-DNN) optimized primitives. The optimizations also provide speedups
-for the consumer line of processors, e.g. i5 and i7 Intel processors. The Intel
+for the consumer line of processors, e.g., i5 and i7 Intel processors. The Intel
 published paper
 [TensorFlow* Optimizations on Modern Intel® Architecture](https://software.intel.com/en-us/articles/tensorflow-optimizations-on-modern-intel-architecture)
 contains additional details on the implementation.
@@ -255,7 +255,7 @@ bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pi
   a docker container, the data is not cached and the penalty is paid each time
   TensorFlow starts. The best practice is to include the
   [compute capabilities](http://developer.nvidia.com/cuda-gpus)
-  of the GPUs that will be used, e.g. P100: 6.0, Titan X (Pascal): 6.1,
+  of the GPUs that will be used, e.g., P100: 6.0, Titan X (Pascal): 6.1,
   Titan X (Maxwell): 5.2, and K80: 3.7.
 * Use a version of `gcc` that supports all of the optimizations of the target
   CPU. The recommended minimum gcc version is 4.8.3. On macOS, upgrade to the

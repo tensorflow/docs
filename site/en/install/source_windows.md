@@ -95,7 +95,7 @@ a release branch that is known to work.
 
 ## Optional: Environmental Variable Set Up
 Run following commands before running build command to avoid issue with package creation:
-(If the below commands were set up while installing the packages, please ignore them). Run `set` check if all the paths were set correctly, run `echo %Environmental Variable%` e.g. `echo %BAZEL_VC%` to check path set up for a specific Environmental Variable
+(If the below commands were set up while installing the packages, please ignore them). Run `set` check if all the paths were set correctly, run `echo %Environmental Variable%` e.g., `echo %BAZEL_VC%` to check path set up for a specific Environmental Variable
 
  Python path set up issue [tensorflow:issue#59943](https://github.com/tensorflow/tensorflow/issues/59943),[tensorflow:issue#9436](https://github.com/tensorflow/tensorflow/issues/9436),[tensorflow:issue#60083](https://github.com/tensorflow/tensorflow/issues/60083)
 
@@ -257,7 +257,7 @@ your platform. Use `pip3 install` to install the package, for example:
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
 pip3 install C:/tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
 
-e.g. pip3 install C:/tmp/tensorflow_pkg/tensorflow-2.12.0-cp310-cp310-win_amd64.whl
+e.g., pip3 install C:/tmp/tensorflow_pkg/tensorflow-2.12.0-cp310-cp310-win_amd64.whl
 </pre>
 
 Success: TensorFlow is now installed.

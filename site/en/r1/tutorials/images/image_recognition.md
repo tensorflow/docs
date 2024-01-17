@@ -140,7 +140,7 @@ score of 0.8.
   <img style="width:100%" src="https://www.tensorflow.org/images/grace_hopper.jpg">
 </div>
 
-Next, try it out on your own images by supplying the --image= argument, e.g.
+Next, try it out on your own images by supplying the --image= argument, e.g.,
 
 ```bash
 bazel-bin/tensorflow/examples/label_image/label_image --image=my_image.png

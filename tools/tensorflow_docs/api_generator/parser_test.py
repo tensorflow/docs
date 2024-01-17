@@ -799,7 +799,7 @@ class ParserTest(parameterized.TestCase):
 
     self.assertEqual('Instance of `m.A`', result)
 
-  def testIsClasssAttr(self):
+  def testIsClassAttr(self):
     result = parser.is_class_attr('test_module.test_function',
                                   {'test_module': test_module})
     self.assertFalse(result)
@@ -807,6 +807,7 @@ class ParserTest(parameterized.TestCase):
     result = parser.is_class_attr('TestClass.test_function',
                                   {'TestClass': TestClass})
     self.assertTrue(result)
+
 
 RELU_DOC = """Computes rectified linear: `max(features, 0)`
 
