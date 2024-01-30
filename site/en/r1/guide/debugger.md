@@ -10,7 +10,7 @@ due to TensorFlow's computation-graph paradigm.
 This guide focuses on the command-line interface (CLI) of `tfdbg`. For guide on
 how to use the graphical user interface (GUI) of tfdbg, i.e., the
 **TensorBoard Debugger Plugin**, please visit
-[its README](https://github.com/tensorflow/tensorboard/blob/master/tensorboard/plugins/debugger/README.md).
+[its README](https://github.com/tensorflow/tensorboard/blob/r1.15/tensorboard/plugins/debugger/README.md).
 
 Note: The TensorFlow debugger uses a
 [curses](https://en.wikipedia.org/wiki/Curses_\(programming_library\))-based text
@@ -35,7 +35,7 @@ TensorFlow. Later sections of this document describe how to use **tfdbg** with
 higher-level APIs of TensorFlow, including `tf.estimator`, `tf.keras` / `keras`
 and `tf.contrib.slim`. To *observe* such an issue, run the following command
 without the debugger (the source code can be found
-[here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/v1/debug_mnist.py)):
+[here](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/debug/examples/v1/debug_mnist.py)):
 
 <pre>
 python -m tensorflow.python.debug.examples.v1.debug_mnist
@@ -64,7 +64,7 @@ numeric problem first surfaced.
 To add support for tfdbg in our example, all that is needed is to add the
 following lines of code and wrap the Session object with a debugger wrapper.
 This code is already added in
-[debug_mnist.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/debug/examples/v1/debug_mnist.py),
+[debug_mnist.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/debug/examples/v1/debug_mnist.py),
 so you can activate tfdbg CLI with the `--debug` flag at the command line.
 
 ```python
@@ -370,7 +370,7 @@ traceback of the node's construction.
 
 From the traceback, you can see that the op is constructed at the following
 line:
-[`debug_mnist.py`](https://www.tensorflow.org/code/tensorflow/python/debug/examples/v1/debug_mnist.py):
+[`debug_mnist.py`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/debug/examples/v1/debug_mnist.py):
 
 ```python
 diff = y_ * tf.log(y)
@@ -457,7 +457,7 @@ accuracy_score = classifier.evaluate(eval_input_fn,
 predict_results = classifier.predict(predict_input_fn, hooks=hooks)
 ```
 
-[debug_tflearn_iris.py](https://www.tensorflow.org/code/tensorflow/python/debug/examples/v1/debug_tflearn_iris.py),
+[debug_tflearn_iris.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/debug/examples/v1/debug_tflearn_iris.py),
 contains a full example of how to use the tfdbg with `Estimator`s. To run this
 example, do:
 
@@ -501,7 +501,7 @@ TensorFlow backend. You just need to replace `tf.keras.backend` with
 ## Debugging tf-slim with TFDBG
 
 TFDBG supports debugging of training and evaluation with
-[tf-slim](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/slim).
+[tf-slim](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/contrib/slim).
 As detailed below, training and evaluation require slightly different debugging
 workflows.
 
@@ -605,7 +605,7 @@ The `watch_fn` argument accepts a `Callable` that allows you to configure what
 If your model code is written in C++ or other languages, you can also
 modify the `debug_options` field of `RunOptions` to generate debug dumps that
 can be inspected offline. See
-[the proto definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/debug.proto)
+[the proto definition](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/debug.proto)
 for more details.
 
 ### Debugging Remotely-Running Estimators
@@ -648,7 +648,7 @@ python -m tensorflow.python.debug.cli.offline_analyzer \
        model, check out
 
    1. The profiling mode of tfdbg: `tfdbg> run -p`.
-   2. [tfprof](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/core/profiler)
+   2. [tfprof](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/core/profiler)
       and other profiling tools for TensorFlow.
 
 **Q**: _How do I link tfdbg against my `Session` in Bazel? Why do I see an
@@ -808,4 +808,4 @@ tensor dumps.
        and conditional breakpoints, and tying tensors to their
        graph-construction source code, all in the browser environment.
        To get started, please visit
-       [its README](https://github.com/tensorflow/tensorboard/blob/master/tensorboard/plugins/debugger/README.md).
+       [its README](https://github.com/tensorflow/tensorboard/blob/r1.15/tensorboard/plugins/debugger/README.md).

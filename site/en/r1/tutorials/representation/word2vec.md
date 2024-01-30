@@ -327,7 +327,7 @@ for inputs, labels in generate_batch(...):
 ```
 
 See the full example code in
-[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py).
+[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/tutorials/word2vec/word2vec_basic.py).
 
 ## Visualizing the learned embeddings
 
@@ -341,7 +341,7 @@ t-SNE.
 Et voila! As expected, words that are similar end up clustering nearby each
 other. For a more heavyweight implementation of word2vec that showcases more of
 the advanced features of TensorFlow, see the implementation in
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py).
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.15/research/tutorials/embedding/word2vec.py).
 
 ## Evaluating embeddings: analogical reasoning
 
@@ -357,7 +357,7 @@ Download the dataset for this task from
 
 To see how we do this evaluation, have a look at the `build_eval_graph()` and
 `eval()` functions in
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py).
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.15/research/tutorials/embedding/word2vec.py).
 
 The choice of hyperparameters can strongly influence the accuracy on this task.
 To achieve state-of-the-art performance on this task requires training over a

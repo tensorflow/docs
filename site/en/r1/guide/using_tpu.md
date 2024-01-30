@@ -7,8 +7,8 @@ changing the *hardware accelerator* in your notebook settings:
 TPU-enabled Colab notebooks are available to test:
 
   1. [A quick test, just to measure FLOPS](https://colab.research.google.com/notebooks/tpu.ipynb).
-  2. [A CNN image classifier with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/fashion_mnist.ipynb).
-  3. [An LSTM markov chain text generator with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/shakespeare_with_tpu_and_keras.ipynb)
+  2. [A CNN image classifier with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/r1.15/tools/colab/fashion_mnist.ipynb).
+  3. [An LSTM markov chain text generator with `tf.keras`](https://colab.research.google.com/github/tensorflow/tpu/blob/r1.15/tools/colab/shakespeare_with_tpu_and_keras.ipynb)
 
 ## TPUEstimator
 
@@ -25,7 +25,7 @@ Cloud TPU is to define the model's inference phase (from inputs to predictions)
 outside of the `model_fn`. Then maintain separate implementations of the
 `Estimator` setup and `model_fn`, both wrapping this inference step. For an
 example of this pattern compare the `mnist.py` and `mnist_tpu.py` implementation in
-[tensorflow/models](https://github.com/tensorflow/models/tree/master/official/r1/mnist).
+[tensorflow/models](https://github.com/tensorflow/models/tree/r1.15/official/r1/mnist).
 
 ### Run a TPUEstimator locally
 
@@ -350,10 +350,10 @@ in bytes. A minimum of a few MB (`buffer_size=8*1024*1024`) is recommended so
 that data is available when needed.
 
 The TPU-demos repo includes
-[a script](https://github.com/tensorflow/tpu/blob/master/tools/datasets/imagenet_to_gcs.py)
+[a script](https://github.com/tensorflow/tpu/blob/1.15/tools/datasets/imagenet_to_gcs.py)
 for downloading the imagenet dataset and converting it to an appropriate format.
 This together with the imagenet
-[models](https://github.com/tensorflow/tpu/tree/master/models)
+[models](https://github.com/tensorflow/tpu/tree/r1.15/models)
 included in the repo demonstrate all of these best-practices.
 
 ## Next steps

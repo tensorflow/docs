@@ -471,7 +471,7 @@ existing producer scripts will not suddenly use the new functionality.
 1.  Add a new similar op named `SomethingV2` or similar and go through the
     process of adding it and switching existing Python wrappers to use it.
     To ensure forward compatibility use the checks suggested in
-    [compat.py](https://www.tensorflow.org/code/tensorflow/python/compat/compat.py)
+    [compat.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/compat/compat.py)
     when changing the Python wrappers.
 2.  Remove the old op (Can only take place with a major version change due to
     backward compatibility).
