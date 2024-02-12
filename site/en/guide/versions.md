@@ -203,7 +203,7 @@ These include:
     such as:
 
     -   [C++](../install/lang_c.ipynb) (exposed through header files in
-        [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+        [`tensorflow/cc/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
     -   [Java](../install/lang_java_legacy.md),
     -   [Go](https://github.com/tensorflow/build/blob/master/golang_install_guide/README.md)
     -   [JavaScript](https://www.tensorflow.org/js)
@@ -212,7 +212,7 @@ These include:
     Objective-C, and Swift, in particular
 
     -   **C++** (exposed through header files in
-        [`tensorflow/lite/`]\(https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/\))
+        [`tensorflow/lite/`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/))
 
 *   **Details of composite ops:** Many public functions in Python expand to
     several primitive ops in the graph, and these details will be part of any
@@ -471,7 +471,7 @@ existing producer scripts will not suddenly use the new functionality.
 1.  Add a new similar op named `SomethingV2` or similar and go through the
     process of adding it and switching existing Python wrappers to use it.
     To ensure forward compatibility use the checks suggested in
-    [compat.py](https://www.tensorflow.org/code/tensorflow/python/compat/compat.py)
+    [compat.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/compat/compat.py)
     when changing the Python wrappers.
 2.  Remove the old op (Can only take place with a major version change due to
     backward compatibility).

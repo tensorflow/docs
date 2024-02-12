@@ -159,9 +159,9 @@ accuracy. If the training accuracy increases but the validation doesn't, that's
 a sign that overfitting is occurring, and your model is only learning things
 about the training clips, not broader patterns that generalize.
 
-## Tensorboard
+## TensorBoard
 
-A good way to visualize how the training is progressing is using Tensorboard. By
+A good way to visualize how the training is progressing is using TensorBoard. By
 default, the script saves out events to /tmp/retrain_logs, and you can load
 these by running:
 

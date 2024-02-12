@@ -32,7 +32,7 @@ To participate in the TensorFlow docs community:
 
 For details, use the [TensorFlow API docs contributor guide](docs_ref.md). This
 shows you how to find the
-[source file](https://www.tensorflow.org/code/tensorflow/python/)
+[source file](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/)
 and edit the symbol's
 <a href="https://www.python.org/dev/peps/pep-0257/" class="external">docstring</a>.
 Many API reference pages on tensorflow.org include a link to the source file
@@ -53,9 +53,9 @@ main
 <a href="https://github.com/tensorflow/tensorflow" class="external">tensorflow/tensorflow</a>
 repo. The reference documentation is generated from code comments
 and docstrings in the source code for
-<a href="https://www.tensorflow.org/code/tensorflow/python/" class="external">Python</a>,
-<a href="https://www.tensorflow.org/code/tensorflow/cc/" class="external">C++</a>, and
-<a href="https://www.tensorflow.org/code/tensorflow/java/" class="external">Java</a>.
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/" class="external">Python</a>,
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/cc/" class="external">C++</a>, and
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/" class="external">Java</a>.
 
 Previous versions of the TensorFlow documentation are available as
 [rX.x branches](https://github.com/tensorflow/docs/branches) in the TensorFlow
