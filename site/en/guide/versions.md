@@ -171,12 +171,10 @@ incrementing the major version number for TensorFlow Lite, or vice versa.
 The API surface that is covered by the TensorFlow Lite Extension APIs version
 number is comprised of the following public APIs:
 
-```
 *   [tensorflow/lite/c/c_api_opaque.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/c_api_opaque.h)
 *   [tensorflow/lite/c/common.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/common.h)
 *   [tensorflow/lite/c/builtin_op_data.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/c/builtin_op_data.h)
 *   [tensorflow/lite/builtin_ops.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/builtin_ops.h)
-```
 
 Again, experimental symbols are not covered; see [below](#not_covered) for
 details.
