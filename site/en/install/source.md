@@ -60,7 +60,7 @@ file.
 
 Clang is a C/C++/Objective-C compiler that is compiled in C++ based on LLVM. It
 is the default compiler to build TensorFlow starting with TensorFlow 2.13. The
-current supported version is LLVM/Clang 16.
+current supported version is LLVM/Clang 17.
 
 [LLVM Debian/Ubuntu nightly packages](https://apt.llvm.org) provide an automatic
 installation script and packages for manual installation on Linux. Make sure you
@@ -68,22 +68,24 @@ run the following command if you manually add llvm apt repository to your
 package sources:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-16 clang-16</code>
+<code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-17 clang-17</code>
 </pre>
 
+Now that `/usr/lib/llvm-17/bin/clang` is the actual path to clang in this case.
+
 Alternatively, you can download and unpack the pre-built
-[Clang + LLVM 16](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
+[Clang + LLVM 17](https://github.com/llvm/llvm-project/releases/tag/llvmorg-17.0.2).
 
 Below is an example of steps you can take to set up the downloaded Clang + LLVM
-16 binaries on Debian/Ubuntu operating systems:
+17 binaries on Debian/Ubuntu operating systems:
 
 1.  Change to the desired destination directory: `cd <desired directory>`
 
 1.  Load and extract an archive file...(suitable to your architecture):
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    <code class="devsite-terminal">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
     </code>
-    <code class="devsite-terminal">tar -xvf clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    <code class="devsite-terminal">tar -xvf clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
     </code>
     </pre>
 
@@ -93,10 +95,10 @@ Below is an example of steps you can take to set up the downloaded Clang + LLVM
     have to replace anything, unless you have a previous installation, in which
     case you should replace the files:
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">cp -r clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/* /usr</code>
+    <code class="devsite-terminal">cp -r clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/* /usr</code>
     </pre>
 
-1.  Check the obtained Clang + LLVM 16 binaries version:
+1.  Check the obtained Clang + LLVM 17 binaries version:
     <pre class="prettyprint lang-bsh">
     <code class="devsite-terminal">clang --version</code>
     </pre>
@@ -430,6 +432,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.1</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td></tr>
@@ -468,6 +471,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.1</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
@@ -508,6 +512,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang from xcode 13.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>
