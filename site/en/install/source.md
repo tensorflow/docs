@@ -34,8 +34,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging requests opt_einsum</code>
-<code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
+<code class="devsite-terminal">pip install -U --user pip</code>
 </pre>
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2 `.whl`
@@ -242,19 +241,6 @@ There are some preconfigured build configs available that can be added to the
 
 ## Build and install the pip package
 
-The pip package is build in two steps. A `bazel build` commands creates a
-"package-builder" program. You then run the package-builder to create the
-package.
-
-### Build the package-builder
-Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
-
-Use `bazel build` to create the TensorFlow 2.x package-builder:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build [--config=option] //tensorflow/tools/pip_package:build_pip_package
-</pre>
-
 #### Bazel build options
 
 Refer to the Bazel
@@ -270,25 +256,34 @@ that complies with the manylinux2014 package standard.
 
 ### Build the package
 
-The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. Run the executable as shown
-below to build a `.whl` package in the `/tmp/tensorflow_pkg` directory.
+To build pip package, you need to specify `--repo_env=WHEEL_NAME` flag.
+depending on the provided name, package will be created, e.g:
 
-To build from a release branch:
-
+To build tensorflow CPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu
 </pre>
 
-To build from master, use `--nightly_flag` to get the right dependencies:
-
+To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag /tmp/tensorflow_pkg
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda
 </pre>
 
-Although it is possible to build both CUDA and non-CUDA configurations under the
-same source tree, it's recommended to run `bazel clean` when switching between
-these two configurations in the same source tree.
+To build tensorflow TPU package:
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
+</pre>
+
+To build nightly package, set `tf_nightly` instead of `tensorflow`, e.g.
+to build CPU nightly package:
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tf_nightly_cpu
+</pre>
+
+As a result, generated wheel will be located in
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel-bin/tensorflow/tools/pip_package/wheel_house/
+</pre>
 
 ### Install the package
 
@@ -296,7 +291,7 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip install` to install the package, for example:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
+pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -346,18 +341,15 @@ virtual environment:
 
 1.  Optional: Configure the build—this prompts the user to answer build
     configuration questions.
-2.  Build the tool used to create the *pip* package.
-3.  Run the tool to create the *pip* package.
-4.  Adjust the ownership permissions of the file for outside the container.
+2.  Build the *pip* package.
+3.  Adjust the ownership permissions of the file for outside the container.
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package</code>
-
-<code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
-
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt</code>
+`
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container:
@@ -365,7 +357,7 @@ Install and verify the package within the container:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.__version__)"</code>
 </pre>
@@ -403,11 +395,9 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=opt</code>
 
-<code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
-
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container and check for a GPU:
@@ -415,7 +405,7 @@ Install and verify the package within the container and check for a GPU:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.list_physical_devices('GPU')))"</code>
 </pre>
