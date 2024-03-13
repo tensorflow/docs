@@ -94,7 +94,7 @@ distributed way. For example
 ### Examples
 
 *   Colab tutorial
-    [Text Classification with Movie Reviews](https://colab.research.google.com/github/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_text_classification.ipynb).
+    [Text Classification with Movie Reviews](https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_text_classification.ipynb).
 
 <a name="text-embeddings-preprocessed"></a>
 

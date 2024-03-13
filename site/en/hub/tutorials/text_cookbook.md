@@ -34,7 +34,7 @@ library for tokenization and preprocessing.
 
 ### Kaggle
 
-[IMDB classification on Kaggle](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/text_classification_with_tf_hub_on_kaggle.ipynb) -
+[IMDB classification on Kaggle](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/text_classification_with_tf_hub_on_kaggle.ipynb) -
 shows how to easily interact with a Kaggle competition from a Colab, including
 downloading the data and submitting the results.
 
@@ -43,14 +43,14 @@ downloading the data and submitting the results.
 [Text classification](https://www.tensorflow.org/hub/tutorials/text_classification_with_tf_hub)                                                                                          | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |                                                                                                   |                                                                                                   |                                                                                                   |                                                                                                   |
 [Text classification with Keras](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub)                                                                                |                                                                                                   | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |                                                                                                   |
 [Predicting Movie Review Sentiment with BERT on TF Hub](https://github.com/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb)                          | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |                                                                                                   |                                                                                                   |                                                                                                   | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |
-[IMDB classification on Kaggle](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/text_classification_with_tf_hub_on_kaggle.ipynb) | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |                                                                                                   |                                                                                                   |                                                                                                   |                                                                                                   | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png)
+[IMDB classification on Kaggle](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/text_classification_with_tf_hub_on_kaggle.ipynb) | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png) |                                                                                                   |                                                                                                   |                                                                                                   |                                                                                                   | ![done](https://www.gstatic.com/images/icons/material/system_gm/1x/bigtop_done_googblue_18dp.png)
 
 ### Bangla task with FastText embeddings
 TensorFlow Hub does not currently offer a module in every language. The
 following tutorial shows how to leverage TensorFlow Hub for fast experimentation
 and modular ML development.
 
-[Bangla Article Classifier](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/bangla_article_classifier.ipynb) -
+[Bangla Article Classifier](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/bangla_article_classifier.ipynb) -
 demonstrates how to create a reusable TensorFlow Hub text embedding, and use it
 to train a Keras classifier for
 [BARD Bangla Article dataset](https://github.com/tanvirfahim15/BARD-Bangla-Article-Classifier).
@@ -64,24 +64,24 @@ setup (no training examples).
 
 ### Basic
 
-[Semantic similarity](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder.ipynb) -
+[Semantic similarity](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder.ipynb) -
 shows how to use the sentence encoder module to compute sentence similarity.
 
 ### Cross-lingual
 
-[Cross-lingual semantic similarity](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb) -
+[Cross-lingual semantic similarity](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/cross_lingual_similarity_with_tf_hub_multilingual_universal_encoder.ipynb) -
 shows how to use one of the cross-lingual sentence encoders to compute sentence
 similarity across languages.
 
 ### Semantic retrieval
 
-[Semantic retrieval](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/retrieval_with_tf_hub_universal_encoder_qa.ipynb) -
+[Semantic retrieval](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/retrieval_with_tf_hub_universal_encoder_qa.ipynb) -
 shows how to use Q/A sentence encoder to index a collection of documents for
 retrieval based on semantic similarity.
 
 ### SentencePiece input
 
-[Semantic similarity with universal encoder lite](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder_lite.ipynb) -
+[Semantic similarity with universal encoder lite](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder_lite.ipynb) -
 shows how to use sentence encoder modules that accept
 [SentencePiece](https://github.com/google/sentencepiece) ids on input instead of
 text.

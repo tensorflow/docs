@@ -46,10 +46,10 @@ model = tf.keras.Sequential([
     ...])
 ```
 
-Many tutorials show these APIs in action. See in particular
+Many tutorials show these APIs in action. Here are some examples:
 
-*   [Text classification example notebook](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_text_classification.ipynb)
-*   [Image classification example notebook](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_image_retraining.ipynb)
+*   [Text classification example notebook](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_text_classification.ipynb)
+*   [Image classification example notebook](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_image_retraining.ipynb)
 
 ### Using the new API in Estimator training
 
