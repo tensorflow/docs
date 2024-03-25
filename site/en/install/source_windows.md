@@ -167,7 +167,7 @@ WARNING: Cannot build with CUDA support on Windows.
 Starting in TF 2.11, CUDA build is not supported for Windows. To use TensorFlow GPU on Windows, you will need to build/install TensorFlow in WSL2.
 
 Do you want to use Clang to build TensorFlow? [Y/n]:
-Please use "--config=win_clang" to compile TensorFlow with CLANG.
+Add "--config=win_clang" to compile TensorFlow with CLANG.
 
 Please specify the path to clang executable. [Default is C:\Program Files\LLVM\bin\clang.EXE]:
 
