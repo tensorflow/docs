@@ -54,7 +54,7 @@ To implement a custom filesystem plugin, you must do the following:
 ### The FileSystem interface
 
 The `FileSystem` interface is an abstract C++ interface defined in
-[file_system.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/file_system.h).
+[file_system.h](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/file_system.h).
 An implementation of the `FileSystem` interface should implement all relevant
 the methods defined by the interface. Implementing the interface requires
 defining operations such as creating `RandomAccessFile`, `WritableFile`, and
@@ -70,26 +70,26 @@ involves calling `stat()` on the file and then returns the filesize as reported
 by the return of the stat object. Similarly, for the `HDFSFileSystem`
 implementation, these calls simply delegate to the `libHDFS` implementation of
 similar functionality, such as `hdfsDelete` for
-[DeleteFile](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/hadoop/hadoop_file_system.cc#L386).
+[DeleteFile](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/hadoop/hadoop_file_system.cc#L386).
 
 We suggest looking through these code examples to get an idea of how different
 filesystem implementations call their existing libraries. Examples include:
 
 *   [POSIX
-    plugin](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/posix/posix_file_system.h)
+    plugin](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/posix/posix_file_system.h)
 *   [HDFS
-    plugin](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/hadoop/hadoop_file_system.h)
+    plugin](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/hadoop/hadoop_file_system.h)
 *   [GCS
-    plugin](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/cloud/gcs_file_system.h)
+    plugin](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/cloud/gcs_file_system.h)
 *   [S3
-    plugin](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/s3/s3_file_system.h)
+    plugin](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/s3/s3_file_system.h)
 
 #### The File interfaces
 
 Beyond operations that allow you to query and manipulate files and directories
 in a filesystem, the `FileSystem` interface requires you to implement factories
 that return implementations of abstract objects such as the
-[RandomAccessFile](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/platform/file_system.h#L223),
+[RandomAccessFile](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/platform/file_system.h#L223),
 the `WritableFile`, so that TensorFlow code and read and write to files in that
 `FileSystem` implementation.
 
@@ -224,7 +224,7 @@ it will use the `FooBarFileSystem` implementation.
 
 Next, you must build a shared object containing this implementation. An example
 of doing so using bazel's `cc_binary` rule can be found
-[here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/BUILD#L244),
+[here](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/BUILD#L244),
 but you may use any build system to do so. See the section on [building the op library](../extend/op.md#build_the_op_library) for similar
 instructions.
 
@@ -236,7 +236,7 @@ passing the path to the shared object. Calling this in your client program loads
 the shared object in the process, thus registering your implementation as
 available for any file operations going through the `FileSystem` interface. You
 can see
-[test_file_system.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/framework/file_system_test.py)
+[test_file_system.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/framework/file_system_test.py)
 for an example.
 
 ## What goes through this interface?

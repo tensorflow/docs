@@ -63,7 +63,7 @@ repository like this:
 * <code>\[Basics\]\(../../guide/basics.ipynb\)</code> produces
 [Basics](../../guide/basics.ipynb).
 
-This is the prefered approach because this way the links on
+This is the preferred approach because this way the links on
 [tensorflow.org](https://www.tensorflow.org),
 [GitHub](https://github.com/tensorflow/docs){:.external} and
 [Colab](https://github.com/tensorflow/docs/tree/master/site/en/guide/bazics.ipynb){:.external}

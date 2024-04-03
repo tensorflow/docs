@@ -49,19 +49,19 @@ patch versions.  The public APIs consist of
   submodules, but is not documented, then it is **not** considered part of the
   public API.
 
-* The [C API](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h).
+* The [C API](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/c/c_api.h).
 
 * The following protocol buffer files:
-    * [`attr_value`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto)
-    * [`config`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/config.proto)
-    * [`event`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/util/event.proto)
-    * [`graph`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/graph.proto)
-    * [`op_def`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/op_def.proto)
-    * [`reader_base`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/reader_base.proto)
-    * [`summary`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/summary.proto)
-    * [`tensor`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.proto)
-    * [`tensor_shape`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor_shape.proto)
-    * [`types`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/types.proto)
+    * [`attr_value`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/attr_value.proto)
+    * [`config`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto)
+    * [`event`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/util/event.proto)
+    * [`graph`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/graph.proto)
+    * [`op_def`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_def.proto)
+    * [`reader_base`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/reader_base.proto)
+    * [`summary`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/summary.proto)
+    * [`tensor`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor.proto)
+    * [`tensor_shape`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor_shape.proto)
+    * [`types`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/types.proto)
 
 <a name="not_covered"></a>
 ## What is *not* covered
@@ -79,7 +79,7 @@ backward incompatible ways between minor releases. These include:
     such as:
 
   - [C++](./extend/cc.md) (exposed through header files in
-    [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/cc)).
+    [`tensorflow/cc`](https://github.com/tensorflow/tensorflow/tree/r1.15/tensorflow/cc)).
   - [Java](../api_docs/java/reference/org/tensorflow/package-summary),
   - [Go](https://pkg.go.dev/github.com/tensorflow/tensorflow/tensorflow/go)
   - [JavaScript](https://js.tensorflow.org)
@@ -209,7 +209,7 @@ guidelines for evolving `GraphDef` versions.
 There are different data versions for graphs and checkpoints. The two data
 formats evolve at different rates from each other and also at different rates
 from TensorFlow. Both versioning systems are defined in
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h).
+[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/public/version.h).
 Whenever a new version is added, a note is added to the header detailing what
 changed and the date.
 
@@ -224,7 +224,7 @@ We distinguish between the following kinds of data version information:
   (`min_producer`).
 
 Each piece of versioned data has a [`VersionDef
-versions`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/versions.proto)
+versions`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/versions.proto)
 field which records the `producer` that made the data, the `min_consumer`
 that it is compatible with, and a list of `bad_consumers` versions that are
 disallowed.
@@ -239,7 +239,7 @@ accept a piece of data if the following are all true:
 *   `consumer` not in data's `bad_consumers`
 
 Since both producers and consumers come from the same TensorFlow code base,
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h)
+[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/public/version.h)
 contains a main data version which is treated as either `producer` or
 `consumer` depending on context and both `min_consumer` and `min_producer`
 (needed by producers and consumers, respectively). Specifically,
@@ -309,7 +309,7 @@ existing producer scripts will not suddenly use the new functionality.
 1.  Add a new similar op named `SomethingV2` or similar and go through the
     process of adding it and switching existing Python wrappers to use it.
     To ensure forward compatibility use the checks suggested in
-    [compat.py](https://www.tensorflow.org/code/tensorflow/python/compat/compat.py)
+    [compat.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/compat/compat.py)
     when changing the Python wrappers.
 2.  Remove the old op (Can only take place with a major version change due to
     backward compatibility).

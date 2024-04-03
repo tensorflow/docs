@@ -23,7 +23,7 @@ TensorFlow saves variables in binary *checkpoint files* that map variable
 names to tensor values.
 
 Caution: TensorFlow model files are code. Be careful with untrusted code.
-See [Using TensorFlow Securely](https://github.com/tensorflow/tensorflow/blob/master/SECURITY.md)
+See [Using TensorFlow Securely](https://github.com/tensorflow/tensorflow/blob/r1.15/SECURITY.md)
 for details.
 
 ### Save variables
@@ -148,7 +148,7 @@ Notes:
    `tf.variables_initializer` for more information.
 
 *  To inspect the variables in a checkpoint, you can use the
-   [`inspect_checkpoint`](https://www.tensorflow.org/code/tensorflow/python/tools/inspect_checkpoint.py)
+   [`inspect_checkpoint`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tools/inspect_checkpoint.py)
    library, particularly the `print_tensors_in_checkpoint_file` function.
 
 *  By default, `Saver` uses the value of the `tf.Variable.name` property
@@ -159,7 +159,7 @@ Notes:
 ### Inspect variables in a checkpoint
 
 We can quickly inspect variables in a checkpoint with the
-[`inspect_checkpoint`](https://www.tensorflow.org/code/tensorflow/python/tools/inspect_checkpoint.py) library.
+[`inspect_checkpoint`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tools/inspect_checkpoint.py) library.
 
 Continuing from the save/restore examples shown earlier:
 
@@ -216,7 +216,7 @@ simple_save(session,
 
 This configures the `SavedModel` so it can be loaded by
 [TensorFlow serving](https://www.tensorflow.org/tfx/tutorials/serving/rest_simple) and supports the
-[Predict API](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/predict.proto).
+[Predict API](https://github.com/tensorflow/serving/blob/r1.15/tensorflow_serving/apis/predict.proto).
 To access the classify, regress, or multi-inference APIs, use the manual
 `SavedModel` builder APIs or an `tf.estimator.Estimator`.
 
@@ -328,7 +328,7 @@ with tf.Session(graph=tf.Graph()) as sess:
 ### Load a SavedModel in C++
 
 The C++ version of the SavedModel
-[loader](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/cc/saved_model/loader.h)
+[loader](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/cc/saved_model/loader.h)
 provides an API to load a SavedModel from a path, while allowing
 `SessionOptions` and `RunOptions`.
 You have to specify the tags associated with the graph to be loaded.
@@ -383,20 +383,20 @@ reuse and share across tools consistently.
 You may use sets of tags to uniquely identify a `MetaGraphDef` saved in a
 SavedModel. A subset of commonly used tags is specified in:
 
-* [Python](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/tag_constants.py)
-* [C++](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/cc/saved_model/tag_constants.h)
+* [Python](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/tag_constants.py)
+* [C++](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/cc/saved_model/tag_constants.h)
 
 
 #### Standard SignatureDef constants
 
-A [**SignatureDef**](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/meta_graph.proto)
+A [**SignatureDef**](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/meta_graph.proto)
 is a protocol buffer that defines the signature of a computation
 supported by a graph.
 Commonly used input keys, output keys, and method names are
 defined in:
 
-* [Python](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/signature_constants.py)
-* [C++](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/cc/saved_model/signature_constants.h)
+* [Python](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/signature_constants.py)
+* [C++](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/cc/saved_model/signature_constants.h)
 
 ## Using SavedModel with Estimators
 
@@ -408,7 +408,7 @@ To prepare a trained Estimator for serving, you must export it in the standard
 SavedModel format. This section explains how to:
 
 * Specify the output nodes and the corresponding
-  [APIs](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/prediction_service.proto)
+  [APIs](https://github.com/tensorflow/serving/blob/r1.15/tensorflow_serving/apis/prediction_service.proto)
   that can be served (Classify, Regress, or Predict).
 * Export your model to the SavedModel format.
 * Serve the model from a local server and request predictions.
@@ -506,7 +506,7 @@ Each `output` value must be an `ExportOutput` object  such as
 `tf.estimator.export.PredictOutput`.
 
 These output types map straightforwardly to the
-[TensorFlow Serving APIs](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/prediction_service.proto),
+[TensorFlow Serving APIs](https://github.com/tensorflow/serving/blob/r1.15/tensorflow_serving/apis/prediction_service.proto),
 and so determine which request types will be honored.
 
 Note: In the multi-headed case, a `SignatureDef` will be generated for each
@@ -515,7 +515,7 @@ the same keys.  These `SignatureDef`s differ only in their outputs, as
 provided by the corresponding `ExportOutput` entry.  The inputs are always
 those provided by the `serving_input_receiver_fn`.
 An inference request may specify the head by name.  One head must be named
-using [`signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`](https://www.tensorflow.org/code/tensorflow/python/saved_model/signature_constants.py)
+using [`signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/saved_model/signature_constants.py)
 indicating which `SignatureDef` will be served when an inference request
 does not specify one.
 
@@ -566,9 +566,9 @@ Now you have a server listening for inference requests via gRPC on port 9000!
 ### Request predictions from a local server
 
 The server responds to gRPC requests according to the
-[PredictionService](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/prediction_service.proto#L15)
+[PredictionService](https://github.com/tensorflow/serving/blob/r1.15/tensorflow_serving/apis/prediction_service.proto#L15)
 gRPC API service definition.  (The nested protocol buffers are defined in
-various [neighboring files](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis)).
+various [neighboring files](https://github.com/tensorflow/serving/blob/r1.15/tensorflow_serving/apis)).
 
 From the API service definition, the gRPC framework generates client libraries
 in various languages providing remote access to the API.  In a project using the
@@ -620,7 +620,7 @@ The returned result in this example is a `ClassificationResponse` protocol
 buffer.
 
 This is a skeletal example; please see the [Tensorflow Serving](../deploy/index.md)
-documentation and [examples](https://github.com/tensorflow/serving/tree/master/tensorflow_serving/example)
+documentation and [examples](https://github.com/tensorflow/serving/tree/r1.15/tensorflow_serving/example)
 for more details.
 
 > Note: `ClassificationRequest` and `RegressionRequest` contain a

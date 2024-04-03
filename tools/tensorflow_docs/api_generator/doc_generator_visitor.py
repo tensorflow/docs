@@ -421,6 +421,9 @@ class DocGeneratorVisitor(object):
     duplicates = {}
 
     for path, node in self.path_tree.items():
+      _LOGGER.debug('DocGeneratorVisitor.build')
+      _LOGGER.debug('  path: %s', path)
+
       if not path:
         continue
       full_name = node.full_name
@@ -593,7 +596,7 @@ class ApiTree(Dict[ApiPath, ApiTreeNode]):
 
   @classmethod
   def from_path_tree(cls, path_tree: PathTree, score_name_fn) -> ApiTree:
-    """Create an ApiTree from an PathTree.
+    """Create an ApiTree from a PathTree.
 
     Args:
       path_tree: The `PathTree` to convert.

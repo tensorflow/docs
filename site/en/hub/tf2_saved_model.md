@@ -82,7 +82,7 @@ and uncompressed SavedModels. For details, see [Caching](caching.md).
 SavedModels can be loaded from a specified `handle`, where the `handle` is a
 filesystem path, valid TFhub.dev model URL (e.g. "https://tfhub.dev/...").
 Kaggle Models URLs mirror TFhub.dev handles in accordance with our Terms and the
-license associated with the model assets, e.g. "https://www.kaggle.com/...".
+license associated with the model assets, e.g., "https://www.kaggle.com/...".
 Handles from Kaggle Models are equivalent to their corresponding TFhub.dev
 handle.
 

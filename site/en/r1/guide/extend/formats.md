@@ -28,11 +28,11 @@ individual records in a file. There are several examples of "reader" datasets
 that are already built into TensorFlow:
 
 *   `tf.data.TFRecordDataset`
-    ([source in `kernels/data/reader_dataset_ops.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/data/reader_dataset_ops.cc))
+    ([source in `kernels/data/reader_dataset_ops.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/data/reader_dataset_ops.cc))
 *   `tf.data.FixedLengthRecordDataset`
-    ([source in `kernels/data/reader_dataset_ops.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/data/reader_dataset_ops.cc))
+    ([source in `kernels/data/reader_dataset_ops.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/data/reader_dataset_ops.cc))
 *   `tf.data.TextLineDataset`
-    ([source in `kernels/data/reader_dataset_ops.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/data/reader_dataset_ops.cc))
+    ([source in `kernels/data/reader_dataset_ops.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/data/reader_dataset_ops.cc))
 
 Each of these implementations comprises three related classes:
 
@@ -279,7 +279,7 @@ if __name__ == "__main__":
 ```
 
 You can see some examples of `Dataset` wrapper classes in
-[`tensorflow/python/data/ops/dataset_ops.py`](https://www.tensorflow.org/code/tensorflow/python/data/ops/dataset_ops.py).
+[`tensorflow/python/data/ops/dataset_ops.py`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/data/ops/dataset_ops.py).
 
 ## Writing an Op for a record format
 
@@ -297,7 +297,7 @@ Examples of Ops useful for decoding records:
 
 Note that it can be useful to use multiple Ops to decode a particular record
 format.  For example, you may have an image saved as a string in
-[a `tf.train.Example` protocol buffer](https://www.tensorflow.org/code/tensorflow/core/example/example.proto).
+[a `tf.train.Example` protocol buffer](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/example.proto).
 Depending on the format of that image, you might take the corresponding output
 from a `tf.parse_single_example` op and call `tf.image.decode_jpeg`,
 `tf.image.decode_png`, or `tf.decode_raw`.  It is common to take the output

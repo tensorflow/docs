@@ -161,7 +161,7 @@ def fail(message: Optional[str] = None,
 
   Failure messages come in two flavors:
   - conditional: (Default) While this test may fail here, it may succeed
-    elsewhere, and thus, the larger condition passes and do not dislay this
+    elsewhere, and thus, the larger condition passes and do not display this
     message.
   - non-conditional (always show): Regardless if the larger condition is met,
     display this error message in the status report. For example, a

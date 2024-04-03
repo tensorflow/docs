@@ -8,7 +8,7 @@ TensorFlow uses [DocTest](https://docs.python.org/3/library/doctest.html) to
 test code snippets in Python docstrings. The snippet must be executable Python
 code. To enable testing, prepend the line with `>>>` (three left-angle
 brackets). For example, here's a excerpt from the `tf.concat` function in the
-[array_ops.py](https://www.tensorflow.org/code/tensorflow/python/ops/array_ops.py)
+[array_ops.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/array_ops.py)
 source file:
 
 ```
@@ -178,7 +178,7 @@ There are two ways to test the code in the docstring locally:
 
 *   If you are only changing the docstring of a class/function/method, then you
     can test it by passing that file's path to
-    [tf_doctest.py](https://www.tensorflow.org/code/tensorflow/tools/docs/tf_doctest.py).
+    [tf_doctest.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/docs/tf_doctest.py).
     For example:
 
     <pre class="prettyprint lang-bsh">

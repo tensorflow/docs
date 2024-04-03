@@ -489,27 +489,3 @@ def add_proto_fields(path: Sequence[str], parent: Any,
   children = sorted(children.items(), key=lambda item: item[0])
 
   return children
-
-
-def filter_builtin_modules(path: Sequence[str], parent: Any,
-                           children: Children) -> Children:
-  """Filters module children to remove builtin modules.
-
-  Args:
-    path: API to this symbol
-    parent: The object
-    children: A list of (name, object) pairs.
-
-  Returns:
-    `children` with all builtin modules removed.
-  """
-  del path
-  del parent
-  # filter out 'builtin' modules
-  filtered_children = []
-  for name, child in children:
-    # Do not descend into built-in modules
-    if inspect.ismodule(child) and child.__name__ in sys.builtin_module_names:
-      continue
-    filtered_children.append((name, child))
-  return filtered_children
