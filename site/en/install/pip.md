@@ -193,7 +193,35 @@ The following NVIDIA® software are only required for GPU support.
     nvidia-smi
     ```
 
-    ### 3. Install TensorFlow
+    ### 3. Install Miniconda
+
+    [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
+    is the recommended approach for installing TensorFlow with GPU support.
+    It creates a separate environment to avoid changing any installed
+    software in your system. This is also the easiest way to install the
+    required software especially for the GPU setup.
+
+    Follow the instuctions of the conda user guide to install miniconda
+    [Miniconda Installation Guide](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html){:.external}.
+
+    ### 4. Create a conda environment
+
+    Create a new conda environment named `tf` with the following command.
+
+    ```bash
+    conda create --name tf python=3.11
+    ```
+
+    You can deactivate and activate it with the following commands.
+
+    ```bash
+    conda deactivate
+    conda activate tf
+    ```
+
+    Make sure it is activated for the rest of the installation.
+    
+    ### 5. Install TensorFlow
 
     TensorFlow requires a recent version of pip, so upgrade your pip
     installation to be sure you're running the latest version.
@@ -211,7 +239,37 @@ The following NVIDIA® software are only required for GPU support.
     pip install tensorflow
     ```
 
-    ### 4. Verify the installation
+    ### 6. Set environment variables
+    Locate the directory for the conda environment in your terminal window by running in the terminal:
+    `echo $CONDA_PREFIX`
+
+    Enter that directory and create these subdirectories and files:
+
+    ```bash
+    cd $CONDA_PREFIX
+    mkdir -p ./etc/conda/activate.d
+    mkdir -p ./etc/conda/deactivate.d
+    touch ./etc/conda/activate.d/env_vars.sh
+    touch ./etc/conda/deactivate.d/env_vars.sh
+    ```
+    Edit `./etc/conda/activate.d/env_vars.sh` as follows:
+
+    ```bash
+    #!/bin/sh
+
+    export NVIDIA_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)")))
+    export LD_LIBRARY_PATH=$(echo ${NVIDIA_DIR}/*/lib/ | sed -r 's/\s+/:/g')${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    ```
+    Edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
+
+    ```bash
+    #!/bin/sh
+
+    unset NVIDIA_DIR
+    unset LD_LIBRARY_PATH
+    ```
+
+    ### 7. Verify the installation
 
     Verify the CPU setup:
 
