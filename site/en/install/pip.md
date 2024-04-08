@@ -240,6 +240,9 @@ The following NVIDIA® software are only required for GPU support.
     ```
 
     ### 6. Set environment variables
+
+    You can skip this section if you only run TensorFlow on the CPU.
+
     Locate the directory for the conda environment in your terminal window by running in the terminal:
     `echo $CONDA_PREFIX`
 
