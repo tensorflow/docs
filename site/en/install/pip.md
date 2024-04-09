@@ -195,6 +195,8 @@ The following NVIDIA® software are only required for GPU support.
 
     ### 3. Install Miniconda
 
+    You can skip this section if you prefer to use Python’s built in venv module instead of Miniconda.
+
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
     is the recommended approach for installing TensorFlow with GPU support.
     It creates a separate environment to avoid changing any installed
@@ -204,22 +206,30 @@ The following NVIDIA® software are only required for GPU support.
     Follow the instuctions of the conda user guide to install miniconda
     [Miniconda Installation Guide](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html){:.external}.
 
-    ### 4. Create a conda environment
+    ### 4. Create a virtual environment
+
+    #### First option: Miniconda 
 
     Create a new conda environment named `tf` with the following command.
 
     ```bash
     conda create --name tf python=3.11
     ```
+    #### Second option: [venv](https://docs.python.org/3/library/venv.html){:.external}
 
-    You can deactivate and activate it with the following commands.
+    Navigate to your desired virtual environments' directory and create a new venv environment named `tf` with the following command.
 
     ```bash
-    conda deactivate
-    conda activate tf
+    python3 -m venv tf 
     ```
 
-    Make sure it is activated for the rest of the installation.
+    You can activate it with the following command.
+
+    ```bash
+    source tf/bin/activate
+    ```
+
+    Make sure that the virtual environment you just created is activated for the rest of the installation.
     
     ### 5. Install TensorFlow
 
@@ -242,6 +252,8 @@ The following NVIDIA® software are only required for GPU support.
     ### 6. Set environment variables
 
     You can skip this section if you only run TensorFlow on the CPU.
+
+    #### First option: Miniconda 
 
     Locate the directory for the conda environment in your terminal window by running in the terminal:
     `echo $CONDA_PREFIX`
@@ -270,6 +282,28 @@ The following NVIDIA® software are only required for GPU support.
 
     unset NVIDIA_DIR
     unset LD_LIBRARY_PATH
+    ```
+    #### Second option: venv
+
+    Locate the directory for the venv environment in your terminal window by running in the terminal:
+    `echo $VIRTUAL_ENV`
+
+    Enter that directory and add the following lines at the end of the activate script `./bin/activate` as follows:
+    
+    ```bash
+    # Set environment variables for TensorFlow
+    export NVIDIA_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)")))
+    export LD_LIBRARY_PATH=$(echo ${NVIDIA_DIR}/*/lib/ | sed -r 's/\s+/:/g')${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    ```
+    
+    Add the following lines at the end of `deactivate` block:
+    
+    ```bash
+    deactivate () {
+    # ...
+    unset NVIDIA_DIR
+    unset LD_LIBRARY_PATH
+    }
     ```
 
     ### 7. Verify the installation
