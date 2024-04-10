@@ -283,10 +283,10 @@ The following NVIDIA® software are only required for GPU support.
     # Store original LD_LIBRARY_PATH 
     export ORIGINAL_LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" 
 
-    # Get the directory of CUDA libraries
-    CUDA_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
+    # Get the CUDNN directory 
+    CUDNN_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn; print(nvidia.cudnn.__file__)")))
 
-    # Set LD_LIBRARY_PATH to include all directories containing CUDA libraries
+    # Set LD_LIBRARY_PATH to include CUDNN directory
     export LD_LIBRARY_PATH=$(find ${CUDA_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
     # Get the directory of NVCC binaries
@@ -304,7 +304,7 @@ The following NVIDIA® software are only required for GPU support.
     export LD_LIBRARY_PATH="${ORIGINAL_LD_LIBRARY_PATH}"
 
     # Unset environment variables
-    unset CUDA_DIR
+    unset CUDNN_DIR
     unset NVCC_DIR
     ```
     #### Second option: venv
@@ -315,14 +315,14 @@ The following NVIDIA® software are only required for GPU support.
     Enter that directory and add the following lines at the end of the activate script `./bin/activate` as follows:
     
     ```bash
-    # Store the original LD_LIBRARY_PATH
+    # Store original LD_LIBRARY_PATH
     export ORIGINAL_LD_LIBRARY_PATH=$LD_LIBRARY_PATH 
 
-    # Get the directory of CUDA libraries
-    CUDA_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
+    # Get the CUDNN directory
+    CUDNN_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn; print(nvidia.cudnn.__file__)")))
     
-    # Set LD_LIBRARY_PATH to include all directories containing CUDA libraries
-    export LD_LIBRARY_PATH=$(find ${CUDA_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    # Set LD_LIBRARY_PATH to include CUDNN directory
+    export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
     # Get the directory of NVCC binaries
     NVCC_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
@@ -331,26 +331,26 @@ The following NVIDIA® software are only required for GPU support.
     export PATH=$(find ${NVCC_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
     ```
     
-    Add the following lines at the end of `deactivate` block in the activate script to ensure that the necessary CUDA environment variables are set only while the virtual environment is active:
-    
+    Add the following lines at the end of `deactivate` block in the activate script to ensure that the necessary NVIDIA environment variables are set only while the virtual environment is active:
+
     ```bash
     deactivate () {
-    # ...
-    # Unset the added path to PATH if within a virtual environment
-    if [ -n "$VIRTUAL_ENV" ]; then
-        # Remove the path from PATH
-        PATH=$(echo $PATH | sed -e "s|${NVCC_DIR}/*/bin/:||g")
-    fi
+        # ...
+        # Unset the added path to PATH if within a virtual environment
+        if [ -n "$VIRTUAL_ENV" ]; then
+            # Remove the path from PATH
+            PATH=$(echo $PATH | sed -e "s|${NVCC_DIR}/*/bin/:||g")
+        fi
 
-    # Restore the original LD_LIBRARY_PATH
-    if [ -n "$ORIGINAL_LD_LIBRARY_PATH" ]; then
-        export LD_LIBRARY_PATH=$ORIGINAL_LD_LIBRARY_PATH
-        unset ORIGINAL_LD_LIBRARY_PATH
-    fi
+        # Restore original LD_LIBRARY_PATH
+        if [ -n "$ORIGINAL_LD_LIBRARY_PATH" ]; then
+            export LD_LIBRARY_PATH=$ORIGINAL_LD_LIBRARY_PATH
+            unset ORIGINAL_LD_LIBRARY_PATH
+        fi
 
-    # Unset environment variables
-    unset CUDA_DIR
-    unset NVCC_DIR    
+        # Unset environment variables
+        unset CUDNN_DIR
+        unset NVCC_DIR    
     }
     ```
 
