@@ -287,7 +287,7 @@ The following NVIDIA® software are only required for GPU support.
     CUDNN_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn; print(nvidia.cudnn.__file__)")))
 
     # Set LD_LIBRARY_PATH to include CUDNN directory
-    export LD_LIBRARY_PATH=$(find ${CUDA_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
     # Get the directory of NVCC binaries
     NVCC_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
