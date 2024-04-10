@@ -215,6 +215,13 @@ The following NVIDIA® software are only required for GPU support.
     ```bash
     conda create --name tf python=3.11
     ```
+    You can activate and deactivate it with the following commands.
+
+    ```bash
+    conda activate tf
+    conda deactivate
+    ```
+
     #### Second option: [venv](https://docs.python.org/3/library/venv.html){:.external}
 
     Navigate to your desired virtual environments' directory and create a new venv environment named `tf` with the following command.
@@ -223,13 +230,14 @@ The following NVIDIA® software are only required for GPU support.
     python3 -m venv tf 
     ```
 
-    You can activate it with the following command.
+    You can activate and deactivate it with the following commands.
 
     ```bash
     source tf/bin/activate
+    deactivate
     ```
 
-    Make sure that the virtual environment you just created is activated for the rest of the installation.
+    Make sure that the virtual environment is activated for the rest of the installation.
     
     ### 5. Install TensorFlow
 
@@ -296,7 +304,7 @@ The following NVIDIA® software are only required for GPU support.
     export LD_LIBRARY_PATH=$(echo ${NVIDIA_DIR}/*/lib/ | sed -r 's/\s+/:/g')${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
     ```
     
-    Add the following lines at the end of `deactivate` block:
+    Add the following lines at the end of `deactivate` block in the activate script to ensure that the necessary CUDA environment variables are set only while the virtual environment is active:
     
     ```bash
     deactivate () {
