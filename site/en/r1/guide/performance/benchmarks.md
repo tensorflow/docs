@@ -401,7 +401,7 @@ GPUs | InceptionV3 (batch size 32) | ResNet-50 (batch size 32)
 ## Methodology
 
 This
-[script](https://github.com/tensorflow/benchmarks/tree/master/scripts/tf_cnn_benchmarks)
+[script](https://github.com/tensorflow/benchmarks/tree/r1.15/scripts/tf_cnn_benchmarks)
 was run on the various platforms to generate the above results.
 
 In order to create results that are as repeatable as possible, each test was run

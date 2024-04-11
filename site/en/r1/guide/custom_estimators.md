@@ -592,10 +592,10 @@ function for custom Estimators; everything else is the same.
 For more details, be sure to check out:
 
 * The
-  [official TensorFlow implementation of MNIST](https://github.com/tensorflow/models/tree/master/official/r1/mnist),
+  [official TensorFlow implementation of MNIST](https://github.com/tensorflow/models/tree/r1.15/official/r1/mnist),
   which uses a custom estimator.
 * The TensorFlow
-  [official models repository](https://github.com/tensorflow/models/tree/master/official),
+  [official models repository](https://github.com/tensorflow/models/tree/r1.15/official),
   which contains more curated examples using custom estimators.
 * This [TensorBoard video](https://youtu.be/eBbEDRsCmv4), which introduces
   TensorBoard.

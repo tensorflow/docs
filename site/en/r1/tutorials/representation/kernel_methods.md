@@ -24,7 +24,7 @@ following sources for an introduction:
 Currently, TensorFlow supports explicit kernel mappings for dense features only;
 TensorFlow will provide support for sparse features at a later release.
 
-This tutorial uses [tf.contrib.learn](https://www.tensorflow.org/code/tensorflow/contrib/learn/python/learn)
+This tutorial uses [tf.contrib.learn](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/contrib/learn/python/learn)
 (TensorFlow's high-level Machine Learning API) Estimators for our ML models.
 If you are not familiar with this API, The [Estimator guide](../../guide/estimators.md)
 is a good place to start. We will use the MNIST dataset. The tutorial consists
@@ -131,7 +131,7 @@ In addition to experimenting with the (training) batch size and the number of
 training steps, there are a couple other parameters that can be tuned as well.
 For instance, you can change the optimization method used to minimize the loss
 by explicitly selecting another optimizer from the collection of
-[available optimizers](https://www.tensorflow.org/code/tensorflow/python/training).
+[available optimizers](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/training).
 As an example, the following code constructs a LinearClassifier estimator that
 uses the Follow-The-Regularized-Leader (FTRL) optimization strategy with a
 specific learning rate and L2-regularization.

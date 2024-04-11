@@ -19,9 +19,9 @@ Reading large numbers of small files significantly impacts I/O performance.
 One approach to get maximum I/O throughput is to preprocess input data into
 larger (~100MB) `TFRecord` files. For smaller data sets (200MB-1GB), the best
 approach is often to load the entire data set into memory. The document
-[Downloading and converting to TFRecord format](https://github.com/tensorflow/models/tree/master/research/slim#downloading-and-converting-to-tfrecord-format)
+[Downloading and converting to TFRecord format](https://github.com/tensorflow/models/tree/r1.15/research/slim#downloading-and-converting-to-tfrecord-format)
 includes information and scripts for creating `TFRecord`s, and this
-[script](https://github.com/tensorflow/models/tree/master/research/tutorials/image/cifar10_estimator/generate_cifar10_tfrecords.py)
+[script](https://github.com/tensorflow/models/tree/r1.15/research/tutorials/image/cifar10_estimator/generate_cifar10_tfrecords.py)
 converts the CIFAR-10 dataset into `TFRecord`s.
 
 While feeding data using a `feed_dict` offers a high level of flexibility, in
@@ -122,7 +122,7 @@ tf.Session(config=config)
 Intel® has added optimizations to TensorFlow for Intel® Xeon® and Intel® Xeon
 Phi™ through the use of the Intel® Math Kernel Library for Deep Neural Networks
 (Intel® MKL-DNN) optimized primitives. The optimizations also provide speedups
-for the consumer line of processors, e.g. i5 and i7 Intel processors. The Intel
+for the consumer line of processors, e.g., i5 and i7 Intel processors. The Intel
 published paper
 [TensorFlow* Optimizations on Modern Intel® Architecture](https://software.intel.com/en-us/articles/tensorflow-optimizations-on-modern-intel-architecture)
 contains additional details on the implementation.
@@ -255,7 +255,7 @@ bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pi
   a docker container, the data is not cached and the penalty is paid each time
   TensorFlow starts. The best practice is to include the
   [compute capabilities](http://developer.nvidia.com/cuda-gpus)
-  of the GPUs that will be used, e.g. P100: 6.0, Titan X (Pascal): 6.1,
+  of the GPUs that will be used, e.g., P100: 6.0, Titan X (Pascal): 6.1,
   Titan X (Maxwell): 5.2, and K80: 3.7.
 * Use a version of `gcc` that supports all of the optimizations of the target
   CPU. The recommended minimum gcc version is 4.8.3. On macOS, upgrade to the

@@ -437,7 +437,7 @@ dataset = dataset.batch(32)
 iterator = dataset.make_initializable_iterator()
 
 # You can feed the initializer with the appropriate filenames for the current
-# phase of execution, e.g. training vs. validation.
+# phase of execution, e.g., training vs. validation.
 
 # Initialize `iterator` with training data.
 training_filenames = ["/var/data/file1.tfrecord", "/var/data/file2.tfrecord"]
@@ -639,7 +639,7 @@ TODO(mrry): Add this section.
 The simplest form of batching stacks `n` consecutive elements of a dataset into
 a single element. The `Dataset.batch()` transformation does exactly this, with
 the same constraints as the `tf.stack()` operator, applied to each component
-of the elements: i.e. for each component *i*, all elements must have a tensor
+of the elements: i.e., for each component *i*, all elements must have a tensor
 of the exact same shape.
 
 ```python
