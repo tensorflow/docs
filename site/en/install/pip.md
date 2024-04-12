@@ -195,7 +195,7 @@ The following NVIDIA® software are only required for GPU support.
 
     ### 3. Install Miniconda
 
-    You can skip this section if you prefer to use Python’s built in venv module instead of Miniconda.
+    You can skip this section if you have already installed `Miniconda` (referred as *option #1* in the next steps) or you prefer to use Python’s built-in `venv` module (referred as *option #2* in the next steps) instead.
 
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
     is the recommended approach for installing TensorFlow with GPU support.
@@ -208,7 +208,7 @@ The following NVIDIA® software are only required for GPU support.
 
     ### 4. Create a virtual environment
 
-    #### First option: Miniconda 
+    * ***Option #1: Miniconda*** 
 
     Create a new conda environment named `tf` with the following command.
 
@@ -222,9 +222,11 @@ The following NVIDIA® software are only required for GPU support.
     conda deactivate
     ```
 
-    #### Second option: [venv](https://docs.python.org/3/library/venv.html){:.external}
-
-    Navigate to your desired virtual environments' directory and create a new venv environment named `tf` with the following command.
+    * ***Option #2: venv***
+      
+    The [venv](https://docs.python.org/3/library/venv.html){:.external} module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their site directories. 
+    
+    Navigate to your desired virtual environments directory and create a new venv environment named `tf` with the following command.
 
     ```bash
     python3 -m venv tf 
@@ -261,7 +263,7 @@ The following NVIDIA® software are only required for GPU support.
 
     You can skip this section if you only run TensorFlow on the CPU.
 
-    #### First option: Miniconda 
+    * ***Option #1: Miniconda*** 
 
     Locate the directory for the conda environment in your terminal window by running in the terminal:
     `echo $CONDA_PREFIX`
@@ -289,11 +291,11 @@ The following NVIDIA® software are only required for GPU support.
     # Set LD_LIBRARY_PATH to include CUDNN directory
     export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
-    # Get the directory of NVCC binaries
-    NVCC_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
+    # Get the ptxas directory  
+    PTXAS_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
 
-    # Set PATH to include all directories containing NVCC binaries
-    export PATH=$(find ${NVCC_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
+    # Set PATH to include the directory containing ptxas
+    export PATH=$(find ${PTXAS_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
     ```
     Edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
 
@@ -305,9 +307,9 @@ The following NVIDIA® software are only required for GPU support.
 
     # Unset environment variables
     unset CUDNN_DIR
-    unset NVCC_DIR
+    unset PTXAS_DIR
     ```
-    #### Second option: venv
+    * ***Option #2: venv***
 
     Locate the directory for the venv environment in your terminal window by running in the terminal:
     `echo $VIRTUAL_ENV`
@@ -324,11 +326,11 @@ The following NVIDIA® software are only required for GPU support.
     # Set LD_LIBRARY_PATH to include CUDNN directory
     export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
-    # Get the directory of NVCC binaries
-    NVCC_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
+    # Get the ptxas directory 
+    PTXAS_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
     
-    # Set PATH to include all directories containing NVCC binaries
-    export PATH=$(find ${NVCC_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
+    # Set PATH to include the directory containing ptxas
+    export PATH=$(find ${PTXAS_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
     ```
     
     Add the following lines at the end of `deactivate` block in the activate script to ensure that the necessary NVIDIA environment variables are set only while the virtual environment is active:
@@ -336,10 +338,10 @@ The following NVIDIA® software are only required for GPU support.
     ```bash
     deactivate () {
         # ...
-        # Unset the added path to PATH if within a virtual environment
+        # Unset the added path to PATH if within the virtual environment
         if [ -n "$VIRTUAL_ENV" ]; then
             # Remove the path from PATH
-            PATH=$(echo $PATH | sed -e "s|${NVCC_DIR}/*/bin/:||g")
+            PATH=$(echo $PATH | sed -e "s|${PTXAS_DIR}/*/bin/:||g")
         fi
 
         # Restore original LD_LIBRARY_PATH
@@ -350,7 +352,7 @@ The following NVIDIA® software are only required for GPU support.
 
         # Unset environment variables
         unset CUDNN_DIR
-        unset NVCC_DIR    
+        unset PTXAS_DIR    
     }
     ```
 
