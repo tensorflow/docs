@@ -259,6 +259,8 @@ The following NVIDIA® software are only required for GPU support.
     pip install tensorflow
     ```
 
+    Note: Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
+
     ### 6. Set environment variables
 
     You can skip this section if you only run TensorFlow on the CPU.
