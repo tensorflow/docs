@@ -50,8 +50,8 @@ $ pip install --upgrade tf-hub-nightly
 
 -   [Library overview](lib_overview.md)
 -   Tutorials:
-    -   [Text classification](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_text_classification.ipynb)
-    -   [Image classification](https://github.com/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_image_retraining.ipynb)
+    -   [Text classification](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_text_classification.ipynb)
+    -   [Image classification](https://github.com/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_image_retraining.ipynb)
     -   Additional examples
         [on GitHub](https://github.com/tensorflow/hub/blob/master/examples/README.md)
 -   Find models on [tfhub.dev](https://tfhub.dev).
