@@ -81,9 +81,7 @@ def not_translation(args):
 
 # Button checks
 
-# Look for class="tfo-notebook-buttons" (CSS used on website versions) or the
-# run-in-colab logo (for notebooks that stick to GitHub/Colab).
-is_button_cell_re = re.compile(r"class.*tfo-notebook-buttons|colab_logo_32px\.png")
+is_button_cell_re = re.compile(r"class.*tfo-notebook-buttons")
 
 
 def get_arg_or_fail(user_args, arg_name, arg_fmt):
