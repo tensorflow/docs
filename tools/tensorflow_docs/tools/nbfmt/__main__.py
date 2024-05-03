@@ -237,7 +237,7 @@ def update_license_cells(data: Dict[str, Any]) -> None:
     data: object representing a parsed JSON notebook.
   """
   # This pattern in Apache and MIT license boilerplate.
-  license_re = re.compile(r"#@title.*License")
+  license_re = re.compile(r"#\s?@title.*License")
 
   for idx, cell in enumerate(data["cells"]):
     src_text = "".join(cell["source"])
