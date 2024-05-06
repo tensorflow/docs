@@ -56,7 +56,7 @@ def copyright_check(args):
   return any(re.search(pattern, cell_source) for pattern in copyrights_re)
 
 
-license_re = re.compile("#@title Licensed under the Apache License")
+license_re = re.compile("#\s?@title Licensed under the Apache License")
 
 
 @lint(
