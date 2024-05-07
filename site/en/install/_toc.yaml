@@ -13,7 +13,8 @@ toc:
   path: /install/errors
 - heading: Build from source
 - title: Linux / macOS
-  path: /install/source
+  status: external
+  path: https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/tf_sig_build_dockerfiles#readme
 - title: Windows
   path: /install/source_windows
 - title: SIG Build
