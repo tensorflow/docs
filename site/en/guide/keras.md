@@ -122,6 +122,5 @@ To learn more about Keras, see the following topics at
 
 * [About Keras](https://keras.io/about/)
 * [Introduction to Keras for Engineers](https://keras.io/getting_started/intro_to_keras_for_engineers/)
-* [Introduction to Keras for Researchers](https://keras.io/getting_started/intro_to_keras_for_researchers/)
 * [Keras API reference](https://keras.io/api/)
 * [The Keras ecosystem](https://keras.io/getting_started/ecosystem/)
