@@ -193,38 +193,9 @@ The following NVIDIA® software are only required for GPU support.
     nvidia-smi
     ```
 
-    ### 3. Install Miniconda
-
-    You can skip this section if you have already installed `Miniconda` (referred as *option #1* in the next steps) or you prefer to use Python’s built-in `venv` module (referred as *option #2* in the next steps) instead.
-
-    [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
-    is the recommended approach for installing TensorFlow with GPU support.
-    It creates a separate environment to avoid changing any installed
-    software in your system. This is also the easiest way to install the
-    required software especially for the GPU setup.
-
-    Follow the instuctions of the conda user guide to install miniconda
-    [Miniconda Installation Guide](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html){:.external}.
-
-    ### 4. Create a virtual environment
-
-    * ***Option #1: Miniconda*** 
-
-    Create a new conda environment named `tf` with the following command.
-
-    ```bash
-    conda create --name tf python=3.11
-    ```
-    You can activate and deactivate it with the following commands.
-
-    ```bash
-    conda activate tf
-    conda deactivate
-    ```
-
-    * ***Option #2: venv***
+    ### 3. Create a virtual environment with [venv](https://docs.python.org/3/library/venv.html){:.external}
       
-    The [venv](https://docs.python.org/3/library/venv.html){:.external} module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their site directories. 
+    The venv module is part of Python’s standard library and is the officially recommended way to create virtual environments. 
     
     Navigate to your desired virtual environments directory and create a new venv environment named `tf` with the following command.
 
@@ -241,7 +212,7 @@ The following NVIDIA® software are only required for GPU support.
 
     Make sure that the virtual environment is activated for the rest of the installation.
     
-    ### 5. Install TensorFlow
+    ### 4. Install TensorFlow
 
     TensorFlow requires a recent version of pip, so upgrade your pip
     installation to be sure you're running the latest version.
@@ -261,57 +232,9 @@ The following NVIDIA® software are only required for GPU support.
 
     Note: Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
 
-    ### 6. Set environment variables
+    ### 5. Set environment variables
 
     You can skip this section if you only run TensorFlow on the CPU.
-
-    * ***Option #1: Miniconda*** 
-
-    Locate the directory for the conda environment in your terminal window by running in the terminal:
-    `echo $CONDA_PREFIX`
-
-    Enter that directory and create these subdirectories and files:
-
-    ```bash
-    cd $CONDA_PREFIX
-    mkdir -p ./etc/conda/activate.d
-    mkdir -p ./etc/conda/deactivate.d
-    touch ./etc/conda/activate.d/env_vars.sh
-    touch ./etc/conda/deactivate.d/env_vars.sh
-    ```
-    Edit `./etc/conda/activate.d/env_vars.sh` as follows:
-
-    ```bash
-    #!/bin/sh
-
-    # Store original LD_LIBRARY_PATH 
-    export ORIGINAL_LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" 
-
-    # Get the CUDNN directory 
-    CUDNN_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn; print(nvidia.cudnn.__file__)")))
-
-    # Set LD_LIBRARY_PATH to include CUDNN directory
-    export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-    # Get the ptxas directory  
-    PTXAS_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
-
-    # Set PATH to include the directory containing ptxas
-    export PATH=$(find ${PTXAS_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
-    ```
-    Edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
-
-    ```bash
-    #!/bin/sh
-    
-    # Restore original LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH="${ORIGINAL_LD_LIBRARY_PATH}"
-
-    # Unset environment variables
-    unset CUDNN_DIR
-    unset PTXAS_DIR
-    ```
-    * ***Option #2: venv***
 
     Locate the directory for the venv environment in your terminal window by running in the terminal:
     `echo $VIRTUAL_ENV`
@@ -358,7 +281,7 @@ The following NVIDIA® software are only required for GPU support.
     }
     ```
 
-    ### 7. Verify the installation
+    ### 6. Verify the installation
 
     Verify the CPU setup:
 
