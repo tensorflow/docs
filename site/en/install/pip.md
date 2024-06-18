@@ -232,53 +232,23 @@ The following NVIDIA® software are only required for GPU support.
 
     Note: Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
 
-    ### 5. Set environment variables
+    ### 5. Virtual environment configuration
 
     You can skip this section if you only run TensorFlow on the CPU.
 
-    Locate the directory for the venv environment in your terminal window by running in the terminal:
-    `echo $VIRTUAL_ENV`
-
-    Enter that directory and add the following lines at the end of the activate script `./bin/activate` as follows:
+    * Create symbolic links to NVIDIA shared libraries:
     
     ```bash
-    # Store original LD_LIBRARY_PATH
-    export ORIGINAL_LD_LIBRARY_PATH=$LD_LIBRARY_PATH 
-
-    # Get the CUDNN directory
-    CUDNN_DIR=$(dirname $(dirname $(python -c "import nvidia.cudnn; print(nvidia.cudnn.__file__)")))
-    
-    # Set LD_LIBRARY_PATH to include CUDNN directory
-    export LD_LIBRARY_PATH=$(find ${CUDNN_DIR}/*/lib/ -type d -printf "%p:")${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-    # Get the ptxas directory 
-    PTXAS_DIR=$(dirname $(dirname $(python -c "import nvidia.cuda_nvcc; print(nvidia.cuda_nvcc.__file__)")))
-    
-    # Set PATH to include the directory containing ptxas
-    export PATH=$(find ${PTXAS_DIR}/*/bin/ -type d -printf "%p:")${PATH:+:${PATH}}
+    pushd $(dirname $(python -c 'print(__import__("tensorflow").__file__)'))
+    ln -svf ../nvidia/*/lib/*.so* .
+    popd
     ```
     
-    Add the following lines at the end of `deactivate` block in the activate script to ensure that the necessary NVIDIA environment variables are set only while the virtual environment is active:
+    * Create a symbolic link to ptxas:
 
     ```bash
-    deactivate () {
-        # ...
-        # Unset the added path to PATH if within the virtual environment
-        if [ -n "$VIRTUAL_ENV" ]; then
-            # Remove the path from PATH
-            PATH=$(echo $PATH | sed -e "s|${PTXAS_DIR}/*/bin/:||g")
-        fi
-
-        # Restore original LD_LIBRARY_PATH
-        if [ -n "$ORIGINAL_LD_LIBRARY_PATH" ]; then
-            export LD_LIBRARY_PATH=$ORIGINAL_LD_LIBRARY_PATH
-            unset ORIGINAL_LD_LIBRARY_PATH
-        fi
-
-        # Unset environment variables
-        unset CUDNN_DIR
-        unset PTXAS_DIR    
-    }
+    ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
+    print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
     ```
 
     ### 6. Verify the installation
