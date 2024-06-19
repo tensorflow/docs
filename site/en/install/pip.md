@@ -203,11 +203,10 @@ The following NVIDIA® software are only required for GPU support.
     python3 -m venv tf 
     ```
 
-    You can activate and deactivate it with the following commands.
+    You can activate it with the following command.
 
     ```bash
-    source tf/bin/activate
-    deactivate
+    source tf/bin/activate    
     ```
 
     Make sure that the virtual environment is activated for the rest of the installation.
