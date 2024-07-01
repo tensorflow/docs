@@ -29,7 +29,7 @@ location `/tmp/tfhub_modules` (or whatever `os.path.join(tempfile.gettempdir(),
 Users who prefer persistent caching across system reboots can instead set
 `TFHUB_CACHE_DIR` to a location in their home directory. For example, a user of
 the bash shell on a Linux system can add a line like the following to
-`~/.bashrc`
+`~/.bashrc`:
 
 ```bash
 export TFHUB_CACHE_DIR=$HOME/.cache/tfhub_modules
@@ -41,7 +41,7 @@ persistent location, be aware that there is no automatic cleanup.
 ### Reading from remote storage
 
 Users can instruct the `tensorflow_hub` library to directly read models from
-remote storage (GCS) instead of downloading the models locally with
+remote storage (GCS) instead of downloading the models locally with:
 
 ```shell
 os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "UNCOMPRESSED"
@@ -64,7 +64,7 @@ location by default. There are two workarounds for this situation:
 The easiest solution is to instruct the `tensorflow_hub` library to read the
 models from TF Hub's GCS bucket as explained above. Users with their own GCS
 bucket can instead specify a directory in their bucket as the cache location
-with code like
+with code like:
 
 ```python
 import os
