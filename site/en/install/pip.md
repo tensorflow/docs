@@ -140,7 +140,7 @@ Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 
 ## Software requirements
 
-*   Python 3.9–3.11
+*   Python 3.9–3.12
 *   pip version 19.0 or higher for Linux (requires `manylinux2014` support) and
     Windows. pip version 20.3 or higher for macOS.
 *   Windows Native Requires
@@ -150,9 +150,10 @@ Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 The following NVIDIA® software are only required for GPU support.
 
 *   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}
-    version 450.80.02 or higher.
-*   [CUDA® Toolkit 11.8](https://developer.nvidia.com/cuda-toolkit-archive){:.external}.
-*   [cuDNN SDK 8.6.0](https://developer.nvidia.com/cudnn){:.external}.
+    * >= 525.60.13 for Linux
+    * >= 528.33 for WSL on Windows
+*   [CUDA® Toolkit 12.3](https://developer.nvidia.com/cuda-toolkit-archive){:.external}.
+*   [cuDNN SDK 8.9.7](https://developer.nvidia.com/cudnn){:.external}.
 *   *(Optional)*
     [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
     to improve latency and throughput for inference.
