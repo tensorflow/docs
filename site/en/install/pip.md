@@ -229,7 +229,7 @@ The following NVIDIA® software are only required for GPU support.
     pip install tensorflow
     ```
 
-    Note: Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
+    **Note:** Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
 
     ### 5. Virtual environment configuration
 
@@ -249,6 +249,10 @@ The following NVIDIA® software are only required for GPU support.
     ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
     print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
     ```
+    *️⃣ **Disclaimer**
+
+    Symbolic links are only necessary in case the intended way doesn't work, i.e. the components aren't being
+    detected, and/or conflict with the existing system CUDA installation.
 
     ### 6. Verify the installation
 
