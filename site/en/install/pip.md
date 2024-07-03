@@ -234,6 +234,9 @@ The following NVIDIA® software are only required for GPU support.
     ### 5. Virtual environment configuration
 
     You can skip this section if you only run TensorFlow on the CPU.
+    
+    Note: Symbolic links are only necessary in case the intended way doesn't work, i.e. the components aren't being
+    detected, and/or conflict with the existing system CUDA installation.
 
     * Create symbolic links to NVIDIA shared libraries:
     
@@ -249,11 +252,7 @@ The following NVIDIA® software are only required for GPU support.
     ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
     print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
     ```
-    *️⃣ **Disclaimer**
-
-    Symbolic links are only necessary in case the intended way doesn't work, i.e. the components aren't being
-    detected, and/or conflict with the existing system CUDA installation.
-
+    
     ### 6. Verify the installation
 
     Verify the CPU setup:
