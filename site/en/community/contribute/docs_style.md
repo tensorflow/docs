@@ -65,8 +65,8 @@ repository like this:
 
 This is the preferred approach because this way the links on
 [tensorflow.org](https://www.tensorflow.org),
-[GitHub](https://github.com/tensorflow/docs){:.external} and
-[Colab](https://github.com/tensorflow/docs/tree/master/site/en/guide/bazics.ipynb){:.external}
+[GitHub](https://github.com/tensorflow/docs) and
+[Colab](https://github.com/tensorflow/docs/tree/master/site/en/guide/bazics.ipynb)
 all work. Also, the reader stays in the same site when they click a link.
 
 Note: You should include the file extension—such as `.ipynb` or `.md`—for
@@ -83,10 +83,10 @@ To link to source code, use a link starting with
 by the file name starting at the GitHub root.
 
 When linking off of [tensorflow.org](https://www.tensorflow.org), include a
-`{:.external}` on the Markdown link so that the "external link" symbol is shown.
+`` on the Markdown link so that the "external link" symbol is shown.
 
-* `[GitHub](https://github.com/tensorflow/docs){:.external}` produces
-  [GitHub](https://github.com/tensorflow/docs){:.external}
+* `[GitHub](https://github.com/tensorflow/docs)` produces
+  [GitHub](https://github.com/tensorflow/docs)
 
 Do not include URI query parameters in the link:
 

@@ -27,7 +27,7 @@ To use TensorFlow on Android see [TensorFlow Lite](https://tensorflow.org/lite)
 
 ## TensorFlow with Apache Maven
 
-To use TensorFlow with [Apache Maven](https://maven.apache.org){:.external},
+To use TensorFlow with [Apache Maven](https://maven.apache.org),
 add the dependency to the project's `pom.xml` file:
 
 ```xml
@@ -167,7 +167,7 @@ system and processor support:
 Note: On Windows, the native library (`tensorflow_jni.dll`) requires
 `msvcp140.dll` at runtime. See the
 [Windows build from source](./source_windows.md) guide to install the
-[Visual C++ 2019 Redistributable](https://visualstudio.microsoft.com/vs/){:.external}.
+[Visual C++ 2019 Redistributable](https://visualstudio.microsoft.com/vs/).
 
 ### Compile
 
@@ -203,5 +203,5 @@ Success: TensorFlow for Java is configured.
 ## Build from source
 
 TensorFlow is open source. Read
-[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md){:.external}
+[the instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md)
 to build TensorFlow's Java and native libraries from source code.

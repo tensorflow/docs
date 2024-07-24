@@ -4,7 +4,7 @@ Note: This page is for non-NVIDIA® GPU devices. For NVIDIA® GPU support, go to
 the [Install TensorFlow with pip](./pip.md) guide.
 
 TensorFlow's
-[pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md){:.external}
+[pluggable device](https://github.com/tensorflow/community/blob/master/rfcs/20200624-pluggable-device-for-tensorflow.md)
 architecture adds new device support as separate plug-in packages that are
 installed alongside the official TensorFlow package.
 
@@ -58,23 +58,23 @@ run()  # PluggableDevices also work with tf.function and graph mode.
 Metal `PluggableDevice` for macOS GPUs:
 
 *   Works with TF 2.5 or later.
-*   [Getting started guide](https://developer.apple.com/metal/tensorflow-plugin/){:.external}.
+*   [Getting started guide](https://developer.apple.com/metal/tensorflow-plugin/).
 *   For questions and feedback, please visit the
-    [Apple Developer Forum](https://developer.apple.com/forums/tags/tensorflow-metal){:.external}.
+    [Apple Developer Forum](https://developer.apple.com/forums/tags/tensorflow-metal).
 
 DirectML `PluggableDevice` for Windows and WSL (preview):
 
 *   Works with `tensorflow-cpu` package, version 2.10 or later.
-*   [PyPI wheel](https://pypi.org/project/tensorflow-directml-plugin/){:.external}.
-*   [GitHub repo](https://github.com/microsoft/tensorflow-directml-plugin){:.external}.
+*   [PyPI wheel](https://pypi.org/project/tensorflow-directml-plugin/).
+*   [GitHub repo](https://github.com/microsoft/tensorflow-directml-plugin).
 *   For questions, feedback or to raise issues, please visit the
-    [Issues page of `tensorflow-directml-plugin` on GitHub](https://github.com/microsoft/tensorflow-directml-plugin/issues){:.external}.
+    [Issues page of `tensorflow-directml-plugin` on GitHub](https://github.com/microsoft/tensorflow-directml-plugin/issues).
 
 Intel® Extension for TensorFlow `PluggableDevice` for Linux and WSL:
 
 *   Works with TF 2.10 or later.
 *   [Getting started guide](https://intel.github.io/intel-extension-for-tensorflow/latest/get_started.html)
-*   [PyPI wheel](https://pypi.org/project/intel-extension-for-tensorflow/){:.external}.
-*   [GitHub repo](https://github.com/intel/intel-extension-for-tensorflow){:.external}.
+*   [PyPI wheel](https://pypi.org/project/intel-extension-for-tensorflow/).
+*   [GitHub repo](https://github.com/intel/intel-extension-for-tensorflow).
 *   For questions, feedback, or to raise issues, please visit the
-    [Issues page of `intel-extension-for-tensorflow` on GitHub](https://github.com/intel/intel-extension-for-tensorflow/issues){:.external}.
+    [Issues page of `intel-extension-for-tensorflow` on GitHub](https://github.com/intel/intel-extension-for-tensorflow/issues).
