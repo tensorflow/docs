@@ -99,16 +99,17 @@ def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
       data, keep=["cells", "metadata", "nbformat_minor", "nbformat"])
   # All metadata is optional according to spec, but we use some of it.
   notebook_utils.del_entries_except(
-      data["metadata"], keep=["accelerator", "colab", "kernelspec"])
+      data["metadata"], keep=["accelerator", "colab", "kernelspec", "google"]
+  )
 
   metadata = data.get("metadata", {})
-  colab = metadata.get("colab", {})
 
   # Set top-level notebook defaults.
   data["nbformat"] = 4
   data["nbformat_minor"] = 0
 
   # Colab metadata
+  colab = metadata.get("colab", {})
   notebook_utils.del_entries_except(
       colab, keep=["collapsed_sections", "name", "toc_visible"])
   colab["name"] = os.path.basename(filepath)
@@ -127,6 +128,15 @@ def clean_root(data: Dict[str, Any], filepath: pathlib.Path) -> None:
   kernelspec["name"] = kernel_name
   kernelspec["display_name"] = supported_kernels[kernel_name]
   metadata["kernelspec"] = kernelspec
+
+  # Google metadata
+  google = metadata.get("google", {})
+  notebook_utils.del_entries_except(google, keep=["keywords", "image_path"])
+  # Don't add the field if it's empty.
+  if google:
+    metadata["google"] = google
+  else:
+    metadata.pop("google", None)
 
   data["metadata"] = metadata
 
@@ -227,7 +237,7 @@ def update_license_cells(data: Dict[str, Any]) -> None:
     data: object representing a parsed JSON notebook.
   """
   # This pattern in Apache and MIT license boilerplate.
-  license_re = re.compile(r"#@title.*License")
+  license_re = re.compile(r"#\s?@title.*License")
 
   for idx, cell in enumerate(data["cells"]):
     src_text = "".join(cell["source"])

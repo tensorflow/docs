@@ -62,11 +62,11 @@ step-by-step instructions.
     Note: TensorFlow with GPU access is supported for WSL2 on Windows 10 19044 or
     higher. This corresponds to Windows 10 version 21H2, the November 2021
     update. You can get the latest update from here:
-    [Download Windows 10](https://www.microsoft.com/software-download/windows10){:.external}.
+    [Download Windows 10](https://www.microsoft.com/software-download/windows10).
     For instructions, see
-    [Install WSL2](https://docs.microsoft.com/windows/wsl/install){:.external}
+    [Install WSL2](https://docs.microsoft.com/windows/wsl/install)
     and
-    [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html){:.external}
+    [NVIDIA’s setup docs](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
     for CUDA in WSL.
 
     ```bash
@@ -108,14 +108,14 @@ step-by-step instructions.
 ## Hardware requirements
 
 Note: TensorFlow binaries use
-[AVX instructions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX){:.external}
+[AVX instructions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX)
 which may not run on older CPUs.
 
 The following GPU-enabled devices are supported:
 
 *   NVIDIA® GPU card with CUDA® architectures 3.5, 5.0, 6.0, 7.0, 7.5, 8.0 and
     higher. See the list of
-    [CUDA®-enabled GPU cards](https://developer.nvidia.com/cuda-gpus){:.external}.
+    [CUDA®-enabled GPU cards](https://developer.nvidia.com/cuda-gpus).
 *   For GPUs with unsupported CUDA® architectures, or to avoid JIT compilation
     from PTX, or to use different versions of the NVIDIA® libraries, see the
     [Linux build from source](./source.md) guide.
@@ -123,7 +123,7 @@ The following GPU-enabled devices are supported:
     architecture; therefore, TensorFlow fails to load on older GPUs when
     `CUDA_FORCE_PTX_JIT=1` is set. (See
     [Application Compatibility](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#application-compatibility)
-    for details.) {:.external}
+    for details.) 
 
 Note: The error message "Status: device kernel image is invalid" indicates that
 the TensorFlow package does not contain PTX for your architecture. You can
@@ -140,21 +140,22 @@ Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 
 ## Software requirements
 
-*   Python 3.9–3.11
+*   Python 3.9–3.12
 *   pip version 19.0 or higher for Linux (requires `manylinux2014` support) and
     Windows. pip version 20.3 or higher for macOS.
 *   Windows Native Requires
-    [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads){:.external}
+    [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
 The following NVIDIA® software are only required for GPU support.
 
-*   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers){:.external}
-    version 450.80.02 or higher.
-*   [CUDA® Toolkit 11.8](https://developer.nvidia.com/cuda-toolkit-archive){:.external}.
-*   [cuDNN SDK 8.6.0](https://developer.nvidia.com/cudnn){:.external}.
+*   [NVIDIA® GPU drivers](https://www.nvidia.com/drivers)
+    * >= 525.60.13 for Linux
+    * >= 528.33 for WSL on Windows
+*   [CUDA® Toolkit 12.3](https://developer.nvidia.com/cuda-toolkit-archive).
+*   [cuDNN SDK 8.9.7](https://developer.nvidia.com/cudnn).
 *   *(Optional)*
-    [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7){:.external}
+    [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/index.html#trt_7)
     to improve latency and throughput for inference.
 
 ## Step-by-step instructions
@@ -185,7 +186,7 @@ The following NVIDIA® software are only required for GPU support.
     You can skip this section if you only run TensorFlow on the CPU.
 
     Install the
-    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
+    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx)
     if you have not. You can use the following command to verify it is
     installed.
 
@@ -316,25 +317,25 @@ The following NVIDIA® software are only required for GPU support.
     with *Visual Studio 2019* but can be installed separately:
 
     1.  Go to the
-        [Microsoft Visual C++ downloads](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads){:.external}.
+        [Microsoft Visual C++ downloads](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
     2.  Scroll down the page to the *Visual Studio 2015, 2017 and 2019* section.
     3.  Download and install the *Microsoft Visual C++ Redistributable for
         Visual Studio 2015, 2017 and 2019* for your platform.
 
     Make sure
-    [long paths are enabled](https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing){:.external}
+    [long paths are enabled](https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing)
     on Windows.
 
     ### 3. Install Miniconda
 
-    [Miniconda](https://docs.conda.io/en/latest/miniconda.html){:.external}
+    [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
     is the recommended approach for installing TensorFlow with GPU support.
     It creates a separate environment to avoid changing any installed
     software in your system. This is also the easiest way to install the
     required software especially for the GPU setup.
 
     Download the
-    [Miniconda Windows Installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe){:.external}.
+    [Miniconda Windows Installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe).
     Double-click the downloaded file and follow the instructions on the screen.
 
     ### 4. Create a conda environment
@@ -359,7 +360,7 @@ The following NVIDIA® software are only required for GPU support.
     You can skip this section if you only run TensorFlow on CPU.
 
     First install
-    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
+    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx)
     if you have not.
 
     Then install the CUDA, cuDNN with conda.
@@ -416,16 +417,16 @@ The following NVIDIA® software are only required for GPU support.
    
     See the following documents to:
    
-    * [Download the latest Windows 10 update](https://www.microsoft.com/software-download/windows10){:.external}.
-    * [Install WSL2](https://docs.microsoft.com/windows/wsl/install){:.external}
-    * [Setup NVIDIA® GPU support in WSL2](https://docs.nvidia.com/cuda/wsl-user-guide/index.html){:.external}
+    * [Download the latest Windows 10 update](https://www.microsoft.com/software-download/windows10).
+    * [Install WSL2](https://docs.microsoft.com/windows/wsl/install)
+    * [Setup NVIDIA® GPU support in WSL2](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
 
     ### 2. GPU setup
 
     You can skip this section if you only run TensorFlow on the CPU.
 
     Install the
-    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx){:.external}
+    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx)
     if you have not. You can use the following command to verify it is
     installed.
 
@@ -478,58 +479,111 @@ The value you specify depends on your Python version.
 
 <table>
   <tr><th>Version</th><th>URL</th></tr>
-  <tr class="alt"><td colspan="2">Linux</td></tr>
+  <tr class="alt"><td colspan="2">Linux x86</td></tr>
   <tr>
     <td>Python 3.9 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow_cpu-2.17.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow_cpu-2.17.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.11 GPU&nbsp;support</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-2.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
   <tr>
     <td>Python 3.11 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow_cpu-2.17.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.12 GPU&nbsp;support</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.12 CPU-only</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow_cpu-2.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl</td>
   </tr>
 
-  <tr class="alt"><td colspan="2">macOS (CPU-only)</td></tr>
+  <tr class="alt"><td colspan="2">Linux Arm64 (CPU-only)</td></tr>
   <tr>
     <td>Python 3.9</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp39-cp39-macosx_10_15_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl</td>
   </tr>
-   <tr>
+  <tr>
     <td>Python 3.10</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp310-cp310-macosx_10_15_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl</td>
   </tr>
   <tr>
     <td>Python 3.11</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.14.0-cp311-cp311-macosx_10_15_x86_64.whl</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.12</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl</td>
   </tr>
 
-  <tr class="alt"><td colspan="2">Windows</td></tr>
+  <tr class="alt"><td colspan="2">macOS x86 (CPU-only)</td></tr>
+  <tr class="alt"><td colspan="2"><b>Caution</b>: TensorFlow 2.16 was the <b>last</b> TensorFlow release that supported macOS x86</td></tr>
   <tr>
-    <td>Python 3.9 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp39-cp39-win_amd64.whl</td>
+    <td>Python 3.9</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.16.2/tensorflow-2.16.2-cp39-cp39-macosx_10_15_x86_64.whl</td>
+  </tr>
+   <tr>
+    <td>Python 3.10</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.16.2/tensorflow-2.16.2-cp310-cp310-macosx_10_15_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.10 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp310-cp310-win_amd64.whl</td>
+    <td>Python 3.11</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.16.2/tensorflow-2.16.2-cp311-cp311-macosx_10_15_x86_64.whl</td>
   </tr>
   <tr>
-    <td>Python 3.11 CPU-only</td>
-    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.14.0-cp311-cp311-win_amd64.whl</td>
+    <td>Python 3.12</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.16.2/tensorflow-2.16.2-cp312-cp312-macosx_10_15_x86_64.whl</td>
+  </tr>
+
+  <tr class="alt"><td colspan="2">macOS Arm64 (CPU-only)</td></tr>
+  <tr>
+    <td>Python 3.9</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp39-cp39-macosx_12_0_arm64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.10</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp310-cp310-macosx_12_0_arm64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp311-cp311-macosx_12_0_arm64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.12</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp312-cp312-macosx_12_0_arm64.whl</td>
+  </tr>
+
+  <tr class="alt"><td colspan="2">Windows (CPU-only)</td></tr>
+  <tr>
+    <td>Python 3.9</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp39-cp39-win_amd64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.10</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp310-cp310-win_amd64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.11</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp311-cp311-win_amd64.whl</td>
+  </tr>
+  <tr>
+    <td>Python 3.12</td>
+    <td class="devsite-click-to-copy">https://storage.googleapis.com/tensorflow/versions/2.17.0/tensorflow-2.17.0-cp312-cp312-win_amd64.whl</td>
   </tr>
 
 </table>

@@ -580,7 +580,7 @@ def generate_signature(
 
   sig = sig.replace(parameters=params)
 
-  if dataclasses.is_dataclass(func):
+  if dataclasses.is_dataclass(func) and inspect.isclass(func):
     sig = sig.replace(return_annotation=EMPTY)
     extract_fn = _extract_class_defaults_and_annotations
   else:

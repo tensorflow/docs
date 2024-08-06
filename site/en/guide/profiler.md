@@ -55,7 +55,7 @@ found.
 When you run profiling with CUDA® Toolkit in a Docker environment or on Linux,
 you may encounter issues related to insufficient CUPTI privileges
 (`CUPTI_ERROR_INSUFFICIENT_PRIVILEGES`). Go to the
-[NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters){:.external}
+[NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters)
 to learn more about how you can resolve these issues on Linux.
 
 To resolve CUPTI privilege issues in a Docker environment, run
@@ -694,7 +694,7 @@ first few batches to avoid inaccuracies due to initialization overhead.
     An example for profiling multiple workers:
 
     ```python
-    # E.g. your worker IP addresses are 10.0.0.2, 10.0.0.3, 10.0.0.4, and you
+    # E.g., your worker IP addresses are 10.0.0.2, 10.0.0.3, 10.0.0.4, and you
     # would like to profile for a duration of 2 seconds.
     tf.profiler.experimental.client.trace(
         'grpc://10.0.0.2:8466,grpc://10.0.0.3:8466,grpc://10.0.0.4:8466',
@@ -845,7 +845,7 @@ more efficient by casting to different data types <b><i>after</i></b> applying
 spatial transformations, such as flipping, cropping, rotating, etc.
 
 Note: Some ops like `tf.image.resize` transparently change the `dtype` to
-`fp32`. Make sure you normalize your data to lie between `0` and `1` if its not
+`fp32`. Make sure you normalize your data to lie between `0` and `1` if it's not
 done automatically. Skipping this step could lead to `NaN` errors if you have
 enabled [AMP](https://developer.nvidia.com/automatic-mixed-precision).
 

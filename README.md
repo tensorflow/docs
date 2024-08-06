@@ -16,7 +16,7 @@ To file a docs issue, use the issue tracker in the
 [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md) repo.
 
 And join the TensorFlow documentation contributors on the
-[docs@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/forum/#!forum/docs).
+[TensorFlow Forum](https://discuss.tensorflow.org/).
 
 ## Community translations
 

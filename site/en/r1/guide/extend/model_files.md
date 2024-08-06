@@ -28,7 +28,7 @@ by calling `as_graph_def()`, which returns a `GraphDef` object.
 
 The GraphDef class is an object created by the ProtoBuf library from the
 definition in
-[tensorflow/core/framework/graph.proto](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/graph.proto). The protobuf tools parse
+[tensorflow/core/framework/graph.proto](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/graph.proto). The protobuf tools parse
 this text file, and generate the code to load, store, and manipulate graph
 definitions. If you see a standalone TensorFlow file representing a model, it's
 likely to contain a serialized version of one of these `GraphDef` objects
@@ -87,7 +87,7 @@ for node in graph_def.node
 ```
 
 Each node is a `NodeDef` object, defined in
-[tensorflow/core/framework/node_def.proto](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/node_def.proto). These
+[tensorflow/core/framework/node_def.proto](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/node_def.proto). These
 are the fundamental building blocks of TensorFlow graphs, with each one defining
 a single operation along with its input connections. Here are the members of a
 `NodeDef`, and what they mean.
@@ -107,7 +107,7 @@ This defines what operation to run, for example `"Add"`, `"MatMul"`, or
 `"Conv2D"`. When a graph is run, this op name is looked up in a registry to
 find an implementation. The registry is populated by calls to the
 `REGISTER_OP()` macro, like those in
-[tensorflow/core/ops/nn_ops.cc](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/ops/nn_ops.cc).
+[tensorflow/core/ops/nn_ops.cc](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/ops/nn_ops.cc).
 
 ### `input`
 
@@ -133,7 +133,7 @@ size of filters for convolutions, or the values of constant ops. Because there
 can be so many different types of attribute values, from strings, to ints, to
 arrays of tensor values, there's a separate protobuf file defining the data
 structure that holds them, in
-[tensorflow/core/framework/attr_value.proto](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/attr_value.proto).
+[tensorflow/core/framework/attr_value.proto](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/attr_value.proto).
 
 Each attribute has a unique name string, and the expected attributes are listed
 when the operation is defined. If an attribute isn't present in a node, but it
@@ -151,7 +151,7 @@ the file format during training. Instead, they're held in separate checkpoint
 files, and there are `Variable` ops in the graph that load the latest values
 when they're initialized. It's often not very convenient to have separate files
 when you're deploying to production, so there's the
-[freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py) script that takes a graph definition and a set
+[freeze_graph.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/tools/freeze_graph.py) script that takes a graph definition and a set
 of checkpoints and freezes them together into a single file.
 
 What this does is load the `GraphDef`, pull in the values for all the variables
@@ -167,7 +167,7 @@ the most common problems is extracting and interpreting the weight values. A
 common way to store them, for example in graphs created by the freeze_graph
 script, is as `Const` ops containing the weights as `Tensors`. These are
 defined in
-[tensorflow/core/framework/tensor.proto](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.proto), and contain information
+[tensorflow/core/framework/tensor.proto](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor.proto), and contain information
 about the size and type of the data, as well as the values themselves. In
 Python, you get a `TensorProto` object from a `NodeDef` representing a `Const`
 op by calling something like `some_node_def.attr['value'].tensor`.

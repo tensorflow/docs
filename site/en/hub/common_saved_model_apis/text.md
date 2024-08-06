@@ -94,7 +94,7 @@ distributed way. For example
 ### Examples
 
 *   Colab tutorial
-    [Text Classification with Movie Reviews](https://colab.research.google.com/github/tensorflow/docs/blob/master/g3doc/en/hub/tutorials/tf2_text_classification.ipynb).
+    [Text Classification with Movie Reviews](https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/hub/tutorials/tf2_text_classification.ipynb).
 
 <a name="text-embeddings-preprocessed"></a>
 
@@ -132,8 +132,8 @@ preprocessor = hub.load("path/to/preprocessor")  # Must match `encoder`.
 encoder_inputs = preprocessor(text_input)
 
 encoder = hub.load("path/to/encoder")
-enocder_outputs = encoder(encoder_inputs)
-embeddings = enocder_outputs["default"]
+encoder_outputs = encoder(encoder_inputs)
+embeddings = encoder_outputs["default"]
 ```
 
 Recall from the [Reusable SavedModel API](../reusable_saved_models.md) that
@@ -304,8 +304,8 @@ provisions from the [Reusable SavedModel API](../reusable_saved_models.md).
 #### Usage synopsis
 
 ```python
-enocder = hub.load("path/to/encoder")
-enocder_outputs = encoder(encoder_inputs)
+encoder = hub.load("path/to/encoder")
+encoder_outputs = encoder(encoder_inputs)
 ```
 
 or equivalently in Keras:
