@@ -211,6 +211,13 @@ Preconfigured Bazel build configs to DISABLE default on features:
 
 #### GPU support
 
+##### from v.2.18.0
+For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN if required. Bazel will download CUDA and CUDNN
+packages automatically or point to CUDA/CUDNN/NCCL redistributions on local file
+system if required.
+
+##### before v.2.18.0
 For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
 versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
 cuDNN installed, explicitly set the version instead of relying on the default.
@@ -369,6 +376,9 @@ On your host machine, the TensorFlow *pip* package is in the current directory
 <code>./tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 
 ### GPU support
+
+Note: Starting from Tensorflow v.2.18.0 the wheels can be built from
+source on a machine without GPUs and without NVIDIA driver installed.
 
 Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
