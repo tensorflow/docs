@@ -27,7 +27,7 @@ jobs:
         days-before-issue-close: 14
         stale-issue-label: "status:stale"
         close-issue-reason: not_planned
-        any-of-labels: "awaiting contributor response,cla:no"
+        any-of-labels: "awaiting-contributor-response,cla:no"
         stale-issue-message: >
           Marking this issue as stale since it has been open for 14 days with no activity.
           This issue will be closed if no further activity occurs.
