@@ -273,7 +273,7 @@ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflo
 
 To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
 </pre>
 
 To build tensorflow TPU package:
@@ -405,7 +405,7 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel --config=opt</code>
 
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
