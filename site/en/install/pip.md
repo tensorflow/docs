@@ -231,28 +231,6 @@ The following NVIDIA® software are only required for GPU support.
 
     **Note:** Do not install TensorFlow with `conda`. It may not have the latest stable version. `pip` is recommended since TensorFlow is only officially released to PyPI.
 
-    ### 5. Virtual environment configuration
-
-    You can skip this section if you only run TensorFlow on the CPU.
-    
-    Note: Symbolic links are only necessary in case the intended way doesn't work, i.e. the components aren't being
-    detected, and/or conflict with the existing system CUDA installation.
-
-    * Create symbolic links to NVIDIA shared libraries:
-    
-    ```bash
-    pushd $(dirname $(python -c 'print(__import__("tensorflow").__file__)'))
-    ln -svf ../nvidia/*/lib/*.so* .
-    popd
-    ```
-    
-    * Create a symbolic link to ptxas:
-
-    ```bash
-    ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
-    print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
-    ```
-    
     ### 6. Verify the installation
 
     Verify the CPU setup:
@@ -270,7 +248,36 @@ The following NVIDIA® software are only required for GPU support.
     ```
 
     If a list of GPU devices is returned, you've installed TensorFlow
-    successfully.
+    successfully. **If not continue to the next step**.
+
+    ### 6. [GPU only] Virtual environment configuration
+
+    If the GPU test in the last section was unsuccessful, the most likely cause is that components aren't being detected,
+    and/or conflict with the existing system CUDA installation. So you need to add some symbolic links to fix this.
+
+    * Create symbolic links to NVIDIA shared libraries:
+    
+    ```bash
+    pushd $(dirname $(python -c 'print(__import__("tensorflow").__file__)'))
+    ln -svf ../nvidia/*/lib/*.so* .
+    popd
+    ```
+    
+    * Create a symbolic link to ptxas:
+
+    ```bash
+    ln -sf $(find $(dirname $(dirname $(python -c "import nvidia.cuda_nvcc;         
+    print(nvidia.cuda_nvcc.__file__)"))/*/bin/) -name ptxas -print -quit) $VIRTUAL_ENV/bin/ptxas
+    ```
+
+    Verify the GPU setup:
+
+    ```bash
+    python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    ```
+
+
+
 
 *   {MacOS}
 
