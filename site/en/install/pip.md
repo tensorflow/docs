@@ -166,7 +166,7 @@ The following NVIDIA® software are only required for GPU support.
 
     *  Ubuntu 16.04 or higher (64-bit)
 
-    TensorFlow only officially support Ubuntu. However, the following
+    TensorFlow only officially supports Ubuntu. However, the following
     instructions may also work for other Linux distros.
 
     Note: Starting with TensorFlow `2.10`, Linux CPU-builds for Aarch64/ARM64
