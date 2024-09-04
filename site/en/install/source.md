@@ -34,8 +34,7 @@ Install the TensorFlow *pip* package dependencies (if using a virtual
 environment, omit the `--user` argument):
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">pip install -U --user pip numpy wheel packaging requests opt_einsum</code>
-<code class="devsite-terminal">pip install -U --user keras_preprocessing --no-deps</code>
+<code class="devsite-terminal">pip install -U --user pip</code>
 </pre>
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2 `.whl`
@@ -60,7 +59,7 @@ file.
 
 Clang is a C/C++/Objective-C compiler that is compiled in C++ based on LLVM. It
 is the default compiler to build TensorFlow starting with TensorFlow 2.13. The
-current supported version is LLVM/Clang 16.
+current supported version is LLVM/Clang 17.
 
 [LLVM Debian/Ubuntu nightly packages](https://apt.llvm.org) provide an automatic
 installation script and packages for manual installation on Linux. Make sure you
@@ -68,50 +67,58 @@ run the following command if you manually add llvm apt repository to your
 package sources:
 
 <pre class="prettyprint lang-bsh">
-<code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-16 clang-16</code>
+<code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-17 clang-17</code>
 </pre>
 
+Now that `/usr/lib/llvm-17/bin/clang` is the actual path to clang in this case.
+
 Alternatively, you can download and unpack the pre-built
-[Clang + LLVM 16](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0).
+[Clang + LLVM 17](https://github.com/llvm/llvm-project/releases/tag/llvmorg-17.0.2).
 
-Below is an example of steps you can take to set up the downloaded
-Clang + LLVM 16 binaries:
+Below is an example of steps you can take to set up the downloaded Clang + LLVM
+17 binaries on Debian/Ubuntu operating systems:
 
-1.  Change to the desired destination directory:
-    ```cd <desired directory>```
+1.  Change to the desired destination directory: `cd <desired directory>`
 
-2.  Load and extract an archive file...(suitable to your architecture):
+1.  Load and extract an archive file...(suitable to your architecture):
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">
-    wget https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    <code class="devsite-terminal">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
     </code>
-    <code class="devsite-terminal">tar -xvf clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    <code class="devsite-terminal">tar -xvf clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
     </code>
     </pre>
 
-3.  Check the obtained Clang + LLVM 16 binaries version:
+1.  Copy the extracted contents (directories and files) to `/usr` (you may need
+    sudo permissions, and the correct directory may vary by distribution). This
+    effectively installs Clang and LLVM, and adds it to the path. You should not
+    have to replace anything, unless you have a previous installation, in which
+    case you should replace the files:
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">
-    ./clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16 --version </code>
+    <code class="devsite-terminal">cp -r clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/* /usr</code>
     </pre>
 
-4.  Directory `/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/clang-16` is
-    the actual path to your new clang. You can run the `./configure` script or
-    manually set environment variables `CC` and `BAZEL_COMPILER` to this path.
+1.  Check the obtained Clang + LLVM 17 binaries version:
+    <pre class="prettyprint lang-bsh">
+    <code class="devsite-terminal">clang --version</code>
+    </pre>
+
+1.  Now that `/usr/bin/clang` is the actual path to your new clang. You can run
+    the `./configure` script or manually set environment variables `CC` and
+    `BAZEL_COMPILER` to this path.
 
 ### Install GPU support (optional, Linux only)
 
 There is *no* GPU support for macOS.
 
-Read the [GPU support](./gpu.md) guide to install the drivers and additional
+Read the [GPU support](./pip.md) guide to install the drivers and additional
 software required to run TensorFlow on a GPU.
 
 Note: It is easier to set up one of TensorFlow's GPU-enabled [Docker images](#docker_linux_builds).
 
 ### Download the TensorFlow source code
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}:
+Use [Git](https://git-scm.com/) to clone the
+[TensorFlow repository](https://github.com/tensorflow/tensorflow):
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow.git</code>
@@ -119,7 +126,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also check out a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases)
 to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
@@ -204,7 +211,14 @@ Preconfigured Bazel build configs to DISABLE default on features:
 
 #### GPU support
 
-For [GPU support](./gpu.md), set `cuda=Y` during configuration and specify the
+##### from v.2.18.0
+For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN if required. Bazel will download CUDA and CUDNN
+packages automatically or point to CUDA/CUDNN/NCCL redistributions on local file
+system if required.
+
+##### before v.2.18.0
+For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
 versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
 cuDNN installed, explicitly set the version instead of relying on the default.
 `./configure` creates symbolic links to your system's CUDA libraries—so if you
@@ -216,7 +230,7 @@ building.
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for
 a different CPU type, consider a more specific optimization flag. Check the
-[GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
+[GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html)
 for examples.
 
 #### Preconfigured configurations
@@ -228,24 +242,11 @@ There are some preconfigured build configs available that can be added to the
     [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md)
     for details.
 *   `--config=mkl` —Support for the
-    [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
+    [Intel® MKL-DNN](https://github.com/intel/mkl-dnn).
 *   `--config=monolithic` —Configuration for a mostly static, monolithic build.
 
 
 ## Build and install the pip package
-
-The pip package is build in two steps. A `bazel build` commands creates a
-"package-builder" program. You then run the package-builder to create the
-package.
-
-### Build the package-builder
-Note: GPU support can be enabled with `cuda=Y` during the `./configure` stage.
-
-Use `bazel build` to create the TensorFlow 2.x package-builder:
-
-<pre class="devsite-terminal devsite-click-to-copy">
-bazel build [--config=option] //tensorflow/tools/pip_package:build_pip_package
-</pre>
 
 #### Bazel build options
 
@@ -262,25 +263,34 @@ that complies with the manylinux2014 package standard.
 
 ### Build the package
 
-The `bazel build` command creates an executable named `build_pip_package`—this
-is the program that builds the `pip` package. Run the executable as shown
-below to build a `.whl` package in the `/tmp/tensorflow_pkg` directory.
+To build pip package, you need to specify `--repo_env=WHEEL_NAME` flag.
+depending on the provided name, package will be created, e.g:
 
-To build from a release branch:
-
+To build tensorflow CPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu
 </pre>
 
-To build from master, use `--nightly_flag` to get the right dependencies:
-
+To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag /tmp/tensorflow_pkg
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
 </pre>
 
-Although it is possible to build both CUDA and non-CUDA configurations under the
-same source tree, it's recommended to run `bazel clean` when switching between
-these two configurations in the same source tree.
+To build tensorflow TPU package:
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
+</pre>
+
+To build nightly package, set `tf_nightly` instead of `tensorflow`, e.g.
+to build CPU nightly package:
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tf_nightly_cpu
+</pre>
+
+As a result, generated wheel will be located in
+<pre class="devsite-terminal devsite-click-to-copy">
+bazel-bin/tensorflow/tools/pip_package/wheel_house/
+</pre>
 
 ### Install the package
 
@@ -288,7 +298,7 @@ The filename of the generated `.whl` file depends on the TensorFlow version and
 your platform. Use `pip install` to install the package, for example:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
-pip install /tmp/tensorflow_pkg/tensorflow-<var>version</var>-<var>tags</var>.whl
+pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl
 </pre>
 
 Success: TensorFlow is now installed.
@@ -300,7 +310,7 @@ TensorFlow's Docker development images are an easy way to set up an environment
 to build Linux packages from source. These images already contain the source
 code and dependencies required to build TensorFlow. Go to the TensorFlow
 [Docker guide](./docker.md) for installation instructions and the
-[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
+[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/).
 
 ### CPU-only
 
@@ -336,20 +346,17 @@ docker run -it -w /tensorflow -v <var>/path/to/tensorflow</var>:/tensorflow -v $
 With the source tree set up, build the TensorFlow package within the container's
 virtual environment:
 
-1.  Optional: Configure the build—this prompts the user to answer build configuration
-    questions.
-2.  Build the tool used to create the *pip* package.
-3.  Run the tool to create the *pip* package.
-4.  Adjust the ownership permissions of the file for outside the container.
+1.  Optional: Configure the build—this prompts the user to answer build
+    configuration questions.
+2.  Build the *pip* package.
+3.  Adjust the ownership permissions of the file for outside the container.
 
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package</code>
-
-<code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
-
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt</code>
+`
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container:
@@ -357,7 +364,7 @@ Install and verify the package within the container:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(tf.__version__)"</code>
 </pre>
@@ -370,12 +377,15 @@ On your host machine, the TensorFlow *pip* package is in the current directory
 
 ### GPU support
 
+Note: Starting from Tensorflow v.2.18.0 the wheels can be built from
+source on a machine without GPUs and without NVIDIA driver installed.
+
 Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
-[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver)
 (the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). Refer to the
-[GPU support guide](./gpu.md) and the TensorFlow [Docker guide](./docker.md) to
-set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}
+[GPU support guide](./pip.md) and the TensorFlow [Docker guide](./docker.md) to
+set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 (Linux only).
 
 The following example downloads the TensorFlow `:devel-gpu` image and uses
@@ -395,11 +405,9 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel --config=opt</code>
 
-<code class="devsite-terminal tfo-terminal-root">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /mnt  # create package</code>
-
-<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
 
 Install and verify the package within the container and check for a GPU:
@@ -407,7 +415,7 @@ Install and verify the package within the container and check for a GPU:
 <pre class="prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">pip uninstall tensorflow  # remove current version</code>
 
-<code class="devsite-terminal tfo-terminal-root">pip install /mnt/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
+<code class="devsite-terminal tfo-terminal-root">pip install bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 <code class="devsite-terminal tfo-terminal-root">cd /tmp  # don't import from source directory</code>
 <code class="devsite-terminal tfo-terminal-root">python -c "import tensorflow as tf; print(\"Num GPUs Available: \", len(tf.config.list_physical_devices('GPU')))"</code>
 </pre>
@@ -424,6 +432,8 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td></tr>
@@ -462,7 +472,9 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
-<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.8</td><td>12.2</td></tr>
+<tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
+<tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang 16.0.0</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
 <tr><td>tensorflow-2.12.0</td><td>3.8-3.11</td><td>GCC 9.3.1</td><td>Bazel 5.3.0</td><td>8.6</td><td>11.8</td></tr>
@@ -502,6 +514,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang from Xcode 13.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>

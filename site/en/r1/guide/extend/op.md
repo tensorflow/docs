@@ -47,7 +47,7 @@ To incorporate your custom op you'll need to:
     test the op in C++. If you define gradients, you can verify them with the
     Python `tf.test.compute_gradient_error`.
     See
-    [`relu_op_test.py`](https://www.tensorflow.org/code/tensorflow/python/kernel_tests/relu_op_test.py) as
+    [`relu_op_test.py`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/kernel_tests/relu_op_test.py) as
     an example that tests the forward functions of Relu-like operators and
     their gradients.
 
@@ -155,17 +155,17 @@ REGISTER_KERNEL_BUILDER(Name("ZeroOut").Device(DEVICE_CPU), ZeroOutOp);
 >   Important: Instances of your OpKernel may be accessed concurrently.
 >   Your `Compute` method must be thread-safe. Guard any access to class
 >   members with a mutex. Or better yet, don't share state via class members!
->   Consider using a [`ResourceMgr`](https://www.tensorflow.org/code/tensorflow/core/framework/resource_mgr.h)
+>   Consider using a [`ResourceMgr`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/resource_mgr.h)
 >   to keep track of op state.
 
 ### Multi-threaded CPU kernels
 
 To write a multi-threaded CPU kernel, the Shard function in
-[`work_sharder.h`](https://www.tensorflow.org/code/tensorflow/core/util/work_sharder.h)
+[`work_sharder.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/util/work_sharder.h)
 can be used. This function shards a computation function across the
 threads configured to be used for intra-op threading (see
 intra_op_parallelism_threads in
-[`config.proto`](https://www.tensorflow.org/code/tensorflow/core/protobuf/config.proto)).
+[`config.proto`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/config.proto)).
 
 ### GPU kernels
 
@@ -486,13 +486,13 @@ This asserts that the input is a vector, and returns having set the
 
 *   The `context`, which can either be an `OpKernelContext` or
     `OpKernelConstruction` pointer (see
-    [`tensorflow/core/framework/op_kernel.h`](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)),
+    [`tensorflow/core/framework/op_kernel.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_kernel.h)),
     for its `SetStatus()` method.
 *   The condition.  For example, there are functions for validating the shape
     of a tensor in
-    [`tensorflow/core/framework/tensor_shape.h`](https://www.tensorflow.org/code/tensorflow/core/framework/tensor_shape.h)
+    [`tensorflow/core/framework/tensor_shape.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor_shape.h)
 *   The error itself, which is represented by a `Status` object, see
-    [`tensorflow/core/lib/core/status.h`](https://www.tensorflow.org/code/tensorflow/core/lib/core/status.h). A
+    [`tensorflow/core/lib/core/status.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/lib/core/status.h). A
     `Status` has both a type (frequently `InvalidArgument`, but see the list of
     types) and a message.  Functions for constructing an error may be found in
     [`tensorflow/core/lib/core/errors.h`][validation-macros].
@@ -633,7 +633,7 @@ define an attr with constraints, you can use the following `<attr-type-expr>`s:
 
     The specific lists of types allowed by these are defined by the functions
     (like `NumberTypes()`) in
-    [`tensorflow/core/framework/types.h`](https://www.tensorflow.org/code/tensorflow/core/framework/types.h).
+    [`tensorflow/core/framework/types.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/types.h).
     In this example the attr `t` must be one of the numeric types:
 
     ```c++
@@ -1180,7 +1180,7 @@ There are several ways to preserve backwards-compatibility.
    type into a list of varying types).
 
 The full list of safe and unsafe changes can be found in
-[`tensorflow/core/framework/op_compatibility_test.cc`](https://www.tensorflow.org/code/tensorflow/core/framework/op_compatibility_test.cc).
+[`tensorflow/core/framework/op_compatibility_test.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_compatibility_test.cc).
 If you cannot make your change to an operation backwards compatible, then create
 a new operation with a new name with the new semantics.
 
@@ -1197,16 +1197,16 @@ made when TensorFlow changes major versions, and must conform to the
 You can implement different OpKernels and register one for CPU and another for
 GPU, just like you can [register kernels for different types](#polymorphism).
 There are several examples of kernels with GPU support in
-[`tensorflow/core/kernels/`](https://www.tensorflow.org/code/tensorflow/core/kernels/).
+[`tensorflow/core/kernels/`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/).
 Notice some kernels have a CPU version in a `.cc` file, a GPU version in a file
 ending in `_gpu.cu.cc`, and some code shared in common in a `.h` file.
 
 For example, the `tf.pad` has
 everything but the GPU kernel in [`tensorflow/core/kernels/pad_op.cc`][pad_op].
 The GPU kernel is in
-[`tensorflow/core/kernels/pad_op_gpu.cu.cc`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op_gpu.cu.cc),
+[`tensorflow/core/kernels/pad_op_gpu.cu.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/pad_op_gpu.cu.cc),
 and the shared code is a templated class defined in
-[`tensorflow/core/kernels/pad_op.h`](https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op.h).
+[`tensorflow/core/kernels/pad_op.h`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/pad_op.h).
 We organize the code this way for two reasons: it allows you to share common
 code among the CPU and GPU implementations, and it puts the GPU implementation
 into a separate file so that it can be compiled only by the GPU compiler.
@@ -1227,16 +1227,16 @@ kept on the CPU, add a `HostMemory()` call to the kernel registration, e.g.:
 #### Compiling the kernel for the GPU device
 
 Look at
-[cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
+[cuda_op_kernel.cu.cc](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
 for an example that uses a CUDA kernel to implement an op. The
 `tf_custom_op_library` accepts a `gpu_srcs` argument in which the list of source
 files containing the CUDA kernels (`*.cu.cc` files) can be specified. For use
 with a binary installation of TensorFlow, the CUDA kernels have to be compiled
 with NVIDIA's `nvcc` compiler. Here is the sequence of commands you can use to
 compile the
-[cuda_op_kernel.cu.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
+[cuda_op_kernel.cu.cc](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/adding_an_op/cuda_op_kernel.cu.cc)
 and
-[cuda_op_kernel.cc](https://www.tensorflow.org/code/tensorflow/examples/adding_an_op/cuda_op_kernel.cc)
+[cuda_op_kernel.cc](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/adding_an_op/cuda_op_kernel.cc)
 into a single dynamically loadable library:
 
 ```bash
@@ -1361,7 +1361,7 @@ be set to the first input's shape. If the output is selected by its index as in 
 
 There are a number of common shape functions
 that apply to many ops, such as `shape_inference::UnchangedShape` which can be
-found in [common_shape_fns.h](https://www.tensorflow.org/code/tensorflow/core/framework/common_shape_fns.h) and used as follows:
+found in [common_shape_fns.h](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/common_shape_fns.h) and used as follows:
 
 ```c++
 REGISTER_OP("ZeroOut")
@@ -1408,7 +1408,7 @@ provides access to the attributes of the op).
 
 Since shape inference is an optional feature, and the shapes of tensors may vary
 dynamically, shape functions must be robust to incomplete shape information for
-any of the inputs. The `Merge` method in [`InferenceContext`](https://www.tensorflow.org/code/tensorflow/core/framework/shape_inference.h)
+any of the inputs. The `Merge` method in [`InferenceContext`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/shape_inference.h)
 allows the caller to assert that two shapes are the same, even if either
 or both of them do not have complete information. Shape functions are defined
 for all of the core TensorFlow ops and provide many different usage examples.
@@ -1433,7 +1433,7 @@ If you have a complicated shape function, you should consider adding a test for
 validating that various input shape combinations produce the expected output
 shape combinations.  You can see examples of how to write these tests in some
 our
-[core ops tests](https://www.tensorflow.org/code/tensorflow/core/ops/array_ops_test.cc).
+[core ops tests](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/ops/array_ops_test.cc).
 (The syntax of `INFER_OK` and `INFER_ERROR` are a little cryptic, but try to be
 compact in representing input and output shape specifications in tests.  For
 now, see the surrounding comments in those tests to get a sense of the shape
@@ -1446,20 +1446,20 @@ To build a `pip` package for your op, see the
 guide shows how to build custom ops from the TensorFlow pip package instead
 of building TensorFlow from source.
 
-[core-array_ops]:https://www.tensorflow.org/code/tensorflow/core/ops/array_ops.cc
-[python-user_ops]:https://www.tensorflow.org/code/tensorflow/python/user_ops/user_ops.py
-[tf-kernels]:https://www.tensorflow.org/code/tensorflow/core/kernels/
-[user_ops]:https://www.tensorflow.org/code/tensorflow/core/user_ops/
-[pad_op]:https://www.tensorflow.org/code/tensorflow/core/kernels/pad_op.cc
-[standard_ops-py]:https://www.tensorflow.org/code/tensorflow/python/ops/standard_ops.py
-[standard_ops-cc]:https://www.tensorflow.org/code/tensorflow/cc/ops/standard_ops.h
-[python-BUILD]:https://www.tensorflow.org/code/tensorflow/python/BUILD
-[validation-macros]:https://www.tensorflow.org/code/tensorflow/core/lib/core/errors.h
-[op_def_builder]:https://www.tensorflow.org/code/tensorflow/core/framework/op_def_builder.h
-[register_types]:https://www.tensorflow.org/code/tensorflow/core/framework/register_types.h
-[FinalizeAttr]:https://www.tensorflow.org/code/tensorflow/core/framework/op_def_builder.cc
-[DataTypeString]:https://www.tensorflow.org/code/tensorflow/core/framework/types.cc
-[python-BUILD]:https://www.tensorflow.org/code/tensorflow/python/BUILD
-[types-proto]:https://www.tensorflow.org/code/tensorflow/core/framework/types.proto
-[TensorShapeProto]:https://www.tensorflow.org/code/tensorflow/core/framework/tensor_shape.proto
-[TensorProto]:https://www.tensorflow.org/code/tensorflow/core/framework/tensor.proto
+[core-array_ops]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/ops/array_ops.cc
+[python-user_ops]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/user_ops/user_ops.py
+[tf-kernels]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/
+[user_ops]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/user_ops/
+[pad_op]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/kernels/pad_op.cc
+[standard_ops-py]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/standard_ops.py
+[standard_ops-cc]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/cc/ops/standard_ops.h
+[python-BUILD]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/BUILD
+[validation-macros]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/lib/core/errors.h
+[op_def_builder]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_def_builder.h
+[register_types]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/register_types.h
+[FinalizeAttr]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_def_builder.cc
+[DataTypeString]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/types.cc
+[python-BUILD]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/BUILD
+[types-proto]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/types.proto
+[TensorShapeProto]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor_shape.proto
+[TensorProto]:https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/tensor.proto

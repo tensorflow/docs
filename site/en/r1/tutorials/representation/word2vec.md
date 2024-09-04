@@ -36,7 +36,7 @@ like to get your hands dirty with the details.
 
 Image and audio processing systems work with rich, high-dimensional datasets
 encoded as vectors of the individual raw pixel-intensities for image data, or
-e.g. power spectral density coefficients for audio data. For tasks like object
+e.g., power spectral density coefficients for audio data. For tasks like object
 or speech recognition we know that all the information required to successfully
 perform the task is encoded in the data (because humans can perform these tasks
 from the raw data).  However, natural language processing systems traditionally
@@ -109,7 +109,7 @@ $$
 where \\(\text{score}(w_t, h)\\) computes the compatibility of word \\(w_t\\)
 with the context \\(h\\) (a dot product is commonly used). We train this model
 by maximizing its [log-likelihood](https://en.wikipedia.org/wiki/Likelihood_function)
-on the training set, i.e. by maximizing
+on the training set, i.e., by maximizing
 
 $$
 \begin{align}
@@ -176,7 +176,7 @@ As an example, let's consider the dataset
 We first form a dataset of words and the contexts in which they appear. We
 could define 'context' in any way that makes sense, and in fact people have
 looked at syntactic contexts (i.e. the syntactic dependents of the current
-target word, see e.g.
+target word, see e.g.,
 [Levy et al.](https://levyomer.files.wordpress.com/2014/04/dependency-based-word-embeddings-acl-2014.pdf)),
 words-to-the-left of the target, words-to-the-right of the target, etc. For now,
 let's stick to the vanilla definition and define 'context' as the window
@@ -204,7 +204,7 @@ where the goal is to predict `the` from `quick`. We select `num_noise` number
 of noisy (contrastive) examples by drawing from some noise distribution,
 typically the unigram distribution, \\(P(w)\\). For simplicity let's say
 `num_noise=1` and we select `sheep` as a noisy example. Next we compute the
-loss for this pair of observed and noisy examples, i.e. the objective at time
+loss for this pair of observed and noisy examples, i.e., the objective at time
 step \\(t\\) becomes
 
 $$J^{(t)}_\text{NEG} = \log Q_\theta(D=1 | \text{the, quick}) +
@@ -212,7 +212,7 @@ $$J^{(t)}_\text{NEG} = \log Q_\theta(D=1 | \text{the, quick}) +
 
 The goal is to make an update to the embedding parameters \\(\theta\\) to improve
 (in this case, maximize) this objective function.  We do this by deriving the
-gradient of the loss with respect to the embedding parameters \\(\theta\\), i.e.
+gradient of the loss with respect to the embedding parameters \\(\theta\\), i.e.,
 \\(\frac{\partial}{\partial \theta} J_\text{NEG}\\) (luckily TensorFlow provides
 easy helper functions for doing this!). We then perform an update to the
 embeddings by taking a small step in the direction of the gradient. When this
@@ -227,7 +227,7 @@ When we inspect these visualizations it becomes apparent that the vectors
 capture some general, and in fact quite useful, semantic information about
 words and their relationships to one another. It was very interesting when we
 first discovered that certain directions in the induced vector space specialize
-towards certain semantic relationships, e.g. *male-female*, *verb tense* and
+towards certain semantic relationships, e.g., *male-female*, *verb tense* and
 even *country-capital* relationships between words, as illustrated in the figure
 below (see also for example
 [Mikolov et al., 2013](https://www.aclweb.org/anthology/N13-1090)).
@@ -327,7 +327,7 @@ for inputs, labels in generate_batch(...):
 ```
 
 See the full example code in
-[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://www.tensorflow.org/code/tensorflow/examples/tutorials/word2vec/word2vec_basic.py).
+[tensorflow/examples/tutorials/word2vec/word2vec_basic.py](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/tutorials/word2vec/word2vec_basic.py).
 
 ## Visualizing the learned embeddings
 
@@ -341,7 +341,7 @@ t-SNE.
 Et voila! As expected, words that are similar end up clustering nearby each
 other. For a more heavyweight implementation of word2vec that showcases more of
 the advanced features of TensorFlow, see the implementation in
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py).
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.15/research/tutorials/embedding/word2vec.py).
 
 ## Evaluating embeddings: analogical reasoning
 
@@ -357,7 +357,7 @@ Download the dataset for this task from
 
 To see how we do this evaluation, have a look at the `build_eval_graph()` and
 `eval()` functions in
-[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/master/research/tutorials/embedding/word2vec.py).
+[models/tutorials/embedding/word2vec.py](https://github.com/tensorflow/models/tree/r1.15/research/tutorials/embedding/word2vec.py).
 
 The choice of hyperparameters can strongly influence the accuracy on this task.
 To achieve state-of-the-art performance on this task requires training over a

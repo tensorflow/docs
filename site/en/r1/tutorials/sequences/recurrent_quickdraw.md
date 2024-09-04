@@ -109,7 +109,7 @@ This download will take a while and download a bit more than 23GB of data.
 
 To convert the `ndjson` files to
 [TFRecord](../../api_guides/python/python_io.md#TFRecords_Format_Details) files containing
-[`tf.train.Example`](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
+[`tf.train.Example`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/example.proto)
 protos run the following command.
 
 ```shell
@@ -213,7 +213,7 @@ screen coordinates and normalize the size such that the drawing has unit height.
 
 Finally, we compute the differences between consecutive points and store these
 as a `VarLenFeature` in a
-[tensorflow.Example](https://www.tensorflow.org/code/tensorflow/core/example/example.proto)
+[tensorflow.Example](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/example/example.proto)
 under the key `ink`. In addition we store the `class_index` as a single entry
 `FixedLengthFeature` and the `shape` of the `ink` as a `FixedLengthFeature` of
 length 2.

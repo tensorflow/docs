@@ -140,13 +140,13 @@ score of 0.8.
   <img style="width:100%" src="https://www.tensorflow.org/images/grace_hopper.jpg">
 </div>
 
-Next, try it out on your own images by supplying the --image= argument, e.g.
+Next, try it out on your own images by supplying the --image= argument, e.g.,
 
 ```bash
 bazel-bin/tensorflow/examples/label_image/label_image --image=my_image.png
 ```
 
-If you look inside the [`tensorflow/examples/label_image/main.cc`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/label_image/main.cc)
+If you look inside the [`tensorflow/examples/label_image/main.cc`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/label_image/main.cc)
 file, you can find out
 how it works. We hope this code will help you integrate TensorFlow into
 your own applications, so we will walk step by step through the main functions:
@@ -164,7 +164,7 @@ training. If you have a graph that you've trained yourself, you'll just need
 to adjust the values to match whatever you used during your training process.
 
 You can see how they're applied to an image in the
-[`ReadTensorFromImageFile()`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/label_image/main.cc#L88)
+[`ReadTensorFromImageFile()`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/label_image/main.cc#L88)
 function.
 
 ```C++
@@ -334,7 +334,7 @@ The `PrintTopLabels()` function takes those sorted results, and prints them out 
 friendly way. The `CheckTopLabel()` function is very similar, but just makes sure that
 the top label is the one we expect, for debugging purposes.
 
-At the end, [`main()`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/label_image/main.cc#L252)
+At the end, [`main()`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/examples/label_image/main.cc#L252)
 ties together all of these calls.
 
 ```C++

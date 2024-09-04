@@ -34,7 +34,7 @@ This document focuses on the following layers:
 *  **Client**:
    *  Defines the computation as a dataflow graph.
    *  Initiates graph execution using a [**session**](
-      https://www.tensorflow.org/code/tensorflow/python/client/session.py).
+      https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/client/session.py).
 *  **Distributed Master**
    *  Prunes a specific subgraph from the graph, as defined by the arguments
       to Session.run().
@@ -144,8 +144,8 @@ The distributed master then ships the graph pieces to the distributed tasks.
 
 ### Code
 
-*  [MasterService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/master_service.proto)
-*  [Master interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/master_interface.h)
+*  [MasterService API definition](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/master_service.proto)
+*  [Master interface](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/distributed_runtime/master_interface.h)
 
 ## Worker Service
 
@@ -178,7 +178,7 @@ For transfers between tasks, TensorFlow uses multiple protocols, including:
 
 We also have preliminary support for NVIDIA's NCCL library for multi-GPU
 communication, see:
-[`tf.contrib.nccl`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nccl_ops.py).
+[`tf.contrib.nccl`](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/python/ops/nccl_ops.py).
 
 <img src="https://www.tensorflow.org/images/graph_send_recv.svg" alt="Partitioned Graph" width="700">
 
@@ -186,9 +186,9 @@ communication, see:
 
 ### Code
 
-*   [WorkerService API definition](https://www.tensorflow.org/code/tensorflow/core/protobuf/worker_service.proto)
-*   [Worker interface](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/worker_interface.h)
-*   [Remote rendezvous (for Send and Recv implementations)](https://www.tensorflow.org/code/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
+*   [WorkerService API definition](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/protobuf/worker_service.proto)
+*   [Worker interface](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/distributed_runtime/worker_interface.h)
+*   [Remote rendezvous (for Send and Recv implementations)](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.h)
 
 ## Kernel Implementations
 
@@ -199,7 +199,7 @@ Many of the operation kernels are implemented using Eigen::Tensor, which uses
 C++ templates to generate efficient parallel code for multicore CPUs and GPUs;
 however, we liberally use libraries like cuDNN where a more efficient kernel
 implementation is possible. We have also implemented
-[quantization](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/g3doc/performance/post_training_quantization.md), which enables
+[quantization](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/lite/g3doc/performance/post_training_quantization.md), which enables
 faster inference in environments such as mobile devices and high-throughput
 datacenter applications, and use the
 [gemmlowp](https://github.com/google/gemmlowp) low-precision matrix library to
@@ -215,4 +215,4 @@ experimental implementation of automatic kernel fusion.
 
 ### Code
 
-*   [`OpKernel` interface](https://www.tensorflow.org/code/tensorflow/core/framework/op_kernel.h)
+*   [`OpKernel` interface](https://github.com/tensorflow/tensorflow/blob/r1.15/tensorflow/core/framework/op_kernel.h)

@@ -273,7 +273,7 @@ class TocBuilder:
       api_node: The node to evaluate.
 
     Returns:
-      True if depreacted else False.
+      True if deprecated else False.
     """
     if doc_controls.is_deprecated(api_node.py_object):
       return True

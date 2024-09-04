@@ -68,4 +68,4 @@ implement common ML algorithms. See the
 * [Boosted trees](./estimators/boosted_trees.ipynb)
 * [Gradient Boosted Trees: Model understanding](./estimators/boosted_trees_model_understanding.ipynb)
 * [Build a Convolutional Neural Network using Estimators](./estimators/cnn.ipynb)
-* [Wide and deep learning with Estimators](https://github.com/tensorflow/models/tree/master/official/r1/wide_deep)
+* [Wide and deep learning with Estimators](https://github.com/tensorflow/models/tree/r1.15/official/r1/wide_deep)

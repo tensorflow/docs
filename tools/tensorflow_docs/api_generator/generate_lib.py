@@ -15,11 +15,11 @@
 """Generate tensorflow.org style API Reference docs for a Python module."""
 
 import collections
+import logging
 import os
 import pathlib
 import shutil
 import tempfile
-
 from typing import Any, Optional, Sequence, Type, Union
 
 from tensorflow_docs.api_generator import config
@@ -29,11 +29,8 @@ from tensorflow_docs.api_generator import public_api
 from tensorflow_docs.api_generator import reference_resolver as reference_resolver_lib
 from tensorflow_docs.api_generator import toc as toc_lib
 from tensorflow_docs.api_generator import traverse
-
 from tensorflow_docs.api_generator.pretty_docs import docs_for_object
-
 from tensorflow_docs.api_generator.report import utils
-
 import yaml
 
 # Used to add a collections.OrderedDict representer to yaml so that the
@@ -41,6 +38,9 @@ import yaml
 # Reference: https://stackoverflow.com/a/21048064
 # Using a normal dict doesn't preserve the order of the input dictionary.
 _mapping_tag = yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG
+
+# To see the logs pass: --logger_levels=tensorflow_docs:DEBUG --alsologtostderr
+_LOGGER = logging.getLogger(__name__)
 
 
 def dict_representer(dumper, data):
@@ -121,6 +121,9 @@ def write_docs(
   # Parse and write Markdown pages, resolving cross-links (`tf.symbol`).
   num_docs_output = 0
   for api_node in parser_config.api_tree.iter_nodes():
+    _LOGGER.debug('generate_lib.write_docs')
+    _LOGGER.debug('  full_name: %s', api_node.full_name)
+
     full_name = api_node.full_name
 
     if api_node.output_type() is api_node.OutputType.FRAGMENT:
@@ -391,7 +394,6 @@ class DocGenerator:
         public_api.FailIfNestedTooDeep(10),
         public_api.filter_module_all,
         public_api.add_proto_fields,
-        public_api.filter_builtin_modules,
         public_api.filter_private_symbols,
         public_api.FilterBaseDirs(self._base_dir),
         public_api.FilterPrivateMap(self._private_map),
