@@ -46,7 +46,8 @@ from tensorflow_docs.tools.nblint.decorator import Options
 # Acceptable copyright heading for notebooks following this style.
 copyrights_re = [
     r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
-    r"Copyright 20[1-9][0-9] Google"
+    r"Copyright 20[1-9][0-9] Google",
+    r"Copyright 20[1-9][0-9] The AI Edge Authors"
 ]
 
 
