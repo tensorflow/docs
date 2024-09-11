@@ -117,8 +117,8 @@ Note: It is easier to set up one of TensorFlow's GPU-enabled [Docker images](#do
 
 ### Download the TensorFlow source code
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}:
+Use [Git](https://git-scm.com/) to clone the
+[TensorFlow repository](https://github.com/tensorflow/tensorflow):
 
 <pre class="devsite-click-to-copy">
 <code class="devsite-terminal">git clone https://github.com/tensorflow/tensorflow.git</code>
@@ -126,7 +126,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also check out a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases)
 to build:
 
 <pre class="devsite-terminal prettyprint lang-bsh">
@@ -211,6 +211,13 @@ Preconfigured Bazel build configs to DISABLE default on features:
 
 #### GPU support
 
+##### from v.2.18.0
+For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
+versions of CUDA and cuDNN if required. Bazel will download CUDA and CUDNN
+packages automatically or point to CUDA/CUDNN/NCCL redistributions on local file
+system if required.
+
+##### before v.2.18.0
 For [GPU support](./pip.md), set `cuda=Y` during configuration and specify the
 versions of CUDA and cuDNN. If your system has multiple versions of CUDA or
 cuDNN installed, explicitly set the version instead of relying on the default.
@@ -223,7 +230,7 @@ building.
 For compilation optimization flags, the default (`-march=native`) optimizes the
 generated code for your machine's CPU type. However, if building TensorFlow for
 a different CPU type, consider a more specific optimization flag. Check the
-[GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html){:.external}
+[GCC manual](https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html)
 for examples.
 
 #### Preconfigured configurations
@@ -235,7 +242,7 @@ There are some preconfigured build configs available that can be added to the
     [CONTRIBUTING.md](https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md)
     for details.
 *   `--config=mkl` —Support for the
-    [Intel® MKL-DNN](https://github.com/intel/mkl-dnn){:.external}.
+    [Intel® MKL-DNN](https://github.com/intel/mkl-dnn).
 *   `--config=monolithic` —Configuration for a mostly static, monolithic build.
 
 
@@ -266,7 +273,7 @@ bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflo
 
 To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
 </pre>
 
 To build tensorflow TPU package:
@@ -303,7 +310,7 @@ TensorFlow's Docker development images are an easy way to set up an environment
 to build Linux packages from source. These images already contain the source
 code and dependencies required to build TensorFlow. Go to the TensorFlow
 [Docker guide](./docker.md) for installation instructions and the
-[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/){:.external}.
+[list of available image tags](https://hub.docker.com/r/tensorflow/tensorflow/tags/).
 
 ### CPU-only
 
@@ -370,12 +377,15 @@ On your host machine, the TensorFlow *pip* package is in the current directory
 
 ### GPU support
 
+Note: Starting from Tensorflow v.2.18.0 the wheels can be built from
+source on a machine without GPUs and without NVIDIA driver installed.
+
 Docker is the easiest way to build GPU support for TensorFlow since the *host*
 machine only requires the
-[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver){:.external}
+[NVIDIA®&nbsp;driver](https://github.com/NVIDIA/nvidia-docker/wiki/Frequently-Asked-Questions#how-do-i-install-the-nvidia-driver)
 (the *NVIDIA® CUDA® Toolkit* doesn't have to be installed). Refer to the
 [GPU support guide](./pip.md) and the TensorFlow [Docker guide](./docker.md) to
-set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker){:.external}
+set up [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 (Linux only).
 
 The following example downloads the TensorFlow `:devel-gpu` image and uses
@@ -395,7 +405,7 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel --config=opt</code>
 
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
@@ -422,6 +432,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
@@ -461,6 +472,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.7</td><td>11.8</td></tr>
@@ -502,7 +514,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
-<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang from xcode 13.6</td><td>Bazel 6.5.0</td></tr>
+<tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang from Xcode 13.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.13.0</td><td>3.8-3.11</td><td>Clang from xcode 10.15</td><td>Bazel 5.3.0</td></tr>

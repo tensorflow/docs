@@ -13,7 +13,7 @@ environment.
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.9+ 64-bit release for Windows](https://www.python.org/downloads/windows/){:.external}.
+[Python 3.9+ 64-bit release for Windows](https://www.python.org/downloads/windows/).
 Select *pip* as an optional feature and add it to your `%PATH%` environmental
 variable.
 
@@ -42,7 +42,7 @@ Add the location of the Bazel executable to your `%PATH%` environment variable.
 
 ### Install MSYS2
 
-[Install MSYS2](https://www.msys2.org/){:.external} for the bin tools needed to
+[Install MSYS2](https://www.msys2.org/) for the bin tools needed to
 build TensorFlow. If MSYS2 is installed to `C:\msys64`, add
 `C:\msys64\usr\bin` to your `%PATH%` environment variable. Then, using `cmd.exe`,
 run:
@@ -63,7 +63,7 @@ Install the *Visual C++ build tools 2022*. This comes with *Visual Studio Commun
 but can be installed separately:
 
 1.  Go to the
-    [Visual Studio downloads](https://visualstudio.microsoft.com/downloads/){:.external},
+    [Visual Studio downloads](https://visualstudio.microsoft.com/downloads/),
 2.  Select *Tools for Visual Studio or Other Tools, Framework and Redistributables*,
 3.  Download and install:
     -   *Build Tools for Visual Studio 2022*
@@ -74,7 +74,7 @@ Note: TensorFlow is tested against the *Visual Studio Community 2022*.
 ### Install LLVM
 
 1.  Go to the
-    [LLVM downloads](https://github.com/llvm/llvm-project/releases/){:.external},
+    [LLVM downloads](https://github.com/llvm/llvm-project/releases/),
 2.  Download and install Windows-compatible LLVM in C:/Program Files/LLVM e.g., LLVM-17.0.6-win64.exe
 
 
@@ -87,8 +87,8 @@ Note: GPU support on native-Windows is only available for 2.10 or earlier versio
 
 ### Download the TensorFlow source code
 
-Use [Git](https://git-scm.com/){:.external} to clone the
-[TensorFlow repository](https://github.com/tensorflow/tensorflow){:.external}
+Use [Git](https://git-scm.com/) to clone the
+[TensorFlow repository](https://github.com/tensorflow/tensorflow)
 (`git` is installed with MSYS2):
 
 <pre class="devsite-click-to-copy">
@@ -97,7 +97,7 @@ Use [Git](https://git-scm.com/){:.external} to clone the
 </pre>
 
 The repo defaults to the `master` development branch. You can also check out a
-[release branch](https://github.com/tensorflow/tensorflow/releases){:.external}
+[release branch](https://github.com/tensorflow/tensorflow/releases)
 to build:
 
 <pre class="devsite-terminal tfo-terminal-windows prettyprint lang-bsh">
@@ -341,6 +341,7 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>CLANG 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>CLANG 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>MSVC 2019</td><td>Bazel 6.1.0</td></tr>
 <tr><td>tensorflow-2.14.0</td><td>3.9-3.11</td><td>MSVC 2019</td><td>Bazel 6.1.0</td></tr>
