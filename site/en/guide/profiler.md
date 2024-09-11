@@ -55,7 +55,7 @@ found.
 When you run profiling with CUDA® Toolkit in a Docker environment or on Linux,
 you may encounter issues related to insufficient CUPTI privileges
 (`CUPTI_ERROR_INSUFFICIENT_PRIVILEGES`). Go to the
-[NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters){:.external}
+[NVIDIA Developer Docs](https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters)
 to learn more about how you can resolve these issues on Linux.
 
 To resolve CUPTI privilege issues in a Docker environment, run

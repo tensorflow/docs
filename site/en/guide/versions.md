@@ -59,7 +59,7 @@ patch versions.  The public APIs consist of
 
 *   The TensorFlow C API:
 
-    *   [tensorflow/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h))
+    *   [tensorflow/c/c_api.h](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/c/c_api.h)
 
 *   The following protocol buffer files:
 

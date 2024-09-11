@@ -92,15 +92,20 @@ def _get_raw_docstring(py_object):
   obj_type = obj_type_lib.ObjType.get(py_object)
 
   if obj_type is obj_type_lib.ObjType.TYPE_ALIAS:
-    if inspect.getdoc(py_object) != inspect.getdoc(py_object.__origin__):
-      result = inspect.getdoc(py_object)
-    else:
+    result = inspect.getdoc(py_object)
+    if result == inspect.getdoc(py_object.__origin__):
       result = ''
   elif obj_type is obj_type_lib.ObjType.CLASS:
     if dataclasses.is_dataclass(py_object):
       result = _get_dataclass_docstring(py_object)
     else:
       result = inspect.getdoc(py_object) or ''
+      if (
+          result == inspect.getdoc(dict)
+          or result == inspect.getdoc(list)
+          or result == inspect.getdoc(tuple)
+      ):
+        result = ''
   elif obj_type is obj_type_lib.ObjType.OTHER:
     result = ''
   else:
