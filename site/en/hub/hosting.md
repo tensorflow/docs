@@ -170,5 +170,6 @@ to the model URL. That request returns the path to the folder on GCS that
 contains the uncompressed model files. As an example, \
 `https://tfhub.dev/google/spice/2?tf-hub-format=uncompressed` \
 returns \
-`gs://tfhub-modules/google/spice/2/uncompressed` in the body of the 303
-response. The library then reads the model from that GCS destination.
+`gs://kaggle-tfhub-models-uncompressed/tfhub-modules/google/spice/2/uncompressed`
+in the body of the 303 response. The library then reads the model from that GCS
+destination.
