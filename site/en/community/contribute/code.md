@@ -2,7 +2,7 @@
 
 Whether you are adding a loss function, improving test coverage, or writing an
 RFC for a major design change, this portion of the contributor guide will help
-you get started. Thank you for work and interest in improving TensorFlow.
+you get started. Thank you for your work and interest in improving TensorFlow.
 
 ## Before you get started
 
