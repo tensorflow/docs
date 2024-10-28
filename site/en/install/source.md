@@ -432,6 +432,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.18.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td></tr>
@@ -472,6 +473,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.18.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>9.3</td><td>12.5</td></tr>
 <tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.15.0</td><td>3.9-3.11</td><td>Clang 16.0.0</td><td>Bazel 6.1.0</td><td>8.9</td><td>12.2</td></tr>
