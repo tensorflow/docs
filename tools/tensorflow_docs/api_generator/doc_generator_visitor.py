@@ -170,7 +170,7 @@ class DocGeneratorVisitor(object):
     This object accumulates the various data-structures necessary to build the
     docs, including (see the property definitions for details.):
 
-    In the decsription below "main name" is the object's preferred fully
+    In the description below "main name" is the object's preferred fully
     qualified name.
 
     Params:
