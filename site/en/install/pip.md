@@ -70,6 +70,10 @@ step-by-step instructions.
     for CUDA in WSL.
 
     ```bash
+    # Windows WSL2 with Ubuntu 24.04 or later adheres to PEP 668, requiring users to manage their Python environments independently.
+    sudo apt install python3-venv
+    python3 -m venv ~/tf
+    source ~/tf/bin/activate
     python3 -m pip install tensorflow[and-cuda]
     # Verify the installation:
     python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
