@@ -23,7 +23,6 @@ from setuptools import setup
 
 project_name = 'tensorflow-docs'
 
-
 def get_version() -> str:
   ts = int(
       subprocess.check_output(['git', 'log', '-1', '--format=%ct', 'tools'])
@@ -35,7 +34,6 @@ def get_version() -> str:
 
   # calver.org
   return f'{dt.year}.{dt.month}.{dt.day}.{sec}'
-
 
 version = get_version()
 
