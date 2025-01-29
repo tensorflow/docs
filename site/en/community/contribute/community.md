@@ -1,6 +1,6 @@
 # Contribute to the TensorFlow community
 
-An open source project isn't just about the code, it's also about the community of users, developers, writers, researchers, and other contributors. You can help grow and support this community.
+An open source project isn't just about the code; it's also about the community of users, developers, writers, researchers, and other contributors. You can help grow and support this community.
 
 Please read the TensorFlow [Code and Collaboration governance](https://github.com/tensorflow/community/blob/master/governance/code-and-collaboration.md).
 
@@ -34,7 +34,7 @@ The primary communication about work on TensorFlow happens in the [TensorFlow re
 
 ### Mailing lists
 
-Most communication happens on the TensorFlow Forum. The following mailing lists are still used for announcements and contributor conversations. Note that they are not intended to provide technical support.
+Most of the communication happens on the TensorFlow Forum. The following mailing lists are still used for announcements and contributor conversations. Note that they are not intended to provide technical support.
 
 *   [announce@tensorflow.org](mailto:announce@tensorflow.org) — All major releases and important announcements are sent to this mailing group. We recommend that you join this list if you depend on TensorFlow in any way.
 *   [developers@tensorflow.org](mailto:developers@tensorflow.org) — Discussion for developers who are contributing to TensorFlow.
@@ -43,7 +43,7 @@ For more information on project-specific communication, visit the [Contribute to
 
 ### Blog and social media
 
-The [TensorFlow Blog](http://blog.tensorflow.org/) is full of great content both from our team at Google and the broader community. We'd love to hear what you have to say, so if you would like to submit an article for review, please contact us at tensorflow-blog@google.com. Note that we receive many great submissions, and setting expectations, we can only publish a few.
+The [TensorFlow Blog](http://blog.tensorflow.org/) is full of great content both from our team at Google and the broader community. We'd love to hear what you have to say, so if you would like to submit an article for review, please contact us at tensorflow-blog@google.com. Note that we receive many great submissions, and set expectations, we can only publish a few.
 
 On [Twitter](https://twitter.com/tensorflow) we share the latest and greatest from our community, and our [YouTube channel](https://www.youtube.com/tensorflow) has free educational content to help you create, understand and deploy models for a variety of applications.
 
