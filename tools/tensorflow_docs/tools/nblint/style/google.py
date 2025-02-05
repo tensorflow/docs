@@ -65,7 +65,7 @@ def inclusive_language(args):
   found_words = search_wordlist(_INCLUSIVE_WORDLIST, args["cell_source"])
   if found_words:
     words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
-    fail(f"Use inclusive language where possible and accurate. Found: {words}")
+    fail(f"Use inclusive language where possible and accurate. Found: {words} in {args['cell_source']}")
   else:
     return True
 
@@ -82,6 +82,6 @@ def second_person(args):
   found_words = search_wordlist(_SECOND_PERSON_WORDLIST, args["cell_source"])
   if found_words:
     words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
-    fail(f"Prefer second person instead of first person. Found: {words}")
+    fail(f"Prefer second person instead of first person. Found: {words} in {args['cell_source']}")
   else:
     return True
