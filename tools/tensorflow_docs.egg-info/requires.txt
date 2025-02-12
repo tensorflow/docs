@@ -1,0 +1,11 @@
+astor
+absl-py
+jinja2
+nbformat
+protobuf>=3.12
+pyyaml
+
+[vis]
+numpy
+PILLOW
+webp

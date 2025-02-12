@@ -1,0 +1,26 @@
+{% extends "templates/page.jinja" %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block metadata %}
+{{ builder.top_source_link() }}
+
+{{ page_info.doc.brief }}
+
+{% if page_info.header %}
+
+
+{{ page_info.header -}}
+{% endif %}
+
+{{ builder.build_collapsable_aliases() -}}
+{% endblock metadata %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block body %}
+{% if page_info.signature %}
+{{ builder.build_signature() }}
+{% endif %}
+{{ super() -}}
+{% endblock %}
