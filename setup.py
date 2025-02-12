@@ -34,7 +34,7 @@ def get_version() -> str:
   sec = 60 * 60 * dt.hour + 60 * dt.minute + dt.second
 
   # calver.org
-  return f'{dt.year}.{dt.month}.{dt.day}.{sec}'
+  return f'{dt.year}.{dt.month:02d}.{dt.day:02d}.{sec}'
 
 
 version = get_version()
@@ -84,3 +84,6 @@ setup(
     #   https://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
 )
+
+if __name__ == '__main__':
+  sys.exit(setup(**setup_args))  # pylint: disable=no-value-for-parameter   # pylint: disable=unexpected-keyword-arg    # pylint: disable=unexpected-keyword-arg
