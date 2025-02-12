@@ -25,16 +25,16 @@ project_name = 'tensorflow-docs'
 
 
 def get_version() -> str:
-  ts = int(
-      subprocess.check_output(['git', 'log', '-1', '--format=%ct', 'tools'])
-      .decode('utf-8')
-      .strip()
-  )
-  dt = datetime.datetime.utcfromtimestamp(ts)
-  sec = 60 * 60 * dt.hour + 60 * dt.minute + dt.second
+    ts = int(
+        subprocess.check_output(['git', 'log', '-1', '--format=%ct', 'tools'])
+        .decode('utf-8')
+        .strip()
+    )
+    dt = datetime.datetime.utcfromtimestamp(ts)
+    sec = 60 * 60 * dt.hour + 60 * dt.minute + dt.second
 
-  # calver.org
-  return f'{dt.year}.{dt.month:02d}.{dt.day:02d}.{sec}'
+    # calver.org
+    return f'{dt.year}.{dt.month:02d}.{dt.day:02d}.{sec}'
 
 
 version = get_version()
@@ -49,7 +49,6 @@ REQUIRED_PKGS = [
     'protobuf>=3.12',
     'pyyaml',
     'your-api-package',  # gen-lang-client-0687697258
-
 ]
 
 VIS_REQUIRE = [
@@ -82,10 +81,8 @@ setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
     ],
     keywords='tensorflow api reference',
-    # Include_package_data is required for setup.py to recognize the MANIFEST.in
-    #   https://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
 )
 
 if __name__ == '__main__':
-  sys.exit(setup(**setup_args))  # pylint: disable=no-value-for-parameter   # pylint: disable=unexpected-keyword-arg    # pylint: disable=unexpected-keyword-arg
+    setup()  # pylint: disable=no-value-for-parameter   # pylint: disable=unexpected-keyword-arg
