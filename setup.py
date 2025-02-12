@@ -48,6 +48,8 @@ REQUIRED_PKGS = [
     'nbformat',
     'protobuf>=3.12',
     'pyyaml',
+    'your-api-package',  # gen-lang-client-0687697258
+
 ]
 
 VIS_REQUIRE = [

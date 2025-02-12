@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.2
 Name: tensorflow-docs
-Version: 2025.2.12.60881
+Version: 2025.2.12.82802
 Summary: tensorflow_docs is a package for generating python api-reference docs.
 Home-page: http://github.com/tensorflow/docs
 Download-URL: https://github.com/tensorflow/docs/tags
@@ -13,6 +13,27 @@ Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Requires-Python: >=3.9
-Provides-Extra: vis
 License-File: LICENSE
 License-File: AUTHORS
+Requires-Dist: astor
+Requires-Dist: absl-py
+Requires-Dist: jinja2
+Requires-Dist: nbformat
+Requires-Dist: protobuf>=3.12
+Requires-Dist: pyyaml
+Requires-Dist: your-api-package
+Provides-Extra: vis
+Requires-Dist: numpy; extra == "vis"
+Requires-Dist: PILLOW; extra == "vis"
+Requires-Dist: webp; extra == "vis"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

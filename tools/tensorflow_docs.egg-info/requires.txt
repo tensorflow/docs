@@ -4,6 +4,7 @@ jinja2
 nbformat
 protobuf>=3.12
 pyyaml
+your-api-package
 
 [vis]
 numpy
