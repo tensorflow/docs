@@ -87,7 +87,7 @@ repository than TensorFlow.
 Because of this, we use a different version number for TensorFlow Lite
 (`TFLITE_VERSION_STRING` in `tensorflow/lite/version.h`, and `TfLiteVersion()`
 in `tensorflow/lite/c/c_api.h`) than for TensorFlow (`TF_VERSION_STRING` in
-`tensorflow/core/public/version.h`, and `TF_Version()` in
+`tensorflow/core/public/release_version.h`, and `TF_Version()` in
 `tensorflow/c/c_api.h`). Currently, these two version numbers happen to have the
 same value. But in future, they may diverge; for example, we may increment the
 major version number for TensorFlow Lite without incrementing the major version
@@ -369,7 +369,9 @@ guidelines for evolving `GraphDef` versions.
 There are different data versions for graphs and checkpoints. The two data
 formats evolve at different rates from each other and also at different rates
 from TensorFlow. Both versioning systems are defined in
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h).
+[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h)
+and
+[`core/public/release_version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/release_version.h).
 Whenever a new version is added, a note is added to the header detailing what
 changed and the date.
 
