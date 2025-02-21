@@ -6,10 +6,11 @@ to modify TensorFlow while preserving compatibility.
 
 ## Semantic versioning 2.0
 
-TensorFlow follows Semantic Versioning 2.0 ([semver](http://semver.org)) for its
-public API. Each release version of TensorFlow has the form `MAJOR.MINOR.PATCH`.
-For example, TensorFlow version 1.2.3 has `MAJOR` version 1, `MINOR` version 2,
-and `PATCH` version 3. Changes to each number have the following meaning:
+TensorFlow mostly follows Semantic Versioning 2.0 ([semver](http://semver.org))
+for its public API. Each release version of TensorFlow has the form
+`MAJOR.MINOR.PATCH`. For example, TensorFlow version 1.2.3 has `MAJOR` version
+1, `MINOR` version 2, and `PATCH` version 3. Changes to each number have the
+following meaning:
 
 * **MAJOR**:  Potentially backwards incompatible changes.  Code and data that
   worked with a previous major release will not necessarily work with the new
@@ -22,6 +23,10 @@ and `PATCH` version 3. Changes to each number have the following meaning:
   data that worked with a previous minor release *and* which depends only on the
   non-experimental public API will continue to work unchanged.  For details on
   what is and is not the public API, see [What is covered](#what_is_covered).
+  Note that TensorFlow sometimes makes breaking changes in new minor releases,
+  where the impact is expected to be minor. For examples of these kinds of
+  changes, see the "Breaking Changes" sections for past minor releases at
+  https://github.com/tensorflow/tensorflow/releases.
 
 * **PATCH**: Backwards compatible bug fixes.
 
