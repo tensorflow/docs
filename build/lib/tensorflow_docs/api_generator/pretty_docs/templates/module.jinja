@@ -1,0 +1,100 @@
+{% extends "templates/page.jinja" %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block header %}
+{{ builder.get_devsite_headers() }}
+# Module: {{page_info.full_name}}
+
+<!-- Insert buttons and diff -->
+{% endblock header%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block body %}
+{{ builder.top_compat() -}}
+
+  {% for part in page_info.doc.docstring_parts %}
+    {{- builder.format_docstring_part(part) -}}
+  {% endfor %}
+{{ builder.bottom_compat() }}
+
+{{ self.modules() }}
+{{- self.classes() }}
+{{- self.functions() }}
+{{- self.type_aliases() }}
+{{- self.other_members() -}}
+{% endblock body %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block modules %}
+{%- if page_info.modules %}
+## Modules
+
+  {% for module in page_info.modules %}
+    {%if module.doc.brief%}
+[`{{module.short_name}}`]({{module.url}}) module: {{module.doc.brief}}
+    {%else%}
+[`{{module.short_name}}`]({{module.url}}) module
+    {%endif%}
+
+  {% endfor %}
+{% endif -%}
+{% endblock modules  %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block classes %}
+{%- if page_info.classes %}
+## Classes
+
+  {% for cls in page_info.classes %}
+    {%if cls.doc.brief%}
+[`class {{cls.short_name}}`]({{cls.url}}): {{cls.doc.brief}}
+    {%else%}
+[`class {{cls.short_name}}`]({{cls.url}})
+    {%endif%}
+
+  {% endfor %}
+{% endif -%}
+{% endblock classes%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block functions %}
+{%- if page_info.functions -%}
+## Functions
+
+  {% for fun in page_info.functions %}
+    {%if fun.doc.brief%}
+[`{{fun.short_name}}(...)`]({{fun.url}}): {{fun.doc.brief}}
+    {%else%}
+[`{{fun.short_name}}(...)`]({{fun.url}})
+    {%endif%}
+
+  {% endfor %}
+{% endif -%}
+{% endblock functions%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block type_aliases %}
+{%- if page_info.type_alias -%}
+## Type Aliases
+
+  {% for alias in page_info.type_alias %}
+[`{{alias.short_name}}`]({{alias.url}})
+
+  {% endfor %}
+{% endif -%}
+{% endblock type_aliases%}
+
+{#----------------------------------------------------------------------------#}
+
+{% block other_members %}
+{%- if page_info.other_members -%}
+{{ builder.build_other_member_section() }}
+{% endif %}
+{% endblock other_members%}
+

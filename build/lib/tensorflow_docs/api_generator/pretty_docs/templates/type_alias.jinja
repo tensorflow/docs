@@ -1,0 +1,20 @@
+{% extends "templates/page.jinja" %}
+
+
+{% block metadata %}
+This symbol is a **type alias**.
+
+{{ page_info.doc.brief }}
+
+{% endblock metadata %}
+
+{#----------------------------------------------------------------------------#}
+
+{% block body %}
+{% if page_info.signature %}
+#### Source:
+
+{{ builder.build_signature() }}
+{% endif %}
+{{ super() -}}
+{% endblock %}
