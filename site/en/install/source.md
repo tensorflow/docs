@@ -39,7 +39,7 @@ environment, omit the `--user` argument):
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2 `.whl`
 package. Additional required dependencies are listed in the
-<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py.tpl" class="external"><code>setup.py.tpl</code></a>
 file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
