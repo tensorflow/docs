@@ -2,7 +2,7 @@
 
 Whether you are adding a loss function, improving test coverage, or writing an
 RFC for a major design change, this portion of the contributor guide will help
-you get started. Thank you for your work and interest in improving TensorFlow.
+you get started. Thank you for your contributions and interest in improving TensorFlow.
 
 ## Before you get started
 
@@ -24,10 +24,10 @@ project is to work on known issues.
 ## Issues for new contributors
 
 New contributors should look for the following tags when searching for a first
-contribution to the TensorFlow code base. We strongly recommend that new
+contribution to the TensorFlow codebase. We strongly recommend that new
 contributors tackle “good first issue” and "contributions welcome" projects
-first; this helps the contributor become familiar with the contribution
-workflow, and for the core devs to become acquainted with the contributor.
+first. this helps the contributor become familiar with the contribution
+workflow, and allows core developers to get to know them.
 
 -   [good first issue](https://github.com/tensorflow/tensorflow/labels/good%20first%20issue)
 -   [contributions welcome](https://github.com/tensorflow/tensorflow/labels/stat%3Acontributions%20welcome)
@@ -60,7 +60,7 @@ Here are some questions to keep in mind during the code review process:
 
 ## Test and improve test coverage
 
-High-quality unit testing is a corner-stone of the TensorFlow development
+High-quality unit testing is a cornerstone of the TensorFlow development
 process. For this purpose, we use Docker images. The test functions are
 appropriately named, and are responsible for checking the validity of algorithms
 as well as different options of the code.
@@ -73,7 +73,7 @@ currently causing a bug — please file an issue and, if possible, a pull reques
 For the specific details of testing procedures in each TensorFlow project, see
 the `README.md` and `CONTRIBUTING.md` files in the project repo on GitHub.
 
-Of particular concerns in *adequate testing*:
+Of particular concern in *adequate testing*:
 
 *   Is *every public function and class* tested?
 *   Are a *reasonable set of parameters*, their values, value types, and
