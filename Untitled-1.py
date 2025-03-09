@@ -16,6 +16,8 @@
 
 import datetime
 import subprocess
+import pathlib
+import sys
 
 from setuptools import find_packages
 from setuptools import setup
@@ -23,10 +25,14 @@ from setuptools import setup
 project_name = 'tensorflow-docs'
 
 
-def get_version() -> str:
-    ts = int(
-        subprocess.check_output(['git', 'log', '-1', '--format=%ct', 'tools'])
-        .decode('utf-8')
+def get_version():
+    try:
+        ts = int(
+            subprocess.check_output(['git', 'log', '-1', '--format=%ct',
+                                     pathlib.Path(__file__).parent])
+            .decode('utf-8')
+            .strip()
+        )
         .strip()
     )
     dt = datetime.datetime.utcfromtimestamp(ts)
