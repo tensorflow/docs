@@ -130,7 +130,7 @@ lspci | grep -i nvidia
 Verify your `nvidia-docker` installation:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 </pre>
 
 Note: `nvidia-docker` v2 uses `--runtime=nvidia` instead of `--gpus all`. `nvidia-docker` v1 uses the `nvidia-docker` alias, 
