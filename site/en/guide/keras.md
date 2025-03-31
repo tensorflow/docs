@@ -77,14 +77,14 @@ The `tf.keras.Model` class features built-in training and evaluation methods:
 
 These methods give you access to the following built-in training features:
 
-* [Callbacks](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks).
+* [Callbacks](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks):
   You can leverage built-in callbacks for early stopping, model checkpointing,
   and [TensorBoard](https://www.tensorflow.org/tensorboard) monitoring. You can
   also
   [implement custom callbacks](https://www.tensorflow.org/guide/keras/writing_your_own_callbacks).
-* [Distributed training](https://www.tensorflow.org/guide/keras/distributed_training).
+* [Distributed training](https://www.tensorflow.org/guide/keras/distributed_training):
   You can easily scale up your training to multiple GPUs, TPUs, or devices.
-* Step fusing. With the `steps_per_execution` argument in
+* [Step fusing](https://www.tensorflow.org/api_docs/python/tf/keras/Model#compile): With the `steps_per_execution` argument in
   `tf.keras.Model.compile`, you can process multiple batches in a single
   `tf.function` call, which greatly improves device utilization on TPUs.
 
