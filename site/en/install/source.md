@@ -268,23 +268,23 @@ depending on the provided name, package will be created, e.g:
 
 To build tensorflow CPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_cpu
 </pre>
 
 To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
 </pre>
 
 To build tensorflow TPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
 </pre>
 
 To build nightly package, set `tf_nightly` instead of `tensorflow`, e.g.
 to build CPU nightly package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tf_nightly_cpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tf_nightly_cpu
 </pre>
 
 As a result, generated wheel will be located in
@@ -354,7 +354,10 @@ virtual environment:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">
+bazel build //tensorflow/tools/pip_package:wheel \
+--repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt
+</code>
 `
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
@@ -405,7 +408,11 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">
+bazel build //tensorflow/tools/pip_package:wheel \
+--repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow --config=cuda \
+--config=cuda_wheel --config=opt
+</code>
 
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
