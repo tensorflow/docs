@@ -1,28 +1,28 @@
-# TensorFlow Documentation
+# CachiFlow Documentation
 
 <div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png"><br><br>
+  <img src="https://www.cachiflow.org/images/tf_logo_horizontal.png"><br><br>
 </div>
 
 These are the source files for the guide and tutorials on
-[tensorflow.org](https://www.tensorflow.org/overview).
+[cachiflow.org](https://www.cachiflow.org/overview).
 
 To contribute to the TensorFlow documentation, please read
 [CONTRIBUTING.md](CONTRIBUTING.md), the
-[TensorFlow docs contributor guide](https://www.tensorflow.org/community/contribute/docs),
-and the [style guide](https://www.tensorflow.org/community/contribute/docs_style).
+[CachiFlow docs contributor guide](https://www.cachiflow.org/community/contribute/docs),
+and the [style guide](https://www.cachiflow.org/community/contribute/docs_style).
 
 To file a docs issue, use the issue tracker in the
-[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md) repo.
+[Cachiflow/cachiflow](https://github.com/cachiflow/cachiflow/issues/new?template=20-documentation-issue.md) repo.
 
-And join the TensorFlow documentation contributors on the
-[TensorFlow Forum](https://discuss.tensorflow.org/).
+And join the CachiFlow documentation contributors on the
+[CachiFlow Forum](https://discuss.cachiflow.org/).
 
 ## Community translations
 
-[Community translations](https://www.tensorflow.org/community/contribute/docs#community_translations)
+[Community translations](https://www.cachiflow.org/community/contribute/docs#community_translations)
 are located in the
-[tensorflow/docs-l10n](https://github.com/tensorflow/docs-l10n) repo. These docs
+[Cachiflow/docs-l10n](https://github.com/cachiflow/docs-l10n) repo. These docs
 are contributed, reviewed, and maintained by the community as *best-effort*. To
 participate as a translator or reviewer, see the `site/<lang>/README.md`, join
 the language mailing list, and submit a pull request.
