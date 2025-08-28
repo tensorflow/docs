@@ -6,10 +6,11 @@ to modify TensorFlow while preserving compatibility.
 
 ## Semantic versioning 2.0
 
-TensorFlow follows Semantic Versioning 2.0 ([semver](http://semver.org)) for its
-public API. Each release version of TensorFlow has the form `MAJOR.MINOR.PATCH`.
-For example, TensorFlow version 1.2.3 has `MAJOR` version 1, `MINOR` version 2,
-and `PATCH` version 3. Changes to each number have the following meaning:
+TensorFlow mostly follows Semantic Versioning 2.0 ([semver](http://semver.org))
+for its public API. Each release version of TensorFlow has the form
+`MAJOR.MINOR.PATCH`. For example, TensorFlow version 1.2.3 has `MAJOR` version
+1, `MINOR` version 2, and `PATCH` version 3. Changes to each number have the
+following meaning:
 
 * **MAJOR**:  Potentially backwards incompatible changes.  Code and data that
   worked with a previous major release will not necessarily work with the new
@@ -22,6 +23,10 @@ and `PATCH` version 3. Changes to each number have the following meaning:
   data that worked with a previous minor release *and* which depends only on the
   non-experimental public API will continue to work unchanged.  For details on
   what is and is not the public API, see [What is covered](#what_is_covered).
+  Note that TensorFlow sometimes makes breaking changes in new minor releases,
+  where the impact is expected to be minor. For examples of these kinds of
+  changes, see the "Breaking Changes" sections for past minor releases at
+  https://github.com/tensorflow/tensorflow/releases.
 
 * **PATCH**: Backwards compatible bug fixes.
 
@@ -87,7 +92,7 @@ repository than TensorFlow.
 Because of this, we use a different version number for TensorFlow Lite
 (`TFLITE_VERSION_STRING` in `tensorflow/lite/version.h`, and `TfLiteVersion()`
 in `tensorflow/lite/c/c_api.h`) than for TensorFlow (`TF_VERSION_STRING` in
-`tensorflow/core/public/version.h`, and `TF_Version()` in
+`tensorflow/core/public/release_version.h`, and `TF_Version()` in
 `tensorflow/c/c_api.h`). Currently, these two version numbers happen to have the
 same value. But in future, they may diverge; for example, we may increment the
 major version number for TensorFlow Lite without incrementing the major version
@@ -369,7 +374,9 @@ guidelines for evolving `GraphDef` versions.
 There are different data versions for graphs and checkpoints. The two data
 formats evolve at different rates from each other and also at different rates
 from TensorFlow. Both versioning systems are defined in
-[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h).
+[`core/public/version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/version.h)
+and
+[`core/public/release_version.h`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/public/release_version.h).
 Whenever a new version is added, a note is added to the header detailing what
 changed and the date.
 

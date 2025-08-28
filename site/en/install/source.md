@@ -39,7 +39,7 @@ environment, omit the `--user` argument):
 
 Note: A `pip` version >19.0 is required to install the TensorFlow 2 `.whl`
 package. Additional required dependencies are listed in the
-<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py" class="external"><code>setup.py</code></a>
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/pip_package/setup.py.tpl" class="external"><code>setup.py.tpl</code></a>
 file under `REQUIRED_PACKAGES`.
 
 ### Install Bazel
@@ -268,23 +268,23 @@ depending on the provided name, package will be created, e.g:
 
 To build tensorflow CPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_cpu
 </pre>
 
 To build tensorflow GPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel
 </pre>
 
 To build tensorflow TPU package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_tpu --config=tpu
 </pre>
 
 To build nightly package, set `tf_nightly` instead of `tensorflow`, e.g.
 to build CPU nightly package:
 <pre class="devsite-terminal devsite-click-to-copy">
-bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tf_nightly_cpu
+bazel build //tensorflow/tools/pip_package:wheel --repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tf_nightly_cpu
 </pre>
 
 As a result, generated wheel will be located in
@@ -354,7 +354,10 @@ virtual environment:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">
+bazel build //tensorflow/tools/pip_package:wheel \
+--repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow_cpu --config=opt
+</code>
 `
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
@@ -405,7 +408,11 @@ with GPU support:
 <pre class="devsite-disable-click-to-copy prettyprint lang-bsh">
 <code class="devsite-terminal tfo-terminal-root">./configure  # if necessary</code>
 
-<code class="devsite-terminal tfo-terminal-root">bazel build //tensorflow/tools/pip_package:wheel --repo_env=WHEEL_NAME=tensorflow --config=cuda --config=cuda_wheel --config=opt</code>
+<code class="devsite-terminal tfo-terminal-root">
+bazel build //tensorflow/tools/pip_package:wheel \
+--repo_env=USE_PYWRAP_RULES=1 --repo_env=WHEEL_NAME=tensorflow --config=cuda \
+--config=cuda_wheel --config=opt
+</code>
 
 <code class="devsite-terminal tfo-terminal-root">chown $HOST_PERMS bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-<var>version</var>-<var>tags</var>.whl</code>
 </pre>
@@ -432,6 +439,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.19.0</td><td>3.9-3.12</td><td>Clang 18.1.8</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.18.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td></tr>
@@ -473,6 +481,7 @@ Success: TensorFlow is now installed.
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th><th>cuDNN</th><th>CUDA</th></tr>
+<tr><td>tensorflow-2.19.0</td><td>3.9-3.12</td><td>Clang 18.1.8</td><td>Bazel 6.5.0</td><td>9.3</td><td>12.5</td></tr>
 <tr><td>tensorflow-2.18.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>9.3</td><td>12.5</td></tr>
 <tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>
 <tr><td>tensorflow-2.16.1</td><td>3.9-3.12</td><td>Clang 17.0.6</td><td>Bazel 6.5.0</td><td>8.9</td><td>12.3</td></tr>

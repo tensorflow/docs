@@ -18,7 +18,7 @@ be installed).
 
 1. [Install Docker](https://docs.docker.com/install/) on
    your local *host* machine.
-2. For GPU support on Linux, [install NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker).
+2. For GPU support on Linux, [install NVIDIA Docker support](https://github.com/NVIDIA/nvidia-container-toolkit).
    * Take note of your Docker version with `docker -v`. Versions __earlier than__ 19.03 require nvidia-docker2 and the `--runtime=nvidia` flag. On versions __including and after__ 19.03, you will use the `nvidia-container-toolkit` package and the `--gpus all` flag. Both options are documented on the page linked above.
 
 Note: To run the `docker` command without `sudo`, create the `docker` group and
@@ -130,7 +130,7 @@ lspci | grep -i nvidia
 Verify your `nvidia-docker` installation:
 
 <pre class="devsite-terminal devsite-click-to-copy">
-docker run --gpus all --rm nvidia/cuda nvidia-smi
+docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 </pre>
 
 Note: `nvidia-docker` v2 uses `--runtime=nvidia` instead of `--gpus all`. `nvidia-docker` v1 uses the `nvidia-docker` alias, 
