@@ -341,6 +341,7 @@ Note: Starting in TF 2.11, CUDA build is not supported for Windows. For using Te
 
 <table>
 <tr><th>Version</th><th>Python version</th><th>Compiler</th><th>Build tools</th></tr>
+<tr><td>tensorflow-2.20.0</td><td>3.9-3.13</td><td>CLANG 18.1.4</td><td>Bazel 7.4.1</td></tr>
 <tr><td>tensorflow-2.19.0</td><td>3.9-3.12</td><td>CLANG 18.1.4</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.18.0</td><td>3.9-3.12</td><td>CLANG 17.0.6</td><td>Bazel 6.5.0</td></tr>
 <tr><td>tensorflow-2.17.0</td><td>3.9-3.12</td><td>CLANG 17.0.6</td><td>Bazel 6.5.0</td></tr>
