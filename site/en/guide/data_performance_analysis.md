@@ -1,6 +1,10 @@
 # Analyze `tf.data` performance with the TF Profiler
 
-## Overview
+## Overview 
+
+See also: [tf.data performance guide](/guide/data_performance) and the
+[TensorFlow Profiler guide](/guide/profiler).
+
 
 This guide assumes familiarity with the TensorFlow
 [Profiler](https://www.tensorflow.org/guide/profiler) and
