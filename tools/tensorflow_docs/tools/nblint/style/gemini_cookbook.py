@@ -43,6 +43,27 @@ from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
 
 
+def search_wordlist(wordlist, src_str):
+  """Search for wordlist entries in text and return set of found items.
+
+  Args:
+    wordlist: Dict of word entries and recommendations to search in string.
+    src_str: String to search for word entries.
+
+  Returns:
+    A dict that is a subset of entries from `wordlist` found in `src_str`.
+  """
+  found_words = {}
+  for word in wordlist:
+    # Word-boundary and ignore between path separator '/'.
+    if re.search(rf"[^/]\b{word}\b[^/]", src_str, re.IGNORECASE):
+      alt_word = wordlist[word]
+      if not alt_word:
+        alt_word = "n/a"
+      found_words[word] = alt_word
+  return found_words
+
+
 # Acceptable copyright heading for notebooks following this style.
 copyrights_re = [
     r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
@@ -336,6 +357,51 @@ def button_r1_extra(args):
       cell_source.find(download_url) != -1):
     fail(
         "Remove the 'View on' and 'Download notebook' buttons since r1/ docs are not published."
+    )
+  else:
+    return True
+
+
+# Non-exhaustive list: {word: alt-word} (Use False if alt not provided.)
+_SECOND_PERSON_WORDLIST = {"we": "you", "we're": "you are"}
+
+
+@lint(
+    message="Prefer second person instead of first person: https://developers.google.com/style/person",
+    cond=Options.Cond.ALL)
+def second_person(args):
+  """Test for first person usage in doc and recommend second person."""
+  found_words = search_wordlist(_SECOND_PERSON_WORDLIST, args["cell_source"])
+  if found_words:
+    words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
+    fail(
+        f"Prefer second person instead of first person. Found: {words} in"
+        f" {args['cell_source']}"
+    )
+  else:
+    return True
+
+
+# Non-exhaustive list: {word: alt-word} (Use False if alt not provided.)
+_INCLUSIVE_WORDLIST = {
+    "blacklist": "blocked",
+    "whitelist": "allowed",
+    "master": "primary",
+    "slave": "replica",
+}
+
+
+@lint(
+    message="Use inclusive language: https://developers.google.com/style/inclusive-documentation",
+    cond=Options.Cond.ALL)
+def inclusive_language(args):
+  """Test for words found in inclusive wordlist and recommend alternatives."""
+  found_words = search_wordlist(_INCLUSIVE_WORDLIST, args["cell_source"])
+  if found_words:
+    words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
+    fail(
+        f"Use inclusive language where possible and accurate. Found: {words} in"
+        f" {args['cell_source']}"
     )
   else:
     return True
