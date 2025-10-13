@@ -43,6 +43,27 @@ from tensorflow_docs.tools.nblint.decorator import lint
 from tensorflow_docs.tools.nblint.decorator import Options
 
 
+def search_wordlist(wordlist, src_str):
+  """Search for wordlist entries in text and return set of found items.
+
+  Args:
+    wordlist: Dict of word entries and recommendations to search in string.
+    src_str: String to search for word entries.
+
+  Returns:
+    A dict that is a subset of entries from `wordlist` found in `src_str`.
+  """
+  found_words = {}
+  for word in wordlist:
+    # Word-boundary and ignore between path separator '/'.
+    if re.search(rf"[^/]\b{word}\b[^/]", src_str, re.IGNORECASE):
+      alt_word = wordlist[word]
+      if not alt_word:
+        alt_word = "n/a"
+      found_words[word] = alt_word
+  return found_words
+
+
 # Acceptable copyright heading for notebooks following this style.
 copyrights_re = [
     r"Copyright 20[1-9][0-9] The TensorFlow\s.*?\s?Authors",
@@ -63,7 +84,8 @@ license_re = re.compile("#\s?@title Licensed under the Apache License")
 @lint(
     message="Apache license cell is required",
     scope=Options.Scope.CODE,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def license_check(args):
   if license_re.search(args["cell_source"]):
     return True
@@ -105,8 +127,10 @@ def get_arg_or_fail(user_args, arg_name, arg_fmt):
     return user_args.get(arg_name)
   else:
     fail(
-        f"Requires user-argument '{arg_name}': nblint --arg={arg_name}:{arg_fmt} ...",
-        always_show=True)
+        f"Requires user-argument '{arg_name}': nblint"
+        f" --arg={arg_name}:{arg_fmt} ...",
+        always_show=True,
+    )
 
 
 def split_doc_path(filepath):
@@ -136,8 +160,8 @@ def split_doc_path(filepath):
   def split_path_on_dir(fp, dirname, offset=1):
     parts = fp.parts
     idx = parts.index(dirname)
-    docs_dir = pathlib.Path(*parts[idx:idx + offset])
-    rel_path = fp.relative_to(*parts[:idx + offset])
+    docs_dir = pathlib.Path(*parts[idx : idx + offset])
+    rel_path = fp.relative_to(*parts[: idx + offset])
     return docs_dir, rel_path
 
   if "site" in fp_full.parts:
@@ -159,7 +183,8 @@ def split_doc_path(filepath):
 @lint(
     message="Missing or malformed URL in Colab button.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def button_colab(args):
   """Test that the URL in the Colab button matches the file path."""
   cell_source = args["cell_source"]
@@ -180,13 +205,15 @@ def button_colab(args):
     fail(
         f"Colab button URL doesn't match: {this_url}",
         fix=fix.regex_between_groups_replace_all,
-        fix_args=[r"(href.*)http.*?(\\\".*colab_logo_32px.png)", this_url])
+        fix_args=[r"(href.*)http.*?(\\\".*colab_logo_32px.png)", this_url],
+    )
 
 
 @lint(
     message="Missing or malformed URL in Download button.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def button_download(args):
   """Test that the URL in the Download button matches the file path."""
   cell_source = args["cell_source"]
@@ -203,7 +230,8 @@ def button_download(args):
 
   this_url = urllib.parse.urljoin(
       "https://storage.googleapis.com",
-      str(f"tensorflow_docs/{repo_name}" / docs_dir / rel_path))
+      str(f"tensorflow_docs/{repo_name}" / docs_dir / rel_path),
+  )
 
   if is_button_cell_re.search(cell_source) and cell_source.find(this_url) != -1:
     return True
@@ -211,13 +239,15 @@ def button_download(args):
     fail(
         f"Download button URL doesn't match: {this_url}",
         fix=fix.regex_between_groups_replace_all,
-        fix_args=[r"(href.*)http.*?(\\\".*download_logo_32px.png)", this_url])
+        fix_args=[r"(href.*)http.*?(\\\".*download_logo_32px.png)", this_url],
+    )
 
 
 @lint(
     message="Missing or malformed URL in GitHub button.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def button_github(args):
   """Test that the URL in the GitHub button matches the file path."""
   cell_source = args["cell_source"]
@@ -238,13 +268,15 @@ def button_github(args):
     fail(
         f"GitHub button URL doesn't match: {this_url}",
         fix=fix.regex_between_groups_replace_all,
-        fix_args=[r"(href.*)http.*?(\\\".*GitHub-Mark-32px.png)", this_url])
+        fix_args=[r"(href.*)http.*?(\\\".*GitHub-Mark-32px.png)", this_url],
+    )
 
 
 @lint(
     message="Missing or malformed URL in 'View on' button.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def button_website(args):
   """Test that the website URL in the 'View on' button matches the file path.
 
@@ -289,7 +321,8 @@ def button_website(args):
 @lint(
     message="Missing or malformed URL in 'TFHub' button.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ANY)
+    cond=Options.Cond.ANY,
+)
 def button_hub(args):
   """Notebooks that mention tfhub.dev should have a TFHub button."""
   cell_source = args["cell_source"]
@@ -312,7 +345,8 @@ def button_hub(args):
 @lint(
     message="Remove extra buttons from TF 1.x docs.",
     scope=Options.Scope.TEXT,
-    cond=Options.Cond.ALL)
+    cond=Options.Cond.ALL,
+)
 def button_r1_extra(args):
   """The r1/ docs should not have website or download buttons."""
   cell_source = args["cell_source"]
@@ -332,10 +366,66 @@ def button_r1_extra(args):
     base_url = "https://www.tensorflow.org/"
 
   # Look for button URLs that shouldn't be there..
-  if (re.search(f"{base_url}/(?!images)", cell_source) or
-      cell_source.find(download_url) != -1):
+  if (
+      re.search(f"{base_url}/(?!images)", cell_source)
+      or cell_source.find(download_url) != -1
+  ):
     fail(
-        "Remove the 'View on' and 'Download notebook' buttons since r1/ docs are not published."
+        "Remove the 'View on' and 'Download notebook' buttons since r1/ docs"
+        " are not published."
+    )
+  else:
+    return True
+
+
+# Non-exhaustive list: {word: alt-word} (Use False if alt not provided.)
+_SECOND_PERSON_WORDLIST = {"we": "you", "we're": "you are"}
+
+
+@lint(
+    message=(
+        "Prefer second person instead of first person:"
+        " https://developers.google.com/style/person"
+    ),
+    cond=Options.Cond.ALL,
+)
+def second_person(args):
+  """Test for first person usage in doc and recommend second person."""
+  found_words = search_wordlist(_SECOND_PERSON_WORDLIST, args["cell_source"])
+  if found_words:
+    words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
+    fail(
+        f"Prefer second person instead of first person. Found: {words} in"
+        f" {args['cell_source']}"
+    )
+  else:
+    return True
+
+
+# Non-exhaustive list: {word: alt-word} (Use False if alt not provided.)
+_INCLUSIVE_WORDLIST = {
+    "blacklist": "blocked",
+    "whitelist": "allowed",
+    "master": "primary",
+    "slave": "replica",
+}
+
+
+@lint(
+    message=(
+        "Use inclusive language:"
+        " https://developers.google.com/style/inclusive-documentation"
+    ),
+    cond=Options.Cond.ALL,
+)
+def inclusive_language(args):
+  """Test for words found in inclusive wordlist and recommend alternatives."""
+  found_words = search_wordlist(_INCLUSIVE_WORDLIST, args["cell_source"])
+  if found_words:
+    words = ", ".join([f"{word} => {alt}" for word, alt in found_words.items()])
+    fail(
+        f"Use inclusive language where possible and accurate. Found: {words} in"
+        f" {args['cell_source']}"
     )
   else:
     return True
