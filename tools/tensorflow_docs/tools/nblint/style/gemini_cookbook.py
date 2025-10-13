@@ -367,8 +367,12 @@ _SECOND_PERSON_WORDLIST = {"we": "you", "we're": "you are"}
 
 
 @lint(
-    message="Prefer second person instead of first person: https://developers.google.com/style/person",
-    cond=Options.Cond.ALL)
+    message=(
+        "Prefer second person instead of first person:"
+        " https://developers.google.com/style/person"
+    ),
+    cond=Options.Cond.ALL,
+)
 def second_person(args):
   """Test for first person usage in doc and recommend second person."""
   found_words = search_wordlist(_SECOND_PERSON_WORDLIST, args["cell_source"])
@@ -392,8 +396,12 @@ _INCLUSIVE_WORDLIST = {
 
 
 @lint(
-    message="Use inclusive language: https://developers.google.com/style/inclusive-documentation",
-    cond=Options.Cond.ALL)
+    message=(
+        "Use inclusive language:"
+        " https://developers.google.com/style/inclusive-documentation"
+    ),
+    cond=Options.Cond.ALL,
+)
 def inclusive_language(args):
   """Test for words found in inclusive wordlist and recommend alternatives."""
   found_words = search_wordlist(_INCLUSIVE_WORDLIST, args["cell_source"])
