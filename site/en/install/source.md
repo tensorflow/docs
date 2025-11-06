@@ -70,7 +70,7 @@ package sources:
 <code class="devsite-terminal">sudo apt-get update && sudo apt-get install -y llvm-17 clang-17</code>
 </pre>
 
-Now that `/usr/lib/llvm-17/bin/clang` is the actual path to clang in this case.
+Now that `/usr/local/lib/llvm-17/bin/clang` is the actual path to clang in this case.
 
 Alternatively, you can download and unpack the pre-built
 [Clang + LLVM 17](https://github.com/llvm/llvm-project/releases/tag/llvmorg-17.0.2).
@@ -88,13 +88,13 @@ Below is an example of steps you can take to set up the downloaded Clang + LLVM
     </code>
     </pre>
 
-1.  Copy the extracted contents (directories and files) to `/usr` (you may need
+1.  Copy the extracted contents (directories and files) to `/usr/local` (you may need
     sudo permissions, and the correct directory may vary by distribution). This
     effectively installs Clang and LLVM, and adds it to the path. You should not
     have to replace anything, unless you have a previous installation, in which
     case you should replace the files:
     <pre class="prettyprint lang-bsh">
-    <code class="devsite-terminal">cp -r clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/* /usr</code>
+    <code class="devsite-terminal">cp -r clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/* /usr/local</code>
     </pre>
 
 1.  Check the obtained Clang + LLVM 17 binaries version:
@@ -102,7 +102,7 @@ Below is an example of steps you can take to set up the downloaded Clang + LLVM
     <code class="devsite-terminal">clang --version</code>
     </pre>
 
-1.  Now that `/usr/bin/clang` is the actual path to your new clang. You can run
+1.  Now that `/usr/local/bin/clang` is the actual path to your new clang. You can run
     the `./configure` script or manually set environment variables `CC` and
     `BAZEL_COMPILER` to this path.
 
