@@ -1,9 +1,31 @@
+# Python
 **/*.pyc
-**/*.rws
-**/.DS_Store
-**/.idea
-**/.ipynb_checkpoints
-**/.vscode
-**/proofreading
-**/venv
+**/__pycache__/
+**/*.pyo
+**/*.pyd
+**/.Python
+**/*.so
+**/*.egg
+**/*.egg-info/
+**/dist/
+**/build/
+**/.eggs/
+
+# Virtual environments
+**/venv/
+**/env/
+**/ENV/
+**/.venv/
 **/.python-version
+
+# IDE
+**/.idea
+**/.vscode
+**/.DS_Store
+
+# Jupyter
+**/.ipynb_checkpoints
+
+# Project specific
+**/*.rws
+**/proofreading
