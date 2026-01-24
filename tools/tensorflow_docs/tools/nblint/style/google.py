@@ -53,7 +53,7 @@ _INCLUSIVE_WORDLIST = {
     "whitelist": "allowed",
     "master": "primary",
     "slave": "replica",
-    "native": "built-in"
+#    "native": "built-in" # Removed because of the "native" gemini models.
 }
 
 
