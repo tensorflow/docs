@@ -642,7 +642,7 @@ def parse_md_docstring(
   )
   if not good_first_line and match:
     groupdict = match.groupdict()
-    brief = unescape(re.sub('\s+', ' ', groupdict['first_sentence']))
+    brief = unescape(re.sub(r'\s+', ' ', groupdict['first_sentence']))
     docstring = unescape(groupdict['remainder'])
   else:
     # Use the first line

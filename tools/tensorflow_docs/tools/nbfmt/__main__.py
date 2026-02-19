@@ -45,7 +45,8 @@ from tensorflow_docs.tools.nbfmt import notebook_utils
 OSS = True
 
 flags.DEFINE_integer(
-    "indent", 2, "Indention level for pretty-printed JSON.", lower_bound=0)
+    "indent", 2, "Indentation level for pretty-printed JSON.", lower_bound=0
+)
 flags.DEFINE_bool("oss", None, "Use OSS formatting.")
 flags.DEFINE_bool("remove_outputs", False,
                   "Remove output cells from the notebook")
@@ -74,12 +75,6 @@ def clean_notebook(data: Dict[str, Any], nb_source: str, filepath: pathlib.Path,
   update_license_cells(data)
 
   nbjson = json.dumps(data, sort_keys=True, ensure_ascii=False, indent=indent)
-
-  if not OSS:
-    # Serialization differences in environments.
-    str_replaces = {"<": r"\u003c", ">": r"\u003e", "&": r"\u0026"}
-    for str_from, str_to in str_replaces.items():
-      nbjson = nbjson.replace(str_from, str_to)
 
   return (nbjson + "\n").encode("utf-8")
 
