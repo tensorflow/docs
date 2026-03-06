@@ -55,3 +55,7 @@ and other projects.
 
 Additionally, some non-technical content, images, and design elements are not
 located in the `tensorflow/docs` repository.
+
+## Recent Contributors
+- @pradhyumnpokala (Dec 2025) - Documentation improvements
+
