@@ -25,9 +25,9 @@ corporate Contributor License Agreement (CLA):
 
 * If you are an individual writing original documentation or source code and
   you're sure you own the intellectual property, sign an
-  [individual CLA](http://code.google.com/legal/individual-cla-v1.0.html).
+  [individual CLA](https://code.google.com/legal/individual-cla-v1.0.html).
 * If you work for a company that wants to allow you to contribute your work, sign
-  a [corporate CLA](http://code.google.com/legal/corporate-cla-v1.0.html).
+  a [corporate CLA](https://code.google.com/legal/corporate-cla-v1.0.html).
 
 We can accept your pull requests after you sign the CLA. We can only receive
 original documentation and source code from you and other people that have
