@@ -82,7 +82,7 @@ Then use the following command to check that your gsutil installation works and
 that you can access the data bucket:
 
 ```shell
-gcloud storage ls --recursive "gs://quickdraw_dataset/full/simplified/*"
+gsutil ls -r "gs://quickdraw_dataset/full/simplified/*"
 ```
 
 which will output a long list of files like the following:
@@ -100,7 +100,7 @@ Then create a folder and download the dataset there.
 ```shell
 mkdir rnn_tutorial_data
 cd rnn_tutorial_data
-gcloud storage cp "gs://quickdraw_dataset/full/simplified/*" .
+gsutil -m cp "gs://quickdraw_dataset/full/simplified/*" .
 ```
 
 This download will take a while and download a bit more than 23GB of data.
