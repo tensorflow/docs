@@ -11,8 +11,8 @@ jobs:
     name: Notebook format
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v1
-    - uses: actions/checkout@v2
+    - uses: actions/setup-python@0f07f7f756721ebd886c2462646a35f78a8bc4de # v1.2.4
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: Fetch master branch
       run: git fetch -u origin master:master
     - name: Install tensorflow-docs
@@ -33,8 +33,8 @@ jobs:
     name: Notebook lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v1
-    - uses: actions/checkout@v2
+    - uses: actions/setup-python@0f07f7f756721ebd886c2462646a35f78a8bc4de # v1.2.4
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: Fetch master branch
       run: git fetch -u origin master:master
     - name: Install tensorflow-docs
@@ -56,7 +56,7 @@ jobs:
     name: Notebook outputs removed
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: Fetch master branch
       run: git fetch -u origin master:master
     - name: Check for output cells
