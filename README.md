@@ -4,7 +4,7 @@
   <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png"><br><br>
 </div>
 
-These are the source files for the guide and tutorials on
+These are the source files for the guides and tutorials on
 [tensorflow.org](https://www.tensorflow.org/overview).
 
 To contribute to the TensorFlow documentation, please read
