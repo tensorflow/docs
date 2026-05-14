@@ -6,6 +6,9 @@ on:
     paths:
     - "site/en/**"
 
+permissions:
+  contents: read
+
 jobs:
   nbfmt:
     name: Notebook format
