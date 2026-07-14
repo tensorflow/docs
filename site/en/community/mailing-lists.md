@@ -82,3 +82,4 @@ archives are public, different SIGs have their own membership policies.
     Supporting SIG Swift, developing Swift for TensorFlow.
 *   [tensorboard](https://groups.google.com/a/tensorflow.org/d/forum/tensorboard) -
     Supporting SIG TensorBoard, for plugin development and other contribution.
+*   First contribution by **Samhit Prakash Nayak**
