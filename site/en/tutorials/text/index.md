@@ -50,13 +50,7 @@ understand most of KerasNLP.
 
 ## TensorFlow Text
 
-KerasNLP provides high-level text processing modules that are available as
-layers or models. If you need access to lower-level tools, you can use
-[TensorFlow Text](https://www.tensorflow.org/text/guide/tf_text_intro).
-TensorFlow Text provides operations and libraries to help you work with raw text
-strings and documents. TensorFlow Text can perform the preprocessing regularly
-required by text-based models, and it also includes other features useful for
-sequence modeling.
+KerasNLP offers high-level text processing modules that are available as layers or models. If you require access to lower-level tools, you can use TensorFlow Text. TensorFlow Text provides a range of operations and libraries designed to work with raw text strings and documents. It handles the preprocessing commonly required by text-based models, and also includes additional features that are beneficial for sequence modeling.
 
 Using TensorFlow Text, you can do the following:
 
