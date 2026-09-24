@@ -798,10 +798,10 @@ platform.
 
 ### Optimize the input data pipeline
 
-Use the data from the [#input_pipeline_analyzer] to optimize your data input
-pipeline. An efficient data input pipeline can drastically improve the speed of
-your model execution by reducing device idle time. Try to incorporate the best
-practices detailed in the
+Use the data from the [input pipeline analyzer](#input_pipeline_analyzer) to
+optimize your data input pipeline. An efficient data input pipeline can
+drastically improve the speed of your model execution by reducing device idle
+time. Try to incorporate the best practices detailed in the
 [Better performance with the tf.data API](https://www.tensorflow.org/guide/data_performance)
 guide and below to make your data input pipeline more efficient.
 
