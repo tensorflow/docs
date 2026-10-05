@@ -98,10 +98,10 @@ class TypeAliasPageInfo(base_page.PageInfo):
     if getattr(obj, '__args__', None):
       for arg in obj.__args__:
         result.append(self._link_type_args(arg, reverse_index, linker))
-      origin_str = typing._type_repr(typing.get_origin(obj))  # pylint: disable=protected-access # pytype: disable=module-attr
+      origin_str = typing._type_repr(typing.get_origin(obj))  # pylint: disable=protected-access
       return self._custom_join(result, origin_str)
     else:
-      return typing._type_repr(obj)  # pylint: disable=protected-access # pytype: disable=module-attr
+      return typing._type_repr(obj)  # pylint: disable=protected-access
 
   def collect_docs(self) -> None:
     """Collect all information necessary to genertate the function page.
@@ -141,12 +141,10 @@ class TypeAliasPageInfo(base_page.PageInfo):
 
     sig_args_str = textwrap.indent(',\n'.join(sig_args), '    ')
     if typing.get_origin(self.py_object):
-      origin_str = typing._type_repr(typing.get_origin(self.py_object))  # pylint: disable=protected-access # pytype: disable=module-attr
+      origin_str = typing._type_repr(typing.get_origin(self.py_object))  # pylint: disable=protected-access
       sig = f'{origin_str}[\n{sig_args_str}\n]'
     else:
       sig = repr(self.py_object)
-
-    # pytype: enable=module-attr
 
     # Starting in Python 3.7, the __origin__ attribute of typing constructs
     # contains the equivalent runtime class rather than the construct itself

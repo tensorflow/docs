@@ -66,7 +66,7 @@ def nest_toc(toc: Toc) -> Toc:
 
     # Populate the target entry with the original entry, sans title.
     # (pytype suppressed due to inferring .keys() as a List)
-    fields = entry.keys() - {'title'}  # pytype: disable=unsupported-operands
+    fields = entry.keys() - {'title'}
     target_entry.update({f: entry[f] for f in fields})
 
     # Clean up empty sections

@@ -31,7 +31,7 @@ from tensorflow_docs.api_generator import get_source
 from google.protobuf.message import Message as ProtoMessage
 
 try:
-  import proto  # pylint: disable=g-import-not-at-top  # pytype: disable=import-error
+  import proto  # pylint: disable=g-import-not-at-top  # pyrefly: ignore[missing-import]
 except ImportError:
   proto = None
 
@@ -64,7 +64,7 @@ def get_module_base_dirs(module) -> Tuple[pathlib.Path, ...]:
     # available in `__path__._path`.
     # https://www.python.org/dev/peps/pep-0451/
     # This is a **list of paths**.
-    base_dirs = module.__path__._path  # pylint: disable=protected-access  # pytype: disable=attribute-error
+    base_dirs = module.__path__._path  # pylint: disable=protected-access
   elif mod_file.endswith('__init__.py'):
     # A package directory will have an `__init__.py`,
     # accept anything in that directory.
