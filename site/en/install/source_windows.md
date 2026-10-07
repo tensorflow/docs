@@ -13,7 +13,7 @@ environment.
 ### Install Python and the TensorFlow package dependencies
 
 Install a
-[Python 3.9+ 64-bit release for Windows](https://www.python.org/downloads/windows/).
+[Python 3.10+ 64-bit release for Windows](https://www.python.org/downloads/windows/).
 Select *pip* as an optional feature and add it to your `%PATH%` environmental
 variable.
 
