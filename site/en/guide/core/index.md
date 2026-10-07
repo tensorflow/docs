@@ -4,8 +4,8 @@ The TensorFlow Core APIs provide a set of comprehensive, composable, and
 extensible low-level APIs for high-performance (distributed and accelerated)
 computation, primarily aimed at building machine learning (ML) models as well as
 authoring ML workflow tools and frameworks within the TensorFlow platform. These
-APIs provide a foundation for creating highly configurable models with
-fine-grained control and new frameworks from the ground up.
+APIs provide a foundation for creating highly configurable models with fine-grained
+control, enabling developers to build custom frameworks using basic building blocks.
 
 The Core APIs can be used as an alternative to high-level machine learning APIs
 like Keras. These high-level APIs are best suited for general machine learning
