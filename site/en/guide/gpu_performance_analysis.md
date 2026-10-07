@@ -454,7 +454,7 @@ prevent any overheads.
 
 The time to AllReduce should be approximately the same as:
 
-```
+```text
 (number of parameters * 4bytes)/ (communication bandwidth)
 ```
 

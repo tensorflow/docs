@@ -553,7 +553,7 @@ or that can't change from step-to-step.
 You define an attr when you register the op, by specifying its name and type
 using the `Attr` method, which expects a spec of the form:
 
-```
+```text
 <name>: <attr-type-expr>
 ```
 
