@@ -63,5 +63,5 @@ if __name__=="__main__":
 
       content = content.replace(args.old_version.full(), args.new_version.full())
       content = content.replace("github.com/tensorflow/tensorflow/blob/r"+args.old_version.short(),
-                                "github.com/tensorflow/tensorflow/blob/r"+args.old_version.short())
+                                "github.com/tensorflow/tensorflow/blob/r"+args.new_version.short())
       file_path.write_text(content)
