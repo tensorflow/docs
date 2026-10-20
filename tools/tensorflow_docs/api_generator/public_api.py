@@ -463,9 +463,18 @@ def add_proto_fields(path: Sequence[str], parent: Any,
     name = field.name
     doc_parts = []
 
-    label = labels[field.label].lower().replace('label_', '')
-    if label != 'optional':
-      doc_parts.append(label)
+    # FieldDescriptor.label was deprecated in protobuf 6.31 and removed in
+    # protobuf 7.x (36.x) in favor of is_repeated and is_required. Fall back to
+    # field.label only on older protobuf versions (< 6.31) that lack them.
+    if hasattr(field, 'is_repeated'):
+      if field.is_repeated:
+        doc_parts.append('repeated')
+      elif field.is_required:
+        doc_parts.append('required')
+    else:
+      label = labels[field.label].lower().replace('label_', '')
+      if label != 'optional':
+        doc_parts.append(label)
 
     type_name = field_types[field.type]
     if type_name == 'TYPE_MESSAGE':
