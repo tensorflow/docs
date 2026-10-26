@@ -28,7 +28,7 @@ tensorflow.org project | GitHub docs location
 [/hub](https://www.tensorflow.org/hub) | https://github.com/tensorflow/hub/tree/master/docs
 [/io](https://www.tensorflow.org/io) | https://github.com/tensorflow/io/tree/master/docs/
 [/js](https://www.tensorflow.org/js) | https://github.com/tensorflow/tfjs-website/tree/master/docs
-[/jvm](https://www.tensorflow.org/jvm) | https://github.com/tensorflow/java/tree/master/docs
+[TensorFlow Java](https://tensorflow.github.io/java) | https://github.com/tensorflow/java/tree/master/docs
 [/lattice](https://www.tensorflow.org/lattice) | https://github.com/tensorflow/lattice/tree/master/docs
 [/lite](https://www.tensorflow.org/lite) | https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/g3doc
 [/mlir](https://www.tensorflow.org/mlir) | https://github.com/tensorflow/tensorflow/tree/master/tensorflow/compiler/mlir/g3doc

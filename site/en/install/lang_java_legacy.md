@@ -1,7 +1,8 @@
 # Install TensorFlow for Java
 
 Warning: TensorFlow for Java is deprecated and will be removed in a future
-version of TensorFlow once [the replacement](https://www.tensorflow.org/jvm) is stable.
+version of TensorFlow once
+[the replacement](https://tensorflow.github.io/java) is stable.
 
 TensorFlow provides a
 [Java API](https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary)—

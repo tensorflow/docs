@@ -21,7 +21,7 @@ toc:
   status: external
 - heading: Language bindings
 - title: Java
-  path: /jvm/install
+  path: https://tensorflow.github.io/java/install
   status: external
 - title: Java (legacy)
   status: deprecated
