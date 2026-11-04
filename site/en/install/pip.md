@@ -50,11 +50,10 @@ step-by-step instructions.
     [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
     ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-    # Anything above 2.10 is not supported on the GPU on Windows Native
-    python -m pip install "tensorflow<2.11"
+    # Native Windows is CPU-only. For GPU support, use Windows WSL2 above.
+    python -m pip install tensorflow
     # Verify the installation:
-    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+    python -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     ```
 
 * {Windows WSL2}
@@ -133,14 +132,14 @@ enable compute capabilities by [building TensorFlow from source](./source.md).
 
 *   Ubuntu 16.04 or higher (64-bit)
 *   macOS 12.0 (Monterey) or higher (64-bit) *(no GPU support)*
-*   Windows Native - Windows 7 or higher (64-bit) *(no GPU support after TF 2.10)*
+*   Windows Native - Windows 10 or higher (64-bit) *(no GPU support after TF 2.10)*
 *   Windows WSL2 - Windows 10 19044 or higher (64-bit)
 
 Note: GPU support is available for Ubuntu and Windows with CUDA®-enabled cards.
 
 ## Software requirements
 
-*   Python 3.9–3.12
+*   Python 3.10–3.13
 *   pip version 19.0 or higher for Linux (requires `manylinux2014` support) and
     Windows. pip version 20.3 or higher for macOS.
 *   Windows Native Requires
@@ -300,7 +299,7 @@ The following NVIDIA® software are only required for GPU support.
 
     Check if your Python environment is already configured:
 
-    Note: Requires Python 3.9–3.11, and pip >= 20.3 for MacOS.
+    Note: Requires Python 3.10–3.13, and pip >= 20.3 for MacOS.
 
     ```bash
     python3 --version
@@ -335,13 +334,13 @@ The following NVIDIA® software are only required for GPU support.
    Caution: TensorFlow `2.10` was the **last** TensorFlow release that
    supported GPU on native-Windows.
    Starting with TensorFlow `2.11`, you will need to install
-   [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-[wsl2]),
+   [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2),
    or install `tensorflow-cpu` and, optionally, try the
    [TensorFlow-DirectML-Plugin](https://github.com/microsoft/tensorflow-directml-plugin#tensorflow-directml-plugin-)
 
-   ## 1. System requirements
+   ### 1. System requirements
 
-   *   Windows 7 or higher (64-bit)
+   *   Windows 10 or higher (64-bit)
 
     Note: Starting with TensorFlow `2.10`, Windows CPU-builds for x86/x64
     processors are built, maintained, tested and released by a third party:
@@ -375,50 +374,29 @@ The following NVIDIA® software are only required for GPU support.
     [long paths are enabled](https://superuser.com/questions/1119883/windows-10-enable-ntfs-long-paths-policy-option-missing)
     on Windows.
 
-    ### 3. Install Miniconda
+    ### 3. Create a virtual environment with [venv](https://docs.python.org/3/library/venv.html){:.external}
 
-    [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
-    is the recommended approach for installing TensorFlow with GPU support.
-    It creates a separate environment to avoid changing any installed
-    software in your system. This is also the easiest way to install the
-    required software especially for the GPU setup.
+    The venv module is part of Python's standard library and is the officially
+    recommended way to create virtual environments.
 
-    Download the
-    [Miniconda Windows Installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe).
-    Double-click the downloaded file and follow the instructions on the screen.
+    Note: Starting with TensorFlow 2.21, Python 3.9 is no longer supported.
+    Install a supported Python version, for example, 3.10-3.13.
 
-    ### 4. Create a conda environment
-
-    Create a new conda environment named `tf` with the following command.
+    Create a new venv environment named `tf` with the following command.
 
     ```bash
-    conda create --name tf python=3.9
+    python -m venv tf
     ```
 
-    You can deactivate and activate it with the following commands.
+    You can activate it with the following command.
 
     ```bash
-    conda deactivate
-    conda activate tf
+    tf\Scripts\activate
     ```
 
-    Make sure it is activated for the rest of the installation.
+    Make sure that the virtual environment is activated for the rest of the installation.
 
-    ### 5. GPU setup
-
-    You can skip this section if you only run TensorFlow on CPU.
-
-    First install
-    [NVIDIA GPU driver](https://www.nvidia.com/Download/index.aspx)
-    if you have not.
-
-    Then install the CUDA, cuDNN with conda.
-
-    ```bash
-    conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-    ```
-
-    ### 6. Install TensorFlow
+    ### 4. Install TensorFlow
 
     TensorFlow requires a recent version of pip, so upgrade your pip
     installation to be sure you're running the latest version.
@@ -429,16 +407,21 @@ The following NVIDIA® software are only required for GPU support.
 
     Then, install TensorFlow with pip.
 
+    Note: Native Windows is CPU-only. For NVIDIA GPU support, install
+    [TensorFlow in WSL2](https://tensorflow.org/install/pip#windows-wsl2).
+
+    ```bash
+    # For CPU users on native Windows
+    pip install tensorflow
+    # Or install the smaller CPU-only package:
+    # pip install tensorflow-cpu
+    ```
+
     Note: Do not install TensorFlow with conda. It may not have the latest stable
     version. pip is recommended since TensorFlow is only officially released to
     PyPI.
 
-    ```bash
-    # Anything above 2.10 is not supported on the GPU on Windows Native
-    pip install "tensorflow<2.11" 
-    ```
-
-    ### 7. Verify the installation
+    ### 5. Verify the installation
 
     Verify the CPU setup:
 
@@ -447,15 +430,6 @@ The following NVIDIA® software are only required for GPU support.
     ```
 
     If a tensor is returned, you've installed TensorFlow successfully.
-
-    Verify the GPU setup:
-
-    ```bash
-    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-    ```
-
-    If a list of GPU devices is returned, you've installed TensorFlow
-    successfully.
 
 *   {Windows WSL2}
 
