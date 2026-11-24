@@ -241,10 +241,13 @@ class ClassPageInfo(base_page.PageInfo):
     if defining_class is None:
       return
 
-    # Omit methods defined by namedtuple.
+    # Omit methods defined by namedtuple, except __new__ (used as constructor).
     original_method = defining_class.__dict__[member_info.short_name]
-    if (hasattr(original_method, '__module__') and
-        (original_method.__module__ or '').startswith('namedtuple')):
+    if (
+        member_info.short_name != '__new__'
+        and hasattr(original_method, '__module__')
+        and (original_method.__module__ or '').startswith('namedtuple')
+    ):
       return
 
     # Some methods are often overridden without documentation. Because it's
