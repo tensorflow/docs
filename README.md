@@ -27,6 +27,8 @@ are contributed, reviewed, and maintained by the community as *best-effort*. To
 participate as a translator or reviewer, see the `site/<lang>/README.md`, join
 the language mailing list, and submit a pull request.
 
+This repository contains the source for TensorFlow documentation and tutorials.
+
 ## License
 
 [Apache License 2.0](LICENSE)
